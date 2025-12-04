@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrobiyoloji Yeterlilik | Uzman Paneli</title>
+    <script src="theme/init-theme.js"></script>
+    <link rel="stylesheet" href="theme/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar sidebar--compact">
+            <div class="menu-label">KONU FİLTRELERİ</div>
+            <nav class="filter-menu" id="categoryFilters" role="navigation" aria-label="Konu filtreleri">
+                <button class="nav-item active" data-category="all" onclick="filterCategory('all')"><i class="fas fa-th-large" aria-hidden="true"></i> Tümü</button>
+                <button class="nav-item" data-category="Genel Mikrobiyoloji" onclick="filterCategory('Genel Mikrobiyoloji')"><i class="fas fa-bacterium" aria-hidden="true"></i> Genel Mikrobiyoloji</button>
+                <button class="nav-item" data-category="Sterilizasyon" onclick="filterCategory('Sterilizasyon')"><i class="fas fa-fire-flame-curved" aria-hidden="true"></i> Sterilizasyon</button>
+                <button class="nav-item" data-category="Pre-Analitik" onclick="filterCategory('Pre-Analitik')"><i class="fas fa-vial" aria-hidden="true"></i> Pre-Analitik (Kritik)</button>
+                <button class="nav-item" data-category="Klinik Bakteriyoloji" onclick="filterCategory('Klinik Bakteriyoloji')"><i class="fas fa-microscope" aria-hidden="true"></i> Klinik Bakteriyoloji</button>
+                <button class="nav-item" data-category="Mikrobiyota" onclick="filterCategory('Mikrobiyota')"><i class="fas fa-dna" aria-hidden="true"></i> Mikrobiyota</button>
+                <button class="nav-item" data-category="Mikoloji" onclick="filterCategory('Mikoloji')"><i class="fas fa-seedling" aria-hidden="true"></i> Mikoloji</button>
+                <button class="nav-item" data-category="Viroloji" onclick="filterCategory('Viroloji')"><i class="fas fa-virus" aria-hidden="true"></i> Viroloji</button>
+                <button class="nav-item" data-category="Parazitoloji" onclick="filterCategory('Parazitoloji')"><i class="fas fa-bug" aria-hidden="true"></i> Parazitoloji</button>
+                <button class="nav-item" data-category="Enfeksiyon Hastalıkları" onclick="filterCategory('Enfeksiyon Hastalıkları')"><i class="fas fa-heartbeat" aria-hidden="true"></i> Enfeksiyon Hastalıkları</button>
+                <button class="nav-item" data-category="Hastane Enfeksiyonları" onclick="filterCategory('Hastane Enfeksiyonları')"><i class="fas fa-hospital" aria-hidden="true"></i> Hastane Enfeksiyonları</button>
+                <button class="nav-item" data-category="Yeterlilik sınavı 2025" onclick="filterCategory('Yeterlilik sınavı 2025')"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Yeterlilik Sınavı 2025</button>
+            </nav>
+
+        </aside>
+
+        <main class="main-content">
+            <div id="content-grid" class="cards-container" role="region" aria-live="polite" aria-label="Soru kartları"></div>
+        </main>
+    </div>
+
+    <input type="hidden" id="searchInput" value="">
+
+    <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+        <div class="search-overlay__content" role="dialog" aria-modal="true" aria-labelledby="mobileSearchLabel">
+            <button type="button" class="overlay-close" id="closeSearchOverlay" aria-label="Arama ekranını kapat">
+                <i class="fas fa-xmark"></i>
+            </button>
+            <p id="mobileSearchLabel">Hızlı Arama</p>
+            <div class="overlay-input">
+                <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" id="mobileSearchInput" placeholder="Soru, konu veya anahtar kelime ara..." autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-panel" id="filterPanel" aria-hidden="true">
+        <div class="filter-panel__sheet" role="dialog" aria-modal="true" aria-labelledby="filterPanelTitle" tabindex="-1">
+            <div class="filter-panel__header">
+                <div>
+                    <p class="filter-panel__eyebrow">Konuları daralt</p>
+                    <h3 id="filterPanelTitle">Filtreler</h3>
+                </div>
+                <button type="button" class="filter-panel__close" id="closeFilterPanel" aria-label="Filtre panelini kapat">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <div class="filter-panel__body">
+                <div class="mobile-filter-strip" id="mobileFilterStrip" role="listbox" aria-label="Konu filtreleri (mobil)"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="session-dock" data-dock-context="reference" role="region" aria-label="Referans hızlı erişim">
+        <button class="dock-toggle" type="button" aria-expanded="true" aria-label="Alt adayı daralt">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dock-content">
+            <div class="dock-mode-group" role="listbox" aria-label="Hızlı filtreler">
+                <button class="dock-chip active" type="button" data-category-chip="all">Tümü</button>
+                <button class="dock-chip" type="button" data-category-chip="Yeterlilik sınavı 2025">Yeterlilik 2025</button>
+                <button class="dock-chip" type="button" data-category-chip="Sterilizasyon">Sterilizasyon</button>
+                <button class="dock-chip" type="button" data-category-chip="Pre-Analitik">Pre-Analitik</button>
+                <button class="dock-chip" type="button" data-category-chip="Mikrobiyota">Mikrobiyota</button>
+            </div>
+            <div class="dock-actions">
+                <button class="dock-link" type="button" data-filter-trigger>
+                    <i class="fas fa-sliders"></i>
+                    Filtreler
+                </button>
+                <button class="dock-home" type="button" data-search-trigger>
+                    <i class="fas fa-magnifying-glass"></i>
+                    Arama
+                </button>
+                <button class="dock-start" type="button" data-dock-link="study.html">
+                    <i class="fas fa-brain"></i>
+                    SRS Paneli
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/enriched_content.js"></script>
+    <script src="theme/app.js"></script>
+    <script src="theme/dock.js"></script>
+</body>
+</html>
