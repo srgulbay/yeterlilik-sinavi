@@ -881,6 +881,475 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 3,
+        category: "bakteriyoloji",
+        title: "Streptococcus agalactiae",
+        subtitle: "Grup B Streptokok (GBS)",
+        summary: "β-hemolitik, Lancefield Grup B antijeni taşıyan, Gram pozitif kok. Yenidoğan sepsis ve menenjitinin en sık etkeni olup, gebelikte tarama ve intrapartum profilaksi ile önlenebilir.",
+        tags: ["Gram Pozitif", "β-Hemolitik", "Yenidoğan Sepsis", "GBS", "CAMP Testi"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-microscope",
+                content: `
+                    <p><strong>Streptococcus agalactiae</strong>, Lancefield sınıflamasında <strong>Grup B</strong> antijeni taşıyan, β-hemolitik streptokoktur. Özellikle yenidoğan enfeksiyonlarındaki rolü nedeniyle klinik önemi büyüktür.</p>
+                    
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tanımlayıcı Özellikler</p>
+                        <p class="highlight-box__content">
+                            <strong>CAMP Testi Pozitif:</strong> S. aureus'un β-hemolizini ile sinerjistik etki → Ok ucu şeklinde hemoliz. GBS tanısında patognomonik test!
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li class="feature-item"><b>Morfoloji:</b> Gram pozitif kok, zincir oluşturur</li>
+                        <li class="feature-item"><b>Hemoliz:</b> β-hemolitik (tam hemoliz, berrak zon)</li>
+                        <li class="feature-item"><b>Lancefield grubu:</b> Grup B (hücre duvarı karbonhidrat antijeni)</li>
+                        <li class="feature-item"><b>Katalaz:</b> Negatif (tüm streptokoklar gibi)</li>
+                        <li class="feature-item"><b>Oksidaz:</b> Negatif</li>
+                        <li class="feature-item"><b>Fakültatif anaerob:</b> Evet</li>
+                    </ul>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Kolonizasyon:</strong> Sağlıklı kadınların %15-30'unda vajinal ve rektal kolonizasyon bulunur. Asemptomatik taşıyıcılık klinik açıdan önemlidir!</p>
+                    </div>
+                `
+            },
+            {
+                title: "Virülans Faktörleri",
+                icon: "fas fa-biohazard",
+                content: `
+                    <p>GBS'nin patogenezi çeşitli virülans faktörlerine bağlıdır:</p>
+
+                    <table class="article-table">
+                        <tr>
+                            <th>Virülans Faktörü</th>
+                            <th>Fonksiyon</th>
+                            <th>Klinik Önemi</th>
+                        </tr>
+                        <tr>
+                            <td><b>Polisakkarit Kapsül</b></td>
+                            <td>Antifagositik, kompleman inhibisyonu</td>
+                            <td>Ana virülans faktörü, serotiplendirmede kullanılır (Ia, Ib, II-IX)</td>
+                        </tr>
+                        <tr>
+                            <td><b>C5a Peptidaz</b></td>
+                            <td>Kompleman C5a'yı parçalar</td>
+                            <td>Nötrofil kemotaksisini engeller</td>
+                        </tr>
+                        <tr>
+                            <td><b>β-Hemolizin/Sitoalizin</b></td>
+                            <td>Hücre lizisi, pigment üretimi</td>
+                            <td>Doku hasarı, CAMP faktörü</td>
+                        </tr>
+                        <tr>
+                            <td><b>Sialik Asit</b></td>
+                            <td>Moleküler benzerlik (mimetizm)</td>
+                            <td>İmmün kaçış</td>
+                        </tr>
+                        <tr>
+                            <td><b>Pili (Fimbriae)</b></td>
+                            <td>Epitel hücrelere tutunma</td>
+                            <td>Kolonizasyon</td>
+                        </tr>
+                    </table>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Serotiplendirme</p>
+                        <p class="highlight-box__content">
+                            Kapsüler polisakkarite göre 10 serotip: <strong>Ia, Ib, II, III, IV, V, VI, VII, VIII, IX</strong><br>
+                            <strong>Serotip III:</strong> Yenidoğan menenjitinin en sık etkeni!<br>
+                            <strong>Serotip V:</strong> Erişkin invaziv enfeksiyonlarda sık
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>CAMP Faktörü:</strong> GBS'nin ürettiği protein, S. aureus'un sfingomyelinaz C'si (β-toksin) ile sinerjistik etki gösterir. Bu etkileşim CAMP testinin temelini oluşturur.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar - Yenidoğan",
+                icon: "fas fa-baby",
+                content: `
+                    <p>GBS, yenidoğan döneminde iki farklı klinik tablo ile karşımıza çıkar:</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Erken Başlangıçlı Hastalık (Early-Onset Disease)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Zamanlama:</b> Doğumdan sonraki ilk 7 gün içinde (genellikle ilk 24-48 saat)</li>
+                            <li class="feature-item"><b>Bulaş:</b> Vertikal (doğum kanalından geçiş sırasında)</li>
+                            <li class="feature-item"><b>Klinik:</b> Sepsis, pnömoni, menenjit</li>
+                            <li class="feature-item"><b>Mortalite:</b> %5-10 (tedavi ile)</li>
+                            <li class="feature-item"><b>Risk faktörleri:</b> Prematürite, uzamış membran rüptürü (>18 saat), maternal GBS kolonizasyonu, intrapartum ateş</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Geç Başlangıçlı Hastalık (Late-Onset Disease)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Zamanlama:</b> 7 gün - 3 ay arası</li>
+                            <li class="feature-item"><b>Bulaş:</b> Horizontal (hastane, toplum, anne)</li>
+                            <li class="feature-item"><b>Klinik:</b> <strong>Menenjit</strong> daha sık (serotip III)</li>
+                            <li class="feature-item"><b>Mortalite:</b> %2-6</li>
+                            <li class="feature-item"><b>Sekel:</b> İşitme kaybı, nörolojik hasar (%25-50)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kritik:</strong> GBS, yenidoğan döneminde <strong>bakteriyel sepsis ve menenjitin en sık etkenidir!</strong> Erken tanı ve tedavi hayat kurtarıcıdır.</p>
+                    </div>
+
+                    <table class="article-table">
+                        <tr>
+                            <th>Özellik</th>
+                            <th>Erken Başlangıç</th>
+                            <th>Geç Başlangıç</th>
+                        </tr>
+                        <tr>
+                            <td>Zaman</td>
+                            <td>0-7 gün</td>
+                            <td>7 gün - 3 ay</td>
+                        </tr>
+                        <tr>
+                            <td>Bulaş</td>
+                            <td>Vertikal</td>
+                            <td>Horizontal</td>
+                        </tr>
+                        <tr>
+                            <td>Ana klinik</td>
+                            <td>Sepsis, pnömoni</td>
+                            <td><b>Menenjit</b></td>
+                        </tr>
+                        <tr>
+                            <td>Önlenebilir mi?</td>
+                            <td><b>Evet (IAP)</b></td>
+                            <td>Hayır</td>
+                        </tr>
+                    </table>
+                `
+            },
+            {
+                title: "Klinik Tablolar - Erişkin ve Gebeler",
+                icon: "fas fa-user-injured",
+                content: `
+                    <p>GBS sadece yenidoğanlarda değil, gebelerde ve erişkinlerde de ciddi enfeksiyonlara neden olabilir:</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gebelerde GBS Enfeksiyonları</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Asemptomatik bakteriüri:</b> En sık, tarama ile saptanır</li>
+                            <li class="feature-item"><b>Üriner sistem enfeksiyonu:</b> Sistit, piyelonefrit</li>
+                            <li class="feature-item"><b>Koryoamnionit:</b> İntrauterin enfeksiyon</li>
+                            <li class="feature-item"><b>Endometrit:</b> Postpartum</li>
+                            <li class="feature-item"><b>Bakteriyemi:</b> Nadiren</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Erişkinlerde (Gebe Olmayan)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Risk grupları:</b> Diyabet, kanser, karaciğer hastalığı, immünsüpresyon, >65 yaş</li>
+                            <li class="feature-item"><b>Deri ve yumuşak doku:</b> Selülit, apse, nekrotizan fasiit (nadir)</li>
+                            <li class="feature-item"><b>Kemik ve eklem:</b> Osteomiyelit, septik artrit</li>
+                            <li class="feature-item"><b>Bakteriyemi:</b> Primer veya sekonder</li>
+                            <li class="feature-item"><b>Pnömoni:</b> Özellikle yaşlılarda</li>
+                            <li class="feature-item"><b>Endokardit:</b> Nadir ama ciddi</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Artmakta Olan Sorun</p>
+                        <p class="highlight-box__content">
+                            Erişkin invaziv GBS enfeksiyonları son yıllarda artmaktadır. Özellikle <strong>diyabetik ayak enfeksiyonları</strong> ve <strong>yaşlılarda bakteriyemi</strong> önemli klinik tablolardır.
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-flask",
+                content: `
+                    <p>GBS tanısında çeşitli laboratuvar yöntemleri kullanılır:</p>
+
+                    <table class="article-table">
+                        <tr>
+                            <th>Yöntem</th>
+                            <th>Sonuç</th>
+                            <th>Kullanım</th>
+                        </tr>
+                        <tr>
+                            <td><b>Gram boyama</b></td>
+                            <td>Gram (+) koklar, zincir</td>
+                            <td>Hızlı ön tanı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Kanlı agar kültürü</b></td>
+                            <td>β-hemoliz (dar zon)</td>
+                            <td>Altın standart</td>
+                        </tr>
+                        <tr>
+                            <td><b>CAMP testi</b></td>
+                            <td><strong>POZİTİF</strong> (ok ucu hemoliz)</td>
+                            <td>Tanısal, S. aureus ile</td>
+                        </tr>
+                        <tr>
+                            <td><b>Hipürat hidrolizi</b></td>
+                            <td><strong>POZİTİF</strong></td>
+                            <td>Diğer β-hemolitiklerden ayırım</td>
+                        </tr>
+                        <tr>
+                            <td><b>Basitrasin duyarlılığı</b></td>
+                            <td><strong>DİRENÇLİ</strong></td>
+                            <td>GAS'tan ayırım (GAS duyarlı)</td>
+                        </tr>
+                        <tr>
+                            <td><b>Lateks aglütinasyon</b></td>
+                            <td>Grup B antijeni (+)</td>
+                            <td>Hızlı gruplama</td>
+                        </tr>
+                        <tr>
+                            <td><b>Kromojenik agar</b></td>
+                            <td>Renkli koloniler</td>
+                            <td>Tarama kolaylığı</td>
+                        </tr>
+                        <tr>
+                            <td><b>PCR (NAAT)</b></td>
+                            <td>GBS DNA</td>
+                            <td>Hızlı intrapartum tarama</td>
+                        </tr>
+                    </table>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">CAMP Testi Prosedürü</p>
+                        <p class="highlight-box__content">
+                            Koyun kanlı agarda S. aureus çizgisine dik olarak GBS çizilir. 37°C'de inkübasyondan sonra kesişim noktasında <strong>ok başı şeklinde</strong> genişlemiş hemoliz zonu görülür. Bu sinerjistik hemoliz GBS için karakteristiktir.
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Tarama Örneği:</strong> Vajinal ve rektal sürüntü birlikte alınmalı (vajino-rektal sürüntü). Tek başına vajinal sürüntü kolonizasyonun %10-20'sini kaçırır!</p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-pills",
+                content: `
+                    <p>GBS enfeksiyonlarında <strong>penisilin</strong> ilk seçenek tedavidir:</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Antibiyotik Tedavisi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>İlk seçenek:</b> Penisilin G (IV)</li>
+                            <li class="feature-item"><b>Alternatif:</b> Ampisilin</li>
+                            <li class="feature-item"><b>Penisilin alerjisi:</b> Sefazolin (düşük risk), Klindamisin veya Vankomisin (yüksek risk)</li>
+                            <li class="feature-item"><b>Menenjit:</b> Yüksek doz Penisilin G veya Ampisilin (± Gentamisin sinerjisi)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Direnç Durumu</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Penisilin:</b> Direnç bildirilmemiş (MIC artışı nadiren)</li>
+                            <li class="feature-item"><b>Eritromisin:</b> %25-35 direnç</li>
+                            <li class="feature-item"><b>Klindamisin:</b> %15-25 direnç</li>
+                            <li class="feature-item"><b>Vankomisin:</b> Direnç yok</li>
+                        </ul>
+                    </div>
+
+                    <table class="article-table">
+                        <tr>
+                            <th>Klinik Tablo</th>
+                            <th>Tedavi</th>
+                            <th>Süre</th>
+                        </tr>
+                        <tr>
+                            <td>Neonatal sepsis</td>
+                            <td>Ampisilin + Gentamisin</td>
+                            <td>10-14 gün</td>
+                        </tr>
+                        <tr>
+                            <td>Neonatal menenjit</td>
+                            <td>Ampisilin (yüksek doz)</td>
+                            <td>Minimum 14-21 gün</td>
+                        </tr>
+                        <tr>
+                            <td>Erişkin bakteriyemi</td>
+                            <td>Penisilin G</td>
+                            <td>10-14 gün</td>
+                        </tr>
+                        <tr>
+                            <td>Osteomiyelit</td>
+                            <td>Penisilin G</td>
+                            <td>4-6 hafta</td>
+                        </tr>
+                    </table>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Önemli:</strong> Penisilin alerjisi öyküsü varsa, alerji tipi sorgulanmalı. IgE aracılı (anafilaksi) değilse sefazolin güvenle kullanılabilir. Belirsiz veya ciddi alerjide duyarlılık testine göre klindamisin veya vankomisin tercih edilir.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Korunma - İntrapartum Antibiyotik Profilaksisi (IAP)",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <p>Erken başlangıçlı GBS hastalığı, <strong>intrapartum antibiyotik profilaksisi (IAP)</strong> ile önlenebilir:</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tarama Stratejisi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Zamanlama:</b> 36-37. gebelik haftasında (eski: 35-37 hafta)</li>
+                            <li class="feature-item"><b>Örnek:</b> Vajino-rektal sürüntü</li>
+                            <li class="feature-item"><b>Yöntem:</b> Kültür (altın standart) veya NAAT (hızlı sonuç)</li>
+                            <li class="feature-item"><b>Sonuç geçerliliği:</b> 5 hafta</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">IAP Endikasyonları</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Pozitif GBS taraması</b> (en sık endikasyon)</li>
+                            <li class="feature-item"><b>GBS bakteriürisi</b> mevcut gebelikte (herhangi bir dönemde)</li>
+                            <li class="feature-item"><b>Önceki bebekte invaziv GBS hastalığı</b></li>
+                            <li class="feature-item"><b>Bilinmeyen GBS durumu</b> + risk faktörü:
+                                <ul>
+                                    <li>- <37 hafta doğum</li>
+                                    <li>- Membran rüptüründen ≥18 saat geçmesi</li>
+                                    <li>- İntrapartum ateş ≥38°C</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">IAP Rejimi</p>
+                        <p class="highlight-box__content">
+                            <strong>İlk seçenek:</strong> Penisilin G 5 milyon Ü IV yükleme, ardından 2.5-3 milyon Ü her 4 saatte doğuma kadar<br>
+                            <strong>Alternatif:</strong> Ampisilin 2 g IV yükleme, ardından 1 g her 4 saatte<br>
+                            <strong>Penisilin alerjisi:</strong> Sefazolin, klindamisin veya vankomisin<br>
+                            <strong>Optimal süre:</strong> Doğumdan en az 4 saat önce başlanmalı
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--success">
+                        <span class="alert-box__icon">✅</span>
+                        <p class="alert-box__text"><strong>Başarı:</strong> IAP uygulaması ile erken başlangıçlı GBS hastalığı insidansı %80 azalmıştır (1990'lardan bu yana). Ancak geç başlangıçlı hastalık üzerine etkisi yoktur.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Epidemiyoloji",
+                icon: "fas fa-globe",
+                content: `
+                    <p>GBS dünya genelinde önemli bir perinatal patojendir:</p>
+
+                    <ul class="feature-list">
+                        <li class="feature-item"><b>Kolonizasyon oranı:</b> Gebe kadınların %15-30'u</li>
+                        <li class="feature-item"><b>Vertikal geçiş:</b> Kolonize annelerin bebeklerinin %50'si kolonize olur</li>
+                        <li class="feature-item"><b>Hastalık gelişimi:</b> Kolonize bebeklerin %1-2'sinde</li>
+                        <li class="feature-item"><b>Erken başlangıçlı insidans:</b> 0.2-0.5/1000 canlı doğum (IAP sonrası)</li>
+                        <li class="feature-item"><b>Geç başlangıçlı insidans:</b> 0.3-0.4/1000 canlı doğum</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Risk Faktörleri</p>
+                        <p class="highlight-box__content">
+                            <strong>Yenidoğan için:</strong> Prematürite, düşük doğum ağırlığı, uzamış membran rüptürü, maternal ateş, yüksek maternal kolonizasyon<br>
+                            <strong>Erişkin için:</strong> Diyabet, obezite, malignite, immünsüpresyon, ileri yaş
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aşı Geliştirme Çalışmaları</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item">Kapsüler polisakkarit konjuge aşılar deneme aşamasında</li>
+                            <li class="feature-item">Hedef: Gebelikte maternal aşılama → Transplasental antikor transferi</li>
+                            <li class="feature-item">Hem erken hem geç başlangıçlı hastalığı önleme potansiyeli</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">GBS Özet</p>
+                        <p class="mnemonic-box__text">CAMPing with Baby</p>
+                        <p class="mnemonic-box__hint">CAMP (+), Baby (yenidoğan en sık etken)</p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Noktalar",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">TUS/Yeterlilik Klasikleri</p>
+                        <p class="highlight-box__content">
+                            1. <strong>Yenidoğan sepsis ve menenjitinin EN SIK etkeni</strong><br>
+                            2. <strong>CAMP testi POZİTİF</strong> (ok ucu hemoliz)<br>
+                            3. <strong>Hipürat hidrolizi POZİTİF</strong><br>
+                            4. <strong>Basitrasin DİRENÇLİ</strong> (GAS duyarlı)<br>
+                            5. <strong>Serotip III</strong> = Menenjit<br>
+                            6. Tarama: <strong>36-37. hafta</strong>, vajino-rektal sürüntü<br>
+                            7. IAP ile <strong>erken başlangıçlı</strong> hastalık önlenir, geç başlangıçlı önlenmez
+                        </p>
+                    </div>
+
+                    <table class="article-table">
+                        <tr>
+                            <th>Test</th>
+                            <th>GBS (S. agalactiae)</th>
+                            <th>GAS (S. pyogenes)</th>
+                        </tr>
+                        <tr>
+                            <td>Hemoliz</td>
+                            <td>β</td>
+                            <td>β</td>
+                        </tr>
+                        <tr>
+                            <td>CAMP</td>
+                            <td><b>POZİTİF</b></td>
+                            <td>Negatif</td>
+                        </tr>
+                        <tr>
+                            <td>Hipürat</td>
+                            <td><b>POZİTİF</b></td>
+                            <td>Negatif</td>
+                        </tr>
+                        <tr>
+                            <td>Basitrasin</td>
+                            <td><b>DİRENÇLİ</b></td>
+                            <td>Duyarlı</td>
+                        </tr>
+                        <tr>
+                            <td>PYR</td>
+                            <td>Negatif</td>
+                            <td><b>POZİTİF</b></td>
+                        </tr>
+                        <tr>
+                            <td>Lancefield</td>
+                            <td>Grup B</td>
+                            <td>Grup A</td>
+                        </tr>
+                    </table>
+
+                    <ul class="feature-list">
+                        <li class="feature-item"><b>Soru tipi:</b> "Yenidoğanda sepsis + menenjit etkeni?" → S. agalactiae (GBS)</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "CAMP testi pozitif streptokok?" → S. agalactiae</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "Gebelikte 36. hafta taraması hangi bakteri için?" → GBS</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "Basitrasin dirençli, β-hemolitik streptokok?" → GBS</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "İntrapartum profilaksi hangi etken için?" → GBS</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "Hipürat hidrolizi pozitif streptokok?" → S. agalactiae</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
