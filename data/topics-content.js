@@ -2398,76 +2398,16 @@ const topicsData = [
                         </ul>
                     </div>
 
-                    <table class="article-table">
-                        <thead>
-                            <tr>
-                                <th>Klinik Durum</th>
-                                <th>HBsAg</th>
-                                <th>Anti-HBs</th>
-                                <th>Anti-HBc IgM</th>
-                                <th>Anti-HBc IgG</th>
-                                <th>HBeAg</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Akut HBV</strong></td>
-                                <td>+</td>
-                                <td>-</td>
-                                <td><strong>+</strong></td>
-                                <td>+</td>
-                                <td>+/-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Kronik HBV (aktif)</strong></td>
-                                <td>+</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>+</td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Kronik HBV (inaktif)</strong></td>
-                                <td>+</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>+</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>İyileşmiş (doğal bağışıklık)</strong></td>
-                                <td>-</td>
-                                <td>+</td>
-                                <td>-</td>
-                                <td><strong>+</strong></td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Aşılı (yapay bağışıklık)</strong></td>
-                                <td>-</td>
-                                <td><strong>+</strong></td>
-                                <td>-</td>
-                                <td><strong>-</strong></td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Pencere dönemi</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td><strong>+</strong></td>
-                                <td>+</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>İzole Anti-HBc (+)</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>+</td>
-                                <td>-</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hepatit B Tanı Algoritması</h4>
+                        <ol class="feature-list">
+                            <li><b>HBsAg:</b> Aktif enfeksiyon göstergesi</li>
+                            <li><b>Anti-HBs:</b> Bağışıklık durumu (aşı veya iyileşme sonrası)</li>
+                            <li><b>Anti-HBc:</b> Geçirilmiş enfeksiyon veya aşı yanıtı</li>
+                            <li><b>HBeAg ve Anti-HBe:</b> Viral replikasyon durumu</li>
+                            <li><b>HBV DNA:</b> Aktif viral yük tayini</li>
+                        </ol>
+                    </div>
 
                     <div class="alert-box alert-box--warning">
                         <div class="alert-box__icon"><i class="fas fa-exclamation-triangle"></i></div>
@@ -2530,7 +2470,7 @@ const topicsData = [
                         </tbody>
                     </table>
 
-                    <h4><i class="fas fa-link"></i> Hepatit Delta (HDV)</h4>
+                    <h4><i class="fas fa-project-diagram"></i> Hepatit Delta (HDV)</h4>
                     <div class="alert-box alert-box--danger">
                         <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
                         <div class="alert-box__content">
@@ -3003,14 +2943,16 @@ const topicsData = [
             },
             {
                 title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
                 content: `
                     <div class="highlight-box highlight-box--primary">
-                        <h4><i class="fas fa-graduation-cap"></i> En Sık Sorulan Kombinasyonlar</h4>
+                        <h4><i class="fas fa-star"></i> En Sık Sorulan Eşleşmeler</h4>
                         <table class="article-table">
                             <thead>
                                 <tr>
-                                    <th>Soru Kalıbı</th>
-                                    <th>Cevap</th>
+                                    <th>Antikor/Patern</th>
+                                    <th>Hastalık</th>
+                                    <th>Sınav İpucu</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -3050,30 +2992,784 @@ const topicsData = [
                         </table>
                     </div>
 
-                    <div class="alert-box alert-box--info">
-                        <div class="alert-box__icon"><i class="fas fa-brain"></i></div>
-                        <div class="alert-box__content">
-                            <strong>Hafıza Kodları:</strong><br><br>
-                            • <strong>"Aşılı = İZOLE Anti-HBs"</strong> (başka marker yok)<br>
-                            • <strong>"Pencere = İZOLE Anti-HBc IgM"</strong> (HBsAg gitmiş, Anti-HBs henüz yok)<br>
-                            • <strong>"GODA"</strong> = RPR yalancı (+): Gebelik, Otoimmün, Drugs, Age<br>
-                            • <strong>"AVİDİTE = Enfeksiyon YAŞInı gösterir"</strong><br>
-                            • <strong>"EBNA = EBV'de Ne kadar eskidir Antikor"</strong> (geç pozitifleşir)<br>
-                            • <strong>"Faz I = KronIk Q ateşi"</strong> (I → kronik)
-                        </div>
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <strong>"HoBeNüSePe"</strong> → ANA paternleri<br>
+                            <strong>"c-PR3-Wegener, p-MPO-Mikro"</strong> → ANCA<br>
+                            <strong>"Sm = SLE Marker"</strong> → En spesifik<br>
+                            <strong>"dsDNA = Disease DNA"</strong> → Aktivite takibi<br>
+                            <strong>"AMA = Always Means PBC Almost"</strong> → %95 özgül<br>
+                            <strong>"CREST = Centromer"</strong> → 46 nokta
+                        </p>
                     </div>
 
                     <div class="alert-box alert-box--danger">
-                        <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
-                        <div class="alert-box__content">
-                            <strong>TUZAK SORULAR:</strong><br><br>
-                            • <strong>4 yaş altı EBV:</strong> Monospot yetersiz → VCA IgM iste<br>
-                            • <strong>HIV bebek:</strong> 18 ay altı antikor testleri güvenilmez → PCR kullan<br>
-                            • <strong>Bruselloz prozon:</strong> Düşük dilüsyon negatif → Yüksek dilüsyon/Coombs yap<br>
-                            • <strong>HDV süperinfeksiyon:</strong> Anti-HBc IgM NEGATİF (akut HBV değil)<br>
-                            • <strong>Sifiliz tedavi takibi:</strong> TPPA değil, RPR titresi kullanılır
-                        </div>
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>TUZAK SORULAR:</strong><br><br>
+                            • "ANA negatif SLE olabilir mi?" → <strong>EVET!</strong> Anti-SSA/Ro (+) iste<br>
+                            • "p-ANCA pozitif ama MPO negatif?" → Atipik ANCA, İBH düşün<br>
+                            • "Homojen ANA + dsDNA(-) + Histon(+)?" → <strong>İlaca bağlı lupus</strong><br>
+                            • "46 ayrık nokta IIF'de?" → <strong>Anti-sentromer (CREST)</strong><br>
+                            • "Crithidia luciliae ne için?" → <strong>Anti-dsDNA</strong> (en spesifik yöntem)
+                        </p>
                     </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Pratik Sınav Yaklaşımı:</strong><br><br>
+                            <strong>Soru:</strong> "55 yaşında kadın, ANA 1:320 homojen patern, eklem ağrısı..."<br>
+                            <strong>Düşün:</strong> Homojen = dsDNA veya Histon<br>
+                            <strong>İste:</strong> Anti-dsDNA, Anti-Histon, C3, C4<br>
+                            <strong>Değerlendir:</strong> dsDNA(+) + düşük kompleman = aktif SLE
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Homojen ANA + Anti-dsDNA (+)?" → SLE</li>
+                        <li><b>Soru tipi:</b> "Benekli ANA + Anti-SSA (+)?" → Sjögren veya SLE</li>
+                        <li><b>Soru tipi:</b> "Nükleolar ANA?" → Skleroderma</li>
+                        <li><b>Soru tipi:</b> "c-ANCA + sinüzit + hemoptizi + hematüri?" → GPA</li>
+                        <li><b>Soru tipi:</b> "p-ANCA + RPGN?" → MPA veya anti-GBM</li>
+                        <li><b>Soru tipi:</b> "Kaşıntı + ALP yüksek + AMA (+)?" → PBC</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "İndirekt İmmünfloresan (IIF) Testleri",
+        subtitle: "ANA Paternleri, ANCA ve Klinik Korelasyonlar",
+        category: "laboratuvar",
+        icon: "fa-microscope",
+        color: "#06b6d4",
+        lastUpdated: "2024-01-20",
+        readTime: "25 dk",
+        summary: "İndirekt immünfloresan mikroskobi ile değerlendirilen otoantikor testleri. ANA paternleri ve hastalık korelasyonları, ANCA tipleri, anti-dsDNA ve diğer spesifik antikorların klinik yorumu.",
+        tags: ["IIF", "ANA", "ANCA", "Otoantikor", "Floresan Mikroskopi", "Otoimmün Hastalık"],
+        sections: [
+            {
+                title: "IIF Temel Prensipler",
+                icon: "fas fa-lightbulb",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-microscope"></i> İndirekt İmmünfloresan Yöntemi</h4>
+                        <p>İki aşamalı antikor tespit yöntemidir:</p>
+                        <ol class="feature-list">
+                            <li><strong>1. Aşama:</strong> Hasta serumu + Substrat (HEp-2 hücresi, nötrofil vb.) → Antikor bağlanması</li>
+                            <li><strong>2. Aşama:</strong> Floresan işaretli anti-human IgG eklenir → UV'de parlama</li>
+                        </ol>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">IIF Avantajları ve Dezavantajları</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Avantajlar</th>
+                                <th>Dezavantajlar</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    • Yüksek duyarlılık<br>
+                                    • Patern analizi mümkün<br>
+                                    • Titre tayini yapılabilir<br>
+                                    • Tarama testi olarak ideal
+                                </td>
+                                <td>
+                                    • Subjektif değerlendirme<br>
+                                    • Deneyimli personel gerektirir<br>
+                                    • Antijen spesifikliği düşük<br>
+                                    • Doğrulama testleri gerekli
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Substrat Seçimi:</strong><br>
+                            • <strong>HEp-2 hücreleri:</strong> ANA testi için altın standart (insan laringeal karsinom)<br>
+                            • <strong>Etanol fikse nötrofiller:</strong> ANCA testi için<br>
+                            • <strong>Crithidia luciliae:</strong> Anti-dsDNA için spesifik<br>
+                            • <strong>Maymun özofagusu:</strong> Anti-düz kas, anti-mitokondriyal Ab
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "ANA (Antinükleer Antikor) Testi",
+                icon: "fas fa-atom",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-star"></i> ANA Testi Genel Bilgiler</h4>
+                        <ul class="feature-list">
+                            <li><strong>Substrat:</strong> HEp-2 hücreleri (mitotik hücreler içerir - önemli!)</li>
+                            <li><strong>Pozitiflik eşiği:</strong> Genellikle ≥1:80 veya ≥1:160 (laboratuvara göre değişir)</li>
+                            <li><strong>Tarama testi:</strong> SLE için %95-99 duyarlılık, düşük özgüllük</li>
+                            <li><strong>Sağlıklı popülasyonda:</strong> %5-15 düşük titrede pozitif olabilir</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>KRİTİK:</strong> ANA negatif ise SLE tanısı hemen hemen dışlanır! (%95-99 duyarlılık)<br>
+                        Ancak ANA pozitif ise SLE demek DEĞİLDİR - özgüllük düşüktür, patern ve doğrulama testleri gerekir.
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ANA Yaklaşım Algoritması</p>
+                        <p class="mnemonic-box__text">ANA → PATERN → DOĞRULAMA → KLİNİK</p>
+                        <p class="mnemonic-box__hint">
+                            1) ANA titre ve pozitiflik<br>
+                            2) Patern tanımlama (Homojen, Benekli, vb.)<br>
+                            3) Spesifik antikor doğrulama (ELISA, immunoblot)<br>
+                            4) Klinik korelasyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "ANA Paternleri ve Klinik Korelasyonlar",
+                icon: "fas fa-th",
+                content: `
+                    <div class="highlight-box highlight-box--secondary">
+                        <h4><i class="fas fa-eye"></i> Temel ANA Paternleri</h4>
+                        <p>ICAP (International Consensus on ANA Patterns) sınıflamasına göre ana paternler:</p>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Patern</th>
+                                <th>Görünüm</th>
+                                <th>Hedef Antijenler</th>
+                                <th>İlişkili Hastalıklar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Homojen (Diffüz)</strong></td>
+                                <td>Tüm nükleus uniform boyalı, mitotik kromozomlar (+)</td>
+                                <td>dsDNA, Histonlar, Nükleozom</td>
+                                <td><strong>SLE</strong>, İlaca bağlı lupus</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Benekli (Speckled)</strong></td>
+                                <td>Nükleus içinde benekler, mitotik kromozom (-)</td>
+                                <td>Sm, RNP, SSA/Ro, SSB/La, Scl-70</td>
+                                <td><strong>SLE, Sjögren, Skleroderma, MCTD</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nükleolar</strong></td>
+                                <td>Sadece nükleolus boyalı (1-5 parlak nokta)</td>
+                                <td>PM-Scl, RNA polimeraz, Fibrillarin</td>
+                                <td><strong>Skleroderma</strong>, Polimiyozit</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sentromer</strong></td>
+                                <td>46 ayrık nokta (kromozom sayısı kadar)</td>
+                                <td>CENP-A, CENP-B, CENP-C</td>
+                                <td><strong>Limitli Skleroderma (CREST)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Periferik (Rim)</strong></td>
+                                <td>Nükleer membran boyalı, halka şeklinde</td>
+                                <td>dsDNA, Lamin, Nuclear pore</td>
+                                <td><strong>SLE</strong> (yüksek özgüllük)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Patern Hafıza Kodu</p>
+                        <p class="mnemonic-box__text">"HoBeNüSePe"</p>
+                        <p class="mnemonic-box__hint">
+                            <strong>Ho</strong>mojen → SLE (dsDNA, Histon)<br>
+                            <strong>Be</strong>nekli → Karışık (Sm, RNP, SSA, SSB)<br>
+                            <strong>Nü</strong>kleolar → Skleroderma<br>
+                            <strong>Se</strong>ntromer → CREST (46 nokta!)<br>
+                            <strong>Pe</strong>riferik → SLE (dsDNA, en özgül)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Sınav İpucu - Mitotik Hücrelere Dikkat!</strong><br>
+                            • <strong>Homojen:</strong> Mitotik kromozomlar BOYANIR<br>
+                            • <strong>Benekli:</strong> Mitotik kromozomlar BOYANMAZ<br>
+                            • <strong>Sentromer:</strong> Mitotik hücrelerde 46 AYRIK NOKTA görülür
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Spesifik Antikorlar ve Hastalık İlişkileri",
+                icon: "fas fa-link",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-bullseye"></i> SLE İlişkili Antikorlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antikor</th>
+                                    <th>Duyarlılık</th>
+                                    <th>Özgüllük</th>
+                                    <th>Klinik Önemi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Anti-dsDNA</strong></td>
+                                    <td>%60-70</td>
+                                    <td><strong>%95+</strong></td>
+                                    <td>Hastalık aktivitesi, lupus nefriti</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anti-Sm</strong></td>
+                                    <td>%25-30</td>
+                                    <td><strong>%99+</strong></td>
+                                    <td>SLE için EN SPESİFİK! Tanı koydurucu</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anti-Histon</strong></td>
+                                    <td>%50-70</td>
+                                    <td>Düşük</td>
+                                    <td><strong>İlaca bağlı lupus</strong> (%95+)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anti-RNP</strong></td>
+                                    <td>%30-40</td>
+                                    <td>Düşük</td>
+                                    <td>MCTD (yüksek titrede)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anti-SSA/Ro</strong></td>
+                                    <td>%30-40</td>
+                                    <td>Orta</td>
+                                    <td>Neonatal lupus, kalp bloğu, ANA(-) SLE</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>KRİTİK - ANA Negatif SLE:</strong><br>
+                            %5 SLE hastasında ANA negatif olabilir!<br>
+                            Bunların çoğunda <strong>Anti-SSA/Ro (+)</strong> bulunur.<br>
+                            Klinik şüphe yüksekse Anti-SSA/Ro mutlaka istenmelidir!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Otoimmün Hastalıklarda Antikorlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Karakteristik Antikor</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Sjögren Sendromu</strong></td>
+                                    <td>Anti-SSA/Ro, Anti-SSB/La</td>
+                                    <td>SSB daha spesifik</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Diffüz Skleroderma</strong></td>
+                                    <td>Anti-Scl-70 (Topoizomeraz I)</td>
+                                    <td>Akciğer tutulumu riski</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Limitli Skleroderma (CREST)</strong></td>
+                                    <td>Anti-Sentromer</td>
+                                    <td>Pulmoner HT riski</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MCTD</strong></td>
+                                    <td>Anti-U1 RNP (yüksek titre)</td>
+                                    <td>İZOLE yüksek RNP</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Polimiyozit</strong></td>
+                                    <td>Anti-Jo-1 (Histidil-tRNA sentetaz)</td>
+                                    <td>Antisendronik sendrom, ILD</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dermatomiyozit</strong></td>
+                                    <td>Anti-Mi-2</td>
+                                    <td>İyi prognoz</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>İlaca Bağlı Lupus</strong></td>
+                                    <td>Anti-Histon</td>
+                                    <td>dsDNA genellikle (-)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Özgüllük Sıralaması (SLE için)</p>
+                        <p class="mnemonic-box__text">"Sm > dsDNA > RNP"</p>
+                        <p class="mnemonic-box__hint">
+                            Anti-Sm: EN SPESİFİK (%99), duyarlılık düşük<br>
+                            Anti-dsDNA: Çok spesifik (%95), aktivite takibi<br>
+                            Anti-RNP: Daha az spesifik, MCTD'de yüksek
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Anti-dsDNA Testi",
+                icon: "fas fa-dna",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-vial"></i> Anti-dsDNA Test Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                    <th>Avantaj/Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Crithidia luciliae IIF</strong></td>
+                                    <td>Kinetoplast boyanır</td>
+                                    <td>EN SPESİFİK (altın standart), düşük duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Farr Assay</strong></td>
+                                    <td>Radyoaktif dsDNA</td>
+                                    <td>Yüksek özgüllük, radyasyon riski</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ELISA</strong></td>
+                                    <td>Rekombinant/native dsDNA</td>
+                                    <td>Kolay, yalancı (+) olabilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Crithidia luciliae Nedir?</strong><br>
+                            Hemoflagelat bir protozoon. Kinetoplastı saf dsDNA içerir (histon içermez!).<br>
+                            Bu nedenle anti-histon antikorları reaksiyon vermez → <strong>saf dsDNA antikorlarını tespit eder</strong>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-dsDNA Klinik Kullanımı</h4>
+                        <ul class="feature-list">
+                            <li><b>SLE Tanısı:</b> Yüksek özgüllük (%95+), tanı kriterlerinde yer alır</li>
+                            <li><b>Hastalık Aktivitesi:</b> Titre ile aktivite paralel seyreder</li>
+                            <li><b>Lupus Nefriti:</b> Anti-dsDNA (+) ve kompleman düşüklüğü → Nefrit riski ↑</li>
+                            <li><b>Takip:</b> 3-6 ayda bir titre kontrolü</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Anti-dsDNA Titre Yorumu:</strong><br>
+                            • Titre ↑ + Kompleman ↓ → Aktif hastalık, nefrit riski<br>
+                            • Titre ↑ + Klinik kötüleşme → Alevlenme<br>
+                            • Düşük/stabil titre → Remisyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "ANCA (Anti-Nötrofil Sitoplazmik Antikor)",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-microscope"></i> ANCA IIF Paternleri</h4>
+                        <p>Etanol fikse nötrofiller üzerinde değerlendirilir:</p>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>IIF Patern</th>
+                                <th>Görünüm</th>
+                                <th>Hedef Antijen</th>
+                                <th>İlişkili Hastalık</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>c-ANCA (Sitoplazmik)</strong></td>
+                                <td>Granüler sitoplazmik boyanma, merkezi yoğunluk</td>
+                                <td><strong>PR3</strong> (Proteinaz 3)</td>
+                                <td><strong>GPA (Wegener)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>p-ANCA (Perinükleer)</strong></td>
+                                <td>Nükleus çevresinde yoğunlaşma (artefakt)</td>
+                                <td><strong>MPO</strong> (Miyeloperoksidaz)</td>
+                                <td><strong>MPA, EGPA (Churg-Strauss), Renal vaskülit</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Atipik ANCA</strong></td>
+                                <td>c ve p arası veya farklı patern</td>
+                                <td>Elastaz, Laktoferrin, BPI vb.</td>
+                                <td>İBH, Otoimmün hepatit, İlaç ilişkili</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ANCA Hafıza Kodu</p>
+                        <p class="mnemonic-box__text">"c-PR3-Wegener" vs "p-MPO-Mikro"</p>
+                        <p class="mnemonic-box__hint">
+                            <strong>c-ANCA = PR3 = GPA (Wegener)</strong> → "C" harfi "Cytoplasmic" ve "PR3"<br>
+                            <strong>p-ANCA = MPO = MPA/EGPA</strong> → "P" harfi "Perinuclear" ve "MPO"
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ANCA-İlişkili Vaskülitler (AAV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>ANCA</th>
+                                    <th>Karakteristik Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>GPA (Wegener)</strong></td>
+                                    <td>c-ANCA/PR3 (%90)</td>
+                                    <td>Üst solunum + Alt solunum + Böbrek (triad)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MPA</strong></td>
+                                    <td>p-ANCA/MPO (%60-70)</td>
+                                    <td>Pulmoner-renal sendrom, palpable purpura</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>EGPA (Churg-Strauss)</strong></td>
+                                    <td>p-ANCA/MPO (%40-60)</td>
+                                    <td>Astım + Eozinofili + Vaskülit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>ANCA Test Algoritması (ACR/EULAR 2017):</strong><br>
+                            1. <strong>IIF ile tarama</strong> (c-ANCA veya p-ANCA paterni)<br>
+                            2. <strong>ELISA/İmmunoblot ile doğrulama</strong> (PR3 veya MPO spesifik)<br>
+                            <br>
+                            <strong>YENİ ÖNERİ:</strong> Yüksek klinik şüphede <strong>direkt PR3/MPO ELISA</strong> ile başlanabilir (IIF atlanabilir)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>p-ANCA Tuzağı:</strong><br>
+                            p-ANCA paterni bir <strong>artefakttır</strong> - etanol fiksasyonu sırasında pozitif yüklü granül proteinleri negatif yüklü nükleusa çekilir.<br>
+                            <strong>ANA pozitifliği p-ANCA'yı taklit edebilir!</strong><br>
+                            Çözüm: Formalin fikse nötrofiller veya ELISA ile doğrulama
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer IIF Testleri",
+                icon: "fas fa-flask",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-GBM (Glomerüler Bazal Membran)</h4>
+                        <ul class="feature-list">
+                            <li><b>Substrat:</b> Maymun/insan böbrek dokusu</li>
+                            <li><b>Patern:</b> Glomerüler kapiller duvarında lineer IgG birikimi</li>
+                            <li><b>İlişkili hastalık:</b> <strong>Goodpasture sendromu</strong> (anti-GBM hastalığı)</li>
+                            <li><b>Hedef:</b> Tip IV kollajenin α3 zinciri</li>
+                            <li><b>Klinik:</b> Hızlı ilerleyen GN + Pulmoner hemoraji</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-Mitokondriyal Antikor (AMA)</h4>
+                        <ul class="feature-list">
+                            <li><b>Substrat:</b> Fare böbrek/mide, HEp-2</li>
+                            <li><b>Patern:</b> Sitoplazmik granüler (mitokondri lokalizasyonu)</li>
+                            <li><b>İlişkili hastalık:</b> <strong>Primer Biliyer Kolanjit (PBC)</strong></li>
+                            <li><b>Hedef:</b> PDC-E2 (piruvat dehidrojenaz kompleksi)</li>
+                            <li><b>Özgüllük:</b> %95+ (PBC için tanı koydurucu)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-Düz Kas Antikoru (ASMA)</h4>
+                        <ul class="feature-list">
+                            <li><b>Substrat:</b> Fare mide kesiti</li>
+                            <li><b>Patern:</b> Düz kas lifleri boyalı (VGT: Vessel-Gut-Tubule)</li>
+                            <li><b>İlişkili hastalık:</b> <strong>Otoimmün Hepatit Tip 1</strong></li>
+                            <li><b>Hedef:</b> F-aktin (yüksek titrede)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-LKM (Liver-Kidney Microsomal)</h4>
+                        <ul class="feature-list">
+                            <li><b>Substrat:</b> Fare karaciğer/böbrek</li>
+                            <li><b>Patern:</b> Proksimal tübül ve hepatosit sitoplazması</li>
+                            <li><b>İlişkili hastalık:</b> <strong>Otoimmün Hepatit Tip 2</strong></li>
+                            <li><b>Hedef:</b> CYP2D6</li>
+                        </ul>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Antikor</th>
+                                <th>Hastalık</th>
+                                <th>Kısa Not</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AMA (Anti-M2)</td>
+                                <td>Primer Biliyer Kolanjit</td>
+                                <td>PDC-E2, %95 özgül</td>
+                            </tr>
+                            <tr>
+                                <td>ASMA (Anti-aktin)</td>
+                                <td>Otoimmün Hepatit Tip 1</td>
+                                <td>F-aktin paterni</td>
+                            </tr>
+                            <tr>
+                                <td>Anti-LKM1</td>
+                                <td>Otoimmün Hepatit Tip 2</td>
+                                <td>CYP2D6, çocuklarda</td>
+                            </tr>
+                            <tr>
+                                <td>Anti-GBM</td>
+                                <td>Goodpasture</td>
+                                <td>Lineer GBM boyama</td>
+                            </tr>
+                            <tr>
+                                <td>Anti-Endomysium (EMA)</td>
+                                <td>Çölyak Hastalığı</td>
+                                <td>tTG ile doğrula</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `
+            },
+            {
+                title: "IIF Yorumlama Algoritması",
+                icon: "fas fa-project-diagram",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-sitemap"></i> ANA Pozitif Hasta - Yaklaşım Algoritması</h4>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ANA Yorumlama: 5 Adım</p>
+                        <p class="mnemonic-box__text">"TİPPD"</p>
+                        <p class="mnemonic-box__hint">
+                            <strong>T</strong>itre değerlendir (≥1:160 anlamlı)<br>
+                            <strong>İ</strong>F paternini tanımla<br>
+                            <strong>P</strong>aterne göre spesifik antikor iste<br>
+                            <strong>P</strong>ozitiflik doğrula (ELISA/immunoblot)<br>
+                            <strong>D</strong>iğer klinik/lab bulguları korelesyon
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Paterne Göre İstenecek Testler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>ANA Paterni</th>
+                                    <th>İstenecek Spesifik Antikorlar</th>
+                                    <th>Düşünülecek Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Homojen</strong></td>
+                                    <td>Anti-dsDNA, Anti-Histon</td>
+                                    <td>SLE, İlaca bağlı lupus</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>İnce Benekli</strong></td>
+                                    <td>Anti-SSA/Ro, Anti-SSB/La</td>
+                                    <td>Sjögren, SLE</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kaba Benekli</strong></td>
+                                    <td>Anti-Sm, Anti-RNP, Anti-Scl-70</td>
+                                    <td>SLE, MCTD, Skleroderma</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nükleolar</strong></td>
+                                    <td>Anti-RNA polimeraz, Anti-PM-Scl</td>
+                                    <td>Skleroderma, Polimiyozit</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sentromer</strong></td>
+                                    <td>Anti-CENP-B (ELISA)</td>
+                                    <td>Limitli Skleroderma (CREST)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Klinik Korelasyon İlkeleri:</strong><br>
+                            • Yüksek titre (≥1:640) → Otoimmün hastalık olasılığı ↑<br>
+                            • Düşük titre (1:80-1:160) → Sağlıklı bireylerde de görülebilir<br>
+                            • Yaşlılarda düşük titrede ANA pozitifliği sık (%15-25)<br>
+                            • İlaçlar (TNF inhibitörleri) ANA indükleyebilir
+                        </p>
+                    </div>
+
+                    <div class="highlight-box highlight-box--secondary">
+                        <h4><i class="fas fa-exclamation-triangle"></i> ANA Pozitif, Spesifik Antikor Negatif - Ne Yapmalı?</h4>
+                        <ul class="feature-list">
+                            <li>Klinik değerlendirmeyi tekrarla</li>
+                            <li>Titre düşükse → Non-spesifik pozitiflik olabilir</li>
+                            <li>Takip öner (6-12 ay sonra tekrar)</li>
+                            <li>Dense Fine Speckled (DFS70) antikorunu değerlendir → İZOLE DFS70 (+) ise otoimmün hastalık olasılığı çok düşük!</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-star"></i> En Sık Sorulan Eşleşmeler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antikor/Patern</th>
+                                    <th>Hastalık</th>
+                                    <th>Sınav İpucu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Anti-Sm</td>
+                                    <td>SLE</td>
+                                    <td><strong>EN SPESİFİK</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-dsDNA (Crithidia)</td>
+                                    <td>SLE + Lupus nefriti</td>
+                                    <td>Aktivite takibi</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-Histon</td>
+                                    <td>İlaca bağlı lupus</td>
+                                    <td>%95, dsDNA (-)</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-SSA/Ro</td>
+                                    <td>Sjögren, Neonatal lupus</td>
+                                    <td>ANA (-) SLE!</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-Scl-70</td>
+                                    <td>Diffüz Skleroderma</td>
+                                    <td>ILD riski</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-Sentromer</td>
+                                    <td>CREST / Limitli SSc</td>
+                                    <td>46 nokta</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-Jo-1</td>
+                                    <td>Polimiyozit</td>
+                                    <td>Antisentetaz sendrom</td>
+                                </tr>
+                                <tr>
+                                    <td>c-ANCA (PR3)</td>
+                                    <td>GPA (Wegener)</td>
+                                    <td>Üst-alt solunum-böbrek</td>
+                                </tr>
+                                <tr>
+                                    <td>p-ANCA (MPO)</td>
+                                    <td>MPA, EGPA</td>
+                                    <td>Pulmoner-renal</td>
+                                </tr>
+                                <tr>
+                                    <td>AMA (Anti-M2)</td>
+                                    <td>PBC</td>
+                                    <td>PDC-E2</td>
+                                </tr>
+                                <tr>
+                                    <td>ASMA</td>
+                                    <td>OİH Tip 1</td>
+                                    <td>F-aktin</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-GBM</td>
+                                    <td>Goodpasture</td>
+                                    <td>Lineer boyama</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <strong>"HoBeNüSePe"</strong> → ANA paternleri<br>
+                            <strong>"c-PR3-Wegener, p-MPO-Mikro"</strong> → ANCA<br>
+                            <strong>"Sm = SLE Marker"</strong> → En spesifik<br>
+                            <strong>"dsDNA = Disease DNA"</strong> → Aktivite takibi<br>
+                            <strong>"AMA = Always Means PBC Almost"</strong> → %95 özgül<br>
+                            <strong>"CREST = Centromer"</strong> → 46 nokta
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>TUZAK SORULAR:</strong><br><br>
+                            • "ANA negatif SLE olabilir mi?" → <strong>EVET!</strong> Anti-SSA/Ro (+) iste<br>
+                            • "p-ANCA pozitif ama MPO negatif?" → Atipik ANCA, İBH düşün<br>
+                            • "Homojen ANA + dsDNA(-) + Histon(+)?" → <strong>İlaca bağlı lupus</strong><br>
+                            • "46 ayrık nokta IIF'de?" → <strong>Anti-sentromer (CREST)</strong><br>
+                            • "Crithidia luciliae ne için?" → <strong>Anti-dsDNA</strong> (en spesifik yöntem)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Pratik Sınav Yaklaşımı:</strong><br><br>
+                            <strong>Soru:</strong> "55 yaşında kadın, ANA 1:320 homojen patern, eklem ağrısı..."<br>
+                            <strong>Düşün:</strong> Homojen = dsDNA veya Histon<br>
+                            <strong>İste:</strong> Anti-dsDNA, Anti-Histon, C3, C4<br>
+                            <strong>Değerlendir:</strong> dsDNA(+) + düşük kompleman = aktif SLE
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Homojen ANA + Anti-dsDNA (+)?" → SLE</li>
+                        <li><b>Soru tipi:</b> "Benekli ANA + Anti-SSA (+)?" → Sjögren veya SLE</li>
+                        <li><b>Soru tipi:</b> "Nükleolar ANA?" → Skleroderma</li>
+                        <li><b>Soru tipi:</b> "c-ANCA + sinüzit + hemoptizi + hematüri?" → GPA</li>
+                        <li><b>Soru tipi:</b> "p-ANCA + RPGN?" → MPA veya anti-GBM</li>
+                        <li><b>Soru tipi:</b> "Kaşıntı + ALP yüksek + AMA (+)?" → PBC</li>
+                    </ul>
                 `
             }
         ]
