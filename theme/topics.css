@@ -4,29 +4,13 @@
 
 /* Header styles now in components.css as .page-header */
 
-/* Topics List View - Apple Style Card Stagger */
+/* Topics List View */
 .topics-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: var(--space-5);
     padding: 0 var(--space-6) var(--space-24);
 }
-
-/* Kart belirme animasyonu */
-.topics-list > .topic-preview {
-    opacity: 0;
-    animation: fadeInUp 0.5s var(--ease-apple-out) forwards;
-}
-
-.topics-list > .topic-preview:nth-child(1) { animation-delay: 0ms; }
-.topics-list > .topic-preview:nth-child(2) { animation-delay: 50ms; }
-.topics-list > .topic-preview:nth-child(3) { animation-delay: 100ms; }
-.topics-list > .topic-preview:nth-child(4) { animation-delay: 150ms; }
-.topics-list > .topic-preview:nth-child(5) { animation-delay: 200ms; }
-.topics-list > .topic-preview:nth-child(6) { animation-delay: 250ms; }
-.topics-list > .topic-preview:nth-child(7) { animation-delay: 300ms; }
-.topics-list > .topic-preview:nth-child(8) { animation-delay: 350ms; }
-.topics-list > .topic-preview:nth-child(n+9) { animation-delay: 400ms; }
 
 /* Topic Preview Card - Apple Style */
 .topic-preview {

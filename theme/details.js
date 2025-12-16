@@ -12,6 +12,7 @@ let highlightedCardId = null;
 document.addEventListener('DOMContentLoaded', () => {
     initDetailsModule();
     handleShareLink();
+    initScrollReveal();
 });
 
 function initDetailsModule() {
@@ -152,15 +153,20 @@ function renderDetailCards(data) {
         return;
     }
 
-    grid.innerHTML = filtered.map(item => createDetailCard(item)).join('');
+    grid.innerHTML = filtered.map((item, index) => createDetailCard(item, index)).join('');
     
     // Expand butonlarını yeniden bağla
     initExpandables();
+    
+    // Scroll reveal'ı yenile
+    setTimeout(() => refreshScrollReveal(), 50);
 }
 
-function createDetailCard(item) {
+function createDetailCard(item, index = 0) {
     const iconClass = getIconClass(item.category);
     const icon = getCategoryIcon(item.category);
+    // İlk 6 kart hemen görünür
+    const visibilityClass = index < 6 ? 'scroll-reveal is-visible' : 'scroll-reveal';
     
     // Spot points
     let spotsHTML = '';
@@ -239,7 +245,7 @@ function createDetailCard(item) {
     }
 
     return `
-        <article class="detail-card" data-category="${item.category}" data-card-id="${item.id}">
+        <article class="detail-card ${visibilityClass}" data-category="${item.category}" data-card-id="${item.id}">
             <div class="detail-card__header">
                 <div class="detail-card__icon detail-card__icon--${item.category}">
                     <i class="${icon}"></i>
@@ -382,4 +388,55 @@ window.filterDetailCards = function(filterId) {
     syncDockChips();
     syncSidebarFilters();
     console.log('Details: Filtered by', filterId);
+}
+
+/* ==========================================
+   SCROLL REVEAL - Apple Style
+   Intersection Observer ile scroll animasyonu
+   ========================================== */
+
+let scrollRevealObserver = null;
+
+function initScrollReveal() {
+    // Reduced motion tercihini kontrol et
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
+    // Intersection Observer oluştur
+    scrollRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Staggered delay ile görünür yap
+                const delay = Math.min(index * 50, 300);
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, delay);
+                
+                scrollRevealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    });
+    
+    observeScrollElements();
+}
+
+function observeScrollElements() {
+    if (!scrollRevealObserver) return;
+    
+    const elements = document.querySelectorAll('.scroll-reveal:not(.is-visible)');
+    elements.forEach(el => {
+        scrollRevealObserver.observe(el);
+    });
+}
+
+function refreshScrollReveal() {
+    if (!scrollRevealObserver) {
+        initScrollReveal();
+    } else {
+        observeScrollElements();
+    }
 }

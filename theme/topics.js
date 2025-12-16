@@ -12,6 +12,7 @@ let currentView = 'list'; // 'list' veya 'detail'
 document.addEventListener('DOMContentLoaded', () => {
     initTopicsModule();
     handleShareLink();
+    initScrollReveal();
 });
 
 function initTopicsModule() {
@@ -133,7 +134,7 @@ function renderTopicsList(data) {
         return;
     }
 
-    container.innerHTML = filtered.map(topic => createTopicPreview(topic)).join('');
+    container.innerHTML = filtered.map((topic, index) => createTopicPreview(topic, index)).join('');
     
     // Kart tıklama olaylarını bağla
     container.querySelectorAll('.topic-preview').forEach(card => {
@@ -142,13 +143,18 @@ function renderTopicsList(data) {
             showTopicDetail(topicId);
         });
     });
+    
+    // Scroll reveal'ı yenile
+    setTimeout(() => refreshScrollReveal(), 50);
 }
 
-function createTopicPreview(topic) {
+function createTopicPreview(topic, index = 0) {
     const icon = getCategoryIcon(topic.category);
+    // İlk 6 kart hemen görünür
+    const visibilityClass = index < 6 ? 'scroll-reveal is-visible' : 'scroll-reveal';
     
     return `
-        <article class="topic-preview" data-topic-id="${topic.id}">
+        <article class="topic-preview ${visibilityClass}" data-topic-id="${topic.id}">
             <div class="topic-preview__header">
                 <div class="topic-preview__icon topic-preview__icon--${topic.category}">
                     <i class="${icon}"></i>
@@ -370,4 +376,55 @@ window.filterTopics = function(filterId) {
         showTopicsList();
     }
     console.log('Topics: Filtered by', filterId);
+}
+
+/* ==========================================
+   SCROLL REVEAL - Apple Style
+   Intersection Observer ile scroll animasyonu
+   ========================================== */
+
+let scrollRevealObserver = null;
+
+function initScrollReveal() {
+    // Reduced motion tercihini kontrol et
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
+    // Intersection Observer oluştur
+    scrollRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Staggered delay ile görünür yap
+                const delay = Math.min(index * 50, 300);
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, delay);
+                
+                scrollRevealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    });
+    
+    observeScrollElements();
+}
+
+function observeScrollElements() {
+    if (!scrollRevealObserver) return;
+    
+    const elements = document.querySelectorAll('.scroll-reveal:not(.is-visible)');
+    elements.forEach(el => {
+        scrollRevealObserver.observe(el);
+    });
+}
+
+function refreshScrollReveal() {
+    if (!scrollRevealObserver) {
+        initScrollReveal();
+    } else {
+        observeScrollElements();
+    }
 }

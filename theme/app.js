@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFilterPanel();
     initShareButtons();
     handleShareLink();
+    initScrollReveal(); // Scroll Reveal başlat
     
     if (MOBILE_QUERY) {
         MOBILE_QUERY.addEventListener('change', () => {
@@ -136,11 +137,13 @@ function renderCards(data) {
 
     const fragment = document.createDocumentFragment();
 
-    data.forEach((item) => {
+    data.forEach((item, index) => {
         if (!item || !item.details) return;
 
         const card = document.createElement('div');
-        card.className = 'card';
+        // İlk 6 kart hemen görünür, sonrakiler scroll ile
+        const isInitialVisible = index < 6;
+        card.className = isInitialVisible ? 'card scroll-reveal is-visible' : 'card scroll-reveal';
         card.setAttribute('data-question-id', item.id);
 
         const extraContent = item.details.table || '';
@@ -213,6 +216,9 @@ function renderCards(data) {
 
     container.replaceChildren(fragment);
     syncCardToggles();
+    
+    // Scroll reveal'ı yenile
+    setTimeout(() => refreshScrollReveal(), 50);
 }
 
 function filterCategory(category) {
@@ -436,4 +442,59 @@ function buildErrorState() {
         <p>enriched_content.js dosyası yüklenemedi. Lütfen sayfayı yenileyin.</p>
     `;
     return wrapper;
+}
+
+/* ==========================================
+   SCROLL REVEAL - Apple Style
+   Intersection Observer ile scroll animasyonu
+   ========================================== */
+
+let scrollRevealObserver = null;
+
+function initScrollReveal() {
+    // Reduced motion tercihini kontrol et
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
+    // Intersection Observer oluştur
+    scrollRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Staggered delay ile görünür yap
+                const delay = Math.min(index * 50, 300); // Max 300ms delay
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, delay);
+                
+                // Bir kez göründükten sonra observe etmeyi bırak
+                scrollRevealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null, // viewport
+        rootMargin: '0px 0px -50px 0px', // Alt kısımdan 50px önce tetikle
+        threshold: 0.1 // %10 görünür olduğunda
+    });
+    
+    // Mevcut kartları observe et
+    observeScrollElements();
+}
+
+function observeScrollElements() {
+    if (!scrollRevealObserver) return;
+    
+    // Tüm scroll-reveal elementlerini bul
+    const elements = document.querySelectorAll('.scroll-reveal:not(.is-visible)');
+    elements.forEach(el => {
+        scrollRevealObserver.observe(el);
+    });
+}
+
+// Yeni içerik eklendiğinde çağrılacak
+function refreshScrollReveal() {
+    if (!scrollRevealObserver) {
+        initScrollReveal();
+    } else {
+        observeScrollElements();
+    }
 }
