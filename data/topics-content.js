@@ -2203,8 +2203,882 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 5,
+        title: "Moleküler Tanı Yöntemleri",
+        subtitle: "PCR, RT-PCR, qPCR, NGS ve Uygulamaları",
+        category: "laboratuvar",
+        icon: "fa-dna",
+        color: "#3b82f6",
+        lastUpdated: "2024-01-10",
+        readTime: "30 dk",
+        summary: "Moleküler biyoloji tekniklerinin tanı amaçlı kullanımı. PCR, RT-PCR, qPCR, NGS yöntemlerinin prensipleri, uygulamaları ve yorumlanması.",
+        tags: ["PCR", "Moleküler Tanı", "RT-PCR", "qPCR", "NGS", "DNA Amplifikasyonu"],
+        sections: [
+            {
+                title: "PCR (Polimeraz Zincir Reaksiyonu)",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-atom"></i> Temel Prensipler</h4>
+                        <ul class="feature-list">
+                            <li><strong>DNA Amplifikasyonu:</strong> Spesifik DNA bölgelerinin çoğaltılması</li>
+                            <li><strong>Başlangıç Malzemeleri:</strong> DNA şablonu, primerler, dNTP'ler, Taq polimeraz</li>
+                            <li><strong>Basamaklar:</strong> Denatürasyon, Annealing, Uzatma</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">PCR Süreci</h4>
+                        <ol class="feature-list">
+                            <li><b>Denatürasyon:</b> DNA'nın 94-98°C'de ayrılması</li>
+                            <li><b>Annealing:</b> Primerlerin 50-65°C'de DNA'ya bağlanması</li>
+                            <li><b>Uzatma:</b> Taq polimeraz ile yeni DNA ipliklerinin sentezi (72°C)</li>
+                            <li><b>Tekrarlama:</b> 25-35 döngü boyunca yukarıdaki adımların tekrarı</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Kontaminasyon Riski:</strong> PCR, kontaminasyona karşı hassastır. Negatif kontrollerle doğrulama yapılmalıdır.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "RT-PCR (Revers Transkriptaz PCR)",
+                content: `
+                    <div class="highlight-box highlight-box--secondary">
+                        <h4><i class="fas fa-rna"></i> Temel Prensipler</h4>
+                        <ul class="feature-list">
+                            <li><strong>RNA Amplifikasyonu:</strong> Spesifik RNA bölgelerinin çoğaltılması</li>
+                            <li><strong>Başlangıç Malzemeleri:</strong> RNA şablonu, primerler, dNTP'ler, Taq polimeraz, revers transkriptaz</li>
+                            <li><strong>Basamaklar:</strong> Denatürasyon, Annealing, Uzatma</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">RT-PCR Süreci</h4>
+                        <ol class="feature-list">
+                            <li><b>RNA'nın Ekstraksiyonu:</b> Hücrelerden RNA'nın izole edilmesi</li>
+                            <li><b>Revers Transkripsiyon:</b> RNA'nın cDNA'ya dönüştürülmesi</li>
+                            <li><b>PCR Amplifikasyonu:</b> cDNA'nın çoğaltılması</li>
+                            <li><b>Teşhis:</b> Ampliconların elektroforez ile analizi</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="alert-box__content">
+                            <strong>COVID-19 Tanısında Kullanımı:</strong><br>
+                            • Viral RNA'nın hızlı ve spesifik tespiti için kullanılır<br>
+                            • Altın standart yöntemdir
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "qPCR (Kantitatif PCR)",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-calculator"></i> Temel Prensipler</h4>
+                        <ul class="feature-list">
+                            <li><strong>DNA Miktar Belirleme:</strong> PCR ile amplifiye edilen DNA'nın miktarının belirlenmesi</li>
+                            <li><strong>Başlangıç Malzemeleri:</strong> DNA şablonu, primerler, dNTP'ler, Taq polimeraz, floresan boyalar</li>
+                            <li><strong>Basamaklar:</strong> Denatürasyon, Annealing, Uzatma</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">qPCR Süreci</h4>
+                        <ol class="feature-list">
+                            <li><b>Denatürasyon:</b> DNA'nın 94-98°C'de ayrılması</li>
+                            <li><b>Annealing:</b> Primerlerin 50-65°C'de DNA'ya bağlanması</li>
+                            <li><b>Uzatma:</b> Taq polimeraz ile yeni DNA ipliklerinin sentezi (72°C)</li>
+                            <li><b>Floresan Sinyali:</b> Her döngüde floresan sinyalinin ölçülmesi</li>
+                            <li><b>Teşhis:</b> Sinyal yoğunluğuna göre başlangıç DNA miktarının hesaplanması</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Gerçek Zamanlı İzleme:</strong><br>
+                            • qPCR, amplifikasyonun her döngüsünde floresan sinyalını ölçerek gerçek zamanlı veri sağlar<br>
+                            • Sonuçlar genellikle döngü eşiği (Ct) değeri ile raporlanır
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "NGS (Next Generation Sequencing)",
+                content: `
+                    <div class="highlight-box highlight-box--secondary">
+                        <h4><i class="fas fa-sequence"></i> Temel Prensipler</h4>
+                        <ul class="feature-list">
+                            <li><strong>Paralel Okuma:</strong> Milyonlarca DNA parçasının aynı anda dizilmesi</li>
+                            <li><strong>Başlangıç Malzemeleri:</strong> DNA şablonu, dizileme adaptörleri, biyoinformatik analiz yazılımları</li>
+                            <li><strong>Basamaklar:</strong> Kütüphane hazırlığı, dizileme, veri analizi</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">NGS Süreci</h4>
+                        <ol class="feature-list">
+                            <li><b>Kütüphane Hazırlığı:</b> DNA'nın parçalanması ve dizileme adaptörleri ile birleştirilmesi</li>
+                            <li><b>Dizileme:</b> Paralel olarak milyonlarca DNA parçasının dizilmesi</li>
+                            <li><b>Veri Analizi:</b> Dizilen verilerin biyoinformatik araçlarla analizi</li>
+                            <li><b>Raporlama:</b> Sonuçların yorumlanması ve raporlanması</li>
+                        </ol>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Uygulama Alanları:</strong><br>
+                            • Genom dizilimi, hedefe yönelik dizilimi, RNA dizilimi<br>
+                            • Kanser genetiği, mikrobiyom analizi, bulaşıcı hastalıkların tanısı
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Noktalar",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">TUS/Yeterlilik Klasikleri</p>
+                        <p class="highlight-box__content">
+                            1. <strong>PCR:</strong> DNA amplifikasyonu, kontaminasyona dikkat!<br>
+                            2. <strong>RT-PCR:</strong> RNA'dan cDNA'ya, viral yük tayini<br>
+                            3. <strong>qPCR:</strong> Kantitatif, gerçek zamanlı PCR<br>
+                            4. <strong>NGS:</strong> Paralel dizileme, biyoinformatik analizi şart
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-brain"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Hafıza Kodları:</strong><br><br>
+                            • <strong>"PCR = DNA, RT-PCR = RNA"</strong><br>
+                            • <strong>"qPCR = Kantitatif, NGS = Paralel dizileme"</strong><br>
+                            • <strong>"COVID-19 = RT-PCR ile tanı"</strong><br>
+                            • <strong>"HIV = 4. nesil test ile tarama, RNA ile doğrulama"</strong>
+                        </div>
+                    </div>
+                `
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: "Serolojik Tanı Algoritmaları",
+        subtitle: "Hepatitler, HIV, Sifiliz, TORCH ve Klinik Doğrulama Testleri",
+        category: "laboratuvar",
+        icon: "fa-vials",
+        color: "#8b5cf6",
+        lastUpdated: "2024-01-15",
+        readTime: "25 dk",
+        summary: "Klinik mikrobiyolojide serolojik tanı algoritmalarının kapsamlı özeti. Hepatit B/C serolojisi, HIV tanı algoritması, sifiliz tarama ve doğrulama, TORCH paneli yorumları.",
+        tags: ["Hepatit B", "Hepatit C", "HIV", "Sifiliz", "TORCH", "Seroloji", "Tanı Algoritması"],
+        sections: [
+            {
+                title: "Hepatit B Serolojisi",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-star"></i> Temel Belirteçler</h4>
+                        <ul class="feature-list">
+                            <li><strong>HBsAg:</strong> Aktif enfeksiyon göstergesi (yüzey antijeni)</li>
+                            <li><strong>Anti-HBs:</strong> Bağışıklık göstergesi (≥10 mIU/mL koruyucu)</li>
+                            <li><strong>Anti-HBc IgM:</strong> Akut enfeksiyon / alevlenme</li>
+                            <li><strong>Anti-HBc IgG:</strong> Geçirilmiş enfeksiyon (ömür boyu pozitif kalır)</li>
+                            <li><strong>HBeAg:</strong> Aktif viral replikasyon, yüksek bulaştırıcılık</li>
+                            <li><strong>Anti-HBe:</strong> Replikasyonun azalması, serokonversiyon</li>
+                            <li><strong>HBV DNA:</strong> Viral yük, tedavi takibi</li>
+                        </ul>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Klinik Durum</th>
+                                <th>HBsAg</th>
+                                <th>Anti-HBs</th>
+                                <th>Anti-HBc IgM</th>
+                                <th>Anti-HBc IgG</th>
+                                <th>HBeAg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Akut HBV</strong></td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td><strong>+</strong></td>
+                                <td>+</td>
+                                <td>+/-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kronik HBV (aktif)</strong></td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kronik HBV (inaktif)</strong></td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>İyileşmiş (doğal bağışıklık)</strong></td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td><strong>+</strong></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aşılı (yapay bağışıklık)</strong></td>
+                                <td>-</td>
+                                <td><strong>+</strong></td>
+                                <td>-</td>
+                                <td><strong>-</strong></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pencere dönemi</strong></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><strong>+</strong></td>
+                                <td>+</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>İzole Anti-HBc (+)</strong></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert-box alert-box--warning">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Pencere Dönemi:</strong> HBsAg kaybolmuş, Anti-HBs henüz oluşmamış dönem. Bu dönemde <strong>sadece Anti-HBc IgM pozitif</strong> bulunur! Kan bankası için kritik öneme sahiptir.
+                        </div>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Aşılı vs İyileşmiş Ayırımı:</strong><br>
+                            • <strong>Aşılı:</strong> Sadece Anti-HBs (+) - HBsAg aşısı sadece yüzey antijenini içerir<br>
+                            • <strong>İyileşmiş:</strong> Anti-HBs (+) VE Anti-HBc IgG (+) - Doğal enfeksiyon tüm antijenlere maruziyete neden olur
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Hepatit C ve Delta Hepatiti",
+                content: `
+                    <h4><i class="fas fa-procedures"></i> Hepatit C Tanı Algoritması</h4>
+                    <div class="highlight-box highlight-box--secondary">
+                        <ol class="feature-list">
+                            <li><strong>Tarama:</strong> Anti-HCV (EIA/ELISA)</li>
+                            <li><strong>Doğrulama:</strong> HCV RNA (PCR) - altın standart</li>
+                            <li><strong>Genotipleme:</strong> Tedavi planlaması için (6 majör genotip)</li>
+                        </ol>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Anti-HCV</th>
+                                <th>HCV RNA</th>
+                                <th>Yorum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Negatif</td>
+                                <td>Negatif</td>
+                                <td>Enfeksiyon yok</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pozitif</strong></td>
+                                <td><strong>Pozitif</strong></td>
+                                <td><strong>Aktif HCV enfeksiyonu</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>Negatif</td>
+                                <td>Geçirilmiş/iyileşmiş VEYA yalancı (+)</td>
+                            </tr>
+                            <tr>
+                                <td>Negatif</td>
+                                <td>Pozitif</td>
+                                <td>Erken akut enfeksiyon (serokonversiyon öncesi)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4><i class="fas fa-link"></i> Hepatit Delta (HDV)</h4>
+                    <div class="alert-box alert-box--danger">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>HDV = Defektif virüs:</strong> Replikasyon için HBV'nin HBsAg'sine ihtiyaç duyar. HBsAg (-) kişide HDV enfeksiyonu OLMAZ!
+                        </div>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Durum</th>
+                                <th>Tanım</th>
+                                <th>Anti-HBc IgM</th>
+                                <th>Prognoz</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Koinfeksiyon</strong></td>
+                                <td>HBV + HDV aynı anda</td>
+                                <td><strong>Pozitif</strong></td>
+                                <td>Genellikle iyileşir (%90)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Süperinfeksiyon</strong></td>
+                                <td>Kronik HBV + HDV eklenmesi</td>
+                                <td><strong>Negatif</strong></td>
+                                <td>Kötü prognoz, hızlı siroz</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `
+            },
+            {
+                title: "HIV Tanı Algoritması",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-microscope"></i> HIV Test Yöntemleri</h4>
+                        <ul class="feature-list">
+                            <li><strong>4. Nesil Combo Test:</strong> HIV-1/2 antikoru + p24 antijeni (tarama testi)</li>
+                            <li><strong>HIV-1/HIV-2 Antikor Ayırımı:</strong> Tip tayini için</li>
+                            <li><strong>HIV RNA (NAT):</strong> Viral yük, erken tanı, tedavi takibi</li>
+                            <li><strong>Western Blot:</strong> Artık rutin doğrulamada kullanılmıyor (CDC 2014)</li>
+                        </ul>
+                    </div>
+
+                    <h4><i class="fas fa-project-diagram"></i> CDC Önerisi: 3 Basamaklı Algoritma</h4>
+                    <div class="highlight-box highlight-box--secondary">
+                        <ol class="feature-list">
+                            <li><strong>1. Basamak:</strong> 4. nesil Ag/Ab combo test</li>
+                            <li><strong>2. Basamak:</strong> Pozitifse → HIV-1/HIV-2 antikor ayırım testi</li>
+                            <li><strong>3. Basamak:</strong> Belirsizse → HIV-1 RNA (NAT)</li>
+                        </ol>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>4. Nesil Test</th>
+                                <th>HIV-1/2 Ab Ayırım</th>
+                                <th>HIV-1 RNA</th>
+                                <th>Yorum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Negatif</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>HIV negatif</td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>HIV-1 (+)</td>
+                                <td>-</td>
+                                <td><strong>HIV-1 enfeksiyonu</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>HIV-2 (+)</td>
+                                <td>-</td>
+                                <td><strong>HIV-2 enfeksiyonu</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>Belirsiz</td>
+                                <td><strong>Pozitif</strong></td>
+                                <td><strong>Akut HIV-1</strong> (serokonversiyon öncesi)</td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>Belirsiz</td>
+                                <td>Negatif</td>
+                                <td>Yalancı pozitif, takip</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert-box alert-box--warning">
+                        <div class="alert-box__icon"><i class="fas fa-clock"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Pencere Dönemi Süreleri:</strong><br>
+                            • <strong>4. nesil test:</strong> ~18 gün (p24 antijeni sayesinde kısaldı)<br>
+                            • <strong>3. nesil test:</strong> ~22 gün (sadece antikor)<br>
+                            • <strong>HIV RNA:</strong> ~10-12 gün (en erken pozitifleşen)
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Sifiliz Tanı Algoritması",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-vial"></i> Test Kategorileri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Non-Treponemal (NTT)</th>
+                                    <th>Treponemal (TT)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>RPR, VDRL</td>
+                                    <td>TPHA, TPPA, FTA-ABS, EIA/CIA</td>
+                                </tr>
+                                <tr>
+                                    <td>Hastalık aktivitesi gösterir</td>
+                                    <td>Maruziyeti gösterir (ömür boyu +)</td>
+                                </tr>
+                                <tr>
+                                    <td>Tedavi ile titre düşer</td>
+                                    <td>Tedavi ile değişmez</td>
+                                </tr>
+                                <tr>
+                                    <td>Yalancı (+) sık</td>
+                                    <td>Daha spesifik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4><i class="fas fa-exchange-alt"></i> Geleneksel vs Ters Algoritma</h4>
+                    <div class="highlight-box highlight-box--secondary">
+                        <h5>Geleneksel Algoritma:</h5>
+                        <p><strong>NTT (RPR/VDRL)</strong> → Pozitifse → <strong>TT (TPHA)</strong> ile doğrula</p>
+                        
+                        <h5>Ters (Reverse) Algoritma:</h5>
+                        <p><strong>TT (EIA/CIA)</strong> → Pozitifse → <strong>NTT (RPR)</strong> ile aktivite değerlendir</p>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>TT (EIA)</th>
+                                <th>NTT (RPR)</th>
+                                <th>TPPA</th>
+                                <th>Yorum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>Pozitif</td>
+                                <td>-</td>
+                                <td><strong>Aktif sifiliz</strong> - tedavi gerekli</td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>Negatif</td>
+                                <td>Pozitif</td>
+                                <td>Geçirilmiş tedavi edilmiş sifiliz</td>
+                            </tr>
+                            <tr>
+                                <td>Pozitif</td>
+                                <td>Negatif</td>
+                                <td>Negatif</td>
+                                <td>Yalancı pozitif EIA</td>
+                            </tr>
+                            <tr>
+                                <td>Negatif</td>
+                                <td>Pozitif</td>
+                                <td>-</td>
+                                <td>Yalancı pozitif RPR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-list"></i></div>
+                        <div class="alert-box__content">
+                            <strong>RPR/VDRL Yalancı Pozitiflik Nedenleri:</strong><br>
+                            • Gebelik, Otoimmün hastalıklar (SLE, APS)<br>
+                            • IV ilaç kullanımı, İleri yaş<br>
+                            • Diğer enfeksiyonlar: Tüberküloz, EBV, Hepatit, Malaria<br>
+                            • <strong>Hafıza kodu: "GODA"</strong> - Gebelik, Otoimmün, Drugs, Age
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "TORCH Paneli",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-baby"></i> TORCH Etkenleri</h4>
+                        <ul class="feature-list">
+                            <li><strong>T</strong> - Toxoplasma gondii</li>
+                            <li><strong>O</strong> - Other (Sifiliz, VZV, Parvovirus B19, Listeria)</li>
+                            <li><strong>R</strong> - Rubella (Kızamıkçık)</li>
+                            <li><strong>C</strong> - Cytomegalovirus (CMV)</li>
+                            <li><strong>H</strong> - Herpes simplex virus (HSV)</li>
+                        </ul>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>IgM</th>
+                                <th>IgG</th>
+                                <th>Yorum</th>
+                                <th>Gebelikte Yaklaşım</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Negatif</td>
+                                <td>Negatif</td>
+                                <td>Duyarlı (naif)</td>
+                                <td>Korunma önerileri, takip</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pozitif</strong></td>
+                                <td>Negatif</td>
+                                <td>Çok erken akut enfeksiyon</td>
+                                <td>2 hafta sonra tekrar test</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pozitif</strong></td>
+                                <td><strong>Pozitif</strong></td>
+                                <td>Akut veya yakın geçmiş</td>
+                                <td><strong>IgG Avidite testi yap!</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Negatif</td>
+                                <td><strong>Pozitif</strong></td>
+                                <td>Geçirilmiş enfeksiyon / Bağışık</td>
+                                <td>Risk yok (genellikle)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert-box alert-box--danger">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>IgG Avidite Testi - Kritik Önemi:</strong><br>
+                            • <strong>Düşük avidite (&lt;30%):</strong> Son 3-4 ay içinde enfeksiyon → <strong>Fetal risk YÜKSEK</strong><br>
+                            • <strong>Yüksek avidite (&gt;60%):</strong> 3-4 aydan eski enfeksiyon → Fetal risk düşük<br>
+                            • IgM (+) IgG (+) durumunda enfeksiyonun zamanlamasını belirlemek için ŞART!
+                        </div>
+                    </div>
+
+                    <h4><i class="fas fa-biohazard"></i> Konjenital Enfeksiyon Bulguları</h4>
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Etken</th>
+                                <th>Karakteristik Bulgular</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Toxoplasma</strong></td>
+                                <td>Hidrosefali, intrakraniyal kalsifikasyon (yaygın), koryoretinit</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rubella</strong></td>
+                                <td>Katarakt, sağırlık, PDA, "blueberry muffin" döküntü</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CMV</strong></td>
+                                <td>Periventriküler kalsifikasyon, mikrosefali, sensörinöral sağırlık</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HSV</strong></td>
+                                <td>Vezikül, ensefalit, DIC (doğum kanalından bulaş)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sifiliz</strong></td>
+                                <td>Hutchinson triadı, sabre tibia, saddle nose</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `
+            },
+            {
+                title: "Bruselloz Serolojisi",
+                content: `
+                    <div class="highlight-box highlight-box--secondary">
+                        <h4><i class="fas fa-flask"></i> Serolojik Testler</h4>
+                        <ul class="feature-list">
+                            <li><strong>Rose Bengal:</strong> Hızlı tarama testi (lam aglütinasyon)</li>
+                            <li><strong>Standart Tüp Aglütinasyon (STA/Wright):</strong> Titre ≥1/160 anlamlı</li>
+                            <li><strong>Coombs Testi:</strong> Blokan antikorları tespit eder (kronik bruselloz)</li>
+                            <li><strong>2-Merkaptoetanol (2-ME):</strong> IgM'i inaktive eder, IgG kalır</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <div class="alert-box__icon"><i class="fas fa-search"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Prozon Fenomeni:</strong><br>
+                            Yüksek antikor konsantrasyonunda aglütinasyonun görülmemesi. Düşük dilüsyonlarda yalancı negatiflik yapar!<br>
+                            <strong>Çözüm:</strong> Serumu daha fazla dilüe et veya Coombs testi kullan.
+                        </div>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Test Sonucu</th>
+                                <th>Yorum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>STA ≥1/160</td>
+                                <td>Aktif enfeksiyon düşündürür</td>
+                            </tr>
+                            <tr>
+                                <td>STA (+), Coombs (+), STA &gt; Coombs titre</td>
+                                <td>Akut bruselloz</td>
+                            </tr>
+                            <tr>
+                                <td>STA (-/düşük), Coombs (+) yüksek titre</td>
+                                <td><strong>Kronik bruselloz</strong> (blokan antikor)</td>
+                            </tr>
+                            <tr>
+                                <td>2-ME sonrası titre ≥4 kat düşüş</td>
+                                <td>IgM baskın (akut)</td>
+                            </tr>
+                            <tr>
+                                <td>2-ME sonrası titre değişmez</td>
+                                <td>IgG baskın (kronik veya tedavi görmüş)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Sınav İpucu - Çapraz Reaksiyon:</strong><br>
+                            Brucella ile çapraz reaksiyon veren bakteriler: <strong>Yersinia enterocolitica O:9</strong>, Francisella tularensis, Vibrio cholerae<br>
+                            Bu durumda kültür veya PCR ile doğrulama gerekir.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "EBV ve Heterofil Antikorlar",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-virus"></i> EBV Serolojik Belirteçler</h4>
+                        <ul class="feature-list">
+                            <li><strong>Heterofil antikor (Monospot):</strong> Hızlı tarama, çocuklarda duyarlılık düşük</li>
+                            <li><strong>VCA IgM:</strong> Akut enfeksiyon (4-8 hafta pozitif kalır)</li>
+                            <li><strong>VCA IgG:</strong> Geçirilmiş enfeksiyon (ömür boyu pozitif)</li>
+                            <li><strong>EA (Early Antigen):</strong> Akut/reaktivasyon (kronik aktif EBV'de yüksek)</li>
+                            <li><strong>EBNA IgG:</strong> Geç dönem, iyileşme (6-12 hafta sonra pozitifleşir)</li>
+                        </ul>
+                    </div>
+
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Klinik Durum</th>
+                                <th>VCA IgM</th>
+                                <th>VCA IgG</th>
+                                <th>EBNA IgG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Duyarlı (naif)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Akut enfeksiyon</strong></td>
+                                <td><strong>+</strong></td>
+                                <td>+/-</td>
+                                <td><strong>-</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Yakın geçmiş enfeksiyon</td>
+                                <td>+/-</td>
+                                <td>+</td>
+                                <td>+/-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Geçirilmiş enfeksiyon</strong></td>
+                                <td>-</td>
+                                <td><strong>+</strong></td>
+                                <td><strong>+</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert-box alert-box--danger">
+                        <div class="alert-box__icon"><i class="fas fa-child"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Pediatrik Dikkat:</strong><br>
+                            4 yaş altı çocuklarda heterofil antikor testi %50'ye kadar yalancı negatif olabilir!<br>
+                            <strong>Çözüm:</strong> Çocuklarda spesifik EBV serolojisi (VCA IgM/IgG, EBNA) kullan.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Özel Durumlar ve İleri Testler",
+                content: `
+                    <h4><i class="fas fa-procedures"></i> Lyme Hastalığı - 2 Basamaklı Test</h4>
+                    <div class="highlight-box highlight-box--secondary">
+                        <ol class="feature-list">
+                            <li><strong>1. Basamak:</strong> EIA veya IFA (tarama)</li>
+                            <li><strong>2. Basamak:</strong> Western Blot ile doğrulama (IgM ve/veya IgG)</li>
+                        </ol>
+                        <p><strong>Not:</strong> Erken dönemde (eritema migrans) seroloji negatif olabilir - klinik tanı yeterli!</p>
+                    </div>
+
+                    <h4><i class="fas fa-lungs"></i> Q Ateşi (Coxiella burnetii) - Faz Antijenleri</h4>
+                    <table class="article-table">
+                        <thead>
+                            <tr>
+                                <th>Antijen</th>
+                                <th>Yorum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Faz II antikoru yüksek</strong></td>
+                                <td>Akut Q ateşi</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Faz I IgG ≥1:800</strong></td>
+                                <td>Kronik Q ateşi (endokardit)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4><i class="fas fa-baby"></i> HIV (+) Anne Bebeği Takibi</h4>
+                    <div class="alert-box alert-box--warning">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Antikor testleri 18 aya kadar KULLANILAMAZ!</strong><br>
+                            Maternal IgG antikorları plasentadan geçer ve 18 aya kadar bebekte pozitif kalabilir.<br><br>
+                            <strong>Tanı:</strong> HIV DNA PCR veya HIV RNA<br>
+                            • Doğumda, 14-21. gün, 1-2. ay, 4-6. ayda test<br>
+                            • 2 negatif virolojik test = enfeksiyon dışlanır
+                        </div>
+                    </div>
+
+                    <h4><i class="fas fa-procedures"></i> Konjenital Sifiliz Tanısı</h4>
+                    <ul class="feature-list">
+                        <li>Bebek RPR titresi anne titresinin <strong>≥4 kat</strong> yüksekse → Konjenital sifiliz</li>
+                        <li>Bebekte <strong>IgM FTA-ABS (+)</strong> → Bebekte aktif enfeksiyon (IgM plasentayı geçmez)</li>
+                        <li>BOS'ta <strong>VDRL (+)</strong> → Nörositiliz</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                content: `
+                    <div class="highlight-box highlight-box--primary">
+                        <h4><i class="fas fa-graduation-cap"></i> En Sık Sorulan Kombinasyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Soru Kalıbı</th>
+                                    <th>Cevap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HBsAg (-), Anti-HBs (+), Anti-HBc (-)</td>
+                                    <td><strong>Aşılı birey</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>HBsAg (-), Anti-HBs (-), Anti-HBc IgM (+)</td>
+                                    <td><strong>Pencere dönemi</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-HCV (+), HCV RNA (-)</td>
+                                    <td><strong>Geçirilmiş HCV veya yalancı (+)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>HIV 4. nesil (+), Ayırım belirsiz, RNA (+)</td>
+                                    <td><strong>Akut HIV (serokonversiyon)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>EIA (+), RPR (-), TPPA (+)</td>
+                                    <td><strong>Geçirilmiş tedavi edilmiş sifiliz</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>IgM (+), IgG (+), Düşük avidite</td>
+                                    <td><strong>Son 3 ayda primer enfeksiyon</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>STA (-), Coombs (+)</td>
+                                    <td><strong>Kronik bruselloz</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>VCA IgM (+), EBNA (-)</td>
+                                    <td><strong>Akut EBV</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <div class="alert-box__icon"><i class="fas fa-brain"></i></div>
+                        <div class="alert-box__content">
+                            <strong>Hafıza Kodları:</strong><br><br>
+                            • <strong>"Aşılı = İZOLE Anti-HBs"</strong> (başka marker yok)<br>
+                            • <strong>"Pencere = İZOLE Anti-HBc IgM"</strong> (HBsAg gitmiş, Anti-HBs henüz yok)<br>
+                            • <strong>"GODA"</strong> = RPR yalancı (+): Gebelik, Otoimmün, Drugs, Age<br>
+                            • <strong>"AVİDİTE = Enfeksiyon YAŞInı gösterir"</strong><br>
+                            • <strong>"EBNA = EBV'de Ne kadar eskidir Antikor"</strong> (geç pozitifleşir)<br>
+                            • <strong>"Faz I = KronIk Q ateşi"</strong> (I → kronik)
+                        </div>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>TUZAK SORULAR:</strong><br><br>
+                            • <strong>4 yaş altı EBV:</strong> Monospot yetersiz → VCA IgM iste<br>
+                            • <strong>HIV bebek:</strong> 18 ay altı antikor testleri güvenilmez → PCR kullan<br>
+                            • <strong>Bruselloz prozon:</strong> Düşük dilüsyon negatif → Yüksek dilüsyon/Coombs yap<br>
+                            • <strong>HDV süperinfeksiyon:</strong> Anti-HBc IgM NEGATİF (akut HBV değil)<br>
+                            • <strong>Sifiliz tedavi takibi:</strong> TPPA değil, RPR titresi kullanılır
+                        </div>
+                    </div>
+                `
+            }
+        ]
     }
 ];
 
-// Global export for dock.js
+// Global export
 window.topicsData = topicsData;
