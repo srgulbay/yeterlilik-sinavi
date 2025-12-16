@@ -98,7 +98,102 @@
     color: var(--primary);
 }
 
-/* Segment control wrapper - page header altı */
+/* ==========================================
+   DOCK SEGMENT CONTROL
+   ========================================== */
+
+.dock-segment {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Sliding indicator */
+.dock-segment__indicator {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    background: var(--bg-card);
+    border-radius: var(--radius-full);
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: 
+        transform 0.3s var(--ease-apple-out),
+        width 0.3s var(--ease-apple-out);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dock-segment__item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 30px;
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 
+        color 0.2s var(--ease-apple),
+        transform 0.15s var(--ease-apple-out);
+}
+
+.dock-segment__item:hover:not(.active) {
+    color: var(--text-secondary);
+}
+
+.dock-segment__item:active {
+    transform: scale(0.92);
+}
+
+.dock-segment__item.active {
+    color: var(--primary);
+}
+
+.dock-segment__item i {
+    font-size: 0.9em;
+}
+
+/* Mobile Dock Segment */
+.mobile-dock__segment {
+    width: 100%;
+    padding: 0 var(--space-4) var(--space-3);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.mobile-dock__segment::-webkit-scrollbar {
+    display: none;
+}
+
+.dock-segment--mobile {
+    width: max-content;
+    min-width: 100%;
+    justify-content: center;
+}
+
+.dock-segment--mobile .dock-segment__item {
+    width: 38px;
+    height: 32px;
+}
+
+/* Segment control wrapper - page header altı (legacy) */
 .segment-wrapper {
     padding: 0 var(--space-6);
     margin-bottom: var(--space-6);
@@ -1323,12 +1418,9 @@
     justify-content: space-between;
     gap: var(--space-6);
     flex-wrap: wrap;
-    
-    /* View Transitions API - Named element */
-    view-transition-name: page-header;
 }
 
-/* Page header içerikleri için scroll reveal */
+/* Page header info - sadece bu kısım sayfa geçişinde değişecek */
 .page-header__info {
     display: flex;
     flex-direction: column;
@@ -1336,51 +1428,38 @@
     flex: 1;
     min-width: 200px;
     
-    /* Apple-style entrance animation */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: pageHeaderReveal 0.8s var(--ease-apple-out) 0.1s forwards;
+    /* View Transitions API - sadece değişen içerik */
+    view-transition-name: header-info;
 }
 
+/* Actions (search button) - sabit kalacak, animasyon yok */
 .page-header__actions {
     display: flex;
     align-items: center;
     gap: var(--space-3);
     flex-shrink: 0;
-    
-    /* Apple-style entrance animation - delayed */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: pageHeaderReveal 0.8s var(--ease-apple-out) 0.25s forwards;
 }
 
-@keyframes pageHeaderReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* View Transitions for header-info only */
+::view-transition-old(header-info) {
+    animation: headerInfoOut 0.2s var(--ease-apple-out) forwards;
 }
 
-/* View Transitions for page-header */
-::view-transition-old(page-header) {
-    animation: headerSlideOut 0.3s var(--ease-apple-out) forwards;
+::view-transition-new(header-info) {
+    animation: headerInfoIn 0.35s var(--ease-apple-out) forwards;
 }
 
-::view-transition-new(page-header) {
-    animation: headerSlideIn 0.4s var(--ease-apple-out) forwards;
-}
-
-@keyframes headerSlideOut {
+@keyframes headerInfoOut {
     to {
         opacity: 0;
-        transform: translateY(-12px);
+        transform: translateY(-8px);
     }
 }
 
-@keyframes headerSlideIn {
+@keyframes headerInfoIn {
     from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(8px);
     }
 }
 

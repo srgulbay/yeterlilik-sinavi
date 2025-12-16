@@ -212,13 +212,8 @@
             <!-- Ayraç -->
             <div class="dock-divider"></div>
             
-            <!-- SRS Modları (Sadece study sayfasında) -->
-            <div class="dock-modes" id="studyModes">
-                <button class="dock-mode-btn active" type="button" data-mode-trigger="all">Rastgele</button>
-                <button class="dock-mode-btn" type="button" data-mode-trigger="due">Tekrar</button>
-                <button class="dock-mode-btn" type="button" data-mode-trigger="new">Yeni</button>
-                <button class="dock-mode-btn" type="button" data-mode-trigger="difficult">Zor</button>
-            </div>
+            <!-- Dock Segment Control - JavaScript ile render edilir -->
+            <div class="dock-segment-container"></div>
             
             <!-- Ayraç -->
             <div class="dock-divider"></div>
@@ -227,9 +222,6 @@
             <div class="dock-tools">
                 <button class="dock-tool-btn" type="button" data-search-trigger title="Ara (⌘K)">
                     <i class="fas fa-magnifying-glass"></i>
-                </button>
-                <button class="dock-tool-btn" type="button" data-filter-menu-trigger title="Konu Filtreleri">
-                    <i class="fas fa-filter"></i>
                 </button>
                 <button class="dock-tool-btn dock-tool-btn--start" type="button" data-session-start onclick="startSession()" title="Seansı Başlat">
                     <i class="fas fa-play"></i>
@@ -243,44 +235,17 @@
             <i class="fas fa-chevron-down"></i>
         </button>
     </div>
-    
-    <!-- Filtre Menüsü -->
-    <div class="dock-filter-menu" id="dockFilterMenu" hidden>
-        <div class="dock-filter-menu__header">
-            <span>Konu Filtreleri</span>
-            <button type="button" class="dock-filter-menu__close" aria-label="Kapat">
-                <i class="fas fa-xmark"></i>
-            </button>
-        </div>
-        <div class="dock-filter-menu__list" id="filterMenuList">
-            <!-- JavaScript ile doldurulacak -->
-        </div>
-    </div>
 
     <!-- Dock FAB - Minimize/Expand Toggle -->
     <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="Mikrobiyoloji Yeterlilik">
         <i class="fas fa-graduation-cap"></i>
     </button>
 
-    <div class="filter-panel" id="filterPanel" aria-hidden="true">
-        <div class="filter-panel__sheet" role="dialog" aria-modal="true" aria-labelledby="filterPanelTitle" tabindex="-1">
-            <div class="filter-panel__header">
-                <div>
-                    <p class="filter-panel__eyebrow">Konuları daralt</p>
-                    <h3 id="filterPanelTitle">Filtreler</h3>
-                </div>
-                <button type="button" class="filter-panel__close" id="closeFilterPanel" aria-label="Filtre panelini kapat">
-                    <i class="fas fa-xmark"></i>
-                </button>
-            </div>
-            <div class="filter-panel__body">
-                <div class="mobile-filter-strip" id="mobileFilterStrip" role="navigation" aria-label="Konu filtreleri (mobil)"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Mobile Dock - Glassmorphism Pill Style -->
     <nav class="mobile-dock" id="mobileDock" role="navigation" aria-label="Mobil navigasyon">
+        <!-- Mobile Segment Control - JavaScript ile render edilir -->
+        <div class="mobile-dock__segment"></div>
+        
         <!-- Pill State (Collapsed) -->
         <div class="dock__pill">
             <button class="dock__pill-btn" data-action="search" aria-label="Arama">
@@ -290,7 +255,7 @@
                 <i class="fas fa-moon"></i>
             </button>
             <button class="dock__pill-btn" data-page="index" aria-label="Anasayfa">
-                <i class="fas fa-book-medical"></i>
+                <i class="fas fa-home"></i>
             </button>
             <button class="dock__pill-btn" data-page="details" aria-label="Hafıza Kartları">
                 <i class="fas fa-layer-group"></i>
@@ -300,9 +265,6 @@
             </button>
             <button class="dock__pill-btn active" data-page="study" aria-label="SRS Çalışma" aria-current="page">
                 <i class="fas fa-brain"></i>
-            </button>
-            <button class="dock__pill-btn" data-action="filters" aria-label="Filtreler">
-                <i class="fas fa-sliders"></i>
             </button>
         </div>
     </nav>

@@ -6586,3 +6586,6 @@ const contentData = [
         }
     }
 ];
+
+// Global export for dock.js
+window.contentData = contentData;

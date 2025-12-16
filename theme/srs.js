@@ -713,3 +713,7 @@ function updateReadyState() {
         handleSessionSizeChange({ target: slider });
     }
 }
+
+// Global exports for dock.js
+window.setStudyMode = setStudyMode;
+window.filterCategory = filterCategory;

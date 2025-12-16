@@ -2,11 +2,11 @@
  * ============================================
  * DOCK JS - Standart Desktop Dock
  * ============================================
- * Versiyon: 3.0.0
+ * Versiyon: 3.1.0
  * Tarih: 16 Aralık 2025
  * 
  * Tüm sayfalarda ortak kullanılan dock işlevselliği.
- * Navigasyon, filtre menüsü, tema değiştirme.
+ * Navigasyon, segment control, tema değiştirme.
  */
 
 'use strict';
@@ -15,13 +15,12 @@ class Dock {
     constructor() {
         // DOM Elements
         this.dock = document.querySelector('.session-dock');
-        this.filterMenu = document.getElementById('dockFilterMenu');
-        this.filterMenuList = document.getElementById('filterMenuList');
+        this.mobileDock = document.querySelector('.mobile-dock');
         
         // State
         this.currentPage = this.detectCurrentPage();
-        this.activeFilter = 'all';
-        this.filters = this.getFiltersForPage();
+        this.activeSegment = 'all';
+        this.segments = this.getSegmentsForPage();
         
         // Init
         this.init();
@@ -31,46 +30,16 @@ class Dock {
      * Initialize
      */
     init() {
-        // Filter menu can work independently of dock element
-        if (this.filterMenu) {
-            this.bindFilterMenuEvents();
-            this.renderFilterMenu();
-        }
+        // Render segment controls
+        this.renderSegmentControls();
         
         // Dock-specific initialization
-        if (!this.dock) return;
-        
-        this.bindEvents();
-        this.highlightActiveNav();
+        if (this.dock) {
+            this.bindEvents();
+            this.highlightActiveNav();
+        }
         
         console.log('Dock: Initialized for page:', this.currentPage);
-    }
-    
-    /**
-     * Bind filter menu events (works even without dock)
-     */
-    bindFilterMenuEvents() {
-        // Close button
-        const closeBtn = this.filterMenu?.querySelector('.dock-filter-menu__close');
-        closeBtn?.addEventListener('click', () => this.closeFilterMenu());
-        
-        // Click outside to close
-        document.addEventListener('click', (e) => {
-            if (this.filterMenu && !this.filterMenu.hidden) {
-                const isInMenu = this.filterMenu.contains(e.target);
-                const isTrigger = e.target.closest('[data-filter-menu-trigger], [data-action="filters"]');
-                if (!isInMenu && !isTrigger) {
-                    this.closeFilterMenu();
-                }
-            }
-        });
-        
-        // Escape key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.filterMenu && !this.filterMenu.hidden) {
-                this.closeFilterMenu();
-            }
-        });
     }
     
     /**
@@ -87,65 +56,311 @@ class Dock {
     }
     
     /**
-     * Get filters configuration for current page
+     * Get data source for current page
      */
-    getFiltersForPage() {
-        const baseFilters = [
+    getDataSource() {
+        switch (this.currentPage) {
+            case 'index':
+                return window.contentData || [];
+            case 'details':
+                return window.detailsData || [];
+            case 'topics':
+                return window.topicsData || [];
+            case 'study':
+                return window.contentData || [];
+            default:
+                return [];
+        }
+    }
+    
+    /**
+     * Normalize category name for matching
+     * Handles both "Klinik Bakteriyoloji" and "bakteriyoloji" formats
+     */
+    normalizeCategory(category) {
+        if (!category) return '';
+        const lower = category.toLowerCase().trim();
+        
+        // Map variations to standard segment IDs
+        const mappings = {
+            'bakteriyoloji': 'Klinik Bakteriyoloji',
+            'klinik bakteriyoloji': 'Klinik Bakteriyoloji',
+            'viroloji': 'Viroloji',
+            'mikoloji': 'Mikoloji',
+            'parazitoloji': 'Parazitoloji',
+            'genel': 'Genel Mikrobiyoloji',
+            'genel mikrobiyoloji': 'Genel Mikrobiyoloji',
+            'sterilizasyon': 'Sterilizasyon',
+            'pre-analitik': 'Pre-Analitik',
+            'preanalitik': 'Pre-Analitik',
+            'enfeksiyon': 'Enfeksiyon Hastalıkları',
+            'enfeksiyon hastalıkları': 'Enfeksiyon Hastalıkları',
+            'laboratuvar': 'laboratuvar',
+            'immunoloji': 'immunoloji'
+        };
+        
+        return mappings[lower] || category;
+    }
+    
+    /**
+     * Count items per category from data source
+     */
+    getCategoryCounts() {
+        const data = this.getDataSource();
+        const counts = { all: data.length };
+        
+        data.forEach(item => {
+            const rawCat = item.category || item.topic || 'Diğer';
+            const cat = this.normalizeCategory(rawCat);
+            counts[cat] = (counts[cat] || 0) + 1;
+        });
+        
+        return counts;
+    }
+    
+    /**
+     * Get SRS mode counts from srsManager
+     */
+    getSRSCounts() {
+        const manager = window.srsManager;
+        if (!manager) return { all: 0, due: 0, new: 0, difficult: 0, mastered: 0 };
+        
+        const cards = manager.cards || [];
+        const counts = {
+            all: cards.length,
+            due: 0,
+            new: 0,
+            difficult: 0,
+            mastered: 0
+        };
+        
+        cards.forEach(card => {
+            const state = card.srsState || {};
+            if (state.mastered) {
+                counts.mastered++;
+            } else if (state.repetitions === 0) {
+                counts.new++;
+            } else if (state.easeFactor < 2.0) {
+                counts.difficult++;
+            }
+            
+            // Due check
+            if (state.nextReview) {
+                const now = Date.now();
+                if (state.nextReview <= now) {
+                    counts.due++;
+                }
+            }
+        });
+        
+        return counts;
+    }
+    
+    /**
+     * Get segments configuration for current page
+     * Only returns segments that have content
+     */
+    getSegmentsForPage() {
+        // Tüm olası kategori tanımları (verideki tüm kategorileri kapsar)
+        const allCategorySegments = [
             { id: 'all', label: 'Tümü', icon: 'fa-th-large' },
-            { id: 'bakteriyoloji', label: 'Bakteriyoloji', icon: 'fa-bacterium' },
-            { id: 'viroloji', label: 'Viroloji', icon: 'fa-virus' },
-            { id: 'mikoloji', label: 'Mikoloji', icon: 'fa-seedling' },
-            { id: 'parazitoloji', label: 'Parazitoloji', icon: 'fa-bug' },
+            // Ana kategoriler
+            { id: 'Klinik Bakteriyoloji', label: 'Bakteriyoloji', icon: 'fa-microscope' },
+            { id: 'Viroloji', label: 'Viroloji', icon: 'fa-virus' },
+            { id: 'Mikoloji', label: 'Mikoloji', icon: 'fa-seedling' },
+            { id: 'Parazitoloji', label: 'Parazitoloji', icon: 'fa-bug' },
+            { id: 'Enfeksiyon Hastalıkları', label: 'Enfeksiyon', icon: 'fa-heartbeat' },
+            { id: 'Pre-Analitik', label: 'Pre-Analitik', icon: 'fa-vial' },
+            { id: 'Sterilizasyon', label: 'Sterilizasyon', icon: 'fa-fire-flame-curved' },
+            { id: 'Genel Mikrobiyoloji', label: 'Genel', icon: 'fa-bacterium' },
+            // Ek kategoriler (veride bulunan)
+            { id: 'Yeterlilik sınavı 2025', label: '2025', icon: 'fa-calendar' },
+            { id: 'Hastane Enfeksiyonları', label: 'Hastane', icon: 'fa-hospital' },
+            { id: 'Mikrobiyota', label: 'Mikrobiyota', icon: 'fa-bacteria' },
+            { id: 'laboratuvar', label: 'Laboratuvar', icon: 'fa-flask' },
             { id: 'immunoloji', label: 'İmmunoloji', icon: 'fa-shield-virus' }
         ];
         
-        // Page-specific extra filters
-        const pageFilters = {
-            index: [
-                ...baseFilters,
-                { id: 'laboratuvar', label: 'Laboratuvar', icon: 'fa-flask' },
-                { id: 'sterilizasyon', label: 'Sterilizasyon', icon: 'fa-fire-flame-curved' },
-                { id: 'pre-analitik', label: 'Pre-Analitik', icon: 'fa-vial' },
-                { id: 'mikrobiyota', label: 'Mikrobiyota', icon: 'fa-dna' },
-                { id: 'yeterlilik-2025', label: 'Yeterlilik 2025', icon: 'fa-graduation-cap' }
-            ],
-            details: [
-                ...baseFilters,
-                { id: 'laboratuvar', label: 'Laboratuvar', icon: 'fa-flask' }
-            ],
-            topics: baseFilters,
-            study: [
-                ...baseFilters,
-                { id: 'laboratuvar', label: 'Laboratuvar', icon: 'fa-flask' }
-            ]
-        };
+        // SRS modları (study sayfası için)
+        const allStudySegments = [
+            { id: 'all', label: 'Tümü', icon: 'fa-shuffle' },
+            { id: 'due', label: 'Tekrar', icon: 'fa-clock-rotate-left' },
+            { id: 'new', label: 'Yeni', icon: 'fa-sparkles' },
+            { id: 'difficult', label: 'Zor', icon: 'fa-fire' },
+            { id: 'mastered', label: 'Ustalaşılan', icon: 'fa-check-double' }
+        ];
         
-        return pageFilters[this.currentPage] || baseFilters;
+        if (this.currentPage === 'study') {
+            // Study sayfası - SRS modlarını göster (hepsi her zaman görünsün)
+            return allStudySegments;
+        } else {
+            // Diğer sayfalar - Sadece içerik olan kategorileri göster
+            const counts = this.getCategoryCounts();
+            return allCategorySegments.filter(seg => {
+                // "Tümü" her zaman göster
+                if (seg.id === 'all') return true;
+                // Diğerleri için içerik kontrolü
+                return counts[seg.id] > 0;
+            });
+        }
+    }
+    
+    /**
+     * Render segment controls in both docks
+     */
+    renderSegmentControls() {
+        // Desktop dock segment
+        const desktopContainer = this.dock?.querySelector('.dock-segment-container');
+        if (desktopContainer) {
+            desktopContainer.innerHTML = this.createSegmentHTML('dockSegment');
+            this.initSegmentControl('dockSegment');
+        }
+        
+        // Mobile dock segment
+        const mobileContainer = this.mobileDock?.querySelector('.mobile-dock__segment');
+        if (mobileContainer) {
+            mobileContainer.innerHTML = this.createSegmentHTML('mobileSegment', true);
+            this.initSegmentControl('mobileSegment');
+        }
+    }
+    
+    /**
+     * Create segment control HTML
+     */
+    createSegmentHTML(id, isMobile = false) {
+        const mobileClass = isMobile ? 'dock-segment--mobile' : '';
+        
+        let buttonsHTML = this.segments.map((seg, index) => `
+            <button class="dock-segment__item ${index === 0 ? 'active' : ''}" 
+                    data-segment="${seg.id}" 
+                    role="tab" 
+                    aria-selected="${index === 0}"
+                    title="${seg.label}">
+                <i class="fas ${seg.icon}"></i>
+            </button>
+        `).join('');
+        
+        return `
+            <nav class="dock-segment ${mobileClass}" id="${id}" role="tablist" aria-label="Filtreler">
+                <div class="dock-segment__indicator"></div>
+                ${buttonsHTML}
+            </nav>
+        `;
+    }
+    
+    /**
+     * Initialize a segment control
+     */
+    initSegmentControl(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        const items = container.querySelectorAll('.dock-segment__item');
+        const indicator = container.querySelector('.dock-segment__indicator');
+        
+        // Position indicator on first active
+        const activeItem = container.querySelector('.dock-segment__item.active');
+        if (activeItem && indicator) {
+            this.positionIndicator(indicator, activeItem, container);
+        }
+        
+        // Click handlers
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const segmentId = item.dataset.segment;
+                this.selectSegment(segmentId);
+            });
+        });
+        
+        // Resize observer
+        const resizeObserver = new ResizeObserver(() => {
+            const current = container.querySelector('.dock-segment__item.active');
+            if (current && indicator) {
+                this.positionIndicator(indicator, current, container);
+            }
+        });
+        resizeObserver.observe(container);
+    }
+    
+    /**
+     * Position the sliding indicator
+     */
+    positionIndicator(indicator, targetItem, container) {
+        const containerRect = container.getBoundingClientRect();
+        const itemRect = targetItem.getBoundingClientRect();
+        const scrollLeft = container.scrollLeft || 0;
+        const padding = 3;
+        
+        const left = itemRect.left - containerRect.left + scrollLeft;
+        indicator.style.transform = `translateX(${left - padding}px)`;
+        indicator.style.width = `${itemRect.width}px`;
+    }
+    
+    /**
+     * Select a segment and sync all controls
+     */
+    selectSegment(segmentId) {
+        this.activeSegment = segmentId;
+        
+        // Sync both segment controls
+        ['dockSegment', 'mobileSegment'].forEach(containerId => {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const items = container.querySelectorAll('.dock-segment__item');
+            const indicator = container.querySelector('.dock-segment__indicator');
+            
+            items.forEach(item => {
+                const isActive = item.dataset.segment === segmentId;
+                item.classList.toggle('active', isActive);
+                item.setAttribute('aria-selected', isActive);
+                
+                if (isActive && indicator) {
+                    this.positionIndicator(indicator, item, container);
+                }
+            });
+        });
+        
+        // Apply filter/action based on page
+        this.applySegmentAction(segmentId);
+    }
+    
+    /**
+     * Apply segment action based on current page
+     */
+    applySegmentAction(segmentId) {
+        if (this.currentPage === 'study') {
+            // Study page - SRS modes
+            if (typeof window.setStudyMode === 'function') {
+                window.setStudyMode(segmentId);
+            }
+            console.log('Dock: Study mode:', segmentId);
+        } else if (this.currentPage === 'details') {
+            // Details page - Category filter
+            if (typeof window.filterDetailCards === 'function') {
+                window.filterDetailCards(segmentId);
+            }
+            console.log('Dock: Details filter:', segmentId);
+        } else if (this.currentPage === 'topics') {
+            // Topics page - Category filter
+            if (typeof window.filterTopics === 'function') {
+                window.filterTopics(segmentId);
+            }
+            console.log('Dock: Topics filter:', segmentId);
+        } else {
+            // Index page - Category filter
+            if (typeof window.filterCategory === 'function') {
+                window.filterCategory(segmentId);
+            }
+            console.log('Dock: Index filter:', segmentId);
+        }
     }
     
     /**
      * Bind event listeners
      */
     bindEvents() {
-        // Filter menu trigger (desktop dock button)
-        const filterTrigger = this.dock.querySelector('[data-filter-menu-trigger]');
-        filterTrigger?.addEventListener('click', () => this.toggleFilterMenu());
-        
-        // Study mode buttons
-        if (this.currentPage === 'study') {
-            const modeBtns = this.dock.querySelectorAll('[data-mode-trigger]');
-            modeBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    modeBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    const mode = btn.dataset.modeTrigger;
-                    if (typeof window.setStudyMode === 'function') {
-                        window.setStudyMode(mode);
-                    }
-                });
-            });
-        }
+        // Navigation buttons are already links, no extra binding needed
     }
     
     /**
@@ -156,244 +371,6 @@ class Dock {
         navBtns.forEach(btn => {
             const page = btn.dataset.page;
             btn.classList.toggle('active', page === this.currentPage);
-        });
-    }
-    
-    /**
-     * Render filter menu items
-     */
-    renderFilterMenu() {
-        if (!this.filterMenuList) return;
-        
-        // Get content counts
-        const counts = this.getFilterCounts();
-        
-        let html = '';
-        this.filters.forEach(filter => {
-            const count = counts[filter.id] || 0;
-            const isActive = filter.id === this.activeFilter;
-            
-            html += `
-                <button class="dock-filter-menu__item ${isActive ? 'active' : ''}" 
-                        data-filter="${filter.id}">
-                    <i class="fas ${filter.icon}"></i>
-                    <span>${filter.label}</span>
-                    <span class="dock-filter-menu__item-count">${count}</span>
-                </button>
-            `;
-        });
-        
-        this.filterMenuList.innerHTML = html;
-        
-        // Bind filter clicks
-        this.filterMenuList.querySelectorAll('.dock-filter-menu__item').forEach(item => {
-            item.addEventListener('click', () => {
-                const filterId = item.dataset.filter;
-                this.applyFilter(filterId);
-            });
-        });
-    }
-    
-    /**
-     * Get content counts for filters
-     */
-    getFilterCounts() {
-        const counts = { all: 0 };
-        
-        // Get data based on current page
-        let data = [];
-        
-        if (this.currentPage === 'index' && typeof enrichedContent !== 'undefined') {
-            data = enrichedContent;
-        } else if (this.currentPage === 'details' && typeof detailsData !== 'undefined') {
-            data = detailsData;
-        } else if (this.currentPage === 'topics' && typeof topicsData !== 'undefined') {
-            data = topicsData;
-        } else if (this.currentPage === 'study' && typeof enrichedContent !== 'undefined') {
-            data = enrichedContent;
-        }
-        
-        counts.all = data.length;
-        
-        // Count by category
-        data.forEach(item => {
-            const category = (item.category || '').toLowerCase()
-                .replace(/ı/g, 'i')
-                .replace(/ö/g, 'o')
-                .replace(/ü/g, 'u')
-                .replace(/ş/g, 's')
-                .replace(/ç/g, 'c')
-                .replace(/ğ/g, 'g')
-                .replace(/\s+/g, '-');
-            
-            // Map various category names to filter IDs
-            const categoryMap = {
-                'bakteriyoloji': 'bakteriyoloji',
-                'klinik-bakteriyoloji': 'bakteriyoloji',
-                'genel-mikrobiyoloji': 'bakteriyoloji',
-                'viroloji': 'viroloji',
-                'mikoloji': 'mikoloji',
-                'parazitoloji': 'parazitoloji',
-                'immunoloji': 'immunoloji',
-                'laboratuvar': 'laboratuvar',
-                'sterilizasyon': 'sterilizasyon',
-                'pre-analitik': 'pre-analitik',
-                'mikrobiyota': 'mikrobiyota',
-                'yeterlilik-sinavi-2025': 'yeterlilik-2025'
-            };
-            
-            const filterId = categoryMap[category] || category;
-            counts[filterId] = (counts[filterId] || 0) + 1;
-        });
-        
-        return counts;
-    }
-    
-    /**
-     * Toggle filter menu
-     */
-    toggleFilterMenu() {
-        if (!this.filterMenu) return;
-        
-        const isOpen = this.filterMenu.classList.contains('active') || !this.filterMenu.hidden;
-        
-        if (isOpen) {
-            this.closeFilterMenu();
-        } else {
-            this.openFilterMenu();
-        }
-    }
-    
-    /**
-     * Open filter menu
-     */
-    openFilterMenu() {
-        if (!this.filterMenu) return;
-        
-        this.filterMenu.hidden = false;
-        this.filterMenu.classList.add('active');
-        
-        // Trigger reflow for animation
-        this.filterMenu.offsetHeight;
-        
-        // Update counts
-        this.renderFilterMenu();
-    }
-    
-    /**
-     * Close filter menu
-     */
-    closeFilterMenu() {
-        if (!this.filterMenu) return;
-        this.filterMenu.classList.remove('active');
-        this.filterMenu.hidden = true;
-    }
-    
-    /**
-     * Apply filter
-     */
-    applyFilter(filterId) {
-        this.activeFilter = filterId;
-        
-        // Update active state in menu
-        this.filterMenuList?.querySelectorAll('.dock-filter-menu__item').forEach(item => {
-            item.classList.toggle('active', item.dataset.filter === filterId);
-        });
-        
-        // Close menu
-        this.closeFilterMenu();
-        
-        // Apply filter based on page
-        this.applyPageFilter(filterId);
-    }
-    
-    /**
-     * Apply filter for current page
-     */
-    applyPageFilter(filterId) {
-        const isAll = filterId === 'all';
-        
-        switch (this.currentPage) {
-            case 'index':
-                // Reference page - use existing filterCategory function
-                if (typeof window.filterCategory === 'function') {
-                    // Map filter ID to actual category names used in enrichedContent
-                    const categoryMap = {
-                        'bakteriyoloji': 'Klinik Bakteriyoloji',
-                        'viroloji': 'Viroloji',
-                        'mikoloji': 'Mikoloji',
-                        'parazitoloji': 'Parazitoloji',
-                        'immunoloji': 'İmmunoloji',
-                        'laboratuvar': 'Laboratuvar',
-                        'sterilizasyon': 'Sterilizasyon',
-                        'pre-analitik': 'Pre-Analitik',
-                        'mikrobiyota': 'Mikrobiyota',
-                        'yeterlilik-2025': 'Yeterlilik sınavı 2025',
-                        'genel-mikrobiyoloji': 'Genel Mikrobiyoloji'
-                    };
-                    
-                    const category = isAll ? 'all' : (categoryMap[filterId] || filterId);
-                    window.filterCategory(category);
-                    console.log('Index: Filtered by', category);
-                }
-                break;
-                
-            case 'details':
-                // Details page - data uses lowercase categories
-                if (typeof window.filterDetailCards === 'function') {
-                    window.filterDetailCards(filterId);
-                } else {
-                    this.filterCards('.detail-card', filterId);
-                }
-                break;
-                
-            case 'topics':
-                // Topics page - data uses lowercase categories
-                if (typeof window.filterTopics === 'function') {
-                    window.filterTopics(filterId);
-                } else {
-                    this.filterCards('.topic-preview', filterId);
-                }
-                break;
-                
-            case 'study':
-                // Study page - use same filter as index
-                if (typeof window.filterCategory === 'function') {
-                    const categoryMap = {
-                        'bakteriyoloji': 'Klinik Bakteriyoloji',
-                        'viroloji': 'Viroloji',
-                        'mikoloji': 'Mikoloji',
-                        'parazitoloji': 'Parazitoloji',
-                        'immunoloji': 'İmmunoloji',
-                        'laboratuvar': 'Laboratuvar'
-                    };
-                    const category = isAll ? 'all' : (categoryMap[filterId] || filterId);
-                    window.filterCategory(category);
-                    console.log('Study: Filtered by', category);
-                }
-                break;
-        }
-    }
-    
-    /**
-     * Generic card filtering
-     */
-    filterCards(cardSelector, filterId) {
-        const cards = document.querySelectorAll(cardSelector);
-        const isAll = filterId === 'all';
-        
-        cards.forEach(card => {
-            const category = (card.dataset.category || '').toLowerCase()
-                .replace(/ı/g, 'i')
-                .replace(/ö/g, 'o')
-                .replace(/ü/g, 'u')
-                .replace(/ş/g, 's')
-                .replace(/ç/g, 'c')
-                .replace(/ğ/g, 'g')
-                .replace(/\s+/g, '-');
-            
-            const matches = isAll || category.includes(filterId);
-            card.style.display = matches ? '' : 'none';
         });
     }
 }

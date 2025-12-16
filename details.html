@@ -61,13 +61,16 @@
             <!-- Ayraç -->
             <div class="dock-divider"></div>
             
+            <!-- Dock Segment Control - JavaScript ile render edilir -->
+            <div class="dock-segment-container"></div>
+            
+            <!-- Ayraç -->
+            <div class="dock-divider"></div>
+            
             <!-- Araçlar -->
             <div class="dock-tools">
                 <button class="dock-tool-btn" type="button" data-search-trigger title="Ara (⌘K)">
                     <i class="fas fa-magnifying-glass"></i>
-                </button>
-                <button class="dock-tool-btn" type="button" data-filter-menu-trigger title="Konu Filtreleri">
-                    <i class="fas fa-filter"></i>
                 </button>
                 <button class="dock-tool-btn" type="button" data-theme-toggle title="Tema Değiştir">
                     <i class="fas fa-moon" data-theme-icon></i>
@@ -78,19 +81,6 @@
             <i class="fas fa-chevron-down"></i>
         </button>
     </div>
-    
-    <!-- Filtre Menüsü -->
-    <div class="dock-filter-menu" id="dockFilterMenu" hidden>
-        <div class="dock-filter-menu__header">
-            <span>Konu Filtreleri</span>
-            <button type="button" class="dock-filter-menu__close" aria-label="Kapat">
-                <i class="fas fa-xmark"></i>
-            </button>
-        </div>
-        <div class="dock-filter-menu__list" id="filterMenuList">
-            <!-- JavaScript ile doldurulacak -->
-        </div>
-    </div>
 
     <!-- Dock FAB - Minimize/Expand Toggle -->
     <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="Mikrobiyoloji Yeterlilik">
@@ -99,6 +89,9 @@
 
     <!-- Mobile Dock - Glassmorphism Pill Style -->
     <nav class="mobile-dock" id="mobileDock" role="navigation" aria-label="Mobil navigasyon">
+        <!-- Mobile Segment Control - JavaScript ile render edilir -->
+        <div class="mobile-dock__segment"></div>
+        
         <!-- Pill State (Collapsed) -->
         <div class="dock__pill">
             <button class="dock__pill-btn" data-action="search" aria-label="Arama">
@@ -108,7 +101,7 @@
                 <i class="fas fa-moon"></i>
             </button>
             <button class="dock__pill-btn" data-page="index" aria-label="Anasayfa">
-                <i class="fas fa-book-medical"></i>
+                <i class="fas fa-home"></i>
             </button>
             <button class="dock__pill-btn active" data-page="details" aria-label="Hafıza Kartları" aria-current="page">
                 <i class="fas fa-layer-group"></i>
@@ -118,9 +111,6 @@
             </button>
             <button class="dock__pill-btn" data-page="study" aria-label="SRS Çalışma">
                 <i class="fas fa-brain"></i>
-            </button>
-            <button class="dock__pill-btn" data-action="filters" aria-label="Filtreler">
-                <i class="fas fa-sliders"></i>
             </button>
         </div>
     </nav>

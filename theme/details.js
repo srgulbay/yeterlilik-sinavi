@@ -380,14 +380,35 @@ function syncSidebarFilters() {
 
 /**
  * Global filter function for Dock integration
- * @param {string} filterId - Filter ID from dock (bakteriyoloji, viroloji, etc.)
+ * @param {string} filterId - Filter ID from dock (Klinik Bakteriyoloji, Viroloji, etc.)
  */
 window.filterDetailCards = function(filterId) {
-    currentTopic = filterId;
+    // Normalize filter ID to match data format
+    const normalizedFilter = normalizeFilterId(filterId);
+    currentTopic = normalizedFilter;
     renderDetailCards(detailsData);
     syncDockChips();
     syncSidebarFilters();
-    console.log('Details: Filtered by', filterId);
+    console.log('Details: Filtered by', normalizedFilter);
+}
+
+/**
+ * Normalize filter ID from dock to match data category format
+ */
+function normalizeFilterId(filterId) {
+    if (!filterId || filterId === 'all') return 'all';
+    
+    const lower = filterId.toLowerCase();
+    const mappings = {
+        'klinik bakteriyoloji': 'bakteriyoloji',
+        'viroloji': 'viroloji',
+        'mikoloji': 'mikoloji',
+        'parazitoloji': 'parazitoloji',
+        'laboratuvar': 'laboratuvar',
+        'immunoloji': 'immunoloji'
+    };
+    
+    return mappings[lower] || filterId.toLowerCase();
 }
 
 /* ==========================================

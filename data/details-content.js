@@ -431,3 +431,6 @@ const detailsData = [
         tags: ["ADT", "MİK", "CLSI"]
     }
 ];
+
+// Global export for dock.js
+window.detailsData = detailsData;

@@ -362,11 +362,30 @@ function syncSidebarFilters() {
 }
 
 /**
+ * Normalize filter ID from dock to match data category format
+ */
+function normalizeFilterId(filterId) {
+    if (!filterId || filterId === 'all') return 'all';
+    
+    const lower = filterId.toLowerCase();
+    const mappings = {
+        'klinik bakteriyoloji': 'bakteriyoloji',
+        'viroloji': 'viroloji',
+        'mikoloji': 'mikoloji',
+        'parazitoloji': 'parazitoloji'
+    };
+    
+    return mappings[lower] || filterId.toLowerCase();
+}
+
+/**
  * Global filter function for Dock integration
- * @param {string} filterId - Filter ID from dock (bakteriyoloji, viroloji, etc.)
+ * @param {string} filterId - Filter ID from dock (Klinik Bakteriyoloji, Viroloji, etc.)
  */
 window.filterTopics = function(filterId) {
-    currentCategory = filterId;
+    // Normalize filter ID to match data format
+    const normalizedFilter = normalizeFilterId(filterId);
+    currentCategory = normalizedFilter;
     renderTopicsList(topicsData);
     syncDockChips();
     syncSidebarFilters();
@@ -375,7 +394,7 @@ window.filterTopics = function(filterId) {
     if (currentView === 'detail') {
         showTopicsList();
     }
-    console.log('Topics: Filtered by', filterId);
+    console.log('Topics: Filtered by', normalizedFilter);
 }
 
 /* ==========================================

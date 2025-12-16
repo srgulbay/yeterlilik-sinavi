@@ -318,3 +318,6 @@ const topicsData = [
         ]
     }
 ];
+
+// Global export for dock.js
+window.topicsData = topicsData;
