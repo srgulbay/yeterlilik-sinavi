@@ -406,8 +406,8 @@ function initScrollReveal() {
     scrollRevealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Staggered delay ile görünür yap
-                const delay = Math.min(index * 50, 300);
+                // Apple-style staggered delay (daha yavaş)
+                const delay = Math.min(index * 100, 400);
                 setTimeout(() => {
                     entry.target.classList.add('is-visible');
                 }, delay);
@@ -417,8 +417,8 @@ function initScrollReveal() {
         });
     }, {
         root: null,
-        rootMargin: '0px 0px -50px 0px',
-        threshold: 0.1
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.15
     });
     
     observeScrollElements();

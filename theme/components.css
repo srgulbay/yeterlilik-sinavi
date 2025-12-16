@@ -1189,12 +1189,37 @@
     flex-wrap: wrap;
 }
 
+/* Page header içerikleri için scroll reveal */
 .page-header__info {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
     flex: 1;
     min-width: 200px;
+    
+    /* Apple-style entrance animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageHeaderReveal 0.8s var(--ease-apple-out) 0.1s forwards;
+}
+
+.page-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+    
+    /* Apple-style entrance animation - delayed */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageHeaderReveal 0.8s var(--ease-apple-out) 0.25s forwards;
+}
+
+@keyframes pageHeaderReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .page-header__eyebrow {
@@ -1219,14 +1244,6 @@
     font-size: var(--text-sm);
     color: var(--text-secondary);
     max-width: 45ch;
-}
-
-/* Header Actions */
-.page-header__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    flex-shrink: 0;
 }
 
 /* Search Trigger Button - Glassmorphism Style */

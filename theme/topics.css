@@ -20,15 +20,26 @@
     box-shadow: var(--shadow-sm);
     overflow: hidden;
     cursor: pointer;
-    transition: 
-        transform 0.35s var(--ease-apple-out),
-        box-shadow 0.35s var(--ease-apple-out),
-        border-color 0.35s var(--ease-apple-out);
-    will-change: transform;
 }
 
-.topic-preview:hover {
-    transform: translateY(-3px) scale(1.01);
+/* Scroll reveal state */
+.topic-preview.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: 
+        opacity 0.8s var(--ease-apple-out),
+        transform 0.8s var(--ease-apple-out),
+        box-shadow 0.8s var(--ease-apple-out);
+}
+
+.topic-preview.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Hover only after visible */
+.topic-preview.scroll-reveal.is-visible:hover {
+    transform: translateY(-4px) scale(1.01);
     box-shadow: var(--shadow-md);
 }
 

@@ -460,8 +460,8 @@ function initScrollReveal() {
     scrollRevealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Staggered delay ile görünür yap
-                const delay = Math.min(index * 50, 300); // Max 300ms delay
+                // Apple-style staggered delay (daha yavaş)
+                const delay = Math.min(index * 100, 400); // 100ms aralık, max 400ms
                 setTimeout(() => {
                     entry.target.classList.add('is-visible');
                 }, delay);
@@ -472,8 +472,8 @@ function initScrollReveal() {
         });
     }, {
         root: null, // viewport
-        rootMargin: '0px 0px -50px 0px', // Alt kısımdan 50px önce tetikle
-        threshold: 0.1 // %10 görünür olduğunda
+        rootMargin: '0px 0px -100px 0px', // Alt kısımdan 100px önce tetikle (daha geç)
+        threshold: 0.15 // %15 görünür olduğunda
     });
     
     // Mevcut kartları observe et

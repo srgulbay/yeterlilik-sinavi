@@ -20,7 +20,7 @@
     gap: var(--space-4);
 }
 
-/* Hero Card - Glassmorphism */
+/* Hero Card - Glassmorphism with Apple entrance */
 .overview-hero {
     display: flex;
     justify-content: space-between;
@@ -35,6 +35,18 @@
     flex-wrap: wrap;
     position: relative;
     overflow: hidden;
+    
+    /* Apple-style entrance */
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+    animation: studyHeroReveal 0.9s var(--ease-apple-out) 0.1s forwards;
+}
+
+@keyframes studyHeroReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .overview-hero::before {
@@ -103,7 +115,7 @@
     color: var(--text-tertiary);
 }
 
-/* Metric Cards - Overview Grid */
+/* Metric Cards - Overview Grid with staggered animation */
 .overview-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -116,11 +128,37 @@
     border-radius: var(--radius-lg);
     padding: var(--space-5);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    /* Apple-style entrance */
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    animation: metricCardReveal 0.8s var(--ease-apple-out) forwards;
+}
+
+/* Staggered delay for metric cards */
+.metric-card:nth-child(1) { animation-delay: 0.2s; }
+.metric-card:nth-child(2) { animation-delay: 0.3s; }
+.metric-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes metricCardReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Hover after reveal */
+.metric-card {
     transition: 
         transform 0.35s var(--ease-apple-out),
         box-shadow 0.35s var(--ease-apple-out);
-    position: relative;
-    overflow: hidden;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: var(--shadow-lg);
 }
 
 .metric-card::before {
@@ -132,11 +170,6 @@
     height: 3px;
     background: var(--border);
     transition: background 0.35s var(--ease-apple);
-}
-
-.metric-card:hover {
-    transform: translateY(-3px) scale(1.01);
-    box-shadow: var(--shadow-lg);
 }
 
 .metric-card:hover::before {
