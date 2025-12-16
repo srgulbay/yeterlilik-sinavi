@@ -371,3 +371,15 @@ function syncSidebarFilters() {
         btn.classList.toggle('active', btn.dataset.topic === currentTopic);
     });
 }
+
+/**
+ * Global filter function for Dock integration
+ * @param {string} filterId - Filter ID from dock (bakteriyoloji, viroloji, etc.)
+ */
+window.filterDetailCards = function(filterId) {
+    currentTopic = filterId;
+    renderDetailCards(detailsData);
+    syncDockChips();
+    syncSidebarFilters();
+    console.log('Details: Filtered by', filterId);
+}

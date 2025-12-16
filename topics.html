@@ -59,26 +59,22 @@
                     <i class="fas fa-shield-virus"></i> İmmunoloji
                 </button>
             </nav>
-
-            <div class="profile-section">
-                <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-                    <i class="fas fa-moon" data-theme-icon></i>
-                    <span data-theme-text>Koyu Mod</span>
-                </button>
-            </div>
         </aside>
 
         <!-- Ana İçerik -->
         <main class="main-content">
-            <header class="topics-header">
-                <div class="topics-header__info">
-                    <p class="header-eyebrow">Kapsamlı Konu Anlatımları</p>
-                    <h1>Konu Özetleri</h1>
-                    <p class="header-desc">Tüm detaylarıyla, sistematik konu anlatımları</p>
+            <header class="page-header">
+                <div class="page-header__info">
+                    <span class="page-header__eyebrow">Kapsamlı Konu Anlatımları</span>
+                    <h1 class="page-header__title">Konu Özetleri</h1>
+                    <p class="page-header__desc">Tüm detaylarıyla, sistematik konu anlatımları</p>
                 </div>
-                <div class="header-search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Konu veya anahtar kelime ara...">
+                <div class="page-header__actions">
+                    <button class="page-header__search-btn" type="button" data-search-trigger>
+                        <i class="fas fa-magnifying-glass"></i>
+                        <span>Ara...</span>
+                        <kbd>⌘K</kbd>
+                    </button>
                 </div>
             </header>
 
@@ -100,41 +96,103 @@
     </div>
 
     <!-- Alt Dock -->
-    <div class="session-dock" data-dock-context="topics" role="region" aria-label="Konu özetleri hızlı erişim">
-        <button class="dock-toggle" type="button" aria-expanded="true" aria-label="Alt adayı daralt">
-            <i class="fas fa-chevron-down"></i>
-        </button>
+    <div class="session-dock" role="region" aria-label="Hızlı erişim dock">
         <div class="dock-content">
-            <div class="dock-mode-group">
-                <button class="dock-chip active" data-topic-chip="all">Tümü</button>
-                <button class="dock-chip" data-topic-chip="bakteriyoloji">Bakteriyoloji</button>
-                <button class="dock-chip" data-topic-chip="viroloji">Viroloji</button>
-                <button class="dock-chip" data-topic-chip="mikoloji">Mikoloji</button>
-                <button class="dock-chip" data-topic-chip="parazitoloji">Parazitoloji</button>
-                <button class="dock-chip" data-topic-chip="immunoloji">İmmunoloji</button>
-            </div>
-            <div class="dock-actions">
-                <button class="dock-link" type="button" data-dock-link="details.html">
-                    <i class="fas fa-layer-group"></i>
-                    Kartlar
-                </button>
-                <button class="dock-link" type="button" data-dock-link="index.html">
+            <!-- Navigasyon Butonları -->
+            <div class="dock-nav">
+                <a href="index.html" class="dock-nav-btn" data-page="index" title="Referans Kartları">
                     <i class="fas fa-book-medical"></i>
-                    Referans
-                </button>
-                <button class="dock-home" type="button" data-dock-link="study.html">
+                    <span>Referans</span>
+                </a>
+                <a href="details.html" class="dock-nav-btn" data-page="details" title="Hafıza Kartları">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Kartlar</span>
+                </a>
+                <a href="topics.html" class="dock-nav-btn active" data-page="topics" title="Konu Özetleri">
+                    <i class="fas fa-book-open"></i>
+                    <span>Özetler</span>
+                </a>
+                <a href="study.html" class="dock-nav-btn dock-nav-btn--primary" data-page="study" title="SRS Çalışma">
                     <i class="fas fa-brain"></i>
-                    SRS
+                    <span>SRS</span>
+                </a>
+            </div>
+            
+            <!-- Ayraç -->
+            <div class="dock-divider"></div>
+            
+            <!-- Araçlar -->
+            <div class="dock-tools">
+                <button class="dock-tool-btn" type="button" data-search-trigger title="Ara (⌘K)">
+                    <i class="fas fa-magnifying-glass"></i>
                 </button>
-                <button class="dock-icon dock-theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Tema değiştir">
+                <button class="dock-tool-btn" type="button" data-filter-menu-trigger title="Konu Filtreleri">
+                    <i class="fas fa-filter"></i>
+                </button>
+                <button class="dock-tool-btn" type="button" data-theme-toggle title="Tema Değiştir">
                     <i class="fas fa-moon" data-theme-icon></i>
                 </button>
             </div>
         </div>
+        <button class="dock-minimize" type="button" aria-label="Dock'u gizle" title="Dock'u gizle">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+    
+    <!-- Filtre Menüsü -->
+    <div class="dock-filter-menu" id="dockFilterMenu" hidden>
+        <div class="dock-filter-menu__header">
+            <span>Konu Filtreleri</span>
+            <button type="button" class="dock-filter-menu__close" aria-label="Kapat">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <div class="dock-filter-menu__list" id="filterMenuList">
+            <!-- JavaScript ile doldurulacak -->
+        </div>
     </div>
 
+    <!-- Dock FAB - Minimize/Expand Toggle -->
+    <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="Dock'u aç">
+        <i class="fas fa-grip-lines"></i>
+    </button>
+
+    <!-- Mobile Dock - Glassmorphism Pill Style -->
+    <nav class="mobile-dock" id="mobileDock" role="navigation" aria-label="Mobil navigasyon">
+        <!-- Pill State (Collapsed) -->
+        <div class="dock__pill">
+            <button class="dock__pill-btn" data-action="search" aria-label="Arama">
+                <i class="fas fa-magnifying-glass"></i>
+            </button>
+            <button class="dock__pill-btn" data-action="theme" aria-label="Tema değiştir">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="index" aria-label="Referans Panel">
+                <i class="fas fa-book-medical"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="details" aria-label="Hafıza Kartları">
+                <i class="fas fa-layer-group"></i>
+            </button>
+            <button class="dock__pill-btn active" data-page="topics" aria-label="Konu Özetleri" aria-current="page">
+                <i class="fas fa-book-open"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="study" aria-label="SRS Çalışma">
+                <i class="fas fa-brain"></i>
+            </button>
+            <button class="dock__pill-btn" data-action="filters" aria-label="Filtreler">
+                <i class="fas fa-sliders"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Global veri dosyaları -->
+    <script src="data/enriched_content.js"></script>
+    <script src="data/details-content.js"></script>
     <script src="data/topics-content.js"></script>
     <script src="theme/topics.js"></script>
     <script src="theme/dock.js"></script>
+    <script src="theme/mobile-dock.js"></script>
+    <script src="theme/dock-fab.js"></script>
+    <script src="theme/global-search.js"></script>
 </body>
 </html>

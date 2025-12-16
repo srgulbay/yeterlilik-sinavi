@@ -1,0 +1,375 @@
+/**
+ * ============================================
+ * DESIGN TOKENS - Merkezi Tasarım Değişkenleri
+ * ============================================
+ * Versiyon: 3.0.0 (Glassmorphism Edition)
+ * Tarih: 16 Aralık 2025
+ * 
+ * Bu dosya tüm tasarım değişkenlerini merkezi olarak tanımlar.
+ * Tüm CSS dosyaları bu değişkenleri kullanmalıdır.
+ */
+
+/* ==========================================
+   ROOT - Light Theme (Default)
+   ========================================== */
+:root {
+    /* --------------------------------
+       Primary Colors - Marka Renkleri
+       -------------------------------- */
+    --primary: #4f46e5;           /* Indigo - Ana marka rengi */
+    --primary-light: #818cf8;     /* Hover states */
+    --primary-dark: #3730a3;      /* Active states */
+    --primary-soft: #e0e7ff;      /* Soft background */
+    --primary-ghost: rgba(79, 70, 229, 0.08); /* Ghost/transparent */
+    
+    /* --------------------------------
+       Accent Colors - Vurgu Renkleri
+       -------------------------------- */
+    --accent: #22d3ee;            /* Cyan - Vurgu rengi */
+    --accent-light: #67e8f9;      /* Light accent */
+    --accent-dark: #0891b2;       /* Dark accent */
+    
+    /* --------------------------------
+       Category Colors - Mikrobiyoloji Kategorileri
+       -------------------------------- */
+    --cat-bakteriyoloji: #ef4444;
+    --cat-bakteriyoloji-light: rgba(239, 68, 68, 0.15);
+    --cat-bakteriyoloji-soft: rgba(239, 68, 68, 0.05);
+    
+    --cat-viroloji: #a855f7;
+    --cat-viroloji-light: rgba(168, 85, 247, 0.15);
+    --cat-viroloji-soft: rgba(168, 85, 247, 0.05);
+    
+    --cat-mikoloji: #22c55e;
+    --cat-mikoloji-light: rgba(34, 197, 94, 0.15);
+    --cat-mikoloji-soft: rgba(34, 197, 94, 0.05);
+    
+    --cat-parazitoloji: #f59e0b;
+    --cat-parazitoloji-light: rgba(245, 158, 11, 0.15);
+    --cat-parazitoloji-soft: rgba(245, 158, 11, 0.05);
+    
+    --cat-immunoloji: #3b82f6;
+    --cat-immunoloji-light: rgba(59, 130, 246, 0.15);
+    --cat-immunoloji-soft: rgba(59, 130, 246, 0.05);
+    
+    /* --------------------------------
+       Semantic Colors - Durum Renkleri
+       -------------------------------- */
+    --success: #10b981;           /* Yeşil - Başarı */
+    --success-light: #34d399;
+    --success-dark: #059669;
+    
+    --warning: #f59e0b;           /* Turuncu - Uyarı */
+    --warning-light: #fbbf24;
+    --warning-dark: #d97706;
+    
+    --danger: #ef4444;            /* Kırmızı - Hata */
+    --danger-light: #f87171;
+    --danger-dark: #dc2626;
+    
+    --info: #3b82f6;              /* Mavi - Bilgi */
+    --info-light: #60a5fa;
+    --info-dark: #2563eb;
+    
+    /* --------------------------------
+       Text Colors - Metin Renkleri
+       -------------------------------- */
+    --text-main: #0f172a;         /* Ana metin */
+    --text-primary: #0f172a;      /* Ana metin (alias) */
+    --text-secondary: #475569;    /* İkincil metin */
+    --text-tertiary: #94a3b8;     /* Üçüncül metin */
+    --text-muted: #cbd5e1;        /* Soluk metin */
+    --text-inverse: #ffffff;      /* Ters metin (koyu arka plan için) */
+    
+    /* --------------------------------
+       Background Colors - Arkaplan
+       -------------------------------- */
+    --bg-body: #f4f6fb;           /* Sayfa arkaplan */
+    --bg-primary: #ffffff;        /* Ana arkaplan */
+    --bg-secondary: #f8fafc;      /* İkincil arkaplan */
+    --bg-tertiary: #f1f5f9;       /* Üçüncül arkaplan */
+    --bg-card: #ffffff;           /* Kart arkaplan */
+    --bg-sidebar: #ffffff;        /* Sidebar arkaplan */
+    
+    /* --------------------------------
+       Border Colors - Çerçeveler
+       -------------------------------- */
+    --border: #e2e8f0;            /* Normal çerçeve */
+    --border-light: #f1f5f9;      /* Hafif çerçeve */
+    --border-strong: #cbd5e1;     /* Güçlü çerçeve */
+    --border-subtle: rgba(148, 163, 184, 0.15); /* Subtle/soft border */
+    --border-focus: var(--primary); /* Focus çerçeve */
+    
+    /* --------------------------------
+       Glassmorphism - Cam Efektleri
+       -------------------------------- */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-bg-light: rgba(255, 255, 255, 0.6);
+    --glass-bg-heavy: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-border-light: rgba(255, 255, 255, 0.2);
+    --glass-border-width: 1px;
+    --glass-blur: blur(20px) saturate(180%);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --glass-shadow-colored: 0 4px 16px rgba(79, 70, 229, 0.15);
+    --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    
+    /* --------------------------------
+       Icon System - İkon Değişkenleri
+       -------------------------------- */
+    --icon-primary: var(--primary);
+    --icon-secondary: var(--text-secondary);
+    --icon-tertiary: var(--text-tertiary);
+    --icon-muted: var(--text-muted);
+    --icon-accent: var(--accent);
+    --icon-success: var(--success);
+    --icon-warning: var(--warning);
+    --icon-danger: var(--danger);
+    --icon-info: var(--info);
+    
+    /* Icon Backgrounds (Glassmorphism) */
+    --icon-bg-glass: rgba(255, 255, 255, 0.3);
+    --icon-bg-glass-hover: rgba(79, 70, 229, 0.15);
+    --icon-border-glass: rgba(255, 255, 255, 0.2);
+    
+    /* Icon Sizes */
+    --icon-xs: 0.875rem;          /* 14px */
+    --icon-sm: 1rem;              /* 16px */
+    --icon-md: 1.25rem;           /* 20px */
+    --icon-lg: 1.5rem;            /* 24px */
+    --icon-xl: 2rem;              /* 32px */
+    --icon-2xl: 2.5rem;           /* 40px */
+    --icon-3xl: 3rem;             /* 48px */
+    
+    /* --------------------------------
+       Spacing Scale - 4px Grid
+       -------------------------------- */
+    --space-0: 0;
+    --space-1: 0.25rem;           /* 4px */
+    --space-2: 0.5rem;            /* 8px */
+    --space-3: 0.75rem;           /* 12px */
+    --space-4: 1rem;              /* 16px */
+    --space-5: 1.25rem;           /* 20px */
+    --space-6: 1.5rem;            /* 24px */
+    --space-8: 2rem;              /* 32px */
+    --space-10: 2.5rem;           /* 40px */
+    --space-12: 3rem;             /* 48px */
+    --space-16: 4rem;             /* 64px */
+    --space-20: 5rem;             /* 80px */
+    --space-24: 6rem;             /* 96px */
+    --space-32: 8rem;             /* 128px */
+    --space-40: 10rem;            /* 160px */
+    
+    /* --------------------------------
+       Typography - Font Families
+       -------------------------------- */
+    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    
+    /* Font Sizes */
+    --text-2xs: 0.625rem;         /* 10px */
+    --text-xs: 0.75rem;           /* 12px */
+    --text-sm: 0.875rem;          /* 14px */
+    --text-base: 1rem;            /* 16px */
+    --text-lg: 1.125rem;          /* 18px */
+    --text-xl: 1.25rem;           /* 20px */
+    --text-2xl: 1.5rem;           /* 24px */
+    --text-3xl: 1.875rem;         /* 30px */
+    --text-4xl: 2.25rem;          /* 36px */
+    --text-5xl: 3rem;             /* 48px */
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+    
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    
+    /* --------------------------------
+       Border Radius
+       -------------------------------- */
+    --radius-none: 0;
+    --radius-sm: 0.5rem;          /* 8px - küçük elemanlar */
+    --radius-md: 0.75rem;         /* 12px - kartlar */
+    --radius-lg: 1rem;            /* 16px - büyük kartlar */
+    --radius-xl: 1.5rem;          /* 24px - hero elemanlar */
+    --radius-2xl: 2rem;           /* 32px */
+    --radius-full: 9999px;        /* tam yuvarlak */
+    
+    /* --------------------------------
+       Shadows - Light Theme
+       -------------------------------- */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.15);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.18);
+    
+    /* Colored Shadows */
+    --shadow-primary: 0 4px 16px rgba(79, 70, 229, 0.25);
+    --shadow-primary-lg: 0 12px 25px rgba(79, 70, 229, 0.35);
+    --shadow-accent: 0 4px 16px rgba(34, 211, 238, 0.25);
+    
+    /* --------------------------------
+       Transitions & Animations
+       -------------------------------- */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Easing Functions - Apple-inspired */
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Apple.com signature easing */
+    --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-apple-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-apple-in-out: cubic-bezier(0.45, 0, 0.15, 1);
+    
+    /* --------------------------------
+       Z-Index Scale
+       -------------------------------- */
+    --z-below: -1;
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sidebar: 15;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-overlay: 40;
+    --z-modal: 50;
+    --z-popover: 60;
+    --z-tooltip: 70;
+    --z-dock: 100;
+    --z-dock-panel: 101;
+    --z-max: 9999;
+    
+    /* --------------------------------
+       Layout - Widths
+       -------------------------------- */
+    --container-max: 1440px;
+    --sidebar-width: 230px;
+    --sidebar-width-collapsed: 60px;
+    --max-content-width: 1440px;
+    --dock-max-width: 960px;
+    
+    /* Touch Targets */
+    --touch-target-min: 44px;
+    
+    /* --------------------------------
+       Breakpoints (for reference)
+       -------------------------------- */
+    /* 
+     * --breakpoint-sm: 640px;
+     * --breakpoint-md: 768px;
+     * --breakpoint-lg: 1024px;
+     * --breakpoint-xl: 1440px;
+     */
+}
+
+/* ==========================================
+   DARK THEME
+   ========================================== */
+[data-theme="dark"] {
+    /* Text Colors */
+    --text-main: #f1f5f9;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --text-muted: #64748b;
+    --text-inverse: #0f172a;
+    
+    /* Background Colors */
+    --bg-body: #050b18;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-card: #0f172a;
+    --bg-sidebar: #0b1120;
+    
+    /* Border Colors */
+    --border: rgba(148, 163, 184, 0.25);
+    --border-light: rgba(148, 163, 184, 0.15);
+    --border-strong: rgba(99, 102, 241, 0.45);
+    --border-subtle: rgba(148, 163, 184, 0.1);
+    
+    /* Primary Ghost - Dark */
+    --primary-ghost: rgba(79, 70, 229, 0.15);
+    
+    /* Glassmorphism - Dark */
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-bg-light: rgba(15, 23, 42, 0.5);
+    --glass-bg-heavy: rgba(15, 23, 42, 0.95);
+    --glass-border: rgba(148, 163, 184, 0.2);
+    --glass-border-light: rgba(148, 163, 184, 0.1);
+    --glass-blur: blur(20px) saturate(180%);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --glass-shadow-colored: 0 4px 16px rgba(79, 70, 229, 0.2);
+    --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    /* Icon Backgrounds - Dark */
+    --icon-bg-glass: rgba(30, 41, 59, 0.5);
+    --icon-bg-glass-hover: rgba(79, 70, 229, 0.2);
+    --icon-border-glass: rgba(148, 163, 184, 0.1);
+    
+    /* Shadows - Dark Theme */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.6);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.7);
+    
+    /* Colored Shadows - Dark */
+    --shadow-primary: 0 4px 16px rgba(79, 70, 229, 0.3);
+    --shadow-primary-lg: 0 12px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* ==========================================
+   REDUCED MOTION - Accessibility
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fast: 0ms;
+        --transition-base: 0ms;
+        --transition-slow: 0ms;
+        --transition-smooth: 0ms;
+    }
+}
+
+/* ==========================================
+   HIGH CONTRAST MODE - Accessibility
+   ========================================== */
+@media (prefers-contrast: high) {
+    :root {
+        --border: #000000;
+        --border-strong: #000000;
+    }
+    
+    [data-theme="dark"] {
+        --border: #ffffff;
+        --border-strong: #ffffff;
+    }
+}

@@ -1,0 +1,340 @@
+/**
+ * ============================================
+ * MOBILE DOCK CSS - Glassmorphism Pill Dock
+ * ============================================
+ * Versiyon: 3.0.0 (Glassmorphism Edition)
+ * Tarih: 16 Aralık 2025
+ * 
+ * Mobil cihazlar için pill şeklinde glassmorphism dock.
+ * Sayfa navigasyonu, tema toggle, arama ve filtre içerir.
+ * 
+ * HTML Yapısı:
+ * <nav class="mobile-dock" id="mobileDock">
+ *   <div class="dock__pill">
+ *     <button class="dock__pill-btn" data-page="index">
+ *       <i class="fa-solid fa-home"></i>
+ *     </button>
+ *     ...
+ *     <button class="dock__expand-btn dock__pill-btn" aria-expanded="false">
+ *       <i class="fa-solid fa-ellipsis"></i>
+ *     </button>
+ *   </div>
+ *   <div class="dock__panel" hidden>...</div>
+ * </nav>
+ * <div class="dock__backdrop" hidden></div>
+ */
+
+/* ==========================================
+   MOBILE DOCK CONTAINER
+   ========================================== */
+
+.mobile-dock {
+    position: fixed;
+    bottom: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    z-index: var(--z-dock);
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    
+    /* Hidden on desktop */
+    display: none;
+}
+
+/* Show on tablet and mobile */
+@media (max-width: 1024px) {
+    .mobile-dock {
+        display: block;
+    }
+}
+
+/* Safe area bottom padding (iOS) */
+@supports (bottom: env(safe-area-inset-bottom)) {
+    .mobile-dock {
+        bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+    }
+}
+
+/* ==========================================
+   DOCK PILL - Desktop-like Design
+   ========================================== */
+
+.dock__pill {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    
+    /* Glassmorphism - same as desktop session-dock */
+    background: var(--glass-bg-heavy);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    
+    /* Shadow - matches desktop */
+    box-shadow: var(--glass-shadow);
+}
+
+/* Dark theme pill */
+[data-theme="dark"] .dock__pill {
+    background: var(--glass-bg-heavy);
+    border-color: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* ==========================================
+   PILL BUTTONS - Desktop-like Nav Buttons
+   ========================================== */
+
+.dock__pill-btn {
+    /* Touch target 44x44px minimum */
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    
+    /* Flex center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Style - matches desktop dock-nav-btn */
+    border: none;
+    background: var(--bg-tertiary);
+    
+    /* Shape */
+    border-radius: var(--radius-lg);
+    
+    /* Typography */
+    color: var(--text-secondary);
+    font-size: var(--icon-md);
+    
+    /* Interaction */
+    cursor: pointer;
+    
+    /* Apple-style transition */
+    transition: 
+        background-color 0.2s var(--ease-apple),
+        color 0.2s var(--ease-apple),
+        transform 0.2s var(--ease-apple),
+        box-shadow 0.2s var(--ease-apple);
+}
+
+/* Hover state - Apple-style subtle feedback */
+@media (hover: hover) {
+    .dock__pill-btn:hover {
+        background: var(--primary-ghost);
+        color: var(--primary);
+        transform: scale(1.05);
+    }
+}
+
+/* Active/pressed state - Apple-style press */
+.dock__pill-btn:active {
+    background: var(--primary-ghost);
+    color: var(--primary);
+    transform: scale(0.95);
+    transition: transform 0.1s var(--ease-apple);
+}
+
+/* Current page / active state - Apple-style glow */
+.dock__pill-btn[aria-current="page"],
+.dock__pill-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 2px 12px rgba(79, 70, 229, 0.35);
+}
+
+@media (hover: hover) {
+    .dock__pill-btn[aria-current="page"]:hover,
+    .dock__pill-btn.active:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(79, 70, 229, 0.45);
+    }
+}
+
+/* Dark theme buttons */
+[data-theme="dark"] .dock__pill-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+@media (hover: hover) {
+    [data-theme="dark"] .dock__pill-btn:hover {
+        background: var(--primary-ghost);
+        color: var(--primary);
+    }
+}
+
+[data-theme="dark"] .dock__pill-btn:active {
+    background: var(--primary-ghost);
+    color: var(--primary);
+}
+
+/* Dark theme active state */
+[data-theme="dark"] .dock__pill-btn[aria-current="page"],
+[data-theme="dark"] .dock__pill-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 2px 12px rgba(99, 102, 241, 0.45);
+}
+
+/* ==========================================
+   DESKTOP - Hide Mobile Dock
+   ========================================== */
+
+@media (min-width: 1024px) {
+    .mobile-dock,
+    .dock__backdrop {
+        display: none !important;
+    }
+}
+
+/* ==========================================
+   LANDSCAPE ADJUSTMENTS
+   ========================================== */
+
+@media (max-width: 896px) and (orientation: landscape) {
+    .mobile-dock {
+        bottom: var(--space-4);
+    }
+    
+    .dock__pill-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        font-size: var(--icon-sm);
+    }
+    
+    .dock__panel {
+        max-height: 90vh;
+        max-height: 90dvh;
+    }
+    
+    .dock__nav-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE ADJUSTMENTS
+   ========================================== */
+
+@media (max-width: 375px) {
+    .dock__pill {
+        gap: var(--space-1);
+        padding: 6px;
+    }
+    
+    .dock__pill-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    .dock__panel-body {
+        padding: var(--space-4);
+    }
+    
+    .dock__nav-grid {
+        gap: var(--space-2);
+    }
+    
+    .dock__nav-item {
+        padding: var(--space-3);
+    }
+    
+    .dock__nav-icon {
+        width: 40px;
+        height: 40px;
+        font-size: var(--icon-lg);
+    }
+}
+
+/* ==========================================
+   DOCK MINIMIZE BUTTON
+   Apple-style interaction
+   ========================================== */
+
+.dock__minimize-btn {
+    min-width: 36px;
+    min-height: 36px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: 
+        background-color 0.2s var(--ease-apple),
+        color 0.2s var(--ease-apple),
+        transform 0.2s var(--ease-apple);
+    margin-left: var(--space-1);
+}
+
+@media (hover: hover) {
+    .dock__minimize-btn:hover {
+        background: var(--primary-ghost);
+        color: var(--primary);
+        transform: scale(1.08);
+    }
+}
+
+.dock__minimize-btn:active {
+    transform: scale(0.92);
+    transition: transform 0.1s var(--ease-apple);
+}
+
+[data-theme="dark"] .dock__minimize-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+}
+
+@media (hover: hover) {
+    [data-theme="dark"] .dock__minimize-btn:hover {
+        background: var(--primary-ghost);
+        color: var(--primary);
+        transform: scale(1.08);
+    }
+}
+
+[data-theme="dark"] .dock__minimize-btn:active {
+    transform: scale(0.92);
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .mobile-dock {
+        animation: none;
+    }
+    
+    .dock__panel {
+        animation: none;
+    }
+    
+    .dock__backdrop {
+        animation: none;
+    }
+    
+    .dock__pill-btn {
+        transition: 
+            background var(--transition-fast),
+            color var(--transition-fast);
+    }
+    
+    .dock__pill-btn:hover {
+        transform: none;
+    }
+}

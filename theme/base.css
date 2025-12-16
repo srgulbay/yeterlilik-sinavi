@@ -1,0 +1,480 @@
+/**
+ * ============================================
+ * BASE CSS - Modern Reset & Temel Stiller
+ * ============================================
+ * Versiyon: 3.0.0 (Glassmorphism Edition)
+ * Tarih: 16 Aralık 2025
+ * 
+ * Modern CSS reset ve temel element stilleri.
+ * Tüm sayfalar için temel oluşturur.
+ */
+
+/* ==========================================
+   CSS RESET - Modern Normalize
+   ========================================== */
+
+/* Box sizing kuralları */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Margin/padding sıfırlama */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* HTML & Body temel ayarları */
+html {
+    /* Smooth scroll - accessibility için disable edilebilir */
+    scroll-behavior: smooth;
+    
+    /* Font size base - rem hesaplamaları için */
+    font-size: 16px;
+    
+    /* Prevent font scaling in landscape */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    
+    /* Prevent tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    /* Typography */
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--text-main);
+    
+    /* Background */
+    background-color: var(--bg-body);
+    
+    /* Font rendering optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    
+    /* Minimum height */
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+    
+    /* Smooth theme transitions - Apple Style */
+    transition: 
+        background-color 0.5s var(--ease-apple),
+        color 0.3s var(--ease-apple);
+}
+
+/* Body scroll lock states */
+body.search-open,
+body.filters-open,
+body.dock-open,
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ==========================================
+   TYPOGRAPHY RESET
+   ========================================== */
+
+/* Heading reset */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+/* Paragraph & text */
+p {
+    margin: 0;
+}
+
+/* Lists */
+ul, ol {
+    list-style: none;
+}
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Strong & emphasis */
+strong, b {
+    font-weight: var(--font-bold);
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* Small text */
+small {
+    font-size: var(--text-sm);
+}
+
+/* Code elements */
+code, kbd, samp, pre {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ==========================================
+   MEDIA ELEMENTS
+   ========================================== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* SVG default fill */
+svg {
+    fill: currentColor;
+}
+
+/* Remove default iframe border */
+iframe {
+    border: 0;
+}
+
+/* ==========================================
+   FORM ELEMENTS
+   ========================================== */
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Button reset */
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Input reset */
+input,
+textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Remove autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-main);
+    -webkit-box-shadow: 0 0 0px 1000px var(--bg-card) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Search input - remove clear button in webkit */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+/* Number input - remove spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Textarea resize */
+textarea {
+    resize: vertical;
+}
+
+/* Select reset */
+select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Fieldset reset */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Legend reset */
+legend {
+    padding: 0;
+}
+
+/* ==========================================
+   TABLE ELEMENTS
+   ========================================== */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th {
+    text-align: left;
+    font-weight: var(--font-bold);
+}
+
+/* ==========================================
+   FOCUS STATES - Accessibility
+   ========================================== */
+
+/* Remove default outline */
+:focus {
+    outline: none;
+}
+
+/* Keyboard focus only - better accessibility */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Custom focus ring for specific elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: var(--text-inverse);
+    padding: var(--space-2) var(--space-4);
+    z-index: var(--z-max);
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ==========================================
+   SELECTION - Text highlight
+   ========================================== */
+
+::selection {
+    background-color: rgba(79, 70, 229, 0.2);
+    color: var(--text-main);
+}
+
+::-moz-selection {
+    background-color: rgba(79, 70, 229, 0.2);
+    color: var(--text-main);
+}
+
+/* ==========================================
+   SCROLLBAR STYLING
+   ========================================== */
+
+/* Webkit scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-strong);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Thin scrollbars for overflow containers */
+.thin-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+/* ==========================================
+   HIDDEN & VISIBILITY
+   ========================================== */
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Hidden attribute support */
+[hidden] {
+    display: none !important;
+}
+
+/* Visually hidden but accessible */
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* ==========================================
+   REDUCED MOTION - Accessibility
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+    
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+    
+    pre {
+        white-space: pre-wrap !important;
+    }
+    
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    
+    thead {
+        display: table-header-group;
+    }
+    
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+    
+    /* Hide non-essential elements */
+    .mobile-dock,
+    .sidebar,
+    .session-dock,
+    .global-search,
+    .filter-panel {
+        display: none !important;
+    }
+}

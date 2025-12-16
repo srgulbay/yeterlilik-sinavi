@@ -354,3 +354,20 @@ function syncSidebarFilters() {
         btn.classList.toggle('active', btn.dataset.topic === currentCategory);
     });
 }
+
+/**
+ * Global filter function for Dock integration
+ * @param {string} filterId - Filter ID from dock (bakteriyoloji, viroloji, etc.)
+ */
+window.filterTopics = function(filterId) {
+    currentCategory = filterId;
+    renderTopicsList(topicsData);
+    syncDockChips();
+    syncSidebarFilters();
+    
+    // Go to list view if in detail view
+    if (currentView === 'detail') {
+        showTopicsList();
+    }
+    console.log('Topics: Filtered by', filterId);
+}

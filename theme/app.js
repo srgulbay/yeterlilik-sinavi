@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveButton('all');
     buildMobileFilterStrip();
     initDesktopSearch();
-    initSearchOverlay();
     initFilterPanel();
     initShareButtons();
     handleShareLink();
@@ -370,51 +369,6 @@ function syncCardToggles() {
             toggle.setAttribute('aria-expanded', String(isExpanded));
             toggle.querySelector('span').textContent = isExpanded ? 'Detayları Gizle' : 'Detayları Aç';
         };
-    });
-}
-
-function initSearchOverlay() {
-    const overlay = document.getElementById('searchOverlay');
-    const closeBtn = document.getElementById('closeSearchOverlay');
-    const mobileInput = document.getElementById('mobileSearchInput');
-    const desktopInput = document.getElementById('searchInput');
-    if (!overlay || !mobileInput) return;
-
-    const openOverlay = () => {
-        overlay.classList.add('visible');
-        overlay.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('search-open');
-        if (desktopInput) {
-            mobileInput.value = desktopInput.value;
-        }
-        window.requestAnimationFrame(() => mobileInput.focus());
-    };
-
-    const closeOverlay = () => {
-        overlay.classList.remove('visible');
-        overlay.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('search-open');
-    };
-
-    document.querySelectorAll('[data-search-trigger]').forEach((trigger) => {
-        trigger.addEventListener('click', openOverlay);
-    });
-    closeBtn?.addEventListener('click', closeOverlay);
-    overlay.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-            closeOverlay();
-        }
-    });
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && overlay.classList.contains('visible')) {
-            closeOverlay();
-        }
-    });
-    mobileInput.addEventListener('input', () => {
-        if (desktopInput) {
-            desktopInput.value = mobileInput.value;
-        }
-        searchContent();
     });
 }
 
