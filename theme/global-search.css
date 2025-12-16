@@ -230,7 +230,7 @@
 }
 
 /* ==========================================
-   RESULT ITEMS
+   RESULT ITEMS - Apple Style
    ========================================== */
 
 .global-search__item {
@@ -241,7 +241,10 @@
     margin: 0 var(--space-2);
     border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: 
+        background-color 0.2s var(--ease-apple),
+        transform 0.2s var(--ease-apple-out),
+        box-shadow 0.2s var(--ease-apple);
     text-decoration: none;
     color: inherit;
 }
@@ -249,6 +252,7 @@
 .global-search__item:hover,
 .global-search__item.active {
     background: var(--primary-ghost);
+    transform: translateX(4px);
 }
 
 .global-search__item.active {

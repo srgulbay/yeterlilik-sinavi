@@ -116,7 +116,9 @@
     border-radius: var(--radius-lg);
     padding: var(--space-5);
     text-align: center;
-    transition: var(--transition-base);
+    transition: 
+        transform 0.35s var(--ease-apple-out),
+        box-shadow 0.35s var(--ease-apple-out);
     position: relative;
     overflow: hidden;
 }
@@ -129,11 +131,11 @@
     right: 0;
     height: 3px;
     background: var(--border);
-    transition: var(--transition-base);
+    transition: background 0.35s var(--ease-apple);
 }
 
 .metric-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px) scale(1.01);
     box-shadow: var(--shadow-lg);
 }
 
@@ -418,7 +420,7 @@ body.session-active .flashcard {
     display: block;
 }
 
-/* Progress Bar */
+/* Progress Bar - Apple Style */
 .card-progress {
     margin-bottom: var(--space-5);
 }
@@ -442,16 +444,16 @@ body.session-active .flashcard {
 .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--primary), var(--success));
-    transition: width 0.3s ease;
+    transition: width 0.5s var(--ease-apple-out);
     border-radius: var(--radius-full);
 }
 
-/* Flashcard Inner (3D Flip) */
+/* Flashcard Inner (3D Flip) - Apple Style */
 .flashcard-inner {
     position: relative;
     width: 100%;
     min-height: 440px;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.7s var(--ease-apple-in-out);
     transform-style: preserve-3d;
 }
 
@@ -459,7 +461,7 @@ body.session-active .flashcard {
     transform: rotateY(180deg);
 }
 
-/* Card Faces */
+/* Card Faces - Apple Style */
 .flashcard-front,
 .flashcard-back {
     position: absolute;
@@ -472,7 +474,9 @@ body.session-active .flashcard {
     padding: var(--space-8);
     box-shadow: var(--shadow-glass);
     border: 1px solid var(--glass-border);
-    transition: var(--transition-base);
+    transition: 
+        box-shadow 0.35s var(--ease-apple-out),
+        border-color 0.35s var(--ease-apple);
 }
 
 /* Front Face */
@@ -630,7 +634,7 @@ body.session-active .flashcard {
 }
 
 /* ==========================================
-   DIFFICULTY BUTTONS - Zorluk Seçimi
+   DIFFICULTY BUTTONS - Apple Style
    ========================================== */
 
 .difficulty-buttons {
@@ -645,7 +649,10 @@ body.session-active .flashcard {
     border: 2px solid transparent;
     border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: var(--transition-base);
+    transition: 
+        transform 0.25s var(--ease-apple-out),
+        box-shadow 0.25s var(--ease-apple-out),
+        background-color 0.25s var(--ease-apple);
     font-weight: var(--font-bold);
     display: flex;
     flex-direction: column;
@@ -663,12 +670,16 @@ body.session-active .flashcard {
     right: 0;
     height: 3px;
     transform: scaleX(0);
-    transition: var(--transition-base);
+    transition: transform 0.3s var(--ease-apple-out);
 }
 
 .btn-difficulty:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: var(--shadow-lg);
+}
+
+.btn-difficulty:active {
+    transform: translateY(0) scale(0.98);
 }
 
 .btn-difficulty:hover::before {

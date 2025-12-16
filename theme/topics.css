@@ -168,12 +168,16 @@
     font-weight: var(--font-semibold);
     color: var(--text-secondary);
     margin-bottom: var(--space-6);
-    transition: var(--transition);
+    transition: 
+        transform 0.25s var(--ease-apple-out),
+        color 0.25s var(--ease-apple),
+        border-color 0.25s var(--ease-apple);
 }
 
 .topic-back-btn:hover {
     color: var(--primary);
     border-color: var(--primary);
+    transform: translateX(-4px);
 }
 
 /* Article Styles */

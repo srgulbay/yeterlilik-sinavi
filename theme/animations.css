@@ -499,21 +499,31 @@
 }
 
 /* ==========================================
-   TRANSITION UTILITIES
+   TRANSITION UTILITIES - Apple Style
    ========================================== */
 
 .transition-none { transition: none; }
-.transition-all { transition: all var(--transition-base); }
-.transition-colors { transition: color var(--transition-base), background-color var(--transition-base), border-color var(--transition-base); }
-.transition-opacity { transition: opacity var(--transition-base); }
-.transition-transform { transition: transform var(--transition-base); }
-.transition-shadow { transition: box-shadow var(--transition-base); }
+.transition-all { transition: all 0.3s var(--ease-apple); }
+.transition-colors { 
+    transition: 
+        color 0.25s var(--ease-apple), 
+        background-color 0.25s var(--ease-apple), 
+        border-color 0.25s var(--ease-apple); 
+}
+.transition-opacity { transition: opacity 0.3s var(--ease-apple); }
+.transition-transform { transition: transform 0.3s var(--ease-apple-out); }
+.transition-shadow { transition: box-shadow 0.3s var(--ease-apple-out); }
 
 /* Transition Speeds */
-.transition-fast { transition-duration: var(--transition-fast); }
-.transition-base { transition-duration: var(--transition-base); }
-.transition-slow { transition-duration: var(--transition-slow); }
-.transition-smooth { transition-duration: var(--transition-smooth); }
+.transition-fast { transition-duration: 0.15s; }
+.transition-base { transition-duration: 0.25s; }
+.transition-slow { transition-duration: 0.4s; }
+.transition-smooth { transition-duration: 0.5s; }
+
+/* Apple-style Easing Utilities */
+.ease-apple { transition-timing-function: var(--ease-apple); }
+.ease-apple-out { transition-timing-function: var(--ease-apple-out); }
+.ease-apple-in-out { transition-timing-function: var(--ease-apple-in-out); }
 
 /* ==========================================
    ENTRANCE EFFECTS
@@ -536,38 +546,38 @@
 /* Fade in on load */
 .appear-on-load {
     opacity: 0;
-    animation: fadeIn var(--transition-smooth) var(--ease-out) forwards;
+    animation: fadeIn 0.5s var(--ease-apple-out) forwards;
 }
 
 /* ==========================================
-   MICRO-INTERACTIONS
+   MICRO-INTERACTIONS - Apple Style
    ========================================== */
 
 /* Button Press Effect */
 .press-effect {
-    transition: transform var(--transition-fast);
+    transition: transform 0.15s var(--ease-apple-out);
 }
 
 .press-effect:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
 }
 
 /* Toggle Switch Animation */
 .toggle-switch {
-    transition: background-color var(--transition-fast);
+    transition: background-color 0.25s var(--ease-apple);
 }
 
 .toggle-switch__thumb {
-    transition: transform var(--transition-base);
+    transition: transform 0.3s var(--ease-apple-out);
 }
 
-/* Card Flip */
+/* Card Flip - Apple Style */
 .flip-card {
     perspective: 1000px;
 }
 
 .flip-card__inner {
-    transition: transform var(--transition-slow);
+    transition: transform 0.7s var(--ease-apple-in-out);
     transform-style: preserve-3d;
 }
 
