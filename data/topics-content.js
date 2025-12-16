@@ -1350,6 +1350,859 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 4,
+        category: "bakteriyoloji",
+        title: "Bakteriyoloji Ayırıcı Testler",
+        subtitle: "Biyokimyasal Testler ve Önemli Etkenler",
+        summary: "Klinik mikrobiyolojide bakterilerin identifikasyonunda kullanılan temel biyokimyasal ve fenotipik testlerin kapsamlı özeti. CAMP, katalaz, oksidaz, koagülaz ve diğer kritik testler.",
+        tags: ["Biyokimyasal Test", "Katalaz", "Oksidaz", "Koagülaz", "CAMP", "Tanısal Mikrobiyoloji"],
+        sections: [
+            {
+                title: "Hemoliz ve CAMP Testleri",
+                icon: "fas fa-tint",
+                content: `
+                    <p>Hemoliz paterni, özellikle <strong>Streptococcus</strong> ve <strong>Staphylococcus</strong> türlerinin ayırımında kritik öneme sahiptir.</p>
+                    
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hemoliz Tipleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Hemoliz Tipi</th>
+                                <th>Görünüm</th>
+                                <th>Önemli Etkenler</th>
+                            </tr>
+                            <tr>
+                                <td><b>α-Hemoliz</b></td>
+                                <td>Yeşilimsi zon (parsiyel)</td>
+                                <td>S. pneumoniae, S. viridans grubu</td>
+                            </tr>
+                            <tr>
+                                <td><b>β-Hemoliz</b></td>
+                                <td>Berrak zon (tam)</td>
+                                <td>S. pyogenes, S. agalactiae, S. aureus, L. monocytogenes</td>
+                            </tr>
+                            <tr>
+                                <td><b>γ-Hemoliz</b></td>
+                                <td>Hemoliz yok</td>
+                                <td>Enterococcus spp., S. saprophyticus</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CAMP Testi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> S. aureus β-toksini ile sinerjistik hemoliz</li>
+                            <li class="feature-item"><b>Görünüm:</b> Ok başı şeklinde genişlemiş hemoliz</li>
+                            <li class="feature-item"><b>CAMP POZİTİF:</b> <strong>S. agalactiae (GBS)</strong></li>
+                            <li class="feature-item"><b>Yanlış pozitiflik:</b> Bazı Listeria türleri (L. ivanovii)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ters (Reverse) CAMP Testi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> S. agalactiae ile yapılır (CAMP faktör kaynağı)</li>
+                            <li class="feature-item"><b>Görünüm:</b> Kesişim noktasında hemoliz <strong>İNHİBİSYONU</strong> (bumerang şekli)</li>
+                            <li class="feature-item"><b>Ters CAMP POZİTİF:</b> <strong>Clostridium perfringens</strong>, <strong>Arcanobacterium haemolyticum</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Sınav İpucu</p>
+                        <p class="highlight-box__content">
+                            <strong>CAMP (+):</strong> GBS (ok ucu hemoliz)<br>
+                            <strong>Ters CAMP (+):</strong> C. perfringens (hemoliz inhibisyonu)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Katalaz ve Oksidaz Testleri",
+                icon: "fas fa-flask",
+                content: `
+                    <p>Temel enzim testleri bakterilerin ilk ayrımında kullanılır.</p>
+                    
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Katalaz Testi</h4>
+                        <p><strong>Prensip:</strong> H₂O₂ → H₂O + O₂ (kabarcık oluşumu)</p>
+                        <table class="article-table">
+                            <tr>
+                                <th>Katalaz POZİTİF</th>
+                                <th>Katalaz NEGATİF</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Staphylococcus</b> tüm türleri<br>
+                                    Enterobacteriaceae<br>
+                                    Pseudomonas<br>
+                                    Bacillus<br>
+                                    Listeria<br>
+                                    Corynebacterium<br>
+                                    Mycobacterium<br>
+                                    Neisseria<br>
+                                    Haemophilus
+                                </td>
+                                <td>
+                                    <b>Streptococcus</b> tüm türleri<br>
+                                    <b>Enterococcus</b><br>
+                                    Clostridium<br>
+                                    Lactobacillus<br>
+                                    Abiotrophia
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Klinik Kullanım:</strong> Katalaz testi Gram (+) kokların ilk ayrımında kritiktir:<br>
+                        <strong>Katalaz (+) Gram (+) kok = Staphylococcus</strong><br>
+                        <strong>Katalaz (-) Gram (+) kok = Streptococcus/Enterococcus</strong></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Oksidaz Testi</h4>
+                        <p><strong>Prensip:</strong> Sitokrom c oksidaz varlığını tespit eder (mor/mavi renk)</p>
+                        <table class="article-table">
+                            <tr>
+                                <th>Oksidaz POZİTİF</th>
+                                <th>Oksidaz NEGATİF</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Pseudomonas</b><br>
+                                    <b>Neisseria</b><br>
+                                    <b>Vibrio</b><br>
+                                    <b>Campylobacter</b><br>
+                                    <b>Helicobacter</b><br>
+                                    Aeromonas<br>
+                                    Plesiomonas<br>
+                                    Alcaligenes<br>
+                                    Moraxella<br>
+                                    Pasteurella
+                                </td>
+                                <td>
+                                    <b>Enterobacteriaceae</b> (tümü!)<br>
+                                    Staphylococcus<br>
+                                    Streptococcus<br>
+                                    Acinetobacter<br>
+                                    Stenotrophomonas
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kritik Ayrım</p>
+                        <p class="highlight-box__content">
+                            <strong>Gram (-) basil, Oksidaz (+):</strong> Pseudomonas, Vibrio, Aeromonas düşün<br>
+                            <strong>Gram (-) basil, Oksidaz (-):</strong> Enterobacteriaceae düşün<br>
+                            <strong>İstisna:</strong> Acinetobacter oksidaz (-) non-fermentatif!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Koagülaz Testleri",
+                icon: "fas fa-vial",
+                content: `
+                    <p>Koagülaz testi <strong>Staphylococcus aureus</strong>'u diğer stafilokoklardan ayırmada altın standarttır.</p>
+                    
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Serbest (Tüp) Koagülaz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> Protrombini trombine çevirir → Fibrinojen pıhtılaşır</li>
+                            <li class="feature-item"><b>Süre:</b> 4-24 saat inkübasyon</li>
+                            <li class="feature-item"><b>Altın standart:</b> En güvenilir yöntem</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bağlı (Lam/Slide) Koagülaz (Clumping Factor)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> Fibrinojene doğrudan bağlanma → Aglütinasyon</li>
+                            <li class="feature-item"><b>Süre:</b> Saniyeler içinde sonuç</li>
+                            <li class="feature-item"><b>Avantaj:</b> Hızlı tarama</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> Bazı suşlar negatif olabilir</li>
+                        </ul>
+                    </div>
+
+                    <table class="article-table">
+                        <tr>
+                            <th>Tür</th>
+                            <th>Tüp Koagülaz</th>
+                            <th>Lam Koagülaz</th>
+                            <th>Klinik Önemi</th>
+                        </tr>
+                        <tr>
+                            <td><b>S. aureus</b></td>
+                            <td><strong>POZİTİF</strong></td>
+                            <td><strong>POZİTİF</strong></td>
+                            <td>En önemli patojen stafilokok</td>
+                        </tr>
+                        <tr>
+                            <td><b>S. lugdunensis</b></td>
+                            <td>Negatif</td>
+                            <td><strong>POZİTİF</strong></td>
+                            <td>S. aureus gibi virülan KNS!</td>
+                        </tr>
+                        <tr>
+                            <td><b>S. schleiferi</b></td>
+                            <td>Negatif/Pozitif</td>
+                            <td>Değişken</td>
+                            <td>Köpek otit etkeni</td>
+                        </tr>
+                        <tr>
+                            <td><b>S. intermedius</b></td>
+                            <td><strong>POZİTİF</strong></td>
+                            <td>Değişken</td>
+                            <td>Köpek/kedi ısırığı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Diğer KNS</b></td>
+                            <td>Negatif</td>
+                            <td>Negatif</td>
+                            <td>S. epidermidis, S. saprophyticus vb.</td>
+                        </tr>
+                    </table>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>S. lugdunensis Tuzağı:</strong> Lam koagülaz POZİTİF olduğu için S. aureus ile karışabilir! Ancak tüp koagülaz NEGATİF'tir. PYR testi ile ayrılır (S. lugdunensis PYR +, S. aureus PYR -).</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">KNS Ayırımı</p>
+                        <p class="highlight-box__content">
+                            <strong>Novobiosin DİRENÇLİ:</strong> S. saprophyticus (ÜYE etkeni, genç kadınlarda)<br>
+                            <strong>Novobiosin DUYARLI:</strong> S. epidermidis ve diğer KNS
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antibiyotik Duyarlılık ile Ayırım",
+                icon: "fas fa-pills",
+                content: `
+                    <p>Bazı bakterilerin identifikasyonunda spesifik antibiyotiklere duyarlılık/direnç kullanılır.</p>
+                    
+                    <table class="article-table">
+                        <tr>
+                            <th>Antibiyotik</th>
+                            <th>Duyarlı</th>
+                            <th>Dirençli</th>
+                            <th>Kullanım</th>
+                        </tr>
+                        <tr>
+                            <td><b>Optokin (P disk)</b></td>
+                            <td><strong>S. pneumoniae</strong></td>
+                            <td>S. viridans grubu</td>
+                            <td>α-hemolitik streptokokların ayrımı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Basitrasin (A disk)</b></td>
+                            <td><strong>S. pyogenes (GAS)</strong></td>
+                            <td>S. agalactiae (GBS), diğer β-hemolitik</td>
+                            <td>β-hemolitik streptokokların ayrımı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Novobiosin</b></td>
+                            <td>S. epidermidis, diğer KNS</td>
+                            <td><strong>S. saprophyticus</strong></td>
+                            <td>KNS ayrımı</td>
+                        </tr>
+                        <tr>
+                            <td><b>SXT (TMP-SMX)</b></td>
+                            <td>S. agalactiae (GBS)</td>
+                            <td><strong>S. pyogenes (GAS)</strong></td>
+                            <td>GAS vs GBS ek test</td>
+                        </tr>
+                        <tr>
+                            <td><b>Polimiksin B</b></td>
+                            <td>Çoğu Gram (-)</td>
+                            <td><strong>Proteus, Serratia, Burkholderia</strong></td>
+                            <td>Doğal direnç paterni</td>
+                        </tr>
+                        <tr>
+                            <td><b>Vankomisisn</b></td>
+                            <td>Çoğu Gram (+)</td>
+                            <td><strong>Leuconostoc, Pediococcus, Lactobacillus</strong></td>
+                            <td>Doğal vanko-dirençli Gram (+)</td>
+                        </tr>
+                    </table>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Pnömokok Tanısı</p>
+                        <p class="highlight-box__content">
+                            <strong>S. pneumoniae:</strong><br>
+                            • Optokin DUYARLI (≥14 mm)<br>
+                            • Safrada ERİR (deoksikolat testi +)<br>
+                            • α-hemolitik<br>
+                            • Lancefield grup antijeni YOK
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Streptococcus Ayırıcı Testler Özeti</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Test</th>
+                                <th>S. pyogenes (GAS)</th>
+                                <th>S. agalactiae (GBS)</th>
+                                <th>S. pneumoniae</th>
+                                <th>Enterococcus</th>
+                            </tr>
+                            <tr>
+                                <td>Hemoliz</td>
+                                <td>β</td>
+                                <td>β</td>
+                                <td>α</td>
+                                <td>α, β veya γ</td>
+                            </tr>
+                            <tr>
+                                <td>Basitrasin</td>
+                                <td><b>Duyarlı</b></td>
+                                <td>Dirençli</td>
+                                <td>-</td>
+                                <td>Dirençli</td>
+                            </tr>
+                            <tr>
+                                <td>CAMP</td>
+                                <td>Negatif</td>
+                                <td><b>POZİTİF</b></td>
+                                <td>-</td>
+                                <td>Negatif</td>
+                            </tr>
+                            <tr>
+                                <td>PYR</td>
+                                <td><b>POZİTİF</b></td>
+                                <td>Negatif</td>
+                                <td>Negatif</td>
+                                <td><b>POZİTİF</b></td>
+                            </tr>
+                            <tr>
+                                <td>Hipürat</td>
+                                <td>Negatif</td>
+                                <td><b>POZİTİF</b></td>
+                                <td>Negatif</td>
+                                <td>Değişken</td>
+                            </tr>
+                            <tr>
+                                <td>Optokin</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><b>Duyarlı</b></td>
+                                <td>Dirençli</td>
+                            </tr>
+                            <tr>
+                                <td>Safra Eskulin</td>
+                                <td>Negatif</td>
+                                <td>Negatif</td>
+                                <td>Negatif</td>
+                                <td><b>POZİTİF</b></td>
+                            </tr>
+                            <tr>
+                                <td>%6.5 NaCl</td>
+                                <td>Üremez</td>
+                                <td>Üremez</td>
+                                <td>Üremez</td>
+                                <td><b>Ürer</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                `
+            },
+            {
+                title: "Üreaz ve Fenilalanin Testleri",
+                icon: "fas fa-atom",
+                content: `
+                    <p>Enterobacteriaceae ve diğer bakterilerin ayrımında önemli enzim testleridir.</p>
+                    
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Üreaz Testi</h4>
+                        <p><strong>Prensip:</strong> Üre → NH₃ + CO₂ (pH artışı, pembe renk)</p>
+                        <table class="article-table">
+                            <tr>
+                                <th>Üreaz POZİTİF</th>
+                                <th>Hız</th>
+                            </tr>
+                            <tr>
+                                <td><b>Proteus</b> türleri</td>
+                                <td><strong>HIZLI</strong> (2-4 saat)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Helicobacter pylori</b></td>
+                                <td><strong>HIZLI</strong> (ÜRE-NEFES TESTİ!)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Brucella</b></td>
+                                <td>Yavaş</td>
+                            </tr>
+                            <tr>
+                                <td><b>Klebsiella</b></td>
+                                <td>Yavaş</td>
+                            </tr>
+                            <tr>
+                                <td><b>Cryptococcus neoformans</b></td>
+                                <td>Yavaş (maya!)</td>
+                            </tr>
+                            <tr>
+                                <td>Morganella, Providencia</td>
+                                <td>Değişken</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Proteus Özellikleri:</strong> Hızlı üreaz + Fenilalanin deaminaz + Swarming (kanlı agarda yayılma) → <strong>"PUF"</strong> (Proteus-Üreaz-Fenilalanin)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Fenilalanin Deaminaz Testi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>POZİTİF:</b> Proteus, Morganella, Providencia (PMP grubu)</li>
+                            <li class="feature-item"><b>NEGATİF:</b> Diğer Enterobacteriaceae</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Lizin/Ornitin Dekarboksilaz</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Bakteri</th>
+                                <th>LDC</th>
+                                <th>ODC</th>
+                                <th>ADH</th>
+                            </tr>
+                            <tr>
+                                <td>Salmonella</td>
+                                <td><b>+</b></td>
+                                <td><b>+</b></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Shigella</td>
+                                <td>-</td>
+                                <td><b>+</b></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Klebsiella</td>
+                                <td><b>+</b></td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Enterobacter</td>
+                                <td><b>+</b></td>
+                                <td><b>+</b></td>
+                                <td><b>+</b></td>
+                            </tr>
+                            <tr>
+                                <td>Proteus mirabilis</td>
+                                <td>-</td>
+                                <td><b>+</b></td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                    </div>
+                `
+            },
+            {
+                title: "IMViC ve Enterik Testler",
+                icon: "fas fa-bacteria",
+                content: `
+                    <p><strong>IMViC testleri</strong> Enterobacteriaceae içinde özellikle E. coli ve Klebsiella ayrımında kullanılır.</p>
+                    
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">IMViC Testleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Test</th>
+                                <th>Prensip</th>
+                                <th>E. coli</th>
+                                <th>Klebsiella</th>
+                                <th>Enterobacter</th>
+                            </tr>
+                            <tr>
+                                <td><b>İndol (I)</b></td>
+                                <td>Triptofan → İndol</td>
+                                <td><b>+</b></td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><b>Metil Kırmızısı (M)</b></td>
+                                <td>Karışık asit fermentasyonu</td>
+                                <td><b>+</b></td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><b>Voges-Proskauer (V)</b></td>
+                                <td>Asetoin üretimi</td>
+                                <td>-</td>
+                                <td><b>+</b></td>
+                                <td><b>+</b></td>
+                            </tr>
+                            <tr>
+                                <td><b>Sitrat (C)</b></td>
+                                <td>Tek C kaynağı olarak kullanım</td>
+                                <td>-</td>
+                                <td><b>+</b></td>
+                                <td><b>+</b></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">IMViC Paterni</p>
+                        <p class="highlight-box__content">
+                            <strong>E. coli:</strong> + + - - (İndol +, MR +, VP -, Sitrat -)<br>
+                            <strong>Klebsiella:</strong> - - + + (İndol -, MR -, VP +, Sitrat +)<br>
+                            <strong>Enterobacter:</strong> - - + + (Klebsiella ile benzer)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İndol Testi Pozitif Etkenler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>E. coli</b> (en sık)</li>
+                            <li class="feature-item"><b>Proteus vulgaris</b> (P. mirabilis İNDOL NEGATİF!)</li>
+                            <li class="feature-item"><b>Klebsiella oxytoca</b> (K. pneumoniae indol -)</li>
+                            <li class="feature-item"><b>Vibrio cholerae</b></li>
+                            <li class="feature-item"><b>Bacteroides fragilis</b></li>
+                            <li class="feature-item"><b>Porphyromonas</b></li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">TSI (Triple Sugar Iron) Testi</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Patern</th>
+                                <th>Yüzey/Dip</th>
+                                <th>H₂S</th>
+                                <th>Gaz</th>
+                                <th>Örnek Etken</th>
+                            </tr>
+                            <tr>
+                                <td>A/A</td>
+                                <td>Asit/Asit</td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>E. coli, Klebsiella</td>
+                            </tr>
+                            <tr>
+                                <td>K/A</td>
+                                <td>Alkali/Asit</td>
+                                <td><b>+</b></td>
+                                <td>+</td>
+                                <td><b>Salmonella</b></td>
+                            </tr>
+                            <tr>
+                                <td>K/A</td>
+                                <td>Alkali/Asit</td>
+                                <td><b>+</b></td>
+                                <td>+</td>
+                                <td><b>Proteus</b> (swarming)</td>
+                            </tr>
+                            <tr>
+                                <td>K/A</td>
+                                <td>Alkali/Asit</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><b>Shigella</b></td>
+                            </tr>
+                            <tr>
+                                <td>K/K</td>
+                                <td>Alkali/Alkali</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Pseudomonas (non-fermentatif)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>H₂S Pozitif Enterik Bakteriler:</strong> Salmonella, Proteus, Citrobacter, Edwardsiella → <strong>"SPaCE"</strong></p>
+                    </div>
+                `
+            },
+            {
+                title: "Özel Tanımlayıcı Testler",
+                icon: "fas fa-microscope",
+                content: `
+                    <p>Belirli bakterilerin kesin tanısında kullanılan spesifik testler.</p>
+                    
+                    <table class="article-table">
+                        <tr>
+                            <th>Test</th>
+                            <th>Pozitif Etken(ler)</th>
+                            <th>Klinik Önemi</th>
+                        </tr>
+                        <tr>
+                            <td><b>PYR (Pirrolidonil Arylamidaz)</b></td>
+                            <td>S. pyogenes (GAS), Enterococcus, S. lugdunensis</td>
+                            <td>GAS ve Enterococcus ayırımı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Safra Eskülin</b></td>
+                            <td>Enterococcus, Strep. bovis grubu</td>
+                            <td>Enterococcus tanısı</td>
+                        </tr>
+                        <tr>
+                            <td><b>%6.5 NaCl Toleransı</b></td>
+                            <td>Enterococcus, bazı Aerococcus</td>
+                            <td>Strep'den ayrım</td>
+                        </tr>
+                        <tr>
+                            <td><b>Safrada Erime</b></td>
+                            <td>S. pneumoniae</td>
+                            <td>Viridans'tan ayrım</td>
+                        </tr>
+                        <tr>
+                            <td><b>X ve V Faktör Gereksinimi</b></td>
+                            <td>H. influenzae (X+V), H. parainfluenzae (sadece V)</td>
+                            <td>Haemophilus türlerinin ayrımı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Satellit Fenomeni</b></td>
+                            <td>Haemophilus, Abiotrophia</td>
+                            <td>NAD bağımlılığı</td>
+                        </tr>
+                        <tr>
+                            <td><b>Nagler Reaksiyonu</b></td>
+                            <td>C. perfringens (α-toksin = lesitinaz)</td>
+                            <td>Gaz gangreni etkeni</td>
+                        </tr>
+                        <tr>
+                            <td><b>Çift Zonlu Hemoliz</b></td>
+                            <td>C. perfringens</td>
+                            <td>θ ve α toksinler</td>
+                        </tr>
+                        <tr>
+                            <td><b>Şemsiye (Umbrella) Motilite</b></td>
+                            <td>Listeria monocytogenes</td>
+                            <td>25°C'de hareketli, 37°C'de hareketsiz</td>
+                        </tr>
+                        <tr>
+                            <td><b>Soğukta Zenginleştirme</b></td>
+                            <td>Listeria, Yersinia</td>
+                            <td>4°C'de üreme</td>
+                        </tr>
+                        <tr>
+                            <td><b>String Test</b></td>
+                            <td>Vibrio cholerae</td>
+                            <td>%0.5 deoksikolatta mukoid iplik</td>
+                        </tr>
+                        <tr>
+                            <td><b>Hippurate Hidrolizi</b></td>
+                            <td>GBS, C. jejuni</td>
+                            <td>Campylobacter türlerinin ayrımı</td>
+                        </tr>
+                    </table>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Listeria Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <strong>Listeria monocytogenes:</strong><br>
+                            • Gram (+) kısa basil, kokoid görünebilir<br>
+                            • β-hemolitik (dar zon)<br>
+                            • Katalaz (+), Oksidaz (-)<br>
+                            • 25°C'de <b>hareketli</b> (tumbling), 37°C'de hareketsiz<br>
+                            • Soğukta (4°C) ürer<br>
+                            • Eskülin hidrolizi (+)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Non-Fermentatif Gram (-) Basiller",
+                icon: "fas fa-lungs-virus",
+                content: `
+                    <p>Glikoz fermente edemeyen, aerobik Gram (-) basillerin ayırımı.</p>
+                    
+                    <table class="article-table">
+                        <tr>
+                            <th>Özellik</th>
+                            <th>P. aeruginosa</th>
+                            <th>Acinetobacter</th>
+                            <th>S. maltophilia</th>
+                            <th>B. cepacia</th>
+                        </tr>
+                        <tr>
+                            <td>Oksidaz</td>
+                            <td><b>POZİTİF</b></td>
+                            <td><b>NEGATİF</b></td>
+                            <td><b>NEGATİF</b></td>
+                            <td>POZİTİF</td>
+                        </tr>
+                        <tr>
+                            <td>Hareket</td>
+                            <td>Hareketli</td>
+                            <td>Hareketsiz</td>
+                            <td>Hareketli</td>
+                            <td>Hareketli</td>
+                        </tr>
+                        <tr>
+                            <td>Pigment</td>
+                            <td>Piyosiyanin (mavi-yeşil)</td>
+                            <td>Yok</td>
+                            <td>Yok</td>
+                            <td>Sarı</td>
+                        </tr>
+                        <tr>
+                            <td>Koku</td>
+                            <td>Üzüm/mısır</td>
+                            <td>Yok</td>
+                            <td>Amonyak</td>
+                            <td>Yok</td>
+                        </tr>
+                        <tr>
+                            <td>Önemli Direnç</td>
+                            <td>Çoklu ilaç</td>
+                            <td>Karbapenem</td>
+                            <td>Karbapenem (doğal)</td>
+                            <td>Aminoglikozid</td>
+                        </tr>
+                    </table>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>P. aeruginosa Pigmentleri:</strong><br>
+                            • <b>Piyosiyanin:</b> Mavi-yeşil (en karakteristik)<br>
+                            • <b>Piyoverdin (Floresein):</b> Sarı-yeşil, floresan<br>
+                            • <b>Piyorubin:</b> Kırmızı-kahverengi<br>
+                            • <b>Piyomelanin:</b> Kahverengi-siyah</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Oksidaz (-) Non-Fermentatif</p>
+                        <p class="highlight-box__content">
+                            <strong>Acinetobacter:</strong> Kokobasil, hareketsiz<br>
+                            <strong>Stenotrophomonas:</strong> TMP-SMX ile tedavi (karbapenem dirençli!)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet Tabloları",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Hızlı Ayırıcı Test Algoritması</p>
+                        <p class="highlight-box__content">
+                            <strong>Gram (+) Kok:</strong><br>
+                            → Katalaz (+) = Staphylococcus → Koagülaz (+) = S. aureus<br>
+                            → Katalaz (-) = Streptococcus/Enterococcus<br><br>
+                            <strong>Gram (-) Basil:</strong><br>
+                            → Oksidaz (+) = Non-Enterobacteriaceae (Pseudomonas, Vibrio)<br>
+                            → Oksidaz (-) = Enterobacteriaceae
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">En Sık Sorulan Test-Bakteri Eşleşmeleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Test/Özellik</th>
+                                <th>Pozitif Etken</th>
+                                <th>Sınav İpucu</th>
+                            </tr>
+                            <tr>
+                                <td>CAMP (+)</td>
+                                <td>S. agalactiae</td>
+                                <td>Ok ucu hemoliz</td>
+                            </tr>
+                            <tr>
+                                <td>Ters CAMP (+)</td>
+                                <td>C. perfringens</td>
+                                <td>Hemoliz inhibisyonu</td>
+                            </tr>
+                            <tr>
+                                <td>Optokin duyarlı</td>
+                                <td>S. pneumoniae</td>
+                                <td>α-hemolitik</td>
+                            </tr>
+                            <tr>
+                                <td>Basitrasin duyarlı</td>
+                                <td>S. pyogenes</td>
+                                <td>β-hemolitik GAS</td>
+                            </tr>
+                            <tr>
+                                <td>Novobiosin dirençli</td>
+                                <td>S. saprophyticus</td>
+                                <td>Genç kadın ÜYE</td>
+                            </tr>
+                            <tr>
+                                <td>Lam koagülaz (+), Tüp (-)</td>
+                                <td>S. lugdunensis</td>
+                                <td>Virülan KNS</td>
+                            </tr>
+                            <tr>
+                                <td>Hızlı üreaz (+)</td>
+                                <td>Proteus, H. pylori</td>
+                                <td>Üre nefes testi</td>
+                            </tr>
+                            <tr>
+                                <td>H₂S (+)</td>
+                                <td>Salmonella, Proteus</td>
+                                <td>TSI'da siyahlaşma</td>
+                            </tr>
+                            <tr>
+                                <td>İndol (+)</td>
+                                <td>E. coli, P. vulgaris</td>
+                                <td>P. mirabilis indol (-)</td>
+                            </tr>
+                            <tr>
+                                <td>VP (+)</td>
+                                <td>Klebsiella, Enterobacter</td>
+                                <td>E. coli VP (-)</td>
+                            </tr>
+                            <tr>
+                                <td>Şemsiye motilite</td>
+                                <td>Listeria</td>
+                                <td>25°C'de hareketli</td>
+                            </tr>
+                            <tr>
+                                <td>Oksidaz (+) Gram (-)</td>
+                                <td>Pseudomonas, Vibrio</td>
+                                <td>Non-Enterobacteriaceae</td>
+                            </tr>
+                            <tr>
+                                <td>Safra eskülin (+)</td>
+                                <td>Enterococcus</td>
+                                <td>%40 safrada üreme</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>H₂S (+):</b> "SPaCE" → Salmonella, Proteus, Citrobacter, Edwardsiella<br>
+                            <b>Üreaz (+):</b> "PUNCH-K" → Proteus, Ureaplasma, Nocardia, Cryptococcus, H. pylori, Klebsiella<br>
+                            <b>PYR (+):</b> GAS + Enterococcus + S. lugdunensis
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li class="feature-item"><b>Soru tipi:</b> "Katalaz (+), Koagülaz (+) Gram (+) kok?" → S. aureus</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "Optokin duyarlı, safrada eriyen α-hemolitik?" → S. pneumoniae</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "CAMP testi ok ucu hemoliz?" → S. agalactiae</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "Oksidaz (+), mavi-yeşil pigment?" → P. aeruginosa</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "İndol (+), laktoz (+), TSI A/A?" → E. coli</li>
+                        <li class="feature-item"><b>Soru tipi:</b> "Novobiosin dirençli KNS?" → S. saprophyticus</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
