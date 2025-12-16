@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards(DATASET);
     updateActiveButton('all');
     buildMobileFilterStrip();
-    initTheme();
+    initDesktopSearch();
     initSearchOverlay();
     initFilterPanel();
     initShareButtons();
@@ -124,38 +124,6 @@ function showToast(message) {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
     }, 2500);
-}
-
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeButton(savedTheme);
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        updateThemeButton('light');
-    }
-}
-
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeButton(newTheme);
-}
-
-function updateThemeButton(theme) {
-    const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    const textValue = theme === 'dark' ? 'Açık Mod' : 'Koyu Mod';
-
-    document.querySelectorAll('[data-theme-icon]').forEach((icon) => {
-        icon.className = iconClass;
-    });
-    document.querySelectorAll('[data-theme-text]').forEach((label) => {
-        label.textContent = textValue;
-    });
 }
 
 function renderCards(data) {
@@ -288,6 +256,14 @@ function searchContent() {
     searchTimeout = setTimeout(() => {
         performSearch();
     }, 300);
+}
+
+function initDesktopSearch() {
+    const input = document.getElementById('searchInput');
+    if (!input) return;
+    input.addEventListener('input', () => {
+        searchContent();
+    });
 }
 
 function performSearch() {

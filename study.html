@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRS Çalışma Paneli | Yeterlilik Asistanı</title>
     <script src="theme/init-theme.js"></script>
+    <script src="theme/ui.js" defer></script>
     <link rel="stylesheet" href="theme/style.css">
     <link rel="stylesheet" href="theme/study.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,13 +22,19 @@
                 </div>
             </div>
             
-            <div class="menu-label mode-label">ÇALIŞMA MODELLERİ</div>
+            <div class="menu-label mode-label">MODÜLLER</div>
             <nav class="mode-menu">
-                <a href="study.html" class="nav-item active">
-                    <i class="fas fa-brain"></i> SRS Çalışma Paneli
-                </a>
                 <a href="index.html" class="nav-item">
-                    <i class="fas fa-book-medical"></i> Referans & İnceleme
+                    <i class="fas fa-book-medical"></i> Referans Panel
+                </a>
+                <a href="details.html" class="nav-item">
+                    <i class="fas fa-layer-group"></i> Hafıza Kartları
+                </a>
+                <a href="topics.html" class="nav-item">
+                    <i class="fas fa-book-open"></i> Konu Özetleri
+                </a>
+                <a href="study.html" class="nav-item active">
+                    <i class="fas fa-brain"></i> SRS Çalışma
                 </a>
             </nav>
             
@@ -36,6 +43,12 @@
                 <div class="filter-placeholder">Kategoriler yükleniyor...</div>
             </nav>
 
+            <div class="profile-section">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+                    <i class="fas fa-moon" data-theme-icon></i>
+                    <span data-theme-text>Koyu Mod</span>
+                </button>
+            </div>
         </aside>
 
         <!-- Ana Çalışma Ekranı -->
@@ -47,9 +60,6 @@
                     <p id="session-info">Kartları ezberle, kolay bulduklarını işaretle</p>
                 </div>
                 <div class="header-icon-group" role="toolbar" aria-label="Hızlı işlemler">
-                    <button class="icon-btn" type="button" onclick="toggleTheme()" aria-label="Tema değiştir">
-                        <i class="fas fa-moon" data-theme-icon></i>
-                    </button>
                     <button class="icon-btn" type="button" onclick="resetProgress()" aria-label="İlerlemeyi sıfırla">
                         <i class="fas fa-rotate-right"></i>
                     </button>
@@ -221,12 +231,12 @@
                     Filtreler
                 </button>
                     <button class="dock-home" type="button" data-dock-link="index.html">
-                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-book-medical"></i>
                         Referans
                     </button>
                     <button class="dock-link" type="button" data-dock-link="details.html">
                         <i class="fas fa-layer-group"></i>
-                        Hafıza Kartları
+                        Kartlar
                     </button>
                     <button class="dock-link" type="button" data-dock-link="topics.html">
                         <i class="fas fa-book-open"></i>
@@ -235,6 +245,9 @@
                 <button class="dock-start" type="button" data-session-start onclick="startSession()">
                     <i class="fas fa-play"></i>
                     Seansı Başlat
+                </button>
+                <button class="dock-icon dock-theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Tema değiştir">
+                    <i class="fas fa-moon" data-theme-icon></i>
                 </button>
             </div>
         </div>

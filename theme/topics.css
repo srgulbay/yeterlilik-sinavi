@@ -25,40 +25,6 @@
     background-clip: text;
 }
 
-.header-desc {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.header-search {
-    position: relative;
-    max-width: 400px;
-}
-
-.header-search i {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-tertiary);
-}
-
-.header-search input {
-    width: 100%;
-    padding: 0.85rem 1rem 0.85rem 2.75rem;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--bg-card);
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.header-search input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-}
-
 /* Topics List View */
 .topics-list {
     display: grid;
@@ -641,20 +607,6 @@
 
     .header-search {
         max-width: 100%;
-    }
-}
-
-@media (max-width: 1024px) {
-    .sidebar {
-        display: none;
-    }
-
-    .app-wrapper {
-        padding: 0;
-    }
-
-    .main-content {
-        padding-right: 0;
     }
 }
 

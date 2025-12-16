@@ -11,7 +11,6 @@ let highlightedCardId = null;
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     initDetailsModule();
-    initTheme();
     handleShareLink();
 });
 
@@ -116,35 +115,6 @@ function showToast(message) {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
     }, 2500);
-}
-
-// Tema fonksiyonları
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeButton(savedTheme);
-    }
-}
-
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeButton(newTheme);
-}
-
-function updateThemeButton(theme) {
-    const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    const textValue = theme === 'dark' ? 'Açık Mod' : 'Koyu Mod';
-    
-    document.querySelectorAll('[data-theme-icon]').forEach(icon => {
-        icon.className = iconClass;
-    });
-    document.querySelectorAll('[data-theme-text]').forEach(label => {
-        label.textContent = textValue;
-    });
 }
 
 // Kart render fonksiyonu

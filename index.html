@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikrobiyoloji Yeterlilik | Uzman Paneli</title>
     <script src="theme/init-theme.js"></script>
+    <script src="theme/ui.js" defer></script>
     <link rel="stylesheet" href="theme/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,29 @@
 <body>
     <div class="app-wrapper">
         <aside class="sidebar sidebar--compact">
+            <div class="brand-section">
+                <div class="logo"><i class="fas fa-book-medical"></i></div>
+                <div class="brand-text">
+                    <h2>Referans<br><span>Paneli</span></h2>
+                </div>
+            </div>
+
+            <div class="menu-label mode-label">MODÜLLER</div>
+            <nav class="mode-menu" role="navigation" aria-label="Modüller">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-book-medical" aria-hidden="true"></i> Referans Panel
+                </a>
+                <a href="details.html" class="nav-item">
+                    <i class="fas fa-layer-group" aria-hidden="true"></i> Hafıza Kartları
+                </a>
+                <a href="topics.html" class="nav-item">
+                    <i class="fas fa-book-open" aria-hidden="true"></i> Konu Özetleri
+                </a>
+                <a href="study.html" class="nav-item">
+                    <i class="fas fa-brain" aria-hidden="true"></i> SRS Çalışma
+                </a>
+            </nav>
+
             <div class="menu-label">KONU FİLTRELERİ</div>
             <nav class="filter-menu" id="categoryFilters" role="navigation" aria-label="Konu filtreleri">
                 <button class="nav-item active" data-category="all" onclick="filterCategory('all')"><i class="fas fa-th-large" aria-hidden="true"></i> Tümü</button>
@@ -30,14 +54,29 @@
                 <button class="nav-item" data-category="Yeterlilik sınavı 2025" onclick="filterCategory('Yeterlilik sınavı 2025')"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Yeterlilik Sınavı 2025</button>
             </nav>
 
+            <div class="profile-section">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+                    <i class="fas fa-moon" data-theme-icon></i>
+                    <span data-theme-text>Koyu Mod</span>
+                </button>
+            </div>
         </aside>
 
         <main class="main-content">
+            <header class="top-header">
+                <div class="header-title">
+                    <p class="header-eyebrow">Uzman Paneli</p>
+                    <h1>Referans Kartları</h1>
+                    <p id="active-filter-text">Tüm konular ve uzman analizleri görüntüleniyor</p>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" id="searchInput" placeholder="Soru, konu veya anahtar kelime ara..." autocomplete="off">
+                </div>
+            </header>
             <div id="content-grid" class="cards-container" role="region" aria-live="polite" aria-label="Soru kartları"></div>
         </main>
     </div>
-
-    <input type="hidden" id="searchInput" value="">
 
     <div class="search-overlay" id="searchOverlay" aria-hidden="true">
         <div class="search-overlay__content" role="dialog" aria-modal="true" aria-labelledby="mobileSearchLabel">
@@ -92,15 +131,18 @@
                 </button>
                 <button class="dock-start" type="button" data-dock-link="study.html">
                     <i class="fas fa-brain"></i>
-                    SRS Paneli
+                    SRS
                 </button>
                 <button class="dock-link" type="button" data-dock-link="details.html">
                     <i class="fas fa-layer-group"></i>
-                    Hafıza Kartları
+                    Kartlar
                 </button>
                 <button class="dock-link" type="button" data-dock-link="topics.html">
                     <i class="fas fa-book-open"></i>
-                    Konu Özetleri
+                    Özetler
+                </button>
+                <button class="dock-icon dock-theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Tema değiştir">
+                    <i class="fas fa-moon" data-theme-icon></i>
                 </button>
             </div>
         </div>

@@ -378,6 +378,40 @@ button {
     box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
 }
 
+.header-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.header-search {
+    position: relative;
+    max-width: 420px;
+}
+
+.header-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+}
+
+.header-search input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-card);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.header-search input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
 .search-compact {
     display: none;
     border-radius: 999px;
@@ -941,6 +975,28 @@ button {
     background: var(--bg-card);
 }
 
+.dock-icon {
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: var(--bg-card);
+    transition: var(--transition);
+}
+
+.dock-icon:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.dock-theme {
+    display: none;
+}
+
 .dock-start {
     border-radius: 999px;
     padding: 0.65rem 1.4rem;
@@ -949,6 +1005,12 @@ button {
     color: #fff;
     border: none;
     box-shadow: var(--shadow);
+}
+
+@media (max-width: 1024px) {
+    .dock-theme {
+        display: inline-flex;
+    }
 }
 
 .session-dock.collapsed {
@@ -990,7 +1052,8 @@ button {
 
     .dock-link,
     .dock-home,
-    .dock-start {
+    .dock-start,
+    .dock-icon {
         flex: 1 1 calc(50% - 0.4rem);
         justify-content: center;
         text-align: center;
@@ -1015,22 +1078,26 @@ button {
     }
 
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        box-shadow: none;
-        flex-wrap: wrap;
-    }
-
-    .profile-section {
-        margin-top: 0;
+        display: none;
     }
 
     .main-content {
         min-height: auto;
         padding-right: 0;
+    }
+
+    .cards-container {
+        padding: 1.25rem 1rem 6rem;
+    }
+
+    .session-dock {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        width: auto;
+        border-radius: 24px;
+        margin: 0;
     }
 }
 
@@ -1039,14 +1106,9 @@ button {
         min-height: 100dvh;
     }
 
-    .sidebar {
-        padding: 1.1rem;
-    }
-
     .filter-menu,
     .insight-strip,
-    .search-container input,
-    .search-container i {
+    .search-container {
         display: none;
     }
 

@@ -78,17 +78,18 @@
 }
 
 .hero-target {
-    @media (max-width: 900px) {
-        .session-overview {
-            padding: 0 1rem 1rem;
-        }
-
-        .session-config {
-            padding: 0 1rem 1.25rem;
-        }
-    }
     letter-spacing: 0.08em;
     color: var(--text-tertiary);
+}
+
+@media (max-width: 900px) {
+    .session-overview {
+        padding: 0 1rem 1rem;
+    }
+
+    .session-config {
+        padding: 0 1rem 1.25rem;
+    }
 }
 
 .metric-card strong {

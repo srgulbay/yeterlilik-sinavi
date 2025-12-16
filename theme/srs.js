@@ -30,19 +30,6 @@ class SRSManager {
         this.turCounter = 0; // Seanstaki toplam tur sayacı
         this.categoryBuckets = this.groupCardsByCategory();
         this.cooldownCards = new Set();
-        this.initTheme();
-    }
-    
-    initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            this.updateThemeButton(savedTheme);
-        } else {
-            // Varsayılan light tema
-            document.documentElement.setAttribute('data-theme', 'light');
-            this.updateThemeButton('light');
-        }
     }
     
     groupCardsByCategory() {
@@ -53,13 +40,6 @@ class SRSManager {
             map.get(card.category).push(card);
             return map;
         }, new Map());
-    }
-    
-    updateThemeButton(theme) {
-        const iconClass = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        document.querySelectorAll('[data-theme-icon]').forEach(icon => {
-            icon.className = iconClass;
-        });
     }
     
     // LocalStorage'dan kart verisini yükle
@@ -585,16 +565,6 @@ function exitSession() {
         };
         srsManager.updateStats();
     }
-}
-
-// Tema değiştirme fonksiyonu
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    srsManager.updateThemeButton(newTheme);
 }
 
 let filterPanelCloser = null;

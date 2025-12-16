@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konu Özetleri | Mikrobiyoloji Anlatımları</title>
     <script src="theme/init-theme.js"></script>
+    <script src="theme/ui.js" defer></script>
     <link rel="stylesheet" href="theme/style.css">
     <link rel="stylesheet" href="theme/topics.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,17 +24,17 @@
             
             <div class="menu-label mode-label">MODÜLLER</div>
             <nav class="mode-menu">
-                <a href="topics.html" class="nav-item active">
-                    <i class="fas fa-book-open"></i> Konu Özetleri
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-book-medical"></i> Referans Panel
                 </a>
                 <a href="details.html" class="nav-item">
                     <i class="fas fa-layer-group"></i> Hafıza Kartları
                 </a>
+                <a href="topics.html" class="nav-item active">
+                    <i class="fas fa-book-open"></i> Konu Özetleri
+                </a>
                 <a href="study.html" class="nav-item">
                     <i class="fas fa-brain"></i> SRS Çalışma
-                </a>
-                <a href="index.html" class="nav-item">
-                    <i class="fas fa-book-medical"></i> Referans Panel
                 </a>
             </nav>
             
@@ -60,7 +61,7 @@
             </nav>
 
             <div class="profile-section">
-                <button class="theme-toggle" onclick="toggleTheme()">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
                     <i class="fas fa-moon" data-theme-icon></i>
                     <span data-theme-text>Koyu Mod</span>
                 </button>
@@ -99,8 +100,8 @@
     </div>
 
     <!-- Alt Dock -->
-    <div class="session-dock" data-dock-context="topics">
-        <button class="dock-toggle" type="button" aria-expanded="true">
+    <div class="session-dock" data-dock-context="topics" role="region" aria-label="Konu özetleri hızlı erişim">
+        <button class="dock-toggle" type="button" aria-expanded="true" aria-label="Alt adayı daralt">
             <i class="fas fa-chevron-down"></i>
         </button>
         <div class="dock-content">
@@ -109,19 +110,24 @@
                 <button class="dock-chip" data-topic-chip="bakteriyoloji">Bakteriyoloji</button>
                 <button class="dock-chip" data-topic-chip="viroloji">Viroloji</button>
                 <button class="dock-chip" data-topic-chip="mikoloji">Mikoloji</button>
+                <button class="dock-chip" data-topic-chip="parazitoloji">Parazitoloji</button>
+                <button class="dock-chip" data-topic-chip="immunoloji">İmmunoloji</button>
             </div>
             <div class="dock-actions">
-                <button class="dock-link" type="button" onclick="window.location.href='details.html'">
+                <button class="dock-link" type="button" data-dock-link="details.html">
                     <i class="fas fa-layer-group"></i>
                     Kartlar
                 </button>
-                <button class="dock-link" type="button" onclick="window.location.href='index.html'">
+                <button class="dock-link" type="button" data-dock-link="index.html">
                     <i class="fas fa-book-medical"></i>
                     Referans
                 </button>
-                <button class="dock-home" type="button" onclick="window.location.href='study.html'">
+                <button class="dock-home" type="button" data-dock-link="study.html">
                     <i class="fas fa-brain"></i>
                     SRS
+                </button>
+                <button class="dock-icon dock-theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Tema değiştir">
+                    <i class="fas fa-moon" data-theme-icon></i>
                 </button>
             </div>
         </div>
