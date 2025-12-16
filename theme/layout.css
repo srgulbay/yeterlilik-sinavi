@@ -24,53 +24,24 @@
     position: relative;
 }
 
+/* No sidebar layout - Modern full-width */
+.app-wrapper--no-sidebar {
+    justify-content: center;
+}
+
+.app-wrapper--no-sidebar .main-content {
+    max-width: 1200px;
+    width: 100%;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+}
+
 /* ==========================================
-   SIDEBAR - Sol Menü
+   SIDEBAR - Sol Menü (Legacy - Hidden)
    ========================================== */
 
 .sidebar {
-    width: 230px;
-    background: var(--bg-sidebar);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-4) var(--space-5);
-    gap: var(--space-4);
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    flex-shrink: 0;
-    z-index: var(--z-sidebar);
-    
-    /* Smooth transition for width changes */
-    transition: 
-        width var(--transition-base),
-        transform var(--transition-smooth),
-        opacity var(--transition-base);
-}
-
-/* Compact sidebar mode */
-.sidebar--compact {
-    gap: var(--space-3);
-    padding-top: var(--space-5);
-}
-
-.sidebar--compact .menu-label {
-    margin-top: 0;
-}
-
-/* Sidebar glassmorphism option */
-.sidebar--glass {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-[data-theme="dark"] .sidebar--glass {
-    background: rgba(15, 23, 42, 0.8);
-    border-right: 1px solid rgba(148, 163, 184, 0.2);
+    display: none; /* Sidebar artık kullanılmıyor */
 }
 
 /* ==========================================

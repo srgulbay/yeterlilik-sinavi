@@ -10,6 +10,147 @@
  */
 
 /* ==========================================
+   SEGMENT CONTROL - Apple Style
+   ========================================== */
+
+.segment-control {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: 100%;
+}
+
+.segment-control::-webkit-scrollbar {
+    display: none;
+}
+
+/* Sliding indicator */
+.segment-control__indicator {
+    position: absolute;
+    top: var(--space-1);
+    bottom: var(--space-1);
+    left: var(--space-1);
+    background: var(--bg-card);
+    border-radius: var(--radius-full);
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: 
+        transform 0.35s var(--ease-apple-out),
+        width 0.35s var(--ease-apple-out);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.segment-control__item {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    min-height: 36px;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: 
+        color 0.25s var(--ease-apple),
+        transform 0.2s var(--ease-apple-out);
+}
+
+.segment-control__item:hover:not(.active) {
+    color: var(--text-main);
+}
+
+.segment-control__item:active {
+    transform: scale(0.97);
+}
+
+.segment-control__item.active {
+    color: var(--text-main);
+    font-weight: var(--font-semibold);
+}
+
+.segment-control__item i {
+    font-size: 0.85em;
+    opacity: 0.85;
+}
+
+.segment-control__item.active i {
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* Segment control wrapper - page header altı */
+.segment-wrapper {
+    padding: 0 var(--space-6);
+    margin-bottom: var(--space-6);
+    animation: segmentReveal 0.6s var(--ease-apple-out) 0.3s both;
+}
+
+@keyframes segmentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Compact variant */
+.segment-control--compact .segment-control__item {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    min-height: 32px;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    .segment-wrapper {
+        padding: 0 var(--space-4);
+        margin-bottom: var(--space-4);
+    }
+    
+    .segment-control {
+        padding: 3px;
+    }
+    
+    .segment-control__item {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-xs);
+        min-height: 32px;
+        gap: var(--space-1);
+    }
+    
+    .segment-control__item span {
+        display: none;
+    }
+    
+    .segment-control__item i {
+        font-size: 1em;
+    }
+}
+
+/* ==========================================
    ICON SYSTEM
    ========================================== */
 
@@ -840,9 +981,7 @@
     animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
+/* @keyframes spin is defined in animations.css */
 
 /* Spinner Sizes */
 .spinner-sm { width: 16px; height: 16px; border-width: 2px; }
@@ -878,10 +1017,7 @@
     border-radius: var(--radius-sm);
 }
 
-@keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
+/* @keyframes shimmer is defined in animations.css */
 
 .skeleton-text {
     height: 1em;
@@ -1187,6 +1323,9 @@
     justify-content: space-between;
     gap: var(--space-6);
     flex-wrap: wrap;
+    
+    /* View Transitions API - Named element */
+    view-transition-name: page-header;
 }
 
 /* Page header içerikleri için scroll reveal */
@@ -1219,6 +1358,29 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* View Transitions for page-header */
+::view-transition-old(page-header) {
+    animation: headerSlideOut 0.3s var(--ease-apple-out) forwards;
+}
+
+::view-transition-new(page-header) {
+    animation: headerSlideIn 0.4s var(--ease-apple-out) forwards;
+}
+
+@keyframes headerSlideOut {
+    to {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes headerSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
     }
 }
 

@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initShareButtons();
     handleShareLink();
     initScrollReveal(); // Scroll Reveal başlat
+    initSegmentControl(); // Apple style segment control
     
     if (MOBILE_QUERY) {
         MOBILE_QUERY.addEventListener('change', () => {
@@ -251,6 +252,93 @@ function updateActiveButton(category) {
 
     document.querySelectorAll('.mobile-filter-chip').forEach(chip => {
         chip.classList.toggle('active', chip.dataset.category === category);
+    });
+    
+    // Segment control güncelle
+    updateSegmentIndicator(category);
+}
+
+// ==========================================
+// SEGMENT CONTROL - Apple Style
+// ==========================================
+
+function initSegmentControl() {
+    const segmentControl = document.getElementById('segmentControl');
+    if (!segmentControl) return;
+    
+    const items = segmentControl.querySelectorAll('.segment-control__item');
+    const indicator = segmentControl.querySelector('.segment-control__indicator');
+    
+    // İlk yüklemede indicator'u ayarla
+    const activeItem = segmentControl.querySelector('.segment-control__item.active');
+    if (activeItem && indicator) {
+        positionIndicator(indicator, activeItem, segmentControl);
+    }
+    
+    // Click handler
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const category = item.dataset.category;
+            
+            // Active class güncelle
+            items.forEach(i => {
+                i.classList.remove('active');
+                i.setAttribute('aria-selected', 'false');
+            });
+            item.classList.add('active');
+            item.setAttribute('aria-selected', 'true');
+            
+            // Indicator'u hareket ettir
+            if (indicator) {
+                positionIndicator(indicator, item, segmentControl);
+            }
+            
+            // Filtreyi uygula
+            filterCategory(category);
+            
+            // Aktif item'ı görünür yap (scroll)
+            item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+    });
+    
+    // Resize observer
+    const resizeObserver = new ResizeObserver(() => {
+        const currentActive = segmentControl.querySelector('.segment-control__item.active');
+        if (currentActive && indicator) {
+            positionIndicator(indicator, currentActive, segmentControl);
+        }
+    });
+    resizeObserver.observe(segmentControl);
+}
+
+function positionIndicator(indicator, targetItem, container) {
+    const containerRect = container.getBoundingClientRect();
+    const itemRect = targetItem.getBoundingClientRect();
+    const scrollLeft = container.scrollLeft;
+    const padding = 4; // Container padding
+    
+    const left = itemRect.left - containerRect.left + scrollLeft;
+    const width = itemRect.width;
+    
+    indicator.style.transform = `translateX(${left - padding}px)`;
+    indicator.style.width = `${width}px`;
+}
+
+function updateSegmentIndicator(category) {
+    const segmentControl = document.getElementById('segmentControl');
+    if (!segmentControl) return;
+    
+    const items = segmentControl.querySelectorAll('.segment-control__item');
+    const indicator = segmentControl.querySelector('.segment-control__indicator');
+    
+    items.forEach(item => {
+        const isActive = item.dataset.category === category;
+        item.classList.toggle('active', isActive);
+        item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        
+        if (isActive && indicator) {
+            positionIndicator(indicator, item, segmentControl);
+        }
     });
 }
 

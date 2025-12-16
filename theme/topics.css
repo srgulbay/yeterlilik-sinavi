@@ -22,19 +22,29 @@
     cursor: pointer;
 }
 
-/* Scroll reveal state */
+/* Scroll reveal state with staggered entrance */
 .topic-preview.scroll-reveal {
     opacity: 0;
     transform: translateY(40px) scale(0.96);
     transition: 
-        opacity 0.8s var(--ease-apple-out),
-        transform 0.8s var(--ease-apple-out),
-        box-shadow 0.8s var(--ease-apple-out);
+        opacity 0.6s var(--ease-apple-out),
+        transform 0.6s var(--ease-apple-out),
+        box-shadow 0.3s var(--ease-apple-out);
 }
+
+/* Staggered delays for initial visible cards */
+.topic-preview.scroll-reveal:nth-child(1) { transition-delay: 0.05s; }
+.topic-preview.scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
+.topic-preview.scroll-reveal:nth-child(3) { transition-delay: 0.15s; }
+.topic-preview.scroll-reveal:nth-child(4) { transition-delay: 0.2s; }
+.topic-preview.scroll-reveal:nth-child(5) { transition-delay: 0.25s; }
+.topic-preview.scroll-reveal:nth-child(6) { transition-delay: 0.3s; }
+.topic-preview.scroll-reveal:nth-child(n+7) { transition-delay: 0s; }
 
 .topic-preview.scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+    transition-delay: 0s;
 }
 
 /* Hover only after visible */

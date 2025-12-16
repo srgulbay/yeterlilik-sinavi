@@ -67,7 +67,7 @@ class GlobalSearch {
                     <input 
                         type="search" 
                         class="global-search__input" 
-                        placeholder="Referans, kart veya konu ara..."
+                        placeholder="Soru, kart veya konu ara..."
                         autocomplete="off"
                         spellcheck="false"
                     >
@@ -152,7 +152,7 @@ class GlobalSearch {
                 type: 'reference',
                 icon: 'fa-book-medical',
                 iconClass: 'global-search__item-icon--reference',
-                label: 'Referans Kartları',
+                label: 'Soru Kartları',
                 page: 'index.html',
                 data: enrichedContent.map(item => ({
                     id: item.id,

@@ -435,19 +435,28 @@
     overflow: hidden;
 }
 
-/* Scroll reveal state */
+/* Scroll reveal state with staggered entrance */
 .card.scroll-reveal {
     opacity: 0;
     transform: translateY(40px) scale(0.96);
     transition: 
-        opacity 0.8s var(--ease-apple-out),
-        transform 0.8s var(--ease-apple-out),
-        box-shadow 0.8s var(--ease-apple-out);
+        opacity 0.6s var(--ease-apple-out),
+        transform 0.6s var(--ease-apple-out),
+        box-shadow 0.3s var(--ease-apple-out);
 }
+
+/* Staggered delays for initial visible cards */
+.card.scroll-reveal:nth-child(1) { transition-delay: 0.05s; }
+.card.scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
+.card.scroll-reveal:nth-child(3) { transition-delay: 0.15s; }
+.card.scroll-reveal:nth-child(4) { transition-delay: 0.2s; }
+.card.scroll-reveal:nth-child(5) { transition-delay: 0.25s; }
+.card.scroll-reveal:nth-child(n+6) { transition-delay: 0s; }
 
 .card.scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+    transition-delay: 0s; /* Reset delay after visible */
 }
 
 /* Hover only after visible */
@@ -1087,8 +1096,7 @@
 }
 
 /* ==========================================
-   DOCK FAB - Minimize Toggle Button
-   Her iki dock da gizlendiğinde görünen yuvarlak buton
+   DOCK FAB - Logo Button (Dock gizlendiğinde görünür)
    ========================================== */
 .dock-fab {
     position: fixed;
@@ -1097,23 +1105,23 @@
     transform: translateX(-50%);
     z-index: var(--z-dock, 1000);
     
-    /* Pill Button */
-    width: 56px;
-    height: 56px;
+    /* Pill Button - Logo size */
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
     
-    /* Glassmorphism */
+    /* Glassmorphism - Brand gradient */
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     box-shadow: 
         0 8px 32px rgba(79, 70, 229, 0.4),
         0 4px 16px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     
-    /* Icon */
+    /* Icon - Logo */
     color: white;
-    font-size: var(--icon-lg);
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1145,9 +1153,9 @@
 
 /* FAB hover - Apple-style subtle lift */
 .dock-fab:hover {
-    transform: translateX(-50%) translateY(-3px) scale(1.05);
+    transform: translateX(-50%) translateY(-3px) scale(1.08);
     box-shadow: 
-        0 10px 32px rgba(79, 70, 229, 0.45),
+        0 12px 40px rgba(79, 70, 229, 0.5),
         0 4px 16px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
@@ -1157,13 +1165,23 @@
     transition: transform 0.1s var(--ease-apple);
 }
 
-/* FAB icon - Apple-style rotation */
+/* FAB icon - pulse animation on visible */
 .dock-fab i {
     transition: transform 0.4s var(--ease-apple-out);
 }
 
-.dock-fab.expanded i {
-    transform: rotate(45deg);
+.dock-fab.visible i {
+    animation: fabPulse 2s var(--ease-apple) infinite;
+}
+
+@keyframes fabPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.dock-fab:hover i {
+    animation: none;
+    transform: scale(1.1);
 }
 
 /* Dark mode */

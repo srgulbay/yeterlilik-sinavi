@@ -200,6 +200,7 @@
     function init() {
         initThemeToggles();
         initMobileDockListeners();
+        initPageTransitions(); // Apple-style page transitions
 
         // Genel keyboard shortcuts
         document.addEventListener('keydown', (e) => {
@@ -217,6 +218,109 @@
         });
     }
 
+    // ============================================
+    // PAGE TRANSITIONS - Apple Style
+    // ============================================
+    function initPageTransitions() {
+        // Check for View Transitions API support
+        const supportsViewTransitions = 'startViewTransition' in document;
+        
+        // Respect reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Internal navigation links
+        const internalLinks = document.querySelectorAll('a[href$=".html"]:not([target="_blank"])');
+        
+        internalLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Skip if same page or external
+                if (!href || href.startsWith('http') || href.startsWith('//')) return;
+                
+                // Skip if modifier key pressed
+                if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+                
+                // Skip if same page
+                const currentPage = window.location.pathname.split('/').pop();
+                if (href === currentPage) return;
+                
+                e.preventDefault();
+                
+                if (prefersReducedMotion) {
+                    // Skip animation for reduced motion
+                    window.location.href = href;
+                } else if (supportsViewTransitions) {
+                    // Use View Transitions API
+                    document.startViewTransition(async () => {
+                        window.location.href = href;
+                    });
+                } else {
+                    // Fallback animation
+                    navigateWithFallback(href);
+                }
+            });
+        });
+        
+        // Also handle dock navigation buttons
+        const dockNavBtns = document.querySelectorAll('.dock-nav-btn, .dock__pill-btn[data-page]');
+        dockNavBtns.forEach(btn => {
+            // If it's already an anchor, don't add extra handler
+            if (btn.tagName === 'A' && btn.hasAttribute('href')) return;
+            
+            const page = btn.getAttribute('data-page');
+            if (!page) return;
+            
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = `${page}.html`;
+                
+                // Skip if same page
+                const currentPage = window.location.pathname.split('/').pop();
+                if (href === currentPage) return;
+                
+                if (prefersReducedMotion) {
+                    window.location.href = href;
+                } else if (supportsViewTransitions) {
+                    document.startViewTransition(async () => {
+                        window.location.href = href;
+                    });
+                } else {
+                    navigateWithFallback(href);
+                }
+            });
+        });
+        
+        // Add page entrance animation class
+        document.body.classList.add('page-loaded');
+    }
+    
+    function navigateWithFallback(href) {
+        const mainContent = document.querySelector('.main-content');
+        const dock = document.querySelector('.session-dock, .mobile-dock');
+        const pageHeader = document.querySelector('.page-header');
+        
+        // Add exit animation
+        if (mainContent) {
+            mainContent.classList.add('page-transition-exit');
+        }
+        if (dock) {
+            dock.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+            dock.style.opacity = '0';
+            dock.style.transform = 'translateY(20px)';
+        }
+        if (pageHeader) {
+            pageHeader.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+            pageHeader.style.opacity = '0';
+            pageHeader.style.transform = 'translateY(-20px)';
+        }
+        
+        // Navigate after animation
+        setTimeout(() => {
+            window.location.href = href;
+        }, 250);
+    }
+
     document.addEventListener('DOMContentLoaded', init);
 
     // ============================================
@@ -228,5 +332,6 @@
     window.openFilters = openFilters;
     window.closeFilters = closeFilters;
     window.toggleFilters = toggleFilters;
+    window.navigateWithTransition = navigateWithFallback;
 })();
 

@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikrobiyoloji Yeterlilik | Uzman Paneli</title>
+    <title>Mikrobiyoloji Yeterlilik | Anasayfa</title>
     <script src="theme/init-theme.js"></script>
     <script src="theme/ui.js" defer></script>
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="theme/design-tokens.css">
+    <link rel="stylesheet" href="theme/components.css">
+    <link rel="stylesheet" href="theme/animations.css">
     <link rel="stylesheet" href="theme/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,53 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-    <div class="app-wrapper">
-        <aside class="sidebar sidebar--compact">
-            <div class="brand-section">
-                <div class="logo"><i class="fas fa-book-medical"></i></div>
-                <div class="brand-text">
-                    <h2>Referans<br><span>Paneli</span></h2>
-                </div>
-            </div>
-
-            <div class="menu-label mode-label">MODÜLLER</div>
-            <nav class="mode-menu" role="navigation" aria-label="Modüller">
-                <a href="index.html" class="nav-item active">
-                    <i class="fas fa-book-medical" aria-hidden="true"></i> Referans Panel
-                </a>
-                <a href="details.html" class="nav-item">
-                    <i class="fas fa-layer-group" aria-hidden="true"></i> Hafıza Kartları
-                </a>
-                <a href="topics.html" class="nav-item">
-                    <i class="fas fa-book-open" aria-hidden="true"></i> Konu Özetleri
-                </a>
-                <a href="study.html" class="nav-item">
-                    <i class="fas fa-brain" aria-hidden="true"></i> SRS Çalışma
-                </a>
-            </nav>
-
-            <div class="menu-label">KONU FİLTRELERİ</div>
-            <nav class="filter-menu" id="categoryFilters" role="navigation" aria-label="Konu filtreleri">
-                <button class="nav-item active" data-category="all" onclick="filterCategory('all')"><i class="fas fa-th-large" aria-hidden="true"></i> Tümü</button>
-                <button class="nav-item" data-category="Genel Mikrobiyoloji" onclick="filterCategory('Genel Mikrobiyoloji')"><i class="fas fa-bacterium" aria-hidden="true"></i> Genel Mikrobiyoloji</button>
-                <button class="nav-item" data-category="Sterilizasyon" onclick="filterCategory('Sterilizasyon')"><i class="fas fa-fire-flame-curved" aria-hidden="true"></i> Sterilizasyon</button>
-                <button class="nav-item" data-category="Pre-Analitik" onclick="filterCategory('Pre-Analitik')"><i class="fas fa-vial" aria-hidden="true"></i> Pre-Analitik (Kritik)</button>
-                <button class="nav-item" data-category="Klinik Bakteriyoloji" onclick="filterCategory('Klinik Bakteriyoloji')"><i class="fas fa-microscope" aria-hidden="true"></i> Klinik Bakteriyoloji</button>
-                <button class="nav-item" data-category="Mikrobiyota" onclick="filterCategory('Mikrobiyota')"><i class="fas fa-dna" aria-hidden="true"></i> Mikrobiyota</button>
-                <button class="nav-item" data-category="Mikoloji" onclick="filterCategory('Mikoloji')"><i class="fas fa-seedling" aria-hidden="true"></i> Mikoloji</button>
-                <button class="nav-item" data-category="Viroloji" onclick="filterCategory('Viroloji')"><i class="fas fa-virus" aria-hidden="true"></i> Viroloji</button>
-                <button class="nav-item" data-category="Parazitoloji" onclick="filterCategory('Parazitoloji')"><i class="fas fa-bug" aria-hidden="true"></i> Parazitoloji</button>
-                <button class="nav-item" data-category="Enfeksiyon Hastalıkları" onclick="filterCategory('Enfeksiyon Hastalıkları')"><i class="fas fa-heartbeat" aria-hidden="true"></i> Enfeksiyon Hastalıkları</button>
-                <button class="nav-item" data-category="Hastane Enfeksiyonları" onclick="filterCategory('Hastane Enfeksiyonları')"><i class="fas fa-hospital" aria-hidden="true"></i> Hastane Enfeksiyonları</button>
-                <button class="nav-item" data-category="Yeterlilik sınavı 2025" onclick="filterCategory('Yeterlilik sınavı 2025')"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Yeterlilik Sınavı 2025</button>
-            </nav>
-        </aside>
-
+    <div class="app-wrapper app-wrapper--no-sidebar">
         <main class="main-content">
             <header class="page-header">
                 <div class="page-header__info">
-                    <span class="page-header__eyebrow">Uzman Paneli</span>
-                    <h1 class="page-header__title">Referans Kartları</h1>
+                    <span class="page-header__eyebrow">Mikrobiyoloji Yeterlilik</span>
+                    <h1 class="page-header__title">Anasayfa</h1>
                     <p class="page-header__desc" id="active-filter-text">Tüm konular ve uzman analizleri görüntüleniyor</p>
                 </div>
                 <div class="page-header__actions">
@@ -70,6 +33,50 @@
                     </button>
                 </div>
             </header>
+
+            <!-- Apple Style Segment Control -->
+            <div class="segment-wrapper">
+                <nav class="segment-control" id="segmentControl" role="tablist" aria-label="Kategori filtreleri">
+                    <div class="segment-control__indicator"></div>
+                    <button class="segment-control__item active" data-category="all" role="tab" aria-selected="true">
+                        <i class="fas fa-th-large"></i>
+                        <span>Tümü</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Genel Mikrobiyoloji" role="tab" aria-selected="false">
+                        <i class="fas fa-bacterium"></i>
+                        <span>Genel</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Sterilizasyon" role="tab" aria-selected="false">
+                        <i class="fas fa-fire-flame-curved"></i>
+                        <span>Sterilizasyon</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Pre-Analitik" role="tab" aria-selected="false">
+                        <i class="fas fa-vial"></i>
+                        <span>Pre-Analitik</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Klinik Bakteriyoloji" role="tab" aria-selected="false">
+                        <i class="fas fa-microscope"></i>
+                        <span>Bakteriyoloji</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Mikoloji" role="tab" aria-selected="false">
+                        <i class="fas fa-seedling"></i>
+                        <span>Mikoloji</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Viroloji" role="tab" aria-selected="false">
+                        <i class="fas fa-virus"></i>
+                        <span>Viroloji</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Parazitoloji" role="tab" aria-selected="false">
+                        <i class="fas fa-bug"></i>
+                        <span>Parazitoloji</span>
+                    </button>
+                    <button class="segment-control__item" data-category="Enfeksiyon Hastalıkları" role="tab" aria-selected="false">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Enfeksiyon</span>
+                    </button>
+                </nav>
+            </div>
+
             <div id="content-grid" class="cards-container" role="region" aria-live="polite" aria-label="Soru kartları"></div>
         </main>
     </div>
@@ -95,9 +102,9 @@
         <div class="dock-content">
             <!-- Navigasyon Butonları -->
             <div class="dock-nav">
-                <a href="index.html" class="dock-nav-btn active" data-page="index" title="Referans Kartları">
-                    <i class="fas fa-book-medical"></i>
-                    <span>Referans</span>
+                <a href="index.html" class="dock-nav-btn active" data-page="index" title="Anasayfa">
+                    <i class="fas fa-home"></i>
+                    <span>Anasayfa</span>
                 </a>
                 <a href="details.html" class="dock-nav-btn" data-page="details" title="Hafıza Kartları">
                     <i class="fas fa-layer-group"></i>
@@ -147,9 +154,9 @@
         </div>
     </div>
 
-    <!-- Dock FAB - Minimize/Expand Toggle -->
-    <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="Dock'u aç">
-        <i class="fas fa-grip-lines"></i>
+    <!-- Dock FAB - Logo + Toggle -->
+    <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="Mikrobiyoloji Yeterlilik">
+        <i class="fas fa-graduation-cap"></i>
     </button>
 
     <!-- Mobile Dock - Glassmorphism Pill Style -->
@@ -162,7 +169,7 @@
             <button class="dock__pill-btn" data-action="theme" aria-label="Tema değiştir">
                 <i class="fas fa-moon"></i>
             </button>
-            <button class="dock__pill-btn active" data-page="index" aria-label="Referans Panel" aria-current="page">
+            <button class="dock__pill-btn active" data-page="index" aria-label="Anasayfa" aria-current="page">
                 <i class="fas fa-book-medical"></i>
             </button>
             <button class="dock__pill-btn" data-page="details" aria-label="Hafıza Kartları">
