@@ -12,6 +12,7 @@ let currentView = 'list'; // 'list' veya 'detail'
 document.addEventListener('DOMContentLoaded', () => {
     initTopicsModule();
     initTheme();
+    handleShareLink();
 });
 
 function initTopicsModule() {
@@ -20,6 +21,82 @@ function initTopicsModule() {
     initSearch();
     initBackButton();
     initDockChips();
+}
+
+// URL'den paylaşım linkini kontrol et
+function handleShareLink() {
+    const params = new URLSearchParams(window.location.search);
+    const topicId = params.get('topic');
+    
+    if (topicId) {
+        showTopicDetail(parseInt(topicId));
+    }
+}
+
+// URL'yi güncelle (history API)
+function updateURL(topicId) {
+    const url = topicId 
+        ? `${window.location.pathname}?topic=${topicId}`
+        : window.location.pathname;
+    window.history.pushState({}, '', url);
+}
+
+// Konu paylaşma fonksiyonu
+function shareTopic(topicId) {
+    const url = `${window.location.origin}${window.location.pathname}?topic=${topicId}`;
+    copyToClipboard(url);
+}
+
+function copyToClipboard(text) {
+    // Textarea ile kopyalama
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+    document.body.appendChild(textarea);
+    
+    // iOS için özel seçim
+    if (navigator.userAgent.match(/ipad|iphone/i)) {
+        const range = document.createRange();
+        range.selectNodeContents(textarea);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textarea.setSelectionRange(0, 999999);
+    } else {
+        textarea.select();
+    }
+    
+    let success = false;
+    try {
+        success = document.execCommand('copy');
+    } catch (err) {
+        success = false;
+    }
+    
+    document.body.removeChild(textarea);
+    
+    if (success) {
+        showToast('Link kopyalandı!');
+    } else {
+        showToast('Kopyalama başarısız');
+    }
+}
+
+function showToast(message) {
+    const existing = document.querySelector('.share-toast');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'share-toast';
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
 }
 
 // Tema fonksiyonları
@@ -141,6 +218,9 @@ function showTopicDetail(topicId) {
     detailSection.style.display = 'block';
     currentView = 'detail';
 
+    // URL'yi güncelle
+    updateURL(topicId);
+
     // Makaleyi render et
     articleContainer.innerHTML = renderTopicArticle(topic);
 
@@ -176,6 +256,10 @@ function renderTopicArticle(topic) {
                     <h1 class="article-title">${topic.title}</h1>
                     <p class="article-subtitle">${topic.subtitle}</p>
                 </div>
+                <button class="share-btn share-btn--article" onclick="shareTopic(${topic.id})" title="Bu konuyu paylaş">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Paylaş</span>
+                </button>
             </div>
             <div class="article-tags">
                 ${topic.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('')}
@@ -190,6 +274,9 @@ function renderTopicArticle(topic) {
 function showTopicsList() {
     const listSection = document.getElementById('topicsList');
     const detailSection = document.getElementById('topicDetail');
+
+    // URL'yi temizle
+    updateURL(null);
 
     detailSection.style.display = 'none';
     listSection.style.display = 'grid';

@@ -1,16 +1,18 @@
 /**
- * Details Module - Ayrıntılı Dosyalar JavaScript
+ * Details Module - Hafıza Kartları JavaScript
  * Spot bilgi kartlarını render eden ve filtreleme işlemleri yapan modül
  */
 
 // Global değişkenler
 let currentTopic = 'all';
 let searchQuery = '';
+let highlightedCardId = null;
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     initDetailsModule();
     initTheme();
+    handleShareLink();
 });
 
 function initDetailsModule() {
@@ -19,6 +21,101 @@ function initDetailsModule() {
     initSearch();
     initExpandables();
     initDockChips();
+    initShareButtons();
+}
+
+// URL'den paylaşım linkini kontrol et
+function handleShareLink() {
+    const params = new URLSearchParams(window.location.search);
+    const cardId = params.get('card');
+    
+    if (cardId) {
+        highlightedCardId = parseInt(cardId);
+        // Filtreleri sıfırla
+        currentTopic = 'all';
+        searchQuery = '';
+        renderDetailCards(detailsData);
+        
+        // Karta scroll et
+        setTimeout(() => {
+            const card = document.querySelector(`[data-card-id="${cardId}"]`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('highlighted');
+                setTimeout(() => card.classList.remove('highlighted'), 3000);
+            }
+        }, 100);
+    }
+}
+
+// Paylaş butonlarını başlat
+function initShareButtons() {
+    document.addEventListener('click', (e) => {
+        const shareBtn = e.target.closest('.share-btn');
+        if (shareBtn) {
+            e.preventDefault();
+            const cardId = shareBtn.dataset.cardId;
+            shareCard(cardId);
+        }
+    });
+}
+
+// Kart paylaşma fonksiyonu
+function shareCard(cardId) {
+    const url = `${window.location.origin}${window.location.pathname}?card=${cardId}`;
+    copyToClipboard(url);
+}
+
+function copyToClipboard(text) {
+    // Textarea ile kopyalama
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+    document.body.appendChild(textarea);
+    
+    // iOS için özel seçim
+    if (navigator.userAgent.match(/ipad|iphone/i)) {
+        const range = document.createRange();
+        range.selectNodeContents(textarea);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textarea.setSelectionRange(0, 999999);
+    } else {
+        textarea.select();
+    }
+    
+    let success = false;
+    try {
+        success = document.execCommand('copy');
+    } catch (err) {
+        success = false;
+    }
+    
+    document.body.removeChild(textarea);
+    
+    if (success) {
+        showToast('Link kopyalandı!');
+    } else {
+        showToast('Kopyalama başarısız');
+    }
+}
+
+function showToast(message) {
+    const existing = document.querySelector('.share-toast');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'share-toast';
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
 }
 
 // Tema fonksiyonları
@@ -172,7 +269,7 @@ function createDetailCard(item) {
     }
 
     return `
-        <article class="detail-card" data-category="${item.category}">
+        <article class="detail-card" data-category="${item.category}" data-card-id="${item.id}">
             <div class="detail-card__header">
                 <div class="detail-card__icon detail-card__icon--${item.category}">
                     <i class="${icon}"></i>
@@ -181,6 +278,9 @@ function createDetailCard(item) {
                     <p class="detail-card__category">${getCategoryLabel(item.category)}</p>
                     <h3 class="detail-card__title">${item.title}</h3>
                 </div>
+                <button class="share-btn" data-card-id="${item.id}" title="Paylaş">
+                    <i class="fas fa-share-alt"></i>
+                </button>
             </div>
             <div class="detail-card__body">
                 <div class="detail-card__core">

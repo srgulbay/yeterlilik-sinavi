@@ -23,12 +23,108 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initSearchOverlay();
     initFilterPanel();
+    initShareButtons();
+    handleShareLink();
+    
     if (MOBILE_QUERY) {
         MOBILE_QUERY.addEventListener('change', () => {
             syncCardToggles();
         });
     }
 });
+
+// URL'den paylaşım linkini kontrol et
+function handleShareLink() {
+    const params = new URLSearchParams(window.location.search);
+    const questionId = params.get('q');
+    
+    if (questionId) {
+        setTimeout(() => {
+            const card = document.querySelector(`[data-question-id="${questionId}"]`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('highlighted');
+                // Kartı aç
+                if (card.classList.contains('collapsed')) {
+                    card.classList.remove('collapsed');
+                    card.classList.add('expanded');
+                }
+                setTimeout(() => card.classList.remove('highlighted'), 3000);
+            }
+        }, 100);
+    }
+}
+
+// Paylaş butonlarını başlat
+function initShareButtons() {
+    document.addEventListener('click', (e) => {
+        const shareBtn = e.target.closest('.share-btn');
+        if (shareBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const questionId = shareBtn.dataset.questionId;
+            shareQuestion(questionId);
+        }
+    });
+}
+
+// Soru paylaşma fonksiyonu
+function shareQuestion(questionId) {
+    const url = `${window.location.origin}${window.location.pathname}?q=${questionId}`;
+    copyToClipboard(url);
+}
+
+function copyToClipboard(text) {
+    // Textarea ile kopyalama
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+    document.body.appendChild(textarea);
+    
+    // iOS için özel seçim
+    if (navigator.userAgent.match(/ipad|iphone/i)) {
+        const range = document.createRange();
+        range.selectNodeContents(textarea);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textarea.setSelectionRange(0, 999999);
+    } else {
+        textarea.select();
+    }
+    
+    let success = false;
+    try {
+        success = document.execCommand('copy');
+    } catch (err) {
+        success = false;
+    }
+    
+    document.body.removeChild(textarea);
+    
+    if (success) {
+        showToast('Link kopyalandı!');
+    } else {
+        showToast('Kopyalama başarısız');
+    }
+}
+
+function showToast(message) {
+    const existing = document.querySelector('.share-toast');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'share-toast';
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
+}
 
 function initTheme() {
     const savedTheme = localStorage.getItem('theme');
@@ -78,6 +174,7 @@ function renderCards(data) {
 
         const card = document.createElement('div');
         card.className = 'card';
+        card.setAttribute('data-question-id', item.id);
 
         const extraContent = item.details.table || '';
         const listContent = Array.isArray(item.details.keyPoints)
@@ -110,7 +207,12 @@ function renderCards(data) {
 
         card.innerHTML = `
             <div class="card-header">
-                <span class="badge">${item.category}</span>
+                <div class="card-header__top">
+                    <span class="badge">${item.category}</span>
+                    <button class="share-btn" data-question-id="${item.id}" title="Bu soruyu paylaş">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                </div>
                 ${item.topic ? `<div class="topic-badge"><i class="fas fa-bookmark"></i> ${item.topic}</div>` : ''}
                 <h3 class="question">${item.question}</h3>
             </div>
