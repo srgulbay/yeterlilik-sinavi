@@ -196,6 +196,9 @@ function showTopicDetail(topicId) {
 
     // URL'yi güncelle
     updateURL(topicId);
+    
+    // Sayfa başlığını güncelle
+    document.title = `${topic.title} | Konu Özetleri`;
 
     // Makaleyi render et
     articleContainer.innerHTML = renderTopicArticle(topic);
@@ -252,6 +255,9 @@ function showTopicsList() {
 
     // URL'yi temizle
     updateURL(null);
+    
+    // Sayfa başlığını geri al
+    document.title = 'Konu Özetleri | Mikrobiyoloji Anlatımları';
 
     detailSection.style.display = 'none';
     listSection.style.display = 'grid';
