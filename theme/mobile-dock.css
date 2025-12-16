@@ -70,6 +70,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
     
@@ -81,10 +82,32 @@
     border-radius: var(--radius-2xl);
     box-shadow: var(--glass-shadow);
     padding: var(--space-2);
+    
+    /* Fade edges for scroll indication */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 12px,
+        black calc(100% - 12px),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 12px,
+        black calc(100% - 12px),
+        transparent
+    );
 }
 
 .mobile-dock__segment::-webkit-scrollbar {
     display: none;
+}
+
+/* İçerik az olduğunda mask kaldır */
+.mobile-dock__segment:not(.scrollable) {
+    mask-image: none;
+    -webkit-mask-image: none;
 }
 
 .mobile-dock__segment .dock-segment {
@@ -92,6 +115,7 @@
     min-width: 100%;
     background: transparent;
     padding: 0;
+    justify-content: flex-start;
 }
 
 /* ==========================================

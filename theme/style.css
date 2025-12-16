@@ -796,6 +796,45 @@
     box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3), inset 0 0 0 2px rgba(255,255,255,0.3);
 }
 
+/* Dock Segment Container - Scrollable */
+.dock-segment-container {
+    flex: 1;
+    min-width: 0;
+    max-width: 480px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    /* Fade edges for scroll indication */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 8px,
+        black calc(100% - 8px),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 8px,
+        black calc(100% - 8px),
+        transparent
+    );
+}
+
+.dock-segment-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* İçerik az olduğunda mask kaldır */
+.dock-segment-container:not(.scrollable) {
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
 /* Dock Ayraç */
 .dock-divider {
     width: 1px;

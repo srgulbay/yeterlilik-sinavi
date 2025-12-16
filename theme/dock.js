@@ -20,7 +20,6 @@ class Dock {
         // State
         this.currentPage = this.detectCurrentPage();
         this.activeSegment = 'all';
-        this.segments = this.getSegmentsForPage();
         
         // Init
         this.init();
@@ -30,6 +29,10 @@ class Dock {
      * Initialize
      */
     init() {
+        // Get segments (veri yüklendikten sonra)
+        this.segments = this.getSegmentsForPage();
+        console.log('Dock: Segments loaded:', this.segments.length, 'segments');
+        
         // Render segment controls
         this.renderSegmentControls();
         
@@ -59,18 +62,25 @@ class Dock {
      * Get data source for current page
      */
     getDataSource() {
+        let data = [];
         switch (this.currentPage) {
             case 'index':
-                return window.contentData || [];
+                data = window.contentData || [];
+                break;
             case 'details':
-                return window.detailsData || [];
+                data = window.detailsData || [];
+                break;
             case 'topics':
-                return window.topicsData || [];
+                data = window.topicsData || [];
+                break;
             case 'study':
-                return window.contentData || [];
+                data = window.contentData || [];
+                break;
             default:
-                return [];
+                data = [];
         }
+        console.log('Dock: getDataSource for', this.currentPage, '- found', data.length, 'items');
+        return data;
     }
     
     /**
@@ -96,7 +106,10 @@ class Dock {
             'enfeksiyon': 'Enfeksiyon Hastalıkları',
             'enfeksiyon hastalıkları': 'Enfeksiyon Hastalıkları',
             'laboratuvar': 'laboratuvar',
-            'immunoloji': 'immunoloji'
+            'immunoloji': 'immunoloji',
+            'yeterlilik sınavı 2025': 'Yeterlilik sınavı 2025',
+            'hastane enfeksiyonları': 'Hastane Enfeksiyonları',
+            'mikrobiyota': 'Mikrobiyota'
         };
         
         return mappings[lower] || category;
@@ -109,12 +122,18 @@ class Dock {
         const data = this.getDataSource();
         const counts = { all: data.length };
         
+        if (!data || data.length === 0) {
+            console.warn('Dock: No data available for counting');
+            return counts;
+        }
+        
         data.forEach(item => {
             const rawCat = item.category || item.topic || 'Diğer';
             const cat = this.normalizeCategory(rawCat);
             counts[cat] = (counts[cat] || 0) + 1;
         });
         
+        console.log('Dock: Category counts:', counts);
         return counts;
     }
     
@@ -209,19 +228,47 @@ class Dock {
      * Render segment controls in both docks
      */
     renderSegmentControls() {
+        console.log('Dock: renderSegmentControls called');
+        console.log('Dock: segments to render:', this.segments);
+        
         // Desktop dock segment
         const desktopContainer = this.dock?.querySelector('.dock-segment-container');
+        console.log('Dock: Desktop container found:', !!desktopContainer);
         if (desktopContainer) {
-            desktopContainer.innerHTML = this.createSegmentHTML('dockSegment');
+            const html = this.createSegmentHTML('dockSegment');
+            console.log('Dock: Generated HTML length:', html.length);
+            desktopContainer.innerHTML = html;
             this.initSegmentControl('dockSegment');
+            this.checkScrollable(desktopContainer);
         }
         
         // Mobile dock segment
         const mobileContainer = this.mobileDock?.querySelector('.mobile-dock__segment');
+        console.log('Dock: Mobile container found:', !!mobileContainer);
         if (mobileContainer) {
             mobileContainer.innerHTML = this.createSegmentHTML('mobileSegment', true);
             this.initSegmentControl('mobileSegment');
+            this.checkScrollable(mobileContainer);
         }
+    }
+    
+    /**
+     * Check if container needs scrolling and add/remove scrollable class
+     */
+    checkScrollable(container) {
+        if (!container) return;
+        
+        const checkOverflow = () => {
+            const isScrollable = container.scrollWidth > container.clientWidth + 2;
+            container.classList.toggle('scrollable', isScrollable);
+        };
+        
+        // Initial check
+        requestAnimationFrame(checkOverflow);
+        
+        // Resize observer for responsive changes
+        const resizeObserver = new ResizeObserver(checkOverflow);
+        resizeObserver.observe(container);
     }
     
     /**
@@ -253,10 +300,15 @@ class Dock {
      */
     initSegmentControl(containerId) {
         const container = document.getElementById(containerId);
-        if (!container) return;
+        if (!container) {
+            console.warn('Dock: Container not found:', containerId);
+            return;
+        }
         
         const items = container.querySelectorAll('.dock-segment__item');
         const indicator = container.querySelector('.dock-segment__indicator');
+        
+        console.log('Dock: Initializing segment control:', containerId, 'with', items.length, 'items');
         
         // Position indicator on first active
         const activeItem = container.querySelector('.dock-segment__item.active');
@@ -268,6 +320,7 @@ class Dock {
         items.forEach(item => {
             item.addEventListener('click', () => {
                 const segmentId = item.dataset.segment;
+                console.log('Dock: Segment clicked:', segmentId);
                 this.selectSegment(segmentId);
             });
         });
@@ -317,6 +370,8 @@ class Dock {
                 
                 if (isActive && indicator) {
                     this.positionIndicator(indicator, item, container);
+                    // Scroll active item into view smoothly
+                    this.scrollItemIntoView(item, container);
                 }
             });
         });
@@ -326,9 +381,41 @@ class Dock {
     }
     
     /**
+     * Scroll the selected item into view with smooth animation
+     */
+    scrollItemIntoView(item, container) {
+        // Get the scrollable parent (segment container or mobile segment)
+        const scrollParent = container.closest('.dock-segment-container') || 
+                             container.closest('.mobile-dock__segment');
+        
+        if (!scrollParent) return;
+        
+        const itemRect = item.getBoundingClientRect();
+        const parentRect = scrollParent.getBoundingClientRect();
+        
+        // Check if item is fully visible
+        const isFullyVisible = itemRect.left >= parentRect.left + 12 && 
+                                itemRect.right <= parentRect.right - 12;
+        
+        if (!isFullyVisible) {
+            // Calculate scroll position to center the item
+            const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+            const parentCenter = scrollParent.clientWidth / 2;
+            const scrollTo = itemCenter - parentCenter;
+            
+            scrollParent.scrollTo({
+                left: Math.max(0, scrollTo),
+                behavior: 'smooth'
+            });
+        }
+    }
+    
+    /**
      * Apply segment action based on current page
      */
     applySegmentAction(segmentId) {
+        console.log('Dock: applySegmentAction called with:', segmentId, 'on page:', this.currentPage);
+        
         if (this.currentPage === 'study') {
             // Study page - SRS modes
             if (typeof window.setStudyMode === 'function') {
@@ -339,20 +426,27 @@ class Dock {
             // Details page - Category filter
             if (typeof window.filterDetailCards === 'function') {
                 window.filterDetailCards(segmentId);
+            } else {
+                console.warn('Dock: filterDetailCards not found');
             }
             console.log('Dock: Details filter:', segmentId);
         } else if (this.currentPage === 'topics') {
             // Topics page - Category filter
             if (typeof window.filterTopics === 'function') {
                 window.filterTopics(segmentId);
+            } else {
+                console.warn('Dock: filterTopics not found');
             }
             console.log('Dock: Topics filter:', segmentId);
         } else {
             // Index page - Category filter
+            console.log('Dock: Calling filterCategory with:', segmentId);
+            console.log('Dock: filterCategory exists:', typeof window.filterCategory === 'function');
             if (typeof window.filterCategory === 'function') {
                 window.filterCategory(segmentId);
+            } else {
+                console.warn('Dock: filterCategory not found on window');
             }
-            console.log('Dock: Index filter:', segmentId);
         }
     }
     

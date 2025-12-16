@@ -234,7 +234,6 @@ function renderTopicArticle(topic) {
                 </div>
                 <button class="share-btn share-btn--article" onclick="shareTopic(${topic.id})" title="Bu konuyu paylaş">
                     <i class="fas fa-share-alt"></i>
-                    <span>Paylaş</span>
                 </button>
             </div>
             <div class="article-tags">

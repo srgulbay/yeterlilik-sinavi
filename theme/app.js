@@ -222,22 +222,59 @@ function renderCards(data) {
     setTimeout(() => refreshScrollReveal(), 50);
 }
 
-function filterCategory(category) {
-    updateActiveButton(category);
-    if (typeof window.setDockCategoryActive === 'function') {
-        window.setDockCategoryActive(category);
+/**
+ * Normalize filter ID from dock segment to category name
+ * Handles mapping between dock segment IDs and data categories
+ */
+function normalizeFilterId(filterId) {
+    if (!filterId || filterId === 'all') return 'all';
+    
+    // Segment ID'leri direkt eşleşebilir
+    if (CATEGORY_MAP.has(filterId)) {
+        return filterId;
     }
     
-    const title = category === 'all' ? 'Tüm Konular' : category;
+    // Lowercase kontrolü
+    const lowerFilter = filterId.toLowerCase();
+    for (const [key, _] of CATEGORY_MAP) {
+        if (key.toLowerCase() === lowerFilter) {
+            return key;
+        }
+        // Kısmi eşleşme (örn: "Bakteriyoloji" → "Klinik Bakteriyoloji")
+        if (key.toLowerCase().includes(lowerFilter) || lowerFilter.includes(key.toLowerCase())) {
+            return key;
+        }
+    }
+    
+    return filterId;
+}
+
+function filterCategory(category) {
+    console.log('filterCategory called with:', category);
+    console.log('CATEGORY_MAP keys:', Array.from(CATEGORY_MAP.keys()));
+    
+    // Normalize the category ID
+    const normalizedCategory = normalizeFilterId(category);
+    console.log('Normalized category:', normalizedCategory);
+    
+    updateActiveButton(normalizedCategory);
+    if (typeof window.setDockCategoryActive === 'function') {
+        window.setDockCategoryActive(normalizedCategory);
+    }
+    
+    const title = normalizedCategory === 'all' ? 'Tüm Konular' : normalizedCategory;
     const filterText = document.getElementById('active-filter-text');
     if (filterText) {
         filterText.innerText = `${title} ile ilgili kartlar görüntüleniyor`;
     }
 
-    if (category === 'all') {
+    if (normalizedCategory === 'all') {
+        console.log('Rendering all cards:', DATASET.length);
         renderCards(DATASET);
     } else {
-        renderCards(CATEGORY_MAP.get(category) || []);
+        const filteredData = CATEGORY_MAP.get(normalizedCategory) || [];
+        console.log('Rendering filtered cards:', filteredData.length, 'for category:', normalizedCategory);
+        renderCards(filteredData);
     }
 }
 
@@ -254,8 +291,12 @@ function updateActiveButton(category) {
         chip.classList.toggle('active', chip.dataset.category === category);
     });
     
-    // Segment control güncelle
-    updateSegmentIndicator(category);
+    // Segment control artık dock.js tarafından yönetiliyor
+    // Dock segment'i güncelle (eğer dock varsa)
+    if (window.dock && typeof window.dock.selectSegment === 'function') {
+        // Sadece segment ID'yi güncelle, applySegmentAction'ı tekrar çağırmadan
+        window.dock.activeSegment = category;
+    }
 }
 
 let searchTimeout;
