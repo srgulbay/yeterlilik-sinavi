@@ -3773,6 +3773,809 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 8,
+        category: "bakteriyoloji",
+        title: "Fenotipik Direnç Testleri",
+        subtitle: "β-laktamaz, Karbapenemaz ve ESBL Tespit Yöntemleri",
+        summary: "Klinik mikrobiyolojide antibiyotik direnci tespitinde kullanılan fenotipik yöntemlerin kapsamlı özeti. MHT, CIM, mCIM, eCIM, EDTA, Boronic asit testleri, ESBL tarama ve doğrulama, disk difüzyon, MİK, E-test ve CLSI vs EUCAST farklılıkları.",
+        tags: ["β-laktamaz", "Karbapenemaz", "ESBL", "MİK", "Disk Difüzyon", "CLSI", "EUCAST", "Direnç Testleri"],
+        sections: [
+            {
+                title: "Fenotipik Yöntemlerin Genel Prensipleri",
+                icon: "fas fa-microscope",
+                content: `
+                    <p><strong>Fenotipik yöntemler</strong>, bakterilerin antibiyotiklere karşı gösterdiği direnci <em>in vitro</em> ortamda gözlemlemeye dayanır. Genotipik testlerin aksine, gerçek direnç fenotipini değerlendirir.</p>
+                    
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Fenotipik vs Genotipik Testler</p>
+                        <p class="highlight-box__content">
+                            <strong>Fenotipik:</strong> Direnci görsel/ölçümsel olarak saptar (disk, MİK)<br>
+                            <strong>Genotipik:</strong> Direnç genlerini saptar (PCR, sekans)<br>
+                            <strong>Avantaj:</strong> Fenotipik testler eksprese edilen direnci gösterir<br>
+                            <strong>Dezavantaj:</strong> Heterodirençte düşük ekspresyon kaçırılabilir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Temel Fenotipik Yöntemler</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Yöntem</th>
+                                <th>Prensip</th>
+                                <th>Sonuç Tipi</th>
+                            </tr>
+                            <tr>
+                                <td><b>Disk Difüzyon</b></td>
+                                <td>İnhibisyon zonu ölçümü</td>
+                                <td>S/I/R (kalitatif)</td>
+                            </tr>
+                            <tr>
+                                <td><b>MİK (Dilüsyon)</b></td>
+                                <td>Üreme inhibe eden en düşük konsantrasyon</td>
+                                <td>µg/mL (kantitatif)</td>
+                            </tr>
+                            <tr>
+                                <td><b>E-test</b></td>
+                                <td>Gradyan difüzyon</td>
+                                <td>µg/mL (kantitatif)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Otomatize Sistemler</b></td>
+                                <td>Türbidimetrik MİK</td>
+                                <td>S/I/R + MİK</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Sınav Notu:</strong> Fenotipik testlerin standardizasyonu için <strong>CLSI</strong> (ABD) veya <strong>EUCAST</strong> (Avrupa) kılavuzları kullanılır. Türkiye'de her ikisi de kabul görür ancak aynı hasta için tutarlılık önemlidir!</p>
+                    </div>
+                `
+            },
+            {
+                title: "β-Laktamaz Tespit Testleri",
+                icon: "fas fa-vial",
+                content: `
+                    <p><strong>β-laktamazlar</strong>, β-laktam halkasını hidrolize ederek antibiyotiği inaktive eden enzimlerdir. Sınıflandırma için <strong>Ambler (moleküler)</strong> ve <strong>Bush-Jacoby (fonksiyonel)</strong> sistemleri kullanılır.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ambler Moleküler Sınıflandırma</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Sınıf</th>
+                                <th>Aktif Bölge</th>
+                                <th>Enzim Örnekleri</th>
+                                <th>İnhibitör</th>
+                            </tr>
+                            <tr>
+                                <td><b>A</b></td>
+                                <td>Serin</td>
+                                <td>TEM, SHV, CTX-M, KPC</td>
+                                <td>Klavulanik asit, Avibaktam</td>
+                            </tr>
+                            <tr>
+                                <td><b>B</b></td>
+                                <td>Metallo (Zn²⁺)</td>
+                                <td>NDM, VIM, IMP</td>
+                                <td>EDTA, Dipikolinik asit</td>
+                            </tr>
+                            <tr>
+                                <td><b>C</b></td>
+                                <td>Serin</td>
+                                <td>AmpC (CMY, DHA)</td>
+                                <td>Kloksasilin, Boronik asit</td>
+                            </tr>
+                            <tr>
+                                <td><b>D</b></td>
+                                <td>Serin</td>
+                                <td>OXA (OXA-48, OXA-23)</td>
+                                <td>Avibaktam (sınırlı)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 Ambler Sınıfları Hafıza Kodu</p>
+                        <p class="highlight-box__content">
+                            <strong>"A-Serin-TEM/KPC"</strong> → A sınıfı serin β-laktamaz<br>
+                            <strong>"B-Metallo-NDM/VIM"</strong> → B sınıfı metalloenzim (Zn bağımlı)<br>
+                            <strong>"C-Serin-AmpC"</strong> → Kromozomal/plazmid AmpC<br>
+                            <strong>"D-Serin-OXA"</strong> → Oksasilinaz grubu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı β-Laktamaz Testleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Nitrocefin Testi:</b> Kromojen sefalosporin, sarıdan kırmızıya renk değişimi = β-laktamaz (+)</li>
+                            <li class="feature-item"><b>Asidometrik Test:</b> pH değişimi, penisilin hidrolizi = asit üretimi</li>
+                            <li class="feature-item"><b>İyodometrik Test:</b> Nişasta-iyot kompleksi renk değişimi</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Dikkat:</strong> Nitrocefin testi <strong>H. influenzae, N. gonorrhoeae, M. catarrhalis</strong> gibi zor üreyen bakterilerde hızlı β-laktamaz taraması için idealdir. Ancak ESBL, AmpC, karbapenemazları AYIRT EDEMEZ!</p>
+                    </div>
+                `
+            },
+            {
+                title: "Karbapenemaz Tespit Testleri",
+                icon: "fas fa-biohazard",
+                content: `
+                    <p><strong>Karbapenemazlar</strong>, karbapenemleri hidrolize edebilen geniş spektrumlu β-laktamazlardır. En kritik direnç mekanizmalarından biridir ve enfeksiyon kontrolü açısından erken tespit hayati öneme sahiptir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Modified Hodge Test (MHT)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> Karbapenemaz üreten bakteri, ertapenem diskinin etrafındaki inhibisyon zonunu "yonca yaprağı" şeklinde daraltır</li>
+                            <li class="feature-item"><b>İndikatör suş:</b> E. coli ATCC 25922</li>
+                            <li class="feature-item"><b>Avantaj:</b> Tüm karbapenemaz sınıflarını saptar</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> Düşük duyarlılık, NDM için zayıf, AmpC ile yalancı pozitiflik</li>
+                            <li class="feature-item"><b>Durum:</b> CLSI 2018'den itibaren ÖNERİLMİYOR</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Carba NP Test</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> İmipenem hidrolizi → pH düşüşü → Fenol kırmızısı sarıya döner</li>
+                            <li class="feature-item"><b>Süre:</b> 30 dakika - 2 saat</li>
+                            <li class="feature-item"><b>Avantaj:</b> Hızlı, ucuz, tüm karbapenemaz sınıfları</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> OXA-48 için düşük duyarlılık, mukoid suşlarda sorun</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. CIM / mCIM / eCIM Testleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Test</th>
+                                <th>Tam Adı</th>
+                                <th>Prensip</th>
+                                <th>Sonuç</th>
+                            </tr>
+                            <tr>
+                                <td><b>CIM</b></td>
+                                <td>Carbapenem Inactivation Method</td>
+                                <td>Meropenem diski bakteri süspansiyonunda inkübe</td>
+                                <td>Zon ≤15 mm = (+)</td>
+                            </tr>
+                            <tr>
+                                <td><b>mCIM</b></td>
+                                <td>Modified CIM</td>
+                                <td>TSB'de 4 saat inkübasyon, daha hassas</td>
+                                <td>Zon 6-15 mm = (+), ≤6 mm kesin (+)</td>
+                            </tr>
+                            <tr>
+                                <td><b>eCIM</b></td>
+                                <td>EDTA-CIM</td>
+                                <td>mCIM + EDTA (MBL ayrımı)</td>
+                                <td>EDTA ile zon ≥5 mm artış = MBL (+)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 mCIM + eCIM Yorumlama</p>
+                        <p class="highlight-box__content">
+                            <strong>mCIM (+), eCIM (-):</strong> Serin karbapenemaz (KPC, OXA-48)<br>
+                            <strong>mCIM (+), eCIM (+):</strong> Metallo-β-laktamaz (NDM, VIM, IMP)<br>
+                            <strong>mCIM (-), eCIM (-):</strong> Karbapenemaz negatif (direnç başka mekanizma)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">4. İnhibitör Bazlı Kombine Disk Testleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>İnhibitör</th>
+                                <th>Hedef Enzim</th>
+                                <th>Pozitif Sonuç</th>
+                            </tr>
+                            <tr>
+                                <td><b>EDTA / Dipikolinik Asit (DPA)</b></td>
+                                <td>Metallo-β-laktamaz (Sınıf B)</td>
+                                <td>Meropenem+EDTA zonu ≥5 mm artış</td>
+                            </tr>
+                            <tr>
+                                <td><b>Fenilboronik Asit (PBA)</b></td>
+                                <td>KPC + AmpC (Serin β-laktamaz)</td>
+                                <td>Meropenem+PBA zonu ≥5 mm artış</td>
+                            </tr>
+                            <tr>
+                                <td><b>Kloksasilin</b></td>
+                                <td>AmpC (spesifik)</td>
+                                <td>Sefoksitin+kloksasilin zonu artışı</td>
+                            </tr>
+                            <tr>
+                                <td><b>Temosil (Temosilin)</b></td>
+                                <td>OXA-48 tarama</td>
+                                <td>Temosil zonu ≤11 mm = OXA-48 şüphesi</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>KRİTİK:</strong> OXA-48 karbapenemaz, karbapenem MİK'lerini yalnızca hafif yükseltebilir! Meropenem MİK 1-4 µg/mL olabilir. Rutin testlerde <strong>ATLANIR!</strong> Temosil taraması veya PCR şarttır.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">5. Kromojenik Besiyerleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>ChromID CARBA:</b> Ertapenem içerir, Enterobacterales tarama</li>
+                            <li class="feature-item"><b>SUPERCARBA:</b> Daha yüksek duyarlılık, OXA-48 için optimize</li>
+                            <li class="feature-item"><b>CHROMagar mSuperCARBA:</b> Kloksasilin + ertapenem (AmpC'yi baskılar)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Karbapenemaz Test Seçimi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <strong>"mCIM → eCIM → Tip"</strong><br>
+                            Tarama: mCIM ile başla<br>
+                            Tiplendirme: eCIM ile MBL/Serin ayrımı<br>
+                            Doğrulama: PCR (blaKPC, blaNDM, blaOXA-48, blaVIM, blaIMP)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "ESBL Tespit Yöntemleri",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <p><strong>ESBL (Extended-Spectrum β-Lactamase)</strong>, geniş spektrumlu sefalosporinleri (seftazidim, sefotaksim, seftriakson) ve aztreonamı hidrolize eden ancak klavulanik asit ile inhibe edilen enzimlerdir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">ESBL Tanımlayıcı Özellikler</p>
+                        <p class="highlight-box__content">
+                            ✓ 3. kuşak sefalosporin direnci<br>
+                            ✓ Aztreonam direnci<br>
+                            ✓ Klavulanik asit ile inhibisyon<br>
+                            ✓ Sefamisin (sefoksitin) ve karbapenem DUYARLI<br>
+                            ✗ Sefoksitin dirençli ise → AmpC düşün!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ESBL Tarama Testleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Disk Difüzyon:</b> Seftazidim (CAZ) ≤22 mm VEYA Sefotaksim (CTX) ≤27 mm VEYA Aztreonam (ATM) ≤27 mm</li>
+                            <li class="feature-item"><b>MİK:</b> Seftazidim ≥2 µg/mL VEYA Sefotaksim ≥2 µg/mL VEYA Aztreonam ≥2 µg/mL</li>
+                            <li class="feature-item"><b>Otomatize Sistem:</b> "ESBL?" uyarısı</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ESBL Doğrulama Testleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Yöntem</th>
+                                <th>Uygulama</th>
+                                <th>Pozitif Kriter</th>
+                            </tr>
+                            <tr>
+                                <td><b>Kombine Disk</b></td>
+                                <td>CAZ vs CAZ/CLA, CTX vs CTX/CLA</td>
+                                <td>Zon farkı ≥5 mm</td>
+                            </tr>
+                            <tr>
+                                <td><b>Çift Disk Sinerji</b></td>
+                                <td>AMC disk merkez, CAZ/CTX çevrede</td>
+                                <td>"Anahtar deliği" genişleme</td>
+                            </tr>
+                            <tr>
+                                <td><b>E-test ESBL</b></td>
+                                <td>CAZ/CAZ+CLA gradient strip</td>
+                                <td>MİK oranı ≥8 veya fantom zon</td>
+                            </tr>
+                            <tr>
+                                <td><b>Sıvı Dilüsyon</b></td>
+                                <td>MİK ± klavulanik asit</td>
+                                <td>≥3 dilüsyon (8 kat) düşüş</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>ESBL + AmpC Birlikteliği:</strong> AmpC, klavulanik asiti inhibe ETMEZ ve ESBL testini maskeleyebilir! Kloksasilin (AmpC inhibitörü) eklenerek test tekrarlanmalıdır.<br><br>
+                        <strong>Kural:</strong> Sefoksitin dirençli + 3. kuşak sefalosporin dirençli = AmpC ± ESBL</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ESBL Enzim Tipleri ve Özellikleri</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Enzim</th>
+                                <th>Tercih Substrat</th>
+                                <th>Epidemiyoloji</th>
+                            </tr>
+                            <tr>
+                                <td><b>CTX-M</b></td>
+                                <td>Sefotaksim > Seftazidim</td>
+                                <td>En yaygın! Dünya genelinde</td>
+                            </tr>
+                            <tr>
+                                <td><b>TEM mutantları</b></td>
+                                <td>Değişken</td>
+                                <td>TEM-1'den türemiş (>200 varyant)</td>
+                            </tr>
+                            <tr>
+                                <td><b>SHV mutantları</b></td>
+                                <td>Seftazidim > Sefotaksim</td>
+                                <td>K. pneumoniae'de sık</td>
+                            </tr>
+                            <tr>
+                                <td><b>PER, VEB, GES</b></td>
+                                <td>Değişken</td>
+                                <td>Bölgesel, P. aeruginosa'da</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ESBL vs AmpC Ayrımı</p>
+                        <p class="mnemonic-box__text">
+                            <strong>"ESBL = CAZ-CTX (+), FOX duyarlı, CLA inhibe"</strong><br>
+                            <strong>"AmpC = FOX dirençli, CLA inhibe ETMEZ, Kloksasilin inhibe"</strong><br>
+                            <strong>"KPC = Her şeye dirençli, PBA inhibe"</strong>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antibiyotik Duyarlılık Test Yöntemleri",
+                icon: "fas fa-tablets",
+                content: `
+                    <p>Antibiyotik duyarlılık testleri (ADT), bakterinin antibiyotiğe <em>in vitro</em> yanıtını ölçer ve klinik tedavi kararlarını yönlendirir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Disk Difüzyon (Kirby-Bauer)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> Antibiyotik emdirilmiş disk, agar yüzeyinde gradyan oluşturur</li>
+                            <li class="feature-item"><b>Besiyeri:</b> Mueller-Hinton Agar (MHA), 4 mm kalınlık</li>
+                            <li class="feature-item"><b>İnokulum:</b> 0.5 McFarland (≈1-2 × 10⁸ CFU/mL)</li>
+                            <li class="feature-item"><b>İnkübasyon:</b> 35±2°C, 16-18 saat (aerob), CO₂ gerekirse %5</li>
+                            <li class="feature-item"><b>Sonuç:</b> İnhibisyon zonu çapı (mm) → S/I/R</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Dilüsyon Yöntemleri (MİK)</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Yöntem</th>
+                                <th>Ortam</th>
+                                <th>Avantaj</th>
+                                <th>Dezavantaj</th>
+                            </tr>
+                            <tr>
+                                <td><b>Makrodilüsyon</b></td>
+                                <td>Tüp (sıvı)</td>
+                                <td>Altın standart</td>
+                                <td>Zahmetli, çok malzeme</td>
+                            </tr>
+                            <tr>
+                                <td><b>Mikrodilüsyon</b></td>
+                                <td>96-kuyucuk plak</td>
+                                <td>Çok antibiyotik, otomasyona uygun</td>
+                                <td>Hazır plaklar pahalı</td>
+                            </tr>
+                            <tr>
+                                <td><b>Agar Dilüsyon</b></td>
+                                <td>Katı besiyeri</td>
+                                <td>Çok izolat aynı anda</td>
+                                <td>Her konsantrasyon ayrı plak</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. Gradyan Difüzyon (E-test)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prensip:</b> Plastik şerit üzerinde antibiyotik gradyanı</li>
+                            <li class="feature-item"><b>Okuma:</b> Elips şeklinde inhibisyon, MİK değeri şeritten okunur</li>
+                            <li class="feature-item"><b>Avantaj:</b> Kolay, kantitatif MİK</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> Pahalı, tek antibiyotik/şerit</li>
+                            <li class="feature-item"><b>Endikasyon:</b> Zor üreyen bakteriler, ESBL doğrulama, sinerji testi</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">4. Otomatize Sistemler</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Sistem</th>
+                                <th>Üretici</th>
+                                <th>Prensip</th>
+                            </tr>
+                            <tr>
+                                <td><b>VITEK 2</b></td>
+                                <td>bioMérieux</td>
+                                <td>Türbidimetri, kinetik analiz</td>
+                            </tr>
+                            <tr>
+                                <td><b>BD Phoenix</b></td>
+                                <td>BD</td>
+                                <td>Türbidimetri + redoks</td>
+                            </tr>
+                            <tr>
+                                <td><b>MicroScan</b></td>
+                                <td>Beckman Coulter</td>
+                                <td>Fluorometri</td>
+                            </tr>
+                            <tr>
+                                <td><b>Sensititre</b></td>
+                                <td>Thermo Fisher</td>
+                                <td>Mikrodilüsyon, fluorometri</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">MİK Yorumlama</p>
+                        <p class="highlight-box__content">
+                            <strong>MİK (Minimum İnhibitör Konsantrasyon):</strong> Görünür üremeyi inhibe eden en düşük antibiyotik konsantrasyonu<br><br>
+                            <strong>Breakpoint:</strong> S/I/R ayıran eşik değerler (CLSI/EUCAST)<br>
+                            <strong>Epidemiyolojik Cutoff (ECOFF):</strong> Wild-tip ve direnç ayrımı<br>
+                            <strong>MBC:</strong> %99.9 öldüren konsantrasyon (MBC/MİK ≥32 = tolerans)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>İnokulum Etkisi:</strong> Yüksek bakteri yükünde MİK artar! Özellikle β-laktamazlı suşlarda önemli. Abse, endokardit gibi yüksek bakteri yükü olan enfeksiyonlarda klinik başarısızlık nedeni olabilir.</p>
+                    </div>
+                `
+            },
+            {
+                title: "CLSI vs EUCAST Kritik Farklılıklar",
+                icon: "fas fa-balance-scale",
+                content: `
+                    <p><strong>CLSI</strong> (Clinical and Laboratory Standards Institute) ve <strong>EUCAST</strong> (European Committee on Antimicrobial Susceptibility Testing), dünya genelinde en yaygın kullanılan iki standardizasyon kuruluşudur.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Temel Farklar</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Özellik</th>
+                                <th>CLSI</th>
+                                <th>EUCAST</th>
+                            </tr>
+                            <tr>
+                                <td><b>Köken</b></td>
+                                <td>ABD (1975'ten beri)</td>
+                                <td>Avrupa (1997'den beri)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Erişim</b></td>
+                                <td>Ücretli</td>
+                                <td>Ücretsiz (online)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Güncelleme</b></td>
+                                <td>Yıllık</td>
+                                <td>Sürekli (online)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Breakpoint Felsefesi</b></td>
+                                <td>Klinik + mikrobiyolojik</td>
+                                <td>PK/PD ağırlıklı</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kritik Breakpoint Farklılıkları</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Organizma / Antibiyotik</th>
+                                <th>CLSI S≤</th>
+                                <th>EUCAST S≤</th>
+                                <th>Klinik Önemi</th>
+                            </tr>
+                            <tr>
+                                <td><b>S. aureus - Vankomisin</b></td>
+                                <td>≤2 µg/mL</td>
+                                <td>≤2 µg/mL</td>
+                                <td>Aynı</td>
+                            </tr>
+                            <tr>
+                                <td><b>Enterobacterales - Tigesiklin</b></td>
+                                <td>Breakpoint yok</td>
+                                <td>S≤0.5, R>0.5</td>
+                                <td>EUCAST daha katı</td>
+                            </tr>
+                            <tr>
+                                <td><b>S. pneumoniae - Penisilin (menenjit)</b></td>
+                                <td>≤0.06 µg/mL</td>
+                                <td>≤0.06 µg/mL</td>
+                                <td>Aynı</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">I (Intermediate) Kategorisi Farkı</p>
+                        <p class="highlight-box__content">
+                            <strong>CLSI:</strong> "I = Intermediate" → Belirsiz, yüksek doz veya alternatif düşün<br>
+                            <strong>EUCAST:</strong> "I = Susceptible, Increased exposure" → Yüksek doz/uzun infüzyon ile TEDAVİ EDİLEBİLİR!<br><br>
+                            <em>EUCAST'ta "I" kategorisi artık "kaçının" değil, "doz ayarla" anlamına gelir!</em>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Algoritma Farklılıkları</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>ESBL:</b> CLSI doğrulama öneriyor, EUCAST klinik breakpoint kullanımını öneriyor (doğrulama opsiyonel)</li>
+                            <li class="feature-item"><b>AmpC:</b> CLSI spesifik yöntem yok, EUCAST klinik breakpoint yeterli görüyor</li>
+                            <li class="feature-item"><b>Karbapenemaz:</b> Her ikisi de tarama ve doğrulama öneriyor</li>
+                            <li class="feature-item"><b>Kolistin:</b> Her ikisi de sadece MİK (disk difüzyon GEÇERSİZ)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>CLSI vs EUCAST Seçimi:</strong><br>
+                        • Aynı hasta için tutarlı standart kullanın<br>
+                        • EUCAST genel olarak daha düşük breakpoint'ler (daha katı)<br>
+                        • Kolistin için disk difüzyon HER İKİ STANDARTTA DA GEÇERSİZ!<br>
+                        • Türkiye'de her ikisi kabul görür, laboratuvar politikası belirleyici</p>
+                    </div>
+                `
+            },
+            {
+                title: "İstisnai Durumlar ve Tuzaklar",
+                icon: "fas fa-exclamation-triangle",
+                content: `
+                    <p>Antibiyotik duyarlılık testlerinde dikkat edilmesi gereken <strong>kritik istisnalar</strong> ve <strong>sık yapılan hatalar</strong>:</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. İntrinsik (Doğal) Direnç</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Organizma</th>
+                                <th>Doğal Dirençli Olduğu</th>
+                                <th>Mekanizma</th>
+                            </tr>
+                            <tr>
+                                <td><b>Enterococcus faecalis</b></td>
+                                <td>Sefalosporinler, aminoglikozidler (düşük düzey)</td>
+                                <td>PBP değişikliği</td>
+                            </tr>
+                            <tr>
+                                <td><b>E. faecium</b></td>
+                                <td>+ Ampisilin (çoğu suş)</td>
+                                <td>PBP5 üretimi</td>
+                            </tr>
+                            <tr>
+                                <td><b>Klebsiella spp.</b></td>
+                                <td>Ampisilin, tikarsilin</td>
+                                <td>Kromozomal β-laktamaz</td>
+                            </tr>
+                            <tr>
+                                <td><b>P. aeruginosa</b></td>
+                                <td>Ampisilin, 1-2. kuşak sefalosporin, trimetoprim</td>
+                                <td>Porin kaybı, efflux</td>
+                            </tr>
+                            <tr>
+                                <td><b>Stenotrophomonas</b></td>
+                                <td>Karbapenemler!</td>
+                                <td>L1, L2 metalloenzimler</td>
+                            </tr>
+                            <tr>
+                                <td><b>Listeria</b></td>
+                                <td>Sefalosporinler</td>
+                                <td>PBP değişikliği</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>ÖLÜMCÜL HATA:</strong> Listeria menenjitinde sefalosporin kullanmak! In vitro duyarlı görünse bile klinik BAŞARISIZ. Tedavi: Ampisilin ± Gentamisin</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Test Edilmemesi Gereken Kombinasyonlar</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Enterococcus + Sefalosporin:</b> Asla test etme, asla raporla</li>
+                            <li class="feature-item"><b>Salmonella/Shigella + Aminoglikozid:</b> In vitro S, in vivo BAŞARISIZ</li>
+                            <li class="feature-item"><b>S. pneumoniae + Gentamisin:</b> Doğal dirençli</li>
+                            <li class="feature-item"><b>MRSA + Tüm β-laktamlar:</b> In vitro S olsa bile RESİSTAN raporla</li>
+                            <li class="feature-item"><b>Kolistin + Disk difüzyon:</b> Geçersiz, sadece MİK!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. Heterodirenç</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanım:</b> Popülasyonun küçük bir kısmı dirençli (10⁻⁴ - 10⁻⁶)</li>
+                            <li class="feature-item"><b>hVISA:</b> Hetero-vankomisin intermediate S. aureus</li>
+                            <li class="feature-item"><b>Tespit:</b> Rutin testlerle ATLANIR! GRD E-test, PAP-AUC</li>
+                            <li class="feature-item"><b>Klinik:</b> Vankomisin tedavi başarısızlığı, persistan bakteriyemi</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">4. İndüklenebilir Direnç</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Mekanizma</th>
+                                <th>Organizma</th>
+                                <th>Test</th>
+                                <th>Klinik</th>
+                            </tr>
+                            <tr>
+                                <td><b>İndüklenebilir Klindamisin</b></td>
+                                <td>S. aureus, Streptococcus</td>
+                                <td>D-test (eritro+klinda)</td>
+                                <td>D-zon (+) = Klindamisin RESİSTAN raporla</td>
+                            </tr>
+                            <tr>
+                                <td><b>İndüklenebilir AmpC</b></td>
+                                <td>"SPACE" organizmaları</td>
+                                <td>Sefoksitin indüksiyon</td>
+                                <td>3. kuşak sefalo riski</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">SPACE Organizmaları (İndüklenebilir AmpC)</p>
+                        <p class="highlight-box__content">
+                            <strong>S</strong>erratia marcescens<br>
+                            <strong>P</strong>seudomonas aeruginosa (düşük risk)<br>
+                            <strong>A</strong>cinetobacter (bazı türler)<br>
+                            <strong>C</strong>itrobacter freundii<br>
+                            <strong>E</strong>nterobacter cloacae<br><br>
+                            <em>Bu organizmalar 3. kuşak sefalosporin altında direnç geliştirebilir!</em>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">5. Sinerji ve Antagonizma Testleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>E. faecalis endokardit:</b> Ampisilin + Gentamisin sinerji (Yüksek düzey GEN direnci yoksa)</li>
+                            <li class="feature-item"><b>HLAR testi:</b> Gentamisin 500 µg, Streptomisin 1000 µg disk</li>
+                            <li class="feature-item"><b>HLAR (+):</b> Aminoglikozid sinerjisi KAYIP!</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Sık Sınav Tuzakları:</strong><br>
+                        • MRSA'da sefazolin "S" çıksa bile → DİRENÇLİ raporla<br>
+                        • VRE'de ampisilin "S" çıksa bile → klinik yanıt değerlendir<br>
+                        • OXA-48 üreticisinde imipenem MİK 1-2 µg/mL olabilir → NORMAL GİBİ!<br>
+                        • Kolistin disk difüzyon "S" → GEÇERSİZ, MİK yap!<br>
+                        • E. coli'de fosfomisin oral formu sadece ÜYE için test edilir</p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. ESBL doğrulama: <strong>Zon farkı ≥5 mm</strong> (CAZ vs CAZ/CLA)<br>
+                            2. MBL tespiti: <strong>EDTA/DPA sinerjisi</strong><br>
+                            3. KPC tespiti: <strong>PBA (fenilboronik asit) sinerjisi</strong><br>
+                            4. OXA-48 tarama: <strong>Temosil direnci</strong><br>
+                            5. D-test: <strong>İndüklenebilir klindamisin direnci</strong>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Algoritması</h4>
+                        <table class="article-table">
+                            <tr>
+                                <th>Direnç Paterni</th>
+                                <th>Düşün</th>
+                                <th>Test</th>
+                            </tr>
+                            <tr>
+                                <td>3. kuşak sefalo R, Sefoksitin S</td>
+                                <td>ESBL</td>
+                                <td>Kombine disk (≥5 mm)</td>
+                            </tr>
+                            <tr>
+                                <td>3. kuşak sefalo R, Sefoksitin R</td>
+                                <td>AmpC ± ESBL</td>
+                                <td>Kloksasilin sinerjisi</td>
+                            </tr>
+                            <tr>
+                                <td>Karbapenem R, EDTA (+)</td>
+                                <td>MBL (NDM, VIM, IMP)</td>
+                                <td>mCIM + eCIM</td>
+                            </tr>
+                            <tr>
+                                <td>Karbapenem R, PBA (+)</td>
+                                <td>KPC</td>
+                                <td>mCIM, Carba NP</td>
+                            </tr>
+                            <tr>
+                                <td>Karbapenem sınırda, Temosil R</td>
+                                <td>OXA-48</td>
+                                <td>PCR en güvenilir</td>
+                            </tr>
+                            <tr>
+                                <td>Eritro R, Klinda S, D-test (+)</td>
+                                <td>İndüklenebilir MLSB</td>
+                                <td>Klinda RESİSTAN raporla</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <strong>"ESBL = 5 mm CAZ-CLA"</strong> → Zon farkı kriteri<br>
+                            <strong>"MBL = EDTA Metal Bağlar"</strong> → Çinko şelasyonu<br>
+                            <strong>"KPC = PBA Karbapenem"</strong> → Boronik asit inhibisyonu<br>
+                            <strong>"SPACE = Sefalosporin Tehlikeli"</strong> → AmpC indüksiyonu<br>
+                            <strong>"D-zon = Danger zone"</strong> → Klindamisin kullanma<br>
+                            <strong>"Kolistin = sadece MİK"</strong> → Disk geçersiz<br>
+                            <strong>"I = Increased dose (EUCAST)"</strong> → Tedavi edilebilir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kritik Sayısal Değerler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>McFarland 0.5:</b> 1-2 × 10⁸ CFU/mL (standart inokulum)</li>
+                            <li class="feature-item"><b>ESBL doğrulama:</b> ≥5 mm zon farkı</li>
+                            <li class="feature-item"><b>mCIM pozitif:</b> ≤15 mm zon (kesin: 6-15 mm)</li>
+                            <li class="feature-item"><b>eCIM pozitif (MBL):</b> ≥5 mm zon artışı</li>
+                            <li class="feature-item"><b>MHT:</b> Yonca yaprağı şekli (artık önerilmiyor)</li>
+                            <li class="feature-item"><b>İnkübasyon:</b> 35±2°C, 16-18 saat</li>
+                            <li class="feature-item"><b>MHA kalınlığı:</b> 4 mm</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Son Dakika Hatırlatmaları:</strong><br><br>
+                            • mCIM CLSI tarafından ÖNERİLEN standart karbapenemaz testidir<br>
+                            • MHT artık ÖNERİLMİYOR (düşük duyarlılık, yalancı pozitiflik)<br>
+                            • Carba NP OXA-48 için düşük duyarlılıklı<br>
+                            • EUCAST'ta "I" = Yüksek dozla tedavi edilebilir<br>
+                            • Kolistin için disk difüzyon ASLA kullanma<br>
+                            • S. maltophilia karbapenem intrinsik dirençli (L1, L2)<br>
+                            • Listeria sefalosporinlere doğal dirençli
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>MUTLAKA BİLİNMESİ GEREKENLER:</strong><br><br>
+                            1. <strong>MRSA =</strong> TÜM β-laktamlar dirençli (in vitro ne çıkarsa çıksın)<br>
+                            2. <strong>VRE =</strong> Vankomisin dirençli enterokok, linezolid/daptomisin tercih<br>
+                            3. <strong>CRE =</strong> Karbapenem dirençli Enterobacterales, kolistin/tigesiklin/yeni β-laktam kombinasyonları<br>
+                            4. <strong>OXA-48 =</strong> Gizli karbapenemaz, MİK normal olabilir!<br>
+                            5. <strong>hVISA =</strong> Rutin testle kaçar, tedavi başarısızlığında düşün
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "ESBL şüphesi, doğrulama?" → Kombine disk, ≥5 mm</li>
+                        <li><b>Soru tipi:</b> "Meropenem dirençli E. coli, EDTA sinerji (+)?" → MBL (NDM/VIM)</li>
+                        <li><b>Soru tipi:</b> "Meropenem dirençli, PBA sinerji (+)?" → KPC</li>
+                        <li><b>Soru tipi:</b> "Meropenem MİK 2, temosil dirençli?" → OXA-48</li>
+                        <li><b>Soru tipi:</b> "D-test pozitif, klindamisin?" → Kullanma, RESİSTAN raporla</li>
+                        <li><b>Soru tipi:</b> "Kolistin duyarlılık nasıl?" → Sadece MİK, disk geçersiz</li>
+                        <li><b>Soru tipi:</b> "EUCAST'ta I ne demek?" → Yüksek dozla tedavi edilebilir</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
