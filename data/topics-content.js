@@ -2399,20 +2399,118 @@ const topicsData = [
                     </div>
 
                     <div class="sub-section">
-                        <h4 class="sub-section__title">Hepatit B Tanı Algoritması</h4>
-                        <ol class="feature-list">
-                            <li><b>HBsAg:</b> Aktif enfeksiyon göstergesi</li>
-                            <li><b>Anti-HBs:</b> Bağışıklık durumu (aşı veya iyileşme sonrası)</li>
-                            <li><b>Anti-HBc:</b> Geçirilmiş enfeksiyon veya aşı yanıtı</li>
-                            <li><b>HBeAg ve Anti-HBe:</b> Viral replikasyon durumu</li>
-                            <li><b>HBV DNA:</b> Aktif viral yük tayini</li>
-                        </ol>
+                        <h4 class="sub-section__title">Kapsamlı Serolojik Yorumlama Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HBsAg</th>
+                                    <th>Anti-HBs</th>
+                                    <th>Anti-HBc IgM</th>
+                                    <th>Anti-HBc IgG</th>
+                                    <th>HBeAg</th>
+                                    <th>HBV DNA</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>Duyarlı (Aşı yapılmalı)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>Aşı ile immün</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>Doğal enfeksiyon ile immün (iyileşmiş)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>+</td>
+                                    <td>+/-</td>
+                                    <td>Yüksek</td>
+                                    <td><b>Akut HBV enfeksiyonu</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td><b>+</b></td>
+                                    <td>Yüksek</td>
+                                    <td><b>Kronik HBV - HBeAg pozitif (immün aktif)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>Düşük</td>
+                                    <td><b>İnaktif taşıyıcı (<2000 IU/mL)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td><b>Yüksek</b></td>
+                                    <td><b>HBeAg(-) kronik hepatit (MUTANT!)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>+</td>
+                                    <td>-</td>
+                                    <td>+/-</td>
+                                    <td><b>Pencere dönemi (akut iyileşme)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>+/-</td>
+                                    <td><b>İzole Anti-HBc (Okült HBV?)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>+</b></td>
+                                    <td><b>+</b></td>
+                                    <td>-</td>
+                                    <td>+</td>
+                                    <td>-</td>
+                                    <td>+</td>
+                                    <td><b>Atipik: Farklı subtip koinfeksiyonu</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="alert-box alert-box--warning">
                         <div class="alert-box__icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="alert-box__content">
-                            <strong>Pencere Dönemi:</strong> HBsAg kaybolmuş, Anti-HBs henüz oluşmamış dönem. Bu dönemde <strong>sadece Anti-HBc IgM pozitif</strong> bulunur! Kan bankası için kritik öneme sahiptir.
+                            <strong>Pencere Dönemi:</strong> HBsAg kaybolmuş, Anti-HBs henüz oluşmamış dönem. Bu dönemde <strong>sadece Anti-HBc IgM pozitif</strong> bulunur! Kan bankası için kritik öneme sahiptir. <b>NAT (HBV DNA) testi ile saptanabilir!</b>
                         </div>
                     </div>
 
@@ -2423,6 +2521,228 @@ const topicsData = [
                             • <strong>Aşılı:</strong> Sadece Anti-HBs (+) - HBsAg aşısı sadece yüzey antijenini içerir<br>
                             • <strong>İyileşmiş:</strong> Anti-HBs (+) VE Anti-HBc IgG (+) - Doğal enfeksiyon tüm antijenlere maruziyete neden olur
                         </div>
+                    </div>
+                `
+            },
+            {
+                title: "HBV Mutasyonları ve Atipik Durumlar",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Precore / Basal Core Promoter (BCP) Mutasyonları</h4>
+                        <p>HBeAg negatif kronik hepatit B'nin en sık nedenidir. Virüs çoğalmaya devam eder ancak HBeAg üretilmez!</p>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mutasyon</th>
+                                    <th>Lokalizasyon</th>
+                                    <th>Mekanizma</th>
+                                    <th>Coğrafi Dağılım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Precore (G1896A)</b></td>
+                                    <td>Precore bölgesi</td>
+                                    <td>Erken stop kodonu → HBeAg üretilmez</td>
+                                    <td>Akdeniz, Asya (Genotip D, C)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BCP (A1762T/G1764A)</b></td>
+                                    <td>Core promoter</td>
+                                    <td>Transkripsiyon ↓ → HBeAg sentezi ↓</td>
+                                    <td>Dünya geneli</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="alert-box alert-box--danger">
+                            <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
+                            <div class="alert-box__content">
+                                <strong>TUZAK:</strong> HBeAg negatif = düşük viral yük DEĞİLDİR! Precore mutant hastalarda HBV DNA >2000 IU/mL olabilir ve siroz riski yüksektir. İnaktif taşıyıcıdan ayırt etmek için <b>HBV DNA takibi şart!</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. S Gen Mutasyonları (Escape Mutant - Aşı Kaçış)</h4>
+                        <p>HBsAg'nin "a" determinant bölgesindeki mutasyonlar:</p>
+                        <ul class="feature-list">
+                            <li><b>G145R:</b> En sık escape mutasyonu</li>
+                            <li><b>D144A, P120T:</b> Diğer sık mutasyonlar</li>
+                        </ul>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sonuç</th>
+                                    <th>Klinik Önem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Aşı antikorları virüsü nötralize edemez</td>
+                                    <td><b>Aşılı kişilerde enfeksiyon!</b></td>
+                                </tr>
+                                <tr>
+                                    <td>HBsAg test kitleri tanıyamaz</td>
+                                    <td><b>Yalancı negatif HBsAg!</b></td>
+                                </tr>
+                                <tr>
+                                    <td>HBIG tedavisi etkisiz</td>
+                                    <td><b>Nakil sonrası profilaksi başarısız!</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">🎯 Escape Mutant Şüphesi Ne Zaman?</p>
+                            <p class="highlight-box__content">
+                                • Anti-HBs pozitif ama HBV DNA pozitif<br>
+                                • Aşılı kişide hepatit B enfeksiyonu<br>
+                                • HBsAg(-), Anti-HBc(+), HBV DNA(+) → <b>Okült HBV düşün!</b>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. Okült Hepatit B (OBI)</h4>
+                        <p><b>Tanım:</b> HBsAg negatif + HBV DNA pozitif (serum ve/veya karaciğerde)</p>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HBsAg</th>
+                                    <th>Anti-HBc</th>
+                                    <th>Anti-HBs</th>
+                                    <th>HBV DNA</th>
+                                    <th>Tip</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td><b>+</b></td>
+                                    <td>+/-</td>
+                                    <td><b>+ (düşük)</b></td>
+                                    <td><b>Seropozitif OBI (%80)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>+ (düşük)</b></td>
+                                    <td><b>Seronegatif OBI (%20)</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="alert-box alert-box--danger">
+                            <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
+                            <div class="alert-box__content">
+                                <strong>REAKTİVASYON RİSKİ:</strong> Okült HBV hastalarında immunsupresif tedavi (rituksimab, anti-TNF, kemoterapi) HBV reaktivasyonuna yol açabilir! <b>Anti-HBc pozitif tüm hastalarda profilaksi değerlendir.</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">4. İzole Anti-HBc Pozitifliği</h4>
+                        <p>HBsAg (-), Anti-HBs (-), Anti-HBc (+) durumunda olası senaryolar:</p>
+                        <ul class="feature-list">
+                            <li><b>Okült HBV:</b> Karaciğerde düşük düzey replikasyon (HBV DNA iste!)</li>
+                            <li><b>Pencere dönemi:</b> Akut enfeksiyon iyileşme fazı (IgM pozitif olur)</li>
+                            <li><b>Geçmiş enfeksiyon:</b> Anti-HBs zamanla kaybolmuş</li>
+                            <li><b>Yalancı pozitif:</b> Düşük riskli kişilerde (test tekrarı)</li>
+                        </ul>
+                        <div class="mnemonic-box">
+                            <p class="mnemonic-box__label">İzole Anti-HBc Yaklaşımı</p>
+                            <p class="mnemonic-box__text">
+                                <b>1.</b> HBV DNA iste → Pozitifse okült HBV<br>
+                                <b>2.</b> Anti-HBc IgM iste → Pozitifse pencere dönemi<br>
+                                <b>3.</b> Risk faktörü yoksa → Test tekrarı (yalancı pozitif?)
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "HBV Reaktivasyon ve Profilaksi",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Reaktivasyon Risk Sınıflaması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Risk</th>
+                                    <th>HBsAg Durumu</th>
+                                    <th>İlaç/Durum</th>
+                                    <th>Reaktivasyon Oranı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ÇOK YÜKSEK (>10%)</b></td>
+                                    <td>HBsAg (+)</td>
+                                    <td>Rituksimab, Ofatumumab, Anti-CD20</td>
+                                    <td>%30-60</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ÇOK YÜKSEK</b></td>
+                                    <td>Anti-HBc (+) alone</td>
+                                    <td>Rituksimab ± Kemoterapi</td>
+                                    <td>%10-20</td>
+                                </tr>
+                                <tr>
+                                    <td><b>YÜKSEK (1-10%)</b></td>
+                                    <td>HBsAg (+)</td>
+                                    <td>TNF inhibitörleri, Tirozin kinaz inh.</td>
+                                    <td>%5-10</td>
+                                </tr>
+                                <tr>
+                                    <td><b>YÜKSEK</b></td>
+                                    <td>HBsAg (+)</td>
+                                    <td>Yüksek doz steroid (>20mg/gün, >4 hafta)</td>
+                                    <td>%5-10</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ORTA (1-10%)</b></td>
+                                    <td>HBsAg (+)</td>
+                                    <td>Konvansiyonel kemoterapi</td>
+                                    <td>%1-5</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DÜŞÜK (<1%)</b></td>
+                                    <td>Anti-HBc (+) alone</td>
+                                    <td>Konvansiyonel kemoterapi</td>
+                                    <td><%1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Profilaksi Önerileri</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">🎯 Profilaksi Endikasyonları</p>
+                            <p class="highlight-box__content">
+                                <b>HBsAg (+):</b> TÜM immunsupresif tedavilerde profilaksi!<br>
+                                <b>Anti-HBc (+) alone:</b><br>
+                                • Rituksimab → Profilaksi ŞART<br>
+                                • Diğer immunsupresifler → HBV DNA izlemi veya profilaksi<br><br>
+                                <b>İlaç:</b> Entekavir veya Tenofovir (lamivudin direnci nedeniyle artık önerilmiyor)<br>
+                                <b>Süre:</b> Tedavi bitiminden 6-12 ay sonrasına kadar (Rituksimab'da 12-18 ay)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="alert-box__content">
+                            <strong>KRİTİK:</strong> Rituksimab alan tüm hastalarda HBsAg ve Anti-HBc taranmalı! Anti-HBc pozitif hastalarda bile reaktivasyon %10-20 oranında görülebilir. Profilaksi olmadan ölümcül hepatit gelişebilir!
+                        </div>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hafıza: Reaktivasyon Tuzağı</p>
+                        <p class="mnemonic-box__text">
+                            <b>"RİTUKSİMAB = RİSK"</b> → Anti-CD20 en riskli<br>
+                            <b>"Anti-HBc = Dikkat"</b> → HBsAg negatif bile olsa risk var<br>
+                            <b>"Entekavir/Tenofovir = Koruma"</b> → Lamivudin artık önerilmiyor
+                        </p>
                     </div>
                 `
             },
@@ -2470,6 +2790,42 @@ const topicsData = [
                         </tbody>
                     </table>
 
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HCV Genotipleri ve Klinik Önem</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Genotip</th>
+                                    <th>Türkiye Sıklığı</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1b</b></td>
+                                    <td>%80-90</td>
+                                    <td>En yaygın, eskiden tedaviye dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td>1a</td>
+                                    <td>%10-15</td>
+                                    <td>IVDU ilişkili</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>%3-5</td>
+                                    <td>Steatoz ve siroz riski EN YÜKSEK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="alert-box alert-box--info">
+                            <div class="alert-box__icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="alert-box__content">
+                                <strong>Güncel Tedavi:</strong> Pangenotipik DAA'lar (Sofosbuvir/Velpatasvir, Glecaprevir/Pibrentasvir) tüm genotiplere %95-99 SVR sağlar. Genotipleme artık tedavi kararında kritik değil.
+                            </div>
+                        </div>
+                    </div>
+
                     <h4><i class="fas fa-project-diagram"></i> Hepatit Delta (HDV)</h4>
                     <div class="alert-box alert-box--danger">
                         <div class="alert-box__icon"><i class="fas fa-exclamation-circle"></i></div>
@@ -2502,6 +2858,22 @@ const topicsData = [
                             </tr>
                         </tbody>
                     </table>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HDV Tanı Algoritması</h4>
+                        <ul class="feature-list">
+                            <li><b>Tarama:</b> Tüm HBsAg (+) hastalarda Anti-HDV total</li>
+                            <li><b>Doğrulama:</b> HDV RNA (PCR)</li>
+                            <li><b>Genotipleme:</b> 8 genotip (Genotip 1 en yaygın, Genotip 3 en ağır)</li>
+                        </ul>
+                        <div class="mnemonic-box">
+                            <p class="mnemonic-box__label">HDV Koinfeksiyon vs Süperinfeksiyon</p>
+                            <p class="mnemonic-box__text">
+                                <b>"IgM = Yeni HBV = Koinfeksiyon = İyi prognoz"</b><br>
+                                <b>"IgM (-) = Kronik HBV = Süperinfeksiyon = Kötü prognoz"</b>
+                            </p>
+                        </div>
+                    </div>
                 `
             },
             {
