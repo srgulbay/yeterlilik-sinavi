@@ -31,6 +31,97 @@
     return Math.max(0, Math.min(FIVE_MAX, Math.trunc(n)));
   }
 
+  function safeJsonParse(text, fallback) {
+    try {
+      return JSON.parse(String(text));
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  function canUseStorage() {
+    try {
+      return typeof window !== 'undefined' && !!window.localStorage;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function storageGet(key, fallback) {
+    if (!canUseStorage()) return fallback;
+    try {
+      const raw = window.localStorage.getItem(key);
+      if (!raw) return fallback;
+      return safeJsonParse(raw, fallback);
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  function storageSet(key, value) {
+    if (!canUseStorage()) return false;
+    try {
+      window.localStorage.setItem(key, JSON.stringify(value));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function storageKeyTopics(uid) {
+    return `appFirebase:v1:topics:${uid}`;
+  }
+
+  function storageKeyFavorites(uid, type) {
+    return `appFirebase:v1:favorites:${uid}:${String(type || '').trim().toLowerCase() || 'unknown'}`;
+  }
+
+  function loadCachedTopics(uid) {
+    const raw = storageGet(storageKeyTopics(uid), null);
+    if (!raw || typeof raw !== 'object' || !raw.items || typeof raw.items !== 'object') return new Map();
+
+    const map = new Map();
+    Object.keys(raw.items).forEach((topicId) => {
+      const item = raw.items[topicId] || {};
+      map.set(String(topicId), {
+        favorite: !!item.favorite,
+        readLevel: clampReadLevel(item.readLevel),
+      });
+    });
+    return map;
+  }
+
+  function saveCachedTopics(uid, map) {
+    const items = {};
+    try {
+      map.forEach((value, key) => {
+        items[String(key)] = {
+          favorite: !!value.favorite,
+          readLevel: clampReadLevel(value.readLevel),
+        };
+      });
+    } catch (_) {
+      // ignore
+    }
+    storageSet(storageKeyTopics(uid), { items, updatedAt: Date.now() });
+  }
+
+  function loadCachedFavorites(uid, type) {
+    const raw = storageGet(storageKeyFavorites(uid, type), null);
+    if (!raw || typeof raw !== 'object' || !Array.isArray(raw.items)) return new Set();
+    return new Set(raw.items.map((x) => String(x)));
+  }
+
+  function saveCachedFavorites(uid, type, set) {
+    const items = [];
+    try {
+      set.forEach((id) => items.push(String(id)));
+    } catch (_) {
+      // ignore
+    }
+    storageSet(storageKeyFavorites(uid, type), { items, updatedAt: Date.now() });
+  }
+
   const api = {
     enabled: false,
     init: () => false,
@@ -193,16 +284,24 @@
       const user = auth.currentUser;
       if (!user) return new Map();
 
-      const snap = await db.collection('users').doc(user.uid).collection('topics').get();
-      const map = new Map();
-      snap.forEach((doc) => {
-        const data = doc.data() || {};
-        map.set(doc.id, {
-          favorite: !!data.favorite,
-          readLevel: clampReadLevel(data.readLevel),
+      // Start with cached values to survive page navigation.
+      const cached = loadCachedTopics(user.uid);
+
+      try {
+        const snap = await db.collection('users').doc(user.uid).collection('topics').get();
+        const map = new Map();
+        snap.forEach((doc) => {
+          const data = doc.data() || {};
+          map.set(doc.id, {
+            favorite: !!data.favorite,
+            readLevel: clampReadLevel(data.readLevel),
+          });
         });
-      });
-      return map;
+        saveCachedTopics(user.uid, map);
+        return map;
+      } catch (_) {
+        return cached;
+      }
     };
 
     api.setTopicState = async (topicId, nextState) => {
@@ -220,6 +319,20 @@
       }
 
       patch.updatedAt = window.firebase.firestore.FieldValue.serverTimestamp();
+
+      // Update cache immediately so UI survives navigation.
+      try {
+        const current = loadCachedTopics(user.uid);
+        const prev = current.get(id) || { favorite: false, readLevel: 0 };
+        const merged = {
+          favorite: Object.prototype.hasOwnProperty.call(patch, 'favorite') ? !!patch.favorite : !!prev.favorite,
+          readLevel: Object.prototype.hasOwnProperty.call(patch, 'readLevel') ? clampReadLevel(patch.readLevel) : clampReadLevel(prev.readLevel),
+        };
+        current.set(id, merged);
+        saveCachedTopics(user.uid, current);
+      } catch (_) {
+        // ignore
+      }
 
       await db.collection('users').doc(user.uid).collection('topics').doc(id).set(patch, { merge: true });
 
@@ -243,19 +356,26 @@
       if (!user) return new Set();
 
       const t = normalizeType(type);
-      const snap = await db.collection('users').doc(user.uid).collection('favorites')
-        .where('type', '==', t)
-        .where('favorite', '==', true)
-        .get();
+      const cached = loadCachedFavorites(user.uid, t);
 
-      const set = new Set();
-      snap.forEach((doc) => {
-        const data = doc.data() || {};
-        if (data && data.itemId != null) {
-          set.add(String(data.itemId));
-        }
-      });
-      return set;
+      try {
+        const snap = await db.collection('users').doc(user.uid).collection('favorites')
+          .where('type', '==', t)
+          .where('favorite', '==', true)
+          .get();
+
+        const set = new Set();
+        snap.forEach((doc) => {
+          const data = doc.data() || {};
+          if (data && data.itemId != null) {
+            set.add(String(data.itemId));
+          }
+        });
+        saveCachedFavorites(user.uid, t, set);
+        return set;
+      } catch (_) {
+        return cached;
+      }
     };
 
     api.setFavorite = async (type, itemId, favorite) => {
@@ -272,6 +392,16 @@
         favorite: !!favorite,
         updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
       };
+
+      // Update cache immediately.
+      try {
+        const current = loadCachedFavorites(user.uid, t);
+        if (!!favorite) current.add(id);
+        else current.delete(id);
+        saveCachedFavorites(user.uid, t, current);
+      } catch (_) {
+        // ignore
+      }
 
       await db.collection('users').doc(user.uid).collection('favorites').doc(docId).set(patch, { merge: true });
       safeDispatch('favorites:updated', { type: t, itemId: id, favorite: !!favorite });
