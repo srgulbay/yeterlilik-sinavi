@@ -5605,6 +5605,5828 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 10,
+        category: "parazitoloji",
+        title: "Plasmodium ve Sıtma (Malaria)",
+        subtitle: "Yaşam Döngüsü, Türler, Tanı ve Tedavi",
+        summary: "Sıtma etkeni Plasmodium türlerinin kapsamlı özeti. P. falciparum, P. vivax, P. ovale, P. malariae ve P. knowlesi'nin karşılaştırması, yaşam döngüsü, tanı yöntemleri ve tedavi algoritmaları.",
+        tags: ["Sıtma", "Malaria", "Plasmodium", "Anopheles", "Primakin", "Hipnozoit", "Parazitoloji"],
+        sections: [
+            {
+                title: "Genel Bilgiler ve Epidemiyoloji",
+                icon: "fas fa-globe-africa",
+                content: `
+                    <p><strong>Sıtma (Malaria)</strong>, <i>Plasmodium</i> türlerinin neden olduğu, dişi <i>Anopheles</i> sivrisineği ile bulaşan, potansiyel olarak ölümcül bir kan paraziti hastalığıdır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Epidemiyoloji</p>
+                        <p class="highlight-box__content">
+                            <b>Dünyada:</b> Yılda ~250 milyon vaka, ~600.000 ölüm (çoğu Afrika, 5 yaş altı çocuklar)<br>
+                            <b>Türkiye:</b> GAP bölgesi (eski endemik), P. vivax dominant, yerli vakalar azaldı<br>
+                            <b>İthal vakalar:</b> Afrika, Güneydoğu Asya seyahati sonrası P. falciparum riski
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Plasmodium Türleri - Genel Bakış</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Coğrafi Dağılım</th>
+                                    <th>Klinik Şiddet</th>
+                                    <th>Önemli Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>P. falciparum</b></td>
+                                    <td>Afrika (en sık), tropikal bölgeler</td>
+                                    <td><strong>EN AĞIR</strong></td>
+                                    <td>Serebral sıtma, yüksek mortalite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. vivax</b></td>
+                                    <td>Asya, Latin Amerika, Türkiye</td>
+                                    <td>Orta</td>
+                                    <td>Hipnozoit → Relaps</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. ovale</b></td>
+                                    <td>Batı Afrika</td>
+                                    <td>Hafif</td>
+                                    <td>Hipnozoit → Relaps</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. malariae</b></td>
+                                    <td>Afrika, Asya</td>
+                                    <td>Hafif</td>
+                                    <td>Nefrotik sendrom, kronik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. knowlesi</b></td>
+                                    <td>Güneydoğu Asya (Malezya)</td>
+                                    <td>Değişken</td>
+                                    <td>Zoonotik (maymun), günlük ateş</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>P. falciparum = ACİL!</strong><br>
+                        Parazitemi %2-5'i geçerse ağır sıtma riski. %40'a kadar çıkabilir (diğer türlerde max %2). Serebral sıtma, ARDS, hipoglisemi, asidoz, böbrek yetmezliği yapabilir.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Yaşam Döngüsü",
+                icon: "fas fa-sync-alt",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnsandaki Evreler (Aseksüel Çoğalma = Şizogoni)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Lokalizasyon</th>
+                                    <th>Süre</th>
+                                    <th>Klinik Önemi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Sporozoit</b></td>
+                                    <td>Sivrisinek tükürük → Kan</td>
+                                    <td>Dakikalar</td>
+                                    <td>Enfektif form</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Karaciğer Şizogonisi</b></td>
+                                    <td>Hepatosit</td>
+                                    <td>5-16 gün</td>
+                                    <td>Asemptomatik, tanı konulamaz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Hipnozoit</b></td>
+                                    <td>Hepatosit (dormant)</td>
+                                    <td>Aylar-yıllar</td>
+                                    <td>SADECE P. vivax & P. ovale!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Merozoit</b></td>
+                                    <td>Kana salınır</td>
+                                    <td>-</td>
+                                    <td>Eritrosit invazyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Eritrosit Şizogonisi</b></td>
+                                    <td>Eritrosit içi</td>
+                                    <td>48-72 saat</td>
+                                    <td>ATEŞ siklusu burada!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>6. Gametozit</b></td>
+                                    <td>Eritrosit içi</td>
+                                    <td>-</td>
+                                    <td>Sivrisineğe bulaştırıcı form</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔄 Eritrosit Siklusu ve Ateş</p>
+                        <p class="highlight-box__content">
+                            Eritrosit içinde çoğalan parazitler hücreyi patlatınca → <b>Ateş nöbeti</b><br><br>
+                            <b>48 saat (Tersiyan):</b> P. falciparum, P. vivax, P. ovale<br>
+                            <b>72 saat (Kuartan):</b> P. malariae<br>
+                            <b>24 saat (Kotidiyan):</b> P. knowlesi<br><br>
+                            <i>Not: P. falciparum'da siklus düzensiz olabilir (asenkron)</i>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sivrisinekteki Evreler (Seksüel Çoğalma = Sporogoni)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Gametozit alımı:</b> Sivrisinek kan emerken mikro/makrogametozit alır</li>
+                            <li class="feature-item"><b>Fertilizasyon:</b> Mide içinde zigot oluşumu</li>
+                            <li class="feature-item"><b>Ookinet → Ookist:</b> Mide duvarında gelişim</li>
+                            <li class="feature-item"><b>Sporozoit:</b> Tükürük bezlerine göç → Yeni insana bulaş</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Yaşam Döngüsü Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SPORozoitle BAŞLA, GAMETozoitle BİTİR"</b><br>
+                            • Sivrisinek → İnsan: <b>SPORozoit</b> (enfektif)<br>
+                            • İnsan → Sivrisinek: <b>GAMETozoit</b> (bulaştırıcı)<br><br>
+                            <b>"HİPNOZİT = VİVAX-OVALE"</b> → Primakin gerektiren ikili!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Plasmodium Türlerinin Karşılaştırması",
+                icon: "fas fa-balance-scale",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kapsamlı Tür Karşılaştırma Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>P. falciparum</th>
+                                    <th>P. vivax</th>
+                                    <th>P. ovale</th>
+                                    <th>P. malariae</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ateş siklusu</b></td>
+                                    <td>Düzensiz/48 saat</td>
+                                    <td>48 saat</td>
+                                    <td>48 saat</td>
+                                    <td>72 saat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipnozoit</b></td>
+                                    <td><span style="color:red">YOK</span></td>
+                                    <td><span style="color:green"><b>VAR</b></span></td>
+                                    <td><span style="color:green"><b>VAR</b></span></td>
+                                    <td><span style="color:red">YOK</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Relaps</b></td>
+                                    <td>Yok</td>
+                                    <td><b>Evet</b> (aylar-yıllar)</td>
+                                    <td><b>Evet</b></td>
+                                    <td>Yok (rekrüdesans var)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Max parazitemi</b></td>
+                                    <td><b>%40</b> (tüm yaş eritrosit)</td>
+                                    <td>%2 (retikülosit)</td>
+                                    <td>%2 (retikülosit)</td>
+                                    <td>%1 (yaşlı eritrosit)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enfekte eritrosit</b></td>
+                                    <td>Normal boyut</td>
+                                    <td>Büyümüş</td>
+                                    <td>Oval, fimbriye</td>
+                                    <td>Normal/küçük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Schüffner granülleri</b></td>
+                                    <td>Yok</td>
+                                    <td><b>VAR</b></td>
+                                    <td><b>VAR</b></td>
+                                    <td>Yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Maurer lekesi</b></td>
+                                    <td><b>VAR</b></td>
+                                    <td>Yok</td>
+                                    <td>Yok</td>
+                                    <td>Yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gametozit şekli</b></td>
+                                    <td><b>MUZ/HİLAL</b></td>
+                                    <td>Yuvarlak</td>
+                                    <td>Yuvarlak</td>
+                                    <td>Yuvarlak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trofozoit</b></td>
+                                    <td>Küçük halka</td>
+                                    <td>Ameboid</td>
+                                    <td>Kompakt</td>
+                                    <td>Bant şeklinde</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td>Serebral, ARDS, ölüm</td>
+                                    <td>Dalak rüptürü</td>
+                                    <td>Nadir</td>
+                                    <td>Nefrotik sendrom</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>P. falciparum Mikroskopi İpuçları:</strong><br>
+                        • Periferik yaymada sadece <b>halka formu</b> ve <b>gametozit</b> görülür<br>
+                        • Şizont kanda görülmez (sekestre olur - dalak, beyin, plasenta)<br>
+                        • Birden fazla halka/eritrosit (çift kromatin noktası)<br>
+                        • <b>Muz/Hilal şekilli gametozit</b> = PATOGNOMONİK!</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Eritrosit Tercihi</p>
+                        <p class="highlight-box__content">
+                            <b>P. vivax:</b> Duffy antijeni pozitif eritrositler (Duffy negatif Afrikalılar korumalı!)<br>
+                            <b>P. falciparum:</b> TÜM eritrositler → Yüksek parazitemi<br>
+                            <b>P. malariae:</b> Yaşlı eritrositler → Düşük parazitemi
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Gametozit Şekli Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FALCİPARUM = FALLİK (muz şekli)"</b><br>
+                            Diğer türler yuvarlak gametozit yapar, sadece P. falciparum muz/hilal şekilli!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Bulgular",
+                icon: "fas fa-thermometer-full",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klasik Sıtma Ateş Nöbeti</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Soğuk Evresi</b></td>
+                                    <td>15-60 dk</td>
+                                    <td>Titreme, üşüme, diş gıcırdatma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Sıcak Evresi</b></td>
+                                    <td>2-6 saat</td>
+                                    <td>Yüksek ateş (40-41°C), baş ağrısı, kusma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Terleme Evresi</b></td>
+                                    <td>2-4 saat</td>
+                                    <td>Profüz terleme, ateş düşer, halsizlik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ağır/Komplike Sıtma (P. falciparum)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Komplikasyon</th>
+                                    <th>Mekanizma</th>
+                                    <th>Klinik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Serebral Sıtma</b></td>
+                                    <td>Serebral mikrodamar tıkanıklığı</td>
+                                    <td>Koma, konvülziyon, %20-30 mortalite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ağır Anemi</b></td>
+                                    <td>Hemoliz + diseritropoez</td>
+                                    <td>Hb <5 g/dL, transfüzyon gerekebilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipoglisemi</b></td>
+                                    <td>Parazit glukoz tüketimi + kinin etkisi</td>
+                                    <td>Bilinç değişikliği, nöbet</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Metabolik Asidoz</b></td>
+                                    <td>Laktat birikimi</td>
+                                    <td>Kussmaul solunumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ARDS</b></td>
+                                    <td>Pulmoner ödem</td>
+                                    <td>Hipoksi, mekanik ventilasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut Böbrek Yetm.</b></td>
+                                    <td>ATN, hemoglobinüri</td>
+                                    <td>Oligüri, kreatinin ↑</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Blackwater Fever</b></td>
+                                    <td>Masif intravasküler hemoliz</td>
+                                    <td>Koyu idrar (hemoglobinüri)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DİK</b></td>
+                                    <td>Koagülopati</td>
+                                    <td>Kanama, trombositopeni</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>AĞIR SITMA KRİTERLERİ (WHO):</strong><br>
+                        • Serebral sıtma (GKS <11)<br>
+                        • Parazitemi >%10<br>
+                        • Hb <5 g/dL veya Hct <%15<br>
+                        • Glukoz <40 mg/dL<br>
+                        • Kreatinin >3 mg/dL<br>
+                        • Bilirubin >3 mg/dL + parazitemi >%2<br>
+                        • Pulmoner ödem/ARDS<br>
+                        • Şok (sistolik <80 mmHg)</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Relaps vs Rekrüdesans vs Reenfeksiyon</p>
+                        <p class="highlight-box__content">
+                            <b>RELAPS:</b> Karaciğerdeki hipnozoitten reaktivasyon (P. vivax/ovale) - aylar sonra<br>
+                            <b>REKRÜDESANS:</b> Kandaki düşük paraziteminin tekrar artması (yetersiz tedavi)<br>
+                            <b>REENFEKSİYON:</b> Yeni sivrisinek ısırığı ile yeni enfeksiyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı Yöntemleri",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Avantaj</th>
+                                    <th>Dezavantaj</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kalın Yayma</b></td>
+                                    <td>Yüksek duyarlılık, az paraziti yakalar</td>
+                                    <td>Tür tayini zor</td>
+                                    <td>TARAMA - Altın standart</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnce Yayma</b></td>
+                                    <td>Tür tayini, parazitemi hesabı</td>
+                                    <td>Düşük duyarlılık</td>
+                                    <td>TÜR TAYİNİ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>RDT (Hızlı Test)</b></td>
+                                    <td>Kolay, hızlı (15-20 dk)</td>
+                                    <td>Tür sınırlı, parazitemi yok</td>
+                                    <td>Saha, acil tarama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>En duyarlı, miks enfeksiyon</td>
+                                    <td>Pahalı, laboratuvar gerekli</td>
+                                    <td>Düşük parazitemi, araştırma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji</b></td>
+                                    <td>Geçirilmiş enfeksiyon</td>
+                                    <td>Akut tanıda işe yaramaz</td>
+                                    <td>Epidemiyoloji, kan bankası</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Giemsa Boyama İlkeleri</p>
+                        <p class="highlight-box__content">
+                            <b>Kalın yayma:</b> Eritrositler lizis olur, parazitler serbest kalır → <b>DUYARLI</b><br>
+                            <b>İnce yayma:</b> Eritrosit yapısı korunur → <b>TÜR TAYİNİ</b><br><br>
+                            <b>Parazitemi hesabı:</b> Enfekte eritrosit / 1000 eritrosit × 100 = %<br>
+                            <b>Negatif raporlama:</b> En az 200-300 alan (kalın) incelenmeli
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Tanı Testleri (RDT)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antijen</th>
+                                    <th>Tespit Ettiği Tür</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HRP-2</b></td>
+                                    <td>P. falciparum</td>
+                                    <td>Tedaviden sonra haftalarca pozitif kalabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>pLDH</b></td>
+                                    <td>Tüm türler</td>
+                                    <td>Canlı paraziti gösterir, tedavi takibi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aldolaz</b></td>
+                                    <td>Tüm türler</td>
+                                    <td>Pan-malarial marker</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>RDT Yanılgıları:</strong><br>
+                        • HRP-2 gen delesyonlu P. falciparum → <b>Yanlış negatif</b> (Afrika'da artıyor!)<br>
+                        • Prozone etkisi (yüksek parazitemi) → <b>Yanlış negatif</b><br>
+                        • Romatoid faktör → <b>Yanlış pozitif</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Algoritması</p>
+                        <p class="mnemonic-box__text">
+                            <b>Ateş + Seyahat öyküsü → HEMEN:</b><br>
+                            1. Kalın + İnce yayma (Giemsa)<br>
+                            2. RDT (sonuç beklerken veya yayma yoksa)<br>
+                            3. Negatifse 12-24 saat arayla 3 kez tekrarla<br><br>
+                            <b>"Negatif yayma sıtmayı ekarte ettirmez!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-pills",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Komplike Olmayan Sıtma Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>İlk Seçenek</th>
+                                    <th>Alternatif</th>
+                                    <th>Ek Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>P. falciparum</b></td>
+                                    <td>ACT (Artemisinin Kombinasyonu)</td>
+                                    <td>Atovakon-proguanil</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. vivax / P. ovale</b></td>
+                                    <td>Klorokin* + Primakin</td>
+                                    <td>ACT + Primakin</td>
+                                    <td><b>PRİMAKİN ŞART!</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. malariae</b></td>
+                                    <td>Klorokin</td>
+                                    <td>ACT</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P. knowlesi</b></td>
+                                    <td>ACT</td>
+                                    <td>Klorokin</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><i>*Klorokin dirençli P. vivax bölgelerinde ACT tercih edilir</i></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ACT Rejimleri (Artemisinin Kombinasyonları)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Artemether-Lumefantrin (Coartem®):</b> En yaygın kullanılan</li>
+                            <li class="feature-item"><b>Artesunate-Amodiaquine:</b> Afrika'da yaygın</li>
+                            <li class="feature-item"><b>Artesunate-Mefloquine:</b> Güneydoğu Asya</li>
+                            <li class="feature-item"><b>Dihydroartemisinin-Piperaquine:</b> Uzun etki süresi</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>AĞIR SITMA TEDAVİSİ:</strong><br>
+                        <b>İlk seçenek:</b> IV Artesunate (en az 24 saat, sonra oral ACT)<br>
+                        <b>Alternatif:</b> IV Kinin (artesunate yoksa)<br>
+                        <b>Destek:</b> Sıvı resüsitasyonu, hipoglisemi düzeltme, transfüzyon, dializ (gerekirse)<br>
+                        <b>Exchange transfüzyon:</b> Parazitemi >%10 ve ağır komplikasyon varsa düşünülebilir</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">💊 Primakin - Kritik Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Endikasyon:</b> P. vivax ve P. ovale → Hipnozoit eradikasyonu (radikal kür)<br>
+                            <b>Doz:</b> 0.25-0.5 mg/kg/gün × 14 gün<br>
+                            <b>Kontrendikasyon:</b> G6PD eksikliği, gebelik, emzirme<br>
+                            <b>G6PD eksikliğinde:</b> Haftalık 0.75 mg/kg × 8 hafta (alternatif)<br><br>
+                            <b>🔴 PRİMAKİN VERMEDEN ÖNCE G6PD TESTİ YAPILMALI!</b>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gebelikte Sıtma Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Trimester</th>
+                                    <th>Komplike Olmayan</th>
+                                    <th>Ağır Sıtma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Trimester</b></td>
+                                    <td>Kinin + Klindamisin (7 gün)</td>
+                                    <td>IV Artesunate</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2-3. Trimester</b></td>
+                                    <td>ACT</td>
+                                    <td>IV Artesunate</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><i>Primakin gebelikte kontrendike! P. vivax/ovale relapsı doğum sonrasına ertelenir.</i></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"VİVAX-OVALE = PRİMAKİN VER"</b> → Hipnozoit öldürmek için<br>
+                            <b>"FALCİPARUM = ACT"</b> → Artemisinin kombinasyonu ilk seçenek<br>
+                            <b>"AĞIR SITMA = IV ARTESUNATE"</b> → Parenteral, acil<br>
+                            <b>"G6PD = PRİMAKİN TEHLİKE"</b> → Hemoliz riski, test et!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Korunma ve Profilaksi",
+                icon: "fas fa-shield-alt",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kemoprofilaksi Rejimleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Doz</th>
+                                    <th>Başlangıç</th>
+                                    <th>Süre</th>
+                                    <th>Bölge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Atovakon-Proguanil</b></td>
+                                    <td>1 tb/gün</td>
+                                    <td>1-2 gün önce</td>
+                                    <td>Dönüşten 7 gün sonra</td>
+                                    <td>Tüm bölgeler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Doksisiklin</b></td>
+                                    <td>100 mg/gün</td>
+                                    <td>1-2 gün önce</td>
+                                    <td>Dönüşten 4 hafta sonra</td>
+                                    <td>Tüm bölgeler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Meflokin</b></td>
+                                    <td>250 mg/hafta</td>
+                                    <td>2-3 hafta önce</td>
+                                    <td>Dönüşten 4 hafta sonra</td>
+                                    <td>Dirençsiz bölgeler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klorokin</b></td>
+                                    <td>500 mg/hafta</td>
+                                    <td>1-2 hafta önce</td>
+                                    <td>Dönüşten 4 hafta sonra</td>
+                                    <td>Sadece duyarlı bölge</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🦟 Vektör Kontrol Önlemleri</p>
+                        <p class="highlight-box__content">
+                            <b>Kişisel korunma:</b><br>
+                            • DEET içeren sivrisinek kovucu (%20-30)<br>
+                            • Uzun kollu-paçalı açık renkli giysiler<br>
+                            • Permetrin emdirilmiş cibinlik<br>
+                            • Akşam-gece dışarı çıkmama (Anopheles gece ısırır)<br><br>
+                            <b>Toplumsal önlemler:</b><br>
+                            • İnsektisit emdirilmiş cibinlik (ITN)<br>
+                            • İç mekan kalıcı spreyleme (IRS)<br>
+                            • Larva kontrolü
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özel Durumlar</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Gebelik:</b> Meflokin (2. trimesterden sonra), klorokin (duyarlı bölge). Doksisiklin kontrendike!</li>
+                            <li class="feature-item"><b>Çocuklar:</b> Doz ayarlaması ile aynı ilaçlar</li>
+                            <li class="feature-item"><b>Uzun süreli kalış:</b> Terminal profilaksi (primakin) P. vivax bölgelerinde</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>RTS,S/AS01 (Mosquirix) Aşısı:</strong><br>
+                        İlk onaylı sıtma aşısı (2021). P. falciparum'a karşı. %30-40 koruma sağlar. Afrika'da 5 yaş altı çocuklara önerilir. Tam koruma sağlamaz, diğer önlemlerle birlikte kullanılmalı.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Hipnozoit yapan:</b> P. vivax ve P. ovale → Primakin gerekir<br>
+                            2. <b>En ağır seyirli:</b> P. falciparum → Serebral sıtma<br>
+                            3. <b>Muz/hilal gametozit:</b> P. falciparum<br>
+                            4. <b>72 saatlik siklus:</b> P. malariae (kuartan)<br>
+                            5. <b>G6PD kontrol gerektiren:</b> Primakin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Soru Tipi</th>
+                                    <th>Cevap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Relaps yapan Plasmodium?</td>
+                                    <td><b>P. vivax, P. ovale</b> (hipnozoit)</td>
+                                </tr>
+                                <tr>
+                                    <td>Serebral sıtma etkeni?</td>
+                                    <td><b>P. falciparum</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Schüffner granülleri?</td>
+                                    <td><b>P. vivax, P. ovale</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Bant trofozoit?</td>
+                                    <td><b>P. malariae</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Türkiye'de endemik olan?</td>
+                                    <td><b>P. vivax</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Tanıda altın standart?</td>
+                                    <td><b>Kalın + ince yayma (Giemsa)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Ağır sıtmada ilk tedavi?</td>
+                                    <td><b>IV Artesunate</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Primakin kontrendikasyonu?</td>
+                                    <td><b>G6PD eksikliği, gebelik</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Kanda sadece halka + gametozit?</td>
+                                    <td><b>P. falciparum</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Nefrotik sendrom yapan?</td>
+                                    <td><b>P. malariae</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FALCİPARUM = FATAL"</b> → En ağır, en ölümcül<br>
+                            <b>"VİVAX = VİVA (yaşa) ama TEKRAR GEL"</b> → Relaps yapar<br>
+                            <b>"MALARİAE = MAL(kronik) + BÖBREK"</b> → Nefrotik sendrom<br>
+                            <b>"OVALE = OVAL eritrosit"</b> → Eritrosit şekli değişir<br>
+                            <b>"PRİMAKİN = PRİMER karaciğer temizliği"</b> → Hipnozoit öldürür<br>
+                            <b>"G6PD + PRİMAKİN = PATLAMA (hemoliz)"</b> → Kontrendike!
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>P. vivax + P. ovale =</b> HİPNOZOİT yapar → PRİMAKİN şart (G6PD kontrol et!)<br>
+                            2. <b>P. falciparum =</b> MUZ GAMETOZİT, serebral sıtma, %40 parazitemi<br>
+                            3. <b>Kalın yayma =</b> TARAMA (duyarlı), İnce yayma = TÜR TAYİNİ<br>
+                            4. <b>Ağır sıtma =</b> IV ARTESUNATE (IV Kinin alternatif)<br>
+                            5. <b>Vektör =</b> Dişi Anopheles sivrisineği (gece ısırır)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Afrika seyahati, ateş, muz gametozit?" → P. falciparum, ACT</li>
+                        <li><b>Soru tipi:</b> "Tedavi sonrası 6 ay sonra tekrar ateş?" → Relaps (P. vivax/ovale), primakin eksik</li>
+                        <li><b>Soru tipi:</b> "G6PD eksikliği, P. vivax tedavisi?" → Klorokin ver, primakin verme (veya haftalık düşük doz)</li>
+                        <li><b>Soru tipi:</b> "Koma, parazitemi %15?" → Ağır sıtma, IV artesunate</li>
+                        <li><b>Soru tipi:</b> "72 saat arayla ateş nöbeti?" → P. malariae (kuartan)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 11,
+        category: "parazitoloji",
+        title: "Bağırsak Protozoonları",
+        subtitle: "Amip, Giardia, Cryptosporidium ve Diğerleri",
+        summary: "Bağırsak protozoonlarının kapsamlı özeti. İnvaziv (E. histolytica) ve non-invaziv (Giardia) türlerin karşılaştırması, aside dirençli parazitler, AIDS ilişkili fırsatçı enfeksiyonlar ve tedavi algoritmaları.",
+        tags: ["Amip", "Giardia", "Cryptosporidium", "Aside Dirençli", "İshal", "Parazitoloji", "AIDS"],
+        sections: [
+            {
+                title: "Genel Bakış ve Sınıflandırma",
+                icon: "fas fa-sitemap",
+                content: `
+                    <p><strong>Bağırsak protozoonları</strong> fekal-oral yolla bulaşan, ishale neden olan tek hücreli parazitlerdir. Klinik önem açısından <b>invaziv</b> ve <b>non-invaziv</b> olarak ikiye ayrılırlar.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Sınıflandırma</p>
+                        <p class="highlight-box__content">
+                            <b>İNVAZİV (Doku invazyonu yapar):</b><br>
+                            • Entamoeba histolytica → Flask ülser, karaciğer absesi<br><br>
+                            <b>NON-İNVAZİV (Mukozada kalır):</b><br>
+                            • Giardia lamblia → Steatore, malabsorpsiyon<br>
+                            • Cryptosporidium → AIDS'te kronik ishal<br>
+                            • Cyclospora cayetanensis<br>
+                            • Cystoisospora belli<br>
+                            • Blastocystis hominis (tartışmalı patojen)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bağırsak Protozoonları - Genel Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Bulaş</th>
+                                    <th>İshal Tipi</th>
+                                    <th>Önemli Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E. histolytica</b></td>
+                                    <td>Kist (su/gıda)</td>
+                                    <td>Kanlı-mukuslu (dizanteri)</td>
+                                    <td>Karaciğer absesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Giardia</b></td>
+                                    <td>Kist (su)</td>
+                                    <td>Yağlı, kötü kokulu</td>
+                                    <td>IgA eksikliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cryptosporidium</b></td>
+                                    <td>Ookist (su)</td>
+                                    <td>Sulu, voluminöz</td>
+                                    <td>AIDS, aside dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cyclospora</b></td>
+                                    <td>Ookist (gıda)</td>
+                                    <td>Sulu, uzamış</td>
+                                    <td>Otofloresan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cystoisospora</b></td>
+                                    <td>Ookist (gıda)</td>
+                                    <td>Sulu</td>
+                                    <td>Eozinofili</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Enfektif Form:</strong> Çoğu bağırsak protozoonunda enfektif form <b>KİST</b> veya <b>OOKİST</b>'tir. Trofozoit çevreye dayanıksızdır ve genellikle enfektif değildir.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Entamoeba histolytica",
+                icon: "fas fa-bug",
+                content: `
+                    <p><strong>Entamoeba histolytica</strong>, invaziv amebiasis etkenidir. Kolon ülserleri ve karaciğer absesi yapabilir. Morfolojik olarak non-patojen <i>E. dispar</i>'dan ayırt edilemez!</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Özellik</th>
+                                    <th>Lokalizasyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kist</b></td>
+                                    <td>4 çekirdekli (olgun), enfektif form</td>
+                                    <td>Dışkıda, çevrede</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trofozoit</b></td>
+                                    <td>Tek çekirdekli, hareketli, patojen form</td>
+                                    <td>Bağırsak duvarında</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Tanısal Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Trofozoit:</b><br>
+                            • Tek çekirdek, santral karyozom<br>
+                            • <b>Eritrofagositoz</b> → PATOGNOMONİK (yutulmuş eritrositler)<br>
+                            • Psödopod ile tek yönlü hareket<br><br>
+                            <b>Kist:</b><br>
+                            • 4 çekirdek (olgun kist)<br>
+                            • Kromatoid cisimler (sigara şeklinde)<br>
+                            • Glikojen vakuolu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Formlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Bulgular</th>
+                                    <th>Komplikasyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik taşıyıcılık</b></td>
+                                    <td>%90 enfekte kişi</td>
+                                    <td>Bulaş kaynağı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Amipli dizanteri</b></td>
+                                    <td>Kanlı-mukuslu ishal, tenesmus, kramp</td>
+                                    <td>Toksik megakolon, perforasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ameboma</b></td>
+                                    <td>Granülomatöz kitle (çekum)</td>
+                                    <td>Karsinom ile karışır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karaciğer absesi (AKA)</b></td>
+                                    <td>Ateş, sağ üst kadran ağrısı, hepatomegali</td>
+                                    <td>Rüptür → peritonit, plevra, perikard</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Amip Karaciğer Absesi (AKA):</strong><br>
+                        • Genç erkeklerde sık<br>
+                        • Sağ lob, tek abse<br>
+                        • <b>"Ançuez sosu/Çikolata"</b> renginde aspirat (nekrotik debris)<br>
+                        • Aspiratta trofozoit nadiren görülür (abse duvarında)<br>
+                        • Seroloji %95 pozitif (IHA, ELISA)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Bulgu</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Dışkı mikroskopi</b></td>
+                                    <td>Kist veya trofozoit</td>
+                                    <td>E. dispar'dan ayırt edemez!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dışkı antijen (ELISA)</b></td>
+                                    <td>E. histolytica spesifik</td>
+                                    <td>E. dispar'dan ayırır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Tür tayini</td>
+                                    <td>En spesifik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji (IHA, ELISA)</b></td>
+                                    <td>Anti-amip antikor</td>
+                                    <td>AKA'da %95+, bağırsakta düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kolonoskopi</b></td>
+                                    <td>Flask ülser (dar ağız, geniş taban)</td>
+                                    <td>Biyopsi → trofozoit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik Form</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik taşıyıcı</b></td>
+                                    <td>Paromomisin veya Diloksanid furoat (luminal ajan)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnvaziv amebiasis</b></td>
+                                    <td>Metronidazol 750 mg × 3/gün × 10 gün<br>+ Paromomisin (lümen eradikasyonu)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karaciğer absesi</b></td>
+                                    <td>Metronidazol + Paromomisin<br>± Perkütan drenaj (büyük, rüptür riski)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Amip Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"4 ÇEKİRDEK = 4mip KİST"</b> → Olgun kist 4 çekirdekli<br>
+                            <b>"ERİTROFAGOSİTOZ = HİSTOLYTİCA"</b> → Patojen amip kanı sever<br>
+                            <b>"FLASK ÜLSER = DAR AĞIZ, GENİŞ TABAN"</b> → Kolonoskopi bulgusu<br>
+                            <b>"ANÇUEZ SOSU = AMİP KARACİĞER"</b> → AKA aspiratı
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Giardia lamblia (G. duodenalis)",
+                icon: "fas fa-grin-beam",
+                content: `
+                    <p><strong>Giardia lamblia</strong>, dünyada en sık görülen bağırsak protozoonudur. Non-invaziv olup duodenum ve jejunumda yaşar. Malabsorpsiyona ve kronik ishale neden olur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Morfolojik Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Trofozoit:</b><br>
+                            • <b>"Gülen yüz / Baykuş yüzü"</b> görünümü<br>
+                            • İki çekirdek, aksostil, median cisim<br>
+                            • 4 çift flagella (8 toplam)<br>
+                            • Ventral yapışma diski (emici disk)<br><br>
+                            <b>Kist:</b><br>
+                            • 4 çekirdek (olgun)<br>
+                            • Oval şekilli<br>
+                            • ENFEKTİF FORM
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Bulgular</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut giardiasis</b></td>
+                                    <td>Sulu ishal, kramp, bulantı, şişkinlik</td>
+                                    <td>Villus atrofisi, malabsorpsiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik giardiasis</b></td>
+                                    <td><b>Steatore</b> (yağlı, kötü kokulu dışkı)</td>
+                                    <td>Yağ malabsorpsiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çocuklarda</b></td>
+                                    <td>Büyüme geriliği, kilo kaybı</td>
+                                    <td>Kronik malabsorpsiyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Risk Grupları:</strong><br>
+                        • <b>IgA eksikliği:</b> Kronik, tedaviye dirençli giardiasis<br>
+                        • <b>Hipogamaglobulinemi:</b> Ağır seyir<br>
+                        • <b>Kistik fibrozis:</b> Sık enfeksiyon<br>
+                        • <b>Çocuklar:</b> Kreş, anaokulu salgınları<br>
+                        • <b>Gezginler:</b> "Turist ishali"</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dışkı mikroskopi (3 örnek)</td>
+                                    <td rowspan="3"><b>Metronidazol</b> 250 mg × 3/gün × 5-7 gün<br>veya<br><b>Tinidazol</b> 2 g tek doz<br>veya<br><b>Nitazoksanid</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Dışkı antijen testi (ELISA)</td>
+                                </tr>
+                                <tr>
+                                    <td>Duodenal aspirat/biyopsi (nadiren)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Giardia Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GÜLEN YÜZ = GİARDİA"</b> → Trofozoit morfolojisi<br>
+                            <b>"IgA YOK = GİARDİA SEVİNÇ"</b> → Kronik enfeksiyon<br>
+                            <b>"STEATORE = YAĞLI DIŞKI"</b> → Malabsorpsiyon<br>
+                            <b>"ÇİNKO EKSİKLİĞİ"</b> → Giardia ilişkili
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Aside Dirençli Protozoonlar",
+                icon: "fas fa-flask",
+                content: `
+                    <p><strong>Cryptosporidium, Cyclospora ve Cystoisospora</strong>, aside dirençli (asit-fast) boyanan, özellikle immünsüprese hastalarda ciddi ishale neden olan fırsatçı parazitlerdir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Aside Dirençli Boyama</p>
+                        <p class="highlight-box__content">
+                            <b>Yöntem:</b> Modifiye Kinyoun, Ziehl-Neelsen (modifiye)<br>
+                            <b>Sonuç:</b> Ookistler pembe-kırmızı boyanır, zemin mavi-yeşil<br>
+                            <b>Neden önemli?</b> Rutin dışkı incelemesinde görülmezler!<br><br>
+                            <i>"İshal + AIDS = Aside dirençli boyama iste!"</i>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aside Dirençli Protozoonlar Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Cryptosporidium</th>
+                                    <th>Cyclospora</th>
+                                    <th>Cystoisospora</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ookist boyutu</b></td>
+                                    <td>4-6 µm (küçük)</td>
+                                    <td>8-10 µm (orta)</td>
+                                    <td>20-30 µm (büyük)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sporulasyon</b></td>
+                                    <td>İçeride (atıldığında enfektif)</td>
+                                    <td>Dışarıda (1-2 hafta gerekir)</td>
+                                    <td>Dışarıda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Otofloresan</b></td>
+                                    <td>Yok</td>
+                                    <td><b>VAR (UV ile mavi)</b></td>
+                                    <td>Yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eozinofili</b></td>
+                                    <td>Yok</td>
+                                    <td>Yok</td>
+                                    <td><b>VAR</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>İlişkili durum</b></td>
+                                    <td>AIDS (CD4 <100)</td>
+                                    <td>Endemik bölge seyahati</td>
+                                    <td>AIDS, HTLV-1</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Nitazoksanid<br>(AIDS'te ART en önemli)</td>
+                                    <td>TMP-SMX</td>
+                                    <td>TMP-SMX</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Cryptosporidium Detayları</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tür:</b> C. parvum (zoonotik), C. hominis (insandan insana)</li>
+                            <li class="feature-item"><b>Bulaş:</b> Su kaynaklı salgınlar sık (klora dirençli!)</li>
+                            <li class="feature-item"><b>İmmünkompetan:</b> Self-limitedir (1-2 hafta)</li>
+                            <li class="feature-item"><b>AIDS (CD4 <100):</b> Kronik, voluminöz ishal, biliyer tutulum</li>
+                            <li class="feature-item"><b>Tedavi:</b> ART ile CD4 yükseltmek en etkili! Nitazoksanid yardımcı</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Cryptosporidium - KLORA DİRENÇLİ!</strong><br>
+                        Su arıtma tesislerinde standart klorlama ile öldürülmez. Filtrasyon veya UV gerekir. Bu nedenle su kaynaklı salgınlara neden olabilir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aside Dirençli Parazitler Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CCC = Cryptosporidium, Cyclospora, Cystoisospora"</b><br>
+                            <b>"CYCLO = CYcle + UV LIGHT (otofloresan)"</b><br>
+                            <b>"CYSTO = CYSTO + EOZİNOFİLİ"</b><br>
+                            <b>"CRYPTO = AIDS + KLORA DİRENÇ"</b><br>
+                            <b>"TMP-SMX → Cyclo & Cysto (ikisi de SMX)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer Bağırsak Protozoonları",
+                icon: "fas fa-bacteria",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dientamoeba fragilis</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Özellik:</b> Kist formu YOK (trofozoit ile bulaşır - Enterobius yumurtası ile?)</li>
+                            <li class="feature-item"><b>Klinik:</b> Kronik ishal, karın ağrısı, eozinofili</li>
+                            <li class="feature-item"><b>Tanı:</b> Taze dışkıda trofozoit (2 çekirdekli)</li>
+                            <li class="feature-item"><b>Tedavi:</b> Metronidazol, paromomisin</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Blastocystis hominis</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Patojenite:</b> Tartışmalı! Fırsatçı patojen olabilir</li>
+                            <li class="feature-item"><b>Morfoloji:</b> Vakuoler form (santral vakuol, periferik çekirdekler)</li>
+                            <li class="feature-item"><b>Klinik:</b> Genellikle asemptomatik, bazen ishal</li>
+                            <li class="feature-item"><b>Tedavi:</b> Semptomatikse metronidazol</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Non-Patojen Amip Türleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Kist Çekirdek Sayısı</th>
+                                    <th>Önemli Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E. dispar</b></td>
+                                    <td>4</td>
+                                    <td>E. histolytica ile morfolojik aynı, non-patojen</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E. coli</b></td>
+                                    <td>8</td>
+                                    <td>En sık görülen non-patojen amip</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E. hartmanni</b></td>
+                                    <td>4</td>
+                                    <td>Küçük boyutlu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endolimax nana</b></td>
+                                    <td>4</td>
+                                    <td>En küçük amip kisti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Iodamoeba bütschlii</b></td>
+                                    <td>1</td>
+                                    <td>Glikojen vakuolü belirgin (iyot boyar)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">E. histolytica vs E. dispar</p>
+                        <p class="highlight-box__content">
+                            <b>Morfolojik olarak AYIRT EDİLEMEZ!</b><br><br>
+                            <b>Ayırt etme yöntemleri:</b><br>
+                            • Dışkı antijen ELISA (E. histolytica spesifik)<br>
+                            • PCR<br>
+                            • Seroloji (invaziv E. histolytica'da pozitif)<br>
+                            • Eritrofagositoz (sadece E. histolytica)<br><br>
+                            <i>E. dispar tedavi gerektirmez!</i>
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Amip Kist Çekirdek Sayısı</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HİSTOLYTİCA = 4"</b> (histolytica → histo → 4 harf sonra...)<br>
+                            <b>"E. COLİ = 8"</b> (coli → sekiz ile kafiye)<br>
+                            <b>"IODAMOEBA = 1"</b> (tek I harfi, tek çekirdek)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı Yöntemleri Özeti",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dışkı İnceleme Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Kullanım</th>
+                                    <th>Tespit Ettiği</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Nativ-Lugol</b></td>
+                                    <td>Rutin tarama</td>
+                                    <td>Trofozoit, kist, yumurta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Formol-etil asetat</b></td>
+                                    <td>Yoğunlaştırma</td>
+                                    <td>Düşük yoğunluklu kist/yumurta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trikrom boyama</b></td>
+                                    <td>Kalıcı preparat</td>
+                                    <td>Amip morfolojisi detayı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Modifiye asit-fast</b></td>
+                                    <td>Aside dirençli</td>
+                                    <td>Cryptosporidium, Cyclospora, Cystoisospora</td>
+                                </tr>
+                                <tr>
+                                    <td><b>UV floresan</b></td>
+                                    <td>Otofloresan</td>
+                                    <td>Cyclospora (mavi)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">📋 Dışkı Örneği Kuralları</p>
+                        <p class="highlight-box__content">
+                            <b>Sayı:</b> En az 3 örnek (farklı günlerde)<br>
+                            <b>Taze örnek:</b> Trofozoit için (30 dk içinde)<br>
+                            <b>Fiksatif:</b> SAF, PVA, formol (kist koruma)<br>
+                            <b>İlaç kullanımı:</b> Antibiyotik, baryum, antasit → yanlış negatif<br>
+                            <b>Bekleme:</b> İlaçlardan 2 hafta sonra örnek al
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Antijen ve Moleküler Testler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Parazit</th>
+                                    <th>Avantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Dışkı antijen ELISA</b></td>
+                                    <td>Giardia, E. histolytica, Cryptosporidium</td>
+                                    <td>Hızlı, spesifik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DFA (immunofloresan)</b></td>
+                                    <td>Giardia, Cryptosporidium</td>
+                                    <td>Yüksek duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Tüm protozoonlar</td>
+                                    <td>En duyarlı, tür tayini</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Flask ülser:</b> E. histolytica<br>
+                            2. <b>Eritrofagositoz:</b> E. histolytica (patognomik)<br>
+                            3. <b>Gülen yüz trofozoit:</b> Giardia<br>
+                            4. <b>IgA eksikliğinde kronik ishal:</b> Giardia<br>
+                            5. <b>AIDS + ishal + aside dirençli:</b> Cryptosporidium<br>
+                            6. <b>Otofloresan ookist:</b> Cyclospora<br>
+                            7. <b>Eozinofili yapan:</b> Cystoisospora
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu/Senaryo</th>
+                                    <th>Parazit</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Kanlı-mukuslu ishal, flask ülser</td>
+                                    <td>E. histolytica</td>
+                                    <td>Metronidazol + Paromomisin</td>
+                                </tr>
+                                <tr>
+                                    <td>Ançuez sosu karaciğer absesi</td>
+                                    <td>E. histolytica (AKA)</td>
+                                    <td>Metronidazol ± drenaj</td>
+                                </tr>
+                                <tr>
+                                    <td>Steatore, yağlı ishal</td>
+                                    <td>Giardia</td>
+                                    <td>Metronidazol/Tinidazol</td>
+                                </tr>
+                                <tr>
+                                    <td>AIDS, CD4<100, kronik ishal</td>
+                                    <td>Cryptosporidium</td>
+                                    <td>ART + Nitazoksanid</td>
+                                </tr>
+                                <tr>
+                                    <td>UV ile mavi floresan ookist</td>
+                                    <td>Cyclospora</td>
+                                    <td>TMP-SMX</td>
+                                </tr>
+                                <tr>
+                                    <td>İshal + eozinofili + aside dirençli</td>
+                                    <td>Cystoisospora</td>
+                                    <td>TMP-SMX</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AMİP = ANÇUEZ KARACİĞER"</b> → E. histolytica AKA<br>
+                            <b>"GİARDİA = GÜLEN YÜZ + IgA"</b> → Morfoloji + risk faktörü<br>
+                            <b>"CRYPTO = AIDS + KLOR ETKİSİZ"</b> → Fırsatçı + su direnci<br>
+                            <b>"CYclo = CYanotic (UV mavi)"</b> → Otofloresan<br>
+                            <b>"CYSTo = eozinofili CYSTemi"</b> → Eozinofili yapan<br>
+                            <b>"4 çekirdek = 4mip (histolytica)"</b> → Kist çekirdek sayısı
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>E. histolytica =</b> ERİTROFAGOSİTOZ, 4 çekirdekli kist, flask ülser, AKA<br>
+                            2. <b>Giardia =</b> Gülen yüz, IgA eksikliği, steatore, non-invaziv<br>
+                            3. <b>Aside dirençli =</b> Cryptosporidium, Cyclospora, Cystoisospora<br>
+                            4. <b>E. dispar =</b> E. histolytica ile aynı görünür, NON-PATOJEN!<br>
+                            5. <b>E. coli =</b> 8 çekirdekli kist, non-patojen
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Dışkıda eritrosit yutmuş amip?" → E. histolytica</li>
+                        <li><b>Soru tipi:</b> "4 çekirdekli kist, non-patojen?" → E. dispar</li>
+                        <li><b>Soru tipi:</b> "Kreş salgını, yağlı ishal?" → Giardia</li>
+                        <li><b>Soru tipi:</b> "AIDS, aside dirençli, klora dirençli?" → Cryptosporidium</li>
+                        <li><b>Soru tipi:</b> "Dışkıda UV ile mavi ookist?" → Cyclospora</li>
+                        <li><b>Soru tipi:</b> "İmmünsüprese, ishal, eozinofili?" → Cystoisospora</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 12,
+        category: "parazitoloji",
+        title: "Toxoplasma gondii",
+        subtitle: "Gebelik, Konjenital Toksoplazmoz ve AIDS",
+        summary: "Toxoplasma gondii'nin kapsamlı özeti. Yaşam döngüsü, gebelikte tarama, avidite testi yorumu, konjenital toksoplazmoz ve AIDS hastalarında serebral toksoplazmoz.",
+        tags: ["Toxoplasma", "Konjenital", "Gebelik", "Avidite", "AIDS", "TORCH", "Parazitoloji"],
+        sections: [
+            {
+                title: "Genel Bilgiler",
+                icon: "fas fa-cat",
+                content: `
+                    <p><strong>Toxoplasma gondii</strong>, zorunlu hücre içi parazit olup, dünyada en yaygın parazitik enfeksiyonlardan biridir. İmmünkompetan bireylerde genellikle asemptomatik seyreder, ancak gebelikte ve immünsüpresyonda ciddi hastalık yapar.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🐱 Yaşam Döngüsü - Temel Kavramlar</p>
+                        <p class="highlight-box__content">
+                            <b>Kesin konak:</b> KEDİ (Felidae ailesi) - Seksüel üreme<br>
+                            <b>Ara konak:</b> İnsan, tüm sıcakkanlılar - Aseksüel üreme<br><br>
+                            <b>Üç enfektif form:</b><br>
+                            • <b>Ookist:</b> Kedi dışkısında, çevrede sporlanır (1-5 gün)<br>
+                            • <b>Takizoit:</b> Hızlı çoğalan, akut enfeksiyon formu<br>
+                            • <b>Bradizoit:</b> Yavaş çoğalan, doku kisti içinde (kronik)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bulaş Yolları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulaş Yolu</th>
+                                    <th>Form</th>
+                                    <th>Kaynak</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Oral - Ookist</b></td>
+                                    <td>Sporlanmış ookist</td>
+                                    <td>Kedi dışkısı ile kontamine toprak, su, sebze</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oral - Doku kisti</b></td>
+                                    <td>Bradizoit</td>
+                                    <td>Az pişmiş et (kuzu, domuz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transplasental</b></td>
+                                    <td>Takizoit</td>
+                                    <td>Anne → Fetüs (primer enfeksiyon)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transplantasyon</b></td>
+                                    <td>Bradizoit/Takizoit</td>
+                                    <td>Enfekte organ (kalp, kemik iliği)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kan transfüzyonu</b></td>
+                                    <td>Takizoit</td>
+                                    <td>Nadir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Kedi ve Toksoplazmoz:</strong><br>
+                        Kediler hayatları boyunca genellikle <b>bir kez</b> ookist saçarlar (1-3 hafta). Ookistler dışkıda sporlanmadan önce (1-5 gün) enfektif değildir. Günlük kedi kumu temizliği riski azaltır!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Formlar Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TAKİZOİT = TAKİP et (hızlı, akut)"</b><br>
+                            <b>"BRADİZOİT = BRAKIN uyusun (yavaş, kronik kist)"</b><br>
+                            <b>"OOKİST = KOK(u)İST (kedi kokusu)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Formlar",
+                icon: "fas fa-user-injured",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmünkompetan Bireylerde</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Sıklık</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik</b></td>
+                                    <td>%80-90</td>
+                                    <td>Belirti yok, latent enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lenfadenopati</b></td>
+                                    <td>%10-20</td>
+                                    <td>Servikal LAP (ağrısız), ateş, halsizlik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oküler</b></td>
+                                    <td>Nadir (akkiz)</td>
+                                    <td>Retinokorioidit (genellikle konjenital reaktivasyon)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmünsüprese Hastalarda (AIDS, Transplantasyon)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Bulgular</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Serebral Toksoplazmoz</b></td>
+                                    <td>Baş ağrısı, konfüzyon, fokal nörolojik defisit, nöbet</td>
+                                    <td>AIDS'te en sık SSS kitle lezyonu!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pnömoni</b></td>
+                                    <td>Dispne, ateş, interstisyel infiltrat</td>
+                                    <td>Kemik iliği nakli sonrası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dissemine</b></td>
+                                    <td>Çoklu organ tutulumu, sepsis benzeri</td>
+                                    <td>Yüksek mortalite</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>AIDS + Serebral Toksoplazmoz:</strong><br>
+                        • CD4 <100 hücre/µL'de risk artar<br>
+                        • <b>Halka şeklinde kontrast tutan</b> multipl beyin lezyonları<br>
+                        • Bazal ganglia tutulumu sık<br>
+                        • Seroloji IgG (+) (reaktivasyon - IgM genellikle negatif)<br>
+                        • Ampirik tedaviye yanıt tanıyı destekler<br>
+                        • Ayırıcı tanı: Primer SSS lenfoma</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Serebral Toksoplazmoz vs Primer SSS Lenfoma</p>
+                        <p class="highlight-box__content">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Özellik</th>
+                                        <th>Toksoplazmoz</th>
+                                        <th>Lenfoma</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lezyon sayısı</td>
+                                        <td>Multipl</td>
+                                        <td>Genellikle tek</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Toxo IgG</td>
+                                        <td>Pozitif</td>
+                                        <td>Negatif olabilir</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ampirik tedavi</td>
+                                        <td>Yanıt var (2 hafta)</td>
+                                        <td>Yanıt yok</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EBV PCR (BOS)</td>
+                                        <td>Negatif</td>
+                                        <td>Pozitif</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Gebelikte Toksoplazmoz",
+                icon: "fas fa-baby",
+                content: `
+                    <p>Gebelikte <b>primer enfeksiyon</b>, transplasental geçişle fetüsü enfekte edebilir. Daha önce bağışık olan (IgG+) gebelerde risk yoktur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🤰 Trimestere Göre Risk</p>
+                        <p class="highlight-box__content">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Trimester</th>
+                                        <th>Geçiş Oranı</th>
+                                        <th>Hastalık Şiddeti</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>1. Trimester</b></td>
+                                        <td>%10-15</td>
+                                        <td><b>EN AĞIR</b> (ölüm, ağır sekeller)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>2. Trimester</b></td>
+                                        <td>%25-30</td>
+                                        <td>Orta (klasik triad)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>3. Trimester</b></td>
+                                        <td>%60-80</td>
+                                        <td>Hafif/Subklinik</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gebelikte Tarama Algoritması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>IgG</th>
+                                    <th>IgM</th>
+                                    <th>Yorum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>(-)</td>
+                                    <td>(-)</td>
+                                    <td>Duyarlı (seronegatif)</td>
+                                    <td>Hijyen eğitimi, 3 ayda bir tekrar tarama</td>
+                                </tr>
+                                <tr>
+                                    <td>(+)</td>
+                                    <td>(-)</td>
+                                    <td>Geçirilmiş enfeksiyon (bağışık)</td>
+                                    <td>Risk yok, takip gerekmez</td>
+                                </tr>
+                                <tr>
+                                    <td>(+)</td>
+                                    <td>(+)</td>
+                                    <td>Akut veya geçirilmiş?</td>
+                                    <td><b>AVİDİTE TESTİ GEREK!</b></td>
+                                </tr>
+                                <tr>
+                                    <td>(-)</td>
+                                    <td>(+)</td>
+                                    <td>Çok erken akut veya yanlış pozitif</td>
+                                    <td>2-3 hafta sonra tekrar, referans lab</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>IgM Yanlış Pozitiflikleri:</strong><br>
+                        • IgM aylarca-yıllarca pozitif kalabilir<br>
+                        • Romatoid faktör interferansı<br>
+                        • Çapraz reaksiyon<br>
+                        <b>Bu nedenle IgG+/IgM+ durumunda AVİDİTE testi şart!</b></p>
+                    </div>
+                `
+            },
+            {
+                title: "Avidite Testi Yorumu",
+                icon: "fas fa-vial",
+                content: `
+                    <p><strong>IgG Avidite testi</strong>, antikorun antijene bağlanma gücünü ölçer. Enfeksiyonun ne zaman geçirildiğini tahmin etmeye yardımcı olur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Avidite Prensibi</p>
+                        <p class="highlight-box__content">
+                            • <b>Erken enfeksiyon:</b> Düşük aviditeli IgG (zayıf bağlanma)<br>
+                            • <b>Geç enfeksiyon (>4 ay):</b> Yüksek aviditeli IgG (güçlü bağlanma)<br><br>
+                            Avidite matürasyonu: Enfeksiyon → Hafta/aylar içinde → Yüksek avidite
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Avidite Yorumlama Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Avidite</th>
+                                    <th>Değer</th>
+                                    <th>Anlam</th>
+                                    <th>1. Trimesterde Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>YÜKSEK</b></td>
+                                    <td>>%60-70</td>
+                                    <td>Enfeksiyon >4 ay önce</td>
+                                    <td><span style="color:green"><b>GEBELİK ÖNCESİ - RİSK DÜŞÜK</b></span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>DÜŞÜK</b></td>
+                                    <td><%30</td>
+                                    <td>Enfeksiyon <4 ay</td>
+                                    <td><span style="color:red"><b>AKUT - FETÜS RİSKİ VAR!</b></span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>ORTA (Equivocal)</b></td>
+                                    <td>%30-60</td>
+                                    <td>Belirsiz</td>
+                                    <td>Referans laboratuvar, PCR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>KRİTİK KURAL:</strong><br>
+                        1. Trimesterde <b>YÜKSEK AVİDİTE</b> = Gebelik öncesi enfeksiyon = Fetüs için risk ÇOK DÜŞÜK<br><br>
+                        1. Trimesterde <b>DÜŞÜK AVİDİTE</b> = Yakın zamanda enfeksiyon = <b>FETÜS RİSKİ!</b><br>
+                        → Spiramisin başla, amniyosentez planla (18. haftadan sonra)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gebelikte Yönetim Algoritması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>IgG+/IgM+, Yüksek Avidite</b></td>
+                                    <td>Eski enfeksiyon, fetüs riski düşük, rutin takip</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgG+/IgM+, Düşük Avidite (1. Tri)</b></td>
+                                    <td>Spiramisin başla → Amniyosentez (>18 hafta) → PCR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Amniyotik sıvı PCR (+)</b></td>
+                                    <td>Pirimethamin + Sülfadiazin + Folinik asit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Amniyotik sıvı PCR (-)</b></td>
+                                    <td>Spiramisin devam, yakın USG takibi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Avidite Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"YÜKSEK AVİDİTE = YÜKSEK GÜVENLİK"</b> → Eski enfeksiyon, fetüs güvende<br>
+                            <b>"DÜŞÜK AVİDİTE = DÜŞÜK GÜVENLİK"</b> → Yeni enfeksiyon, tehlike!<br>
+                            <b>"4 AY KURALI"</b> → Avidite matürasyonu ~4 ay
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Konjenital Toksoplazmoz",
+                icon: "fas fa-baby-carriage",
+                content: `
+                    <p><strong>Konjenital toksoplazmoz</strong>, annenin gebelikte geçirdiği primer enfeksiyonun fetüse transplasental geçişi sonucu oluşur. %90'ı doğumda asemptomatiktir ancak tedavisiz sekeller gelişir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Klasik Triad (Sabin Triadı)</p>
+                        <p class="highlight-box__content">
+                            <b>1. Koryoretinit</b> (en sık bulgu, %80)<br>
+                            <b>2. Hidrosefali</b><br>
+                            <b>3. İntrakraniyal kalsifikasyonlar</b> (yaygın, dağınık)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Konjenital Toksoplazmoz Bulguları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sistem</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>SSS</b></td>
+                                    <td>Hidrosefali, intrakraniyal kalsifikasyon, mikrosefali, nöbet</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Göz</b></td>
+                                    <td>Koryoretinit (sıklıkla bilateral), mikroftalmi, strabismus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hepatosplenomegali</b></td>
+                                    <td>Sarılık, karaciğer fonksiyon bozukluğu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hematolojik</b></td>
+                                    <td>Trombositopeni, anemi, peteşi ("blueberry muffin")</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genel</b></td>
+                                    <td>IUGR, prematürite, ateş</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>İntrakraniyal Kalsifikasyon Paterni:</strong><br>
+                        • <b>Toxoplasma:</b> Yaygın, diffüz, dağınık (tüm parankimde)<br>
+                        • <b>CMV:</b> Periventriküler (ventriküller çevresinde)<br>
+                        Bu ayrım sınavda sık sorulur!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yenidoğanda Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toxo IgM/IgA (bebek)</b></td>
+                                    <td>Pozitif = Konjenital enfeksiyon (maternal IgM plasenta geçmez)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toxo IgG (bebek)</b></td>
+                                    <td>Maternal antikor geçişi olabilir, 6-12 ayda kaybolmalı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgG persiste (>12 ay)</b></td>
+                                    <td>Konjenital enfeksiyon (bebek kendi antikorunu yapıyor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BOS PCR</b></td>
+                                    <td>SSS tutulumu varsa pozitif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Pirimethamin + Sülfadiazin + Folinik asit</b> → 1 yıl tedavi</li>
+                            <li class="feature-item"><b>Folinik asit (leucovorin):</b> Pirimethaminin kemik iliği toksisitesini önler</li>
+                            <li class="feature-item"><b>Aktif koryoretinit varsa:</b> Kortikosteroid eklenebilir</li>
+                            <li class="feature-item"><b>Takip:</b> Oftalmolojik muayene (retina detaşmanı riski ömür boyu)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Konjenital TORCH Karşılaştırması</p>
+                        <p class="mnemonic-box__text">
+                            <b>Toxo:</b> Diffüz kalsifikasyon + Koryoretinit + Hidrosefali<br>
+                            <b>CMV:</b> PERİVENTRİKÜLER kalsifikasyon + İşitme kaybı<br>
+                            <b>Rubella:</b> Katarakt + Sağırlık + Kardiyak defekt (PDA)<br>
+                            <b>HSV:</b> Cilt vezikülleri + Ensefalit + Disseminasyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi Özeti",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Kullanım</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Seroloji (IgG, IgM)</b></td>
+                                    <td>Tarama, tanı</td>
+                                    <td>En sık kullanılan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgG Avidite</b></td>
+                                    <td>Enfeksiyon zamanlaması</td>
+                                    <td>Gebelikte kritik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR (kan, BOS, amniyotik sıvı)</b></td>
+                                    <td>Aktif enfeksiyon, konjenital tanı</td>
+                                    <td>En spesifik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td>Doku biopsisi</td>
+                                    <td>Takizoit/kist görülmesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BT/MR</b></td>
+                                    <td>Serebral toksoplazmoz</td>
+                                    <td>Halka tutan lezyonlar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi Şemaları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İmmünkompetan (semptomatik)</b></td>
+                                    <td>Genellikle tedavi gerekmez</td>
+                                    <td>Self-limited</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gebelikte akut enfeksiyon</b></td>
+                                    <td>Spiramisin (fetüs enfekte değilse)</td>
+                                    <td>Doğuma kadar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fetal enfeksiyon (+)</b></td>
+                                    <td>Pirimethamin + Sülfadiazin + Folinik asit</td>
+                                    <td>Doğuma kadar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konjenital</b></td>
+                                    <td>Pirimethamin + Sülfadiazin + Folinik asit</td>
+                                    <td>1 yıl</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AIDS - Serebral</b></td>
+                                    <td>Pirimethamin + Sülfadiazin + Folinik asit</td>
+                                    <td>6 hafta, sonra idame</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AIDS - Profilaksi</b></td>
+                                    <td>TMP-SMX (CD4 <100, IgG+)</td>
+                                    <td>CD4 >200 olana kadar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Pirimethamin Toksisitesi:</strong><br>
+                        • Folat antagonisti → Kemik iliği supresyonu (pansitopeni)<br>
+                        • <b>Folinik asit (leucovorin)</b> mutlaka eklenmeli!<br>
+                        • Folik asit DEĞİL → Etkinliği azaltır<br>
+                        • Gebelikte 1. trimesterde kontrendike (teratojenik)</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🏥 Profilaksi Endikasyonları</p>
+                        <p class="highlight-box__content">
+                            <b>AIDS (CD4 <100 + Toxo IgG+):</b> TMP-SMX (PCP profilaksisi aynı zamanda toxo profilaksisi)<br>
+                            <b>Transplantasyon (D+/R-):</b> TMP-SMX veya Pirimethamin<br>
+                            <b>D:</b> Donör, <b>R:</b> Alıcı
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Kesin konak:</b> Kedi<br>
+                            2. <b>Avidite yorumu:</b> Yüksek = Eski, Düşük = Yeni<br>
+                            3. <b>Klasik triad:</b> Koryoretinit + Hidrosefali + İntrakraniyal kalsifikasyon<br>
+                            4. <b>Kalsifikasyon paterni:</b> Toxo = Diffüz, CMV = Periventriküler<br>
+                            5. <b>AIDS'te en sık SSS lezyonu:</b> Serebral toksoplazmoz
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Senaryo</th>
+                                    <th>Tanı/Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gebe, IgG(-), IgM(-)</td>
+                                    <td>Seronegatif, hijyen eğitimi, tarama devam</td>
+                                </tr>
+                                <tr>
+                                    <td>Gebe, IgG(+), IgM(-)</td>
+                                    <td>Eski enfeksiyon, risk yok</td>
+                                </tr>
+                                <tr>
+                                    <td>Gebe, IgG(+), IgM(+)</td>
+                                    <td>AVİDİTE iste!</td>
+                                </tr>
+                                <tr>
+                                    <td>Gebe, IgG(+), IgM(+), Yüksek avidite</td>
+                                    <td>Eski enfeksiyon, risk düşük</td>
+                                </tr>
+                                <tr>
+                                    <td>Gebe, IgG(+), IgM(+), Düşük avidite</td>
+                                    <td>Akut! Spiramisin + Amniyosentez</td>
+                                </tr>
+                                <tr>
+                                    <td>AIDS, CD4<100, halka tutan beyin lezyonu</td>
+                                    <td>Serebral toksoplazmoz, ampirik tedavi</td>
+                                </tr>
+                                <tr>
+                                    <td>Yenidoğan, diffüz kalsifikasyon + koryoretinit</td>
+                                    <td>Konjenital toksoplazmoz</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KEDİ = KESİN KONAK"</b> → Seksüel üreme sadece kedide<br>
+                            <b>"YÜKSEK AVİDİTE = YÜKSEK RAHATLAMA"</b> → Gebe için iyi haber<br>
+                            <b>"DÜŞÜK AVİDİTE = DÜŞÜK ŞANS"</b> → Fetüs riski yüksek<br>
+                            <b>"DİFFÜZ = TOXO, PERİVENTRİKÜLER = CMV"</b> → Kalsifikasyon<br>
+                            <b>"SABİN TRİADI = Koryoretinit + Hidrosefali + Kalsifikasyon"</b><br>
+                            <b>"FOLİNİK asit (leucovorin), FOLİK asit DEĞİL!"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Gebelikte IgG+/IgM+ =</b> AVİDİTE testi yaptır!<br>
+                            2. <b>Yüksek avidite (>%60) =</b> Eski enfeksiyon, fetüs güvende<br>
+                            3. <b>AIDS + beyin lezyonu =</b> Toxo vs Lenfoma (PCR, ampirik tedavi)<br>
+                            4. <b>Konjenital =</b> Diffüz kalsifikasyon (CMV periventriküler!)<br>
+                            5. <b>Tedavi =</b> Pirimethamin + Sülfadiazin + FOLİNİK asit
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Gebe, IgG+/IgM+, ne yaparsın?" → Avidite testi</li>
+                        <li><b>Soru tipi:</b> "1. trimester, düşük avidite?" → Spiramisin başla, amniyosentez planla</li>
+                        <li><b>Soru tipi:</b> "AIDS, CD4=50, halka tutan lezyon?" → Serebral toxo, ampirik tedavi</li>
+                        <li><b>Soru tipi:</b> "Yenidoğan, diffüz kalsifikasyon?" → Konjenital toxo</li>
+                        <li><b>Soru tipi:</b> "Pirimethamin yan etkisi önlemi?" → Folinik asit</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 13,
+        category: "parazitoloji",
+        title: "Leishmania ve Leishmaniasis",
+        subtitle: "Visseral, Kutanöz ve Mukokutanöz Formlar",
+        summary: "Leishmania türlerinin kapsamlı özeti. Kala-azar (visseral), Şark çıbanı (kutanöz), Espundia (mukokutanöz) formlarının karşılaştırması, vektör, tanı ve tedavi yaklaşımları.",
+        tags: ["Leishmania", "Kala-azar", "Şark Çıbanı", "Phlebotomus", "LD Cisimciği", "Parazitoloji"],
+        sections: [
+            {
+                title: "Genel Bilgiler",
+                icon: "fas fa-mosquito",
+                content: `
+                    <p><strong>Leishmaniasis</strong>, <i>Leishmania</i> türlerinin neden olduğu, dişi tatarcık (kum sineği - <i>Phlebotomus</i>) ile bulaşan, deri ve iç organları tutan bir protozoon hastalığıdır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Temel Kavramlar</p>
+                        <p class="highlight-box__content">
+                            <b>Vektör:</b> Dişi Phlebotomus (Eski Dünya), Lutzomyia (Yeni Dünya)<br>
+                            <b>Rezervuar:</b> Köpekler, kemirgenler, insanlar (türe göre değişir)<br><br>
+                            <b>İki morfolojik form:</b><br>
+                            • <b>Promastigot:</b> Kamçılı form, vektör sindirim sisteminde, kültürde<br>
+                            • <b>Amastigot:</b> Kamçısız form, insanda makrofaj içinde (LD cisimciği)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Formlar ve Etkenler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik Form</th>
+                                    <th>Etken</th>
+                                    <th>Coğrafya</th>
+                                    <th>Türkiye</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Visseral (Kala-azar)</b></td>
+                                    <td>L. donovani, L. infantum</td>
+                                    <td>Hindistan, Afrika, Akdeniz</td>
+                                    <td>L. infantum (Ege, Akdeniz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kutanöz (Şark çıbanı)</b></td>
+                                    <td>L. tropica, L. major</td>
+                                    <td>Ortadoğu, Akdeniz</td>
+                                    <td><b>En sık form!</b> (GAP bölgesi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mukokutanöz (Espundia)</b></td>
+                                    <td>L. braziliensis</td>
+                                    <td>Güney Amerika</td>
+                                    <td>Görülmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Diffüz Kutanöz</b></td>
+                                    <td>L. amazonensis</td>
+                                    <td>Amerika</td>
+                                    <td>Görülmez</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Türkiye'de Leishmaniasis:</strong><br>
+                        • <b>Kutanöz:</b> En sık (Şanlıurfa, Diyarbakır, Adana) - L. tropica<br>
+                        • <b>Visseral:</b> Nadir, çocuklarda - L. infantum (köpek rezervuar)<br>
+                        • Suriye göçü ile vaka sayısı arttı!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Leishmania Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TROPİCA = TROPİKAL DERİ"</b> → Kutanöz, Şark çıbanı<br>
+                            <b>"DONOVANİ = DONA (iç organlar)"</b> → Visseral, Kala-azar<br>
+                            <b>"BRAZİLİENSİS = BRAZİL BURNU"</b> → Mukokutanöz, Espundia
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Visseral Leishmaniasis (Kala-azar)",
+                icon: "fas fa-lungs",
+                content: `
+                    <p><strong>Visseral leishmaniasis (VL)</strong>, Leishmania'nın retiküloendotelyal sistemi (dalak, karaciğer, kemik iliği) tuttuğu, tedavisiz ölümcül seyreden formudur. <b>"Kala-azar"</b> = Siyah hastalık (Hintçe, ciltte hiperpigmentasyon).</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Özellik</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hepatosplenomegali</b></td>
+                                    <td>Masif splenomegali (göbek altına iner)</td>
+                                    <td>RES tutulumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ateş</b></td>
+                                    <td>Uzamış, düzensiz, çift tepe (double quotidian)</td>
+                                    <td>Kronik enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pansitopeni</b></td>
+                                    <td>Anemi, lökopeni, trombositopeni</td>
+                                    <td>Kemik iliği infiltrasyonu, hipersplenizm</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipergamaglobulinemi</b></td>
+                                    <td>Poliklonal IgG artışı</td>
+                                    <td>Kronik antijenik stimülasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipoalbuminemi</b></td>
+                                    <td>Ödem, asit</td>
+                                    <td>Karaciğer disfonksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kilo kaybı</b></td>
+                                    <td>Kaşeksi</td>
+                                    <td>Kronik hastalık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hiperpigmentasyon</b></td>
+                                    <td>Koyu cilt (Kala-azar)</td>
+                                    <td>Adrenal tutulum?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Tanı</p>
+                        <p class="highlight-box__content">
+                            <b>Altın standart:</b> Kemik iliği/dalak aspiratında amastigot (LD cisimciği)<br>
+                            <b>LD cisimciği:</b> Makrofaj içinde 2-4 µm, çekirdek + kinetoplast<br><br>
+                            <b>Seroloji:</b> rK39 antijen testi (hızlı, duyarlı)<br>
+                            <b>PCR:</b> En duyarlı, tür tayini yapabilir<br>
+                            <b>Formol-jel testi (Napier):</b> Eski, hipergamaglobulinemi gösterir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Özellik</th>
+                                    <th>Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Lipozomal Amfoterisin B</b></td>
+                                    <td>İlk seçenek (çoğu bölgede)</td>
+                                    <td>Nefrotoksisite (konvansiyonelden az)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Miltefosin</b></td>
+                                    <td>Oral, Hindistan'da tercih</td>
+                                    <td>GI yan etkiler, teratojenik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antimon bileşikleri</b></td>
+                                    <td>Sodyum stiboglukonat, Meglumin antimonat</td>
+                                    <td>Kardiyotoksisite (QT uzaması), pankreatit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>VL + HIV Koenfeksiyonu:</strong><br>
+                        • Atipik prezentasyon (cilt, GI tutulum)<br>
+                        • Seroloji yanlış negatif olabilir<br>
+                        • Tedaviye yanıt kötü, relaps sık<br>
+                        • ART başlanmalı</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Post-Kala-azar Dermal Leishmaniasis (PKDL)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Ne zaman?</b> VL tedavisinden aylar-yıllar sonra</li>
+                            <li class="feature-item"><b>Bulgu:</b> Yüzde maküler, papüler, nodüler lezyonlar</li>
+                            <li class="feature-item"><b>Önemi:</b> Bulaş kaynağı (rezervuar)</li>
+                            <li class="feature-item"><b>Coğrafya:</b> Özellikle Sudan, Hindistan</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                title: "Kutanöz Leishmaniasis (Şark Çıbanı)",
+                icon: "fas fa-allergies",
+                content: `
+                    <p><strong>Kutanöz leishmaniasis (KL)</strong>, Leishmania'nın deriye sınırlı kaldığı formdur. Türkiye'de en sık görülen leishmaniasis formudur. Genellikle kendiliğinden iyileşir ancak skar bırakır.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Türkiye'de Kutanöz Leishmaniasis</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>L. tropica (Antroponotik)</th>
+                                    <th>L. major (Zoonotik)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Rezervuar</b></td>
+                                    <td>İnsan</td>
+                                    <td>Kemirgenler (gerbil)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ortam</b></td>
+                                    <td>Kentsel (şehir)</td>
+                                    <td>Kırsal (çöl kenarı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lezyon</b></td>
+                                    <td>Kuru tip, tek, yavaş ilerler</td>
+                                    <td>Yaş tip, multipl, hızlı ülserleşir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İyileşme</b></td>
+                                    <td>1-2 yıl</td>
+                                    <td>6 ay - 1 yıl</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Türkiye dağılımı</b></td>
+                                    <td>Daha yaygın</td>
+                                    <td>GAP bölgesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Lezyon Evrimi</p>
+                        <p class="highlight-box__content">
+                            <b>1. Papül:</b> Isırık yerinde (1-4 hafta)<br>
+                            <b>2. Nodül:</b> Büyür, sertleşir<br>
+                            <b>3. Ülser:</b> Merkezi ülserasyon, volkanik krater<br>
+                            <b>4. Kabuklanma:</b> Kuru krut<br>
+                            <b>5. Skar:</b> Atrofik skar (kalıcı)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Materyal</th>
+                                    <th>Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yayma</b></td>
+                                    <td>Lezyon kenarından kazıntı</td>
+                                    <td>Amastigot (Giemsa)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biyopsi</b></td>
+                                    <td>Deri punch biyopsi</td>
+                                    <td>Granülom, amastigot</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>NNN besiyeri</td>
+                                    <td>Promastigot</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Montenegro testi</b></td>
+                                    <td>İntradermal</td>
+                                    <td>Gecikmiş tip hipersensitivite (aktif hastalıkta negatif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Deri örneği</td>
+                                    <td>Tür tayini</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Endikasyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İzlem (bekle-gör)</b></td>
+                                    <td>Tek, küçük (<5 cm), komplike olmayan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lokal tedavi</b></td>
+                                    <td>İntralezyonel antimon, kriyoterapi, ısı tedavisi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sistemik tedavi</b></td>
+                                    <td>Multipl, büyük, yüz/eklem, immünsüprese</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><i>Sistemik: Antimon bileşikleri, Lipozomal AmB, Miltefosin</i></p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Tedavi Endikasyonları:</strong><br>
+                        • Yüz, kulak, eklem yakınında (skar riski)<br>
+                        • Multipl/büyük lezyon (>5 cm)<br>
+                        • 6 aydan uzun süren<br>
+                        • İmmünsüprese hasta<br>
+                        • L. braziliensis (mukokutanöz risk)</p>
+                    </div>
+                `
+            },
+            {
+                title: "Mukokutanöz Leishmaniasis",
+                icon: "fas fa-head-side-mask",
+                content: `
+                    <p><strong>Mukokutanöz leishmaniasis (ML)</strong>, Yeni Dünya'da (Güney Amerika) görülen, cilt lezyonundan yıllar sonra mukozaları (burun, ağız, farenks) tahrip eden, deforme edici bir formdur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Espundia Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Etken:</b> L. braziliensis (en sık), L. panamensis<br>
+                            <b>Coğrafya:</b> Güney ve Orta Amerika (Brezilya, Peru, Bolivya)<br>
+                            <b>Patogenez:</b> Primer kutanöz lezyondan lenfatik/hematojen yayılım<br>
+                            <b>Latent periyod:</b> Aylar-yıllar (ortalama 2-3 yıl)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tutulum</th>
+                                    <th>Bulgular</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Nazal</b></td>
+                                    <td>Burun tıkanıklığı, epistaksis, septum perforasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oral</b></td>
+                                    <td>Damak, dudak, dil ülserleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Farenks/Larenks</b></td>
+                                    <td>Ses kısıklığı, yutma güçlüğü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İleri evre</b></td>
+                                    <td>"Tapir burnu" (burun çökmesi), yüz deformitesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Önemli:</strong><br>
+                        • L. braziliensis enfeksiyonu MUTLAKA tedavi edilmeli<br>
+                        • Kutanöz lezyon iyileşse bile mukokutanöz gelişebilir<br>
+                        • Self-limitasyon OLMAZ (KL'den farklı olarak)<br>
+                        • Tedavi: Sistemik antimon veya Lipozomal AmB</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diffüz Kutanöz Leishmaniasis (DCL)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Etken:</b> L. amazonensis, L. aethiopica</li>
+                            <li class="feature-item"><b>Patogenez:</b> T hücre anerji (hücresel immün yanıt yok)</li>
+                            <li class="feature-item"><b>Bulgular:</b> Yaygın nodüller (lepramatöz lepra benzeri)</li>
+                            <li class="feature-item"><b>Özellik:</b> Montenegro testi negatif</li>
+                            <li class="feature-item"><b>Prognoz:</b> Tedaviye dirençli, kronik</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Laboratuvar",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri Özeti</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>VL</th>
+                                    <th>KL</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Mikroskopi</b></td>
+                                    <td>Kİ, dalak aspirat</td>
+                                    <td>Lezyon kazıntı/biyopsi</td>
+                                    <td>Amastigot (LD cisimciği)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>NNN besiyeri</td>
+                                    <td>NNN besiyeri</td>
+                                    <td>Promastigot ürer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji</b></td>
+                                    <td><b>rK39 (en iyi)</b></td>
+                                    <td>Genellikle negatif</td>
+                                    <td>VL için duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Montenegro (LST)</b></td>
+                                    <td>Negatif (aktif)</td>
+                                    <td>Pozitif (genellikle)</td>
+                                    <td>Gecikmiş tip aşırı duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Kan, Kİ</td>
+                                    <td>Deri</td>
+                                    <td>En duyarlı, tür tayini</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 LD Cisimciği (Leishman-Donovan Cisimciği)</p>
+                        <p class="highlight-box__content">
+                            <b>Görünüm:</b> Makrofaj içinde 2-4 µm yuvarlak/oval yapılar<br>
+                            <b>İçerik:</b> Çekirdek + Kinetoplast (rod şeklinde, çekirdeğe bitişik)<br>
+                            <b>Boyama:</b> Giemsa, Wright<br>
+                            <b>Benzer:</b> Histoplasma (ama kinetoplastı yok!)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Montenegro (Leishmanin) Testi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Sonuç</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aktif VL</b></td>
+                                    <td>NEGATİF</td>
+                                    <td>Hücresel immünite baskılanmış</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İyileşmiş VL</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>İmmünite gelişmiş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aktif KL</b></td>
+                                    <td>POZİTİF (genellikle)</td>
+                                    <td>Lokal immün yanıt var</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DCL</b></td>
+                                    <td>NEGATİF</td>
+                                    <td>T hücre anerji</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>VL'de Laboratuvar Bulguları:</strong><br>
+                        • Pansitopeni (hipersplenizm + Kİ infiltrasyonu)<br>
+                        • <b>Hipergamaglobulinemi</b> (poliklonal) + <b>Hipoalbuminemi</b><br>
+                        • Albumin/Globulin oranı tersine döner (<1)<br>
+                        • Yüksek sedimentasyon</p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Vektör:</b> Phlebotomus (tatarcık/kum sineği)<br>
+                            2. <b>LD cisimciği:</b> Makrofaj içi amastigot<br>
+                            3. <b>Kala-azar triadı:</b> Ateş + Splenomegali + Pansitopeni<br>
+                            4. <b>Türkiye'de en sık:</b> Kutanöz leishmaniasis (Şark çıbanı)<br>
+                            5. <b>VL tanısı:</b> rK39 seroloji, Kİ aspiratında amastigot
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Formlar Karşılaştırma Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Visseral (VL)</th>
+                                    <th>Kutanöz (KL)</th>
+                                    <th>Mukokutanöz (ML)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etken</b></td>
+                                    <td>L. donovani/infantum</td>
+                                    <td>L. tropica/major</td>
+                                    <td>L. braziliensis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tutulum</b></td>
+                                    <td>RES (dalak, KC, Kİ)</td>
+                                    <td>Deri</td>
+                                    <td>Mukoza (burun, ağız)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prognoz</b></td>
+                                    <td>Tedavisiz ölümcül</td>
+                                    <td>Self-limited (skar kalır)</td>
+                                    <td>Destrüktif, kronik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Montenegro</b></td>
+                                    <td>Negatif (aktif)</td>
+                                    <td>Pozitif</td>
+                                    <td>Pozitif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji</b></td>
+                                    <td>Pozitif (rK39)</td>
+                                    <td>Genellikle negatif</td>
+                                    <td>Değişken</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KALA-AZAR = KARA + SİYAH + ÖLÜM"</b> → Visseral, ölümcül<br>
+                            <b>"ŞARK ÇIBANI = TROPİKA + ŞANLIURFA"</b> → Kutanöz, Türkiye<br>
+                            <b>"ESPUNDİA = ESPANYA değil BREZİLYA"</b> → Mukokutanöz<br>
+                            <b>"LD CİSİMCİĞİ = LEİSHMAN-DONOVAN"</b> → Amastigot<br>
+                            <b>"rK39 = VL tarama KRALI"</b> → Seroloji<br>
+                            <b>"PHLEBOTOMUS = FLEB (damar) = KAN EMEN"</b> → Vektör
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Vektör =</b> Phlebotomus (Lutzomyia - Yeni Dünya)<br>
+                            2. <b>VL =</b> Splenomegali + Pansitopeni + Hipergamaglobulinemi<br>
+                            3. <b>KL =</b> Şark çıbanı, skar bırakır, self-limited (genellikle)<br>
+                            4. <b>ML =</b> L. braziliensis, MUTLAKA tedavi, burun çöker<br>
+                            5. <b>Tanı =</b> Mikroskopide amastigot (LD cisimciği)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Splenomegali + pansitopeni + hipergamaglobulinemi?" → Visseral leishmaniasis</li>
+                        <li><b>Soru tipi:</b> "Şanlıurfa, yüzde ülsere lezyon?" → Kutanöz leishmaniasis (Şark çıbanı)</li>
+                        <li><b>Soru tipi:</b> "Brezilya seyahati, burun septum perforasyonu?" → Mukokutanöz (Espundia)</li>
+                        <li><b>Soru tipi:</b> "Makrofaj içinde kinetoplastlı parazit?" → Leishmania (LD cisimciği)</li>
+                        <li><b>Soru tipi:</b> "VL taramasında kullanılan serolojik test?" → rK39</li>
+                        <li><b>Soru tipi:</b> "Türkiye'de en sık leishmaniasis formu?" → Kutanöz</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 14,
+        category: "parazitoloji",
+        title: "Nematodlar (Yuvarlak Solucanlar)",
+        subtitle: "Bağırsak ve Doku Nematodları",
+        summary: "Nematodların (yuvarlak solucanlar) kapsamlı özeti. Bağırsak nematodları (Ascaris, Enterobius, Trichuris, Strongyloides, kancalı solucanlar) ve doku nematodları (Trichinella, Toxocara). Löffler sendromu, otoenfeksiyon ve tedavi yaklaşımları.",
+        tags: ["Nematod", "Ascaris", "Enterobius", "Strongyloides", "Trichinella", "Löffler", "Helmint", "Parazitoloji"],
+        sections: [
+            {
+                title: "Genel Bilgiler ve Sınıflandırma",
+                icon: "fas fa-worm",
+                content: `
+                    <p><strong>Nematodlar</strong>, silindirik şekilli, segmentsiz, tam sindirim sistemine sahip yuvarlak solucanlardır. İnsanda enfeksiyon yapan nematodlar bağırsak ve doku nematodları olarak ikiye ayrılır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Nematod Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Şekil:</b> Silindirik, yuvarlak kesitli<br>
+                            <b>Simetri:</b> Bilateral<br>
+                            <b>Sindirim:</b> Tam (ağız + anüs)<br>
+                            <b>Üreme:</b> Ayrı eşeyli (dişi genellikle daha büyük)<br>
+                            <b>Vücut boşluğu:</b> Psödoselom (yalancı vücut boşluğu)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bağırsak Nematodları Sınıflandırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Bulaş Yolu</th>
+                                    <th>Enfektif Form</th>
+                                    <th>Önemli Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ascaris lumbricoides</b></td>
+                                    <td>Oral (toprak)</td>
+                                    <td>Embriyonlu yumurta</td>
+                                    <td>En büyük bağırsak nematodu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterobius vermicularis</b></td>
+                                    <td>Oral (el-ağız)</td>
+                                    <td>Embriyonlu yumurta</td>
+                                    <td>Perianal kaşıntı, gece</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trichuris trichiura</b></td>
+                                    <td>Oral (toprak)</td>
+                                    <td>Embriyonlu yumurta</td>
+                                    <td>Kırbaç solucanı, rektal prolapsus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Strongyloides stercoralis</b></td>
+                                    <td>Deriden (larva)</td>
+                                    <td>Filariform larva</td>
+                                    <td>OTOENFEKSİYON!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ancylostoma/Necator</b></td>
+                                    <td>Deriden (larva)</td>
+                                    <td>Filariform larva</td>
+                                    <td>Kancalı solucan, anemi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Larva Formları:</strong><br>
+                        • <b>Rabditiform larva:</b> Non-enfektif, beslenen form (kısa özofagus)<br>
+                        • <b>Filariform larva:</b> ENFEKTİF form (uzun özofagus) - Strongyloides, kancalı solucan</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Bulaş Yolu Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ORAL = AET"</b> → Ascaris, Enterobius, Trichuris (yumurta ile)<br>
+                            <b>"DERİ = Strongyloides, Kancalı"</b> → Filariform larva ile<br>
+                            <b>"FİLARİFORM = FİLTRE (deriden geçer)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Ascaris lumbricoides",
+                icon: "fas fa-bacon",
+                content: `
+                    <p><strong>Ascaris lumbricoides</strong>, en büyük ve en sık görülen bağırsak nematodudur. Dünyada ~1 milyar kişi enfektedir. Topraktan oral yolla bulaşır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ascaris Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Boyut:</b> Dişi 20-40 cm, erkek 15-30 cm (EN BÜYÜK bağırsak nematodu)<br>
+                            <b>Lokalizasyon:</b> İnce bağırsak (jejunum)<br>
+                            <b>Ömür:</b> 1-2 yıl<br>
+                            <b>Günlük yumurta:</b> ~200.000 (en fazla yumurta üreten)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Lokalizasyon</th>
+                                    <th>Olay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Yumurta alımı</b></td>
+                                    <td>Ağız</td>
+                                    <td>Embriyonlu yumurta yutulur</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Larva çıkışı</b></td>
+                                    <td>İnce bağırsak</td>
+                                    <td>Larva duvarı deler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Karaciğer geçişi</b></td>
+                                    <td>Portal sistem → KC</td>
+                                    <td>Hepatomegali (nadir)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Akciğer geçişi</b></td>
+                                    <td>Pulmoner kapiller → Alveol</td>
+                                    <td><b>LÖFFLER SENDROMU!</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Yutulma</b></td>
+                                    <td>Bronş → Trakea → Farenks</td>
+                                    <td>Öksürük ile yutulur</td>
+                                </tr>
+                                <tr>
+                                    <td><b>6. Olgunlaşma</b></td>
+                                    <td>İnce bağırsak</td>
+                                    <td>Erişkin solucan, yumurtlama</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Löffler Sendromu (Pulmoner Eozinofili):</strong><br>
+                        • Larvanın akciğer geçişi sırasında<br>
+                        • <b>Kuru öksürük, wheezing, dispne</b><br>
+                        • <b>Eozinofili</b> + Geçici pulmoner infiltratlar (uçucu)<br>
+                        • Self-limited (1-2 hafta)<br>
+                        • Löffler yapan parazitler: <b>ANSAT</b> - Ascaris, Necator/Ancylostoma, Strongyloides, (Ascaris), Toxocara</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Komplikasyon</th>
+                                    <th>Mekanizma</th>
+                                    <th>Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bağırsak obstrüksiyonu</b></td>
+                                    <td>Solucan yumağı</td>
+                                    <td>Çocuklarda sık, akut karın</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biliyer ascariasis</b></td>
+                                    <td>Koledok/pankreas kanalına göç</td>
+                                    <td>Kolik, kolanjit, pankreatit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Apandisit</b></td>
+                                    <td>Apendikse göç</td>
+                                    <td>Akut apandisit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Malnutrisyon</b></td>
+                                    <td>Besin emilimi azalması</td>
+                                    <td>Çocuklarda büyüme geriliği</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Dışkıda yumurta (dekortike/kortike), erişkin solucan görülebilir</li>
+                            <li class="feature-item"><b>Löffler döneminde:</b> Dışkı negatif! (henüz yumurtlama yok), balgamda larva</li>
+                            <li class="feature-item"><b>Tedavi:</b> Albendazol 400 mg tek doz veya Mebendazol 500 mg tek doz</li>
+                            <li class="feature-item"><b>Obstrüksiyon:</b> Piperazin (felç yapar, canlı çıkarır) veya cerrahi</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Ascaris Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ASCARİS = AŞIRI BÜYÜK"</b> → En büyük bağırsak nematodu<br>
+                            <b>"LÖFFLER = LARVAnın AKCİĞER GEÇİŞİ"</b> → Pulmoner eozinofili<br>
+                            <b>"BİLİYER GÖÇ = BİLİYER KOLİK"</b> → Solucan kanal tıkar
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Enterobius vermicularis (Kıl Kurdu)",
+                icon: "fas fa-moon",
+                content: `
+                    <p><strong>Enterobius vermicularis</strong> (kıl kurdu, oxiür), en sık görülen helmint enfeksiyonudur. Özellikle çocuklarda sık görülür. Perianal kaşıntı karakteristiktir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Enterobius Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Boyut:</b> Dişi 8-13 mm, erkek 2-5 mm (küçük, beyaz, iplik gibi)<br>
+                            <b>Lokalizasyon:</b> Çekum, apendiks<br>
+                            <b>Özellik:</b> Dişi GECE perianal bölgeye göç eder ve yumurtlar<br>
+                            <b>Yumurta:</b> Asimetrik, D şeklinde, bir tarafı düz
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü ve Bulaş</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Enfektif form</b></td>
+                                    <td>Embriyonlu yumurta (6 saat içinde enfektif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>El-ağız (otoenfeksiyon), inhalasyon, fomit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Retroenfeksiyon</b></td>
+                                    <td>Perianal larvalar geriye göç eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akciğer geçişi</b></td>
+                                    <td><b>YOK!</b> (Löffler yapmaz)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Perianal kaşıntı (pruritis ani):</b> GECE artar (dişi yumurtlamaya çıkar)</li>
+                            <li class="feature-item"><b>Huzursuzluk, uyku bozukluğu:</b> Kaşıntıdan</li>
+                            <li class="feature-item"><b>Vulvovajinit:</b> Kız çocuklarında göç</li>
+                            <li class="feature-item"><b>Apandisit:</b> Nadir</li>
+                            <li class="feature-item"><b>Eozinofili:</b> Genellikle YOK (doku invazyonu yok)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Tanı - Selofan Bant (Graham) Testi:</strong><br>
+                        • Sabah, tuvalet ve banyo ÖNCESİ<br>
+                        • Selofan bant perianal bölgeye yapıştırılır<br>
+                        • Lam üzerine konur, mikroskopide yumurta aranır<br>
+                        • <b>3 ardışık gün yapılmalı</b> (tek test %50 duyarlı)<br>
+                        • Dışkı incelemesi YANLIŞ (yumurtalar dışkıda değil!)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Doz</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Mebendazol</b></td>
+                                    <td>100 mg tek doz, 2 hafta sonra tekrar</td>
+                                    <td>İlk seçenek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Albendazol</b></td>
+                                    <td>400 mg tek doz, 2 hafta sonra tekrar</td>
+                                    <td>Alternatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pirantel pamoat</b></td>
+                                    <td>11 mg/kg tek doz</td>
+                                    <td>Gebelikte tercih</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><i>Tüm aile bireylerinin tedavisi + Yatak çarşafı/iç çamaşır yıkama önerilir</i></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Enterobius Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GECE KAŞINTI = ENTEROBİUS"</b> → Dişi gece yumurtlar<br>
+                            <b>"SELOFAN BANT = SABAH ERKEN"</b> → Graham testi<br>
+                            <b>"AİLE TEDAVİSİ"</b> → Herkes tedavi edilmeli<br>
+                            <b>"LÖFFLER YOK"</b> → Akciğer geçişi yok
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Strongyloides stercoralis",
+                icon: "fas fa-exclamation-triangle",
+                content: `
+                    <p><strong>Strongyloides stercoralis</strong>, otoenfeksiyon yapabilen, immünsüprese hastalarda hiperenfeksiyon sendromuna neden olabilen tehlikeli bir nematodtur.</p>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Strongyloides Neden Önemli?</strong><br>
+                        • <b>OTOENFEKSİYON:</b> Vücudu hiç terk etmeden yeniden enfekte eder<br>
+                        • <b>HİPERENFEKSİYON:</b> İmmünsüpresyonda masif larva yükü → Sepsis, ölüm<br>
+                        • <b>KRONİK:</b> Tedavisiz onlarca yıl devam eder<br>
+                        • <b>HTLV-1:</b> Tedaviye dirençli strongyloidiasis</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Deriden giriş</b></td>
+                                    <td>Filariform larva (enfektif) topraktan deriye girer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Akciğer geçişi</b></td>
+                                    <td>Kan → AC → Alveol → Bronş (Löffler yapabilir)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Bağırsak</b></td>
+                                    <td>Yutulur → İnce bağırsak mukozasına gömülür</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Yumurtlama</b></td>
+                                    <td>Dişi partenogenez ile yumurtlar (erkek yok insanda)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Rabditiform larva</b></td>
+                                    <td>Dışkıda atılır (tanı burada!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>6. OTOENFEKSİYON</b></td>
+                                    <td>Bağırsakta filariforme dönüşüm → Duvarı deler → Yeniden enfeksiyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Otoenfeksiyon Mekanizması</p>
+                        <p class="highlight-box__content">
+                            <b>İnternal otoenfeksiyon:</b> Bağırsakta larva → Filariform → Duvar penetrasyonu → Akciğer → Bağırsak<br>
+                            <b>Eksternal otoenfeksiyon:</b> Perianal deriden larva girişi<br><br>
+                            <b>Sonuç:</b> Parazit asla vücudu terk etmeden çoğalır → Tedavisiz ONLARCA YIL enfeksiyon!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Formlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Hasta Grubu</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik</b></td>
+                                    <td>İmmünkompetan</td>
+                                    <td>Sadece eozinofili</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik enfeksiyon</b></td>
+                                    <td>İmmünkompetan</td>
+                                    <td>GI semptomlar, larva currens (cilt)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hiperenfeksiyon</b></td>
+                                    <td>İmmünsüprese (steroid!)</td>
+                                    <td>Masif larva, pnömoni, ileus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dissemine</b></td>
+                                    <td>İmmünsüprese</td>
+                                    <td>Sepsis, menenjit, çoklu organ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Larva Currens:</strong><br>
+                        Strongyloides'e özgü dermatit. Perianal/kalça bölgesinden başlar, saatte 5-10 cm hızla ilerleyen ürtiker benzeri çizgiler. "Racing larva" (yarışan larva). Otoenfeksiyonun dermatolojik bulgusu.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hiperenfeksiyon Risk Faktörleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Kortikosteroid tedavisi:</b> EN ÖNEMLİ risk faktörü!</li>
+                            <li class="feature-item"><b>HTLV-1 enfeksiyonu:</b> Tedaviye direnç, relaps</li>
+                            <li class="feature-item"><b>Hematolojik malignite</b></li>
+                            <li class="feature-item"><b>Transplantasyon</b></li>
+                            <li class="feature-item"><b>Malnutrisyon</b></li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dışkıda rabditiform larva (3-7 örnek gerekebilir)</td>
+                                    <td rowspan="3"><b>İvermektin</b> 200 µg/kg × 2 gün<br>(ilk seçenek)<br><br>Alternatif: Albendazol<br><br>Hiperenfeksiyon: İvermektin uzatılmış</td>
+                                </tr>
+                                <tr>
+                                    <td>Seroloji (ELISA) - tarama için</td>
+                                </tr>
+                                <tr>
+                                    <td>Hiperenfeksiyonda: Balgam, BOS'ta larva</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Strongyloides Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"STRONG = GÜÇLÜ OTOENFEKSİYON"</b> → Vücudu terk etmez<br>
+                            <b>"STEROİD = STRONGYLOİDES TEHLİKE"</b> → Hiperenfeksiyon riski<br>
+                            <b>"HTLV-1 = DİRENÇLİ"</b> → Tedaviye yanıtsız<br>
+                            <b>"İVERMEKTİN = İLK SEÇİM"</b> → Tedavi
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kancalı Solucanlar (Ancylostoma/Necator)",
+                icon: "fas fa-tint",
+                content: `
+                    <p><strong>Kancalı solucanlar</strong> deriden giren, kan emen, demir eksikliği anemisine neden olan nematodlardır. Dünyada önemli morbidite nedenidir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Türler Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Ancylostoma duodenale</th>
+                                    <th>Necator americanus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Eski Dünya (Akdeniz, Asya)</td>
+                                    <td>Yeni Dünya (Amerika), Afrika</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ağız yapısı</b></td>
+                                    <td>2 çift kesici diş</td>
+                                    <td>Kesici plaklar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Günlük kan kaybı</b></td>
+                                    <td>0.2 mL/solucan</td>
+                                    <td>0.03 mL/solucan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Deri + Oral</td>
+                                    <td>Sadece deri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Yaşam Döngüsü</p>
+                        <p class="highlight-box__content">
+                            <b>1.</b> Dışkıda yumurta → Toprakta embriyone → Rabditiform larva → <b>Filariform larva</b><br>
+                            <b>2.</b> Filariform larva DERİDEN GİRER (yalın ayak)<br>
+                            <b>3.</b> Kan → Akciğer → Alveol → Bronş → Yutma (Löffler yapabilir)<br>
+                            <b>4.</b> İnce bağırsak → Mukozaya tutunma → KAN EMME
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Bulgu</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Deri girişi</b></td>
+                                    <td>"Ground itch" - ayak tabanında kaşıntılı papüller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akciğer geçişi</b></td>
+                                    <td>Löffler sendromu (hafif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bağırsak</b></td>
+                                    <td>Karın ağrısı, ishal, GI kanama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik</b></td>
+                                    <td><b>Demir eksikliği anemisi</b> (hipokrom mikrositer)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kancalı Solucan = ANEMİ!</strong><br>
+                        • Kronik kan kaybı → Demir eksikliği anemisi<br>
+                        • Çocuklarda: Büyüme-gelişme geriliği, kognitif bozukluk<br>
+                        • Gebelerde: Düşük doğum ağırlığı, maternal mortalite<br>
+                        • Ağır enfeksiyonlarda: Protein kaybı, ödem, hipoalbuminemi</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kutanöz Larva Migrans (CLM)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Etken:</b> Ancylostoma braziliense/caninum (köpek/kedi kancalısı)</li>
+                            <li class="feature-item"><b>Patojenez:</b> İnsan yanlış konak, larva epidermiste ilerler ama derini geçemez</li>
+                            <li class="feature-item"><b>Bulgu:</b> Serpentin (yılan gibi kıvrılan) kırmızı, kaşıntılı tünel</li>
+                            <li class="feature-item"><b>Tedavi:</b> İvermektin veya Albendazol</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Dışkıda yumurta (ince kabuklu, 2-8 hücreli embriyolu)</li>
+                            <li class="feature-item"><b>Not:</b> A. duodenale ve N. americanus yumurtaları birbirinden ayırt edilemez</li>
+                            <li class="feature-item"><b>Tedavi:</b> Albendazol 400 mg tek doz veya Mebendazol 500 mg tek doz</li>
+                            <li class="feature-item"><b>Ek:</b> Demir replasmanı (anemi düzeltimi)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kancalı Solucan Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KANCALI = KAN EMİCİ"</b> → Anemi yapıcı<br>
+                            <b>"GROUND ITCH = TOPRAK KAŞINTISI"</b> → Ayaktan giriş<br>
+                            <b>"YALIN AYAK = YAKALANIRSIN"</b> → Bulaş yolu<br>
+                            <b>"ANCYLOSTOMA = ANEMI"</b> → Ana komplikasyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Doku Nematodları - Trichinella ve Toxocara",
+                icon: "fas fa-drumstick-bite",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Trichinella spiralis (Trişinelloz)</h4>
+                        <p>Az pişmiş <b>domuz/yaban domuzu</b> eti ile bulaşan, kas tutulumu yapan nematod.</p>
+                        
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Az pişmiş et içindeki kist (larva)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yaşam döngüsü</b></td>
+                                    <td>Bağırsakta erişkin → Larva doğurur → Kas dokusuna göç → KİST oluşumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hedef doku</b></td>
+                                    <td>Çizgili kaslar (diyafram, dil, masseter, interkostal, ekstraoküler)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Trichinella Klinik Triadı</p>
+                        <p class="highlight-box__content">
+                            <b>1. Periorbital ödem</b> (göz çevresinde şişlik)<br>
+                            <b>2. Miyalji</b> (kas ağrısı)<br>
+                            <b>3. Eozinofili</b><br><br>
+                            + Ateş, başağrısı<br>
+                            + Subungual/subkonjunktival kanama (splinter hemorrhage)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Trichinella Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Laboratuvar:</b> Eozinofili + Kas enzimleri ↑ (CK, LDH)</li>
+                            <li class="feature-item"><b>Seroloji:</b> ELISA (1-2 hafta sonra pozitifleşir)</li>
+                            <li class="feature-item"><b>Kesin tanı:</b> Kas biyopsisinde kapsüllü larva</li>
+                            <li class="feature-item"><b>Tedavi:</b> Albendazol + Kortikosteroid (ağır vakalarda)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Toxocara (Visseral/Oküler Larva Migrans)</h4>
+                        <p><b>Toxocara canis</b> (köpek) ve <b>T. cati</b> (kedi) askaridleri. İnsan yanlış konaktır, larvalar olgunlaşamaz ve dokularda göç eder.</p>
+                        
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Yaş</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>VLM (Visseral)</b></td>
+                                    <td>Çocuklar (1-5 yaş)</td>
+                                    <td>Ateş, hepatomegali, pulmoner infiltrat, <b>aşırı eozinofili (%50-90)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>OLM (Oküler)</b></td>
+                                    <td>Büyük çocuk/erişkin</td>
+                                    <td>Tek taraflı görme kaybı, strabismus, lökokori (retinoblastom ayırıcı tanı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gizli (Covert)</b></td>
+                                    <td>Tüm yaşlar</td>
+                                    <td>Hafif semptomlar, kronik eozinofili</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Toxocara OLM vs VLM:</strong><br>
+                        • <b>OLM'de</b> eozinofili ve seroloji düşük/negatif olabilir<br>
+                        • <b>VLM'de</b> çok yüksek eozinofili tipik<br>
+                        • OLM tek taraflı → Retinoblastom ekarte edilmeli<br>
+                        • Bulaş: Köpek/kedi dışkısı ile kontamine toprakta oynama (Pica öyküsü)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Toxocara Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Seroloji (ELISA), dışkıda yumurta YOKTUR (insan yanlış konak)</li>
+                            <li class="feature-item"><b>VLM Tedavi:</b> Albendazol + Kortikosteroid</li>
+                            <li class="feature-item"><b>OLM Tedavi:</b> Kortikosteroid (antihelmintik tartışmalı - inflamasyon artırabilir)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Doku Nematodları Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TRİSHİNELLA = TRİAD: Periorbital ödem + Miyalji + Eozinofili"</b><br>
+                            <b>"DOMUZ ETİ = TRİSHİNELLA"</b><br>
+                            <b>"TOXOCARA = TOY (çocuk) + KÖPEK"</b> → VLM<br>
+                            <b>"OLM = Oküler = TEK GÖZ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Löffler Sendromu ve Pulmoner Eozinofili",
+                icon: "fas fa-lungs-virus",
+                content: `
+                    <p><strong>Löffler sendromu</strong>, parazit larvalarının akciğer geçişi sırasında oluşan, eozinofili ve geçici pulmoner infiltratlarla karakterize klinik tablodur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Löffler Sendromu Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Semptomlar:</b> Kuru öksürük, wheezing, hafif dispne, göğüs ağrısı<br>
+                            <b>Laboratuvar:</b> Periferik EOZİNOFİLİ<br>
+                            <b>Radyoloji:</b> Geçici pulmoner infiltratlar ("uçucu" - migratory)<br>
+                            <b>Süre:</b> Self-limited, 1-2 hafta<br>
+                            <b>Tedavi:</b> Genellikle gerekmez, ağır vakalarda steroid
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Löffler Yapan Parazitler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Löffler Şiddeti</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ascaris lumbricoides</b></td>
+                                    <td>EN SIK ve EN ŞİDDETLİ</td>
+                                    <td>Yoğun enfeksiyonda belirgin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Strongyloides stercoralis</b></td>
+                                    <td>Orta</td>
+                                    <td>Hiperenfeksiyonda yaygın AC tutulumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ancylostoma/Necator</b></td>
+                                    <td>Hafif</td>
+                                    <td>Genellikle subklinik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toxocara</b></td>
+                                    <td>Değişken</td>
+                                    <td>VLM'de AC tutulumu olabilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Löffler Döneminde Tanı Zorluğu:</strong><br>
+                        • Larvalar henüz bağırsakta erişkin olmamış<br>
+                        • <b>Dışkıda yumurta YOKTUR!</b><br>
+                        • Balgamda larva görülebilir (nadiren)<br>
+                        • Tanı: Klinik şüphe + eozinofili + geçici infiltrat<br>
+                        • 6-8 hafta sonra dışkı kontrolü</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Löffler Yapan Parazitler - "ANSAT"</p>
+                        <p class="mnemonic-box__text">
+                            <b>A</b> - Ascaris<br>
+                            <b>N</b> - Necator (kancalı)<br>
+                            <b>S</b> - Strongyloides<br>
+                            <b>A</b> - Ancylostoma (kancalı)<br>
+                            <b>T</b> - Toxocara<br><br>
+                            <i>Enterobius ve Trichuris AKCİĞER GEÇİŞİ YAPMAZ!</i>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Löffler sendromu:</b> Ascaris, Strongyloides, kancalı (akciğer geçişi)<br>
+                            2. <b>Otoenfeksiyon:</b> Strongyloides (tehlikeli!)<br>
+                            3. <b>Gece kaşıntısı:</b> Enterobius (selofan bant ile tanı)<br>
+                            4. <b>Demir eksikliği anemisi:</b> Kancalı solucan<br>
+                            5. <b>Periorbital ödem + miyalji + eozinofili:</b> Trichinella
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Nematodlar Hızlı Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Bulaş</th>
+                                    <th>Tanı</th>
+                                    <th>Ayırıcı Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ascaris</b></td>
+                                    <td>Oral (yumurta)</td>
+                                    <td>Dışkıda yumurta</td>
+                                    <td>En büyük, biliyer göç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterobius</b></td>
+                                    <td>Oral (yumurta)</td>
+                                    <td>Selofan bant</td>
+                                    <td>Gece kaşıntı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Strongyloides</b></td>
+                                    <td>Deri (larva)</td>
+                                    <td>Dışkıda larva</td>
+                                    <td>Otoenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kancalı</b></td>
+                                    <td>Deri (larva)</td>
+                                    <td>Dışkıda yumurta</td>
+                                    <td>Anemi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trichinella</b></td>
+                                    <td>Oral (et)</td>
+                                    <td>Seroloji, biyopsi</td>
+                                    <td>Periorbital ödem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toxocara</b></td>
+                                    <td>Oral (yumurta)</td>
+                                    <td>Seroloji</td>
+                                    <td>VLM, OLM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ASCARİS = EN AŞIRI BÜYÜK"</b><br>
+                            <b>"ENTEROBİUS = GECE ENTRİKASI (kaşıntı)"</b><br>
+                            <b>"STRONGYLOİDES = STRONG OTOENFEKSİYON"</b><br>
+                            <b>"KANCALI = KAN + ANEMİ"</b><br>
+                            <b>"TRİSHİNELLA = TRİAD (ödem-miyalji-eozinofili)"</b><br>
+                            <b>"LÖFFLER = ANSAT (Ascaris-Necator-Strongyloides-Ancylostoma-Toxocara)"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Strongyloides + Steroid =</b> HİPERENFEKSİYON → Sepsis, ölüm<br>
+                            2. <b>Enterobius tanısı =</b> Selofan bant (Graham), dışkı DEĞİL<br>
+                            3. <b>Löffler =</b> Akciğer geçişi, geçici infiltrat, eozinofili<br>
+                            4. <b>Kancalı solucan =</b> Demir eksikliği anemisi, deriden giriş<br>
+                            5. <b>Tedavi =</b> Albendazol/Mebendazol (çoğu), İvermektin (Strongyloides)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Çocuk, gece perianal kaşıntı?" → Enterobius, selofan bant testi</li>
+                        <li><b>Soru tipi:</b> "Pulmoner infiltrat + eozinofili + dışkı negatif?" → Löffler, Ascaris</li>
+                        <li><b>Soru tipi:</b> "Steroid başlanacak hasta, hangi parazit taranmalı?" → Strongyloides</li>
+                        <li><b>Soru tipi:</b> "Hipokrom mikrositer anemi, eozinofili, yalın ayak?" → Kancalı solucan</li>
+                        <li><b>Soru tipi:</b> "Domuz eti, periorbital ödem, miyalji?" → Trichinella</li>
+                        <li><b>Soru tipi:</b> "Köpekle oynayan çocuk, hepatomegali, aşırı eozinofili?" → Toxocara VLM</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 15,
+        category: "parazitoloji",
+        title: "Cestodlar (Şerit Solucanlar)",
+        subtitle: "Taenia, Echinococcus, Diphyllobothrium",
+        summary: "Cestodların (şerit solucanlar) kapsamlı özeti. Taenia saginata ve solium (tenya, nörosistiserkoz), Echinococcus granulosus (kist hidatik), Diphyllobothrium latum (B12 eksikliği), Hymenolepis nana. Yaşam döngüleri, tanı ve tedavi yaklaşımları.",
+        tags: ["Cestod", "Taenia", "Tenya", "Echinococcus", "Kist Hidatik", "Nörosistiserkoz", "Diphyllobothrium", "Parazitoloji"],
+        sections: [
+            {
+                title: "Genel Bilgiler ve Sınıflandırma",
+                icon: "fas fa-tape",
+                content: `
+                    <p><strong>Cestodlar</strong> (şerit solucanlar), yassı, segmentli, sindirim sistemi OLMAYAN helmintlerdir. Besinleri tegüment (dış yüzey) aracılığıyla emerler.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Cestod Genel Anatomisi</p>
+                        <p class="highlight-box__content">
+                            <b>Skoleks:</b> Baş kısmı, tutunma organları (vantuz, kanca)<br>
+                            <b>Boyun:</b> Proglottid üretim bölgesi<br>
+                            <b>Strobila:</b> Proglottid zinciri (vücut)<br>
+                            <b>Proglottid:</b> Her segment hermafrodit (hem erkek hem dişi)<br>
+                            <b>Gravid proglottid:</b> Yumurta dolu olgun segment
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnsanda Önemli Cestodlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Ara Konak</th>
+                                    <th>Bulaş</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Taenia saginata</b></td>
+                                    <td>Sığır</td>
+                                    <td>Az pişmiş sığır eti</td>
+                                    <td>Bağırsak tenyası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Taenia solium</b></td>
+                                    <td>Domuz</td>
+                                    <td>Az pişmiş domuz eti / Yumurta</td>
+                                    <td>Bağırsak tenyası / <b>Sistiserkoz</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Echinococcus granulosus</b></td>
+                                    <td>İnsan (ara konak!)</td>
+                                    <td>Köpek dışkısı (yumurta)</td>
+                                    <td><b>Kist Hidatik</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Diphyllobothrium latum</b></td>
+                                    <td>Balık</td>
+                                    <td>Çiğ/az pişmiş tatlı su balığı</td>
+                                    <td>B12 eksikliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hymenolepis nana</b></td>
+                                    <td>Yok (direkt)</td>
+                                    <td>Oral (yumurta)</td>
+                                    <td>Cüce tenya</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Önemli Kavramlar:</strong><br>
+                        • <b>Sistiserkus:</b> Larva formu (tek skoleksli kist) - T. solium<br>
+                        • <b>Hidatik kist:</b> Larva formu (çok skoleksli kist) - Echinococcus<br>
+                        • <b>Pleroserkoid:</b> Larva formu - Diphyllobothrium<br>
+                        • <b>Korasidyum:</b> Suda yüzen larva - Diphyllobothrium</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Cestod Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CESTOD = SİNDİRİM YOK"</b> → Besin tegümentten emilir<br>
+                            <b>"SAGİNATA = SIĞIR"</b> (S harfi)<br>
+                            <b>"SOLİUM = SUCULUK (domuz)"</b> → Sistiserkoz!<br>
+                            <b>"ECHİNOCOCCUS = KÖPEK + KİST"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Taenia saginata ve Taenia solium",
+                icon: "fas fa-bacon",
+                content: `
+                    <p><strong>Taenia</strong> türleri en sık görülen şerit solucanlardır. T. saginata sığır, T. solium domuz ile bulaşır. T. solium ayrıca sistiserkoz yapabilir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Taenia Türleri Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>T. saginata</th>
+                                    <th>T. solium</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ara konak</b></td>
+                                    <td>Sığır</td>
+                                    <td>Domuz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Boyut</b></td>
+                                    <td>4-12 metre (daha uzun)</td>
+                                    <td>2-8 metre</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Skoleks</b></td>
+                                    <td>4 vantuz, KANCA YOK</td>
+                                    <td>4 vantuz + KANCALAR (rostellum)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Proglottid</b></td>
+                                    <td>>13 uterus dalı</td>
+                                    <td><13 uterus dalı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gravid proglottid</b></td>
+                                    <td>Aktif olarak çıkar</td>
+                                    <td>Pasif olarak çıkar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sistiserkoz</b></td>
+                                    <td><b>YAPMAZ</b></td>
+                                    <td><b>YAPAR!</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Taenia Yaşam Döngüsü</p>
+                        <p class="highlight-box__content">
+                            <b>1.</b> İnsan (kesin konak) → Gravid proglottid/yumurta dışkıda<br>
+                            <b>2.</b> Sığır/Domuz (ara konak) → Yumurtayı yer<br>
+                            <b>3.</b> Onkosfer → Kasa göç → <b>Sistiserkus</b> (larva)<br>
+                            <b>4.</b> İnsan az pişmiş et yer → Sistiserkus<br>
+                            <b>5. </b> Bağırsakta skoleks açılır → Erişkin solucan
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bağırsak Tenyası Kliniği</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Çoğu asemptomatik</b></li>
+                            <li class="feature-item">Karın ağrısı, bulantı, iştahsızlık</li>
+                            <li class="feature-item">Dışkıda/iç çamaşırda proglottid görme (hasta şikayeti)</li>
+                            <li class="feature-item">T. saginata: Proglottidler hareket eder (aktif çıkış)</li>
+                            <li class="feature-item">Hafif eozinofili olabilir</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dışkıda yumurta (iki tür ayırt edilemez)</td>
+                                    <td rowspan="3"><b>Prazikuantel</b> 10 mg/kg tek doz<br>(ilk seçenek)<br><br>Alternatif: Niklozamid<br><br><b>Skoleks aranmalı!</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Proglottid incelemesi (uterus dalı sayısı)</td>
+                                </tr>
+                                <tr>
+                                    <td>Selofan bant (yumurta perianal)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Taenia Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SAGİNATA = Safe (sistiserkoz yapmaz)"</b><br>
+                            <b>"SOLİUM = Sinister (sistiserkoz YAPAR)"</b><br>
+                            <b>"KANCA = SOLİUM"</b> (saginata kancasız)<br>
+                            <b>"UTERUS DALI: Saginata >13, Solium <13"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Nörosistiserkoz (T. solium)",
+                icon: "fas fa-brain",
+                content: `
+                    <p><strong>Sistiserkoz</strong>, T. solium yumurtalarının insana bulaşması sonucu oluşan doku enfeksiyonudur. En tehlikeli formu <b>nörosistiserkoz</b>'dur.</p>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Sistiserkoz Nasıl Oluşur?</strong><br>
+                        • İnsan <b>YUMURTA</b> yutar (et DEĞİL!)<br>
+                        • Kaynaklar: Kontamine gıda/su, el-ağız, otoenfeksiyon<br>
+                        • Onkosfer bağırsak duvarını deler → Kan → Dokulara<br>
+                        • <b>En sık yerleşim:</b> SSS, göz, kas, deri altı<br><br>
+                        ⚠️ <b>T. saginata sistiserkoz YAPMAZ!</b></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Nörosistiserkoz Klinik</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Sıklık</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Epileptik nöbet</b></td>
+                                    <td>%70-90</td>
+                                    <td>EN SIK semptom, fokal veya jeneralize</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Başağrısı</b></td>
+                                    <td>%40</td>
+                                    <td>Kronik, intermittan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hidrosefali</b></td>
+                                    <td>Değişken</td>
+                                    <td>Ventriküler kist, BOS akışı tıkanır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fokal defisit</b></td>
+                                    <td>Değişken</td>
+                                    <td>Lokalizasyona göre</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Menenjit</b></td>
+                                    <td>Nadir</td>
+                                    <td>Bazal araknoidit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Sistiserkoz Evreleri (Görüntüleme)</p>
+                        <p class="highlight-box__content">
+                            <b>1. Veziküler:</b> Canlı larva, minimal ödem, asemptomatik olabilir<br>
+                            <b>2. Kolloidal:</b> Larva ölüyor, ödem ↑, semptomlar başlar<br>
+                            <b>3. Granüler-nodüler:</b> Kist çöküyor, kalsifikasyon başlıyor<br>
+                            <b>4. Kalsifiye:</b> Tamamen kalsifiye, "ölü" kist<br><br>
+                            <i>Kalsifiye lezyonlar bile nöbet odağı olabilir!</i>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Görüntüleme:</b> MR > BT (kist, skoleks "dot sign", kalsifikasyon)</li>
+                            <li class="feature-item"><b>Seroloji:</b> EITB (Enzyme-linked immunoelectrotransfer blot) - en spesifik</li>
+                            <li class="feature-item"><b>BOS:</b> Lenfositik pleositoz, protein ↑, glukoz ↓/normal, eozinofili olabilir</li>
+                            <li class="feature-item"><b>Dışkı:</b> Bağırsak enfeksiyonu varsa yumurta/proglottid</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Canlı kist (veziküler)</b></td>
+                                    <td>Albendazol ± Prazikuantel + Kortikosteroid + Antiepileptik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kalsifiye kist</b></td>
+                                    <td>Sadece antiepileptik (antihelmintik gereksiz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ventriküler kist</b></td>
+                                    <td>Endoskopik/cerrahi çıkarım</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Subaraknoid kist</b></td>
+                                    <td>Uzun süreli antihelmintik + steroid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Tedavi Uyarıları:</strong><br>
+                        • Antihelmintik → Larva ölümü → İnflamasyon ↑ → <b>Nöbet/ödem artabilir</b><br>
+                        • <b>KORTİKOSTEROİD</b> mutlaka verilmeli (antihelmintikten 1-2 gün önce başla)<br>
+                        • Göz tutulumunda antihelmintik VERİLMEZ (inflamasyon körlük yapabilir)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Nörosistiserkoz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"NÖBET = NÖROSİSTİSERKOZ #1"</b> → En sık semptom<br>
+                            <b>"YUMURTA = SİSTİSERKOZ"</b> (et değil!)<br>
+                            <b>"DOT SIGN = SKOLEKS"</b> → MR'da kist içinde nokta<br>
+                            <b>"STEROİD ÖNCE"</b> → Antihelmintikten önce başla
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Echinococcus (Kist Hidatik)",
+                icon: "fas fa-disease",
+                content: `
+                    <p><strong>Echinococcus granulosus</strong>, köpeklerin bağırsak paraziti olup insanda <b>kist hidatik</b> (hidatidoz) yapar. Türkiye'de endemiktir (hayvancılık bölgeleri).</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Echinococcus Yaşam Döngüsü</p>
+                        <p class="highlight-box__content">
+                            <b>Kesin konak:</b> KÖPEK (bağırsakta erişkin solucan)<br>
+                            <b>Ara konak:</b> Koyun, keçi, sığır, İNSAN<br><br>
+                            <b>1.</b> Köpek dışkısında yumurta<br>
+                            <b>2.</b> İnsan/koyun yumurta yutar<br>
+                            <b>3.</b> Onkosfer → Kan → Organ (KC %70, AC %20)<br>
+                            <b>4.</b> Hidatik kist gelişir (yıllar içinde büyür)<br>
+                            <b>5.</b> Köpek enfekte organ yerse → Döngü tamamlanır
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kist Hidatik Anatomisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yapı</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Perikist (adventisya)</b></td>
+                                    <td>Konak reaksiyonu, fibröz kapsül</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Laminer (ektokist)</b></td>
+                                    <td>Parazit kaynaklı, aselüler, beyaz tabaka</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Germinal (endokist)</b></td>
+                                    <td>En iç tabaka, ÜRETİCİ tabaka</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hidatik sıvı</b></td>
+                                    <td>Berrak, su gibi, antijenik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Protoskoleks</b></td>
+                                    <td>Kum tanesi görünümü (hidatik kum)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kız kistler</b></td>
+                                    <td>Ana kist içinde yeni kistler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Lokalizasyon</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Karaciğer (%70)</b></td>
+                                    <td>Sağ üst kadran ağrısı, hepatomegali, sarılık (biliyer bası/rüptür)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akciğer (%20)</b></td>
+                                    <td>Öksürük, göğüs ağrısı, hemoptizi, "tuzlu su" balgam (rüptür)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Diğer (%10)</b></td>
+                                    <td>Dalak, böbrek, beyin, kemik, kalp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kist Rüptürü Komplikasyonları:</strong><br>
+                        • <b>ANAFİLAKSİ:</b> Hidatik sıvı son derece antijenik → Şok, ölüm<br>
+                        • <b>Sekonder ekinokokkoz:</b> Protoskoleksler yayılır → Yeni kistler<br>
+                        • <b>Biliyer rüptür:</b> Kolanjit, sarılık<br>
+                        • <b>Bronşiyal rüptür:</b> Tuzlu su tadında balgam, membran ekspektorasyonu<br><br>
+                        ⚠️ <b>Kiste ASPİRASYON/BİYOPSİ yapılmadan önce görüntüleme ile hidatik kist ekarte edilmeli!</b></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Görüntüleme:</b> USG/BT - kız kistler, membran ayrılması, kalsifikasyon</li>
+                            <li class="feature-item"><b>USG WHO Sınıflaması:</b> CE1-CE5 (aktiften inaktife)</li>
+                            <li class="feature-item"><b>Seroloji:</b> ELISA, indirekt hemaglütinasyon (duyarlılık değişken)</li>
+                            <li class="feature-item"><b>Eozinofili:</b> Rüptür olmadıkça genellikle YOKTUR</li>
+                            <li class="feature-item"><b>Casoni testi:</b> Artık kullanılmıyor (anamnestik değer)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi - PAIR ve Cerrahi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Endikasyon</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PAIR</b></td>
+                                    <td>CE1, CE3a kistler</td>
+                                    <td><b>P</b>unksiyon, <b>A</b>spirasyon, <b>I</b>njeksiyon (skolisidal), <b>R</b>easpirasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cerrahi</b></td>
+                                    <td>Büyük, komplike kist</td>
+                                    <td>Kistektomi, perikistektomi, hepatektomi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Watch & Wait</b></td>
+                                    <td>CE4, CE5 (inaktif)</td>
+                                    <td>İzlem yeterli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Medikal</b></td>
+                                    <td>Tüm vakalarda</td>
+                                    <td>Albendazol (PAIR/cerrahi öncesi-sonrası)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Echinococcus multilocularis (Alveolar Ekinokokkoz):</strong><br>
+                        • Tilki, köpek → İnsan<br>
+                        • KARACİĞERDE infiltratif büyüme (malignite gibi)<br>
+                        • Metastaz yapabilir (AC, beyin)<br>
+                        • Çok daha agresif ve kötü prognozlu<br>
+                        • Tedavi: Geniş rezeksiyon + uzun süreli Albendazol</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kist Hidatik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KÖPEK = KESİN KONAK"</b> → Echinococcus<br>
+                            <b>"KC > AC"</b> → %70 karaciğer, %20 akciğer<br>
+                            <b>"TUZLU SU = RÜPTÜR"</b> → Bronşa açılma<br>
+                            <b>"PAIR = 4 ADIM"</b> → Punksiyon-Aspirasyon-İnjeksiyon-Reaspirasyon<br>
+                            <b>"DOKUNMAdan ÖNCE GÖR"</b> → Aspirasyondan önce hidatik ekarte et
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diphyllobothrium latum (Balık Tenyası)",
+                icon: "fas fa-fish",
+                content: `
+                    <p><strong>Diphyllobothrium latum</strong>, en uzun insan paraziti olup çiğ/az pişmiş tatlı su balığı ile bulaşır. B12 vitamini eksikliğine neden olabilir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Diphyllobothrium Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Boyut:</b> 10-15 metre (EN UZUN insan helminti)<br>
+                            <b>Skoleks:</b> Vantuz yok, 2 yarık şeklinde tutunma organı (bothria)<br>
+                            <b>Bulaş:</b> Çiğ/az pişmiş TATLI SU balığı (alabalık, somon, turna)<br>
+                            <b>Coğrafya:</b> İskandinav ülkeleri, Baltık, Japonya, Şili<br>
+                            <b>Türkiye'de:</b> Nadir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Konak</th>
+                                    <th>Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1</b></td>
+                                    <td>Su</td>
+                                    <td>Yumurta → Korasidyum (silli larva)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2</b></td>
+                                    <td>Kopepod (1. ara konak)</td>
+                                    <td>Proserkoid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3</b></td>
+                                    <td>Balık (2. ara konak)</td>
+                                    <td>Pleroserkoid (kas içinde)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4</b></td>
+                                    <td>İnsan (kesin konak)</td>
+                                    <td>Erişkin solucan (bağırsakta)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Çoğu asemptomatik</b></li>
+                            <li class="feature-item">Karın ağrısı, ishal, bulantı</li>
+                            <li class="feature-item">Dışkıda proglottid</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>B12 Vitamini Eksikliği (Difilobotriasis Anemisi):</strong><br>
+                        • Solucan B12'yi bağırsaktan absorbe eder (kompetisyon)<br>
+                        • <b>Megaloblastik anemi</b> gelişebilir<br>
+                        • Pernisiyöz anemi benzeri tablo<br>
+                        • Nörolojik bulgular: Subakut kombine dejenerasyon<br>
+                        • Tedavi ile düzelir<br><br>
+                        <i>Diphyllobothrium = B12 eksikliği yapan TEK parazit!</i></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Dışkıda operkulum (kapak) taşıyan yumurta</li>
+                            <li class="feature-item"><b>Tedavi:</b> Prazikuantel 10-25 mg/kg tek doz</li>
+                            <li class="feature-item"><b>Ek:</b> B12 replasmanı (eksiklik varsa)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Diphyllobothrium Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"BALIK = B12 EKSİKLİĞİ"</b> → Diphyllobothrium<br>
+                            <b>"EN UZUN"</b> → 10-15 metre<br>
+                            <b>"OPERKULUM = KAPAKLI YUMURTA"</b> → Tanı<br>
+                            <b>"TATLI SU"</b> → Deniz balığı değil!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Hymenolepis nana (Cüce Tenya)",
+                icon: "fas fa-compress-alt",
+                content: `
+                    <p><strong>Hymenolepis nana</strong>, en küçük ve en sık görülen insan tenyasıdır. ARA KONAK GEREKTİRMEZ, direkt insan-insan bulaşır. Otoenfeksiyon yapabilir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Hymenolepis nana Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Boyut:</b> 2-4 cm (EN KÜÇÜK insan tenyası)<br>
+                            <b>Skoleks:</b> 4 vantuz + rostellum (kancalı)<br>
+                            <b>Ara konak:</b> GEREKMİYOR (direkt yaşam döngüsü)<br>
+                            <b>Bulaş:</b> Fekal-oral (yumurta ile)<br>
+                            <b>Risk grubu:</b> Çocuklar, kalabalık ortamlar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>1.</b> Yumurta yutulur</li>
+                            <li class="feature-item"><b>2.</b> İnce bağırsak villuslarına penetre → Sistiserkoid larva</li>
+                            <li class="feature-item"><b>3.</b> Villus içinde gelişim (4-5 gün)</li>
+                            <li class="feature-item"><b>4.</b> Lümene çıkış → Erişkin solucan</li>
+                            <li class="feature-item"><b>5.</b> Yumurtlama → Dışkıda yumurta VEYA otoenfeksiyon</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Hymenolepis nana ve Otoenfeksiyon:</strong><br>
+                        • Yumurtalar bağırsak içinde açılabilir<br>
+                        • Larva aynı konakta gelişir → YENİ SOLUCAN<br>
+                        • Tedavisiz enfeksiyon YILLARca sürebilir<br>
+                        • İmmünsüprese hastalarda masif enfeksiyon<br><br>
+                        <i>Strongyloides gibi otoenfeksiyon yapar!</i></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik, Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Çoğu asemptomatik; karın ağrısı, ishal, iştahsızlık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tanı</b></td>
+                                    <td>Dışkıda yumurta (ince kabuklu, polar filamentli)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Prazikuantel 25 mg/kg tek doz (doku larvalarını da öldürür)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hymenolepis Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"NANA = NİNİ (küçük)"</b> → En küçük tenya<br>
+                            <b>"DİREKT = ARA KONAK YOK"</b><br>
+                            <b>"OTOENFEKSİYON = Strongyloides GİBİ"</b><br>
+                            <b>"POLAR FİLAMENT"</b> → Yumurta özelliği
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Nörosistiserkoz:</b> T. solium yumurtası ile, NÖBETler<br>
+                            2. <b>Kist hidatik:</b> Echinococcus, köpek, KC en sık<br>
+                            3. <b>B12 eksikliği:</b> Diphyllobothrium latum, balık<br>
+                            4. <b>Otoenfeksiyon:</b> H. nana (Strongyloides gibi)<br>
+                            5. <b>Kanca:</b> T. solium var, T. saginata YOK
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Cestodlar Hızlı Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Bulaş</th>
+                                    <th>Önemli Hastalık</th>
+                                    <th>Ayırıcı Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>T. saginata</b></td>
+                                    <td>Sığır eti</td>
+                                    <td>Bağırsak tenyası</td>
+                                    <td>Kancasız, sistiserkoz YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>T. solium</b></td>
+                                    <td>Domuz eti/yumurta</td>
+                                    <td>NÖROSİSTİSERKOZ</td>
+                                    <td>Kancalı, yumurta tehlikeli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Echinococcus</b></td>
+                                    <td>Köpek dışkısı</td>
+                                    <td>KİST HİDATİK</td>
+                                    <td>KC>AC, anafilaksi riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>D. latum</b></td>
+                                    <td>Tatlı su balığı</td>
+                                    <td>B12 eksikliği</td>
+                                    <td>En uzun, operkulum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>H. nana</b></td>
+                                    <td>Direkt (oral)</td>
+                                    <td>Bağırsak enfeksiyonu</td>
+                                    <td>En küçük, otoenfeksiyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SOLİUM = SİNSİ (sistiserkoz)"</b><br>
+                            <b>"SAGİNATA = SAFE (sadece bağırsak)"</b><br>
+                            <b>"KÖPEK + KİST = ECHİNOCOCCUS"</b><br>
+                            <b>"BALIK + B12 = DİPHYLLOBOTHRİUM"</b><br>
+                            <b>"NANA = NİNİ = KÜÇÜK"</b><br>
+                            <b>"PAIR = KC KİST TEDAVİSİ"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>T. solium yumurtası =</b> SİSTİSERKOZ → Nöbet<br>
+                            2. <b>T. saginata =</b> Sistiserkoz YAPMAZ<br>
+                            3. <b>Kist hidatike dokunma =</b> ANAFİLAKSİ riski<br>
+                            4. <b>Nörosistiserkoz tedavisi =</b> Steroid ÖNCE, sonra antihelmintik<br>
+                            5. <b>B12 eksikliği yapan tek parazit =</b> D. latum<br>
+                            6. <b>Ara konaksız cestod =</b> H. nana<br>
+                            7. <b>Tüm cestodlarda tedavi =</b> Prazikuantel
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Epileptik nöbet, beyin MR'da kistik lezyon + nokta?" → Nörosistiserkoz</li>
+                        <li><b>Soru tipi:</b> "KC'de kist, köpek teması, anafilaksi riski?" → Kist hidatik</li>
+                        <li><b>Soru tipi:</b> "Çiğ balık, megaloblastik anemi?" → Diphyllobothrium</li>
+                        <li><b>Soru tipi:</b> "Dışkıda hareket eden segment?" → T. saginata (aktif proglottid)</li>
+                        <li><b>Soru tipi:</b> "Nörosistiserkoz tedavisinde steroid ne zaman?" → Antihelmintikten ÖNCE</li>
+                        <li><b>Soru tipi:</b> "Kist hidatik tanısında kullanılmayan test?" → Casoni (artık kullanılmıyor)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 16,
+        category: "parazitoloji",
+        title: "Trematodlar (Yaprak Solucanlar)",
+        subtitle: "Schistosoma, Fasciola, Paragonimus, Clonorchis",
+        summary: "Trematodların (yaprak solucanlar, flukes) kapsamlı özeti. Kan trematodları (Schistosoma türleri), karaciğer trematodları (Fasciola hepatica, Clonorchis sinensis), akciğer trematodu (Paragonimus westermani). Yaşam döngüleri, ara konaklar ve tedavi yaklaşımları.",
+        tags: ["Trematod", "Schistosoma", "Fasciola", "Paragonimus", "Clonorchis", "Salyangoz", "Helmint", "Parazitoloji"],
+        sections: [
+            {
+                title: "Genel Bilgiler ve Sınıflandırma",
+                icon: "fas fa-leaf",
+                content: `
+                    <p><strong>Trematodlar</strong> (yaprak solucanlar, flukes), yassı, segmentsiz, yaprak şeklinde helmintlerdir. Schistosoma hariç tümü hermafrodittir. Tüm trematodların yaşam döngüsünde <b>SALYANGOZ</b> ara konak olarak bulunur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Trematod Genel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Şekil:</b> Yassı, yaprak benzeri (Schistosoma silindirik)<br>
+                            <b>Üreme:</b> Hermafrodit (Schistosoma HARİÇ - ayrı eşeyli)<br>
+                            <b>Ara konak:</b> SALYANGOZ (tüm trematodlarda)<br>
+                            <b>Sindirim:</b> Kör sonlanan bağırsak (anüs yok)<br>
+                            <b>Tutunma:</b> Oral ve ventral vantuz
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Trematod Sınıflandırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Grup</th>
+                                    <th>Parazit</th>
+                                    <th>Hedef Organ</th>
+                                    <th>2. Ara Konak</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3"><b>Kan Trematodları</b></td>
+                                    <td>Schistosoma mansoni</td>
+                                    <td>Mezenterik venler</td>
+                                    <td>YOK (serbest serkarya)</td>
+                                </tr>
+                                <tr>
+                                    <td>Schistosoma japonicum</td>
+                                    <td>Mezenterik venler</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td>Schistosoma haematobium</td>
+                                    <td>Mesane venleri</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2"><b>Karaciğer Trematodları</b></td>
+                                    <td>Fasciola hepatica</td>
+                                    <td>Safra yolları</td>
+                                    <td>Su bitkisi</td>
+                                </tr>
+                                <tr>
+                                    <td>Clonorchis sinensis</td>
+                                    <td>Safra yolları</td>
+                                    <td>Tatlı su balığı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akciğer Trematodu</b></td>
+                                    <td>Paragonimus westermani</td>
+                                    <td>Akciğer</td>
+                                    <td>Yengeç/kerevit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bağırsak Trematodu</b></td>
+                                    <td>Fasciolopsis buski</td>
+                                    <td>İnce bağırsak</td>
+                                    <td>Su bitkisi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Trematod Larva Evreleri:</strong><br>
+                        • <b>Mirasidyum:</b> Silli larva, suya bırakılır, salyangoz bulur<br>
+                        • <b>Sporokist → Redya:</b> Salyangoz içinde aseksüel çoğalma<br>
+                        • <b>Serkarya:</b> Kuyruklu larva, salyangozdan çıkar<br>
+                        • <b>Metaserkarya:</b> Enkiste form (2. ara konakta veya bitkide)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Trematod Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TREMATOD = SALYANGOZ ŞAT"</b> → Tüm trematodlarda salyangoz var<br>
+                            <b>"SCHİSTOSOMA = AYRI EŞEYLİ"</b> → Tek istisna<br>
+                            <b>"SERKARYA = SERBEST YÜZER"</b> → Deriye girer veya 2. ara konağa
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Schistosoma (Kan Trematodları)",
+                icon: "fas fa-tint",
+                content: `
+                    <p><strong>Schistosoma</strong> türleri (şistozomlár), kan damarlarında yaşayan, ayrı eşeyli trematodlardır. Dünyada ~200 milyon enfekte. Kronik hastalık önemli morbidite nedenidir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Schistosoma Türleri Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>S. mansoni</th>
+                                    <th>S. japonicum</th>
+                                    <th>S. haematobium</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Afrika, G. Amerika, Karayipler</td>
+                                    <td>Uzak Doğu (Çin, Filipinler)</td>
+                                    <td>Afrika, Orta Doğu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lokalizasyon</b></td>
+                                    <td>İnferior mezenterik ven</td>
+                                    <td>Süperior mezenterik ven</td>
+                                    <td>MESANE venleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yumurta</b></td>
+                                    <td>Lateral diken</td>
+                                    <td>Küçük, rudimenter diken</td>
+                                    <td>TERMİNAL diken</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ana patoloji</b></td>
+                                    <td>KC fibrozisi (Symmers)</td>
+                                    <td>KC fibrozisi (en ağır)</td>
+                                    <td>MESANE CA riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tanı</b></td>
+                                    <td>Dışkıda yumurta</td>
+                                    <td>Dışkıda yumurta</td>
+                                    <td>İDRARDA yumurta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Schistosoma Yaşam Döngüsü</p>
+                        <p class="highlight-box__content">
+                            <b>1.</b> Yumurtalar dışkı/idrar ile suya → Mirasidyum çıkar<br>
+                            <b>2.</b> Mirasidyum SALYANGOZ'a girer → Sporokist → Serkarya<br>
+                            <b>3.</b> Serkarya sudan çıkar → <b>DERİDEN GİRER</b> (yüzme, su işleri)<br>
+                            <b>4.</b> Şistosomül → Kan → Akciğer → Portal sistem<br>
+                            <b>5.</b> Mezenterik/mesane venlerinde erişkin çift oluşumu<br>
+                            <b>6.</b> Dişi yumurtlar → Yumurtalar doku/lümene göç
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Evreler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Serkaryal dermatit</b></td>
+                                    <td>Saatler-günler</td>
+                                    <td>"Yüzücü kaşıntısı" - makülopapüler döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut (Katayama)</b></td>
+                                    <td>3-8 hafta</td>
+                                    <td>Ateş, ürtiker, öksürük, hepatosplenomegali, EOZİNOFİLİ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik</b></td>
+                                    <td>Aylar-yıllar</td>
+                                    <td>Yumurta granülomları → Fibrozis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kronik Şistozomiyazis Komplikasyonları:</strong><br>
+                        <b>S. mansoni/japonicum:</b><br>
+                        • Periportal fibrozis (Symmers pipestem fibrozis)<br>
+                        • Portal hipertansiyon → Özofagus varisleri → Kanama<br>
+                        • Hepatosplenomegali (siroz DEĞİL - hepatosit korunur)<br><br>
+                        <b>S. haematobium:</b><br>
+                        • Mesane fibrozisi, kalsifikasyonu<br>
+                        • <b>SKUAMÖZ HÜCRELİ MESANE KANSERİ</b> (SCC) riski ↑<br>
+                        • Hidronefroz, kronik böbrek hastalığı</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Dışkı/idrarda yumurta (diken yapısına göre tür tayini)</li>
+                            <li class="feature-item"><b>Kato-Katz:</b> Dışkıda yumurta sayımı (kantitatif)</li>
+                            <li class="feature-item"><b>Seroloji:</b> Akut dönemde (yumurta henüz yok)</li>
+                            <li class="feature-item"><b>Rektal/mesane biyopsisi:</b> Kronik vakalarda</li>
+                            <li class="feature-item"><b>Tedavi:</b> <b>Prazikuantel</b> 40-60 mg/kg (türe göre), tek gün</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Schistosoma Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"S. haematobium = HEMATÜRİ + MESANE CA"</b><br>
+                            <b>"TERMİNAL DİKEN = haemaTobium"</b> (T harfi)<br>
+                            <b>"LATERAL DİKEN = manSoni"</b> (S harfi yana bakar)<br>
+                            <b>"KATAYAMA = AKUT + EOZİNOFİLİ"</b><br>
+                            <b>"DERİDEN GİRİŞ = SERKARYA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Fasciola hepatica (Karaciğer Kelebeği)",
+                icon: "fas fa-leaf",
+                content: `
+                    <p><strong>Fasciola hepatica</strong>, en büyük trematod olup safra yollarında yaşar. Su teresi gibi su bitkileri ile bulaşır. Türkiye'de görülür (hayvancılık bölgeleri).</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Fasciola hepatica Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Boyut:</b> 2-3 cm × 1 cm (EN BÜYÜK trematod)<br>
+                            <b>Şekil:</b> Yaprak şeklinde, konik baş<br>
+                            <b>Kesin konak:</b> Koyun, sığır, insan<br>
+                            <b>Ara konak:</b> Tatlı su salyangozu (Lymnaea)<br>
+                            <b>Enfektif form:</b> Metaserkarya (su bitkisinde)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Lokalizasyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Metaserkarya alımı</b></td>
+                                    <td>Su teresi, marul, su bitkisi ile oral</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnce bağırsak</b></td>
+                                    <td>Ekskistasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karaciğer parankimi</b></td>
+                                    <td>Duodenumdan periton → KC kapsülünü deler → Parankim içinden göç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Safra yolları</b></td>
+                                    <td>Erişkin solucan yerleşir, yumurtlar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Evreler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Patoloji</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut (Hepatik)</b></td>
+                                    <td>KC parankiminde göç</td>
+                                    <td>Ateş, sağ üst kadran ağrısı, hepatomegali, <b>yüksek EOZİNOFİLİ</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik (Biliyer)</b></td>
+                                    <td>Safra yollarında yerleşim</td>
+                                    <td>Biliyer kolik, kolanjit, kolestaz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ektopik</b></td>
+                                    <td>Aberran göç</td>
+                                    <td>Subkutan nodül, AC, göz, beyin (nadir)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Akut Fasioliazis'te Tanı Zorluğu:</strong><br>
+                        • Akut dönemde larvalar henüz safra yollarına ulaşmamış<br>
+                        • <b>Dışkıda yumurta YOKTUR!</b> (8-12 hafta sonra pozitifleşir)<br>
+                        • Tanı: Klinik + Eozinofili + Seroloji (ELISA)<br>
+                        • BT'de KC'de hipodens tünel benzeri lezyonlar</p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Halzoun (Faringeal Fasioliazis):</strong><br>
+                        • Çiğ KC yiyen kişilerde (Orta Doğu, Türkiye)<br>
+                        • Erişkin solucan farenkse yapışır<br>
+                        • Boğazda takılma hissi, ödem, dispne<br>
+                        • Tedavi: Manuel çıkarma</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Dışkıda yumurta:</b> Büyük, operkullü (kronik dönemde)</li>
+                            <li class="feature-item"><b>Seroloji:</b> Akut dönemde en değerli</li>
+                            <li class="feature-item"><b>ERCP:</b> Safra yollarında solucan görülebilir</li>
+                            <li class="feature-item"><b>Tedavi:</b> <b>Triklabendazol</b> 10 mg/kg (tek doz veya 2 gün) - İLK SEÇİM</li>
+                            <li class="feature-item"><b>Alternatif:</b> Nitazoksanid (Prazikuantel ETKİSİZ!)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Fasciola Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FASCİOLA = FAT (büyük) + LEAF (yaprak)"</b> → En büyük trematod<br>
+                            <b>"SU TERESİ = FASCİOLA"</b> → Bulaş kaynağı<br>
+                            <b>"AKUT = EOZİNOFİLİ + YUMURTA YOK"</b><br>
+                            <b>"TRİKLABENDAZOL = TEDAVİ"</b> (Prazikuantel işe yaramaz!)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Clonorchis sinensis (Çin Karaciğer Kelebeği)",
+                icon: "fas fa-fish",
+                content: `
+                    <p><strong>Clonorchis sinensis</strong>, Uzak Doğu'da yaygın olan, çiğ tatlı su balığı ile bulaşan karaciğer trematodudur. Kolanjiokarsinoma riski artırır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Clonorchis sinensis Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Coğrafya:</b> Çin, Kore, Japonya, Vietnam<br>
+                            <b>Ara konak:</b> 1. Salyangoz, 2. Tatlı su balığı<br>
+                            <b>Bulaş:</b> Çiğ/az pişmiş tatlı su balığı (metaserkarya)<br>
+                            <b>Lokalizasyon:</b> Safra yolları (intrahepatik)<br>
+                            <b>Ömür:</b> 20-30 yıl!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Hafif enfeksiyon:</b> Asemptomatik veya dispepsi</li>
+                            <li class="feature-item"><b>Orta-ağır:</b> Sağ üst kadran ağrısı, hepatomegali</li>
+                            <li class="feature-item"><b>Kronik:</b> Tekrarlayan kolanjit, safra taşı</li>
+                            <li class="feature-item"><b>Komplikasyon:</b> Piyojenik kolanjit, pankreatit</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Clonorchis ve Kolanjiokarsinoma:</strong><br>
+                        • Kronik enfeksiyon → Safra yolu epitel proliferasyonu<br>
+                        • <b>KOLANJİOKARSİNOMA</b> riski 5-10 kat artmış<br>
+                        • Endemik bölgelerde önemli kanser nedeni<br>
+                        • IARC Grup 1 karsinojen olarak sınıflandırılmış</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Dışkıda yumurta (küçük, operkullü, omuzlu)</li>
+                            <li class="feature-item"><b>Görüntüleme:</b> USG/MRCP - safra yolu dilatasyonu</li>
+                            <li class="feature-item"><b>Tedavi:</b> Prazikuantel 25 mg/kg × 3 doz × 1-2 gün</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Clonorchis Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CLONORCHİS = CANCER (kolanjio) + ÇİN"</b><br>
+                            <b>"ÇİĞ BALIK = CLONORCHİS"</b><br>
+                            <b>"20-30 YIL YAŞAR"</b> → Kronik enfeksiyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Paragonimus westermani (Akciğer Kelebeği)",
+                icon: "fas fa-lungs",
+                content: `
+                    <p><strong>Paragonimus westermani</strong>, akciğerde yaşayan trematod olup çiğ yengeç/kerevit ile bulaşır. Tüberküloz ile karışabilir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Paragonimus Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Coğrafya:</b> Uzak Doğu, Afrika, G. Amerika<br>
+                            <b>Ara konak:</b> 1. Salyangoz, 2. Yengeç/Kerevit<br>
+                            <b>Bulaş:</b> Çiğ/az pişmiş yengeç, kerevit (metaserkarya)<br>
+                            <b>Lokalizasyon:</b> AKCİĞER parankimi (kist oluşturur)<br>
+                            <b>Şekil:</b> Kahve çekirdeği gibi
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşam Döngüsü</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item">Metaserkarya (yengeç/kerevit) yutulur</li>
+                            <li class="feature-item">Duodenum → Periton boşluğu → Diyafram → Plevra → AKCİĞER</li>
+                            <li class="feature-item">Akciğerde kist (kapsül) içinde erişkin solucan</li>
+                            <li class="feature-item">Yumurtalar balgam/dışkı ile atılır</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kronik öksürük</b></td>
+                                    <td>Aylar-yıllar süren</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hemoptizi</b></td>
+                                    <td>Paslı/kahverengi balgam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Göğüs ağrısı</b></td>
+                                    <td>Plevral tutulum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Radyoloji</b></td>
+                                    <td>Nodül, kavite, infiltrat (TB benzeri!)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Paragonimiazis vs Tüberküloz:</strong><br>
+                        Paragonimiazis sıklıkla TB ile KARIŞIR:<br>
+                        • Kronik öksürük, hemoptizi, kaviter lezyon<br>
+                        • TB yanlış tanısı → Gereksiz TB tedavisi<br><br>
+                        <b>Ayırıcı ipuçları:</b><br>
+                        • Yengeç/kerevit yeme öyküsü<br>
+                        • Eozinofili (TB'de yok)<br>
+                        • ARB negatif, balgamda yumurta<br>
+                        • Endemik bölge öyküsü</p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Serebral Paragonimiazis:</strong><br>
+                        • Erişkin solucan/yumurta beyne göç edebilir<br>
+                        • Nöbet, başağrısı, fokal defisit<br>
+                        • Görüntülemede: "Sabun köpüğü" kalsifikasyon paterni<br>
+                        • Özellikle Uzak Doğu'da önemli</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Balgam/dışkıda yumurta (büyük, operkullü, kalın kabuklu)</li>
+                            <li class="feature-item"><b>Seroloji:</b> ELISA (yumurta bulunamazsa)</li>
+                            <li class="feature-item"><b>Eozinofili:</b> Sık</li>
+                            <li class="feature-item"><b>Tedavi:</b> Prazikuantel 25 mg/kg × 3 doz × 2-3 gün</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Paragonimus Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PARAGONİMUS = PARAZİT TB'sİ"</b> → TB ile karışır<br>
+                            <b>"YENGEÇ/KEREVİT = PARAGONIMUS"</b><br>
+                            <b>"AKCİĞER TREMATODU = TEK"</b><br>
+                            <b>"SABUN KÖPÜĞÜ = SEREBRAL"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Schistosoma haematobium:</b> Mesane CA (SCC) riski, idrar yumurta<br>
+                            2. <b>Fasciola hepatica:</b> Su teresi, akutta yumurta yok, Triklabendazol<br>
+                            3. <b>Clonorchis:</b> Çiğ balık, kolanjiokarsinoma riski<br>
+                            4. <b>Paragonimus:</b> Yengeç, TB ile karışır, hemoptizi<br>
+                            5. <b>Tüm trematodlarda:</b> SALYANGOZ ara konak
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Trematodlar Hızlı Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Bulaş</th>
+                                    <th>Hedef</th>
+                                    <th>Önemli Komplikasyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>S. haematobium</b></td>
+                                    <td>Deriden (su)</td>
+                                    <td>Mesane</td>
+                                    <td>MESANE SCC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>S. mansoni/japonicum</b></td>
+                                    <td>Deriden (su)</td>
+                                    <td>Bağırsak/KC</td>
+                                    <td>Portal HT, varis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fasciola</b></td>
+                                    <td>Su bitkisi</td>
+                                    <td>Safra yolları</td>
+                                    <td>Kolanjit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Clonorchis</b></td>
+                                    <td>Çiğ balık</td>
+                                    <td>Safra yolları</td>
+                                    <td>KOLANJİOKARSİNOMA</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paragonimus</b></td>
+                                    <td>Yengeç/kerevit</td>
+                                    <td>Akciğer</td>
+                                    <td>TB ile karışır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi Özeti</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>İlaç</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Schistosoma</b></td>
+                                    <td>Prazikuantel</td>
+                                    <td>40-60 mg/kg</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fasciola</b></td>
+                                    <td><b>TRİKLABENDAZOL</b></td>
+                                    <td>Prazikuantel ETKİSİZ!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Clonorchis</b></td>
+                                    <td>Prazikuantel</td>
+                                    <td>25 mg/kg × 3</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paragonimus</b></td>
+                                    <td>Prazikuantel</td>
+                                    <td>25 mg/kg × 3 × 2-3 gün</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SALYANGOZ = TÜM TREMATODLAR"</b><br>
+                            <b>"haemaTobium = Terminal diken + Mesane CA"</b><br>
+                            <b>"FASCİOLA = TRİKLABENDAZOL"</b> (Prazikuantel yok!)<br>
+                            <b>"CLONORCHİS = CANCER + ÇİN BALIĞI"</b><br>
+                            <b>"PARAGONİMUS = PARAZİT TB"</b> → Yengeç<br>
+                            <b>"DERİDEN = SCHİSTOSOMA"</b> (serkarya)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Mesane SCC =</b> S. haematobium (terminal dikenli yumurta)<br>
+                            2. <b>Kolanjiokarsinoma =</b> Clonorchis sinensis<br>
+                            3. <b>Su teresi =</b> Fasciola hepatica<br>
+                            4. <b>Fasciola tedavisi =</b> Triklabendazol (Prazikuantel ETKİSİZ)<br>
+                            5. <b>TB ile karışan parazit =</b> Paragonimus<br>
+                            6. <b>Katayama sendromu =</b> Akut şistozomiyazis (ateş, eozinofili)<br>
+                            7. <b>Tüm trematodlarda 1. ara konak =</b> SALYANGOZ
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Ağrısız hematüri, mesanede kalsifikasyon?" → S. haematobium</li>
+                        <li><b>Soru tipi:</b> "Su teresi yedikten sonra sağ üst kadran ağrısı, eozinofili, yumurta yok?" → Akut fasioliazis</li>
+                        <li><b>Soru tipi:</b> "Çiğ balık, kronik kolanjit, kanser riski?" → Clonorchis</li>
+                        <li><b>Soru tipi:</b> "Hemoptizi, kaviter lezyon, ARB negatif, yengeç yeme?" → Paragonimus</li>
+                        <li><b>Soru tipi:</b> "Fasciola tedavisinde kullanılan ilaç?" → Triklabendazol</li>
+                        <li><b>Soru tipi:</b> "Schistosoma yumurtasında terminal diken?" → S. haematobium</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 17,
+        category: "parazitoloji",
+        title: "Parazitoloji Tanı Yöntemleri ve Antiparaziter İlaçlar",
+        subtitle: "Laboratuvar Tanı, İlaç Seçimi ve Yan Etkiler",
+        summary: "Paraziter enfeksiyonların tanı yöntemleri (direkt mikroskopi, konsantrasyon, boyama, seroloji, moleküler) ve antiparaziter ilaçların kapsamlı özeti. İlaç-parazit eşleşmeleri, etki mekanizmaları, yan etkiler ve özel durumlarda tedavi seçimi.",
+        tags: ["Tanı", "Antiparaziter", "Albendazol", "Prazikuantel", "İvermektin", "Metronidazol", "Mikroskopi", "Parazitoloji"],
+        sections: [
+            {
+                title: "Dışkı İnceleme Yöntemleri",
+                icon: "fas fa-microscope",
+                content: `
+                    <p>Bağırsak parazitlerinin tanısında <strong>dışkı incelemesi</strong> temel yöntemdir. Farklı teknikler farklı parazit formlarını göstermede avantajlıdır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Dışkı Toplama Kuralları</p>
+                        <p class="highlight-box__content">
+                            <b>Miktar:</b> Yeterli örnek (en az ceviz büyüklüğünde)<br>
+                            <b>Sayı:</b> En az 3 örnek, farklı günlerde (gün aşırı)<br>
+                            <b>Süre:</b> 1-2 saat içinde incelenmeli (trofozoit için)<br>
+                            <b>Kap:</b> Temiz, ağzı kapalı, idrar/su bulaşmamış<br>
+                            <b>Fikzatif:</b> Gecikecekse SAF, PVA, formalin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dışkı İnceleme Teknikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Prensip</th>
+                                    <th>Avantaj</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Direkt (Native)</b></td>
+                                    <td>SF/Lugol ile preparat</td>
+                                    <td>Hızlı, trofozoit hareketi görülür</td>
+                                    <td>Duyarlılık düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Formol-eter (Ritchie)</b></td>
+                                    <td>Konsantrasyon</td>
+                                    <td>Yumurta, kist için altın standart</td>
+                                    <td>Trofozoitleri öldürür</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çinko sülfat flotasyon</b></td>
+                                    <td>Yoğunluk farkı</td>
+                                    <td>Giardia kisti için iyi</td>
+                                    <td>Operkullü yumurtalar batar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kato-Katz</b></td>
+                                    <td>Kantitatif</td>
+                                    <td>Yumurta sayımı, şiddet değerlendirme</td>
+                                    <td>Kancalı yumurta çabuk bozulur</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Özel Durumlar:</strong><br>
+                        • <b>Enterobius:</b> Dışkıda yumurta YOK → SELOFAN BANT (Graham) testi<br>
+                        • <b>Strongyloides:</b> Dışkıda LARVA (yumurta değil) → Baermann, agar kültür<br>
+                        • <b>Cryptosporidium:</b> ASİT-FAST boyama (Kinyoun, mZN)<br>
+                        • <b>Giardia:</b> 3 negatif dışkıdan sonra → Duodenal aspirat veya antijen testi</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Asit-Fast (Aside Dirençli) Boyanan Parazitler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Cryptosporidium</b> - En sık sorulan!</li>
+                            <li class="feature-item"><b>Cyclospora cayetanensis</b></li>
+                            <li class="feature-item"><b>Cystoisospora (Isospora) belli</b></li>
+                            <li class="feature-item"><i>Mikrosporidya değişken boyanır (Modifiye trikrom tercih)</i></li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Dışkı Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"3C = ASİT-FAST"</b> → Cryptosporidium, Cyclospora, Cystoisospora<br>
+                            <b>"ENTEROBİUS = SELOFAN"</b> → Dışkıda değil, perianal<br>
+                            <b>"STRONGYLOİDES = LARVA"</b> → Yumurta değil<br>
+                            <b>"FORMOL-ETER = ALTIN STANDART"</b> → Konsantrasyon
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kan ve Doku Parazitlerinin Tanısı",
+                icon: "fas fa-tint",
+                content: `
+                    <p>Kan ve doku parazitlerinde <strong>periferik yayma</strong>, <strong>seroloji</strong> ve <strong>moleküler yöntemler</strong> kullanılır.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Periferik Yayma (Giemsa Boyama)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Yayma Tipi</th>
+                                    <th>Görünüm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Plasmodium</b></td>
+                                    <td>İnce + Kalın yayma</td>
+                                    <td>Eritrosit içi halka, şizont, gametosit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Babesia</b></td>
+                                    <td>İnce yayma</td>
+                                    <td>Malta haçı (tetrad), halka</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trypanosoma</b></td>
+                                    <td>İnce/Kalın yayma</td>
+                                    <td>Trypomastigot (dalgalı membran)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Leishmania</b></td>
+                                    <td>Kemik iliği, dalak aspirat</td>
+                                    <td>Amastigot (LD cisimciği)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Filarya</b></td>
+                                    <td>Gece kanı (bazıları)</td>
+                                    <td>Mikrofilarya</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Kalın vs İnce Yayma (Sıtma)</p>
+                        <p class="highlight-box__content">
+                            <b>Kalın yayma:</b> Duyarlılık YÜKSEK, parazit arama<br>
+                            <b>İnce yayma:</b> Tür tayini, morfoloji değerlendirme<br><br>
+                            <b>İdeal:</b> Her ikisi de yapılmalı!<br>
+                            <b>Zamanlama:</b> Ateş atağı sırasında (parazitemi pik)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Serolojik Testler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Test</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toxoplasma</b></td>
+                                    <td>IgG, IgM, Avidite</td>
+                                    <td>Gebelik taraması, akut/kronik ayrımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Echinococcus</b></td>
+                                    <td>ELISA, IHA</td>
+                                    <td>Kist hidatik tanısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Leishmania</b></td>
+                                    <td>rK39 rapid test</td>
+                                    <td>Visseral leishmaniasis tarama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toxocara</b></td>
+                                    <td>ELISA</td>
+                                    <td>VLM/OLM tanısı (dışkıda yumurta yok!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trichinella</b></td>
+                                    <td>ELISA</td>
+                                    <td>Akut enfeksiyon (1-2 hafta sonra +)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sistiserkoz</b></td>
+                                    <td>EITB (Immunoblot)</td>
+                                    <td>Nörosistiserkoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Strongyloides</b></td>
+                                    <td>ELISA</td>
+                                    <td>Tarama (immunsupresyon öncesi)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Antijen Testleri:</strong><br>
+                        • <b>Giardia/Cryptosporidium:</b> Dışkı antijen testi (EIA, DFA, rapid)<br>
+                        • <b>E. histolytica:</b> Dışkı antijen (E. dispar'dan ayırır)<br>
+                        • <b>Plasmodium:</b> Rapid Diagnostic Test (RDT) - HRP-2, pLDH<br>
+                        • Duyarlı ve spesifik, mikroskopi gerektirmez</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Moleküler Tanı (PCR)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Avantaj:</b> Yüksek duyarlılık/özgüllük, tür tayini</li>
+                            <li class="feature-item"><b>Plasmodium:</b> Düşük parazitemi, tür tayini, ilaç direnci</li>
+                            <li class="feature-item"><b>Leishmania:</b> Tür tayini, tedavi takibi</li>
+                            <li class="feature-item"><b>Toxoplasma:</b> Konjenital enfeksiyon (amniyotik sıvı PCR)</li>
+                            <li class="feature-item"><b>Strongyloides:</b> Düşük larva yükünde</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Seroloji Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"rK39 = KALA-AZAR"</b> → Visseral leishmaniasis<br>
+                            <b>"EITB = EN İYİ SİSTİSERKOZ"</b><br>
+                            <b>"AVİDİTE = AKUT/KRONİK TOXO"</b><br>
+                            <b>"TOXOCARA SERİLOJİ = DIŞKIDA YOK"</b> → İnsan yanlış konak
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antiprotozoal İlaçlar",
+                icon: "fas fa-pills",
+                content: `
+                    <p>Protozoonlara karşı kullanılan ilaçlar ve endikasyonları.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sıtma İlaçları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Etki Yeri</th>
+                                    <th>Kullanım</th>
+                                    <th>Önemli Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klorokin</b></td>
+                                    <td>Eritrositer şizont</td>
+                                    <td>Duyarlı P. falciparum, diğer türler</td>
+                                    <td>Retinopati (uzun süreli)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Artemisinin (ACT)</b></td>
+                                    <td>Eritrositer şizont</td>
+                                    <td>Dirençli P. falciparum (ilk seçim)</td>
+                                    <td>Kombinasyon şart</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atovakon-Proguanil</b></td>
+                                    <td>Eritrositer + Karaciğer</td>
+                                    <td>Tedavi ve profilaksi</td>
+                                    <td>Gebelikte dikkat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Primakin</b></td>
+                                    <td>Karaciğer (hipnozoit)</td>
+                                    <td>P. vivax/ovale radikal kür</td>
+                                    <td><b>G6PD eksikliğinde hemoliz!</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Meflokin</b></td>
+                                    <td>Eritrositer şizont</td>
+                                    <td>Profilaksi</td>
+                                    <td>Psikiyatrik yan etki</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Doksisiklin</b></td>
+                                    <td>Eritrositer şizont</td>
+                                    <td>Profilaksi</td>
+                                    <td>Çocuk/gebelikte yasak</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Primakin ve G6PD:</strong><br>
+                        • Primakin → Oksidatif stres → G6PD eksikliğinde <b>HEMOLİZ</b><br>
+                        • P. vivax/ovale tedavisinde primakin vermeden önce <b>G6PD testi ZORUNLU</b><br>
+                        • Eksiklik varsa: Haftalık primakin (8 hafta) veya Tafenoquine alternatif</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Antiprotozoal İlaçlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Endikasyon</th>
+                                    <th>Önemli Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Metronidazol</b></td>
+                                    <td>E. histolytica (invaziv), Giardia, T. vaginalis</td>
+                                    <td>Disülfiram reaksiyonu (alkol yasak)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tinidazol</b></td>
+                                    <td>Metronidazol gibi</td>
+                                    <td>Daha iyi tolere edilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paromomisin</b></td>
+                                    <td>E. histolytica (lümen), Cryptosporidium</td>
+                                    <td>Gebelikte kullanılabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nitazoksanid</b></td>
+                                    <td>Cryptosporidium, Giardia</td>
+                                    <td>Geniş spektrum antiprotozoal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Spiramisin</b></td>
+                                    <td>Gebelikte toxoplasmosis</td>
+                                    <td>Fetusa geçişi azaltır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Primetamin-Sülfadiazin</b></td>
+                                    <td>Toxoplasmosis (aktif)</td>
+                                    <td>Folat antagonisti → Folinik asit ekle</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TMP-SMX</b></td>
+                                    <td>Cyclospora, Cystoisospora</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pentamidin</b></td>
+                                    <td>Leishmaniasis, Trypanosomiasis</td>
+                                    <td>Hipoglisemi, pankreatit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Amfoterisin B</b></td>
+                                    <td>Visseral leishmaniasis</td>
+                                    <td>Nefrotoksisite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Miltefosin</b></td>
+                                    <td>Leishmaniasis (oral)</td>
+                                    <td>Teratojen</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Antiprotozoal Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PRİMAKİN = P. vivax/ovale + G6PD kontrol"</b><br>
+                            <b>"METRONIDAZOL = AMİP + GİARDİA + TRİKOMONAS"</b><br>
+                            <b>"SPİRAMİSİN = GEBE + TOXO"</b><br>
+                            <b>"TMP-SMX = CYCLOSPORA + CYSTOİSOSPORA"</b><br>
+                            <b>"LİPOZOMAL AMFOTERİSİN = VİSSERAL LEİSHMANİASİS"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antihelmintik İlaçlar",
+                icon: "fas fa-capsules",
+                content: `
+                    <p>Helmintlere (solucanlar) karşı kullanılan ilaçlar ve endikasyonları.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Benzimidazoller</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Mekanizma</th>
+                                    <th>Spektrum</th>
+                                    <th>Doz</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Albendazol</b></td>
+                                    <td>β-tübülin inhibisyonu → Glukoz alımı ↓</td>
+                                    <td>Nematod, Cestod, Trematod (bazı), Echinococcus</td>
+                                    <td>400 mg tek doz (bağırsak); uzun süreli (doku)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mebendazol</b></td>
+                                    <td>Aynı</td>
+                                    <td>Bağırsak nematodları</td>
+                                    <td>100-500 mg</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tiabendazol</b></td>
+                                    <td>Aynı</td>
+                                    <td>Strongyloides (eski), kutanöz larva migrans</td>
+                                    <td>Yan etki fazla, artık nadir kullanılır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Albendazol Kontrendikasyonları:</strong><br>
+                        • <b>Gebelik:</b> Teratojen (kategori C/D)<br>
+                        • <b>Karaciğer hastalığı:</b> Hepatotoksisite<br>
+                        • Uzun süreli kullanımda: KC enzimleri, tam kan sayımı takibi</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Antihelmintikler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Mekanizma</th>
+                                    <th>Endikasyon</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İvermektin</b></td>
+                                    <td>Glutamat-gated Cl⁻ kanal → Paralizi</td>
+                                    <td><b>Strongyloides</b>, Onchocerca, Scabies, Pedikuloz</td>
+                                    <td>Strongyloides ilk seçim</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prazikuantel</b></td>
+                                    <td>Ca²⁺ geçirgenliği ↑ → Kas spazmı</td>
+                                    <td><b>TÜM CESTODLAR</b>, Schistosoma, Clonorchis, Paragonimus</td>
+                                    <td>Fasciola'da ETKİSİZ!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Triklabendazol</b></td>
+                                    <td>β-tübülin</td>
+                                    <td><b>Fasciola hepatica</b> (TEK ETKİLİ!)</td>
+                                    <td>10 mg/kg tek/çift doz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pirantel pamoat</b></td>
+                                    <td>Nöromusküler blok</td>
+                                    <td>Ascaris, Enterobius, kancalı</td>
+                                    <td>Gebelikte tercih edilebilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Niklozamid</b></td>
+                                    <td>Oksidatif fosforilasyon inhibisyonu</td>
+                                    <td>Taenia (alternatif)</td>
+                                    <td>Absorbe olmaz, sistemik etki yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dietilkarbamazin (DEC)</b></td>
+                                    <td>Mikrofilarya öldürür</td>
+                                    <td>Lenfatik filaryazis</td>
+                                    <td>Onchocerca'da KONTRENDİKE (Mazzotti)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">📋 Parazit-İlaç Eşleştirmesi</p>
+                        <p class="highlight-box__content">
+                            <b>Strongyloides →</b> İVERMEKTİN (ilk seçim)<br>
+                            <b>Fasciola →</b> TRİKLABENDAZOL (tek etkili)<br>
+                            <b>Tüm cestodlar →</b> PRAZİKUANTEL<br>
+                            <b>Schistosoma →</b> PRAZİKUANTEL<br>
+                            <b>Bağırsak nematodları →</b> ALBENDAZOL/MEBENDAZOL<br>
+                            <b>Kist hidatik →</b> ALBENDAZOL (cerrahi/PAIR ile)<br>
+                            <b>Nörosistiserkoz →</b> ALBENDAZOL + Steroid
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Antihelmintik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"İVERMEKTİN = İNVİNCİBLE STRONGYLOİDES"</b><br>
+                            <b>"PRAZİKUANTEL = PLATYHELMINTHES (yassı)"</b> → Cestod + Trematod (Fasciola hariç)<br>
+                            <b>"TRİKLABENDAZOL = TRİCKY FASCİOLA"</b> → Tek etkili ilaç<br>
+                            <b>"ALBENDAZOL = ALL-PURPOSE NEMATOD"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Özel Durumlarda Tedavi",
+                icon: "fas fa-exclamation-circle",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gebelikte Antiparaziter Kullanımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Güvenli</th>
+                                    <th>Kontrendike/Dikkatli</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sıtma</b></td>
+                                    <td>Klorokin, Kinin, Artemisinin (2-3. trimester)</td>
+                                    <td>Primakin, Doksisiklin, Meflokin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksoplazmoz</b></td>
+                                    <td>Spiramisin (1. trimester)</td>
+                                    <td>Primetamin (1. trimester yasak)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bağırsak helmint</b></td>
+                                    <td>Pirantel pamoat</td>
+                                    <td>Albendazol, Mebendazol (1. trimester)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Amip/Giardia</b></td>
+                                    <td>Paromomisin</td>
+                                    <td>Metronidazol (1. trimester dikkat)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmünsüprese Hastalarda Dikkat</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Strongyloides:</b> Steroid öncesi tarama ZORUNLU (hiperenfeksiyon riski)</li>
+                            <li class="feature-item"><b>Toxoplasma:</b> CD4 <100'de profilaksi (TMP-SMX)</li>
+                            <li class="feature-item"><b>Cryptosporidium:</b> AIDS'te ciddi ishal, ART ile immün restorasyon</li>
+                            <li class="feature-item"><b>Leishmania:</b> Visseral form reaktivasyon riski</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Nörosistiserkoz Tedavi Uyarısı:</strong><br>
+                        • Antihelmintik → Larva ölümü → İNFLAMASYON ARTI!<br>
+                        • <b>Kortikosteroid</b> antihelmintikten 1-2 gün ÖNCE başlanmalı<br>
+                        • Antiepileptik eklenmeli<br>
+                        • Göz tutulumunda antihelmintik VERİLMEZ</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İlaç Etkileşimleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Etkileşim</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Metronidazol</b></td>
+                                    <td>Alkol</td>
+                                    <td>Disülfiram reaksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Metronidazol</b></td>
+                                    <td>Warfarin</td>
+                                    <td>Antikoagülan etki ↑</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prazikuantel</b></td>
+                                    <td>CYP3A4 indükleyiciler</td>
+                                    <td>Prazikuantel düzeyi ↓</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Albendazol</b></td>
+                                    <td>Yağlı yemek</td>
+                                    <td>Absorpsiyon ↑ (doku enfeksiyonunda iyi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İvermektin</b></td>
+                                    <td>Loa loa koenfeksiyonu</td>
+                                    <td>Ensefalopati riski</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Özel Durum Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GEBE + TOXO = SPİRAMİSİN"</b><br>
+                            <b>"GEBE + HELMİNT = PİRANTEL"</b><br>
+                            <b>"STEROİD ÖNCE = NÖROSİSTİSERKOZ"</b><br>
+                            <b>"STEROİD BAŞLAMADAN = STRONGYLOİDES TARA"</b><br>
+                            <b>"METRONIDAZOL + ALKOL = DİSÜLFİRAM"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan İlaç Soruları</p>
+                        <p class="highlight-box__content">
+                            1. <b>Primakin + G6PD =</b> Hemoliz<br>
+                            2. <b>Strongyloides =</b> İvermektin<br>
+                            3. <b>Fasciola =</b> Triklabendazol (Prazikuantel ETKİSİZ)<br>
+                            4. <b>Tüm cestodlar =</b> Prazikuantel<br>
+                            5. <b>Gebelik + Toxo =</b> Spiramisin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri Hızlı Tablo</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parazit</th>
+                                    <th>Tanı Yöntemi</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Enterobius</b></td>
+                                    <td>Selofan bant</td>
+                                    <td>Dışkıda DEĞİL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cryptosporidium</b></td>
+                                    <td>Asit-fast boyama</td>
+                                    <td>mZN, Kinyoun</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Plasmodium</b></td>
+                                    <td>Kalın/ince yayma</td>
+                                    <td>Giemsa</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toxoplasma</b></td>
+                                    <td>IgG/IgM, Avidite</td>
+                                    <td>Gebelikte önemli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Leishmania VL</b></td>
+                                    <td>rK39, kemik iliği</td>
+                                    <td>Amastigot (LD body)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toxocara</b></td>
+                                    <td>Seroloji</td>
+                                    <td>Dışkıda yumurta YOK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İlaç-Parazit Mega Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Ana Endikasyonlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Albendazol</b></td>
+                                    <td>Bağırsak nematodları, Echinococcus, Nörosistiserkoz, Toxocara</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mebendazol</b></td>
+                                    <td>Enterobius, Ascaris, Trichuris, kancalı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İvermektin</b></td>
+                                    <td>Strongyloides, Onchocerca, skabies, bit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prazikuantel</b></td>
+                                    <td>Taenia, Schistosoma, Clonorchis, Paragonimus, H. nana</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Triklabendazol</b></td>
+                                    <td>Fasciola (TEK ETKİLİ)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Metronidazol</b></td>
+                                    <td>E. histolytica (invaziv), Giardia, T. vaginalis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Primakin</b></td>
+                                    <td>P. vivax/ovale (hipnozoit) - G6PD kontrol!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Spiramisin</b></td>
+                                    <td>Gebelikte toxoplasmosis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"3C = ASİT-FAST"</b> → Crypto, Cyclo, Cystoisospora<br>
+                            <b>"PRİMAKİN = P. vivax + G6PD"</b><br>
+                            <b>"İVERMEKTİN = STRONG İLAÇ"</b> (Strongyloides)<br>
+                            <b>"TRİKLA = TRİCKY FASCİOLA"</b><br>
+                            <b>"PRAZİ = YASSIYA PRASA"</b> (Cestod + Schistosoma)<br>
+                            <b>"METRO = AMİP + GİARDİA"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Primakin vermeden önce =</b> G6PD testi<br>
+                            2. <b>Fasciola'da Prazikuantel =</b> ETKİSİZ<br>
+                            3. <b>Strongyloides tedavisi =</b> İvermektin (Albendazol değil)<br>
+                            4. <b>Nörosistiserkozda steroid =</b> Antihelmintikten ÖNCE<br>
+                            5. <b>Enterobius tanısı =</b> Selofan bant (dışkı değil)<br>
+                            6. <b>Asit-fast parazitler =</b> Cryptosporidium, Cyclospora, Cystoisospora<br>
+                            7. <b>Steroid başlamadan önce =</b> Strongyloides taraması<br>
+                            8. <b>Gebelikte toxo =</b> Spiramisin
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "P. vivax tedavisinde primakin vermeden önce?" → G6PD testi</li>
+                        <li><b>Soru tipi:</b> "Fasciola hepatica tedavisinde kullanılan ilaç?" → Triklabendazol</li>
+                        <li><b>Soru tipi:</b> "Steroid başlanacak hastada hangi parazit taranmalı?" → Strongyloides</li>
+                        <li><b>Soru tipi:</b> "AIDS hastasında ishal, asit-fast boyama pozitif?" → Cryptosporidium</li>
+                        <li><b>Soru tipi:</b> "Nörosistiserkoz tedavisinde kortikosteroid ne zaman başlanır?" → Antihelmintikten ÖNCE</li>
+                        <li><b>Soru tipi:</b> "Gebelikte toxoplasmosis tedavisi?" → Spiramisin</li>
+                        <li><b>Soru tipi:</b> "Enterobius tanısında kullanılan yöntem?" → Selofan bant (Graham)</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
