@@ -8,6 +8,8 @@ const MOBILE_QUERY = typeof window !== 'undefined' && window.matchMedia
     ? window.matchMedia('(max-width: 768px)')
     : null;
 
+let questionFavorites = new Set(); // questionId(string)
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!DATA_READY) {
         const grid = document.getElementById('content-grid');
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFilterPanel();
     initShareButtons();
     handleShareLink();
+    initQuestionFavorites();
     initScrollReveal(); // Scroll Reveal başlat
     // Segment control artık dock.js tarafından yönetiliyor
     
@@ -33,6 +36,98 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function isAuthReady() {
+    return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+async function initQuestionFavorites() {
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
+
+    if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+        window.appFirebase.onAuth(async (user) => {
+            if (user) {
+                await reloadQuestionFavorites();
+            } else {
+                questionFavorites = new Set();
+                refreshQuestionFavoriteButtons();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        await reloadQuestionFavorites();
+    } else {
+        refreshQuestionFavoriteButtons();
+    }
+
+    document.addEventListener('favorites:updated', (e) => {
+        const type = e.detail?.type;
+        if (type !== 'question') return;
+        const itemId = String(e.detail?.itemId || '');
+        const favorite = !!e.detail?.favorite;
+        if (!itemId) return;
+        if (favorite) questionFavorites.add(itemId);
+        else questionFavorites.delete(itemId);
+        refreshQuestionFavoriteButtons(itemId);
+    });
+}
+
+async function reloadQuestionFavorites() {
+    if (!window.appFirebase || !window.appFirebase.enabled) return;
+    try {
+        const set = await window.appFirebase.loadFavorites('question');
+        if (set && typeof set.has === 'function') {
+            questionFavorites = set;
+        }
+    } catch (_) {
+        // ignore
+    }
+    refreshQuestionFavoriteButtons();
+}
+
+function refreshQuestionFavoriteButtons(targetId = null) {
+    const selector = targetId
+        ? `.fav-btn[data-fav-question-id="${targetId}"]`
+        : '.fav-btn[data-fav-question-id]';
+
+    document.querySelectorAll(selector).forEach((btn) => {
+        const id = String(btn.dataset.favQuestionId || '');
+        const active = id && questionFavorites.has(id);
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+        const icon = btn.querySelector('i');
+        if (icon) icon.className = active ? 'fas fa-star' : 'far fa-star';
+        btn.disabled = !isAuthReady();
+    });
+}
+
+async function toggleQuestionFavorite(questionId) {
+    const id = String(questionId);
+    if (!isAuthReady()) {
+        showToast('Favoriye eklemek için giriş yapın');
+        refreshQuestionFavoriteButtons(id);
+        return;
+    }
+
+    const prev = questionFavorites.has(id);
+    const next = !prev;
+    if (next) questionFavorites.add(id);
+    else questionFavorites.delete(id);
+    refreshQuestionFavoriteButtons(id);
+
+    try {
+        await window.appFirebase.setFavorite('question', id, next);
+    } catch (_) {
+        // revert
+        if (prev) questionFavorites.add(id);
+        else questionFavorites.delete(id);
+        refreshQuestionFavoriteButtons(id);
+        showToast('Kaydetme başarısız');
+    }
+}
 
 // URL'den paylaşım linkini kontrol et
 function handleShareLink() {
@@ -65,6 +160,13 @@ function initShareButtons() {
             e.stopPropagation();
             const questionId = shareBtn.dataset.questionId;
             shareQuestion(questionId);
+        }
+
+        const favBtn = e.target.closest('.fav-btn');
+        if (favBtn && favBtn.dataset.favQuestionId) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleQuestionFavorite(favBtn.dataset.favQuestionId);
         }
     });
 }
@@ -180,6 +282,9 @@ function renderCards(data) {
             <div class="card-header">
                 <div class="card-header__top">
                     <span class="badge">${item.category}</span>
+                    <button class="fav-btn" data-fav-question-id="${item.id}" aria-pressed="false" title="Favori">
+                        <i class="far fa-star"></i>
+                    </button>
                     <button class="share-btn" data-question-id="${item.id}" title="Bu soruyu paylaş">
                         <i class="fas fa-share-alt"></i>
                     </button>
@@ -217,6 +322,7 @@ function renderCards(data) {
 
     container.replaceChildren(fragment);
     syncCardToggles();
+    refreshQuestionFavoriteButtons();
     
     // Scroll reveal'ı yenile
     setTimeout(() => refreshScrollReveal(), 50);

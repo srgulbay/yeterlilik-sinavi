@@ -693,12 +693,37 @@
     transition: var(--transition-fast);
     flex-shrink: 0;
 }
+.fav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
 
 .share-btn:hover {
     background: var(--primary);
     border-color: var(--primary);
     color: white;
     transform: scale(1.05);
+}
+.fav-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.fav-btn:active {
+    transform: scale(0.95);
 }
 
 .share-btn:active {

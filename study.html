@@ -31,6 +31,9 @@
                     <p class="page-header__desc" id="session-info">Kartları ezberle, kolay bulduklarını işaretle</p>
                 </div>
                 <div class="page-header__actions">
+                    <button class="page-header__icon-btn" type="button" data-auth-trigger aria-label="Giriş Yap" title="Giriş Yap">
+                        <i class="fas fa-right-to-bracket"></i>
+                    </button>
                     <button class="page-header__icon-btn" type="button" onclick="resetProgress()" aria-label="İlerlemeyi sıfırla" title="İlerlemeyi sıfırla">
                         <i class="fas fa-rotate-right"></i>
                     </button>
@@ -276,6 +279,12 @@
     <script src="data/enriched_content.js"></script>
     <script src="data/details-content.js"></script>
     <script src="data/topics-content.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="theme/firebase-config.js"></script>
+    <script src="theme/firebase.js"></script>
+    <script src="theme/auth-ui.js"></script>
     <script src="theme/dock.js"></script>
     <script src="theme/srs.js"></script>
     <script src="theme/mobile-dock.js"></script>

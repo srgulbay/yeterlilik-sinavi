@@ -7,6 +7,7 @@
 let currentCategory = 'all';
 let searchQuery = '';
 let currentView = 'list'; // 'list' veya 'detail'
+let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLevel:number }
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,256 @@ function initTopicsModule() {
     initSearch();
     initBackButton();
     initDockChips();
+    initTopicState();
+    initTopicActions();
+}
+
+function normalizeTopicId(topicId) {
+    const n = Number(topicId);
+    if (!Number.isFinite(n)) return String(topicId);
+    return String(n);
+}
+
+function clampReadLevel(level) {
+    const n = Number(level);
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(0, Math.min(5, Math.trunc(n)));
+}
+
+function getTopicState(topicId) {
+    const id = normalizeTopicId(topicId);
+    const existing = topicStateById.get(id);
+    if (existing) {
+        return {
+            favorite: !!existing.favorite,
+            readLevel: clampReadLevel(existing.readLevel)
+        };
+    }
+    return { favorite: false, readLevel: 0 };
+}
+
+function setTopicStateLocal(topicId, patch) {
+    const id = normalizeTopicId(topicId);
+    const prev = getTopicState(id);
+    const next = {
+        favorite: Object.prototype.hasOwnProperty.call(patch, 'favorite') ? !!patch.favorite : prev.favorite,
+        readLevel: Object.prototype.hasOwnProperty.call(patch, 'readLevel') ? clampReadLevel(patch.readLevel) : prev.readLevel,
+    };
+    topicStateById.set(id, next);
+}
+
+function isAuthReady() {
+    return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+async function initTopicState() {
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
+
+    const onAuth = window.appFirebase && typeof window.appFirebase.onAuth === 'function'
+        ? window.appFirebase.onAuth
+        : null;
+
+    if (onAuth) {
+        onAuth(async (user) => {
+            if (user) {
+                await reloadTopicStates();
+            } else {
+                topicStateById = new Map();
+                rerenderTopicUI();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        await reloadTopicStates();
+    }
+
+    document.addEventListener('topics:state-updated', (e) => {
+        const topicId = e.detail?.topicId;
+        const patch = e.detail?.patch;
+        if (!topicId || !patch) return;
+        setTopicStateLocal(topicId, patch);
+        updateTopicUIFor(topicId);
+    });
+}
+
+async function reloadTopicStates() {
+    if (!window.appFirebase || !window.appFirebase.enabled) return;
+    try {
+        const map = await window.appFirebase.loadTopicStates();
+        if (map && typeof map.get === 'function') {
+            topicStateById = map;
+        }
+        rerenderTopicUI();
+    } catch (_) {
+        // ignore
+    }
+}
+
+function rerenderTopicUI() {
+    if (currentView === 'detail') {
+        const params = new URLSearchParams(window.location.search);
+        const topicId = params.get('topic');
+        if (topicId) {
+            showTopicDetail(parseInt(topicId));
+            return;
+        }
+    }
+    renderTopicsList(topicsData);
+}
+
+function updateTopicUIFor(topicId) {
+    const id = normalizeTopicId(topicId);
+    const state = getTopicState(id);
+
+    const card = document.querySelector(`.topic-preview[data-topic-id="${id}"]`);
+    if (card) {
+        const favBtn = card.querySelector('[data-topic-fav]');
+        if (favBtn) {
+            favBtn.classList.toggle('is-active', state.favorite);
+            const icon = favBtn.querySelector('i');
+            if (icon) icon.className = state.favorite ? 'fas fa-star' : 'far fa-star';
+            favBtn.setAttribute('aria-pressed', String(state.favorite));
+        }
+
+        card.querySelectorAll('input[type="checkbox"][data-read-level]').forEach((input) => {
+            const level = clampReadLevel(input.dataset.readLevel);
+            input.checked = level > 0 && level <= state.readLevel;
+            input.disabled = !isAuthReady();
+        });
+    }
+
+    const detail = document.querySelector(`.topic-article [data-topic-actions][data-topic-id="${id}"]`);
+    if (detail) {
+        const favBtn = detail.querySelector('[data-topic-fav]');
+        if (favBtn) {
+            favBtn.classList.toggle('is-active', state.favorite);
+            const icon = favBtn.querySelector('i');
+            if (icon) icon.className = state.favorite ? 'fas fa-star' : 'far fa-star';
+            favBtn.setAttribute('aria-pressed', String(state.favorite));
+        }
+        detail.querySelectorAll('input[type="checkbox"][data-read-level]').forEach((input) => {
+            const level = clampReadLevel(input.dataset.readLevel);
+            input.checked = level > 0 && level <= state.readLevel;
+            input.disabled = !isAuthReady();
+        });
+    }
+}
+
+function renderReadCheckboxes(topicId) {
+    const state = getTopicState(topicId);
+    const disabledAttr = isAuthReady() ? '' : 'disabled';
+
+    return `
+        <div class="topic-read-checks" data-topic-read>
+            ${[1, 2, 3, 4, 5].map((n) => {
+                const checked = state.readLevel >= n ? 'checked' : '';
+                return `
+                    <label class="topic-check" title="${n}. tur">
+                        <input type="checkbox" ${checked} ${disabledAttr} data-topic-id="${topicId}" data-read-level="${n}">
+                        <span>${n}</span>
+                    </label>
+                `;
+            }).join('')}
+        </div>
+    `;
+}
+
+function renderFavoriteButton(topicId) {
+    const state = getTopicState(topicId);
+    const active = state.favorite;
+    return `
+        <button class="topic-fav-btn ${active ? 'is-active' : ''}" type="button" data-topic-fav data-topic-id="${topicId}" aria-pressed="${active}" title="Favori">
+            <i class="${active ? 'fas fa-star' : 'far fa-star'}"></i>
+        </button>
+    `;
+}
+
+function initTopicActions() {
+    const list = document.getElementById('topicsList');
+    if (list) {
+        list.addEventListener('click', async (e) => {
+            const favBtn = e.target.closest('[data-topic-fav]');
+            if (favBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                await toggleFavorite(favBtn.dataset.topicId);
+                return;
+            }
+
+            const checkbox = e.target.closest('input[type="checkbox"][data-read-level]');
+            if (checkbox) {
+                e.stopPropagation();
+                await toggleReadLevel(checkbox.dataset.topicId, checkbox.dataset.readLevel);
+            }
+        });
+    }
+
+    const detail = document.getElementById('topicDetail');
+    if (detail) {
+        detail.addEventListener('click', async (e) => {
+            const favBtn = e.target.closest('[data-topic-fav]');
+            if (favBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                await toggleFavorite(favBtn.dataset.topicId);
+                return;
+            }
+
+            const checkbox = e.target.closest('input[type="checkbox"][data-read-level]');
+            if (checkbox) {
+                e.stopPropagation();
+                await toggleReadLevel(checkbox.dataset.topicId, checkbox.dataset.readLevel);
+            }
+        });
+    }
+}
+
+async function toggleFavorite(topicId) {
+    const id = normalizeTopicId(topicId);
+    if (!isAuthReady()) {
+        showToast('Favoriye eklemek için giriş yapın');
+        updateTopicUIFor(id);
+        return;
+    }
+
+    const prev = getTopicState(id);
+    const next = !prev.favorite;
+    setTopicStateLocal(id, { favorite: next });
+    updateTopicUIFor(id);
+
+    try {
+        await window.appFirebase.setTopicState(id, { favorite: next });
+    } catch (_) {
+        setTopicStateLocal(id, { favorite: prev.favorite });
+        updateTopicUIFor(id);
+        showToast('Kaydetme başarısız');
+    }
+}
+
+async function toggleReadLevel(topicId, clickedLevel) {
+    const id = normalizeTopicId(topicId);
+    const level = clampReadLevel(clickedLevel);
+    if (!isAuthReady()) {
+        showToast('İşaretlemek için giriş yapın');
+        updateTopicUIFor(id);
+        return;
+    }
+
+    const prev = getTopicState(id);
+    const nextLevel = prev.readLevel >= level ? Math.max(0, level - 1) : level;
+    setTopicStateLocal(id, { readLevel: nextLevel });
+    updateTopicUIFor(id);
+
+    try {
+        await window.appFirebase.setTopicState(id, { readLevel: nextLevel });
+    } catch (_) {
+        setTopicStateLocal(id, { readLevel: prev.readLevel });
+        updateTopicUIFor(id);
+        showToast('Kaydetme başarısız');
+    }
 }
 
 // URL'den paylaşım linkini kontrol et
@@ -138,7 +389,11 @@ function renderTopicsList(data) {
     
     // Kart tıklama olaylarını bağla
     container.querySelectorAll('.topic-preview').forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (event) => {
+            // Ignore clicks on interactive controls
+            if (event.target && event.target.closest && event.target.closest('[data-topic-fav], input[data-read-level], .topic-read-checks, label.topic-check')) {
+                return;
+            }
             const topicId = parseInt(card.dataset.topicId);
             showTopicDetail(topicId);
         });
@@ -172,9 +427,13 @@ function createTopicPreview(topic, index = 0) {
                 <div class="topic-preview__tags">
                     ${topic.tags.slice(0, 3).map(tag => `<span class="topic-tag">${tag}</span>`).join('')}
                 </div>
-                <span class="topic-preview__read">
-                    Oku <i class="fas fa-arrow-right"></i>
-                </span>
+                <div class="topic-preview__right">
+                    ${renderFavoriteButton(topic.id)}
+                    ${renderReadCheckboxes(topic.id)}
+                    <span class="topic-preview__read">
+                        Oku <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
             </div>
         </article>
     `;
@@ -209,6 +468,8 @@ function showTopicDetail(topicId) {
 
 function renderTopicArticle(topic) {
     const icon = getCategoryIcon(topic.category);
+    const topicId = topic.id;
+    const state = getTopicState(topicId);
     
     let sectionsHTML = topic.sections.map(section => {
         return `
@@ -235,9 +496,18 @@ function renderTopicArticle(topic) {
                     <h1 class="article-title">${topic.title}</h1>
                     <p class="article-subtitle">${topic.subtitle}</p>
                 </div>
-                <button class="share-btn share-btn--article" onclick="shareTopic(${topic.id})" title="Bu konuyu paylaş">
-                    <i class="fas fa-share-alt"></i>
-                </button>
+                <div class="article-actions" data-topic-actions data-topic-id="${topicId}">
+                    <div class="article-actions__row">
+                        ${renderFavoriteButton(topicId)}
+                        ${renderReadCheckboxes(topicId)}
+                        <button class="share-btn share-btn--article" onclick="shareTopic(${topic.id})" title="Bu konuyu paylaş">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                    <div class="article-actions__row" aria-label="Okuma durumu">
+                        <span class="topic-preview__read">${state.readLevel}/5</span>
+                    </div>
+                </div>
             </div>
             <div class="article-tags">
                 ${topic.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('')}

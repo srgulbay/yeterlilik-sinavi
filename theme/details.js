@@ -7,6 +7,7 @@
 let currentTopic = 'all';
 let searchQuery = '';
 let highlightedCardId = null;
+let detailFavorites = new Set(); // cardId(string)
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,6 +23,98 @@ function initDetailsModule() {
     initExpandables();
     initDockChips();
     initShareButtons();
+    initDetailFavorites();
+}
+
+function isAuthReady() {
+    return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+async function initDetailFavorites() {
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
+
+    if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+        window.appFirebase.onAuth(async (user) => {
+            if (user) {
+                await reloadDetailFavorites();
+            } else {
+                detailFavorites = new Set();
+                refreshDetailFavoriteButtons();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        await reloadDetailFavorites();
+    } else {
+        refreshDetailFavoriteButtons();
+    }
+
+    document.addEventListener('favorites:updated', (e) => {
+        const type = e.detail?.type;
+        if (type !== 'detail') return;
+        const itemId = String(e.detail?.itemId || '');
+        const favorite = !!e.detail?.favorite;
+        if (!itemId) return;
+        if (favorite) detailFavorites.add(itemId);
+        else detailFavorites.delete(itemId);
+        refreshDetailFavoriteButtons(itemId);
+    });
+}
+
+async function reloadDetailFavorites() {
+    if (!window.appFirebase || !window.appFirebase.enabled) return;
+    try {
+        const set = await window.appFirebase.loadFavorites('detail');
+        if (set && typeof set.has === 'function') {
+            detailFavorites = set;
+        }
+    } catch (_) {
+        // ignore
+    }
+    refreshDetailFavoriteButtons();
+}
+
+function refreshDetailFavoriteButtons(targetId = null) {
+    const selector = targetId
+        ? `.fav-btn[data-fav-detail-id="${targetId}"]`
+        : '.fav-btn[data-fav-detail-id]';
+
+    document.querySelectorAll(selector).forEach((btn) => {
+        const id = String(btn.dataset.favDetailId || '');
+        const active = id && detailFavorites.has(id);
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+        const icon = btn.querySelector('i');
+        if (icon) icon.className = active ? 'fas fa-star' : 'far fa-star';
+        btn.disabled = !isAuthReady();
+    });
+}
+
+async function toggleDetailFavorite(cardId) {
+    const id = String(cardId);
+    if (!isAuthReady()) {
+        showToast('Favoriye eklemek için giriş yapın');
+        refreshDetailFavoriteButtons(id);
+        return;
+    }
+
+    const prev = detailFavorites.has(id);
+    const next = !prev;
+    if (next) detailFavorites.add(id);
+    else detailFavorites.delete(id);
+    refreshDetailFavoriteButtons(id);
+
+    try {
+        await window.appFirebase.setFavorite('detail', id, next);
+    } catch (_) {
+        if (prev) detailFavorites.add(id);
+        else detailFavorites.delete(id);
+        refreshDetailFavoriteButtons(id);
+        showToast('Kaydetme başarısız');
+    }
 }
 
 // URL'den paylaşım linkini kontrol et
@@ -56,6 +149,13 @@ function initShareButtons() {
             e.preventDefault();
             const cardId = shareBtn.dataset.cardId;
             shareCard(cardId);
+        }
+
+        const favBtn = e.target.closest('.fav-btn');
+        if (favBtn && favBtn.dataset.favDetailId) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleDetailFavorite(favBtn.dataset.favDetailId);
         }
     });
 }
@@ -254,6 +354,9 @@ function createDetailCard(item, index = 0) {
                     <p class="detail-card__category">${getCategoryLabel(item.category)}</p>
                     <h3 class="detail-card__title">${item.title}</h3>
                 </div>
+                <button class="fav-btn" data-fav-detail-id="${item.id}" aria-pressed="false" title="Favori">
+                    <i class="far fa-star"></i>
+                </button>
                 <button class="share-btn" data-card-id="${item.id}" title="Paylaş">
                     <i class="fas fa-share-alt"></i>
                 </button>

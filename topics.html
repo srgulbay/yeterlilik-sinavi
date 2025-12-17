@@ -21,6 +21,9 @@
                     <p class="page-header__desc">Tüm detaylarıyla, sistematik konu anlatımları</p>
                 </div>
                 <div class="page-header__actions">
+                    <button class="page-header__icon-btn" type="button" data-auth-trigger aria-label="Giriş Yap" title="Giriş Yap">
+                        <i class="fas fa-right-to-bracket"></i>
+                    </button>
                     <button class="page-header__search-btn" type="button" data-search-trigger>
                         <i class="fas fa-magnifying-glass"></i>
                         <span>Ara...</span>
@@ -130,6 +133,12 @@
     <script src="data/enriched_content.js"></script>
     <script src="data/details-content.js"></script>
     <script src="data/topics-content.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="theme/firebase-config.js"></script>
+    <script src="theme/firebase.js"></script>
+    <script src="theme/auth-ui.js"></script>
     <script src="theme/topics.js"></script>
     <script src="theme/dock.js"></script>
     <script src="theme/mobile-dock.js"></script>
