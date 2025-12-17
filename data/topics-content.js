@@ -11427,6 +11427,1773 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 18,
+        category: "viroloji",
+        title: "Paramiksovirüsler",
+        subtitle: "Kızamık, Kabakulak, RSV, Parainfluenza",
+        summary: "Paramyxoviridae ailesinin kapsamlı özeti. Kızamık (measles), Kabakulak (mumps), RSV (respiratuar sinsityal virüs), Parainfluenza, hMPV. Klinik bulgular, komplikasyonlar, tanı ve aşılama. SSPE, krup ve bronşiolit.",
+        tags: ["Paramiksovirüs", "Kızamık", "Kabakulak", "RSV", "Parainfluenza", "SSPE", "Krup", "Bronşiolit", "Viroloji"],
+        sections: [
+            {
+                title: "Paramyxoviridae Ailesi Genel Özellikleri",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Paramyxoviridae</strong>, zarflı, tek iplikçikli, negatif polariteli RNA virüsleridir. Önemli solunum yolu ve sistemik enfeksiyonlara neden olurlar.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Paramiksovirüs Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Genom:</b> ssRNA, negatif polarite, segmentsiz<br>
+                            <b>Zarf:</b> VAR (çevreye duyarlı)<br>
+                            <b>Şekil:</b> Pleomorfik (yuvarlak-oval)<br>
+                            <b>Boyut:</b> 150-300 nm<br>
+                            <b>Çoğalma:</b> Sitoplazmada<br>
+                            <b>Bulaş:</b> Damlacık, solunum
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aile Sınıflandırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Cins</th>
+                                    <th>Virüs</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Morbillivirus</b></td>
+                                    <td>Kızamık (Measles)</td>
+                                    <td>Kızamık, SSPE</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rubulavirus</b></td>
+                                    <td>Kabakulak (Mumps)</td>
+                                    <td>Parotit, orşit, menenjit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Respirovirus</b></td>
+                                    <td>Parainfluenza 1, 3</td>
+                                    <td>Krup, bronşiolit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rubulavirus</b></td>
+                                    <td>Parainfluenza 2, 4</td>
+                                    <td>ÜSYE, krup</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pneumovirus</b></td>
+                                    <td>RSV</td>
+                                    <td>Bronşiolit, pnömoni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Metapneumovirus</b></td>
+                                    <td>hMPV</td>
+                                    <td>RSV benzeri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Henipavirus</b></td>
+                                    <td>Nipah, Hendra</td>
+                                    <td>Ensefalit (yüksek mortalite)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Viral Proteinler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>HN (Hemagglütinin-Nöraminidaz):</b> Tutunma + salınım (Parainfluenza, Kabakulak)</li>
+                            <li class="feature-item"><b>H (Hemagglütinin):</b> Sadece tutunma (Kızamık - nöraminidaz YOK)</li>
+                            <li class="feature-item"><b>G (Attachment):</b> Tutunma (RSV - hemagglütinasyon YOK)</li>
+                            <li class="feature-item"><b>F (Füzyon):</b> Zarfla hücre membranı füzyonu → SİNSİTYUM oluşumu</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Sinsityum (Dev Hücre) Oluşumu:</strong><br>
+                        F proteini hücre membranlarını birleştirir → Çok çekirdekli dev hücreler (sinsityum)<br>
+                        • <b>Kızamık:</b> Warthin-Finkeldey dev hücreleri<br>
+                        • <b>RSV:</b> Sinsityal dev hücreler (isim buradan gelir)<br>
+                        Sitopatik etki, viral yayılım mekanizması</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Paramiksovirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PARAM = Parotit, RSV, Kızamık"</b><br>
+                            <b>"NEGATİF RNA + ZARF"</b> → Çevreye duyarlı<br>
+                            <b>"F PROTEİNİ = FÜZYON = SİNSİTYUM"</b><br>
+                            <b>"KIZAMIK'TA NÖRAMİNİDAZ YOK"</b> → Sadece H proteini
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kızamık Virüsü (Measles/Morbillivirus)",
+                icon: "fas fa-disease",
+                content: `
+                    <p><strong>Kızamık</strong>, son derece bulaşıcı, aşı ile önlenebilir viral hastalıktır. Döküntü, ateş ve komplikasyonları ile karakterizedir. SSPE geç komplikasyondur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kızamık Virüsü Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Bulaştırıcılık:</b> ÇOK YÜKSEK (R0 = 12-18)<br>
+                            <b>Bulaş:</b> Damlacık, aerosol (havada 2 saat canlı kalır)<br>
+                            <b>İnkübasyon:</b> 10-14 gün<br>
+                            <b>Bulaştırıcılık:</b> Prodrom başlangıcından döküntüden 4 gün sonraya<br>
+                            <b>Serotip:</b> TEK (aşı çok etkili)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Evreler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Prodrom (Kataral)</b></td>
+                                    <td>2-4 gün</td>
+                                    <td>Yüksek ateş, öksürük, koriza, konjunktivit (3K) + <b>KOPLIK LEKELERI</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Döküntü (Ekzantem)</b></td>
+                                    <td>5-6 gün</td>
+                                    <td>Makülopapüler döküntü: Yüz → Gövde → Ekstremite (yukarıdan aşağı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İyileşme</b></td>
+                                    <td>1-2 hafta</td>
+                                    <td>Döküntü soluklaşır, deskuamasyon, pigmentasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Koplik Lekeleri (Patognomonik!):</strong><br>
+                        • Bukkal mukozada (yanak içi, 2. molar hizası)<br>
+                        • Kırmızı zemin üzerinde beyaz-gri noktalar<br>
+                        • "Tuz taneleri" görünümü<br>
+                        • Döküntüden 1-2 gün ÖNCE çıkar, döküntü ile kaybolur<br>
+                        • <b>KIZAMIĞA ÖZGÜ</b> - erken tanı imkanı</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Komplikasyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Komplikasyon</th>
+                                    <th>Sıklık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Otitis media</b></td>
+                                    <td>En sık</td>
+                                    <td>Bakteriyel süperenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pnömoni</b></td>
+                                    <td>Sık</td>
+                                    <td>En sık ÖLÜM nedeni (viral veya bakteriyel)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut ensefalit</b></td>
+                                    <td>1/1000</td>
+                                    <td>Postenfeksiyöz, otoimmün mekanizma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSPE</b></td>
+                                    <td>1/100.000</td>
+                                    <td>GEÇ komplikasyon (7-10 yıl sonra)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SSPE (Subakut Sklerozan Panensefalit):</strong><br>
+                        • Kızamıktan <b>7-10 yıl sonra</b> ortaya çıkar<br>
+                        • Defektif kızamık virüsü SSS'de persiste eder<br>
+                        • <b>Bulgular:</b> Davranış değişikliği, miyoklonik nöbetler, demans, koma<br>
+                        • <b>EEG:</b> Periyodik kompleksler (burst-supresyon)<br>
+                        • <b>BOS:</b> Oligoklonal bandlar, yüksek kızamık antikorları<br>
+                        • <b>Prognoz:</b> Çok kötü, ölümcül (1-3 yıl)<br>
+                        • <b>Önleme:</b> AŞILAMA!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kızamıkta İmmünsupresyon</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Geçici immünsupresyon:</b> Haftalarca sürer</li>
+                            <li class="feature-item"><b>T hücre lenfopeni:</b> Kızamık virüsü CD150+ T hücreleri enfekte eder</li>
+                            <li class="feature-item"><b>"İmmün amnezi":</b> Mevcut immün hafıza silinebilir</li>
+                            <li class="feature-item"><b>Sonuç:</b> Sekonder bakteriyel enfeksiyonlar (pnömoni, otit)</li>
+                            <li class="feature-item"><b>Tüberkülin anerji:</b> PPD geçici negatifleşir</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Klinik tanı:</b> Koplik + döküntü paterni yeterli</li>
+                            <li class="feature-item"><b>Seroloji:</b> IgM (akut) - döküntü ile pozitifleşir</li>
+                            <li class="feature-item"><b>PCR:</b> Nazofarenks, idrar</li>
+                            <li class="feature-item"><b>Tedavi:</b> Destek, A vitamini (WHO önerisi)</li>
+                            <li class="feature-item"><b>Aşı:</b> KKK (Kızamık-Kızamıkçık-Kabakulak), canlı atenüe</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kızamık Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"3K = Kataral bulgular"</b> → Öksürük, Koriza, Konjunktivit<br>
+                            <b>"KOPLİK = KIZAMIK PATOGNOMONİK"</b><br>
+                            <b>"DÖKÜNTÜ YUKARI → AŞAĞI"</b> → Yüz → Gövde → Ekstremite<br>
+                            <b>"SSPE = 7-10 YIL SONRA"</b> → Miyokloni, demans<br>
+                            <b>"A VİTAMİNİ = TEDAVİ DESTEĞİ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kabakulak Virüsü (Mumps/Rubulavirus)",
+                icon: "fas fa-head-side-cough",
+                content: `
+                    <p><strong>Kabakulak</strong>, tükürük bezlerinin (özellikle parotis) enflamasyonu ile karakterize, aşı ile önlenebilir viral enfeksiyondur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kabakulak Virüsü Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Bulaş:</b> Damlacık, tükürük<br>
+                            <b>İnkübasyon:</b> 16-18 gün (12-25 gün)<br>
+                            <b>Bulaştırıcılık:</b> Semptomlardan 7 gün önce - 8 gün sonra<br>
+                            <b>Serotip:</b> TEK<br>
+                            <b>İmmünite:</b> Ömür boyu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Sıklık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Parotit</b></td>
+                                    <td>%70-80</td>
+                                    <td>Tek veya bilateral şişlik, ağrı, çiğnemede artış</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Asemptomatik</b></td>
+                                    <td>%20-30</td>
+                                    <td>Subklinik enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prodrom</b></td>
+                                    <td>-</td>
+                                    <td>Ateş, baş ağrısı, miyalji, iştahsızlık</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Parotit Muayene Bulguları:</strong><br>
+                        • Kulak memesi yukarı-dışa itilir<br>
+                        • Mandibula açısı silinir<br>
+                        • Stensen kanalı ağzı kırmızı/ödemli<br>
+                        • Bilateral %70-80 (önce bir taraf, 1-5 gün sonra diğer)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Komplikasyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Komplikasyon</th>
+                                    <th>Sıklık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Menenjit (aseptik)</b></td>
+                                    <td>%10-30</td>
+                                    <td>EN SIK komplikasyon, iyi prognoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orşit</b></td>
+                                    <td>%15-30 (postpubertal)</td>
+                                    <td>Tek taraflı sık, infertilite nadir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ooforit</b></td>
+                                    <td>%5</td>
+                                    <td>Postpubertal kadınlarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pankreatit</b></td>
+                                    <td>%4</td>
+                                    <td>Karın ağrısı, amilaz yüksekliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ensefalit</b></td>
+                                    <td>Nadir</td>
+                                    <td>Menenjite göre ciddi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sağırlık</b></td>
+                                    <td>1/20.000</td>
+                                    <td>Tek taraflı, kalıcı olabilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kabakulak Orşiti:</strong><br>
+                        • <b>Sadece POSTPUBERTAL</b> erkeklerde<br>
+                        • Parotisten 4-8 gün sonra<br>
+                        • Tek taraflı %70, bilateral %30<br>
+                        • Bulgular: Testis ağrısı/şişliği, ateş, bulantı<br>
+                        • <b>İnfertilite:</b> Bilateral tutulumda bile nadir (%10)<br>
+                        • Atrofi gelişebilir</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Klinik tanı:</b> Bilateral parotit tipik</li>
+                            <li class="feature-item"><b>Laboratuvar:</b> Amilaz ↑ (parotit + pankreatit)</li>
+                            <li class="feature-item"><b>Seroloji:</b> IgM (akut), IgG (4 kat artış)</li>
+                            <li class="feature-item"><b>PCR:</b> Tükürük, BOS</li>
+                            <li class="feature-item"><b>Tedavi:</b> Destek (analjezik, sıvı, yatak istirahati)</li>
+                            <li class="feature-item"><b>Aşı:</b> KKK, canlı atenüe</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kabakulak Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KABAKULAK = KULAK KABI ŞİŞER"</b> → Parotis<br>
+                            <b>"MENENJİT = EN SIK"</b> (iyi prognoz)<br>
+                            <b>"ORŞİT = POSTPUBERTAL"</b> → Puberte öncesi nadir<br>
+                            <b>"AMİLAZ YÜKSEK"</b> → Parotit + Pankreatit<br>
+                            <b>"KKK AŞI"</b> = Kızamık + Kızamıkçık + Kabakulak
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Parainfluenza Virüsleri",
+                icon: "fas fa-lungs-virus",
+                content: `
+                    <p><strong>Parainfluenza virüsleri (PIV)</strong>, çocuklarda <b>krup</b> (laringotrakeobronşit) ve alt solunum yolu enfeksiyonlarının önemli nedenidir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Parainfluenza Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Tipler:</b> PIV-1, PIV-2, PIV-3, PIV-4<br>
+                            <b>En sık:</b> PIV-3 (tüm yaş grupları), PIV-1 (krup)<br>
+                            <b>Mevsim:</b> Sonbahar (PIV-1,2), tüm yıl (PIV-3)<br>
+                            <b>Yaş:</b> 6 ay - 6 yaş arası en sık<br>
+                            <b>İmmünite:</b> Tam koruyucu değil, reenfeksiyon olabilir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Parainfluenza Tip-Hastalık İlişkisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Ana Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PIV-1</b></td>
+                                    <td><b>KRUP</b> (en sık neden)</td>
+                                    <td>Sonbahar epidemileri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PIV-2</b></td>
+                                    <td>Krup</td>
+                                    <td>Daha hafif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PIV-3</b></td>
+                                    <td>Bronşiolit, pnömoni</td>
+                                    <td>Küçük çocuklarda ciddi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PIV-4</b></td>
+                                    <td>Hafif ÜSYE</td>
+                                    <td>Nadir tespit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>KRUP (Akut Laringotrakeobronşit):</strong><br>
+                        • <b>Yaş:</b> 6 ay - 3 yaş (pik 2 yaş)<br>
+                        • <b>Etken:</b> PIV-1 EN SIK (%75 krup)<br>
+                        • <b>Klinik:</b> Havlar tarzda öksürük (seal bark), stridor, ses kısıklığı<br>
+                        • <b>X-ray:</b> "Steeple sign" (kalem ucu görünümü, subglottik daralma)<br>
+                        • <b>Tedavi:</b> Kortikosteroid (deksametazon), nebül epinefrin (ağır), nem</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Krup Ayırıcı Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Viral Krup</th>
+                                    <th>Epiglottit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etken</b></td>
+                                    <td>PIV-1</td>
+                                    <td>H. influenzae tip b</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td>6 ay - 3 yaş</td>
+                                    <td>2-7 yaş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Başlangıç</b></td>
+                                    <td>Yavaş (günler)</td>
+                                    <td>Hızlı (saatler)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ateş</b></td>
+                                    <td>Hafif/orta</td>
+                                    <td>Yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Öksürük</b></td>
+                                    <td>Havlama</td>
+                                    <td>Yok/minimal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pozisyon</b></td>
+                                    <td>Rahat</td>
+                                    <td>Tripod (öne eğilme)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Salya</b></td>
+                                    <td>Yok</td>
+                                    <td>VAR (yutamama)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanı:</b> Klinik (havlar öksürük + stridor)</li>
+                            <li class="feature-item"><b>PCR:</b> Nazofarenks (gerekirse)</li>
+                            <li class="feature-item"><b>Tedavi:</b> Deksametazon (oral/IM) + Nebül epinefrin (ağır)</li>
+                            <li class="feature-item"><b>Aşı:</b> YOK</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Parainfluenza Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PIV-1 = PRİMER KRUP ETKENİ"</b><br>
+                            <b>"HAVLAR ÖKSÜRÜK = KRUP"</b> → Seal bark<br>
+                            <b>"STEEPLE SIGN = KULE SİVRİSİ"</b> → Subglottik daralma<br>
+                            <b>"DEKSametazon = KRUP TEDAVİSİ"</b><br>
+                            <b>"EPİGLOTTİT = ACİL, HIB"</b> (krup değil)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "RSV (Respiratuar Sinsityal Virüs)",
+                icon: "fas fa-baby",
+                content: `
+                    <p><strong>RSV</strong>, süt çocuklarında <b>bronşiolit</b> ve pnömoninin EN SIK nedenidir. Yaşamın ilk yılında ciddi alt solunum yolu enfeksiyonuna neden olur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">RSV Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Önem:</b> Bebeklerde bronşiolit #1 nedeni<br>
+                            <b>Yaş:</b> <2 yaş, pik 2-6 ay<br>
+                            <b>Mevsim:</b> Kış-ilkbahar (Kasım-Mart)<br>
+                            <b>Bulaş:</b> Damlacık, temas (el, fomit)<br>
+                            <b>İnkübasyon:</b> 4-6 gün<br>
+                            <b>İmmünite:</b> Yetersiz, reenfeksiyon sık
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Risk Faktörleri (Ağır Hastalık İçin)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Prematürite</b> (<35 hafta)</li>
+                            <li class="feature-item"><b>Kronik akciğer hastalığı</b> (BPD)</li>
+                            <li class="feature-item"><b>Konjenital kalp hastalığı</b></li>
+                            <li class="feature-item"><b>İmmün yetmezlik</b></li>
+                            <li class="feature-item"><b><6 ay yaş</b></li>
+                            <li class="feature-item"><b>Nöromüsküler hastalık</b></li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>RSV Bronşiyoliti:</strong><br>
+                        • <b>Yaş:</b> <2 yaş (özellikle 2-6 ay)<br>
+                        • <b>Başlangıç:</b> ÜSYE (burun akıntısı, öksürük) → 2-3 günde ASYE<br>
+                        • <b>Bulgular:</b> Takipne, wheezing, göğüste çekilmeler, hışıltı<br>
+                        • <b>Oskültasyon:</b> Bilateral ronküs, ral, ekspiryum uzaması<br>
+                        • <b>X-ray:</b> Hiperinflasyon, peribronşiyal kalınlaşma, atelektazi<br>
+                        • <b>Komplikasyon:</b> Apne (küçük bebeklerde), solunum yetmezliği</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Mevsim + yaş + bulgular genellikle yeterli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rapid antijen testi</b></td>
+                                    <td>Nazofarenks aspirat/sürüntü, hızlı sonuç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>En duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DFA</b></td>
+                                    <td>İmmünfloresan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaklaşım</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Destek tedavi</b></td>
+                                    <td>Oksijen, sıvı, nazal aspirasyon (TEMEL)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bronkodilatör</b></td>
+                                    <td>Rutin ÖNERİLMEZ (fayda kanıtlanmamış)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kortikosteroid</b></td>
+                                    <td>Rutin ÖNERİLMEZ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ribavirin</b></td>
+                                    <td>Ağır/immünsüprese (tartışmalı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antibiyotik</b></td>
+                                    <td>Sadece bakteriyel süperenfeksiyonda</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>RSV Profilaksisi - Palivizumab:</strong><br>
+                        • <b>Nedir:</b> Anti-RSV monoklonal antikor (pasif immünizasyon)<br>
+                        • <b>Endikasyon:</b> Yüksek riskli bebekler (prematüre, BPD, KKH)<br>
+                        • <b>Uygulama:</b> RSV mevsiminde aylık IM enjeksiyon<br>
+                        • <b>Amaç:</b> Hospitalizasyonu azaltmak<br>
+                        • <b>Yeni:</b> Nirsevimab (uzun etkili, tek doz)</p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>RSV Aşısı (2023-2024 Onaylı):</strong><br>
+                        • <b>Arexvy, Abrysvo:</b> 60 yaş üstü erişkinler için onaylı<br>
+                        • <b>Maternal aşı:</b> Gebelikte → Bebekte pasif koruma<br>
+                        • Çocuklar için aşı geliştirme çalışmaları devam ediyor</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">RSV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"RSV = BRONŞİOLİT #1"</b> → Bebeklerde en sık<br>
+                            <b>"2-6 AY = PİK YAŞ"</b><br>
+                            <b>"DESTEK = ANA TEDAVİ"</b> → Bronkodilatör rutin değil<br>
+                            <b>"PALİVİZUMAB = PROFİLAKSİ"</b> → Riskli bebeklere<br>
+                            <b>"KIŞ MEVSİMİ"</b> → Kasım-Mart
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "hMPV ve Nipah/Hendra",
+                icon: "fas fa-virus-slash",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Human Metapneumovirus (hMPV)</h4>
+                        <p>2001'de keşfedilen, RSV benzeri klinik tablo yapan paramiksovirüstür.</p>
+                        
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>RSV'ye çok benzer (bronşiolit, pnömoni)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td><5 yaş çocuklar, yaşlılar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mevsim</b></td>
+                                    <td>Kış-ilkbahar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tanı</b></td>
+                                    <td>PCR (solunum paneli)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Destek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Nipah ve Hendra Virüsleri (Henipavirus)</h4>
+                        <p>Yarasa kaynaklı, yüksek mortaliteli, BSL-4 gerektiren zoonotik paramiksovirüslerdir.</p>
+                        
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Nipah</th>
+                                    <th>Hendra</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Güneydoğu Asya (Bangladeş, Malezya)</td>
+                                    <td>Avustralya</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rezervuar</b></td>
+                                    <td>Meyve yarasası (Pteropus)</td>
+                                    <td>Meyve yarasası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ara konak</b></td>
+                                    <td>Domuz (ilk salgın), direkt de olabilir</td>
+                                    <td>At</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Ensefalit, solunum yetmezliği</td>
+                                    <td>Pnömoni, ensefalit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mortalite</b></td>
+                                    <td>%40-75</td>
+                                    <td>%50-60</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Destek, Ribavirin?</td>
+                                    <td>Destek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Nipah Virüsü - Pandemi Potansiyeli:</strong><br>
+                        • WHO "Disease X" adaylarından biri<br>
+                        • İnsandan insana bulaş mümkün<br>
+                        • Yüksek mortalite (%40-75)<br>
+                        • Aşı/tedavi yok<br>
+                        • Palm şırası (hurma suyu) ile bulaş (yarasa kontaminasyonu)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">hMPV ve Henipavirus Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"hMPV = RSV'NİN KARDEŞİ"</b> → Benzer klinik<br>
+                            <b>"NİPAH = YARASA + ENSEFALİT"</b> → Yüksek mortalite<br>
+                            <b>"HENDRA = AT + AVUSTRALYA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Koplik lekesi:</b> Kızamığa patognomonik<br>
+                            2. <b>SSPE:</b> Kızamıktan 7-10 yıl sonra, miyokloni, fatal<br>
+                            3. <b>Krup etkeni:</b> Parainfluenza-1 EN SIK<br>
+                            4. <b>Bronşiolit etkeni:</b> RSV EN SIK (bebeklerde)<br>
+                            5. <b>Kabakulak orşiti:</b> Sadece postpubertal
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Paramiksovirüsler Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Ana Hastalık</th>
+                                    <th>Önemli Komplikasyon</th>
+                                    <th>Aşı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kızamık</b></td>
+                                    <td>Döküntülü hastalık</td>
+                                    <td>SSPE, pnömoni</td>
+                                    <td>KKK (canlı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kabakulak</b></td>
+                                    <td>Parotit</td>
+                                    <td>Orşit, menenjit</td>
+                                    <td>KKK (canlı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Parainfluenza</b></td>
+                                    <td>KRUP</td>
+                                    <td>Solunum obstrüksiyonu</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>RSV</b></td>
+                                    <td>BRONŞİOLİT</td>
+                                    <td>Solunum yetmezliği</td>
+                                    <td>Yeni onaylı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hastalık-Yaş-Etken İlişkisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>En Sık Yaş</th>
+                                    <th>En Sık Etken</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bronşiolit</b></td>
+                                    <td>2-6 ay</td>
+                                    <td>RSV</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Krup</b></td>
+                                    <td>6 ay - 3 yaş</td>
+                                    <td>Parainfluenza-1</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epiglottit</b></td>
+                                    <td>2-7 yaş</td>
+                                    <td>H. influenzae tip b</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KOPLİK = KIZAMIK"</b> → Patognomonik<br>
+                            <b>"SSPE = 7-10 YIL"</b> → Kızamık geç komplikasyonu<br>
+                            <b>"HAVLAR ÖKSÜRÜK = KRUP = PIV-1"</b><br>
+                            <b>"BRONŞİOLİT = BEBEK = RSV"</b><br>
+                            <b>"ORŞİT = POSTPUBERTAL = KABAKULAK"</b><br>
+                            <b>"PALİVİZUMAB = RSV PROFİLAKSİ"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Koplik lekesi =</b> Kızamık PATOGNOMONİK<br>
+                            2. <b>SSPE =</b> Kızamıktan yıllar sonra, miyokloni, ölümcül<br>
+                            3. <b>Kızamık döküntüsü =</b> Yukarıdan aşağı (yüz → gövde → ekstremite)<br>
+                            4. <b>Krup'un en sık etkeni =</b> Parainfluenza-1<br>
+                            5. <b>Bebekte bronşiolit =</b> RSV düşün<br>
+                            6. <b>RSV bronşiolitte tedavi =</b> DESTEK (bronkodilatör rutin değil)<br>
+                            7. <b>Kabakulak orşiti =</b> POSTPUBERTAL erkeklerde<br>
+                            8. <b>Steeple sign =</b> Krup (subglottik daralma)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Bukkal mukozada beyaz noktalar, döküntü öncesi?" → Koplik lekesi (kızamık)</li>
+                        <li><b>Soru tipi:</b> "7 yıl önce kızamık geçirmiş, miyokloni, demans?" → SSPE</li>
+                        <li><b>Soru tipi:</b> "2 yaş, havlar öksürük, stridor, steeple sign?" → Krup (PIV-1)</li>
+                        <li><b>Soru tipi:</b> "3 aylık bebek, wheezing, takipne, kış mevsimi?" → RSV bronşioliti</li>
+                        <li><b>Soru tipi:</b> "Bilateral parotit, 1 hafta sonra testis ağrısı?" → Kabakulak orşiti</li>
+                        <li><b>Soru tipi:</b> "RSV bronşiolitte ilk tedavi?" → Oksijen + sıvı (destek)</li>
+                        <li><b>Soru tipi:</b> "Prematüre bebeğe RSV profilaksisi?" → Palivizumab</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 19,
+        category: "laboratuvar",
+        title: "Klinik Laboratuvar: Temel Kavramlar",
+        subtitle: "Duyarlılık, Özgüllük, Doğruluk, Tekrarlanabilirlik ve Kalite Kontrol",
+        summary: "Tanı testlerinin değerlendirilmesi ve laboratuvar kalite kontrolünün kapsamlı özeti. Duyarlılık (sensitivity), özgüllük (specificity), PPV, NPV, likelihood ratio, ROC eğrisi. Doğruluk, kesinlik, tekrarlanabilirlik, Westgard kuralları ve referans aralıkları.",
+        tags: ["Duyarlılık", "Özgüllük", "PPV", "NPV", "ROC", "Kalite Kontrol", "Westgard", "Laboratuvar"],
+        sections: [
+            {
+                title: "Tanısal Test Performansı: Giriş",
+                icon: "fas fa-vials",
+                content: `
+                    <p>Tanı testlerinin klinik değeri, <strong>analitik performans</strong> (laboratuvar ölçüm kalitesi) ve <strong>tanısal performans</strong> (hastalığı ayırt etme yeteneği) ile belirlenir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Temel Kavramlar</p>
+                        <p class="highlight-box__content">
+                            <b>Analitik performans:</b> Testin ölçüm kalitesi (doğruluk, kesinlik)<br>
+                            <b>Tanısal performans:</b> Hastalığı tespit etme yeteneği (duyarlılık, özgüllük)<br>
+                            <b>Klinik karar:</b> Test sonucunun hasta yönetimini değiştirme gücü
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2x2 Tablo (Tanı Testinin Temeli)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Hastalık VAR (D+)</th>
+                                    <th>Hastalık YOK (D-)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Test POZİTİF (T+)</b></td>
+                                    <td><b>Gerçek Pozitif (GP)</b><br>a</td>
+                                    <td><b>Yanlış Pozitif (YP)</b><br>b</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Test NEGATİF (T-)</b></td>
+                                    <td><b>Yanlış Negatif (YN)</b><br>c</td>
+                                    <td><b>Gerçek Negatif (GN)</b><br>d</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Altın Standart (Gold Standard):</strong><br>
+                        Hastalığın kesin tanısı için kullanılan referans yöntemdir.<br>
+                        • Biyopsi, cerrahi bulgu, uzun süreli takip, otopsi<br>
+                        • Yeni testin performansı altın standartla karşılaştırılarak ölçülür</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">2x2 Tablo Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GP = Gerçek Pozitif"</b> → Hasta + Test pozitif (doğru)<br>
+                            <b>"YP = Yanlış Pozitif"</b> → Sağlam + Test pozitif (hata)<br>
+                            <b>"YN = Yanlış Negatif"</b> → Hasta + Test negatif (hata)<br>
+                            <b>"GN = Gerçek Negatif"</b> → Sağlam + Test negatif (doğru)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Duyarlılık ve Özgüllük",
+                icon: "fas fa-bullseye",
+                content: `
+                    <p><strong>Duyarlılık</strong> ve <strong>özgüllük</strong>, bir testin intrinsik özellikleridir ve prevalanstan bağımsızdır.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Duyarlılık (Sensitivity)</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">Duyarlılık Tanımı</p>
+                            <p class="highlight-box__content">
+                                <b>Tanım:</b> Gerçek hastaların ne kadarını tespit edebilme oranı<br>
+                                <b>Formül:</b> Duyarlılık = GP / (GP + YN) = a / (a + c)<br>
+                                <b>Soru:</b> "Hasta olanların kaçında test pozitif?"<br>
+                                <b>Diğer isim:</b> True Positive Rate (TPR), Recall
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özgüllük (Specificity)</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">Özgüllük Tanımı</p>
+                            <p class="highlight-box__content">
+                                <b>Tanım:</b> Sağlam kişilerin ne kadarını doğru tanımlama oranı<br>
+                                <b>Formül:</b> Özgüllük = GN / (GN + YP) = d / (d + b)<br>
+                                <b>Soru:</b> "Sağlam olanların kaçında test negatif?"<br>
+                                <b>Diğer isim:</b> True Negative Rate (TNR)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Karşılaştırma Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Duyarlılık</th>
+                                    <th>Özgüllük</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Odak</b></td>
+                                    <td>HASTALAR</td>
+                                    <td>SAĞLAMLAR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Azaltır</b></td>
+                                    <td>Yanlış negatif</td>
+                                    <td>Yanlış pozitif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kullanım</b></td>
+                                    <td>TARAMA testi</td>
+                                    <td>DOĞRULAMA testi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Amaç</b></td>
+                                    <td>Hastalığı KAÇIRMAMAK</td>
+                                    <td>Sağlamı YANLIŞ ETİKETLEMEMEK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SnNout ve SpPin Kuralları:</strong><br><br>
+                        <b>SnNout:</b> Yüksek Se(n)sitivity → Negatif sonuç hastalığı dışlar (rule out)<br>
+                        <i>"Duyarlılığı yüksek test negatifse, hasta değildir"</i><br><br>
+                        <b>SpPin:</b> Yüksek Sp(ecificity) → Pozitif sonuç hastalığı doğrular (rule in)<br>
+                        <i>"Özgüllüğü yüksek test pozitifse, hastadır"</i></p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Duyarlılık-Özgüllük Dengesi (Trade-off):</strong><br>
+                        • Cut-off değeri düşürülürse → Duyarlılık ↑, Özgüllük ↓<br>
+                        • Cut-off değeri yükseltilirse → Duyarlılık ↓, Özgüllük ↑<br>
+                        • İkisi aynı anda artırılamaz (sabit testte)<br>
+                        • ROC eğrisi bu dengeyi görselleştirir</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Duyarlılık-Özgüllük Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DUYARLI = HASTA DUYAR"</b> → Hastaları yakalar<br>
+                            <b>"ÖZGÜL = SAĞLAM ÖZGÜR"</b> → Sağlamları serbest bırakır<br>
+                            <b>"SnNout = Sensitivity Negative rules OUT"</b><br>
+                            <b>"SpPin = Specificity Positive rules IN"</b><br>
+                            <b>"TARAMA = DUYARLI, DOĞRULAMA = ÖZGÜL"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Prediktif Değerler (PPV ve NPV)",
+                icon: "fas fa-percentage",
+                content: `
+                    <p><strong>Prediktif değerler</strong>, test sonucunun gerçek hastalık durumunu ne kadar iyi yansıttığını gösterir. Prevalanstan ETKİLENİR!</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pozitif Prediktif Değer (PPV)</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">PPV Tanımı</p>
+                            <p class="highlight-box__content">
+                                <b>Tanım:</b> Test pozitif olanların gerçekten hasta olma olasılığı<br>
+                                <b>Formül:</b> PPV = GP / (GP + YP) = a / (a + b)<br>
+                                <b>Soru:</b> "Test pozitif çıktı, gerçekten hasta mı?"<br>
+                                <b>Diğer isim:</b> Precision
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Negatif Prediktif Değer (NPV)</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">NPV Tanımı</p>
+                            <p class="highlight-box__content">
+                                <b>Tanım:</b> Test negatif olanların gerçekten sağlam olma olasılığı<br>
+                                <b>Formül:</b> NPV = GN / (GN + YN) = d / (d + c)<br>
+                                <b>Soru:</b> "Test negatif çıktı, gerçekten sağlam mı?"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>PREVALANSIN ETKİSİ (ÇOK ÖNEMLİ!):</strong><br><br>
+                        <b>Prevalans ARTARSA:</b><br>
+                        • PPV ↑ (pozitif sonuç daha anlamlı)<br>
+                        • NPV ↓<br><br>
+                        <b>Prevalans AZALIRSA:</b><br>
+                        • PPV ↓ (yanlış pozitif artar)<br>
+                        • NPV ↑<br><br>
+                        <i>Duyarlılık ve özgüllük prevalanstan ETKİLENMEZ!</i></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Prevalans Etkisi Örneği</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Senaryo</th>
+                                    <th>Prevalans</th>
+                                    <th>PPV</th>
+                                    <th>NPV</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HIV testi - Genel toplum</td>
+                                    <td>%0.1</td>
+                                    <td>Düşük (~%50)</td>
+                                    <td>Çok yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td>HIV testi - Risk grubu</td>
+                                    <td>%10</td>
+                                    <td>Yüksek (~%95)</td>
+                                    <td>Yüksek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><i>Aynı test, farklı popülasyonlarda farklı PPV verir!</i></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Prediktif Değer Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PPV = Pozitif → Pozitif mi gerçekten?"</b><br>
+                            <b>"NPV = Negatif → Negatif mi gerçekten?"</b><br>
+                            <b>"PREVALANS ↑ = PPV ↑"</b><br>
+                            <b>"PREVALANS ↓ = NPV ↑"</b><br>
+                            <b>"Duyarlılık/Özgüllük = SABİT (prevalanstan bağımsız)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Likelihood Ratio (Olabilirlik Oranı)",
+                icon: "fas fa-balance-scale",
+                content: `
+                    <p><strong>Likelihood Ratio (LR)</strong>, test sonucunun hastalık olasılığını ne kadar değiştirdiğini gösteren güçlü bir metriktir. Prevalanstan bağımsızdır.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">LR Formülleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Formül</th>
+                                    <th>Anlam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>LR+ (Pozitif)</b></td>
+                                    <td>Duyarlılık / (1 - Özgüllük)<br>= TPR / FPR</td>
+                                    <td>Pozitif sonuç hastalık olasılığını kaç kat artırır?</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LR- (Negatif)</b></td>
+                                    <td>(1 - Duyarlılık) / Özgüllük<br>= FNR / TNR</td>
+                                    <td>Negatif sonuç hastalık olasılığını kaç kat azaltır?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">LR Değerlerinin Yorumu</p>
+                        <p class="highlight-box__content">
+                            <b>LR+ > 10:</b> Çok güçlü → Hastalığı güçle doğrular<br>
+                            <b>LR+ = 5-10:</b> Orta güçlü<br>
+                            <b>LR+ = 2-5:</b> Zayıf<br>
+                            <b>LR+ = 1:</b> Değersiz (test bilgi vermez)<br><br>
+                            <b>LR- < 0.1:</b> Çok güçlü → Hastalığı güçle dışlar<br>
+                            <b>LR- = 0.1-0.2:</b> Orta güçlü<br>
+                            <b>LR- = 0.2-0.5:</b> Zayıf<br>
+                            <b>LR- = 1:</b> Değersiz
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pre-test → Post-test Olasılık</h4>
+                        <p>LR kullanılarak pre-test olasılıktan (prevalans) post-test olasılık hesaplanır:</p>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Pre-test odds:</b> Prevalans / (1 - Prevalans)</li>
+                            <li class="feature-item"><b>Post-test odds:</b> Pre-test odds × LR</li>
+                            <li class="feature-item"><b>Post-test probability:</b> Post-test odds / (1 + Post-test odds)</li>
+                            <li class="feature-item"><b>Fagan nomogramı:</b> Grafiksel olarak hesaplama</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>LR'nin Avantajı:</strong><br>
+                        • Duyarlılık ve özgüllüğü tek değerde birleştirir<br>
+                        • Prevalanstan bağımsız (farklı popülasyonlarda geçerli)<br>
+                        • Pre-test → Post-test olasılık hesaplamaya olanak verir<br>
+                        • Ardışık testleri değerlendirmede kullanılır</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">LR Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"LR+ YÜKSEK = Pozitif sonuç GÜVENİLİR"</b> (>10 çok iyi)<br>
+                            <b>"LR- DÜŞÜK = Negatif sonuç GÜVENİLİR"</b> (<0.1 çok iyi)<br>
+                            <b>"LR = 1 → Test İŞE YARAMAZ"</b><br>
+                            <b>"LR = Duyarlılık ve Özgüllüğün BİRLEŞİMİ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "ROC Eğrisi ve AUC",
+                icon: "fas fa-chart-line",
+                content: `
+                    <p><strong>ROC (Receiver Operating Characteristic) eğrisi</strong>, farklı cut-off değerlerinde testin duyarlılık-özgüllük dengesini görselleştirir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">ROC Eğrisi Yapısı</p>
+                        <p class="highlight-box__content">
+                            <b>X ekseni:</b> 1 - Özgüllük (= Yanlış Pozitif Oranı, FPR)<br>
+                            <b>Y ekseni:</b> Duyarlılık (= Gerçek Pozitif Oranı, TPR)<br>
+                            <b>Her nokta:</b> Farklı bir cut-off değeri<br>
+                            <b>İdeal nokta:</b> Sol üst köşe (duyarlılık=1, FPR=0)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">AUC (Area Under Curve) Değerlendirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>AUC Değeri</th>
+                                    <th>Yorum</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>0.9 - 1.0</b></td>
+                                    <td>Mükemmel</td>
+                                    <td>Çok iyi ayırt edici</td>
+                                </tr>
+                                <tr>
+                                    <td><b>0.8 - 0.9</b></td>
+                                    <td>İyi</td>
+                                    <td>Klinik kullanım için uygun</td>
+                                </tr>
+                                <tr>
+                                    <td><b>0.7 - 0.8</b></td>
+                                    <td>Orta</td>
+                                    <td>Kabul edilebilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>0.6 - 0.7</b></td>
+                                    <td>Zayıf</td>
+                                    <td>Sınırlı kullanım</td>
+                                </tr>
+                                <tr>
+                                    <td><b>0.5</b></td>
+                                    <td>Değersiz</td>
+                                    <td>Şans düzeyi (yazı-tura)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>ROC Eğrisinde Cut-off Seçimi:</strong><br>
+                        • <b>Youden index (J):</b> Duyarlılık + Özgüllük - 1 → Maksimum noktası optimal<br>
+                        • <b>Sol üst köşeye en yakın:</b> Geometrik olarak optimal<br>
+                        • <b>Klinik bağlam:</b> Hastalık ciddi ise → Duyarlılık öncelikli<br>
+                        • <b>Tedavi riskli ise:</b> Özgüllük öncelikli</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İki Testin Karşılaştırılması</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>AUC karşılaştırması:</b> Yüksek AUC = Daha iyi test</li>
+                            <li class="feature-item"><b>ROC eğrileri karşılaştırması:</b> Üstte kalan eğri daha iyi</li>
+                            <li class="feature-item"><b>DeLong testi:</b> İki AUC arasındaki farkın istatistiksel anlamlılığı</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ROC Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ROC = Sensitivity vs 1-Specificity"</b><br>
+                            <b>"SOL ÜST = İDEAL"</b> → %100 duyarlı, %100 özgül<br>
+                            <b>"AUC = 0.5 = YAZTURA"</b> → Şans düzeyi<br>
+                            <b>"AUC = 1.0 = MÜKEMMEL"</b><br>
+                            <b>"YOUDEN INDEX = Maximum (Sens + Spec - 1)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Doğruluk ve Kesinlik (Analitik Performans)",
+                icon: "fas fa-crosshairs",
+                content: `
+                    <p><strong>Analitik performans</strong>, laboratuvar ölçümlerinin kalitesini değerlendirir. Doğruluk ve kesinlik farklı kavramlardır!</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Doğruluk vs Kesinlik</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kavram</th>
+                                    <th>İngilizce</th>
+                                    <th>Tanım</th>
+                                    <th>Ölçüm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Doğruluk</b></td>
+                                    <td>Accuracy</td>
+                                    <td>Gerçek değere yakınlık</td>
+                                    <td>Bias (sapma)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kesinlik</b></td>
+                                    <td>Precision</td>
+                                    <td>Tekrarlanan ölçümlerin birbirine yakınlığı</td>
+                                    <td>CV%, SD</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 Dart Tahtası Analojisi</p>
+                        <p class="highlight-box__content">
+                            <b>Doğru + Kesin:</b> Tüm oklar merkezde, birbirine yakın ✓✓<br>
+                            <b>Doğru + Kesin değil:</b> Oklar merkez etrafında dağınık<br>
+                            <b>Doğru değil + Kesin:</b> Oklar bir kenarda ama birbirine yakın<br>
+                            <b>Doğru değil + Kesin değil:</b> Oklar dağınık ve merkez dışı ✗✗
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tekrarlanabilirlik Türleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kavram</th>
+                                    <th>İngilizce</th>
+                                    <th>Koşullar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tekrarlanabilirlik</b></td>
+                                    <td>Repeatability</td>
+                                    <td>AYNI koşullar (cihaz, operatör, gün)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tekrarüretilebilirlik</b></td>
+                                    <td>Reproducibility</td>
+                                    <td>FARKLI koşullar (farklı lab, cihaz, zaman)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hata Türleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hata Türü</th>
+                                    <th>Özellik</th>
+                                    <th>Etki</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sistematik hata</b></td>
+                                    <td>Tek yönlü, sabit</td>
+                                    <td>Doğruluğu bozar (bias)</td>
+                                    <td>Kalibrasyon hatası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rastgele hata</b></td>
+                                    <td>Değişken, öngörülemez</td>
+                                    <td>Kesinliği bozar</td>
+                                    <td>Pipetleme varyasyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>CV% (Varyasyon Katsayısı):</strong><br>
+                        <b>Formül:</b> CV% = (SD / Ortalama) × 100<br>
+                        <b>Anlam:</b> Kesinliğin göstergesi, düşük = iyi<br>
+                        <b>Kabul edilebilir:</b> Genellikle <%5-10 (teste göre değişir)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Doğruluk-Kesinlik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DOĞRULUK = GERÇEĞE YAKINLIK"</b> → Bias<br>
+                            <b>"KESİNLİK = BİRBİRİNE YAKINLIK"</b> → CV%, SD<br>
+                            <b>"SİSTEMATİK = DOĞRULUĞU BOZAR"</b><br>
+                            <b>"RASTGELE = KESİNLİĞİ BOZAR"</b><br>
+                            <b>"REPEATABILITY = AYNI LAB"</b><br>
+                            <b>"REPRODUCIBILITY = FARKLI LAB"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kalite Kontrol ve Westgard Kuralları",
+                icon: "fas fa-chart-bar",
+                content: `
+                    <p><strong>İç kalite kontrol (İKK)</strong>, laboratuvar sonuçlarının güvenilirliğini sürekli izler. <strong>Westgard kuralları</strong> kontrol dışı durumları tespit eder.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Levey-Jennings Grafiği</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">Levey-Jennings Yapısı</p>
+                            <p class="highlight-box__content">
+                                <b>X ekseni:</b> Zaman/Çalışma numarası<br>
+                                <b>Y ekseni:</b> Kontrol materyali sonucu<br>
+                                <b>Orta çizgi:</b> Ortalama (hedef değer)<br>
+                                <b>Sınırlar:</b> ±1SD, ±2SD, ±3SD<br>
+                                <b>Kabul sınırı:</b> Genellikle ±2SD içinde
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Westgard Kuralları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kural</th>
+                                    <th>Tanım</th>
+                                    <th>Hata Türü</th>
+                                    <th>Aksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1₂ₛ</b></td>
+                                    <td>1 sonuç ±2SD dışında</td>
+                                    <td>UYARI (tek başına ret değil)</td>
+                                    <td>Diğer kurallara bak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>1₃ₛ</b></td>
+                                    <td>1 sonuç ±3SD dışında</td>
+                                    <td>Rastgele hata</td>
+                                    <td><b>REDdet</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>2₂ₛ</b></td>
+                                    <td>2 ardışık sonuç +2SD veya -2SD dışında</td>
+                                    <td>Sistematik hata</td>
+                                    <td><b>REDdet</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>R₄ₛ</b></td>
+                                    <td>2 kontrol arasında 4SD fark</td>
+                                    <td>Rastgele hata</td>
+                                    <td><b>REDdet</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>4₁ₛ</b></td>
+                                    <td>4 ardışık sonuç +1SD veya -1SD dışında</td>
+                                    <td>Sistematik hata (trend)</td>
+                                    <td><b>REDdet</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>10x̄</b></td>
+                                    <td>10 ardışık sonuç ortalamanın bir tarafında</td>
+                                    <td>Sistematik hata (shift)</td>
+                                    <td><b>REDdet</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Westgard Kural İhlali Tespit Edilirse:</strong><br>
+                        1. Hasta sonuçları <b>RAPORLANMAZ</b><br>
+                        2. Sorun araştırılır (kontrol, kalibrasyon, reaktif)<br>
+                        3. Sorun giderildikten sonra kontrol tekrarlanır<br>
+                        4. Kontrol kabul edilirse hasta örnekleri tekrar çalışılır</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Trend vs Shift</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Patern</th>
+                                    <th>Tanım</th>
+                                    <th>Olası Neden</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Trend</b></td>
+                                    <td>Yavaşça tek yöne kayma</td>
+                                    <td>Reaktif bozulması, kalibratör stabilitesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Shift</b></td>
+                                    <td>Ani seviye değişikliği</td>
+                                    <td>Yeni lot reaktif, kalibrasyon değişikliği</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Westgard Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"1₃ₛ = TEK AŞIRI = RASTGELE"</b> → 3SD dışı → Ret<br>
+                            <b>"2₂ₛ = İKİ ARDIŞIK = SİSTEMATİK"</b> → Aynı taraf 2SD<br>
+                            <b>"10x̄ = 10 AYNI TARAF = SHİFT"</b> → Sistematik<br>
+                            <b>"TREND = YAVAŞ KAYMA"</b> → Bozulma<br>
+                            <b>"SHİFT = ANİ DEĞIŞIM"</b> → Yeni lot
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Referans Aralıkları ve Kritik Değerler",
+                icon: "fas fa-ruler-combined",
+                content: `
+                    <p><strong>Referans aralığı</strong>, sağlıklı bireylerin %95'inin değerlerini kapsayan aralıktır. <strong>Kritik değerler</strong> acil müdahale gerektiren sonuçlardır.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Referans Aralığı Belirleme</h4>
+                        <div class="highlight-box">
+                            <p class="highlight-box__title">Referans Aralığı Özellikleri</p>
+                            <p class="highlight-box__content">
+                                <b>Tanım:</b> Sağlıklı bireylerin merkezi %95'lik dilimi<br>
+                                <b>Yöntem:</b> Ortalama ± 2SD (Gaussian dağılım)<br>
+                                <b>Non-parametrik:</b> 2.5 - 97.5 persentil<br>
+                                <b>Minimum N:</b> CLSI önerisine göre 120 birey
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Referans Aralığı = Normal Aralık DEĞİL!</strong><br>
+                        • Sağlıklı bireylerin %5'i referans aralığı dışında olabilir<br>
+                        • Hastalık olmaması garantisi değildir<br>
+                        • Her popülasyon için farklı olabilir (yaş, cinsiyet, etnisite)<br>
+                        • Laboratuvarlar kendi referans aralıklarını doğrulamalı</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Referans Aralığını Etkileyen Faktörler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Yaş:</b> ALP (çocuklarda yüksek), kreatinin (yaşlılarda değişken)</li>
+                            <li class="feature-item"><b>Cinsiyet:</b> Hemoglobin, kreatinin, AST</li>
+                            <li class="feature-item"><b>Gebelik:</b> hCG, AFP, hemoglobin (fizyolojik anemi)</li>
+                            <li class="feature-item"><b>Diyet:</b> Glukoz, lipidler</li>
+                            <li class="feature-item"><b>Sirkadiyen ritim:</b> Kortizol, TSH</li>
+                            <li class="feature-item"><b>Pozisyon:</b> Ayakta durma → Hematokrit artışı</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kritik (Panik) Değerler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Kritik Düşük</th>
+                                    <th>Kritik Yüksek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Glukoz</b></td>
+                                    <td><40 mg/dL</td>
+                                    <td>>500 mg/dL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Potasyum</b></td>
+                                    <td><2.5 mEq/L</td>
+                                    <td>>6.5 mEq/L</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sodyum</b></td>
+                                    <td><120 mEq/L</td>
+                                    <td>>160 mEq/L</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kalsiyum</b></td>
+                                    <td><6.5 mg/dL</td>
+                                    <td>>13 mg/dL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hemoglobin</b></td>
+                                    <td><7 g/dL</td>
+                                    <td>>20 g/dL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trombosit</b></td>
+                                    <td><20.000/µL</td>
+                                    <td>>1.000.000/µL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kritik Değer Protokolü:</strong><br>
+                        • Kritik değer tespit edilince <b>HEMEN</b> doğrulama<br>
+                        • Sonuç doğrulanırsa <b>30 DAKİKA</b> içinde klinisyene bildirim<br>
+                        • Bildirimi yapan ve alan kişi BELGELENMELI<br>
+                        • Bildirim telefon ile, yazılı/elektronik kayıt<br>
+                        • Ulaşılamazsa alternatif kişiye bildirim</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Referans ve Kritik Değer Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"REFERANS = %95 SAĞLIKLI"</b> → %5 dışarıda olabilir<br>
+                            <b>"KRİTİK = PANİK = ACİL BİLDİRİM"</b><br>
+                            <b>"30 DAKİKA KURALI"</b> → Kritik değer bildirimi<br>
+                            <b>"K+ >6.5 = KALBİ DURDURUR"</b> → Kritik!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Duyarlılık formülü:</b> GP / (GP + YN)<br>
+                            2. <b>Özgüllük formülü:</b> GN / (GN + YP)<br>
+                            3. <b>PPV prevalanstan etkilenir:</b> Prevalans ↑ = PPV ↑<br>
+                            4. <b>SnNout / SpPin:</b> Tarama vs doğrulama<br>
+                            5. <b>Westgard 1₃ₛ:</b> 3SD dışı = Ret
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Formül Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Formül</th>
+                                    <th>Anlam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Duyarlılık</b></td>
+                                    <td>a / (a + c)</td>
+                                    <td>Hastaları yakalama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özgüllük</b></td>
+                                    <td>d / (b + d)</td>
+                                    <td>Sağlamları ayırma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PPV</b></td>
+                                    <td>a / (a + b)</td>
+                                    <td>Pozitif → gerçek hasta?</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NPV</b></td>
+                                    <td>d / (c + d)</td>
+                                    <td>Negatif → gerçek sağlam?</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LR+</b></td>
+                                    <td>Sens / (1-Spec)</td>
+                                    <td>Pozitif sonucun gücü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LR-</b></td>
+                                    <td>(1-Sens) / Spec</td>
+                                    <td>Negatif sonucun gücü</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Prevalans Etkisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Prevalans Artar</th>
+                                    <th>Prevalans Azalır</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Duyarlılık</b></td>
+                                    <td>Değişmez</td>
+                                    <td>Değişmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özgüllük</b></td>
+                                    <td>Değişmez</td>
+                                    <td>Değişmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PPV</b></td>
+                                    <td>↑ ARTAR</td>
+                                    <td>↓ Azalır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NPV</b></td>
+                                    <td>↓ Azalır</td>
+                                    <td>↑ Artar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DUYARLI = HASTA DUYAR"</b> → a/(a+c)<br>
+                            <b>"ÖZGÜL = SAĞLAM ÖZGÜR"</b> → d/(b+d)<br>
+                            <b>"SnNout = Duyarlı test negatifse DIŞLA"</b><br>
+                            <b>"SpPin = Özgül test pozitifse DOĞRULA"</b><br>
+                            <b>"PREVALANS = PPV ile DOĞRU ORANTILI"</b><br>
+                            <b>"ROC SOL ÜST = İDEAL"</b><br>
+                            <b>"1₃ₛ = 3SD = REDdet"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Duyarlılık =</b> GP / (GP + YN) = Hasta yakalama<br>
+                            2. <b>Özgüllük =</b> GN / (GN + YP) = Sağlam ayırma<br>
+                            3. <b>PPV prevalanstan ETKİLENİR</b> (Sens/Spec etkilenmez)<br>
+                            4. <b>Tarama testi =</b> Yüksek duyarlılık (SnNout)<br>
+                            5. <b>Doğrulama testi =</b> Yüksek özgüllük (SpPin)<br>
+                            6. <b>AUC = 0.5 =</b> Test işe yaramaz (şans)<br>
+                            7. <b>Westgard 1₃ₛ =</b> 3SD dışı → Ret<br>
+                            8. <b>Kritik değer =</b> 30 dakikada bildirim
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "100 hasta, 90'ında test pozitif. Duyarlılık?" → %90 (90/100)</li>
+                        <li><b>Soru tipi:</b> "Tarama testinde hangi özellik öncelikli?" → Duyarlılık (SnNout)</li>
+                        <li><b>Soru tipi:</b> "Prevalans artınca ne değişir?" → PPV artar, NPV azalır</li>
+                        <li><b>Soru tipi:</b> "ROC eğrisinde AUC=0.5 ne anlama gelir?" → Test değersiz</li>
+                        <li><b>Soru tipi:</b> "Westgard kurallarından hangisi rastgele hatayı gösterir?" → 1₃ₛ, R₄ₛ</li>
+                        <li><b>Soru tipi:</b> "Kesinlik ve doğruluk arasındaki fark?" → Kesinlik=tekrar, Doğruluk=gerçeğe yakınlık</li>
+                        <li><b>Soru tipi:</b> "Kritik değer tespit edilince ne yapılır?" → Doğrula, 30 dk içinde bildir</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
