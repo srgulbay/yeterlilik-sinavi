@@ -13194,6 +13194,1606 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 20,
+        category: "mikoloji",
+        title: "Aspergillus ve Aspergilloz",
+        subtitle: "ABPA, Aspergilloma, İnvaziv Aspergilloz ve Tanı",
+        summary: "Aspergillus türlerinin kapsamlı özeti. A. fumigatus, A. flavus, A. niger özellikleri. Alerjik bronkopulmoner aspergilloz (ABPA), aspergilloma, invaziv aspergilloz, galaktomannan testi ve tedavi yaklaşımları.",
+        tags: ["Aspergillus", "ABPA", "Aspergilloma", "İnvaziv", "Galaktomannan", "Vorikonazol", "Mikoloji"],
+        sections: [
+            {
+                title: "Genel Özellikler ve Epidemiyoloji",
+                icon: "fas fa-wind",
+                content: `
+                    <p><strong>Aspergillus</strong>, doğada yaygın bulunan, saprofit, septalı hifler oluşturan küf mantarlarıdır. Sporları (konidyalar) havada sürekli bulunur ve inhalasyonla bulaşır. İmmünkompetan bireylerde genellikle hastalık yapmaz, ancak immünsüpresyonda ağır invaziv enfeksiyonlara neden olur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Aspergillus - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Sınıflandırma:</b> Küf mantarı (mold), Hyalohyphomycetes<br>
+                            <b>Morfoloji:</b> Septalı hifler, 45° açılı dallanma<br>
+                            <b>Üreme:</b> Aseksüel (konidyofor → konidya/spor)<br>
+                            <b>Yaygınlık:</b> Toprak, çürümüş bitkiler, inşaat alanları, hastane havalandırma sistemleri
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Önemi Olan Aspergillus Türleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Sıklık</th>
+                                    <th>Özel Özellik</th>
+                                    <th>Klinik İlişki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>A. fumigatus</b></td>
+                                    <td><strong>En sık (%90)</strong></td>
+                                    <td>Termofilik (37-42°C), mavi-yeşil koloni</td>
+                                    <td>İnvaziv aspergilloz, ABPA</td>
+                                </tr>
+                                <tr>
+                                    <td><b>A. flavus</b></td>
+                                    <td>2. sık</td>
+                                    <td>Sarı-yeşil koloni, AFLATOKSİN üretir</td>
+                                    <td>Sinüs enfeksiyonu, keratit, HCC riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>A. niger</b></td>
+                                    <td>3. sık</td>
+                                    <td>Siyah koloni, oksalik asit üretir</td>
+                                    <td>Otomikoz (kulak), aspergilloma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>A. terreus</b></td>
+                                    <td>Nadir</td>
+                                    <td>Tarçın rengi koloni</td>
+                                    <td><b>AmB'ye intrinsik dirençli!</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>A. nidulans</b></td>
+                                    <td>Nadir</td>
+                                    <td>Yeşil koloni</td>
+                                    <td>Kronik granülomatöz hastalık (CGD)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>A. flavus = AFLATOKSİN!</strong><br>
+                        A. flavus ve A. parasiticus aflatoksin üretir. Aflatoksin B1 en güçlü doğal hepatokarsinojendir. Kontamine tahıl, fıstık, mısır ile bulaşır. <b>Hepatosellüler karsinom (HCC)</b> riski artar!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Risk Faktörleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Nötropeni:</b> En önemli risk faktörü (AML, KIT sonrası)</li>
+                            <li class="feature-item"><b>Kortikosteroid:</b> Yüksek doz, uzun süreli</li>
+                            <li class="feature-item"><b>HSCT/Solid organ transplantasyonu:</b> İmmünsüpresyon</li>
+                            <li class="feature-item"><b>CGD (Kronik granülomatöz hastalık):</b> NADPH oksidaz defekti</li>
+                            <li class="feature-item"><b>HIV/AIDS:</b> CD4 <100</li>
+                            <li class="feature-item"><b>KOAH, kistik fibrozis:</b> ABPA riski</li>
+                            <li class="feature-item"><b>Önceden tüberküloz/kavite:</b> Aspergilloma riski</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aspergillus Türleri Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FUMİGATUS = FUMİGasyon (en sık, her yerde)"</b><br>
+                            <b>"FLAVUS = FLAVor (tat) = AFLATOKSİN = KARACİĞER"</b><br>
+                            <b>"NİGER = NİGHT (siyah) = KULAK (otomikoz)"</b><br>
+                            <b>"TERREUS = TERRİBLE AmB direnç"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Aspergilloz Klinik Formları",
+                icon: "fas fa-lungs",
+                content: `
+                    <p>Aspergilloz, konak immün durumuna göre farklı klinik tablolara neden olur. Üç ana klinik form tanımlanır:</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Aspergilloz Spektrumu</p>
+                        <p class="highlight-box__content">
+                            <b>Alerjik:</b> ABPA (Tip I + III hipersensitivite) → İmmünkompetan, atopik<br>
+                            <b>Kronik/Saprofit:</b> Aspergilloma (fungus ball) → Kaviter hastalık<br>
+                            <b>İnvaziv:</b> Akut invaziv aspergilloz → Nötropenik, immünsüprese
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Alerjik Bronkopulmoner Aspergilloz (ABPA)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tanım</b></td>
+                                    <td>A. fumigatus antijenlerine aşırı immün yanıt</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hasta grubu</b></td>
+                                    <td>Astım, kistik fibrozis hastaları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>Tip I (IgE) + Tip III (immün kompleks) hipersensitivite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Tekrarlayan wheezing, öksürük, balgamda kahverengi tıkaçlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Radyoloji</b></td>
+                                    <td><b>Santral bronşektazi</b>, "parmak eldiven" görünümü, infiltratlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Laboratuvar</b></td>
+                                    <td>Eozinofili, ↑Total IgE, ↑A. fumigatus spesifik IgE ve IgG</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Oral kortikosteroid ± itrakonazol</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>ABPA Tanı Kriterleri (Rosenberg-Patterson):</strong><br>
+                        <b>Major:</b><br>
+                        1. Astım<br>
+                        2. Santral bronşektazi<br>
+                        3. A. fumigatus'a deri testi pozitif (Tip I)<br>
+                        4. Yüksek total IgE (>1000 ng/mL)<br>
+                        5. A. fumigatus spesifik IgE ve IgG yüksek<br>
+                        6. Akciğer infiltratları (geçici veya kalıcı)<br>
+                        7. Eozinofili (>500/µL)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Aspergilloma (Fungus Ball / Miçetoma)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tanım</b></td>
+                                    <td>Önceden var olan kavitede mantar topu oluşumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Predispozan</b></td>
+                                    <td>Eski tüberküloz kavitesi, sarkoidoz, ampiyem, bronşektazi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Hemoptizi (%50-80), kronik öksürük veya asemptomatik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Radyoloji</b></td>
+                                    <td><b>"Hilal işareti" (air crescent sign)</b> - Kavite içinde hareketli kitle</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji</b></td>
+                                    <td>Aspergillus IgG çok yüksek (presipitan antikor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Asemptomatik: İzlem. Hemoptizi: Cerrahi rezeksiyon, embolizasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. İnvaziv (Anjiyoinvaziv) Aspergilloz</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tanım</b></td>
+                                    <td>Hif invazyonu ile doku nekrozu ve vasküler invazyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk grubu</b></td>
+                                    <td>Nötropeni >10 gün, AML, HSCT, yüksek doz steroid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Ateş (antibiyotiğe yanıtsız), öksürük, göğüs ağrısı, hemoptizi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Radyoloji (BT)</b></td>
+                                    <td><b>Halo sign</b> (erken) → <b>Air crescent sign</b> (geç, iyileşme)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yayılım</b></td>
+                                    <td>Hematojen: SSS, cilt, göz, böbrek, kalp</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mortalite</b></td>
+                                    <td>%30-90 (immün duruma göre)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>HALO SIGN - ÇOK ÖNEMLİ!</strong><br>
+                        BT'de nodül etrafında buzlu cam dansitesi (hemorajik halka). Erken invaziv aspergillozda görülür. Nötropenik hastada ateş + halo sign = <b>Ampirik antifungal başla!</b><br><br>
+                        <b>Air crescent sign:</b> Nötrofil iyileşmesi ile nekrotik dokunun kaviteleşmesi. İyi prognostik işaret.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Formlar Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ABPA = ASTIM + Bronşektazi (santral) + eozinofili"</b><br>
+                            <b>"ASPERGILLOMA = AYHAL (moon = hilal sign) + TB kavitesi"</b><br>
+                            <b>"İNVAZİV = NÖTROPENİ + HALO + ÖLÜMCÜL"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer Aspergilloz Formları",
+                icon: "fas fa-head-side-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kronik Pulmoner Aspergilloz (CPA)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tanım:</b> Yavaş seyirli, immünkompromize olmayan hastada kronik enfeksiyon</li>
+                            <li class="feature-item"><b>Alt tipler:</b> Kronik kaviter, kronik fibrozis, nodüler</li>
+                            <li class="feature-item"><b>Risk:</b> KOAH, eski TB, sarkoidoz, ankilozan spondilit</li>
+                            <li class="feature-item"><b>Klinik:</b> Kilo kaybı, kronik öksürük, hemoptizi, yorgunluk</li>
+                            <li class="feature-item"><b>Tanı:</b> Aspergillus IgG yüksek, kavite, hif görülmesi</li>
+                            <li class="feature-item"><b>Tedavi:</b> Uzun süreli itrakonazol veya vorikonazol (≥6 ay)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aspergillus Sinüziti</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Hasta Grubu</th>
+                                    <th>Klinik</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Alerjik fungal sinüzit</b></td>
+                                    <td>Atopik, immünkompetan</td>
+                                    <td>Kronik sinüzit, nazal polip, eosinofili</td>
+                                    <td>Cerrahi + steroid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fungus ball (sinüs)</b></td>
+                                    <td>İmmünkompetan</td>
+                                    <td>Tek taraflı, kronik</td>
+                                    <td>Cerrahi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut invaziv sinüzit</b></td>
+                                    <td>Nötropenik, DKA</td>
+                                    <td>Hızlı ilerleyen, orbita/SSS yayılımı</td>
+                                    <td>Debridman + antifungal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik invaziv/granülomatöz</b></td>
+                                    <td>DM, hafif immünsüpresyon</td>
+                                    <td>Yavaş seyirli, orbital apex</td>
+                                    <td>Cerrahi + antifungal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aspergillus Keratiti ve Endoftalmiti</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Keratit:</b> Travma sonrası (bitkisel materyal), A. flavus sık etken</li>
+                            <li class="feature-item"><b>Endoftalmit:</b> Cerrahi sonrası veya hematojen yayılım</li>
+                            <li class="feature-item"><b>Tedavi:</b> Topikal natamisin/vorikonazol, intravitreal enjeksiyon</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Otomikoz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Etken:</b> En sık A. niger (siyah spor kümesi)</li>
+                            <li class="feature-item"><b>Risk:</b> Nem, yüzme, uzun süreli antibiyotikli damla</li>
+                            <li class="feature-item"><b>Klinik:</b> Kaşıntı, akıntı, dolgunluk, siyah debris</li>
+                            <li class="feature-item"><b>Tedavi:</b> Debridman + topikal antifungal (klotrimazol)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Serebral Aspergilloz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Yol:</b> Hematojen yayılım veya paranazal sinüslerden direkt</li>
+                            <li class="feature-item"><b>Klinik:</b> Apse, infarkt, hemorajik lezyon, menenjit nadir</li>
+                            <li class="feature-item"><b>Prognoz:</b> Çok kötü (%90 mortalite)</li>
+                            <li class="feature-item"><b>Tedavi:</b> Vorikonazol (BOS penetrasyonu iyi)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Deri Aspergilloz</p>
+                        <p class="highlight-box__content">
+                            <b>Primer:</b> Kateter giriş yeri, yanık, travma<br>
+                            <b>Sekonder:</b> Hematojen yayılım ile (dissemine enfeksiyon bulgusu)<br>
+                            <b>Lezyon:</b> Nekrotik ülser, eskar, eritematöz nodül<br>
+                            <b>Önem:</b> İmmünsüprese hastada cilt lezyonu → Dissemine hastalık düşün!
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Direkt Mikroskopi ve Histopatoloji</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Bulgu</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>KOH / Kalkoflor</b></td>
+                                    <td>Septalı hifler, 45° dallanma</td>
+                                    <td>Hızlı, non-spesifik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>GMS (Grocott)</b></td>
+                                    <td>Siyah boyanan septalı hifler</td>
+                                    <td>Doku kesitinde altın standart</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PAS</b></td>
+                                    <td>Magenta boyanan hifler</td>
+                                    <td>GMS ile birlikte kullanılır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>H&E</b></td>
+                                    <td>Hifler, anjiyoinvazyon, nekroz</td>
+                                    <td>Doku hasarını gösterir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Aspergillus vs Mukormikoz Ayrımı</p>
+                        <p class="highlight-box__content">
+                            <b>Aspergillus:</b><br>
+                            • Septalı hifler ✓<br>
+                            • 45° (dar) açılı dallanma ✓<br>
+                            • Düzgün çaplı hifler ✓<br><br>
+                            <b>Mukormikoz (Rhizopus, Mucor):</b><br>
+                            • Aseptat (septasız) hifler ✓<br>
+                            • 90° (geniş) açılı dallanma ✓<br>
+                            • Düzensiz, geniş hifler ✓
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kültür</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Besiyeri:</b> SDA (Sabouraud dekstroz agar), 25-37°C</li>
+                            <li class="feature-item"><b>Üreme:</b> 2-5 gün, hızlı</li>
+                            <li class="feature-item"><b>Makroskopi:</b> Türe özgü renk (yeşil, sarı, siyah)</li>
+                            <li class="feature-item"><b>Mikroskopi:</b> Konidyofor + vezikül + fiyalid + konidya</li>
+                            <li class="feature-item"><b>Dikkat:</b> Solunum örneğinde üreme = Kolonizasyon olabilir!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Galaktomannan (GM) Testi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Nedir?</b></td>
+                                    <td>Aspergillus hücre duvarı polisakkariti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yöntem</b></td>
+                                    <td>Sandwich ELISA (Platelia Aspergillus)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Örnek</b></td>
+                                    <td>Serum, BAL, BOS</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eşik (Index)</b></td>
+                                    <td>Serum ≥0.5, BAL ≥1.0 (pozitif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Duyarlılık</b></td>
+                                    <td>Nötropenide yüksek (%70-90), non-nötropenide düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yanlış pozitiflik</b></td>
+                                    <td>Piperasilin-tazobaktam, plasmalyte, Bifidobacterium</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>1,3-β-D-Glukan (BDG) Testi:</strong><br>
+                        Panfungal marker (Aspergillus, Candida, Pneumocystis).<br>
+                        <b>Pozitif:</b> ≥80 pg/mL<br>
+                        <b>Negatif etkenler:</b> Cryptococcus ve Mucorales (BDG üretmez!)<br>
+                        <b>Yanlış pozitif:</b> Hemodiyaliz, albümin, gazlı bez, bakteriyemi</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Kullanım</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aspergillus PCR</b></td>
+                                    <td>Serum, BAL, doku</td>
+                                    <td>Yüksek duyarlılık, standardizasyon sorunu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aspergillus IgG</b></td>
+                                    <td>CPA, aspergilloma, ABPA</td>
+                                    <td>Kronik formlarda çok yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aspergillus spesifik IgE</b></td>
+                                    <td>ABPA tanısı</td>
+                                    <td>Total IgE ile birlikte</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lateral flow assay (LFA)</b></td>
+                                    <td>Hızlı tanı, yatak başı</td>
+                                    <td>GM alternatifi, hızlı sonuç</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GM = Galaktomannan = Aspergillus SPESİFİK"</b><br>
+                            <b>"BDG = Beta-D-Glukan = PANFUNGAL (Crypto ve Mucor hariç)"</b><br>
+                            <b>"SEPTAT + 45° = Aspergillus"</b><br>
+                            <b>"ASEPTAT + 90° = Mukormikoz"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi ve Profilaksi",
+                icon: "fas fa-pills",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnvaziv Aspergilloz Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tedavi</th>
+                                    <th>İlaç</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İlk seçenek</b></td>
+                                    <td><strong>Vorikonazol</strong></td>
+                                    <td>IV → PO, 6 mg/kg yükleme, 4 mg/kg idame</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alternatif</b></td>
+                                    <td>Isavukonazol</td>
+                                    <td>Daha az ilaç etkileşimi, iyi tolere</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alternatif</b></td>
+                                    <td>Lipozomal AmB</td>
+                                    <td>Azol intoleransı, A. terreus dışında</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kurtarma tedavisi</b></td>
+                                    <td>Kaspofungin, mikafungin, posakonazol</td>
+                                    <td>Primer tedavi başarısızlığında</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kombinasyon</b></td>
+                                    <td>Vorikonazol + Ekinokandin</td>
+                                    <td>Tartışmalı, ağır vakalarda düşünülebilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Vorikonazol Yan Etkileri - ÖNEMLİ!</strong><br>
+                        • <b>Görme bozuklukları:</b> %30, geçici, fotofobi, renkli görme<br>
+                        • <b>Hepatotoksisite:</b> Karaciğer enzim takibi gerekli<br>
+                        • <b>Cilt reaksiyonları:</b> Fotosensitivite, uzun kullanımda SCC riski<br>
+                        • <b>Nörotoksisite:</b> Halüsinasyon, konfüzyon<br>
+                        • <b>QT uzaması:</b> EKG takibi<br>
+                        • <b>Periostit/fluorozis:</b> Uzun süreli kullanımda</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Forma Göre Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Tedavi</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnvaziv pulmoner</b></td>
+                                    <td>Vorikonazol</td>
+                                    <td>Minimum 6-12 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ABPA</b></td>
+                                    <td>Oral prednizolon ± itrakonazol</td>
+                                    <td>Alevlenmeye göre, aylar-yıllar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aspergilloma (asemptomatik)</b></td>
+                                    <td>İzlem</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aspergilloma (hemoptizi)</b></td>
+                                    <td>Cerrahi rezeksiyon ± embolizasyon</td>
+                                    <td>Definitif tedavi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik pulmoner (CPA)</b></td>
+                                    <td>İtrakonazol veya vorikonazol</td>
+                                    <td>≥6 ay, genellikle ömür boyu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS aspergilloz</b></td>
+                                    <td>Vorikonazol (yüksek doz)</td>
+                                    <td>Çok uzun, immün duruma göre</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Profilaksi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hasta Grubu</th>
+                                    <th>İlaç</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>AML indüksiyon</b></td>
+                                    <td>Posakonazol</td>
+                                    <td>Nötropeni süresince</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Allojenik HSCT</b></td>
+                                    <td>Posakonazol veya vorikonazol</td>
+                                    <td>Engrafmana kadar + GVHD varsa devam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CGD (Kronik granülomatöz)</b></td>
+                                    <td>İtrakonazol</td>
+                                    <td>Ömür boyu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akciğer transplantasyonu</b></td>
+                                    <td>Vorikonazol/itrakonazol</td>
+                                    <td>Değişken, merkeze göre</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tedavi İzlemi</p>
+                        <p class="highlight-box__content">
+                            <b>Galaktomannan:</b> Haftalık, düşmesi tedavi yanıtı gösterir<br>
+                            <b>BT:</b> 2 haftada bir, halo → kavitasyon (iyi yanıt)<br>
+                            <b>Vorikonazol düzeyi:</b> TDM önerilir (hedef: 1-5.5 µg/mL)<br>
+                            <b>İmmün iyileşme:</b> Nötrofil dönüşü çok önemli!
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"VORİKONAZOL = İNVAZİV ASPERGİLLOZ 1. SEÇİM"</b><br>
+                            <b>"ABPA = STEROİD + İTRAKONAZOL"</b><br>
+                            <b>"ASPERGİLLOMA = CERRAHİ (hemoptizi varsa)"</b><br>
+                            <b>"A. TERREUS = AmB ETKİSİZ!"</b><br>
+                            <b>"PROFİLAKSİ = POSAKONAZOL (AML, HSCT)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>En sık tür:</b> A. fumigatus<br>
+                            2. <b>Aflatoksin:</b> A. flavus → HCC<br>
+                            3. <b>Halo sign:</b> İnvaziv aspergilloz (BT'de)<br>
+                            4. <b>Santral bronşektazi:</b> ABPA<br>
+                            5. <b>Hilal işareti (air crescent):</b> Aspergilloma veya iyileşen invaziv<br>
+                            6. <b>Tedavi:</b> Vorikonazol ilk seçenek
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik Senaryo</th>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Astım + eozinofili + santral bronşektazi</td>
+                                    <td>ABPA</td>
+                                    <td>Steroid ± itrakonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Eski TB kavitesi + hemoptizi + hilal sign</td>
+                                    <td>Aspergilloma</td>
+                                    <td>Cerrahi / embolizasyon</td>
+                                </tr>
+                                <tr>
+                                    <td>Nötropeni + ateş + halo sign</td>
+                                    <td>İnvaziv aspergilloz</td>
+                                    <td>Vorikonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Kontamine fıstık + HCC</td>
+                                    <td>Aflatoksin (A. flavus)</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Kulakta siyah debris, kaşıntı</td>
+                                    <td>Otomikoz (A. niger)</td>
+                                    <td>Topikal antifungal</td>
+                                </tr>
+                                <tr>
+                                    <td>A. terreus enfeksiyonu</td>
+                                    <td>-</td>
+                                    <td>AmB KULLANMA! Azol ver</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Karşılaştırma: Aspergillus vs Mucorales</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Aspergillus</th>
+                                    <th>Mucorales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Septasyon</b></td>
+                                    <td><b>Septalı</b></td>
+                                    <td>Aseptat (pauci-septat)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dallanma</b></td>
+                                    <td><b>45° (dar)</b></td>
+                                    <td>90° (geniş)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk faktörü</b></td>
+                                    <td>Nötropeni</td>
+                                    <td>DKA, demir yükü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Galaktomannan</b></td>
+                                    <td>Pozitif</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>β-D-glukan</b></td>
+                                    <td>Pozitif</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Vorikonazol</td>
+                                    <td>AmB (lipozomal)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FUMIGATUS = En sık, FUMİGasyon gibi her yerde"</b><br>
+                            <b>"FLAVUS = FLAvor = AFLATOKSİN = KARACİĞER"</b><br>
+                            <b>"NİGER = Siyah = KULAK (otomikoz)"</b><br>
+                            <b>"TERREUS = TERRİBLE = AmB direnci"</b><br>
+                            <b>"HALO = Erken invaziv, NÖTROPENİK"</b><br>
+                            <b>"HİLAL = Aspergilloma veya iyileşme"</b><br>
+                            <b>"45° SEPTAT = Aspergillus"</b><br>
+                            <b>"90° ASEPTAT = Mukormikoz"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>A. fumigatus =</b> En sık Aspergillus türü<br>
+                            2. <b>A. flavus =</b> Aflatoksin → HCC<br>
+                            3. <b>A. niger =</b> Otomikoz (kulak enfeksiyonu)<br>
+                            4. <b>A. terreus =</b> Amfoterisin B'ye intrinsik DİRENÇLİ!<br>
+                            5. <b>ABPA =</b> Astım + Santral bronşektazi + IgE yüksek<br>
+                            6. <b>Halo sign =</b> Erken invaziv aspergilloz BT bulgusu<br>
+                            7. <b>Hilal (air crescent) =</b> Aspergilloma veya iyileşme<br>
+                            8. <b>Galaktomannan =</b> Aspergillus spesifik marker<br>
+                            9. <b>β-D-glukan =</b> Panfungal (Crypto, Mucor hariç)<br>
+                            10. <b>Tedavi =</b> VORİKONAZOL (invaziv için ilk seçenek)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Nötropenik hasta, ateş, BT'de halo sign?" → İnvaziv aspergilloz</li>
+                        <li><b>Soru tipi:</b> "Astım + eozinofili + yüksek IgE + santral bronşektazi?" → ABPA</li>
+                        <li><b>Soru tipi:</b> "Eski TB kavitesinde fungus ball, hemoptizi?" → Aspergilloma</li>
+                        <li><b>Soru tipi:</b> "Kontamine tahılda hepatokarsinojen toksin?" → Aflatoksin (A. flavus)</li>
+                        <li><b>Soru tipi:</b> "AmB'ye dirençli Aspergillus türü?" → A. terreus</li>
+                        <li><b>Soru tipi:</b> "Septalı hifler, 45° dallanma?" → Aspergillus</li>
+                        <li><b>Soru tipi:</b> "İnvaziv aspergillozda ilk seçenek tedavi?" → Vorikonazol</li>
+                        <li><b>Soru tipi:</b> "Galaktomannan yanlış pozitifliği?" → Piperasilin-tazobaktam</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 21,
+        category: "mikoloji",
+        title: "Dermatofitler ve Yüzeyel Mikozlar",
+        subtitle: "Tinea Enfeksiyonları, Tanı ve Tedavi",
+        summary: "Dermatofitlerin (Trichophyton, Microsporum, Epidermophyton) kapsamlı özeti. Tinea capitis, corporis, pedis, cruris, unguium klinik formları. KOH inceleme, Wood lambası, kültür ve antifungal tedavi.",
+        tags: ["Dermatofit", "Tinea", "Trichophyton", "Microsporum", "KOH", "Wood Lambası", "Mikoloji"],
+        sections: [
+            {
+                title: "Genel Özellikler ve Sınıflandırma",
+                icon: "fas fa-user-injured",
+                content: `
+                    <p><strong>Dermatofitler</strong>, keratinize dokuları (deri, saç, tırnak) enfekte eden, keratinofilik küf mantarlarıdır. Keratinaz enzimleri sayesinde keratini parçalayarak besin kaynağı olarak kullanırlar. Canlı dokuya invaze olmazlar.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Dermatofit Cinsleri</p>
+                        <p class="highlight-box__content">
+                            <b>Trichophyton:</b> Deri, saç, tırnak (en geniş spektrum)<br>
+                            <b>Microsporum:</b> Deri, saç (tırnak tutmaz!)<br>
+                            <b>Epidermophyton:</b> Deri, tırnak (saç tutmaz!)<br><br>
+                            <i>"Microsporum tırnak tutMAZ, Epidermophyton saç tutMAZ"</i>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ekolojik Sınıflandırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kaynak</th>
+                                    <th>Örnekler</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Antropofilik</b></td>
+                                    <td>T. rubrum, T. tonsurans, E. floccosum</td>
+                                    <td>İnsandan insana, kronik, az inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Zoofilik</b></td>
+                                    <td>M. canis, T. verrucosum, T. mentagrophytes</td>
+                                    <td>Hayvandan insana, akut, şiddetli inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Jeofilik</b></td>
+                                    <td>M. gypseum</td>
+                                    <td>Topraktan, nadir, inflamatuar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">En Sık Dermatofit Türleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>En Sık Tutulum</th>
+                                    <th>Önemli Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>T. rubrum</b></td>
+                                    <td>Tinea pedis, cruris, unguium</td>
+                                    <td><b>Dünyada en sık dermatofit</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>T. tonsurans</b></td>
+                                    <td>Tinea capitis</td>
+                                    <td>ABD/Avrupa'da en sık, endotriks</td>
+                                </tr>
+                                <tr>
+                                    <td><b>T. mentagrophytes</b></td>
+                                    <td>Tinea pedis (veziküler)</td>
+                                    <td>Zoofilik, inflamatuar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>M. canis</b></td>
+                                    <td>Tinea capitis, corporis</td>
+                                    <td>Kedi/köpek, Wood (+), ektotriks</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E. floccosum</b></td>
+                                    <td>Tinea cruris, pedis</td>
+                                    <td>Tek Epidermophyton türü (insan)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Saç İnvazyonu Tipleri:</strong><br>
+                        <b>Ektotriks:</b> Sporlar saç şaftı DIŞında → M. canis, M. audouinii<br>
+                        <b>Endotriks:</b> Sporlar saç şaftı İÇinde → T. tonsurans, T. violaceum<br>
+                        <b>Favus:</b> Hif ve hava kabarcıkları → T. schoenleinii (skutula)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Dermatofit Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"T. RUBRUM = RULER (en sık, her yeri tutar)"</b><br>
+                            <b>"M. CANİS = CANİNE (köpek) + KEDİ = WOOD (+)"</b><br>
+                            <b>"EPİDERMO = EPİDERMİS + tırnak (saç YOK)"</b><br>
+                            <b>"MİCRO = saç + deri (tırnak YOK)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tinea Enfeksiyonları - Klinik Formlar",
+                icon: "fas fa-ring",
+                content: `
+                    <p><strong>Tinea</strong> (dermatofitoz), vücut bölgesine göre isimlendirilir. "Tinea" kelimesi Latince "güve" anlamına gelir (güve yeniği görünümü).</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tinea Capitis (Saçlı Deri)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hasta grubu</b></td>
+                                    <td>Çocuklar (puberte öncesi), nadir erişkin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etken (Türkiye)</b></td>
+                                    <td>M. canis, T. violaceum, T. tonsurans</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Saç dökülmesi, kepeklenme, kırık saçlar, "black dot"</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kerion</b></td>
+                                    <td>Şiddetli inflamasyon, püstül, ağrılı, skar alopesi riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Favus</b></td>
+                                    <td>T. schoenleinii, skutula (sarı kabuk), "fare kokusu"</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td><b>Sistemik antifungal ŞART!</b> Griseofulvin, terbinafin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Tinea Capitis = SİSTEMİK TEDAVİ!</strong><br>
+                        Topikal tedavi yeterli DEĞİLDİR! Saç folikülüne penetrasyon için sistemik antifungal gerekir. Griseofulvin veya terbinafin 4-8 hafta kullanılır.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tinea Corporis (Vücut)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Klinik:</b> Anüler (halka) lezyon, aktif eritemli kenar, santral iyileşme</li>
+                            <li class="feature-item"><b>Etken:</b> T. rubrum, M. canis (hayvan teması)</li>
+                            <li class="feature-item"><b>Ayırıcı tanı:</b> Pityriasis rosea, nummüler ekzema, granuloma anulare</li>
+                            <li class="feature-item"><b>Tedavi:</b> Topikal azol/terbinafin (2-4 hafta), yaygınsa sistemik</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tinea Cruris (Kasık - "Jock Itch")</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Hasta grubu:</b> Erkekler, sporcular, obezite, sıcak iklim</li>
+                            <li class="feature-item"><b>Etken:</b> T. rubrum, E. floccosum, T. mentagrophytes</li>
+                            <li class="feature-item"><b>Klinik:</b> Bilateral kasık, uyluk iç yüzü, keskin sınır, skrotum TUTULMAZ</li>
+                            <li class="feature-item"><b>Ayırıcı tanı:</b> Kandidoz (skrotum tutar!), eritrazma, intertrigo</li>
+                            <li class="feature-item"><b>Tedavi:</b> Topikal azol/terbinafin, hijyen, kuru tutma</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tinea Pedis (Ayak - "Athlete's Foot")</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Klinik</th>
+                                    <th>Etken</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnterdigital</b></td>
+                                    <td>Parmak arası maserasyon, çatlak (en sık)</td>
+                                    <td>T. rubrum, T. mentagrophytes</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mokasenvari</b></td>
+                                    <td>Taban + yanlar, kronik skuam, "mokasen" dağılımı</td>
+                                    <td>T. rubrum (kronik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Veziküler</b></td>
+                                    <td>Vezikül, bül, akut, kaşıntılı</td>
+                                    <td>T. mentagrophytes (zoofilik)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tinea Unguium (Onikomikoz)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Etken:</b> T. rubrum (%90), T. mentagrophytes</li>
+                            <li class="feature-item"><b>Klinik:</b> Tırnak kalınlaşması, sarı-beyaz renk değişikliği, subungual debris</li>
+                            <li class="feature-item"><b>Tipler:</b> Distal lateral subungual (en sık), yüzeyel beyaz, proksimal subungual</li>
+                            <li class="feature-item"><b>Tedavi:</b> Sistemik terbinafin (12 hafta tırnak, 6 hafta el), itrakonazol pulse</li>
+                            <li class="feature-item"><b>Topikal:</b> Efinakonazol, tavaborol (sınırlı etki)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Diğer Tinea Formları</p>
+                        <p class="highlight-box__content">
+                            <b>Tinea barbae:</b> Sakal bölgesi, erkek, zoofilik (T. verrucosum - sığır)<br>
+                            <b>Tinea manuum:</b> El, genellikle tek taraflı ("iki ayak - bir el" sendromu)<br>
+                            <b>Tinea faciei:</b> Yüz, çocuklarda M. canis, güneş ile kötüleşir<br>
+                            <b>Tinea incognito:</b> Steroid kullanımıyla maskelenmiş, atipik dermatofitoz
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tinea Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CAPİTİS = ÇOCUK + SİSTEMİK tedavi"</b><br>
+                            <b>"CRURİS = KASIK, skrotum tutMAZ"</b><br>
+                            <b>"PEDİS = SPORCU AYAĞI, parmak arası"</b><br>
+                            <b>"UNGUİUM = TEBİNAFİN 12 hafta"</b><br>
+                            <b>"İKİ AYAK BİR EL = T. rubrum kronik"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer Yüzeyel Mikozlar",
+                icon: "fas fa-sun",
+                content: `
+                    <p>Dermatofitler dışında yüzeyel mikozlara neden olan mantarlar da vardır. Bunlar keratin tabakasında yaşar, invaziv değildir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pityriasis (Tinea) Versicolor</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etken</b></td>
+                                    <td><b>Malassezia furfur</b> (lipofil maya)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk faktörü</b></td>
+                                    <td>Sıcak-nemli iklim, yağlı cilt, terleme, immünsüpresyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Hipo/hiperpigmente makül, ince skuam, gövde-omuz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mikroskopi (KOH)</b></td>
+                                    <td><b>"Spagetti-köfte"</b> görünümü (hif + yuvarlak spor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Wood lambası</b></td>
+                                    <td>Sarı-yeşil floresan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Topikal ketokonazol şampuan, selenyum sülfür; yaygınsa oral azol</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Malassezia İlişkili Diğer Durumlar:</strong><br>
+                        • <b>Seboreik dermatit:</b> Kepek, yağlı bölgeler<br>
+                        • <b>Malassezia foliküliti:</b> Akne benzeri, sırtta, kaşıntılı<br>
+                        • <b>Neonatal püstülozis:</b> Yenidoğanda yüz püstülleri<br>
+                        • <b>Kateter ilişkili fungemi:</b> TPN alan prematüre bebeklerde (lipid!)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tinea Nigra</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Etken:</b> Hortaea werneckii (önceki adı: Exophiala werneckii)</li>
+                            <li class="feature-item"><b>Bölge:</b> Tropikal bölgeler</li>
+                            <li class="feature-item"><b>Klinik:</b> Avuç içi/ayak tabanında kahverengi-siyah makül</li>
+                            <li class="feature-item"><b>Ayırıcı tanı:</b> Melanom! (önemli)</li>
+                            <li class="feature-item"><b>Tedavi:</b> Topikal azol, keratolizik</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Piedra</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Etken</th>
+                                    <th>Nodül Rengi</th>
+                                    <th>Bölge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Siyah piedra</b></td>
+                                    <td>Piedraia hortae</td>
+                                    <td>Siyah, sert</td>
+                                    <td>Saçlı deri (tropikal)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Beyaz piedra</b></td>
+                                    <td>Trichosporon spp.</td>
+                                    <td>Beyaz, yumuşak</td>
+                                    <td>Kasık, koltukaltı, sakal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kandidal İntertrigo</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Etken:</b> Candida albicans</li>
+                            <li class="feature-item"><b>Bölge:</b> Kıvrım bölgeleri, meme altı, kasık, aksilla</li>
+                            <li class="feature-item"><b>Klinik:</b> Eritem, maserasyon, satellit püstüller</b></li>
+                            <li class="feature-item"><b>Fark:</b> Dermatofitoz → keskin sınır, kandidoz → satellit lezyon</li>
+                            <li class="feature-item"><b>Tedavi:</b> Topikal nistatin veya azol, kuru tutma</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Yüzeyel Mikoz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"VERSİCOLOR = RENK DEĞİŞİMİ + SPAGETTİ-KÖFTE"</b><br>
+                            <b>"MALASSEZIA = LİPİD SEVGİSİ (TPN, yağlı cilt)"</b><br>
+                            <b>"TİNEA NİGRA = AVUÇ İÇİ SİYAH = MELANOM DEĞİL!"</b><br>
+                            <b>"SATELLİT = KANDİDA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">KOH (Potasyum Hidroksit) İnceleme</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Prensip</b></td>
+                                    <td>KOH keratini eritir, mantar elemanları görünür hale gelir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konsantrasyon</b></td>
+                                    <td>%10-20 KOH (tırnak için %40 veya DMSO ekle)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Örnek</b></td>
+                                    <td>Lezyonun aktif kenarından kazıntı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Görüntü</b></td>
+                                    <td>Septalı, dallanmış hifler (dermatofit)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Avantaj</b></td>
+                                    <td>Hızlı, ucuz, yatak başı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dezavantaj</b></td>
+                                    <td>Tür tayini yapılamaz, deneyim gerekir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔦 Wood Lambası (365 nm UV)</p>
+                        <p class="highlight-box__content">
+                            <b>Floresan pozitif:</b><br>
+                            • <b>M. canis, M. audouinii:</b> Parlak yeşil (tinea capitis)<br>
+                            • <b>Malassezia:</b> Sarı-yeşil (pityriasis versicolor)<br>
+                            • <b>Eritrazma (C. minutissimum):</b> Mercan kırmızısı<br>
+                            • <b>P. aeruginosa:</b> Yeşil (yara enfeksiyonu)<br><br>
+                            <b>Floresan negatif:</b><br>
+                            • T. rubrum, T. tonsurans, T. mentagrophytes
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Wood Lambası Dikkat!</strong><br>
+                        T. tonsurans (ABD/Avrupa'da en sık tinea capitis etkeni) Wood lambası ile floresan VERMEZ! Wood negatifliği tinea capitis'i dışlamaz. M. canis Türkiye'de sık ve Wood (+).</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kültür</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Besiyeri</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>SDA + antibiyotik</b></td>
+                                    <td>Sabouraud dekstroz agar, siklohegsimid + kloramfenikol</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DTM</b></td>
+                                    <td>Dermatophyte Test Medium, pH göstergesi (sarı→kırmızı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnkübasyon</b></td>
+                                    <td>25-30°C, 1-4 hafta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tür Tayini</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Değerlendirme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Makrokonidi</b></td>
+                                    <td>Microsporum: Kalın duvarlı, fuziform<br>Trichophyton: İnce, silindirik (nadir)<br>Epidermophyton: Küme halinde, "elma dilimi"</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mikrokonidi</b></td>
+                                    <td>T. rubrum: Gözyaşı şekilli<br>T. mentagrophytes: Yuvarlak, küme</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Koloni</b></td>
+                                    <td>Renk, yüzey, pigment</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Üreaz testi</b></td>
+                                    <td>T. mentagrophytes (+), T. rubrum (-)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Saç perforasyon</b></td>
+                                    <td>T. mentagrophytes (+), T. rubrum (-)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KOH = Keratini eritir, Ortaya hif çıkar, Hızlı sonuç"</b><br>
+                            <b>"WOOD (+) = M. CANİS (yeşil), MALASSEZİA (sarı)"</b><br>
+                            <b>"ERİTRAZMA = MERCAN KIRMIZISI (Wood)"</b><br>
+                            <b>"T. TONSURANS = WOOD NEGATİF!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-pills",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Topikal Antifungaller</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç Grubu</th>
+                                    <th>Örnekler</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Azoller</b></td>
+                                    <td>Ketokonazol, klotrimazol, mikonazol</td>
+                                    <td>Dermatofitoz, kandidoz, pityriasis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alliaminler</b></td>
+                                    <td>Terbinafin krem</td>
+                                    <td>Dermatofitoz (fungisidal)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Polienler</b></td>
+                                    <td>Nistatin</td>
+                                    <td>Sadece Candida (dermatofite etkisiz!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Siklopiroks</b></td>
+                                    <td>Siklopiroks olamin</td>
+                                    <td>Onikomikoz (tırnak cilası formunda)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sistemik Antifungaller</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Endikasyon</th>
+                                    <th>Önemli Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Terbinafin</b></td>
+                                    <td>Onikomikoz, tinea capitis</td>
+                                    <td>Dermatofitlerde en etkili, fungisidal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İtrakonazol</b></td>
+                                    <td>Onikomikoz (pulse), tinea capitis (M. canis)</td>
+                                    <td>Geniş spektrum, ilaç etkileşimi fazla</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Flukonazol</b></td>
+                                    <td>Tinea corporis, cruris (haftalık)</td>
+                                    <td>Candida'da iyi, dermatofitte orta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Griseofulvin</b></td>
+                                    <td>Tinea capitis (klasik)</td>
+                                    <td>Sadece dermatofitlere etkili, yağlı yemekle al</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Sistemik Tedavi GEREKTİREN Durumlar:</strong><br>
+                        • Tinea capitis (tüm vakalar)<br>
+                        • Tinea barbae<br>
+                        • Onikomikoz<br>
+                        • Yaygın/dirençli tinea corporis<br>
+                        • Mokasenvari tinea pedis<br>
+                        • Majocchi granülom (foliküler dermatofitoz)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi Süreleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Tedavi</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tinea corporis/cruris</b></td>
+                                    <td>Topikal azol/terbinafin</td>
+                                    <td>2-4 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tinea pedis</b></td>
+                                    <td>Topikal</td>
+                                    <td>4 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tinea capitis</b></td>
+                                    <td>Oral terbinafin/griseofulvin</td>
+                                    <td>4-8 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tırnak onikomikoz</b></td>
+                                    <td>Oral terbinafin</td>
+                                    <td>El: 6 hafta, Ayak: 12 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pityriasis versicolor</b></td>
+                                    <td>Topikal ketokonazol</td>
+                                    <td>2 hafta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TERBİNAFİN = TIRNAK + DERMATOFİT için EN İYİ"</b><br>
+                            <b>"GRİSEOFULVİN = SADECE dermatofit, YAĞLI yemekle"</b><br>
+                            <b>"NİSTATİN = SADECE Candida (dermatofite ETKİSİZ)"</b><br>
+                            <b>"CAPİTİS = SİSTEMİK ŞART!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>En sık dermatofit:</b> T. rubrum<br>
+                            2. <b>Tinea capitis:</b> Sistemik tedavi şart<br>
+                            3. <b>Wood (+) tinea capitis:</b> M. canis<br>
+                            4. <b>Spagetti-köfte:</b> Malassezia (pityriasis versicolor)<br>
+                            5. <b>Skrotum tutulmaz:</b> Tinea cruris (dermatofit)<br>
+                            6. <b>Skrotum tutulur:</b> Kandidoz
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu/Senaryo</th>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Çocuk, saçlı deri, kepek, kırık saç</td>
+                                    <td>Tinea capitis</td>
+                                    <td>Sistemik griseofulvin/terbinafin</td>
+                                </tr>
+                                <tr>
+                                    <td>Anüler, eritemli kenar, santral iyileşme</td>
+                                    <td>Tinea corporis</td>
+                                    <td>Topikal azol/terbinafin</td>
+                                </tr>
+                                <tr>
+                                    <td>Kasık, skrotum TUTULMAMIŞ</td>
+                                    <td>Tinea cruris</td>
+                                    <td>Topikal azol</td>
+                                </tr>
+                                <tr>
+                                    <td>Kasık, skrotum TUTULMUŞ, satellit</td>
+                                    <td>Kandidal intertrigo</td>
+                                    <td>Topikal nistatin/azol</td>
+                                </tr>
+                                <tr>
+                                    <td>Parmak arası maserasyon, sporcu</td>
+                                    <td>Tinea pedis</td>
+                                    <td>Topikal azol</td>
+                                </tr>
+                                <tr>
+                                    <td>Tırnak kalınlaşma, sarı renk</td>
+                                    <td>Onikomikoz</td>
+                                    <td>Oral terbinafin 12 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td>Hipo/hiperpigmente makül, spagetti-köfte</td>
+                                    <td>Pityriasis versicolor</td>
+                                    <td>Topikal ketokonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Kedi teması, Wood (+) yeşil</td>
+                                    <td>M. canis enfeksiyonu</td>
+                                    <td>Sistemik (capitis ise)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dermatofit Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Cins</th>
+                                    <th>Deri</th>
+                                    <th>Saç</th>
+                                    <th>Tırnak</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Trichophyton</b></td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Microsporum</b></td>
+                                    <td>✓</td>
+                                    <td>✓</td>
+                                    <td><b>✗</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epidermophyton</b></td>
+                                    <td>✓</td>
+                                    <td><b>✗</b></td>
+                                    <td>✓</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"T. RUBRUM = EN SIK + HER YERİ TUTAR"</b><br>
+                            <b>"M. CANİS = KEDİ + WOOD YEŞİL + EKTOTRIKS"</b><br>
+                            <b>"T. TONSURANS = WOOD NEGATİF + ENDOTRIKS"</b><br>
+                            <b>"CAPİTİS = SİSTEMİK, CRURİS = SKROTUM YOK"</b><br>
+                            <b>"SPAGETTİ-KÖFTE = MALASSEZİA"</b><br>
+                            <b>"SATELLİT PÜSTÜL = KANDİDA"</b><br>
+                            <b>"MERCAN = ERİTRAZMA (Corynebacterium)"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>T. rubrum =</b> Dünyada en sık dermatofit<br>
+                            2. <b>M. canis =</b> Wood lambası POZİTİF (yeşil), kedi-köpek<br>
+                            3. <b>T. tonsurans =</b> Wood lambası NEGATİF, endotriks<br>
+                            4. <b>Microsporum =</b> Tırnak tutmaz<br>
+                            5. <b>Epidermophyton =</b> Saç tutmaz<br>
+                            6. <b>Tinea capitis =</b> Sistemik tedavi ŞART<br>
+                            7. <b>Tinea cruris =</b> Skrotum tutmaz (Candida tutar)<br>
+                            8. <b>Onikomikoz =</b> Terbinafin 12 hafta<br>
+                            9. <b>Spagetti-köfte =</b> Malassezia (pityriasis versicolor)<br>
+                            10. <b>Nistatin =</b> Dermatofitlere ETKİSİZ (sadece Candida)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Dünyada en sık dermatofit?" → T. rubrum</li>
+                        <li><b>Soru tipi:</b> "Çocuk, saç dökülmesi, Wood (+) yeşil?" → M. canis, tinea capitis</li>
+                        <li><b>Soru tipi:</b> "Kasıkta eritem, skrotum serbest?" → Tinea cruris</li>
+                        <li><b>Soru tipi:</b> "Kasıkta eritem, skrotum tutulmuş, satellit?" → Kandidoz</li>
+                        <li><b>Soru tipi:</b> "KOH'da spagetti-köfte görünümü?" → Malassezia (pityriasis versicolor)</li>
+                        <li><b>Soru tipi:</b> "Tırnak enfeksiyonunda sistemik tedavi?" → Terbinafin</li>
+                        <li><b>Soru tipi:</b> "Saç tutmayan dermatofit cinsi?" → Epidermophyton</li>
+                        <li><b>Soru tipi:</b> "Tırnak tutmayan dermatofit cinsi?" → Microsporum</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
