@@ -87,6 +87,32 @@
 
     api.enabled = true;
 
+    // Make auth/session consistent across pages.
+    try {
+      if (auth && auth.setPersistence && window.firebase?.auth?.Auth?.Persistence?.LOCAL) {
+        auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+      }
+    } catch (_) {
+      // ignore
+    }
+
+    // Enable IndexedDB persistence so writes survive navigation/reload (best-effort).
+    try {
+      if (db && typeof db.enablePersistence === 'function') {
+        // synchronizeTabs helps when multiple tabs are open.
+        db.enablePersistence({ synchronizeTabs: true }).catch(() => {
+          // Fallback for older SDKs that don't support options.
+          try {
+            db.enablePersistence().catch(() => {});
+          } catch (_) {
+            // ignore
+          }
+        });
+      }
+    } catch (_) {
+      // ignore
+    }
+
     api.getUser = () => auth.currentUser;
 
     api.onAuth = (callback) => {

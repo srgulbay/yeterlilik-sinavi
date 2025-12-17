@@ -1447,6 +1447,7 @@
     gap: var(--space-3);
     flex-shrink: 0;
     position: relative;
+    flex-wrap: wrap;
 }
 
 /* ==========================================
@@ -1726,6 +1727,7 @@
     padding: var(--space-3) var(--space-5);
     min-height: 48px;
     min-width: 240px;
+    flex: 1 1 240px;
     
     /* Glassmorphism - dock ile uyumlu */
     background: var(--glass-bg);
@@ -1797,6 +1799,20 @@
     box-shadow: var(--shadow-md);
 }
 
+/* When the auth trigger becomes a user chip, override icon-btn layout safely */
+.page-header__icon-btn.auth-user-btn {
+    width: auto;
+    min-width: 48px;
+    display: inline-flex;
+    justify-content: flex-start;
+    border-radius: var(--radius-full);
+}
+
+.page-header__icon-btn.auth-user-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .page-header {
@@ -1804,10 +1820,21 @@
         flex-direction: column;
         gap: var(--space-4);
     }
+
+    .page-header__actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
     
     .page-header__search-btn {
         width: 100%;
         min-width: unset;
+        flex-basis: 100%;
+        order: 2;
+    }
+
+    .page-header__icon-btn {
+        order: 1;
     }
     
     .page-header__search-btn kbd {
