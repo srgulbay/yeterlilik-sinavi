@@ -14794,6 +14794,3132 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 22,
+        category: "mikoloji",
+        title: "Cryptococcus ve Kriptokokoz",
+        subtitle: "AIDS Menenjiti, Tanı ve Tedavi",
+        summary: "Cryptococcus neoformans ve C. gattii'nin kapsamlı özeti. Kapsüllü maya, güvercin dışkısı, AIDS menenjiti, India ink, kriptokoksik antijen testi, BOS basınç yönetimi ve antifungal tedavi.",
+        tags: ["Cryptococcus", "Menenjit", "AIDS", "India Ink", "Kapsül", "AmB", "Mikoloji"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-dove",
+                content: `
+                    <p><strong>Cryptococcus</strong>, kapsüllü maya mantarıdır ve özellikle immünsüprese hastalarda ciddi sistemik enfeksiyonlara neden olur. En önemli klinik tablo <b>kriptokoksik menenjit</b>tir ve AIDS tanımlayıcı hastalıktır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Cryptococcus - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Kapsüllü maya (4-10 µm), tomurcuklanma ile çoğalır<br>
+                            <b>Kapsül:</b> Polisakkarit (glukuronoksilomannan) - Ana virülans faktörü<br>
+                            <b>Üreaz:</b> POZİTİF (önemli tanı özelliği)<br>
+                            <b>Melanin:</b> Üretir (fenoloksidaz aktivitesi, virülans)<br>
+                            <b>Habitat:</b> Toprak, güvercin dışkısı (C. neoformans), okaliptüs ağacı (C. gattii)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Cryptococcus Türleri Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>C. neoformans</th>
+                                    <th>C. gattii</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hasta grubu</b></td>
+                                    <td>İmmünsüprese (AIDS, transplant)</td>
+                                    <td>İmmünkompetan de olabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Dünya geneli</td>
+                                    <td>Tropikal, Avustralya, Kanada (Vancouver)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaynak</b></td>
+                                    <td>Güvercin dışkısı, toprak</td>
+                                    <td>Okaliptüs, ağaç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS tutulumu</b></td>
+                                    <td>Menenjit sık</td>
+                                    <td>Kriptokokom (kitle) daha sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi yanıtı</b></td>
+                                    <td>Daha iyi</td>
+                                    <td>Daha uzun tedavi gerekebilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>AIDS + Menenjit = CRYPTOCOCCUS düşün!</strong><br>
+                        CD4 <100/µL olan AIDS hastalarında en sık fungal menenjit etkenidir. Afrika'da HIV ilişkili ölümlerin önemli bir nedenidir.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Virülans Faktörleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Polisakkarit kapsül:</b> Antifagositik, immünsüpresif, en önemli virülans faktörü</li>
+                            <li class="feature-item"><b>Melanin:</b> Oksidatif strese direnç, fenoloksidaz ile üretilir</li>
+                            <li class="feature-item"><b>Üreaz:</b> SSS invazyonunu kolaylaştırır</li>
+                            <li class="feature-item"><b>Fosfolipaz:</b> Doku invazyonu</li>
+                            <li class="feature-item"><b>37°C'de üreme:</b> İnsan vücut ısısına adaptasyon</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Cryptococcus Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GÜVERCİN + AIDS + MENENJİT = CRYPTO"</b><br>
+                            <b>"KAPSÜL = VİRÜLANS #1"</b><br>
+                            <b>"ÜREAZ (+) = SSS'ye giriş kolaylaşır"</b><br>
+                            <b>"MELANİN = Kuş niger besiyerinde kahverengi koloni"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-brain",
+                content: `
+                    <p>Kriptokokoz inhalasyonla başlar ve immün duruma göre farklı klinik tablolara yol açar. En korkulan tablo <b>kriptokoksik menenjittir</b>.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Kriptokoksik Menenjit/Meningoensefalit</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Risk grubu</b></td>
+                                    <td>AIDS (CD4 <100), transplant, steroid, lenfoma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Başlangıç</b></td>
+                                    <td>Sinsi, subakut (günler-haftalar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Semptomlar</b></td>
+                                    <td>Baş ağrısı (%75), ateş, ense sertliği (hafif olabilir!), konfüzyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Önemli bulgu</b></td>
+                                    <td><b>Artmış BOS basıncı</b> (>25 cmH₂O, bazen >40)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td>Hidrosefali, görme kaybı, işitme kaybı, kranial sinir felci</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prognoz</b></td>
+                                    <td>Tedavisiz %100 ölümcül, tedaviyle %10-30 mortalite</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>BOS BASINCI YÖNETİMİ KRİTİK!</strong><br>
+                        Kriptokoksik menenjitte artmış BOS basıncı ölümün ana nedenidir.<br>
+                        <b>Açılış basıncı >25 cmH₂O:</b> Terapötik LP ile basıncı %50 düşür veya normal sınıra getir.<br>
+                        <b>Günlük LP:</b> Basınç normale dönene kadar tekrarla.<br>
+                        <b>Dirençli vakalar:</b> Lumbar dren veya VP şant</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">BOS Bulguları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Tipik Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Basınç</b></td>
+                                    <td>↑↑ (>25 cmH₂O, sıklıkla çok yüksek)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hücre</b></td>
+                                    <td>Lenfosit hakimiyeti (düşük olabilir AIDS'te)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Protein</b></td>
+                                    <td>Hafif ↑</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Glukoz</b></td>
+                                    <td>↓ (düşük)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>India ink</b></td>
+                                    <td>Kapsüllü maya (%50-80 pozitif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CrAg (antijen)</b></td>
+                                    <td>POZİTİF (>%95 duyarlılık)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Pulmoner Kriptokokoz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>İmmünkompetan:</b> Genellikle asemptomatik veya hafif, spontan rezolüsyon</li>
+                            <li class="feature-item"><b>İmmünsüprese:</b> Pnömoni, nodül, kavite, ARDS</li>
+                            <li class="feature-item"><b>Radyoloji:</b> Soliter nodül, infiltrat, hiler LAP, kavite</li>
+                            <li class="feature-item"><b>Dikkat:</b> Pulmoner kriptokokozda SSS tutulumu araştır!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. Dissemine Kriptokokoz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Cilt:</b> Papül, nodül, ülser, mollusküm benzeri (AIDS'te)</li>
+                            <li class="feature-item"><b>Kemik:</b> Osteomiyelit</li>
+                            <li class="feature-item"><b>Prostat:</b> Rezervuar olabilir (relaps kaynağı)</li>
+                            <li class="feature-item"><b>Göz:</b> Koryoretinit, papil ödemi</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AIDS + BAŞ AĞRISI + ATEŞ = LP YAP, CRYPTO ARA"</b><br>
+                            <b>"BOS BASINCI ↑↑ = TERAPÖTİK LP (hayat kurtarır)"</b><br>
+                            <b>"CİLT NODÜLÜ + AIDS = DİSSEMİNE CRYPTO?"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">India Ink (Çin Mürekkebi) Boyama</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Prensip</b></td>
+                                    <td>Negatif boyama - Kapsül boyayı almaz, halo görünümü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Görüntü</b></td>
+                                    <td>Koyu zeminde parlak halo ile çevrili maya</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Duyarlılık</b></td>
+                                    <td>AIDS'te %50-80, non-AIDS'te daha düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Avantaj</b></td>
+                                    <td>Hızlı, ucuz, yatak başı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dezavantaj</b></td>
+                                    <td>Düşük duyarlılık, deneyim gerekir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Kriptokoksik Antijen Testi (CrAg)</p>
+                        <p class="highlight-box__content">
+                            <b>Altın standart tanı testi!</b><br><br>
+                            <b>Yöntem:</b> Lateks aglütinasyon veya lateral flow assay (LFA)<br>
+                            <b>Örnek:</b> BOS, serum, idrar<br>
+                            <b>Duyarlılık:</b> >%95, özgüllük >%95<br>
+                            <b>Titre:</b> Hastalık yükü ile korelasyon, tedavi izleminde kullanılabilir<br>
+                            <b>LFA:</b> Hızlı (15 dk), ucuz, point-of-care
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>CrAg Tarama - WHO Önerisi:</strong><br>
+                        CD4 <100/µL olan tüm HIV pozitif hastalarda serum CrAg taraması yapılmalı. CrAg (+) olanlarda semptom olmasa bile LP yapılmalı (subklinik menenjit?).</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kültür</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Besiyeri</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>SDA</b></td>
+                                    <td>Krem-beyaz mukoid koloni, 2-5 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bird seed agar (Niger)</b></td>
+                                    <td>Kahverengi koloni (melanin üretimi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kan kültürü</b></td>
+                                    <td>Dissemine hastalıkta pozitif olabilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Testler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Üreaz testi:</b> POZİTİF (Candida'dan ayırır)</li>
+                            <li class="feature-item"><b>β-D-glukan:</b> NEGATİF (Cryptococcus üretmez!)</li>
+                            <li class="feature-item"><b>Histopatoloji:</b> Mucicarmine (kapsül kırmızı boyar), PAS, GMS</li>
+                            <li class="feature-item"><b>MALDI-TOF:</b> Tür tayini</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>β-D-Glukan NEGATİF!</strong><br>
+                        Cryptococcus β-D-glukan üretmez. Bu test negatifken kriptokokoz dışlanMAZ. CrAg kullan!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"INDİA INK = KAPSÜL HALOSU"</b><br>
+                            <b>"CrAg = ALTIN STANDART (>%95 duyarlılık)"</b><br>
+                            <b>"NİGER AGAR = KAHVERENGİ (melanin)"</b><br>
+                            <b>"β-D-GLUKAN = NEGATİF (Crypto üretmez!)"</b><br>
+                            <b>"ÜREAZ = POZİTİF"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-pills",
+                content: `
+                    <p>Kriptokoksik menenjit tedavisi <b>üç fazlı</b>dır: İndüksiyon, konsolidasyon, idame. BOS basınç kontrolü kritik öneme sahiptir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kriptokoksik Menenjit Tedavisi (AIDS)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faz</th>
+                                    <th>Tedavi</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İndüksiyon</b></td>
+                                    <td><b>Lipozomal AmB + Flusitozin</b></td>
+                                    <td>En az 2 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konsolidasyon</b></td>
+                                    <td>Flukonazol 400-800 mg/gün</td>
+                                    <td>8 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İdame (sekonder profilaksi)</b></td>
+                                    <td>Flukonazol 200 mg/gün</td>
+                                    <td>CD4 >100 ve 1 yıl ART sonrasına kadar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Flusitozin (5-FC) Önemi:</strong><br>
+                        AmB + Flusitozin kombinasyonu, tek başına AmB'den üstündür!<br>
+                        <b>Doz:</b> 100 mg/kg/gün (4 dozda)<br>
+                        <b>Yan etki:</b> Kemik iliği supresyonu (özellikle böbrek yetmezliğinde)<br>
+                        <b>Yoksa:</b> AmB + yüksek doz flukonazol veya tek AmB</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">BOS Basınç Yönetimi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Açılış basıncı >25 cmH₂O</b></td>
+                                    <td>Terapötik LP: Basıncı %50 düşür veya <20'ye getir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Semptomlar devam ederse</b></td>
+                                    <td>Günlük LP tekrarla</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Refrakter yüksek basınç</b></td>
+                                    <td>Geçici lumbar dren veya VP şant</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Steroid/Manitol</b></td>
+                                    <td>Önerilmez (etkisiz, zararlı olabilir)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Klinik Durumlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pulmoner (hafif-orta, immünkompetan)</b></td>
+                                    <td>Flukonazol 400 mg/gün, 6-12 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pulmoner (ağır veya immünsüprese)</b></td>
+                                    <td>Menenjit gibi tedavi et (LP yap!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Asemptomatik antigenemi (AIDS)</b></td>
+                                    <td>LP yap → SSS tutulumu varsa menenjit tedavisi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">IRIS (İmmün Rekonstitüsyon Sendromu)</p>
+                        <p class="highlight-box__content">
+                            <b>Ne zaman?</b> ART başladıktan 2-8 hafta sonra<br>
+                            <b>Klinik:</b> Menenjit semptomlarının kötüleşmesi, yeni SSS bulguları<br>
+                            <b>Tedavi:</b> Antifungal devam, ART devam, steroid tartışmalı<br>
+                            <b>Önlem:</b> ART'yi kriptokoksik menenjit tedavisinden 4-6 hafta sonra başlat!
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AmB + FLUSİTOZİN = İNDÜKSİYON (2 hafta)"</b><br>
+                            <b>"FLUKONAZOL = KONSOLİDASYON + İDAME"</b><br>
+                            <b>"LP = BASINÇ DÜŞÜR (hayat kurtarır!)"</b><br>
+                            <b>"ART = 4-6 HAFTA BEKLE (IRIS önle)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>AIDS + Menenjit:</b> Cryptococcus neoformans<br>
+                            2. <b>India ink:</b> Kapsül halosu<br>
+                            3. <b>CrAg:</b> En duyarlı tanı testi<br>
+                            4. <b>β-D-glukan:</b> NEGATİF (Crypto üretmez)<br>
+                            5. <b>BOS basıncı:</b> Artmış, terapötik LP<br>
+                            6. <b>Tedavi:</b> AmB + Flusitozin → Flukonazol
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu/Senaryo</th>
+                                    <th>Düşün</th>
+                                    <th>Yap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AIDS, CD4<100, baş ağrısı, ateş</td>
+                                    <td>Kriptokoksik menenjit</td>
+                                    <td>LP + CrAg + India ink</td>
+                                </tr>
+                                <tr>
+                                    <td>BOS'ta India ink (+), halo</td>
+                                    <td>Cryptococcus</td>
+                                    <td>AmB + Flusitozin başla</td>
+                                </tr>
+                                <tr>
+                                    <td>BOS basıncı 35 cmH₂O</td>
+                                    <td>Artmış BİB</td>
+                                    <td>Terapötik LP (20-30 mL boşalt)</td>
+                                </tr>
+                                <tr>
+                                    <td>Serum CrAg (+), asemptomatik</td>
+                                    <td>Subklinik menenjit?</td>
+                                    <td>LP yap!</td>
+                                </tr>
+                                <tr>
+                                    <td>ART sonrası kötüleşme</td>
+                                    <td>IRIS</td>
+                                    <td>Antifungal devam, steroid?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Karşılaştırma: Kapsüllü Patojenler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Organizma</th>
+                                    <th>Kapsül Yapısı</th>
+                                    <th>Boyama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Cryptococcus</b></td>
+                                    <td>Polisakkarit (GXM)</td>
+                                    <td>India ink, mucicarmine</td>
+                                </tr>
+                                <tr>
+                                    <td><b>S. pneumoniae</b></td>
+                                    <td>Polisakkarit</td>
+                                    <td>Quellung reaksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>K. pneumoniae</b></td>
+                                    <td>Polisakkarit</td>
+                                    <td>Negatif boyama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>B. anthracis</b></td>
+                                    <td>Poli-D-glutamik asit (PROTEİN!)</td>
+                                    <td>M'Fadyean</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GÜVERCİN + AIDS + MENENJİT = CRYPTO"</b><br>
+                            <b>"INDİA INK = HALO (kapsül)"</b><br>
+                            <b>"CrAg = >%95 DUYARLI"</b><br>
+                            <b>"β-D-GLUKAN = NEGATİF (Crypto'da!)"</b><br>
+                            <b>"BOS BASINCI ↑ = TERAPÖTİK LP"</b><br>
+                            <b>"AmB + 5-FC → FLUKONAZOL"</b><br>
+                            <b>"ART = 4-6 HAFTA BEKLE"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>C. neoformans =</b> AIDS menenjitinin en sık fungal etkeni<br>
+                            2. <b>Kaynak =</b> Güvercin dışkısı<br>
+                            3. <b>Kapsül =</b> Ana virülans faktörü, antifagositik<br>
+                            4. <b>India ink =</b> Negatif boyama, kapsül halosu<br>
+                            5. <b>CrAg =</b> En duyarlı test (serum, BOS)<br>
+                            6. <b>β-D-glukan =</b> NEGATİF (Cryptococcus üretmez!)<br>
+                            7. <b>BOS basıncı =</b> Artmış → Terapötik LP hayat kurtarır<br>
+                            8. <b>Tedavi =</b> AmB + Flusitozin (indüksiyon), Flukonazol (idame)<br>
+                            9. <b>ART zamanlaması =</b> Menenjit tedavisinden 4-6 hafta sonra başla<br>
+                            10. <b>Üreaz =</b> POZİTİF
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "AIDS, CD4<100, subakut menenjit?" → Cryptococcus</li>
+                        <li><b>Soru tipi:</b> "BOS'ta India ink ile halo?" → Cryptococcus kapsülü</li>
+                        <li><b>Soru tipi:</b> "Güvercin dışkısı ile temas, menenjit?" → Kriptokokoz</li>
+                        <li><b>Soru tipi:</b> "β-D-glukan negatif, CrAg pozitif?" → Cryptococcus</li>
+                        <li><b>Soru tipi:</b> "Kriptokoksik menenjitte ilk tedavi?" → AmB + Flusitozin</li>
+                        <li><b>Soru tipi:</b> "BOS basıncı 40 cmH₂O, ne yaparsın?" → Terapötik LP</li>
+                        <li><b>Soru tipi:</b> "Niger besiyerinde kahverengi koloni?" → Cryptococcus (melanin)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 23,
+        category: "mikoloji",
+        title: "Dimorfik Mantarlar",
+        subtitle: "Histoplasma, Blastomyces, Coccidioides, Paracoccidioides, Sporothrix",
+        summary: "Termal dimorfizm gösteren endemik mantarlar. Histoplasma (yarasa/kuş dışkısı), Blastomyces (geniş tabanlı tomurcuk), Coccidioides (artrokonidya, sferül), Paracoccidioides (gemi dümeni), Sporothrix (gül dikeni).",
+        tags: ["Dimorfik", "Histoplasma", "Blastomyces", "Coccidioides", "Sporothrix", "Endemik", "Mikoloji"],
+        sections: [
+            {
+                title: "Genel Özellikler ve Termal Dimorfizm",
+                icon: "fas fa-temperature-high",
+                content: `
+                    <p><strong>Dimorfik mantarlar</strong>, sıcaklığa bağlı olarak iki farklı formda yaşayabilen mantarlardır. Çevrede (25°C) küf, vücutta (37°C) maya formundadırlar. "Soğukta küf, sıcakta maya" kuralı geçerlidir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Termal Dimorfizm</p>
+                        <p class="highlight-box__content">
+                            <b>25°C (Çevre/Doğa):</b> KÜF formu - Hifler, sporlar, enfektif form<br>
+                            <b>37°C (Vücut):</b> MAYA formu - Parazitik form, dokuda görülen<br><br>
+                            <b>İstisna - Coccidioides:</b> 37°C'de maya değil, SFERÜL oluşturur!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dimorfik Mantarlar Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mantar</th>
+                                    <th>Endemik Bölge</th>
+                                    <th>Kaynak</th>
+                                    <th>Tipik Morfoloji</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Histoplasma capsulatum</b></td>
+                                    <td>Ohio-Mississippi, Orta Amerika</td>
+                                    <td>Yarasa/kuş dışkısı, mağara</td>
+                                    <td>İntrasellüler küçük maya</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Blastomyces dermatitidis</b></td>
+                                    <td>Kuzey Amerika (Great Lakes)</td>
+                                    <td>Toprak, odun</td>
+                                    <td>Geniş tabanlı tomurcuk</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coccidioides immitis/posadasii</b></td>
+                                    <td>Güneybatı ABD, Meksika</td>
+                                    <td>Çöl toprağı</td>
+                                    <td>Sferül + endospor</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paracoccidioides brasiliensis</b></td>
+                                    <td>Güney Amerika</td>
+                                    <td>Toprak</td>
+                                    <td>Gemi dümeni (pilot's wheel)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sporothrix schenckii</b></td>
+                                    <td>Dünya geneli</td>
+                                    <td>Gül dikeni, bitki</td>
+                                    <td>Puro şeklinde maya</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>PRİMER PAtojen!</strong><br>
+                        Dimorfik mantarlar immünkompetan bireylerde bile hastalık yapabilir (fırsatçı değil, primer patojen). Ancak immünsüpresyonda daha ağır seyreder.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Dimorfizm Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SOĞUKTA KÜF, SICAKTA MAYA"</b><br>
+                            <b>"Mold in the Cold, Yeast in the Heat"</b><br>
+                            <b>İstisna: Coccidioides = 37°C'de SFERÜL</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Histoplasma capsulatum",
+                icon: "fas fa-lungs",
+                content: `
+                    <p><strong>Histoplasma capsulatum</strong>, en sık görülen dimorfik mantardır. Yarasa ve kuş dışkısı ile kontamine toprakta bulunur. Makrofaj içi parazittir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Histoplasma - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Endemik bölge:</b> Ohio-Mississippi vadisi, Orta Amerika<br>
+                            <b>Kaynak:</b> Yarasa dışkısı (mağara), kuş dışkısı (tavuk kümesi)<br>
+                            <b>Bulaş:</b> İnhalasyon (konidyalar)<br>
+                            <b>Morfoloji:</b> Küçük maya (2-4 µm), makrofaj içinde<br>
+                            <b>Görünüm:</b> İntrasellüler, tüberkülozise benzer granülom
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Formlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut pulmoner</b></td>
+                                    <td>Çoğu asemptomatik, grip benzeri, kendiliğinden düzelir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik pulmoner</b></td>
+                                    <td>KOAH zemininde, kavite, TB'ye benzer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dissemine</b></td>
+                                    <td>AIDS, transplant → Hepatosplenomegali, pansitopeni, ateş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mediastinal</b></td>
+                                    <td>Granülomatöz mediastinit, fibrozis, SVC sendromu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Histopatoloji:</b> Makrofaj içi küçük maya, GMS/PAS boyama</li>
+                            <li class="feature-item"><b>Antijen testi:</b> Serum/idrar Histoplasma antijeni (duyarlı, dissemine hastalıkta)</li>
+                            <li class="feature-item"><b>Kültür:</b> Tehlikeli! BSL-3, yavaş üreme (4-6 hafta)</li>
+                            <li class="feature-item"><b>Seroloji:</b> Kompleman fiksasyon, immünodifüzyon</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hafif akut pulmoner</td>
+                                    <td>Gözlem (kendiliğinden düzelir)</td>
+                                </tr>
+                                <tr>
+                                    <td>Orta-ağır pulmoner</td>
+                                    <td>İtrakonazol 6-12 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td>Ağır/Dissemine</td>
+                                    <td>AmB (indüksiyon) → İtrakonazol (idame)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Histoplasma Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"YARASA + MAĞARA = HISTOPLASMA"</b><br>
+                            <b>"MAKROFAJ İÇİ KÜÇÜK MAYA"</b><br>
+                            <b>"OHIO-MISSISSIPPI VADİSİ"</b><br>
+                            <b>"TB'Yİ TAKLİT EDER (kavite)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Blastomyces ve Coccidioides",
+                icon: "fas fa-globe-americas",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Blastomyces dermatitidis</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Endemik bölge</b></td>
+                                    <td>Kuzey Amerika (Great Lakes, Mississippi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaynak</b></td>
+                                    <td>Nemli toprak, çürümüş odun</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Morfoloji</b></td>
+                                    <td><b>GENİŞ TABANLI TOMURCUK</b> (broad-based budding)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Boyut</b></td>
+                                    <td>Büyük maya (8-15 µm), kalın çift cidarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Akciğer + Cilt (verrüköz, ülseratif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>İtrakonazol veya AmB (ağır)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Blastomyces = GENİŞ TABANLI TOMURCUK!</strong><br>
+                        Bu morfolojik özellik sınavda patognomoniktir. Ana hücre ile tomurcuk arasındaki bağlantı geniştir.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Coccidioides immitis/posadasii</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Endemik bölge</b></td>
+                                    <td>Güneybatı ABD (Arizona, Kaliforniya), Meksika - "Valley Fever"</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaynak</b></td>
+                                    <td>Çöl toprağı, toz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enfektif form</b></td>
+                                    <td><b>ARTROKONİDYA</b> (çok enfektif!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Doku formu</b></td>
+                                    <td><b>SFERÜL</b> içinde <b>ENDOSPORLAR</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Valley fever, pnömoni, dissemine, menenjit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özel bulgu</b></td>
+                                    <td>Eritema nodozum ("çöl romatizması")</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Flukonazol/İtrakonazol, AmB (ağır, menenjit)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Coccidioides = MAYA OLUŞTURMAZ!</p>
+                        <p class="highlight-box__content">
+                            Diğer dimorfik mantarlardan farklı olarak 37°C'de maya değil, <b>SFERÜL</b> oluşturur.<br>
+                            Sferül (30-60 µm) içinde yüzlerce <b>endospor</b> bulunur.<br>
+                            Endosporlar salınınca yeni enfeksiyon odakları oluşur.
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Laboratuvar Tehlikesi!</strong><br>
+                        Coccidioides artrokonidyaları ÇOK ENFEKTİFTİR. Kültür BSL-3 gerektirir. Laboratuvar enfeksiyonlarının önemli bir nedenidir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"BLASTO = BROAD-BASED BUD (geniş tabanlı tomurcuk)"</b><br>
+                            <b>"COCCI = ÇÖL + SFERÜL + ENDOSPOR"</b><br>
+                            <b>"VALLEY FEVER = COCCIDIOIDES"</b><br>
+                            <b>"ERİTEMA NODOZUM = ÇÖL ROMATİZMASI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Paracoccidioides ve Sporothrix",
+                icon: "fas fa-seedling",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Paracoccidioides brasiliensis</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Endemik bölge</b></td>
+                                    <td>Güney Amerika (Brezilya, Arjantin, Kolombiya)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk grubu</b></td>
+                                    <td>Erkek çiftçiler, tarım işçileri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Morfoloji</b></td>
+                                    <td><b>GEMİ DÜMENİ / PİLOT'S WHEEL</b> - Çoklu tomurcuk</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Akciğer, mukokutanöz (ağız, burun), LAP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özel bulgu</b></td>
+                                    <td>"Mulberry stomatitis" - dut görünümü oral lezyonlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>İtrakonazol (uzun süreli), TMP-SMX alternatif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🚢 Gemi Dümeni (Pilot's Wheel)</p>
+                        <p class="highlight-box__content">
+                            Paracoccidioides'in patognomonik görünümü!<br>
+                            Ana hücreden (10-60 µm) çevresel olarak dizilmiş çoklu tomurcuklar.<br>
+                            Gemi dümeni veya Mickey Mouse kulağı olarak tanımlanır.
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sporothrix schenckii</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Dünya geneli (endemik değil)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaynak</b></td>
+                                    <td>Gül dikeni, bitki, sphagnum yosunu, toprak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Travmatik inokulasyon (diken batması), kedi ısırığı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Maya formu</b></td>
+                                    <td><b>PURO ŞEKLİ</b> (cigar-shaped)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td><b>Lenfokutanöz sporotrikoz</b> - En sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td><b>Saturated potasyum iyodür (SSKI)</b> veya itrakonazol</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Lenfokutanöz Sporotrikoz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Başlangıç:</b> Travma bölgesinde papül/nodül (şankr)</li>
+                            <li class="feature-item"><b>Yayılım:</b> Lenfatikler boyunca nodüler lezyonlar (sporotiroid yayılım)</li>
+                            <li class="feature-item"><b>Görünüm:</b> "Boncuk dizisi" şeklinde nodüller</b></li>
+                            <li class="feature-item"><b>Sistemik:</b> Nadiren (immünsüprese, alkolikler)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Lenfokutanöz Yayılım Yapan Diğer Patojenler:</strong><br>
+                        <b>Sporothrix, Nocardia, M. marinum, Leishmania, F. tularensis</b><br>
+                        (Sporotrikoid yayılım)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PARA = Pilot's wheel = GEMİ DÜMENİ (Güney Amerika)"</b><br>
+                            <b>"SPORO = GÜL DİKENİ + PURO ŞEKLİ MAYA"</b><br>
+                            <b>"SPORO = Saturated potasyum iyodür (SSKI)"</b><br>
+                            <b>"LENFOKÜTaNÖZ = BONCUK DİZİSİ NODÜLLER"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Morfolojik Özellikler - Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mantar</th>
+                                    <th>25°C (Küf)</th>
+                                    <th>37°C (Maya/Doku)</th>
+                                    <th>Tanısal Görünüm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Histoplasma</b></td>
+                                    <td>Tüberkülat makrokonidya</td>
+                                    <td>Küçük maya (2-4 µm)</td>
+                                    <td>Makrofaj içi maya</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Blastomyces</b></td>
+                                    <td>Piriform konidya</td>
+                                    <td>Büyük maya (8-15 µm)</td>
+                                    <td><b>Geniş tabanlı tomurcuk</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coccidioides</b></td>
+                                    <td>Artrokonidya (varil şekli)</td>
+                                    <td>SFERÜL + endospor</td>
+                                    <td><b>Sferül içinde endosporlar</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paracoccidioides</b></td>
+                                    <td>Küf (yavaş)</td>
+                                    <td>Çoklu tomurcuklu maya</td>
+                                    <td><b>Gemi dümeni (pilot's wheel)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sporothrix</b></td>
+                                    <td>"Çiçek demeti" konidya</td>
+                                    <td>Puro şekli maya</td>
+                                    <td><b>Cigar-shaped yeast</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Direkt mikroskopi</b></td>
+                                    <td>KOH, Calcofluor white, GMS, PAS</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>SDA 25°C (küf), BHI agar 37°C (maya), BSL-3!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td>GMS, PAS, H&E - Doku formları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antijen testi</b></td>
+                                    <td>Histoplasma, Blastomyces, Coccidioides (serum/idrar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji</b></td>
+                                    <td>Kompleman fiksasyon, immünodifüzyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Moleküler</b></td>
+                                    <td>PCR, DNA probe (kültür konfirmasyonu)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>BSL-3 GEREKLİ!</strong><br>
+                        Dimorfik mantarların küf formları çok enfektiftir. Özellikle <b>Coccidioides artrokonidyaları</b> laboratuvar enfeksiyonlarının önemli nedenidir. Biyogüvenlik 3. düzey kabinde çalışılmalı!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Morfoloji Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HISTO = Küçük maya, makrofaj içi"</b><br>
+                            <b>"BLASTO = Geniş tabanlı tomurcuk (BROAD-based BUD)"</b><br>
+                            <b>"COCCI = Sferül + Endospor"</b><br>
+                            <b>"PARA = Gemi dümeni (PILOT'S WHEEL)"</b><br>
+                            <b>"SPORO = Puro şekli (CIGAR-shaped)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Termal dimorfizm:</b> 25°C küf, 37°C maya<br>
+                            2. <b>Histoplasma:</b> Yarasa/mağara, makrofaj içi<br>
+                            3. <b>Blastomyces:</b> Geniş tabanlı tomurcuk<br>
+                            4. <b>Coccidioides:</b> Sferül + endospor, Valley fever<br>
+                            5. <b>Paracoccidioides:</b> Gemi dümeni<br>
+                            6. <b>Sporothrix:</b> Gül dikeni, lenfokutanöz, SSKI
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik İpucu</th>
+                                    <th>Mantar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mağara gezisi, yarasa, AIDS + pnömoni</td>
+                                    <td><b>Histoplasma</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Geniş tabanlı tomurcuk, akciğer + cilt</td>
+                                    <td><b>Blastomyces</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Çöl, Arizona/California, eritema nodozum</td>
+                                    <td><b>Coccidioides</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Güney Amerika, oral mukoza lezyonu, gemi dümeni</td>
+                                    <td><b>Paracoccidioides</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Gül dikeni batması, lenfatik yayılım</td>
+                                    <td><b>Sporothrix</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi Özeti</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mantar</th>
+                                    <th>Hafif-Orta</th>
+                                    <th>Ağır/Dissemine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Histoplasma</td>
+                                    <td>İtrakonazol</td>
+                                    <td>AmB → İtrakonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Blastomyces</td>
+                                    <td>İtrakonazol</td>
+                                    <td>AmB → İtrakonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Coccidioides</td>
+                                    <td>Flukonazol/İtrakonazol</td>
+                                    <td>AmB (menenjitte flukonazol)</td>
+                                </tr>
+                                <tr>
+                                    <td>Paracoccidioides</td>
+                                    <td>İtrakonazol</td>
+                                    <td>AmB → İtrakonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Sporothrix</td>
+                                    <td>SSKI veya İtrakonazol</td>
+                                    <td>AmB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SOĞUKTA KÜF, SICAKTA MAYA"</b><br>
+                            <b>"HISTO = YARASA + MAĞARA + MAKROFAJ İÇİ"</b><br>
+                            <b>"BLASTO = BROAD-BASED BUD"</b><br>
+                            <b>"COCCI = ÇÖL + SFERÜL (maya yok!)"</b><br>
+                            <b>"PARA = PILOT'S WHEEL (Güney Amerika)"</b><br>
+                            <b>"SPORO = GÜL + PURO + SSKI"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Termal dimorfizm =</b> 25°C küf, 37°C maya (Cocci hariç → sferül)<br>
+                            2. <b>Histoplasma =</b> Yarasa/kuş dışkısı, makrofaj içi küçük maya<br>
+                            3. <b>Blastomyces =</b> GENİŞ TABANLI TOMURCUK<br>
+                            4. <b>Coccidioides =</b> SFERÜL + ENDOSPOR, Valley fever, eritema nodozum<br>
+                            5. <b>Paracoccidioides =</b> GEMİ DÜMENİ, Güney Amerika, oral mukoza<br>
+                            6. <b>Sporothrix =</b> Gül dikeni, PURO şekli maya, lenfokutanöz, SSKI tedavi<br>
+                            7. <b>Primer patojen =</b> İmmünkompetanda da hastalık yapar<br>
+                            8. <b>BSL-3 =</b> Kültür tehlikeli (özellikle Cocci)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Yarasa mağarası, pnömoni, makrofaj içi maya?" → Histoplasma</li>
+                        <li><b>Soru tipi:</b> "Geniş tabanlı tomurcuk?" → Blastomyces</li>
+                        <li><b>Soru tipi:</b> "Arizona'dan gelen hasta, eritema nodozum?" → Coccidioides</li>
+                        <li><b>Soru tipi:</b> "Dokuda sferül + endospor?" → Coccidioides</li>
+                        <li><b>Soru tipi:</b> "Brezilya, oral ülser, çoklu tomurcuklu maya?" → Paracoccidioides</li>
+                        <li><b>Soru tipi:</b> "Gül dikeni batması, lenfatik nodüller?" → Sporotrikoz</li>
+                        <li><b>Soru tipi:</b> "SSKI tedavisi?" → Sporotrikoz</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 24,
+        category: "mikoloji",
+        title: "Antifungal İlaçlar ve Direnç",
+        subtitle: "Etki Mekanizmaları, Spektrum ve Direnç Mekanizmaları",
+        summary: "Poliyen (AmB), azol (flukonazol, vorikonazol, posakonazol), ekinokandin (kaspofungin, anidulafungin) ve flusitozin ilaçlarının kapsamlı özeti. Etki mekanizmaları, spektrumları, yan etkileri ve antifungal direnç mekanizmaları.",
+        tags: ["Antifungal", "Amfoterisin B", "Azol", "Ekinokandin", "Flusitozin", "Direnç", "Mikoloji"],
+        sections: [
+            {
+                title: "Antifungal Sınıflar ve Etki Mekanizmaları",
+                icon: "fas fa-pills",
+                content: `
+                    <p>Antifungal ilaçlar farklı hedef yapılara etki eder: Hücre membranı (ergosterol), hücre duvarı (β-glukan), nükleik asit sentezi. Her sınıfın avantaj ve dezavantajları vardır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Antifungal Hedefler</p>
+                        <p class="highlight-box__content">
+                            <b>Ergosterol (membran):</b> Poliyenler, Azoller<br>
+                            <b>β-1,3-D-Glukan (duvar):</b> Ekinokandinler<br>
+                            <b>Nükleik asit sentezi:</b> Flusitozin<br>
+                            <b>Mitoz:</b> Grizeofulvin (mikrotübül)<br>
+                            <b>Skualen epoksidaz:</b> Terbinafin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Antifungal Sınıfları Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sınıf</th>
+                                    <th>İlaçlar</th>
+                                    <th>Hedef</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Poliyenler</b></td>
+                                    <td>Amfoterisin B, Nistatin</td>
+                                    <td>Ergosterol</td>
+                                    <td>Fungisidal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Azoller</b></td>
+                                    <td>Flukonazol, İtrakonazol, Vorikonazol, Posakonazol, İsavukonazol</td>
+                                    <td>Lanosterol 14α-demetilaz (CYP51)</td>
+                                    <td>Fungistatik*</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ekinokandinler</b></td>
+                                    <td>Kaspofungin, Mikafungin, Anidulafungin</td>
+                                    <td>β-1,3-D-Glukan sentaz</td>
+                                    <td>Fungisidal (maya), Fungistatik (küf)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antimetabolit</b></td>
+                                    <td>Flusitozin (5-FC)</td>
+                                    <td>DNA/RNA sentezi</td>
+                                    <td>Fungistatik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Allilaminler</b></td>
+                                    <td>Terbinafin</td>
+                                    <td>Skualen epoksidaz</td>
+                                    <td>Fungisidal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><small>*Vorikonazol Aspergillus'a fungisidal olabilir</small></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Etki Mekanizması Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"POLİYEN = ERGOSTEROLE BAĞLANIR (delik açar)"</b><br>
+                            <b>"AZOL = ERGOSTEROL SENTEZİNİ ENGELLER (CYP51)"</b><br>
+                            <b>"EKİNOKANDİN = DUVAR (β-glukan)"</b><br>
+                            <b>"5-FC = DNA/RNA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Poliyenler (Amfoterisin B)",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Amfoterisin B - Etki Mekanizması</p>
+                        <p class="highlight-box__content">
+                            <b>Hedef:</b> Ergosterol (mantar membranı)<br>
+                            <b>Mekanizma:</b> Ergosterole bağlanır → Por oluşturur → İyon kaybı → Hücre ölümü<br>
+                            <b>Etki:</b> FUNGİSİDAL (geniş spektrum)<br>
+                            <b>Formlar:</b> Konvansiyonel (dezoksikolat) ve lipid formülasyonları
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Amfoterisin B Formları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Özellik</th>
+                                    <th>Nefrotoksisite</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>AmB-dezoksikolat (d-AmB)</b></td>
+                                    <td>Klasik, ucuz</td>
+                                    <td>EN YÜKSEK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lipozomal AmB (L-AmB)</b></td>
+                                    <td>Lipozom kaplı, tercih edilir</td>
+                                    <td>EN DÜŞÜK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AmB lipid kompleks (ABLC)</b></td>
+                                    <td>Ribbon yapı</td>
+                                    <td>Orta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AmB kolloidal dispersiyon</b></td>
+                                    <td>Disk yapı</td>
+                                    <td>Orta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Spektrum</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>ETKİLİ:</b> Candida (çoğu), Aspergillus, Cryptococcus, Mucorales, Dimorfik mantarlar</li>
+                            <li class="feature-item"><b>DOĞAL DİRENÇLİ:</b> C. lusitaniae, Aspergillus terreus, Scedosporium, Fusarium (bazıları)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yan Etkiler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yan Etki</th>
+                                    <th>Açıklama</th>
+                                    <th>Önlem/Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnfüzyon reaksiyonları</b></td>
+                                    <td>Ateş, titreme, hipotansiyon</td>
+                                    <td>Yavaş infüzyon, premedikasyon (parasetamol, difenhidramin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nefrotoksisite</b></td>
+                                    <td>Tübüler hasar, K+/Mg++ kaybı</td>
+                                    <td>SF yüklemesi, lipid form kullan, elektrolit replasmanı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anemi</b></td>
+                                    <td>EPO supresyonu</td>
+                                    <td>Genellikle reversibl</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipokalemi</b></td>
+                                    <td>Renal K+ kaybı</td>
+                                    <td>K+ replasmanı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>AmB = NEFROTOKSİK!</strong><br>
+                        En önemli toksisitesi nefrotoksisitedir. Lipozomal form tercih edilir. İnfüzyon öncesi 500-1000 mL SF yüklemesi nefrotoksisiteyi azaltır. Elektrolitleri (K+, Mg++) takip et!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">AmB Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AmB = GENİŞ SPEKTRUM FUNGİSİDAL"</b><br>
+                            <b>"AmB = NEFROTOKSİK (lipid form tercih)"</b><br>
+                            <b>"AmB = ATEŞ + TİTREME (infüzyon reaksiyonu)"</b><br>
+                            <b>"DİRENÇLİ: C. lusitaniae, A. terreus"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Azoller",
+                icon: "fas fa-capsules",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Azoller - Etki Mekanizması</p>
+                        <p class="highlight-box__content">
+                            <b>Hedef:</b> Lanosterol 14α-demetilaz (CYP51)<br>
+                            <b>Mekanizma:</b> Ergosterol sentezini inhibe eder → Membran bütünlüğü bozulur<br>
+                            <b>Etki:</b> FUNGİSTATİK (genellikle)<br>
+                            <b>Özellik:</b> CYP450 inhibisyonu → İlaç etkileşimleri!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Azol İlaçlar Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Spektrum</th>
+                                    <th>SSS Geçişi</th>
+                                    <th>Özel Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Flukonazol</b></td>
+                                    <td>Candida, Cryptococcus</td>
+                                    <td>İYİ</td>
+                                    <td>Candida glabrata'ya azalmış etki, küf ETKİSİZ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İtrakonazol</b></td>
+                                    <td>Candida, Aspergillus, Dimorfik</td>
+                                    <td>Zayıf</td>
+                                    <td>Emilim sorunlu, düzey izlemi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vorikonazol</b></td>
+                                    <td>Candida, Aspergillus, Fusarium</td>
+                                    <td>İYİ</td>
+                                    <td>Aspergilloz 1. tercih, görme bozukluğu, CYP2C19 polimorfizmi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Posakonazol</b></td>
+                                    <td>En geniş (Mucorales dahil)</td>
+                                    <td>Orta</td>
+                                    <td>MUKORMIKOZ tedavisinde kullanılabilir, profilaksi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İsavukonazol</b></td>
+                                    <td>Aspergillus, Mucorales</td>
+                                    <td>İyi</td>
+                                    <td>QT kısaltır (QT uzaması yok), IV ve oral</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Azol Yan Etkileri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yan Etki</th>
+                                    <th>Açıklama</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hepatotoksisite</b></td>
+                                    <td>Tüm azollerde, KC enzim takibi gerekli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>QT uzaması</b></td>
+                                    <td>Flukonazol, vorikonazol, posakonazol (isavukonazol KISALTIR)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Görme bozukluğu</b></td>
+                                    <td>VORİKONAZOL - Fotofobi, renk değişikliği, bulanıklık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cilt kanseri</b></td>
+                                    <td>Vorikonazol - Uzun süre kullanımda SCC riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İlaç etkileşimi</b></td>
+                                    <td>CYP450 inhibisyonu - Çok sayıda etkileşim!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>AZOL + SİKLOSPORİN/TAKROLİMUS = DİKKAT!</strong><br>
+                        Azoller CYP3A4 inhibitörüdür. Kalsinörin inhibitörleri (siklosporin, takrolimus) düzeyleri artar → Toksisite riski. Doz ayarlaması gerekli!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Azol Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FLUKONAZOL = Candida/Crypto, SSS iyi, küf ETKİSİZ"</b><br>
+                            <b>"VORİKONAZOL = Aspergilloz 1. tercih, GÖRME BOZUKLUĞU"</b><br>
+                            <b>"POSAKONAZOL = EN GENİŞ spektrum (Mucor dahil)"</b><br>
+                            <b>"AZOL = CYP450 inhibitör = İLAÇ ETKİLEŞİMİ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Ekinokandinler",
+                icon: "fas fa-shield-alt",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ekinokandinler - Etki Mekanizması</p>
+                        <p class="highlight-box__content">
+                            <b>Hedef:</b> β-1,3-D-Glukan sentaz<br>
+                            <b>Mekanizma:</b> Hücre duvarı sentezini inhibe eder<br>
+                            <b>Etki:</b> Candida'ya FUNGİSİDAL, küflere FUNGİSTATİK<br>
+                            <b>İlaçlar:</b> Kaspofungin, Mikafungin, Anidulafungin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ekinokandinler Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Kaspofungin</th>
+                                    <th>Mikafungin</th>
+                                    <th>Anidulafungin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Metabolizma</b></td>
+                                    <td>Hepatik</td>
+                                    <td>Hepatik</td>
+                                    <td>Non-enzimatik (KC bağımsız)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>KC yetmezliği</b></td>
+                                    <td>Doz azalt</td>
+                                    <td>Doz azalt</td>
+                                    <td>Ayarlama gerekmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Böbrek yetmezliği</b></td>
+                                    <td>Ayarlama gerekmez</td>
+                                    <td>Ayarlama gerekmez</td>
+                                    <td>Ayarlama gerekmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İlaç etkileşimi</b></td>
+                                    <td>Siklosporin (↑), Rifampin (↓)</td>
+                                    <td>Minimal</td>
+                                    <td>En az</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Spektrum</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Etkinlik</th>
+                                    <th>Patojenler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ÇOK ETKİLİ</b></td>
+                                    <td>Candida türleri (C. glabrata, C. krusei dahil)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ETKİLİ</b></td>
+                                    <td>Aspergillus (salvage tedavi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ETKİSİZ</b></td>
+                                    <td>Cryptococcus, Mucorales, Fusarium</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Ekinokandin = β-D-Glukan yanlış pozitifliği YOK!</strong><br>
+                        Ekinokandinler glukan sentezini inhibe ettiği için tedavi sırasında β-D-glukan testi yanlış negatif olabilir (tedavi yanıtını takip edemezsin).</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Avantajlar ve Dezavantajlar</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Avantaj:</b> İyi tolere edilir, düşük toksisite, az ilaç etkileşimi</li>
+                            <li class="feature-item"><b>Avantaj:</b> C. glabrata ve C. krusei'ye etkili (azol dirençli)</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> SADECE IV (oral yok)</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> SSS geçişi YOK → Menenjitte kullanılmaz</li>
+                            <li class="feature-item"><b>Dezavantaj:</b> Cryptococcus'a ETKİSİZ</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Ekinokandin Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"EKİNOKANDİN = DUVAR (β-glukan)"</b><br>
+                            <b>"CANDİDA'YA FUNGİSİDAL, İNVAZİF KANDİDADA 1. TERCİH"</b><br>
+                            <b>"SADECE IV, SSS GEÇİŞİ YOK"</b><br>
+                            <b>"CRYPTO = ETKİSİZ"</b><br>
+                            <b>"ANİDULAFUNGİN = KC bağımsız"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer Antifungaller ve Direnç",
+                icon: "fas fa-ban",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Flusitozin (5-FC)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>5-FU'ya dönüşür → DNA/RNA sentezini bozar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Spektrum</b></td>
+                                    <td>Candida, Cryptococcus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kullanım</b></td>
+                                    <td>HER ZAMAN KOMBİNASYON (AmB ile) - Tek başına hızlı direnç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endikasyon</b></td>
+                                    <td>Kriptokoksik menenjit (AmB + 5-FC)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yan etki</b></td>
+                                    <td>Kemik iliği supresyonu (özellikle böbrek yet.)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS geçişi</b></td>
+                                    <td>İYİ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Terbinafin</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Mekanizma:</b> Skualen epoksidaz inhibisyonu</li>
+                            <li class="feature-item"><b>Spektrum:</b> Dermatofitler (en etkili), Candida değişken</li>
+                            <li class="feature-item"><b>Kullanım:</b> Onikomikoz, Tinea tedavisi</li>
+                            <li class="feature-item"><b>Özellik:</b> Keratinize dokularda birikir</li>
+                            <li class="feature-item"><b>Yan etki:</b> Hepatotoksisite, tat değişikliği</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Antifungal Direnç Mekanizmaları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sınıf</th>
+                                    <th>Direnç Mekanizması</th>
+                                    <th>Klinik Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Poliyenler</b></td>
+                                    <td>Ergosterol içeriğinde değişiklik</td>
+                                    <td>C. lusitaniae, A. terreus (doğal direnç)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Azoller</b></td>
+                                    <td>ERG11 mutasyonu, efflux pompaları, hedef aşırı ekspresyon</td>
+                                    <td>C. glabrata, C. auris</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ekinokandinler</b></td>
+                                    <td>FKS1/FKS2 mutasyonu (glukan sentaz)</td>
+                                    <td>C. glabrata, C. auris</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Flusitozin</b></td>
+                                    <td>Permeaz, deaminaz mutasyonları</td>
+                                    <td>Hızlı direnç (tek başına kullanma!)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>C. auris = Çoklu İlaç Direnci!</strong><br>
+                        C. auris sıklıkla flukonazole dirençlidir, ekinokandin ve AmB direnci de görülebilir. Enfeksiyon kontrol açısından da tehlikeli (salgınlar).</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Doğal Direnç Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mantar</th>
+                                    <th>Doğal Direnç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>C. krusei</b></td>
+                                    <td>Flukonazol</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. glabrata</b></td>
+                                    <td>Flukonazole azalmış duyarlılık, doz bağımlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. lusitaniae</b></td>
+                                    <td>Amfoterisin B</td>
+                                </tr>
+                                <tr>
+                                    <td><b>A. terreus</b></td>
+                                    <td>Amfoterisin B</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cryptococcus</b></td>
+                                    <td>Ekinokandinler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mucorales</b></td>
+                                    <td>Vorikonazol, Ekinokandinler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Direnç Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"C. krusei = FLUKONAZOL dirençli (doğal)"</b><br>
+                            <b>"C. lusitaniae = AmB dirençli"</b><br>
+                            <b>"A. terreus = AmB dirençli"</b><br>
+                            <b>"CRYPTO = EKİNOKANDİN dirençli"</b><br>
+                            <b>"MUCOR = VORİKONAZOL dirençli (Posa/İsa kullan)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>AmB:</b> Ergosterole bağlanır, fungisidal, nefrotoksik<br>
+                            2. <b>Azoller:</b> CYP51 (ergosterol sentezi), fungistatik, hepatotoksisite<br>
+                            3. <b>Ekinokandinler:</b> β-glukan sentaz, sadece IV, SSS geçmez<br>
+                            4. <b>Vorikonazol:</b> Aspergilloz 1. tercih, görme bozukluğu<br>
+                            5. <b>C. krusei:</b> Flukonazole doğal dirençli<br>
+                            6. <b>C. lusitaniae:</b> AmB'ye doğal dirençli
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Senaryo - Antifungal Seçimi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik Durum</th>
+                                    <th>İlk Tercih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>İnvazif kandidoz</td>
+                                    <td>Ekinokandin (Mikafungin, Anidulafungin)</td>
+                                </tr>
+                                <tr>
+                                    <td>İnvazif aspergilloz</td>
+                                    <td>Vorikonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Kriptokoksik menenjit</td>
+                                    <td>AmB + Flusitozin → Flukonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Mukormikoz</td>
+                                    <td>Lipozomal AmB ± Posakonazol/İsavukonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Özofageal kandidiyazis</td>
+                                    <td>Flukonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Onikomikoz</td>
+                                    <td>Terbinafin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>AmB</th>
+                                    <th>Azol</th>
+                                    <th>Ekinokandin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hedef</b></td>
+                                    <td>Ergosterol</td>
+                                    <td>Ergosterol sentezi</td>
+                                    <td>Hücre duvarı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etki</b></td>
+                                    <td>Fungisidal</td>
+                                    <td>Fungistatik</td>
+                                    <td>Fungisidal (maya)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS geçişi</b></td>
+                                    <td>Zayıf</td>
+                                    <td>İyi (Flu, Vori)</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksisite</b></td>
+                                    <td>Nefrotoksisite</td>
+                                    <td>Hepatotoksisite</td>
+                                    <td>Düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mucor</b></td>
+                                    <td>ETKİLİ</td>
+                                    <td>Posa/İsa etkili</td>
+                                    <td>ETKİSİZ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Crypto</b></td>
+                                    <td>ETKİLİ</td>
+                                    <td>Flu etkili</td>
+                                    <td>ETKİSİZ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AmB = MEMBRAN (ergosterol), NEFROTOKSİK"</b><br>
+                            <b>"AZOL = SENTEZİ engelle, HEPATOTOKSİK"</b><br>
+                            <b>"EKİNO = DUVAR (β-glukan), SADECE IV"</b><br>
+                            <b>"VORİ = ASPERGİLLOZ #1"</b><br>
+                            <b>"EKİNO = KANDİDA #1"</b><br>
+                            <b>"CRYPTO MENENJİT = AmB + 5-FC"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>AmB =</b> Ergosterole bağlanır, fungisidal, NEFROTOKSİK<br>
+                            2. <b>Azol =</b> CYP51 (lanosterol demetilaz), CYP450 inhibitör<br>
+                            3. <b>Ekinokandin =</b> β-glukan sentaz, Candida'ya fungisidal<br>
+                            4. <b>Vorikonazol =</b> Aspergilloz 1. tercih, GÖRME BOZUKLUĞU<br>
+                            5. <b>Flukonazol =</b> Candida/Crypto, SSS iyi, KÜFE ETKİSİZ<br>
+                            6. <b>Ekinokandin =</b> SSS geçmez, Crypto'ya ETKİSİZ<br>
+                            7. <b>C. krusei =</b> Flukonazole DOĞAL DİRENÇLİ<br>
+                            8. <b>C. lusitaniae =</b> AmB'ye DOĞAL DİRENÇLİ<br>
+                            9. <b>Mucorales =</b> Vorikonazole DİRENÇLİ<br>
+                            10. <b>Flusitozin =</b> TEK BAŞINA KULLANMA (hızlı direnç)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "AmB yan etkisi?" → Nefrotoksisite, infüzyon reaksiyonu</li>
+                        <li><b>Soru tipi:</b> "Aspergilloz tedavisi?" → Vorikonazol</li>
+                        <li><b>Soru tipi:</b> "İnvazif kandidoz tedavisi?" → Ekinokandin</li>
+                        <li><b>Soru tipi:</b> "Flukonazole doğal dirençli Candida?" → C. krusei</li>
+                        <li><b>Soru tipi:</b> "Kriptokoksik menenjit tedavisi?" → AmB + Flusitozin</li>
+                        <li><b>Soru tipi:</b> "SSS'ye geçmeyen antifungal?" → Ekinokandinler</li>
+                        <li><b>Soru tipi:</b> "Mukormikoz tedavisi?" → Lipozomal AmB</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 25,
+        category: "mikoloji",
+        title: "Mukormikoz (Zigomikoz)",
+        subtitle: "Rinoserebral, Pulmoner ve Kutanöz Formlar",
+        summary: "Mucorales takımı mantarlarının (Rhizopus, Mucor, Lichtheimia) neden olduğu anjioinvazif enfeksiyon. Diyabetik ketoasidoz, nötropeni, demir yükü artışı risk faktörleri. Acil debridman ve lipozomal AmB tedavisi hayat kurtarır.",
+        tags: ["Mukormikoz", "Zigomikoz", "Rhizopus", "DKA", "Anjioinvazif", "AmB", "Mikoloji"],
+        sections: [
+            {
+                title: "Genel Özellikler ve Epidemiyoloji",
+                icon: "fas fa-exclamation-triangle",
+                content: `
+                    <p><strong>Mukormikoz</strong>, Mucorales takımına ait mantarların neden olduğu hızlı ilerleyen, anjioinvazif ve sıklıkla fatal seyreden fungal enfeksiyondur. Eski adı <b>Zigomikoz</b>'dur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Mukormikoz - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Etkenler:</b> Rhizopus, Mucor, Lichtheimia (eski adı Absidia), Rhizomucor, Cunninghamella<br>
+                            <b>En sık:</b> <b>Rhizopus oryzae/arrhizus</b><br>
+                            <b>Morfoloji:</b> Geniş (5-15 µm), septasız (pauciseptate), dik açılı dallanma<br>
+                            <b>Bulaş:</b> İnhalasyon, travmatik inokulasyon, GİS<br>
+                            <b>Özellik:</b> Anjioinvazif → Tromboz → Doku nekrozu → Siyah eskar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Risk Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Risk Faktörü</th>
+                                    <th>Açıklama</th>
+                                    <th>En Sık Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Diyabetik Ketoasidoz (DKA)</b></td>
+                                    <td>En önemli! Asidoz + hiperglisemi</td>
+                                    <td><b>Rinoserebral</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nötropeni</b></td>
+                                    <td>Hematolojik malignite, KİT</td>
+                                    <td>Pulmoner, dissemine</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Demir yükü artışı</b></td>
+                                    <td>Deferoksamin tedavisi, hemokromatozis</td>
+                                    <td>Dissemine</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kortikosteroid</b></td>
+                                    <td>Uzun süreli, yüksek doz</td>
+                                    <td>Pulmoner</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Travma/Yanık</b></td>
+                                    <td>Kontamine toprak, doğal afet</td>
+                                    <td>Kutanöz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>COVID-19</b></td>
+                                    <td>Özellikle Hindistan'da salgın (steroid+DM)</td>
+                                    <td>Rinoserebral</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>DKA + Yüz Ağrısı/Şişlik = MUKORMIKOZ!</strong><br>
+                        Diyabetik ketoasidoz hastasında yüz ağrısı, burun tıkanıklığı, periorbital şişlik görüldüğünde rinoserebral mukormikoz düşün. ACİL tedavi hayat kurtarır!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Neden DKA'da Risk Artar?</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Asidoz:</b> Transferrin'in demiri bağlama kapasitesi düşer → Serbest demir artar</li>
+                            <li class="feature-item"><b>Mucorales:</b> Sideroforu olmayan mantarlar serbest demiri kullanır</li>
+                            <li class="feature-item"><b>Hiperglisemi:</b> Mantar çoğalmasını destekler</li>
+                            <li class="feature-item"><b>Nötrofil disfonksiyonu:</b> Fagositoz ve öldürme bozulur</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Risk Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DKA + YÜZ = MUKORMIKOZ"</b><br>
+                            <b>"DEMİR SEVİYOR (Deferoksamin + Hemokromatozis)"</b><br>
+                            <b>"NÖTROPENİ + AKCİĞER NODÜLÜ = Aspergillus veya MUCOR?"</b><br>
+                            <b>"COVID + STEROİD + DM = HİNDİSTAN SALGINI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Formlar",
+                icon: "fas fa-head-side-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">1. Rinoserebral Mukormikoz (En sık, %30-50)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Risk grubu</b></td>
+                                    <td>DKA (en sık), kontrolsüz DM</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Başlangıç</b></td>
+                                    <td>Sinüsler → Orbita → Beyin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Semptomlar</b></td>
+                                    <td>Yüz ağrısı, burun tıkanıklığı, baş ağrısı, ateş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klasik bulgu</b></td>
+                                    <td><b>SİYAH ESKAR</b> (nazal/palatal nekroz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orbita tutulumu</b></td>
+                                    <td>Periorbital ödem, proptozis, görme kaybı, oftalmopleji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS yayılımı</b></td>
+                                    <td>Kavernöz sinüs trombozu, beyin apsesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mortalite</b></td>
+                                    <td>%30-70 (SSS tutulumunda daha yüksek)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔥 Siyah Eskar = PATOGNOMONİK</p>
+                        <p class="highlight-box__content">
+                            Burun mukozası veya sert damakta <b>siyah nekrotik eskar</b>, mukormikozun klasik bulgusudur.<br>
+                            Anjioinvazyon → Damar trombozu → İskemik nekroz → Siyah renk<br>
+                            <b>Dikkat:</b> Erken evrede eskar olmayabilir!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">2. Pulmoner Mukormikoz</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Risk grubu</b></td>
+                                    <td>Nötropeni, hematolojik malignite, KİT</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Ateş, öksürük, hemoptizi, göğüs ağrısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Radyoloji</b></td>
+                                    <td>Nodül, konsolidasyon, kavite, halo işareti, ters halo (reverse halo)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ayırıcı tanı</b></td>
+                                    <td>İnvazif Aspergilloz (benzer görünüm!)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Aspergilloz mu, Mukormikoz mu?</strong><br>
+                        Nötropenik hastada pulmoner nodül/kavite → Her ikisi de düşünülmeli!<br>
+                        <b>Fark:</b> Mukormikoz daha hızlı ilerler, ters halo işareti daha sık görülür<br>
+                        <b>Kritik:</b> Vorikonazol Mucor'a ETKİSİZ! Yanlış tanı ölümcül olabilir.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">3. Kutanöz Mukormikoz</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Risk:</b> Travma, yanık, cerrahi yara, kontamine sargı</li>
+                            <li class="feature-item"><b>Klinik:</b> Nekrotik ülser, eskar, selülit</li>
+                            <li class="feature-item"><b>Özel durum:</b> Doğal afet, tornado yaralanmaları</li>
+                            <li class="feature-item"><b>Prognoz:</b> Diğer formlara göre daha iyi (erken debridman yapılırsa)</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">4. Diğer Formlar</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>GİS:</b> Prematüre, malnütrisyon, nekrotizan enterokolit benzeri</li>
+                            <li class="feature-item"><b>Dissemine:</b> Çoklu organ tutulumu, yüksek mortalite</li>
+                            <li class="feature-item"><b>Renal:</b> IV ilaç kullanıcıları</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DKA + YÜZ + SİYAH ESKAR = RİNOSEREBRAL"</b><br>
+                            <b>"NÖTROPENİ + AKCİĞER = PULMONER"</b><br>
+                            <b>"TRAVMA + TOPRAK = KUTANÖZ"</b><br>
+                            <b>"ANJİOİNVAZİF = TROMBOZ = NEKROZ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Morfolojik Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Hif yapısı:</b> GENİŞ (5-15 µm), SEPTASIZ veya az septalı (pauciseptate)<br>
+                            <b>Dallanma:</b> 90° (DİK AÇI) - Aspergillus 45° akut açı<br>
+                            <b>Görünüm:</b> Şerit benzeri (ribbon-like), düzensiz<br>
+                            <b>Boyama:</b> GMS, PAS, H&E (hifleri gösterir)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aspergillus vs Mucorales Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Aspergillus</th>
+                                    <th>Mucorales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hif genişliği</b></td>
+                                    <td>3-6 µm (dar)</td>
+                                    <td>5-15 µm (GENİŞ)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Septasyon</b></td>
+                                    <td>SEPTAL</td>
+                                    <td>SEPTASIZ/az septalı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dallanma açısı</b></td>
+                                    <td>45° (akut)</td>
+                                    <td>90° (dik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Galaktomannan</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>NEGATİF</td>
+                                </tr>
+                                <tr>
+                                    <td><b>β-D-glukan</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>NEGATİF</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Galaktomannan ve β-D-Glukan NEGATİF!</strong><br>
+                        Mucorales bu antijenleri üretmez. Testler negatif ise Aspergilloz dışlandı demek DEĞİLDİR ama Mukormikoz düşündürür.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Direkt mikroskopi</b></td>
+                                    <td>KOH, Calcofluor - Geniş, septasız, dik açılı hifler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td>GMS, PAS - Anjioinvazyon, nekroz, tromboz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>SDA, 25-37°C, hızlı üreme (1-3 gün), pamuksu koloni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Doku/kan, hızlı, tür tayini</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Görüntüleme</b></td>
+                                    <td>BT sinüs (kemik erozyonu), BT toraks (nodül, ters halo)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kültürde Görünüm</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Makroskopik:</b> Hızlı büyüyen, pamuksu, gri-kahve-siyah sporlar</li>
+                            <li class="feature-item"><b>Mikroskopik:</b> Sporangiyum (spor kesesi), sporangiyofor, rizoid</li>
+                            <li class="feature-item"><b>Rhizopus:</b> Rizoid (+), sporangiyofor rizoidin tam karşısında</li>
+                            <li class="feature-item"><b>Mucor:</b> Rizoid (-), dallanmış sporangiyofor</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GENİŞ + SEPTASIZ + 90° = MUCORALES"</b><br>
+                            <b>"DAR + SEPTAL + 45° = ASPERGILLUS"</b><br>
+                            <b>"GALAKTOMANNaN/β-D-GLUKAN = NEGATİF (Mucor)"</b><br>
+                            <b>"RHİZOPUS = RİZOİD (+)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-first-aid",
+                content: `
+                    <p>Mukormikoz tedavisinin dört temel ayağı vardır: <b>Antifungal, Cerrahi debridman, Altta yatan hastalık kontrolü ve Adjuvan tedaviler</b>.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🚨 Tedavi Prensipleri</p>
+                        <p class="highlight-box__content">
+                            <b>1. ERKEN TANI:</b> Şüphe yüksekse beklemeden başla!<br>
+                            <b>2. ANTİFUNGAL:</b> Lipozomal AmB yüksek doz<br>
+                            <b>3. CERRAHİ:</b> Agresif debridman (hayat kurtarır)<br>
+                            <b>4. ALTTA YATAN:</b> DKA düzelt, nötropeniyi düzelt, immünsüpresyonu azalt
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Antifungal Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Doz/Açıklama</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Lipozomal AmB</b></td>
+                                    <td>5-10 mg/kg/gün IV</td>
+                                    <td><b>BİRİNCİ TERCİH</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>AmB lipid kompleks</b></td>
+                                    <td>5 mg/kg/gün</td>
+                                    <td>Alternatif lipid form</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Posakonazol</b></td>
+                                    <td>300 mg/gün IV/PO</td>
+                                    <td>Step-down, salvage, profilaksi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İsavukonazol</b></td>
+                                    <td>200 mg/gün</td>
+                                    <td>Alternatif, daha az yan etki</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>VORİKONAZOL MUCOR'A ETKİSİZ!</strong><br>
+                        Vorikonazol Mucorales'e ETKİ ETMEZ. Aspergilloz düşünülerek vorikonazol başlanan hastada Mukormikoz varsa tedavi başarısız olur. Şüphe varsa AmB ekle!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Cerrahi Debridman</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Temel ilke:</b> Nekrotik dokuyu tamamen çıkar</b></li>
+                            <li class="feature-item"><b>Rinoserebral:</b> Sinüs cerrahisi, orbital eksenterasyon (gerekirse)</li>
+                            <li class="feature-item"><b>Pulmoner:</b> Lobektomi, pnömonektomi</li>
+                            <li class="feature-item"><b>Kutanöz:</b> Geniş debridman, greftleme</li>
+                            <li class="feature-item"><b>Tekrarlayan:</b> Birden fazla cerrahi gerekebilir</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Altta Yatan Hastalık Kontrolü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>DKA</b></td>
+                                    <td>Asidozu düzelt, glisemiyi kontrol et</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nötropeni</b></td>
+                                    <td>G-CSF, transfüzyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünsüpresyon</b></td>
+                                    <td>Mümkünse azalt (steroid, takrolimus)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Deferoksamin</b></td>
+                                    <td>KES (demiri Mucor'a sunar)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Adjuvan Tedaviler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Hiperbarik oksijen:</b> Tartışmalı, bazı merkezlerde kullanılır</li>
+                            <li class="feature-item"><b>Deferasiroks/Deferipron:</b> Demir şelatörleri (deferoksamin yerine)</li>
+                            <li class="feature-item"><b>Granülosit transfüzyonu:</b> Nötropenik hastalarda</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"LİPOZOMAL AmB = #1 (yüksek doz, 5-10 mg/kg)"</b><br>
+                            <b>"CERRAHİ = HAYAT KURTARIR"</b><br>
+                            <b>"VORİKONAZOL = ETKİSİZ!"</b><br>
+                            <b>"DKA = DÜZELT"</b><br>
+                            <b>"DEFEROKSAMİN = KES"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>DKA + Rinoserebral:</b> Klasik senaryo<br>
+                            2. <b>Siyah eskar:</b> Nazal/palatal nekroz<br>
+                            3. <b>Morfoloji:</b> Geniş, septasız, 90° dallanma<br>
+                            4. <b>Aspergillus farkı:</b> Dar, septal, 45° dallanma<br>
+                            5. <b>Tedavi:</b> Lipozomal AmB + Debridman<br>
+                            6. <b>Vorikonazol:</b> ETKİSİZ!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik Senaryo</th>
+                                    <th>Düşün</th>
+                                    <th>Yap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DKA + Yüz ağrısı + Periorbital ödem</td>
+                                    <td>Rinoserebral Mukormikoz</td>
+                                    <td>BT sinüs, endoskopi, AmB başla</td>
+                                </tr>
+                                <tr>
+                                    <td>Nazal/palatal siyah eskar</td>
+                                    <td>Mukormikoz</td>
+                                    <td>Biyopsi + Debridman + AmB</td>
+                                </tr>
+                                <tr>
+                                    <td>Nötropeni + Pulmoner nodül + GM negatif</td>
+                                    <td>Mukormikoz?</td>
+                                    <td>BAL, biyopsi, AmB ekle</td>
+                                </tr>
+                                <tr>
+                                    <td>Travma + Nekrotik yara</td>
+                                    <td>Kutanöz Mukormikoz</td>
+                                    <td>Geniş debridman + AmB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aspergillus vs Mucorales - Final Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Aspergillus</th>
+                                    <th>Mucorales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hif</b></td>
+                                    <td>Dar, septal, 45°</td>
+                                    <td>Geniş, septasız, 90°</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk faktörü</b></td>
+                                    <td>Nötropeni, steroid</td>
+                                    <td>DKA, demir yükü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Galaktomannan</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>NEGATİF</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vorikonazol</b></td>
+                                    <td>ETKİLİ (1. tercih)</td>
+                                    <td>ETKİSİZ!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AmB</b></td>
+                                    <td>Etkili</td>
+                                    <td>1. tercih</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DKA + YÜZ + SİYAH = MUCOR"</b><br>
+                            <b>"GENİŞ + SEPTASIZ + 90° = MUCORALES"</b><br>
+                            <b>"DAR + SEPTAL + 45° = ASPERGILLUS"</b><br>
+                            <b>"GM NEGATİF + β-D-GLUKAN NEGATİF = Aspergillus değil!"</b><br>
+                            <b>"VORİKONAZOL = MUCOR'A ETKİSİZ"</b><br>
+                            <b>"LİPOZOMAL AmB + DEBRİDMAN = TEDAVİ"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Risk faktörü =</b> DKA (#1 rinoserebral), Nötropeni (pulmoner)<br>
+                            2. <b>Klasik bulgu =</b> Nazal/palatal SİYAH ESKAR<br>
+                            3. <b>Morfoloji =</b> GENİŞ, SEPTASIZ, 90° dallanma<br>
+                            4. <b>Aspergillus farkı =</b> Dar, septal, 45° dallanma<br>
+                            5. <b>Galaktomannan =</b> NEGATİF (Mucorales üretmez)<br>
+                            6. <b>β-D-glukan =</b> NEGATİF<br>
+                            7. <b>Tedavi =</b> Lipozomal AmB (5-10 mg/kg) + Agresif debridman<br>
+                            8. <b>Vorikonazol =</b> ETKİSİZ!<br>
+                            9. <b>Altta yatan =</b> DKA düzelt, deferoksamin kes<br>
+                            10. <b>Mortalite =</b> Yüksek, erken tedavi kritik
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "DKA hastası, yüz ağrısı, siyah eskar?" → Rinoserebral Mukormikoz</li>
+                        <li><b>Soru tipi:</b> "Geniş, septasız, 90° dallanma?" → Mucorales</li>
+                        <li><b>Soru tipi:</b> "Galaktomannan negatif, β-D-glukan negatif, pulmoner nodül?" → Mukormikoz</li>
+                        <li><b>Soru tipi:</b> "Mukormikoz tedavisinde ilk seçenek?" → Lipozomal AmB</li>
+                        <li><b>Soru tipi:</b> "Mucorales'e etkisiz antifungal?" → Vorikonazol</li>
+                        <li><b>Soru tipi:</b> "Rinoserebral mukormikozda cerrahi?" → Agresif debridman (hayat kurtarır)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 26,
+        category: "mikoloji",
+        title: "Pneumocystis jirovecii",
+        subtitle: "PCP (Pneumocystis Pnömonisi) - AIDS Tanımlayıcı Hastalık",
+        summary: "Pneumocystis jirovecii (eski adı P. carinii), AIDS hastalarında en sık görülen fırsatçı pnömoni etkenidir. Kist ve trofozoit formları, bilateral buzlu cam opasiteleri, LDH yüksekliği, TMP-SMX tedavi ve profilaksisi.",
+        tags: ["Pneumocystis", "PCP", "AIDS", "Buzlu Cam", "TMP-SMX", "Profilaksi", "Mikoloji"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-lungs-virus",
+                content: `
+                    <p><strong>Pneumocystis jirovecii</strong>, insana özgü atipik bir mantardır. Daha önce protozoa sanılmış, ancak RNA dizileme ile mantar olduğu anlaşılmıştır. <b>Kültüre edilemez</b> ve immünsüprese hastalarda ciddi pnömoniye neden olur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Pneumocystis - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Eski isim:</b> Pneumocystis carinii (PCP kısaltması hala kullanılır)<br>
+                            <b>Sınıflandırma:</b> Atipik mantar (Ascomycota benzeri)<br>
+                            <b>Özellik:</b> Kültüre EDİLEMEZ<br>
+                            <b>Formlar:</b> Kist (8 sporozoitli) ve Trofozoit<br>
+                            <b>Hücre duvarı:</b> Ergosterol YOK (azol/AmB etkisiz), β-D-glukan VAR<br>
+                            <b>Bulaş:</b> Havayolu (kişiden kişiye)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Morfoloji</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Boyut</th>
+                                    <th>Özellik</th>
+                                    <th>Boyama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kist</b></td>
+                                    <td>5-8 µm</td>
+                                    <td>8 sporozoitli, kalın duvarlı</td>
+                                    <td>GMS, Toluidin blue (duvarı boyar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Trofozoit</b></td>
+                                    <td>1-5 µm</td>
+                                    <td>İnce duvarlı, pleomorfik</td>
+                                    <td>Giemsa, Wright, DFA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>PCP = AIDS Tanımlayıcı Hastalık!</strong><br>
+                        CD4 <200/µL olan HIV pozitif hastalarda en sık görülen fırsatçı enfeksiyondur. PCP tanısı = AIDS tanısı.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Risk Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Grup</th>
+                                    <th>Risk Durumu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HIV/AIDS</b></td>
+                                    <td>CD4 <200/µL (en önemli risk)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hematolojik malignite</b></td>
+                                    <td>ALL, lenfoma, KLL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transplant</b></td>
+                                    <td>KİT, solid organ (özellikle akciğer)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kortikosteroid</b></td>
+                                    <td>>20 mg/gün prednizon, >4 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biyolojik ajanlar</b></td>
+                                    <td>Rituksimab, alemtuzumab, TNF inhibitörleri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Genel Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PCP = P. jirovecii = Atipik MANTAR"</b><br>
+                            <b>"KÜLTÜRE EDİLEMEZ"</b><br>
+                            <b>"ERGOSTEROL YOK = Azol/AmB ETKİSİZ"</b><br>
+                            <b>"CD4 <200 = PCP RİSKİ = PROFİLAKSİ BAŞLA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Bulgular",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HIV/AIDS Hastalarında PCP</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Başlangıç</b></td>
+                                    <td><b>SİNSİ</b> (günler-haftalar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Semptomlar</b></td>
+                                    <td>Progresif dispne, kuru öksürük, ateş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fizik muayene</b></td>
+                                    <td>Takipne, siyanoz, raller genellikle YOK (silik FM)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipoksi</b></td>
+                                    <td>İstirahat ve egzersizle belirgin desatürasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tipik CD4</b></td>
+                                    <td><200/µL (genellikle <100)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">AIDS'te PCP vs Non-AIDS'te PCP</p>
+                        <p class="highlight-box__content">
+                            <b>AIDS:</b> Sinsi başlangıç, daha az şiddetli ama tedavisiz ölümcül<br>
+                            <b>Non-AIDS:</b> Akut başlangıç, fulminan seyir, mortalite daha yüksek<br>
+                            <b>Neden?</b> AIDS'te azalmış inflamatuar yanıt = daha az semptom ama yüksek organizma yükü
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Laboratuvar Bulguları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Bulgu</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>LDH</b></td>
+                                    <td>↑↑ YÜKSEK</td>
+                                    <td>Duyarlı ama özgün değil, prognoz göstergesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Arter kan gazı</b></td>
+                                    <td>Hipoksi, A-a gradyenti ↑</td>
+                                    <td>Şiddeti gösterir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>β-D-glukan</b></td>
+                                    <td>POZİTİF (yüksek)</td>
+                                    <td>PCP'de çok yükselir, tarama için kullanılabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CD4</b></td>
+                                    <td><200/µL</td>
+                                    <td>Risk değerlendirmesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Radyoloji</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Görüntüleme</th>
+                                    <th>Tipik Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akciğer grafisi</b></td>
+                                    <td>Bilateral perihiler interstisyel infiltrat, bazen normal olabilir!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HRCT</b></td>
+                                    <td><b>BİLATERAL BUZLU CAM OPASİTELERİ</b> (ground-glass)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atipik</b></td>
+                                    <td>Kist, pnömotosel, pnömotoraks, kavite, nodül</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Buzlu Cam + AIDS = PCP!</strong><br>
+                        Bilateral simetrik buzlu cam opasiteleri, özellikle perihiler ve üst loblarda belirgin, PCP için patognomonike yakın bulgudur.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SİNSİ DİSPNE + KURU ÖKSÜRÜK + ATEŞ = PCP?"</b><br>
+                            <b>"LDH ↑ + BUZLU CAM + CD4<200 = PCP!"</b><br>
+                            <b>"FM SİLİK, RADYOLOJİ AĞIR (uyumsuzluk)"</b><br>
+                            <b>"β-D-GLUKAN = POZİTİF (PCP'de yükselir)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Laboratuvar Tanısı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tanı Prensipleri</p>
+                        <p class="highlight-box__content">
+                            <b>Altın standart:</b> Solunum örneklerinde organizmanın gösterilmesi<br>
+                            <b>Örnek:</b> İndüklenmiş balgam, BAL (bronkoalveoler lavaj)<br>
+                            <b>Dikkat:</b> Kültüre EDİLEMEZ! Boyama veya PCR gerekli
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Boyama Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Boyama</th>
+                                    <th>Ne Boyar?</th>
+                                    <th>Görünüm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>GMS (Gömöri Methenamine Silver)</b></td>
+                                    <td>Kist duvarı</td>
+                                    <td>Kahve/siyah kistler, "crushed ping-pong ball"</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toluidin blue O</b></td>
+                                    <td>Kist duvarı</td>
+                                    <td>Mavi-mor kistler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Giemsa/Wright</b></td>
+                                    <td>Trofozoit + kist içi</td>
+                                    <td>Mor nükleus, pembe sitoplazma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DFA (Direkt Floresan Antikor)</b></td>
+                                    <td>Her iki form</td>
+                                    <td>Duyarlı ve özgül, yaygın kullanılır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Örnek Türleri - Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Örnek</th>
+                                    <th>Duyarlılık</th>
+                                    <th>Avantaj</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İndüklenmiş balgam</b></td>
+                                    <td>%50-90</td>
+                                    <td>Non-invazif</td>
+                                    <td>Deneyim gerekir, düşük duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BAL</b></td>
+                                    <td>>%90</td>
+                                    <td>Altın standart, yüksek duyarlılık</td>
+                                    <td>İnvazif, bronkoskopi gerekir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transbronşial biyopsi</b></td>
+                                    <td>%95-100</td>
+                                    <td>En yüksek duyarlılık</td>
+                                    <td>İnvazif, komplikasyon riski</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Özellik</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Çok duyarlı, kolonizasyon vs hastalık ayrımı zor</td>
+                                </tr>
+                                <tr>
+                                    <td><b>β-D-glukan</b></td>
+                                    <td>Serum, yüksek duyarlılık, negatif prediktif değer iyi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LDH</b></td>
+                                    <td>Non-spesifik ama duyarlı, prognoz göstergesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>PCR Dikkat!</strong><br>
+                        PCR çok duyarlıdır ama kolonizasyonu hastalıktan ayıramayabilir. Klinik + radyoloji + PCR birlikte değerlendirilmeli.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GMS = KİST DUVARI (kahve-siyah)"</b><br>
+                            <b>"GIEMSA = TROFOZOİT"</b><br>
+                            <b>"DFA = EN YAYGIN, her iki form"</b><br>
+                            <b>"BAL = ALTIN STANDART (>%90)"</b><br>
+                            <b>"KÜLTÜR = MÜMKÜN DEĞİL!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi ve Profilaksi",
+                icon: "fas fa-prescription-bottle-alt",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 TMP-SMX = #1 (Tedavi ve Profilaksi)</p>
+                        <p class="highlight-box__content">
+                            <b>Trimetoprim-Sülfametoksazol (Ko-trimoksazol)</b><br>
+                            Hem tedavide hem profilakside ilk tercihtir.<br>
+                            Folik asit metabolizmasını inhibe eder.
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Doz</th>
+                                    <th>Süre</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>TMP-SMX</b></td>
+                                    <td>TMP 15-20 mg/kg/gün (3-4 dozda)</td>
+                                    <td>21 gün</td>
+                                    <td><b>BİRİNCİ TERCİH</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pentamidin IV</b></td>
+                                    <td>4 mg/kg/gün</td>
+                                    <td>21 gün</td>
+                                    <td>Ağır hastalık, TMP-SMX intoleransı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klindamisin + Primakin</b></td>
+                                    <td>Klinda 600 mg TID + Prima 30 mg/gün</td>
+                                    <td>21 gün</td>
+                                    <td>Alternatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atovakuon</b></td>
+                                    <td>750 mg BID</td>
+                                    <td>21 gün</td>
+                                    <td>Hafif-orta hastalık, oral</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dapson + TMP</b></td>
+                                    <td>Dapson 100 mg + TMP 15 mg/kg/gün</td>
+                                    <td>21 gün</td>
+                                    <td>Alternatif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kortikosteroid Endikasyonu!</strong><br>
+                        <b>PaO₂ <70 mmHg veya A-a gradyent >35 mmHg ise:</b><br>
+                        Prednizon 40 mg BID x 5 gün → 40 mg/gün x 5 gün → 20 mg/gün x 11 gün<br>
+                        <b>Neden?</b> Tedavi başlangıcında inflamasyon artabilir (paradoksal kötüleşme). Steroid hayat kurtarır!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Profilaksi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Endikasyon</th>
+                                    <th>İlaç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HIV, CD4 <200/µL</b></td>
+                                    <td>TMP-SMX 1 DS tablet/gün veya 3x/hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alternatif 1</b></td>
+                                    <td>Dapson 100 mg/gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alternatif 2</b></td>
+                                    <td>Pentamidin inhalasyon 300 mg/ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alternatif 3</b></td>
+                                    <td>Atovakuon 1500 mg/gün</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Profilaksi Kesme Kriterleri (HIV)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Primer profilaksi:</b> ART ile CD4 >200/µL ve 3 ay stabil kalırsa kesilebilir</li>
+                            <li class="feature-item"><b>Sekonder profilaksi:</b> CD4 >200/µL ve 6 ay stabil kalırsa kesilebilir</li>
+                            <li class="feature-item"><b>Yeniden başla:</b> CD4 tekrar <200/µL düşerse</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TMP-SMX = #1 (tedavi + profilaksi)"</b><br>
+                            <b>"21 GÜN TEDAVİ"</b><br>
+                            <b>"HİPOKSİ = STEROİD EKLE"</b><br>
+                            <b>"CD4 <200 = PROFİLAKSİ BAŞLA"</b><br>
+                            <b>"AMB/AZOL = ETKİSİZ (ergosterol yok)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>AIDS + Dispne + Buzlu cam:</b> PCP<br>
+                            2. <b>CD4 <200:</b> Profilaksi endikasyonu<br>
+                            3. <b>TMP-SMX:</b> Tedavi ve profilakside ilk tercih<br>
+                            4. <b>LDH yüksekliği:</b> Tanıda ipucu<br>
+                            5. <b>Hipoksi:</b> Steroid ekle<br>
+                            6. <b>GMS boyama:</b> Kist duvarı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Senaryo</th>
+                                    <th>Düşün</th>
+                                    <th>Yap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AIDS, CD4<100, dispne, kuru öksürük</td>
+                                    <td>PCP</td>
+                                    <td>BAL + TMP-SMX başla</td>
+                                </tr>
+                                <tr>
+                                    <td>Bilateral buzlu cam + LDH yüksek</td>
+                                    <td>PCP</td>
+                                    <td>β-D-glukan, BAL</td>
+                                </tr>
+                                <tr>
+                                    <td>PaO₂ <70 mmHg</td>
+                                    <td>Ağır PCP</td>
+                                    <td>TMP-SMX + STEROİD</td>
+                                </tr>
+                                <tr>
+                                    <td>HIV, CD4 180/µL</td>
+                                    <td>PCP riski</td>
+                                    <td>TMP-SMX profilaksisi</td>
+                                </tr>
+                                <tr>
+                                    <td>Sülfa alerjisi</td>
+                                    <td>Alternatif gerek</td>
+                                    <td>Pentamidin veya Dapson</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Karşılaştırma: PCP vs Diğer AIDS Pnömonileri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Etken</th>
+                                    <th>CD4</th>
+                                    <th>Radyoloji</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PCP</b></td>
+                                    <td><200</td>
+                                    <td>Bilateral buzlu cam</td>
+                                    <td>LDH ↑, sinsi başlangıç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TB</b></td>
+                                    <td>Herhangi</td>
+                                    <td>Kavite, infiltrat, miliyer</td>
+                                    <td>ARB (+), kültür</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cryptococcus</b></td>
+                                    <td><100</td>
+                                    <td>Nodül, infiltrat</td>
+                                    <td>Menenjit sık eşlik eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CMV</b></td>
+                                    <td><50</td>
+                                    <td>İnterstisyel</td>
+                                    <td>Retinit sık eşlik eder</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CD4 <200 + DİSPNE + BUZLU CAM = PCP"</b><br>
+                            <b>"LDH ↑ + β-D-GLUKAN ↑ = PCP ipucu"</b><br>
+                            <b>"TMP-SMX = TEDAVİ + PROFİLAKSİ #1"</b><br>
+                            <b>"HİPOKSİ (PaO₂<70) = STEROİD EKLE"</b><br>
+                            <b>"GMS = KİST, GIEMSA = TROFOZOİT"</b><br>
+                            <b>"KÜLTÜR = MÜMKÜN DEĞİL"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>P. jirovecii =</b> Atipik mantar, kültüre EDİLEMEZ<br>
+                            2. <b>Risk =</b> CD4 <200/µL (AIDS tanımlayıcı hastalık)<br>
+                            3. <b>Klinik =</b> Sinsi dispne, kuru öksürük, ateş<br>
+                            4. <b>Radyoloji =</b> Bilateral buzlu cam opasiteleri<br>
+                            5. <b>LDH =</b> YÜKSEK (duyarlı, özgün değil)<br>
+                            6. <b>β-D-glukan =</b> POZİTİF (PCP'de yükselir)<br>
+                            7. <b>Tanı =</b> BAL + GMS/DFA boyama<br>
+                            8. <b>Tedavi =</b> TMP-SMX 21 gün<br>
+                            9. <b>Steroid =</b> PaO₂ <70 mmHg ise EKLE<br>
+                            10. <b>Profilaksi =</b> CD4 <200 ise TMP-SMX başla<br>
+                            11. <b>AmB/Azol =</b> ETKİSİZ (ergosterol yok!)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "AIDS, CD4<100, bilateral buzlu cam, LDH yüksek?" → PCP</li>
+                        <li><b>Soru tipi:</b> "PCP profilaksisi ne zaman başlanır?" → CD4 <200/µL</li>
+                        <li><b>Soru tipi:</b> "PCP tedavisinde ilk tercih?" → TMP-SMX</li>
+                        <li><b>Soru tipi:</b> "PCP'de steroid endikasyonu?" → PaO₂ <70 mmHg</li>
+                        <li><b>Soru tipi:</b> "GMS ile boyanan yapı?" → Pneumocystis kist duvarı</li>
+                        <li><b>Soru tipi:</b> "Kültüre edilemeyen mantar?" → Pneumocystis jirovecii</li>
+                        <li><b>Soru tipi:</b> "β-D-glukan pozitif, galaktomannan negatif, pnömoni?" → PCP</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
