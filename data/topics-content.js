@@ -17920,6 +17920,5605 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 27,
+        category: "viroloji",
+        title: "Hepatit Virüsleri",
+        subtitle: "HAV, HBV, HCV, HDV, HEV - Seroloji ve Tedavi",
+        summary: "Hepatit virüslerinin kapsamlı özeti. HAV ve HEV fekal-oral bulaş, HBV/HCV/HDV parenteral bulaş. Serolojik belirteçlerin yorumlanması, kronikleşme oranları, tedavi endikasyonları ve antiviral ilaçlar.",
+        tags: ["Hepatit", "HBV", "HCV", "HAV", "HDV", "HEV", "Seroloji", "Viroloji"],
+        sections: [
+            {
+                title: "Hepatit Virüsleri - Genel Karşılaştırma",
+                icon: "fas fa-virus",
+                content: `
+                    <p>Hepatit virüsleri karaciğer enfeksiyonuna neden olan farklı virus ailelerine ait patojenlerdir. Bulaş yolları, kronikleşme potansiyelleri ve tedavileri farklılık gösterir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hepatit Virüsleri Karşılaştırma Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>HAV</th>
+                                    <th>HBV</th>
+                                    <th>HCV</th>
+                                    <th>HDV</th>
+                                    <th>HEV</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Picorna</td>
+                                    <td>Hepadna</td>
+                                    <td>Flavi</td>
+                                    <td>Deltavirus</td>
+                                    <td>Hepe</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genom</b></td>
+                                    <td>ssRNA (+)</td>
+                                    <td>dsDNA (kısmi)</td>
+                                    <td>ssRNA (+)</td>
+                                    <td>ssRNA (-)</td>
+                                    <td>ssRNA (+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Zarf</b></td>
+                                    <td>YOK</td>
+                                    <td>VAR</td>
+                                    <td>VAR</td>
+                                    <td>VAR (HBsAg)</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Fekal-oral</td>
+                                    <td>Parenteral, cinsel, vertikal</td>
+                                    <td>Parenteral</td>
+                                    <td>Parenteral</td>
+                                    <td>Fekal-oral</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnkübasyon</b></td>
+                                    <td>2-6 hafta</td>
+                                    <td>1-6 ay</td>
+                                    <td>2-26 hafta</td>
+                                    <td>HBV ile aynı</td>
+                                    <td>2-8 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronikleşme</b></td>
+                                    <td><b>YOK</b></td>
+                                    <td>%5-10 (erişkin)</td>
+                                    <td><b>%80-85</b></td>
+                                    <td>Superenfeksiyon %80</td>
+                                    <td>Nadiren*</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Siroz/HCC</b></td>
+                                    <td>YOK</td>
+                                    <td>VAR</td>
+                                    <td>VAR</td>
+                                    <td>VAR (ağır)</td>
+                                    <td>Nadiren</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aşı</b></td>
+                                    <td>VAR</td>
+                                    <td>VAR</td>
+                                    <td>YOK</td>
+                                    <td>HBV aşısı korur</td>
+                                    <td>VAR (Çin)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><small>*HEV genotip 3-4 immünsüpresiflerde kronikleşebilir</small></p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Bulaş Yolu Hatırlatma</p>
+                        <p class="highlight-box__content">
+                            <b>Fekal-Oral (Su/Gıda):</b> HAV, HEV → "Bağırsak virüsleri"<br>
+                            <b>Parenteral/Kan:</b> HBV, HCV, HDV → "Kan virüsleri"<br>
+                            <b>Cinsel + Vertikal:</b> HBV > HCV (HCV cinsel nadir)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kronikleşme Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"A ve E = Akut (kronikleşmez)"</b><br>
+                            <b>"B ve C = Bir gün Chronic olabilir"</b><br>
+                            <b>"HCV = %80-85 KRONİK (en yüksek)"</b><br>
+                            <b>"HBV = yaş bağımlı (yenidoğan %90, erişkin %5)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Hepatit A Virüsü (HAV)",
+                icon: "fas fa-hand-holding-water",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HAV - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Picornaviridae (Enterovirus benzeri)<br>
+                            <b>Genom:</b> ssRNA (+), zarfsız<br>
+                            <b>Bulaş:</b> Fekal-oral (kontamine su/gıda, midye)<br>
+                            <b>Kronikleşme:</b> OLMAZ<br>
+                            <b>Fulminan hepatit:</b> Nadir (%0.1), yaşlılarda daha sık
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HAV Serolojisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Belirteç</th>
+                                    <th>Anlam</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Anti-HAV IgM</b></td>
+                                    <td><b>AKUT ENFEKSİYON</b></td>
+                                    <td>3-6 ay pozitif kalır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HAV IgG</b></td>
+                                    <td>Geçirilmiş enfeksiyon veya aşı</td>
+                                    <td>Ömür boyu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HAV total</b></td>
+                                    <td>IgM + IgG</td>
+                                    <td>Bağışıklık taraması</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Özellikler</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Çocuklarda:</b> Genellikle asemptomatik veya hafif</li>
+                            <li class="feature-item"><b>Erişkinde:</b> Semptomatik, sarılık daha sık</li>
+                            <li class="feature-item"><b>Seyir:</b> Self-limited, tam iyileşme</li>
+                            <li class="feature-item"><b>Taşıyıcılık:</b> OLMAZ</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Korunma</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Aşı:</b> İnaktif virüs aşısı, 2 doz (0, 6-12 ay)</li>
+                            <li class="feature-item"><b>Temas sonrası:</b> Aşı (2 hafta içinde) veya IG</li>
+                            <li class="feature-item"><b>Hijyen:</b> El yıkama, güvenli su/gıda</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HAV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"A = Akut (kronik olmaz)"</b><br>
+                            <b>"Anti-HAV IgM = AKUT"</b><br>
+                            <b>"Fekal-oral = Su + Midye"</b><br>
+                            <b>"Zarfsız = Çevreye dirençli"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Hepatit B Virüsü (HBV)",
+                icon: "fas fa-dna",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HBV - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Hepadnaviridae<br>
+                            <b>Genom:</b> Kısmi çift sarmallı DNA, ters transkriptaz<br>
+                            <b>Yapı:</b> Zarflı, HBsAg (yüzey), HBcAg (kor), HBeAg (sekresyon)<br>
+                            <b>Bulaş:</b> Parenteral, cinsel, vertikal (anne-bebek)<br>
+                            <b>Onkojenik:</b> HCC riski (sirozdan bağımsız olabilir)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HBV Serolojik Belirteçler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Belirteç</th>
+                                    <th>Anlam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HBsAg</b></td>
+                                    <td>Enfeksiyon varlığı (akut veya kronik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HBs</b></td>
+                                    <td>Bağışıklık (iyileşme veya aşı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HBc IgM</b></td>
+                                    <td>AKUT enfeksiyon (pencere dönemi dahil)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HBc IgG (total)</b></td>
+                                    <td>Geçirilmiş temas (ömür boyu kalır)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HBeAg</b></td>
+                                    <td>Aktif replikasyon, yüksek bulaştırıcılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HBe</b></td>
+                                    <td>Replikasyon azalması, serokonversiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HBV DNA</b></td>
+                                    <td>Viral yük, tedavi izlemi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Seroloji Yorumlama Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HBsAg</th>
+                                    <th>Anti-HBs</th>
+                                    <th>Anti-HBc</th>
+                                    <th>Yorum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>+</td>
+                                    <td>-</td>
+                                    <td>IgM +</td>
+                                    <td><b>Akut HBV</b></td>
+                                </tr>
+                                <tr>
+                                    <td>+</td>
+                                    <td>-</td>
+                                    <td>IgG +</td>
+                                    <td><b>Kronik HBV</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                    <td><b>İyileşmiş (doğal bağışıklık)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>+</td>
+                                    <td>-</td>
+                                    <td><b>Aşılı</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>IgM +</td>
+                                    <td><b>Pencere dönemi</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>IgG +</td>
+                                    <td><b>Okült HBV veya eski enfeksiyon</b></td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><b>Duyarlı (aşılanmamış)</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Pencere Dönemi!</strong><br>
+                        HBsAg kayboldu ama Anti-HBs henüz oluşmadı → <b>Anti-HBc IgM</b> ile tanı konur. Bu dönemde kan bağışı tehlikelidir!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kronikleşme Oranları (Yaşa Bağlı)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaş</th>
+                                    <th>Kronikleşme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Yenidoğan (perinatal)</td>
+                                    <td><b>%90</b></td>
+                                </tr>
+                                <tr>
+                                    <td>1-5 yaş</td>
+                                    <td>%30-50</td>
+                                </tr>
+                                <tr>
+                                    <td>Erişkin</td>
+                                    <td><b>%5-10</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HBV Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Sınıf</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tenofovir (TDF/TAF)</b></td>
+                                    <td>Nükleotid analoğu</td>
+                                    <td>1. tercih, yüksek bariyer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Entekavir</b></td>
+                                    <td>Nükleozid analoğu</td>
+                                    <td>1. tercih, yüksek bariyer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PEG-IFN alfa</b></td>
+                                    <td>İmmünomodülatör</td>
+                                    <td>Sınırlı süre, yan etki fazla</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HBV Seroloji Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HBsAg = Surface = ENFEKSİYON VAR"</b><br>
+                            <b>"Anti-HBs = BAĞIŞIKLIK (aşı veya iyileşme)"</b><br>
+                            <b>"Anti-HBc IgM = AKUT (pencere döneminde bile +)"</b><br>
+                            <b>"HBeAg = REPLİKASYON = BULAŞTIRICI"</b><br>
+                            <b>"Sadece Anti-HBs (+) = AŞILI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Hepatit C ve Delta Hepatiti",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hepatit C Virüsü (HCV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Flaviviridae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genom</b></td>
+                                    <td>ssRNA (+), zarflı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Parenteral (IV ilaç, kan), cinsel NADİR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronikleşme</b></td>
+                                    <td><b>%80-85</b> (en yüksek!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Siroz</b></td>
+                                    <td>%20-30 (20 yıl içinde)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HCC</b></td>
+                                    <td>Siroz zemininde %1-5/yıl</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aşı</b></td>
+                                    <td>YOK (yüksek mutasyon)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HCV = %80-85 KRONİK!</p>
+                        <p class="highlight-box__content">
+                            HCV en yüksek kronikleşme oranına sahip hepatit virüsüdür.<br>
+                            Akut enfeksiyonda genellikle asemptomatik → Tanı geç konur.<br>
+                            Siroz ve HCC'nin önemli nedeni.
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HCV Tanısı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Anlam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Anti-HCV</b></td>
+                                    <td>Temas göstergesi (aktif veya eski enfeksiyon)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HCV RNA (PCR)</b></td>
+                                    <td>Aktif enfeksiyon, viral yük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HCV genotip</b></td>
+                                    <td>Tedavi planlaması (1-6)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HCV Tedavisi - DAA (Direkt Etkili Antiviraller)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sınıf</th>
+                                    <th>Hedef</th>
+                                    <th>Örnekler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>NS3/4A inhibitörleri</b></td>
+                                    <td>Proteaz</td>
+                                    <td>Glecaprevir, Grazoprevir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NS5A inhibitörleri</b></td>
+                                    <td>Replikasyon kompleksi</td>
+                                    <td>Ledipasvir, Velpatasvir, Pibrentasvir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NS5B inhibitörleri</b></td>
+                                    <td>RNA polimeraz</td>
+                                    <td>Sofosbuvir (nükleotid), Dasabuvir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>HCV Artık Tedavi Edilebilir!</strong><br>
+                        DAA'larla SVR (kalıcı virolojik yanıt) oranı >%95. 8-12 hafta oral tedavi ile kür mümkün. "HCV = Kür edilebilen kronik enfeksiyon"</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hepatit D Virüsü (HDV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yapı</b></td>
+                                    <td>Defektif virüs, ssRNA (-)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bağımlılık</b></td>
+                                    <td><b>HBsAg gerekli</b> (HBV olmadan enfeksiyon OLMAZ)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Delta antijeni</b></td>
+                                    <td>Tek protein (HDAg)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>HBV ile aynı (parenteral)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HDV Enfeksiyon Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Tanım</th>
+                                    <th>Kronikleşme</th>
+                                    <th>Fulminan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Koenfeksiyon</b></td>
+                                    <td>HBV + HDV aynı anda</td>
+                                    <td>%5 (HBV ile birlikte)</td>
+                                    <td>Daha sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süperenfeksiyon</b></td>
+                                    <td>Kronik HBV'ye HDV eklenmesi</td>
+                                    <td><b>%80</b></td>
+                                    <td>Daha ağır seyir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>HDV = En Ağır Hepatit!</strong><br>
+                        HDV, hepatit virüsleri içinde en ağır karaciğer hasarına yol açar. Siroz progresyonu hızlıdır. <b>HBV aşısı HDV'den de korur!</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HCV ve HDV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HCV = %80-85 KRONİK (en yüksek)"</b><br>
+                            <b>"HCV = DAA ile KÜR EDİLEBİLİR"</b><br>
+                            <b>"HDV = DEFEKTIF = HBV LAZIM"</b><br>
+                            <b>"HDV süperenfeksiyon = %80 kronik, en ağır"</b><br>
+                            <b>"HBV aşısı = HDV koruması"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Hepatit E ve Özel Durumlar",
+                icon: "fas fa-baby",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hepatit E Virüsü (HEV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Hepeviridae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genom</b></td>
+                                    <td>ssRNA (+), zarfsız</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Fekal-oral (HAV gibi), zoonoz (domuz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronikleşme</b></td>
+                                    <td>Normalde YOK, immünsüpresiflerde olabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endemik bölge</b></td>
+                                    <td>Güneydoğu Asya, Hindistan, Afrika</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>HEV + GEBELİK = TEHLİKE!</strong><br>
+                        HEV gebelerde (özellikle 3. trimester) <b>%20-25 mortalite</b> ile fulminan hepatite yol açabilir. Bu HAV'da görülmez!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HEV Genotipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Genotip</th>
+                                    <th>Kaynak</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1, 2</b></td>
+                                    <td>İnsan</td>
+                                    <td>Gelişmekte olan ülkeler, su epidemileri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3, 4</b></td>
+                                    <td>Zoonoz (domuz)</td>
+                                    <td>Gelişmiş ülkeler, kronikleşebilir (immünsüpresif)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özel Durumlar - Okült HBV</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tanım</b></td>
+                                    <td>HBsAg (-), HBV DNA (+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-HBc</b></td>
+                                    <td>Genellikle (+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik önemi</b></td>
+                                    <td>İmmünsüpresyonda reaktivasyon riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Örnek</b></td>
+                                    <td>Rituksimab, KİT, kemoterapi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HBV Reaktivasyonu - Risk Grupları</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Yüksek risk:</b> Rituksimab, anti-CD20, KİT</li>
+                            <li class="feature-item"><b>Orta risk:</b> TNF inhibitörleri, yüksek doz steroid</li>
+                            <li class="feature-item"><b>Önlem:</b> HBsAg (+) veya Anti-HBc (+) hastalarda profilaksi (Entekavir/Tenofovir)</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HEV ve Özel Durumlar Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HEV + GEBELİK = %20-25 MORTALİTE"</b><br>
+                            <b>"HEV = HAV gibi fekal-oral ama gebe için tehlikeli"</b><br>
+                            <b>"OKÜLT HBV = HBsAg (-), DNA (+)"</b><br>
+                            <b>"RİTUKSİMAB = HBV REAKTİVASYONU RİSKİ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>HBV seroloji yorumlama:</b> Tablo ezberi<br>
+                            2. <b>Pencere dönemi:</b> Anti-HBc IgM<br>
+                            3. <b>Kronikleşme oranları:</b> HCV %80-85, HBV yaşa bağlı<br>
+                            4. <b>HDV:</b> Defektif, HBV gerekli<br>
+                            5. <b>HEV + Gebelik:</b> Fulminan hepatit riski<br>
+                            6. <b>HCV tedavisi:</b> DAA ile kür
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Senaryo</th>
+                                    <th>Tanı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HBsAg (+), Anti-HBc IgM (+)</td>
+                                    <td>Akut HBV</td>
+                                </tr>
+                                <tr>
+                                    <td>HBsAg (+), Anti-HBc IgG (+), IgM (-)</td>
+                                    <td>Kronik HBV</td>
+                                </tr>
+                                <tr>
+                                    <td>HBsAg (-), Anti-HBs (+), Anti-HBc (+)</td>
+                                    <td>İyileşmiş HBV</td>
+                                </tr>
+                                <tr>
+                                    <td>Sadece Anti-HBs (+)</td>
+                                    <td>Aşılı</td>
+                                </tr>
+                                <tr>
+                                    <td>HBsAg (-), Anti-HBs (-), Anti-HBc IgM (+)</td>
+                                    <td>Pencere dönemi</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-HCV (+), HCV RNA (+)</td>
+                                    <td>Aktif HCV enfeksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td>Anti-HCV (+), HCV RNA (-)</td>
+                                    <td>Geçirilmiş veya tedavi edilmiş HCV</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hepatit Karşılaştırma - Final</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>En Yüksek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Kronikleşme</td>
+                                    <td><b>HCV (%80-85)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Fulminan hepatit (genel)</td>
+                                    <td><b>HDV (süperenfeksiyon)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Gebelikte mortalite</td>
+                                    <td><b>HEV (%20-25)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Vertikal geçiş</td>
+                                    <td><b>HBV</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Onkojenik (HCC)</td>
+                                    <td><b>HBV, HCV</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AĞIZ ile bulaşan = HAV, HEV (bağırsak)"</b><br>
+                            <b>"KAN ile bulaşan = HBV, HCV, HDV"</b><br>
+                            <b>"KRONİK = HCV %85 > HBV (yaşa bağlı)"</b><br>
+                            <b>"AŞISIZ = HCV (mutasyon çok)"</b><br>
+                            <b>"HBsAg = ENFEKSİYON, Anti-HBs = BAĞIŞIKLIK"</b><br>
+                            <b>"PENCERE = Anti-HBc IgM ile tanı"</b><br>
+                            <b>"HDV = HBV'ye bağımlı (defektif)"</b><br>
+                            <b>"HEV + GEBE = ÖLÜMCÜL"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Fekal-oral =</b> HAV, HEV (zarfsız)<br>
+                            2. <b>Parenteral =</b> HBV, HCV, HDV (zarflı)<br>
+                            3. <b>En yüksek kronikleşme =</b> HCV (%80-85)<br>
+                            4. <b>HBV kronikleşme =</b> Yenidoğan %90, erişkin %5<br>
+                            5. <b>HBsAg =</b> Enfeksiyon varlığı<br>
+                            6. <b>Anti-HBs =</b> Bağışıklık (aşı veya iyileşme)<br>
+                            7. <b>Pencere dönemi =</b> Anti-HBc IgM (+)<br>
+                            8. <b>Sadece Anti-HBs (+) =</b> Aşılı<br>
+                            9. <b>HDV =</b> Defektif, HBV gerekli<br>
+                            10. <b>HEV + Gebelik =</b> %20-25 mortalite<br>
+                            11. <b>HCV tedavisi =</b> DAA ile >%95 kür<br>
+                            12. <b>Okült HBV =</b> HBsAg (-), DNA (+), reaktivasyon riski
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "HBsAg (+), Anti-HBc IgM (+)?" → Akut HBV</li>
+                        <li><b>Soru tipi:</b> "Sadece Anti-HBs (+)?" → Aşılı</li>
+                        <li><b>Soru tipi:</b> "En yüksek kronikleşme?" → HCV (%80-85)</li>
+                        <li><b>Soru tipi:</b> "Defektif virüs, HBV gerekli?" → HDV</li>
+                        <li><b>Soru tipi:</b> "Gebe, fulminan hepatit, fekal-oral?" → HEV</li>
+                        <li><b>Soru tipi:</b> "HCV tedavisinde kullanılan?" → DAA (Sofosbuvir, Ledipasvir...)</li>
+                        <li><b>Soru tipi:</b> "Pencere döneminde pozitif belirteç?" → Anti-HBc IgM</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 28,
+        category: "viroloji",
+        title: "HIV ve Antiretroviral Tedavi",
+        subtitle: "HIV Yaşam Döngüsü, AIDS Tanımı, ART İlaçları ve Fırsatçı Enfeksiyonlar",
+        summary: "HIV-1 ve HIV-2 virolojisi, CD4 evreleme, AIDS tanımlayıcı hastalıklar, antiretroviral ilaç sınıfları (NRTI, NNRTI, PI, INSTI), tedavi başlama endikasyonları ve fırsatçı enfeksiyon profilaksisi.",
+        tags: ["HIV", "AIDS", "ART", "Retrovirus", "CD4", "Fırsatçı Enfeksiyon", "Viroloji"],
+        sections: [
+            {
+                title: "HIV Virolojisi",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Human Immunodeficiency Virus (HIV)</strong>, Retroviridae ailesine ait Lentivirus'tur. CD4+ T lenfositlerini enfekte ederek immün sistemi çökertir ve AIDS'e yol açar.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HIV - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Retroviridae, Lentivirus<br>
+                            <b>Genom:</b> Diploid ssRNA (+), zarflı<br>
+                            <b>Önemli enzimler:</b> Revers transkriptaz, İntegraz, Proteaz<br>
+                            <b>Yüzey proteinleri:</b> gp120 (bağlanma), gp41 (füzyon)<br>
+                            <b>Tipler:</b> HIV-1 (dünya geneli), HIV-2 (Batı Afrika, daha az virulan)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HIV Yapısı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yapı</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>gp120</b></td>
+                                    <td>CD4 ve koreseptöre (CCR5/CXCR4) bağlanma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>gp41</b></td>
+                                    <td>Membran füzyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>p24</b></td>
+                                    <td>Kapsid proteini, tanı testlerinde hedef</td>
+                                </tr>
+                                <tr>
+                                    <td><b>p17</b></td>
+                                    <td>Matriks proteini</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Revers transkriptaz (RT)</b></td>
+                                    <td>RNA → DNA dönüşümü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İntegraz</b></td>
+                                    <td>Viral DNA'yı konak genomuna entegre eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Proteaz</b></td>
+                                    <td>Polipeptid işleme, olgun virion oluşumu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HIV Yaşam Döngüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşama</th>
+                                    <th>Olay</th>
+                                    <th>İlaç Hedefi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Bağlanma</b></td>
+                                    <td>gp120 → CD4 + CCR5/CXCR4</td>
+                                    <td>CCR5 antagonisti (Maraviroc)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Füzyon</b></td>
+                                    <td>gp41 ile membran füzyonu</td>
+                                    <td>Füzyon inhibitörü (Enfuvirtide)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Ters transkripsiyon</b></td>
+                                    <td>RNA → DNA (RT ile)</td>
+                                    <td>NRTI, NNRTI</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Entegrasyon</b></td>
+                                    <td>Viral DNA → Konak genomu</td>
+                                    <td>İntegraz inhibitörleri (INSTI)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Transkripsiyon</b></td>
+                                    <td>Viral mRNA sentezi</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>6. Translasyon</b></td>
+                                    <td>Poliprotein sentezi</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>7. Tomurcuklanma</b></td>
+                                    <td>Virion salınımı</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>8. Olgunlaşma</b></td>
+                                    <td>Proteaz ile işleme</td>
+                                    <td>Proteaz inhibitörleri (PI)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Koreseptörler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Koreseptör</th>
+                                    <th>Tropizm</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>CCR5 (R5)</b></td>
+                                    <td>Makrofaj tropik</td>
+                                    <td>Erken enfeksiyon, bulaşta baskın</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CXCR4 (X4)</b></td>
+                                    <td>T hücre tropik</td>
+                                    <td>Geç evre, daha agresif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CCR5-Δ32</b></td>
+                                    <td>Mutasyon</td>
+                                    <td>Homozigotlar HIV'e dirençli</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HIV Yapı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"gp120 = BAĞLANMA (CD4 + koreseptör)"</b><br>
+                            <b>"gp41 = FÜZYON"</b><br>
+                            <b>"p24 = KAPSID (tanı testinde)"</b><br>
+                            <b>"RT = RNA→DNA, İNTEGRAZ = ENTEGRASYON, PROTEAZ = OLGUNLAŞMA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HIV Enfeksiyonu ve AIDS",
+                icon: "fas fa-chart-line",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HIV Enfeksiyonu Evreleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Klinik</th>
+                                    <th>Laboratuvar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Akut retroviral sendrom</b></td>
+                                    <td>2-4 hafta</td>
+                                    <td>Mononükleoz benzeri, ateş, LAP, döküntü</td>
+                                    <td>Viral yük ↑↑, CD4 geçici ↓</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Klinik latent dönem</b></td>
+                                    <td>Yıllar (8-10)</td>
+                                    <td>Asemptomatik veya PGL</td>
+                                    <td>CD4 yavaşça düşer, VY stabil</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. AIDS</b></td>
+                                    <td>-</td>
+                                    <td>Fırsatçı enfeksiyonlar, malignite</td>
+                                    <td>CD4 <200/µL veya AIDS tanımlayıcı hastalık</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">AIDS Tanımı (CDC)</p>
+                        <p class="highlight-box__content">
+                            HIV (+) VE aşağıdakilerden biri:<br>
+                            <b>1. CD4 <200/µL</b> (veya <%14)<br>
+                            <b>2. AIDS Tanımlayıcı Hastalık</b> (CD4'ten bağımsız)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CD4 Sayısına Göre Fırsatçı Enfeksiyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>CD4</th>
+                                    <th>Fırsatçı Enfeksiyon/Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b><500</b></td>
+                                    <td>Oral kandidiyaz, Herpes zoster, TB</td>
+                                </tr>
+                                <tr>
+                                    <td><b><200</b></td>
+                                    <td><b>PCP</b>, Candida özofajiti, Kaposi sarkomu</td>
+                                </tr>
+                                <tr>
+                                    <td><b><100</b></td>
+                                    <td><b>Kriptokoksik menenjit</b>, Toksoplazmoz, Histoplazmoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b><50</b></td>
+                                    <td><b>CMV retiniti</b>, MAC (M. avium complex), PML</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">AIDS Tanımlayıcı Hastalıklar (Önemli Olanlar)</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>PCP</b> (Pneumocystis pnömonisi)</li>
+                            <li class="feature-item"><b>Kriptokoksik menenjit</b></li>
+                            <li class="feature-item"><b>Serebral toksoplazmoz</b></li>
+                            <li class="feature-item"><b>CMV retiniti</b></li>
+                            <li class="feature-item"><b>Kaposi sarkomu</b> (HHV-8)</li>
+                            <li class="feature-item"><b>Primer SSS lenfoması</b> (EBV)</li>
+                            <li class="feature-item"><b>PML</b> (JC virüs)</li>
+                            <li class="feature-item"><b>Candida özofajiti</b></li>
+                            <li class="feature-item"><b>MAC</b> (M. avium complex)</li>
+                            <li class="feature-item"><b>Kriptosporidiyoz</b> (kronik ishal)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>CD4 Ezberi:</strong><br>
+                        <b><200:</b> PCP (profilaksi başla)<br>
+                        <b><100:</b> Crypto menenjit, Toxo<br>
+                        <b><50:</b> CMV retinit, MAC</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">CD4 Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"200 = PCP (P. jirovecii)"</b><br>
+                            <b>"100 = CRYPTO (C. neoformans menenjit)"</b><br>
+                            <b>"50 = CMV (retinit, körlük)"</b><br>
+                            <b>"CD4<200 = AIDS SINIRI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HIV Tanısı",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HIV Tanı Testleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Ne Saptar?</th>
+                                    <th>Pencere</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>4. Nesil ELISA (Combo)</b></td>
+                                    <td>Anti-HIV Ab + p24 Ag</td>
+                                    <td>~2-4 hafta</td>
+                                    <td>Tarama, 1. basamak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HIV Ab diferansiyasyon</b></td>
+                                    <td>HIV-1 vs HIV-2 ayırımı</td>
+                                    <td>-</td>
+                                    <td>Doğrulama, 2. basamak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HIV RNA (PCR)</b></td>
+                                    <td>Viral RNA</td>
+                                    <td>~10-14 gün</td>
+                                    <td>Akut enfeksiyon, izlem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Western Blot</b></td>
+                                    <td>Spesifik antikorlar</td>
+                                    <td>-</td>
+                                    <td>Eski doğrulama (artık nadir)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Güncel HIV Tanı Algoritması</p>
+                        <p class="highlight-box__content">
+                            <b>1. Basamak:</b> 4. nesil Ag/Ab combo testi (ELISA)<br>
+                            <b>2. Basamak:</b> Pozitifse → HIV-1/HIV-2 Ab diferansiyasyon<br>
+                            <b>3. Basamak:</b> Belirsizse → HIV RNA (PCR)<br><br>
+                            <b>Not:</b> Western Blot artık rutin algoritmanın dışında
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Akut HIV Enfeksiyonu Tanısı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>4. Nesil ELISA</th>
+                                    <th>HIV Ab</th>
+                                    <th>HIV RNA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Çok erken akut</b></td>
+                                    <td>+ (p24)</td>
+                                    <td>-</td>
+                                    <td>+</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Geç akut</b></td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik</b></td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                    <td>+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İzlem Testleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Amaç</th>
+                                    <th>Hedef</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>CD4 sayısı</b></td>
+                                    <td>İmmün durum, fırsatçı enfeksiyon riski</td>
+                                    <td>Tedaviyle artış</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HIV RNA (Viral yük)</b></td>
+                                    <td>Tedavi yanıtı, virolojik supresyon</td>
+                                    <td><b><50 kopya/mL</b> (saptanamaz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Direnç testi</b></td>
+                                    <td>ART seçimi, başarısızlık değerlendirmesi</td>
+                                    <td>Tedavi öncesi ve başarısızlıkta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"4. NESİL = Ag + Ab (combo) = EN İYİ TARAMA"</b><br>
+                            <b>"AKUT ENFEKSİYON = RNA (+), Ab (-)"</b><br>
+                            <b>"VİRAL YÜK HEDEFİ = <50 kopya/mL (saptanamaz)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antiretroviral Tedavi (ART)",
+                icon: "fas fa-pills",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">ART Prensipleri</p>
+                        <p class="highlight-box__content">
+                            <b>Hedef:</b> Viral supresyon (<50 kopya/mL), CD4 artışı, hastalık önleme<br>
+                            <b>Ne zaman başla?</b> <b>TÜM HIV (+) HASTALARA</b> (CD4'ten bağımsız)<br>
+                            <b>Rejim:</b> En az 2 farklı sınıftan 3 aktif ilaç (genellikle 2 NRTI + INSTI)<br>
+                            <b>U=U:</b> Undetectable = Untransmittable (saptanamaz = bulaştırmaz)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ART İlaç Sınıfları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sınıf</th>
+                                    <th>Hedef</th>
+                                    <th>Örnekler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>NRTI</b></td>
+                                    <td>Revers transkriptaz (nükleozid)</td>
+                                    <td>Tenofovir (TDF/TAF), Emtrisitabin (FTC), Lamivudin (3TC), Abakavir (ABC), Zidovudin (AZT)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NNRTI</b></td>
+                                    <td>Revers transkriptaz (non-nükleozid)</td>
+                                    <td>Efavirenz, Rilpivirin, Doravirin, Nevirapin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PI</b></td>
+                                    <td>Proteaz</td>
+                                    <td>Darunavir, Atazanavir, Lopinavir (+ ritonavir boost)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>INSTI</b></td>
+                                    <td>İntegraz</td>
+                                    <td>Dolutegravir, Biktegravir, Raltegravir, Elvitegravir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Giriş inhibitörleri</b></td>
+                                    <td>CCR5 veya füzyon</td>
+                                    <td>Maraviroc (CCR5), Enfuvirtide (füzyon)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Güncel Tercih Edilen Rejimler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Rejim</th>
+                                    <th>İlaçlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Biktarvy</b></td>
+                                    <td>Biktegravir + TAF + Emtrisitabin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Triumeq</b></td>
+                                    <td>Dolutegravir + Abakavir + Lamivudin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dolutegravir + TDF/FTC</b></td>
+                                    <td>INSTI + 2 NRTI</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Yan Etkiler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Zidovudin (AZT)</b></td>
+                                    <td>Kemik iliği supresyonu, anemi, miyopati</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tenofovir (TDF)</b></td>
+                                    <td>Nefrotoksisite, Fanconi sendromu, osteoporoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Abakavir</b></td>
+                                    <td>Hipersensitivite (HLA-B*5701 taraması!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Efavirenz</b></td>
+                                    <td>SSS (kabus, depresyon), döküntü, teratojen</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Proteaz inhibitörleri</b></td>
+                                    <td>Lipodistrofi, hiperglisemi, hiperlipidemi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atazanavir</b></td>
+                                    <td>İndirekt hiperbilirubinemi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>HLA-B*5701 Taraması!</strong><br>
+                        Abakavir başlamadan önce HLA-B*5701 testsi yapılmalı. Pozitifse abakavir KONTRENDİKE (fatal hipersensitivite riski).</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ART Sınıf Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"NRTI = Nükleozid, RT'yi durdurur (tenofovir, emtrisitabin)"</b><br>
+                            <b>"NNRTI = Non-nükleozid, RT'ye bağlanır (efavirenz)"</b><br>
+                            <b>"PI = Proteaz, olgunlaşmayı engeller (darunavir)"</b><br>
+                            <b>"INSTI = İntegraz, entegrasyonu engeller (dolutegravir) = EN TERCIH"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Profilaksi ve Özel Durumlar",
+                icon: "fas fa-shield-alt",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Fırsatçı Enfeksiyon Profilaksisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>CD4</th>
+                                    <th>Profilaksi</th>
+                                    <th>Kesme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PCP</b></td>
+                                    <td><200</td>
+                                    <td>TMP-SMX</td>
+                                    <td>CD4 >200 x 3 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksoplazmoz</b></td>
+                                    <td><100 + IgG (+)</td>
+                                    <td>TMP-SMX (yüksek doz)</td>
+                                    <td>CD4 >200 x 3 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MAC</b></td>
+                                    <td><50</td>
+                                    <td>Azitromisin</td>
+                                    <td>CD4 >100 x 3 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kriptokokoz</b></td>
+                                    <td>Geçirilmişse</td>
+                                    <td>Flukonazol (sekonder)</td>
+                                    <td>CD4 >100 x 1 yıl</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TB (latent)</b></td>
+                                    <td>Tüm</td>
+                                    <td>İzoniazid 9 ay veya Rifapentin+INH 3 ay</td>
+                                    <td>Süre tamamlanınca</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">PrEP ve PEP</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaklaşım</th>
+                                    <th>Tanım</th>
+                                    <th>Rejim</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PrEP</b></td>
+                                    <td>Temas öncesi profilaksi</td>
+                                    <td>TDF/FTC veya TAF/FTC</td>
+                                    <td>Günlük, devam eden risk</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PEP</b></td>
+                                    <td>Temas sonrası profilaksi</td>
+                                    <td>3'lü ART rejimi</td>
+                                    <td>28 gün (72 saat içinde başla)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmün Rekonstitüsyon Sendromu (IRIS)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tanım</b></td>
+                                    <td>ART sonrası immün yanıtın aşırı artmasıyla enfeksiyonların alevlenmesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Zaman</b></td>
+                                    <td>ART başlangıcından 2-12 hafta sonra</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk faktörleri</b></td>
+                                    <td>Düşük CD4, yüksek viral yük, aktif fırsatçı enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sık nedenler</b></td>
+                                    <td>TB, MAC, Cryptococcus, CMV, PML</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>ART devam, fırsatçı enfeksiyon tedavisi devam, ağırsa steroid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Kriptokoksik Menenjit + ART Zamanlaması:</strong><br>
+                        Kriptokoksik menenjit tedavisinden <b>4-6 hafta sonra</b> ART başla. Erken ART başlama IRIS riski taşır!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Profilaksi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CD4<200 = TMP-SMX (PCP + Toxo koruması)"</b><br>
+                            <b>"CD4<50 = AZİTROMİSİN (MAC)"</b><br>
+                            <b>"PEP = 72 SAAT içinde, 28 GÜN"</b><br>
+                            <b>"IRIS = ART sonrası kötüleşme (paradoks)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>CD4 eşikleri:</b> <200 PCP, <100 Crypto, <50 CMV<br>
+                            2. <b>ART ilaç sınıfları:</b> NRTI, NNRTI, PI, INSTI<br>
+                            3. <b>İlaç yan etkileri:</b> AZT (anemi), TDF (nefro), Abakavir (HLA-B*5701)<br>
+                            4. <b>Profilaksi:</b> TMP-SMX (CD4<200)<br>
+                            5. <b>Tanı:</b> 4. nesil Ag/Ab combo<br>
+                            6. <b>PEP:</b> 72 saat içinde, 28 gün
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CD4 Eşikleri - Final Tablo</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>CD4</th>
+                                    <th>Hastalık</th>
+                                    <th>Profilaksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b><200</b></td>
+                                    <td>PCP, Candida özofajiti</td>
+                                    <td>TMP-SMX</td>
+                                </tr>
+                                <tr>
+                                    <td><b><100</b></td>
+                                    <td>Crypto menenjit, Tokso, Histoplazma</td>
+                                    <td>TMP-SMX (yüksek doz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b><50</b></td>
+                                    <td>CMV retinit, MAC, PML</td>
+                                    <td>Azitromisin (MAC)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İlaç-Yan Etki Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Karakteristik Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Zidovudin (AZT)</td>
+                                    <td><b>Kemik iliği supresyonu, anemi</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Tenofovir (TDF)</td>
+                                    <td><b>Nefrotoksisite, Fanconi</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Abakavir</td>
+                                    <td><b>Hipersensitivite (HLA-B*5701)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Efavirenz</td>
+                                    <td><b>SSS (kabus), teratojen</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Proteaz inhibitörleri</td>
+                                    <td><b>Metabolik sendrom, lipodistrofi</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Atazanavir</td>
+                                    <td><b>Hiperbilirubinemi (indirekt)</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"gp120 = BAĞLANMA, gp41 = FÜZYON"</b><br>
+                            <b>"CD4<200 = AIDS = PCP riski = TMP-SMX"</b><br>
+                            <b>"INSTI = 1. TERCİH (Dolutegravir, Biktegravir)"</b><br>
+                            <b>"AZT = ANEMİ, TDF = BÖBREK"</b><br>
+                            <b>"ABAKAVIR = HLA-B*5701 TARA!"</b><br>
+                            <b>"PEP = 72 saat, 28 gün"</b><br>
+                            <b>"U=U = Saptanamaz = Bulaştırmaz"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>HIV =</b> Retrovirus, Lentivirus, diploid RNA<br>
+                            2. <b>gp120 =</b> CD4'e bağlanma, gp41 = füzyon<br>
+                            3. <b>Enzimler =</b> RT, İntegraz, Proteaz<br>
+                            4. <b>AIDS =</b> CD4<200 veya AIDS tanımlayıcı hastalık<br>
+                            5. <b>Tanı =</b> 4. nesil Ag/Ab combo → Ab diferansiyasyon<br>
+                            6. <b>ART =</b> Tüm HIV (+) hastalara, CD4'ten bağımsız<br>
+                            7. <b>1. tercih rejim =</b> INSTI + 2 NRTI<br>
+                            8. <b>HLA-B*5701 =</b> Abakavir öncesi zorunlu test<br>
+                            9. <b>PEP =</b> 72 saat içinde başla, 28 gün<br>
+                            10. <b>CD4<200 profilaksi =</b> TMP-SMX (PCP)<br>
+                            11. <b>CD4<50 profilaksi =</b> Azitromisin (MAC)<br>
+                            12. <b>Viral yük hedefi =</b> <50 kopya/mL
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "CD4 150, dispne, buzlu cam?" → PCP</li>
+                        <li><b>Soru tipi:</b> "HIV'de CD4<100, menenjit?" → Cryptococcus</li>
+                        <li><b>Soru tipi:</b> "ART öncesi HLA-B*5701 taraması?" → Abakavir</li>
+                        <li><b>Soru tipi:</b> "Kemik iliği supresyonu yapan ART?" → Zidovudin</li>
+                        <li><b>Soru tipi:</b> "HIV tanısında ilk test?" → 4. nesil Ag/Ab combo</li>
+                        <li><b>Soru tipi:</b> "PEP ne kadar süre?" → 28 gün</li>
+                        <li><b>Soru tipi:</b> "Güncel 1. tercih ART sınıfı?" → INSTI</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 29,
+        category: "viroloji",
+        title: "Herpesvirüsler",
+        subtitle: "HSV-1/2, VZV, CMV, EBV, HHV-6/7/8 ve Klinik Tablolar",
+        summary: "İnsan herpesvirüsleri (HHV-1'den HHV-8'e), primer ve reaktivasyon enfeksiyonları, latent dönem özellikleri, konjenital enfeksiyonlar ve antiviral tedavi.",
+        tags: ["Herpes", "HSV", "VZV", "CMV", "EBV", "HHV-8", "Latent Enfeksiyon", "Viroloji"],
+        sections: [
+            {
+                title: "Herpes Virüs Ailesi - Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Herpesviridae</strong> ailesi, DNA virüsleri arasında en büyük ailelerden biridir. Temel özellikleri latent enfeksiyon yapabilmeleri ve immün supresyonda reaktive olmalarıdır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Herpesvirüs Ortak Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Genom:</b> Çift zincirli (ds) DNA, lineer<br>
+                            <b>Zarf:</b> Var (zarflı virüs)<br>
+                            <b>Replikasyon:</b> Nükleusta<br>
+                            <b>Önemli:</b> LATENT ENFEKSİYON yapabilir<br>
+                            <b>Reaktivasyon:</b> İmmünsupresyon, stres, UV
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnsan Herpesvirüsleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HHV</th>
+                                    <th>İsim</th>
+                                    <th>Alt aile</th>
+                                    <th>Latent Yer</th>
+                                    <th>Ana Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HHV-1</b></td>
+                                    <td>HSV-1</td>
+                                    <td>α (Alfa)</td>
+                                    <td>Trigeminal ganglion</td>
+                                    <td>Oral herpes, ensefalit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-2</b></td>
+                                    <td>HSV-2</td>
+                                    <td>α (Alfa)</td>
+                                    <td>Sakral ganglia</td>
+                                    <td>Genital herpes, neonatal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-3</b></td>
+                                    <td>VZV</td>
+                                    <td>α (Alfa)</td>
+                                    <td>Dorsal kök gangliya</td>
+                                    <td>Suçiçeği, zona</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-4</b></td>
+                                    <td>EBV</td>
+                                    <td>γ (Gamma)</td>
+                                    <td>B lenfosit</td>
+                                    <td>Mononükleoz, Burkitt, NPC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-5</b></td>
+                                    <td>CMV</td>
+                                    <td>β (Beta)</td>
+                                    <td>Monosit/makrofaj</td>
+                                    <td>Konjenital, immünsuprese</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-6</b></td>
+                                    <td>Roseola</td>
+                                    <td>β (Beta)</td>
+                                    <td>T lenfosit</td>
+                                    <td>Ekzantema subitum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-7</b></td>
+                                    <td>-</td>
+                                    <td>β (Beta)</td>
+                                    <td>T lenfosit</td>
+                                    <td>Roseola benzeri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HHV-8</b></td>
+                                    <td>KSHV</td>
+                                    <td>γ (Gamma)</td>
+                                    <td>B lenfosit</td>
+                                    <td>Kaposi sarkomu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Alt Aile Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ALFA = Hızlı, SİNİR ganglia (HSV-1, HSV-2, VZV)"</b><br>
+                            <b>"BETA = Yavaş, Monosit/T hücre (CMV, HHV-6/7)"</b><br>
+                            <b>"GAMMA = B lenfosit, KANSERLİ (EBV, HHV-8)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HSV-1 ve HSV-2 (Herpes Simpleks)",
+                icon: "fas fa-head-side-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HSV-1 vs HSV-2</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>HSV-1</th>
+                                    <th>HSV-2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ana tutulum</b></td>
+                                    <td>Orolabial (belden yukarı)</td>
+                                    <td>Genital (belden aşağı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Latent yer</b></td>
+                                    <td>Trigeminal ganglion</td>
+                                    <td>Sakral ganglia</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ensefalit</b></td>
+                                    <td><b>En sık HSV ensefaliti</b></td>
+                                    <td>Nadir (yenidoğanda)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Keratit</b></td>
+                                    <td><b>Dendritik ülser</b></td>
+                                    <td>Nadir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Neonatal herpes</b></td>
+                                    <td>Daha az sık</td>
+                                    <td><b>En sık neden</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Tükürük, direkt temas</td>
+                                    <td>Cinsel temas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HSV Klinik Tabloları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Özellikler</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Gingivostomatit</b></td>
+                                    <td>Primer HSV-1, çocuklarda ağrılı oral ülserler, ateş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Herpes labialis</b></td>
+                                    <td>Reaktivasyon, dudak kenarında veziküller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genital herpes</b></td>
+                                    <td>HSV-2, ağrılı genital veziküller/ülserler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HSV ensefaliti</b></td>
+                                    <td><b>Temporal lob, hemorajik nekroz</b>, HSV-1</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Herpes keratiti</b></td>
+                                    <td><b>Dendritik ülser</b>, HSV-1</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Herpetik fronkül (Whitlow)</b></td>
+                                    <td>Parmak ucu vezikülleri, sağlık çalışanları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Neonatal herpes</b></td>
+                                    <td>HSV-2, lokalize/dissemine/SSS</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eczema herpeticum</b></td>
+                                    <td>Atopik dermatit + HSV yaygın lezyonlar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>HSV Ensefaliti - ACİL!</strong><br>
+                        <b>Temporal lob tutulumu</b> (MRI'da sinyal artışı)<br>
+                        <b>BOS:</b> Lenfositik pleositoz, RBC (hemorajik)<br>
+                        <b>Tanı:</b> BOS HSV PCR<br>
+                        <b>Tedavi:</b> IV Asiklovir (beklemeden başla!)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HSV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HSV-1 = ORAL, TRİGEMİNAL, ENSEFALİT"</b><br>
+                            <b>"HSV-2 = GENİTAL, SAKRAL, NEONATAL"</b><br>
+                            <b>"ENSEFALİT = TEMPORAL LOB (çeşme gibi kan)"</b><br>
+                            <b>"KERATİT = DENDRİTİK ÜLSER"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "VZV (Varicella-Zoster)",
+                icon: "fas fa-child",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">VZV - İki Hastalık</p>
+                        <p class="highlight-box__content">
+                            <b>Primer enfeksiyon:</b> Suçiçeği (Varicella)<br>
+                            <b>Reaktivasyon:</b> Zona (Herpes Zoster)<br>
+                            <b>Latent yer:</b> Dorsal kök gangliyaları
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Suçiçeği (Varicella)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Damlacık + direkt temas (çok bulaşıcı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnkübasyon</b></td>
+                                    <td>10-21 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Döküntü</b></td>
+                                    <td><b>Makül → Papül → Vezikül → Kabuk</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dağılım</b></td>
+                                    <td>Santrifugal, farklı evrelerde lezyonlar ("gökyüzünde yıldızlar")</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaşıntı</b></td>
+                                    <td>Belirgin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td>Sekonder bakteriyel enfeksiyon, pnömoni, ensefalit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Zona (Herpes Zoster)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Patojenez</b></td>
+                                    <td>Dorsal kök gangliyondan reaktivasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk faktörleri</b></td>
+                                    <td>Yaş >50, immünsupresyon, stres</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Döküntü</b></td>
+                                    <td><b>Tek dermatom, orta hattı geçmez</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ağrı</b></td>
+                                    <td>Prodromal ağrı, postherpetik nevralji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>En sık dermatom</b></td>
+                                    <td>Torasik (göğüs, sırt)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Herpes zoster oftalmikus</b></td>
+                                    <td>V1 (oftalmik dal), burun ucu tutulumu = göz riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ramsay Hunt sendromu</b></td>
+                                    <td>VII. sinir + kulak, fasiyal paralizi + vezikül</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Hutchinson Bulgusu:</strong><br>
+                        Burun ucu vezikülleri = Nazosiliyer sinir tutulumu = <b>Kornea riski</b>, oftalmoloji konsültasyonu!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">VZV Özel Durumlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Özellik</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Konjenital varicella</b></td>
+                                    <td>İlk 20 hafta, ekstremite hipoplazisi, skar, göz anomalileri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Neonatal varicella</b></td>
+                                    <td>Doğumdan 5 gün önce - 2 gün sonra maternal enfeksiyon, ağır seyir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünsuprese VZV</b></td>
+                                    <td>Dissemine, visseral tutulum, yüksek mortalite</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">VZV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SUÇİÇEĞİ = Gökyüzünde yıldızlar (farklı evre lezyonlar)"</b><br>
+                            <b>"ZONA = Tek dermatom, orta hattı GEÇMEZ"</b><br>
+                            <b>"RAMSAY HUNT = Kulak + Fasiyal paralizi"</b><br>
+                            <b>"HUTCHİNSON = Burun ucu = GÖZ RİSKİ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "CMV ve EBV",
+                icon: "fas fa-baby",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CMV (Sitomegalovirüs)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Klinik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sağlıklı yetişkin</b></td>
+                                    <td>Asemptomatik veya heterofil (-) mononükleoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konjenital CMV</b></td>
+                                    <td><b>En sık konjenital viral enfeksiyon!</b><br>
+                                    Mikrosefali, intrakraniyal kalsifikasyon, <b>işitme kaybı</b> (en sık sekele), koryoretinit, hepatosplenomegali, "blueberry muffin" döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AIDS (CD4<50)</b></td>
+                                    <td><b>CMV retiniti</b> ("pizza pie" görünüm), kolit, özofajit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transplant</b></td>
+                                    <td>Pnömoni, hepatit, kolit, greft rejeksiyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Konjenital CMV - En Sık Sekele</p>
+                        <p class="highlight-box__content">
+                            <b>Sensorinöral işitme kaybı</b> = En sık kalıcı sekele<br>
+                            Asemptomatik konjenital CMV'de bile gelişebilir!
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CMV Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Standart, kan/BOS/doku</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td><b>"Owl's eye" (baykuş gözü) inklüzyon</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konjenital</b></td>
+                                    <td>İdrar veya tükürükte CMV PCR <3 hafta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">EBV (Epstein-Barr Virüs)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Enfeksiyöz mononükleoz</b></td>
+                                    <td>Ateş, farenjit, LAP (posterior servikal), hepatosplenomegali, atipik lenfositler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oral hairy lökoplaki</b></td>
+                                    <td>HIV'de dil kenarında beyaz plaklar (EBV)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Burkitt lenfoma</b></td>
+                                    <td>c-MYC translokasyon, Afrika'da çene, sporadik karın</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nazofarengeal karsinom</b></td>
+                                    <td>Güneydoğu Asya, EBV ilişkili</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hodgkin lenfoma</b></td>
+                                    <td>EBV pozitifliği %40</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Posttransplant lenfoproliferatif</b></td>
+                                    <td>İmmünsupresyonda EBV kaynaklı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>EBV + Ampisilin/Amoksisilin:</strong><br>
+                        Mononükleozda penisilin grubu verilirse <b>makulopapüler döküntü</b> gelişir. Alerji değil!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">EBV Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Heterofil antikor</b></td>
+                                    <td>Monospot testi, hızlı, çocuklarda yanlış (-)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VCA IgM</b></td>
+                                    <td>Akut enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VCA IgG</b></td>
+                                    <td>Geçirilmiş enfeksiyon (ömür boyu)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>EBNA IgG</b></td>
+                                    <td>Geç pozitifleşir, geçmiş enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atipik lenfosit</b></td>
+                                    <td>CD8+ T hücreleri (reaktif), >%10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">CMV ve EBV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CMV = KONJENİTAL (işitme kaybı) + AIDS retinit (CD4<50)"</b><br>
+                            <b>"CMV histo = BAYKUŞ GÖZÜ (owl's eye)"</b><br>
+                            <b>"EBV = MONO + BURKİTT + NPC"</b><br>
+                            <b>"MONO + AMPİSİLİN = DÖKÜNTÜ"</b><br>
+                            <b>"ATİPİK LENFOSİT = EBV'ye reaktif CD8"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HHV-6, HHV-7 ve HHV-8",
+                icon: "fas fa-baby",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HHV-6 (Roseola / Ekzantema Subitum)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td>6-24 ay (bebek)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik seyir</b></td>
+                                    <td><b>Önce yüksek ateş (3-4 gün), sonra döküntü</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Döküntü</b></td>
+                                    <td>Ateş düşünce çıkar, gövdeden başlar, makulopapüler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Febril konvülziyon</b></td>
+                                    <td>Sık (yüksek ateş nedeniyle)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Diğer</b></td>
+                                    <td>Transplant alıcılarında reaktivasyon, ensefalit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Roseola Kilit Özellik</p>
+                        <p class="highlight-box__content">
+                            <b>"Ateş düştükten SONRA döküntü çıkar"</b><br>
+                            (Diğer viral exantemlerin aksine)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HHV-8 (Kaposi Sarkoma İlişkili Herpesvirus - KSHV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kaposi sarkomu</b></td>
+                                    <td>Mor-kırmızı deri lezyonları, AIDS tanımlayıcı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Primer efüzyon lenfoma</b></td>
+                                    <td>AIDS hastalarında kavite-bazlı lenfoma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Multisentrik Castleman</b></td>
+                                    <td>Lenfoproliferatif hastalık</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HHV-6/8 Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HHV-6 = ROSEOLA = Bebek + Ateş sonra döküntü"</b><br>
+                            <b>"HHV-8 = KAPOSİ SARKOMU = AIDS + mor lezyonlar"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antiviral Tedavi ve Sınav Özeti",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Herpesvirüs Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Mekanizma</th>
+                                    <th>Endikasyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asiklovir</b></td>
+                                    <td>Guanozin analoğu, viral timidin kinaz ile aktive</td>
+                                    <td><b>HSV, VZV</b> - 1. tercih</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Valasiklovir</b></td>
+                                    <td>Asiklovir ön ilacı (oral biyoyararlanım ↑)</td>
+                                    <td>HSV, VZV (oral)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gansiklovir</b></td>
+                                    <td>Guanozin analoğu, CMV UL97 kinaz ile aktive</td>
+                                    <td><b>CMV</b> - 1. tercih</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Valgansiklovir</b></td>
+                                    <td>Gansiklovir ön ilacı</td>
+                                    <td>CMV (oral)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Foskarnet</b></td>
+                                    <td>Pirofosfat analoğu, DNA polimeraz inhibitörü</td>
+                                    <td>Asiklovir/gansiklovir dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cidofovir</b></td>
+                                    <td>Nükleotid analoğu</td>
+                                    <td>Dirençli CMV, HPV</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Asiklovir vs Gansiklovir:</strong><br>
+                        <b>ASİKLOVİR = HSV, VZV</b> (viral timidin kinaz aktive eder)<br>
+                        <b>GANSİKLOVİR = CMV</b> (UL97 kinaz aktive eder, kemik iliği toksik)<br>
+                        Asiklovir CMV'ye ETKİSİZ!</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>HSV ensefaliti:</b> Temporal lob, IV asiklovir<br>
+                            2. <b>Konjenital CMV:</b> En sık sekele = işitme kaybı<br>
+                            3. <b>EBV + ampisilin:</b> Döküntü<br>
+                            4. <b>Roseola:</b> Ateş sonra döküntü<br>
+                            5. <b>Zona:</b> Tek dermatom, Hutchinson (burun)<br>
+                            6. <b>HHV-8:</b> Kaposi sarkomu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Herpesvirüs - Hastalık Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Primer Hastalık</th>
+                                    <th>Reaktivasyon/İlişkili</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HSV-1</td>
+                                    <td>Gingivostomatit</td>
+                                    <td>Herpes labialis, ensefalit, keratit</td>
+                                </tr>
+                                <tr>
+                                    <td>HSV-2</td>
+                                    <td>Genital herpes</td>
+                                    <td>Neonatal herpes, aseptik menenjit</td>
+                                </tr>
+                                <tr>
+                                    <td>VZV</td>
+                                    <td>Suçiçeği</td>
+                                    <td>Zona, Ramsay Hunt</td>
+                                </tr>
+                                <tr>
+                                    <td>EBV</td>
+                                    <td>Mononükleoz</td>
+                                    <td>Burkitt, NPC, oral hairy lökoplaki</td>
+                                </tr>
+                                <tr>
+                                    <td>CMV</td>
+                                    <td>Konjenital CMV</td>
+                                    <td>AIDS retiniti, transplant hastalığı</td>
+                                </tr>
+                                <tr>
+                                    <td>HHV-6</td>
+                                    <td>Roseola</td>
+                                    <td>Transplant reaktivasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td>HHV-8</td>
+                                    <td>-</td>
+                                    <td>Kaposi sarkomu, PEL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HSV ENSEFALİT = TEMPORAL LOB = IV ASİKLOVİR ACİL"</b><br>
+                            <b>"DENDRİTİK ÜLSER = HSV keratit"</b><br>
+                            <b>"BAYKUŞ GÖZÜ = CMV histoloji"</b><br>
+                            <b>"KONJENİTAL CMV = İŞİTME KAYBI"</b><br>
+                            <b>"MONO + PENİSİLİN = DÖKÜNTÜ"</b><br>
+                            <b>"ROSEOLA = ATEŞ SONRA DÖKÜNTÜ"</b><br>
+                            <b>"ZONA = TEK DERMATOM"</b><br>
+                            <b>"HUTCHİNSON = BURUN = GÖZ"</b><br>
+                            <b>"KAPOSİ = HHV-8 + AIDS"</b>
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Temporal lob ensefaliti + BOS lenfositoz?" → HSV-1</li>
+                        <li><b>Soru tipi:</b> "Konjenital enfeksiyon, sağırlık?" → CMV</li>
+                        <li><b>Soru tipi:</b> "Farenjit + LAP + atipik lenfosit?" → EBV mono</li>
+                        <li><b>Soru tipi:</b> "Mono + ampisilin sonrası döküntü?" → EBV</li>
+                        <li><b>Soru tipi:</b> "Bebek, yüksek ateş, ateş düşünce döküntü?" → Roseola (HHV-6)</li>
+                        <li><b>Soru tipi:</b> "Tek dermatomda veziküller?" → Zona (VZV)</li>
+                        <li><b>Soru tipi:</b> "AIDS, mor deri lezyonları?" → Kaposi (HHV-8)</li>
+                        <li><b>Soru tipi:</b> "CMV tedavisi?" → Gansiklovir</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 30,
+        category: "viroloji",
+        title: "Kuduz (Rabies)",
+        subtitle: "Kuduz Virüsü, Klinik Seyir, Profilaksi ve Temas Sonrası Yönetim",
+        summary: "Rhabdoviridae ailesinden Lyssavirus, nörotrofik yayılım, Negri cisimcikleri, klinik formlar (füryöz ve paralitik), temas sonrası profilaksi (PEP) ve aşı protokolleri.",
+        tags: ["Kuduz", "Rabies", "Negri Cisimciği", "PEP", "Aşı", "Viroloji"],
+        sections: [
+            {
+                title: "Kuduz Virüsü - Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Kuduz virüsü</strong>, dünyada en ölümcül viral enfeksiyonlardan biridir. Semptomlar başladıktan sonra mortalite %100'e yakındır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kuduz Virüsü - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Rhabdoviridae<br>
+                            <b>Cins:</b> Lyssavirus<br>
+                            <b>Genom:</b> Tek zincirli RNA (-), zarflı<br>
+                            <b>Şekil:</b> MERMİ şeklinde (bullet-shaped)<br>
+                            <b>Önemli protein:</b> G proteini (nötralizan Ab hedefi)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Epidemiyoloji ve Bulaş</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Rezervuar</b></td>
+                                    <td>Köpek (dünya geneli), yarasa, tilki, rakun, kokarca</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş yolu</b></td>
+                                    <td>Enfekte hayvan ısırığı (tükürük)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nadiren</b></td>
+                                    <td>Aerosol (yarasa mağaraları), organ nakli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>En sık kaynak (dünya)</b></td>
+                                    <td>Köpek (%99)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>En sık kaynak (gelişmiş)</b></td>
+                                    <td>Yarasa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Patojenez</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşama</th>
+                                    <th>Olay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Giriş</b></td>
+                                    <td>Isırık yoluyla kas veya deri altına</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Lokal replikasyon</b></td>
+                                    <td>Kas hücrelerinde çoğalma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Periferik sinir girişi</b></td>
+                                    <td>Nöromüsküler kavşaktan periferik sinire</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Retrograd transport</b></td>
+                                    <td>Akson boyunca SSS'ye yayılım</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. SSS enfeksiyonu</b></td>
+                                    <td>Ensefalit, limbik sistem tutulumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>6. Santrifugal yayılım</b></td>
+                                    <td>SSS'den tükürük bezlerine, diğer organlara</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>İnkübasyon Süresi:</strong><br>
+                        Genellikle <b>1-3 ay</b> (20-90 gün), ancak ısırık yerine göre değişir:<br>
+                        <b>Yüz/baş ısırığı:</b> Kısa inkübasyon (SSS'ye yakın)<br>
+                        <b>Bacak ısırığı:</b> Uzun inkübasyon</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kuduz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Rhabdo = MERMİ şekli, ssRNA (-)"</b><br>
+                            <b>"RETROGRAD = Periferden merkeze yayılır"</b><br>
+                            <b>"Yüz ısırığı = KISA inkübasyon (acil!)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-head-side-cough",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kuduz - Klinik Evreler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Prodrom</b></td>
+                                    <td>2-10 gün</td>
+                                    <td>Ateş, halsizlik, baş ağrısı, ısırık yerinde parestezi/ağrı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Akut nörolojik</b></td>
+                                    <td>2-7 gün</td>
+                                    <td>Füryöz veya paralitik form</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Koma ve ölüm</b></td>
+                                    <td>Günler</td>
+                                    <td>Kardiyorespiratuar arrest</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kuduz Formları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Sıklık</th>
+                                    <th>Özellikler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Füryöz (ensefalitik)</b></td>
+                                    <td>%80</td>
+                                    <td>
+                                        <b>Hidrofobi</b> (su korkusu) - PATOGNOMONİK<br>
+                                        <b>Aerofobi</b> (hava akımı korkusu)<br>
+                                        Ajitasyon, hiperaktivite, psikoz<br>
+                                        Otonomik instabilite, hipersalivasyon<br>
+                                        Spazm, konvülziyon
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paralitik (dumb)</b></td>
+                                    <td>%20</td>
+                                    <td>
+                                        Asendan flask paralizi (GBS benzeri)<br>
+                                        Hidrofobi yok veya az<br>
+                                        Daha uzun seyir
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Patognomonik Bulgular</p>
+                        <p class="highlight-box__content">
+                            <b>Hidrofobi:</b> Su yutma girişiminde laringeal spazm, panik<br>
+                            <b>Aerofobi:</b> Hava akımından spazm<br>
+                            <b>Hipersalivasyon:</b> "Köpüklü ağız" - yutamama nedeniyle
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Prognoz:</strong><br>
+                        Semptomlar başladıktan sonra <b>mortalite %100'e yakın</b>. Sadece birkaç hayatta kalma vakası bildirilmiş (Milwaukee protokolü).</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HİDROFOBİ = KUDUZ'un PATOGNOMONİK bulgusu"</b><br>
+                            <b>"FÜRYÖZ = Öfkeli, hiperaktif (%80)"</b><br>
+                            <b>"PARALİTİK = GBS benzeri, sessiz (%20)"</b><br>
+                            <b>"SEMPTOM = ÖLÜM (tedavi yok)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kuduz Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Materyal</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>DFA (direkt floresan antikor)</b></td>
+                                    <td>Ense cildi biyopsisi, kornea</td>
+                                    <td>Antemortem tanı, hızlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>RT-PCR</b></td>
+                                    <td>Tükürük, BOS, cilt</td>
+                                    <td>En sensitif, antemortem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Negri cisimcikleri</b></td>
+                                    <td>Beyin dokusu (hipokampus, Purkinje)</td>
+                                    <td><b>Postmortem, patognomonik</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seroloji</b></td>
+                                    <td>Serum, BOS</td>
+                                    <td>Aşısızlarda antikor = tanı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Negri Cisimcikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Lokasyon:</b> Nöron sitoplazması<br>
+                            <b>Beyin bölgesi:</b> Hipokampus (Ammon boynuzu), serebellum (Purkinje hücreleri)<br>
+                            <b>Görünüm:</b> Eozinofilik, intrastoplazmik inklüzyon cisimciği<br>
+                            <b>Önemi:</b> Patognomonik (sadece kuduza özgü)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hayvan Değerlendirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Köpek/kedi yakalandı</b></td>
+                                    <td>10 gün gözlem (semptom çıkarsa PEP)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hayvan öldü/kaçtı</b></td>
+                                    <td>PEP başla</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hayvan kuduz semptomlu</b></td>
+                                    <td>Öldür, beyin inceleme + acil PEP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yarasa teması</b></td>
+                                    <td>Görünür ısırık olmasa da PEP düşün</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"NEGRİ = Hipokampus + Purkinje = KUDUZ"</b><br>
+                            <b>"ENSE CİLDİ BİYOPSİSİ = Antemortem DFA"</b><br>
+                            <b>"10 GÜN = Köpek/kedi gözlem süresi"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Temas Sonrası Profilaksi (PEP)",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">PEP - Temel Prensipler</p>
+                        <p class="highlight-box__content">
+                            <b>Amaç:</b> Semptomlar başlamadan virüsü nötralize etmek<br>
+                            <b>Zaman:</b> NE KADAR ERKEN O KADAR İYİ (ancak geç kalınsa da başla)<br>
+                            <b>Bileşenler:</b> Yara bakımı + RIG + Aşı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">PEP Basamakları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Basamak</th>
+                                    <th>Uygulama</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Yara bakımı</b></td>
+                                    <td>Acil</td>
+                                    <td>Bol su + sabunla 15 dakika yıka, %70 alkol veya povidon iyot</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. RIG (Immünglobulin)</b></td>
+                                    <td>0. gün</td>
+                                    <td>20 IU/kg, yaranın etrafına infiltre, kalan IM</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Kuduz aşısı</b></td>
+                                    <td>0, 3, 7, 14 gün</td>
+                                    <td>İnaktive virüs aşısı, deltoid/uyluk IM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Temas Kategorileri (WHO)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Temas Tipi</th>
+                                    <th>PEP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>I</b></td>
+                                    <td>Dokunma, yalama (sağlam cilt)</td>
+                                    <td>Yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>II</b></td>
+                                    <td>Küçük ısırık, çizik (kanamasız)</td>
+                                    <td>Aşı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>III</b></td>
+                                    <td>Büyük/derin ısırık, mukoza teması, yarasa</td>
+                                    <td><b>RIG + Aşı</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kuduz Aşı Şemaları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Şema</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aşısız kişi (PEP)</b></td>
+                                    <td>0, 3, 7, 14. gün (+ RIG 0. gün)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Daha önce aşılı (PEP)</b></td>
+                                    <td>0, 3. gün (RIG yok)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Preexposure (PrEP)</b></td>
+                                    <td>0, 7, 21-28. gün (risk grupları)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>RIG Kuralları:</strong><br>
+                        - <b>0. günde</b> aşı ile birlikte (farklı bölgelere)<br>
+                        - Yaranın etrafına mümkün olduğunca infiltre et<br>
+                        - Aşı başladıktan 7 gün sonra VERİLMEZ<br>
+                        - Daha önce aşılıysa RIG GEREKMEZ</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">PEP Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Kategori III = RIG + AŞI (ağır temas)"</b><br>
+                            <b>"Kategori II = Sadece AŞI"</b><br>
+                            <b>"Kategori I = PEP YOK"</b><br>
+                            <b>"RIG = 0. gün, yaraya infiltre, 20 IU/kg"</b><br>
+                            <b>"AŞI = 0, 3, 7, 14 gün"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Negri cisimciği:</b> Hipokampus, patognomonik<br>
+                            2. <b>Hidrofobi:</b> Patognomonik bulgu<br>
+                            3. <b>PEP endikasyonu:</b> Kategori II/III<br>
+                            4. <b>RIG:</b> Yaranın etrafına infiltre<br>
+                            5. <b>Aşı şeması:</b> 0, 3, 7, 14 gün<br>
+                            6. <b>Prognoz:</b> Semptomdan sonra fatal
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kuduz - Özet Tablo</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Virüs</td>
+                                    <td>Rhabdoviridae, Lyssavirus, ssRNA (-), mermi şekli</td>
+                                </tr>
+                                <tr>
+                                    <td>Bulaş</td>
+                                    <td>Isırık (tükürük), en sık köpek</td>
+                                </tr>
+                                <tr>
+                                    <td>Patognomonik bulgu</td>
+                                    <td><b>Hidrofobi, Aerofobi</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Histopatoloji</td>
+                                    <td><b>Negri cisimciği</b> (hipokampus, Purkinje)</td>
+                                </tr>
+                                <tr>
+                                    <td>İnkübasyon</td>
+                                    <td>1-3 ay (yüz ısırığında kısa)</td>
+                                </tr>
+                                <tr>
+                                    <td>Prognoz</td>
+                                    <td>Semptom = Ölüm (%100)</td>
+                                </tr>
+                                <tr>
+                                    <td>PEP (ağır temas)</td>
+                                    <td>Yara bakımı + RIG (0. gün) + Aşı (0,3,7,14)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"RHABDO = MERMİ şekli"</b><br>
+                            <b>"HİDROFOBİ = KUDUZ (patognomonik)"</b><br>
+                            <b>"NEGRİ = HİPOKAMPUS (eozinofilik inklüzyon)"</b><br>
+                            <b>"SEMPTOM = ÖLÜM (tedavi yok)"</b><br>
+                            <b>"PEP = Yara yıka + RIG yaraya + Aşı 0,3,7,14"</b><br>
+                            <b>"KATEGORİ III = RIG + AŞI"</b><br>
+                            <b>"10 GÜN = Köpek/kedi gözlem"</b><br>
+                            <b>"YARASA = Her zaman PEP düşün"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Kuduz =</b> Rhabdoviridae, mermi şekli, ssRNA (-)<br>
+                            2. <b>Retrograd =</b> Periferden merkeze sinir yolyla<br>
+                            3. <b>Hidrofobi =</b> Patognomonik, su yutamama<br>
+                            4. <b>Füryöz form =</b> %80, ajitasyon, öfke<br>
+                            5. <b>Paralitik form =</b> %20, GBS benzeri<br>
+                            6. <b>Negri cisimciği =</b> Hipokampus (Ammon boynuzu)<br>
+                            7. <b>Tanı antemortem =</b> Ense cildi DFA, PCR<br>
+                            8. <b>Kategori III =</b> RIG + Aşı<br>
+                            9. <b>RIG =</b> 20 IU/kg, yaranın etrafına<br>
+                            10. <b>Aşı =</b> 0, 3, 7, 14. gün<br>
+                            11. <b>10 gün =</b> Köpek/kedi gözlem<br>
+                            12. <b>Yarasa =</b> Görünür ısırık olmasa da PEP düşün
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Hipokampusta eozinofilik inklüzyon?" → Negri cisimciği (kuduz)</li>
+                        <li><b>Soru tipi:</b> "Su içerken spazm, panik?" → Hidrofobi (kuduz)</li>
+                        <li><b>Soru tipi:</b> "Köpek ısırığı, derin yara, PEP?" → RIG + Aşı</li>
+                        <li><b>Soru tipi:</b> "RIG nereye uygulanır?" → Yaranın etrafına infiltre</li>
+                        <li><b>Soru tipi:</b> "Kuduz aşı şeması?" → 0, 3, 7, 14. gün</li>
+                        <li><b>Soru tipi:</b> "Mermi şeklinde virüs?" → Rhabdoviridae (kuduz)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 31,
+        category: "viroloji",
+        title: "HPV (Human Papillomavirüs)",
+        subtitle: "HPV Tipleri, Siğiller, Servikal Kanser, Aşı ve Tarama",
+        summary: "Papillomaviridae ailesi, düşük ve yüksek riskli HPV tipleri, kondilom aküminata, servikal kanser patogenezi (E6/E7), HPV aşıları ve servikal kanser tarama yöntemleri.",
+        tags: ["HPV", "Papillomavirüs", "Siğil", "Servikal Kanser", "Gardasil", "Aşı", "Viroloji"],
+        sections: [
+            {
+                title: "HPV - Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Human Papillomavirüs (HPV)</strong>, dünyada en sık görülen cinsel yolla bulaşan enfeksiyondur. 200'den fazla tipi vardır ve bazıları kanser yapıcı potansiyele sahiptir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HPV - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Papillomaviridae<br>
+                            <b>Genom:</b> Çift zincirli (ds) DNA, dairesel<br>
+                            <b>Zarf:</b> YOK (çıplak virüs)<br>
+                            <b>Replikasyon:</b> Nükleusta, epitel hücrelerinde<br>
+                            <b>Bulaş:</b> Direkt temas (cinsel, deri-deri)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Tip Sınıflaması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>HPV Tipleri</th>
+                                    <th>İlişkili Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Düşük riskli</b></td>
+                                    <td><b>6, 11</b></td>
+                                    <td>Kondilom aküminata (genital siğil), laringeal papillom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yüksek riskli</b></td>
+                                    <td><b>16, 18</b> (en sık)<br>31, 33, 45, 52, 58</td>
+                                    <td>Servikal kanser, anogenital kanser, orofaringeal kanser</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kutanöz siğil</b></td>
+                                    <td>1, 2, 4</td>
+                                    <td>Verruka vulgaris, plantar siğil</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Flat siğil</b></td>
+                                    <td>3, 10</td>
+                                    <td>Verruka plana (yüz, el sırtı)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Kanser Yapan HPV Tipleri:</strong><br>
+                        <b>HPV 16:</b> Servikal kanserin %50-60'ı<br>
+                        <b>HPV 18:</b> Servikal kanserin %10-20'si<br>
+                        <b>HPV 16 + 18:</b> Tüm servikal kanserlerin %70'i</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Onkogenik Mekanizma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Onkoprotein</th>
+                                    <th>Hedef</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E6</b></td>
+                                    <td><b>p53</b> (tümör supresör)</td>
+                                    <td>p53 degradasyonu → apoptoz engellenir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E7</b></td>
+                                    <td><b>Rb</b> (retinoblastoma proteini)</td>
+                                    <td>Rb inhibisyonu → kontrolsüz proliferasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HPV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"6-11 = SİĞİL (kondilom)"</b><br>
+                            <b>"16-18 = KANSER (servikal)"</b><br>
+                            <b>"E6 = p53, E7 = Rb (tümör supresör yıkımı)"</b><br>
+                            <b>"E6 → altıncı harf (F yok) → p53 (beş-üç)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HPV İlişkili Hastalıklar",
+                icon: "fas fa-disease",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Lezyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>HPV Tipi</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Verruka vulgaris</b></td>
+                                    <td>1, 2, 4</td>
+                                    <td>Papillomatöz, keratotik, el/parmak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Plantar siğil</b></td>
+                                    <td>1, 4</td>
+                                    <td>Ayak tabanı, içe büyür, ağrılı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Verruka plana</b></td>
+                                    <td>3, 10</td>
+                                    <td>Düz, küçük, yüz/el sırtı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kondilom aküminata</b></td>
+                                    <td><b>6, 11</b></td>
+                                    <td>Genital siğil, karnabahar görünüm</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Buschke-Löwenstein</b></td>
+                                    <td>6, 11</td>
+                                    <td>Dev kondilom, lokal invaziv</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Laringeal papillomatozis</b></td>
+                                    <td>6, 11</td>
+                                    <td>Çocuklarda stridor, doğum sırasında bulaş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epidermodisplazi verrüsiformis</b></td>
+                                    <td>5, 8</td>
+                                    <td>Genetik, yaygın siğil, SCC riski</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV İlişkili Kanserler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kanser</th>
+                                    <th>HPV İlişki</th>
+                                    <th>En Sık Tip</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Servikal kanser</b></td>
+                                    <td>%99</td>
+                                    <td>HPV 16, 18</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anal kanser</b></td>
+                                    <td>%90</td>
+                                    <td>HPV 16</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vulvar/Vaginal kanser</b></td>
+                                    <td>%70</td>
+                                    <td>HPV 16</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Penil kanser</b></td>
+                                    <td>%60</td>
+                                    <td>HPV 16</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orofaringeal kanser</b></td>
+                                    <td>%70</td>
+                                    <td>HPV 16 (tonsil, dil kökü)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Servikal Kanser Patogenezi</p>
+                        <p class="highlight-box__content">
+                            <b>1. Enfeksiyon:</b> HPV serviks epitelini enfekte eder<br>
+                            <b>2. Persistans:</b> İmmün sistemi atlatırsa kronikleşir<br>
+                            <b>3. Entegrasyon:</b> Viral DNA konak genomuna entegre olur<br>
+                            <b>4. Displazi:</b> CIN I → CIN II → CIN III (karsinoma in situ)<br>
+                            <b>5. İnvaziv karsinom:</b> Ortalama 10-20 yıl sürer
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hastalık Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KONDİLOM = 6, 11 (altı-onbir)"</b><br>
+                            <b>"KANSER = 16, 18 (onaltı-onsekiz)"</b><br>
+                            <b>"OROFARİNKS = HPV 16 (tonsil, dil kökü)"</b><br>
+                            <b>"LABİRENT papillom = 6, 11 + çocuk"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tarama",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Kullanım</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HPV DNA testi</b></td>
+                                    <td>Servikal tarama, yüksek riskli tip tespiti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pap smear (sitoloji)</b></td>
+                                    <td>Servikal tarama, displazi tespiti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kolposkopi</b></td>
+                                    <td>Anormal Pap sonrası görsel değerlendirme</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biyopsi</b></td>
+                                    <td>Kesin tanı, histopatolojik inceleme</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td><b>Koilositoz</b> (perinükleer halo)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Koilositoz - HPV'nin Histolojik İşareti</p>
+                        <p class="highlight-box__content">
+                            <b>Koilosit:</b> HPV enfekte epitel hücresi<br>
+                            <b>Özellik:</b> Büyük, hiperkromatik nükleus + <b>perinükleer halo</b><br>
+                            <b>Görünüm:</b> Nükleusun etrafında boş alan
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Servikal Kanser Tarama Önerileri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaş</th>
+                                    <th>Öneri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b><21</b></td>
+                                    <td>Tarama önerilmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>21-29</b></td>
+                                    <td>3 yılda bir sitoloji (Pap)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>30-65</b></td>
+                                    <td>5 yılda bir HPV + Pap (ko-test) VEYA<br>3 yılda bir Pap VEYA<br>5 yılda bir yalnız HPV testi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>>65</b></td>
+                                    <td>Önceki testler normalse durdur</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pap Smear Terminolojisi (Bethesda)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sonuç</th>
+                                    <th>Anlam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>NILM</b></td>
+                                    <td>Negatif (normal)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ASC-US</b></td>
+                                    <td>Önemi belirsiz atipik skuamöz hücre</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ASC-H</b></td>
+                                    <td>HSIL ekarte edilemeyen ASC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LSIL</b></td>
+                                    <td>Düşük dereceli intraepitelyal lezyon (CIN I)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HSIL</b></td>
+                                    <td>Yüksek dereceli intraepitelyal lezyon (CIN II/III)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KOİLOSİTOZ = HPV (perinükleer halo)"</b><br>
+                            <b>"LSIL = Düşük derece = CIN I"</b><br>
+                            <b>"HSIL = Yüksek derece = CIN II/III"</b><br>
+                            <b>"30 yaş üstü = HPV + Pap ko-test"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HPV Aşıları",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Aşı Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşı</th>
+                                    <th>Kapsanan HPV Tipleri</th>
+                                    <th>Koruma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Cervarix (2'li)</b></td>
+                                    <td>16, 18</td>
+                                    <td>Servikal kanser</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gardasil (4'lü)</b></td>
+                                    <td>6, 11, 16, 18</td>
+                                    <td>Servikal kanser + genital siğil</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gardasil 9 (9'lu)</b></td>
+                                    <td>6, 11, 16, 18, 31, 33, 45, 52, 58</td>
+                                    <td>~90% servikal kanser koruması</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HPV Aşısı - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Tip:</b> VLP (virus-like particle) - canlı değil<br>
+                            <b>İçerik:</b> L1 kapsid proteini (rekombinant)<br>
+                            <b>Amaç:</b> Profilaktik (tedavi edici değil!)<br>
+                            <b>Etkinlik:</b> Enfeksiyon öncesi en etkili
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Aşı Şeması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaş</th>
+                                    <th>Doz</th>
+                                    <th>Zamanlama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>9-14 yaş</b></td>
+                                    <td>2 doz</td>
+                                    <td>0, 6-12 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>15-26 yaş</b></td>
+                                    <td>3 doz</td>
+                                    <td>0, 1-2, 6 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>27-45 yaş</b></td>
+                                    <td>Bireysel karar</td>
+                                    <td>Risk değerlendirmesi ile</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Aşısı Endikasyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Grup</th>
+                                    <th>Öneri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kız ve erkek çocuklar</b></td>
+                                    <td>11-12 yaşta rutin (9 yaştan itibaren başlanabilir)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yakalama (catch-up)</b></td>
+                                    <td>26 yaşına kadar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MSM</b></td>
+                                    <td>26 yaşa kadar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünsuprese</b></td>
+                                    <td>26 yaşa kadar (3 doz)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Önemli Not:</strong><br>
+                        HPV aşısı <b>profilaktik</b>tir - mevcut enfeksiyonu tedavi etmez. Cinsel aktivite başlamadan önce en etkilidir. Aşılı kişilerde de tarama devam etmelidir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aşı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GARDASİL 9 = 9 tip, %90 koruma"</b><br>
+                            <b>"VLP = Virus-Like Particle (canlı değil)"</b><br>
+                            <b>"11-12 YAŞ = Rutin aşılama"</b><br>
+                            <b>"PROFİLAKTİK = Tedavi edici DEĞİL"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>HPV 6, 11:</b> Kondilom aküminata (siğil)<br>
+                            2. <b>HPV 16, 18:</b> Servikal kanser<br>
+                            3. <b>E6 → p53, E7 → Rb:</b> Onkogenik mekanizma<br>
+                            4. <b>Koilositoz:</b> HPV histolojik bulgusu<br>
+                            5. <b>Gardasil 9:</b> 9 tip koruma<br>
+                            6. <b>Tarama:</b> 21 yaştan itibaren
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HPV Tip - Hastalık Final Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HPV Tipi</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1, 2, 4</td>
+                                    <td>Verruka vulgaris, plantar siğil</td>
+                                </tr>
+                                <tr>
+                                    <td>3, 10</td>
+                                    <td>Verruka plana (düz siğil)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>6, 11</b></td>
+                                    <td><b>Kondilom aküminata, laringeal papillom</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>16, 18</b></td>
+                                    <td><b>Servikal kanser, anogenital kanser, orofaringeal</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">E6/E7 Mekanizması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Onkoprotein</th>
+                                    <th>Hedef</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E6</b></td>
+                                    <td>p53</td>
+                                    <td>Apoptoz kaybı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E7</b></td>
+                                    <td>Rb</td>
+                                    <td>G1/S kontrol kaybı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"6-11 = SİĞİL (kondilom)"</b><br>
+                            <b>"16-18 = KANSER (servikal)"</b><br>
+                            <b>"E6 = p53 (53=beş-üç, altı=E6)"</b><br>
+                            <b>"E7 = Rb (yedi=E7)"</b><br>
+                            <b>"KOİLOSİT = Perinükleer HALO"</b><br>
+                            <b>"GARDASİL 9 = 9 tip, %90 koruma"</b><br>
+                            <b>"VLP = Canlı DEĞİL, profilaktik"</b><br>
+                            <b>"30 yaş + = HPV + Pap ko-test"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>HPV =</b> dsDNA, zarfsız, Papillomaviridae<br>
+                            2. <b>Düşük risk (6, 11) =</b> Kondilom, laringeal papillom<br>
+                            3. <b>Yüksek risk (16, 18) =</b> Servikal/anogenital kanser<br>
+                            4. <b>E6 → p53 =</b> Apoptoz engeli<br>
+                            5. <b>E7 → Rb =</b> Proliferasyon<br>
+                            6. <b>HPV 16 + 18 =</b> %70 servikal kanser<br>
+                            7. <b>Koilositoz =</b> Perinükleer halo<br>
+                            8. <b>Gardasil 9 =</b> 6,11,16,18 + 31,33,45,52,58<br>
+                            9. <b>Aşı =</b> VLP (L1 protein), profilaktik<br>
+                            10. <b>Rutin aşı =</b> 11-12 yaş, kız ve erkek<br>
+                            11. <b>Tarama =</b> 21 yaştan itibaren<br>
+                            12. <b>30+ tarama =</b> HPV + Pap ko-test
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Genital siğil yapan HPV tipleri?" → 6, 11</li>
+                        <li><b>Soru tipi:</b> "Servikal kanser ile ilişkili HPV?" → 16, 18</li>
+                        <li><b>Soru tipi:</b> "E6 proteini hangi tümör supresörü inhibe eder?" → p53</li>
+                        <li><b>Soru tipi:</b> "Perinükleer halo gösteren hücre?" → Koilosit (HPV)</li>
+                        <li><b>Soru tipi:</b> "En geniş koruma sağlayan HPV aşısı?" → Gardasil 9</li>
+                        <li><b>Soru tipi:</b> "HPV aşısı ne tip aşıdır?" → VLP (rekombinant L1)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 32,
+        category: "viroloji",
+        title: "Enterovirüsler",
+        subtitle: "Poliovirüs, Coxsackievirüs, Echovirüs ve Enterovirus D68/71",
+        summary: "Picornaviridae ailesinden Enterovirus cinsi, poliovirüs ve eradikasyon, Coxsackie A/B, Echovirüs, el-ayak-ağız hastalığı, herpangina, miyokardit ve aseptik menenjit.",
+        tags: ["Enterovirüs", "Polio", "Coxsackie", "Echo", "Herpangina", "El-Ayak-Ağız", "Viroloji"],
+        sections: [
+            {
+                title: "Enterovirüsler - Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Enterovirüsler</strong>, Picornaviridae ailesinin en büyük cinsini oluşturur. Fekal-oral yolla bulaşır ve çok çeşitli klinik tablolar oluşturur.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Enterovirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Picornaviridae (pico = küçük, RNA)<br>
+                            <b>Cins:</b> Enterovirus<br>
+                            <b>Genom:</b> Tek zincirli RNA (+), zarfsız<br>
+                            <b>Özellik:</b> Asit ve safra dirençli (GİS'te yaşar)<br>
+                            <b>Bulaş:</b> Fekal-oral (esas), damlacık
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enterovirüs Sınıflaması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Grup</th>
+                                    <th>Serotip Örnekleri</th>
+                                    <th>Önemli Hastalıklar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Poliovirüs</b></td>
+                                    <td>PV1, PV2, PV3</td>
+                                    <td>Poliomiyelit (flask paralizi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coxsackievirus A</b></td>
+                                    <td>A1-22, A24</td>
+                                    <td>Herpangina, el-ayak-ağız, akut hemorajik konjonktivit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coxsackievirus B</b></td>
+                                    <td>B1-6</td>
+                                    <td><b>Miyokardit</b>, perikardit, Bornholm (plörodik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Echovirus</b></td>
+                                    <td>E1-33</td>
+                                    <td>Aseptik menenjit, döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterovirus D68</b></td>
+                                    <td>EV-D68</td>
+                                    <td>Solunum yolu enfeksiyonu, akut flask miyelit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterovirus A71</b></td>
+                                    <td>EV-A71</td>
+                                    <td>El-ayak-ağız, nörolojik komplikasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Önemli:</strong><br>
+                        Enterovirüsler çıplak (zarfsız) virüslerdir, bu nedenle çevrede dayanıklıdır ve dezenfeksiyona dirençlidir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Enterovirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PİCORNA = Pico (küçük) + RNA"</b><br>
+                            <b>"ZARFSIZ = Asit/safra DİRENÇLİ"</b><br>
+                            <b>"FEKAL-ORAL = Temel bulaş yolu"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Poliovirüs ve Poliomiyelit",
+                icon: "fas fa-wheelchair",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Poliovirüs - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Serotip:</b> PV1 (en sık paralizi), PV2, PV3<br>
+                            <b>Bulaş:</b> Fekal-oral<br>
+                            <b>Hedef:</b> Anterior boynuz motor nöronları<br>
+                            <b>Sonuç:</b> Flask (gevşek) paralizi<br>
+                            <b>Eradikasyon:</b> WHO hedefi, yalnız birkaç ülkede endemik
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Poliomiyelit Klinik Formları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Sıklık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik</b></td>
+                                    <td>%90-95</td>
+                                    <td>Subklinik enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Minör hastalık</b></td>
+                                    <td>%4-8</td>
+                                    <td>Ateş, baş ağrısı, boğaz ağrısı (nonspesifik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aseptik menenjit</b></td>
+                                    <td>%1-2</td>
+                                    <td>Ense sertliği, paralizi yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Paralitik polio</b></td>
+                                    <td><%1</td>
+                                    <td><b>Asimetrik flask paralizi</b>, DTR↓, alt ekstremite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulber polio</b></td>
+                                    <td>Nadir</td>
+                                    <td>Solunum kası paralizisi, kranial sinir tutulumu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Paralitik Polio Özellikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Paralizi tipi</b></td>
+                                    <td>Flask (gevşek), alt motor nöron</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dağılım</b></td>
+                                    <td>Asimetrik, alt ekstremite > üst</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DTR</b></td>
+                                    <td>Azalmış veya kayıp</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Duyu</b></td>
+                                    <td>KORUNMUŞ (sadece motor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atrofi</b></td>
+                                    <td>Haftalar-aylar içinde gelişir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Polio Aşıları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşı</th>
+                                    <th>Tip</th>
+                                    <th>Avantaj</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>OPV (Sabin)</b></td>
+                                    <td>Canlı attenüe, oral</td>
+                                    <td>Bağırsak immünitesi, kolay uygulama, sürü bağışıklığı</td>
+                                    <td><b>VAPP riski</b> (aşıya bağlı paralizi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IPV (Salk)</b></td>
+                                    <td>İnaktive, IM</td>
+                                    <td>VAPP riski yok, güvenli</td>
+                                    <td>Bağırsak immünitesi zayıf</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>VAPP (Vaccine-Associated Paralytic Poliomyelitis):</strong><br>
+                        OPV'nin nadir komplikasyonu. Aşı virüsü mutasyona uğrayarak virulan hale dönüşebilir. Bu nedenle birçok ülke IPV'ye geçmiştir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Polio Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ANTERİOR BOYNUZ = Motor nöron = FLASK PARALİZİ"</b><br>
+                            <b>"ASİMETRİK + DUYU KORUNMUŞ = POLİO"</b><br>
+                            <b>"OPV = Oral, canlı, VAPP riski"</b><br>
+                            <b>"IPV = IM, inaktive, güvenli"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Coxsackievirüs",
+                icon: "fas fa-heart",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Coxsackievirus A Hastalıkları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Serotip</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Herpangina</b></td>
+                                    <td>A2-6, A8, A10</td>
+                                    <td>Ateş, ağrılı <b>posterior farinks/yumuşak damak</b> vezikülleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>El-Ayak-Ağız Hastalığı</b></td>
+                                    <td>A16, EV-A71</td>
+                                    <td>El, ayak vesikülleri + oral ülser, çocuklarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut hemorajik konjonktivit</b></td>
+                                    <td>A24</td>
+                                    <td>Ağrılı, kanamalı konjonktivit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Herpangina vs Primer HSV Gingivostomatit</p>
+                        <p class="highlight-box__content">
+                            <b>Herpangina:</b> POSTERİOR farinks, yumuşak damak<br>
+                            <b>HSV gingivostomatit:</b> ANTERİOR ağız, diş etleri, dudak<br>
+                            Her ikisi de çocuklarda ateşli ağrılı oral ülser yapar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Coxsackievirus B Hastalıkları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Miyokardit</b></td>
+                                    <td><b>Viral miyokarditin EN SIK nedeni</b>, genç erişkin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Perikardit</b></td>
+                                    <td>Göğüs ağrısı, frotman, EKG ST elevasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Plörodik (Bornholm hastalığı)</b></td>
+                                    <td>"Şeytan gribi", göğüs/karın kaslarında ani ağrı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pankreatit</b></td>
+                                    <td>Tip 1 DM patogenezinde rol?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">El-Ayak-Ağız Hastalığı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etken</b></td>
+                                    <td>Coxsackie A16, Enterovirus A71</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td><5 yaş çocuklar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Döküntü</b></td>
+                                    <td>El palmar, ayak plantar yüz + oral ülser</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td>EV-A71: ensefalit, pulmoner ödem (nadir ama ciddi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Destekleyici</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Coxsackie Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"COXSACKİE A = AĞIZ (herpangina, el-ayak-ağız)"</b><br>
+                            <b>"COXSACKİE B = Body (miyokardit, perikardit, Bornholm)"</b><br>
+                            <b>"B = Better at Breaking the heart (kalp)"</b><br>
+                            <b>"HERPANGİNA = POSTERİOR farinks"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Echovirüs ve Diğer Enterovirüsler",
+                icon: "fas fa-brain",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Echovirüs</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aseptik menenjit</b></td>
+                                    <td>Enterovirüslerin EN SIK nedeni, yaz-sonbahar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viral ekzantem</b></td>
+                                    <td>Nonspesifik makulopapüler döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Neonatal sepsis</b></td>
+                                    <td>Yenidoğanda ağır, hepatit, miyokardit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Aseptik Menenjit - Enterovirüs</p>
+                        <p class="highlight-box__content">
+                            <b>En sık neden:</b> Enterovirüsler (%80-90)<br>
+                            <b>Mevsim:</b> Yaz-sonbahar<br>
+                            <b>BOS:</b> Lenfositik pleositoz, protein normal/hafif ↑, glukoz normal<br>
+                            <b>Tanı:</b> BOS enterovirus PCR<br>
+                            <b>Prognoz:</b> Self-limited, iyi
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enterovirus D68</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Solunum yolu (diğer enterovirüslerden farklı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Ağır solunum yolu enfeksiyonu, astım alevlenmesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td><b>Akut flask miyelit</b> (polio-benzeri)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enterovirus A71</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ana hastalık</b></td>
+                                    <td>El-ayak-ağız hastalığı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nörolojik komplikasyon</b></td>
+                                    <td>Beyin sapı ensefaliti, akut flask paralizi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ciddi komplikasyon</b></td>
+                                    <td>Pulmoner ödem, kardiyopulmoner kollaps</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coğrafi</b></td>
+                                    <td>Asya-Pasifik bölgesinde epidemiler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Uyarı:</strong><br>
+                        <b>EV-D68</b> ve <b>EV-A71</b> polio-benzeri akut flask paralizi yapabilir. Polio eradikasyonu sonrası bu virüsler önem kazanmaktadır.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Diğer Enterovirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ECHO = En sık Aseptik menenjit"</b><br>
+                            <b>"EV-D68 = Solunum + Akut flask miyelit"</b><br>
+                            <b>"EV-A71 = El-ayak-ağız + Nörolojik komplikasyon"</b><br>
+                            <b>"YAZ-SONBAHAR = Enterovirüs mevsimi"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Viral miyokardit:</b> Coxsackie B (en sık)<br>
+                            2. <b>Aseptik menenjit:</b> Enterovirüsler (en sık)<br>
+                            3. <b>Herpangina:</b> Coxsackie A, posterior farinks<br>
+                            4. <b>El-ayak-ağız:</b> Coxsackie A16, EV-A71<br>
+                            5. <b>Polio:</b> Asimetrik flask paralizi, anterior boynuz<br>
+                            6. <b>OPV vs IPV:</b> VAPP riski
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enterovirüs - Hastalık Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Ana Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Poliovirüs</td>
+                                    <td>Flask paralizi (anterior boynuz)</td>
+                                </tr>
+                                <tr>
+                                    <td>Coxsackie A</td>
+                                    <td>Herpangina, el-ayak-ağız</td>
+                                </tr>
+                                <tr>
+                                    <td>Coxsackie B</td>
+                                    <td><b>Miyokardit</b>, perikardit, Bornholm</td>
+                                </tr>
+                                <tr>
+                                    <td>Echovirus</td>
+                                    <td>Aseptik menenjit</td>
+                                </tr>
+                                <tr>
+                                    <td>EV-D68</td>
+                                    <td>Solunum + akut flask miyelit</td>
+                                </tr>
+                                <tr>
+                                    <td>EV-A71</td>
+                                    <td>El-ayak-ağız + ensefalit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PİCORNA = Küçük RNA, zarfsız, asit dirençli"</b><br>
+                            <b>"POLİO = Anterior boynuz = Flask paralizi"</b><br>
+                            <b>"COXSACKİE A = Ağız (herpangina, el-ayak-ağız)"</b><br>
+                            <b>"COXSACKİE B = Body, kalp (MİYOKARDİT)"</b><br>
+                            <b>"ECHO = Aseptik menenjit EN SIK"</b><br>
+                            <b>"HERPANGİNA = POSTERİOR farinks"</b><br>
+                            <b>"OPV = VAPP riski, IPV = güvenli"</b><br>
+                            <b>"YAZ-SONBAHAR = Enterovirüs mevsimi"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Enterovirüs =</b> Picornaviridae, ssRNA (+), zarfsız<br>
+                            2. <b>Asit dirençli =</b> GİS'te yaşar, fekal-oral bulaş<br>
+                            3. <b>Polio =</b> Anterior boynuz → asimetrik flask paralizi<br>
+                            4. <b>Duyu =</b> Polioda KORUNMUŞ<br>
+                            5. <b>OPV =</b> Canlı, oral, VAPP riski var<br>
+                            6. <b>IPV =</b> İnaktive, IM, güvenli<br>
+                            7. <b>Herpangina =</b> Coxsackie A, posterior farinks<br>
+                            8. <b>El-ayak-ağız =</b> A16, EV-A71<br>
+                            9. <b>Miyokardit =</b> Coxsackie B (EN SIK VİRAL)<br>
+                            10. <b>Aseptik menenjit =</b> Enterovirüsler (%80-90)<br>
+                            11. <b>BOS =</b> Lenfositik, glukoz normal<br>
+                            12. <b>Mevsim =</b> Yaz-sonbahar
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Viral miyokarditin en sık nedeni?" → Coxsackie B</li>
+                        <li><b>Soru tipi:</b> "Aseptik menenjitin en sık viral nedeni?" → Enterovirüsler</li>
+                        <li><b>Soru tipi:</b> "Posterior farinks vezikülleri, ateş?" → Herpangina (Coxsackie A)</li>
+                        <li><b>Soru tipi:</b> "Asimetrik flask paralizi, DTR↓, duyu normal?" → Polio</li>
+                        <li><b>Soru tipi:</b> "El-ayak vezikülleri + oral ülser?" → El-ayak-ağız (A16/EV-A71)</li>
+                        <li><b>Soru tipi:</b> "Polio aşısına bağlı paralizi riski?" → OPV (VAPP)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 33,
+        category: "viroloji",
+        title: "Koronavirüsler ve SARS-CoV-2",
+        subtitle: "SARS, MERS, COVID-19 ve Pandemi Yönetimi",
+        summary: "Coronaviridae ailesi, mevsimsel koronavirüsler, SARS-CoV, MERS-CoV, SARS-CoV-2 (COVID-19) patogenezi, klinik spektrum, tanı, aşılar ve tedavi yaklaşımları.",
+        tags: ["Koronavirüs", "COVID-19", "SARS-CoV-2", "MERS", "Pandemi", "Aşı", "Viroloji"],
+        sections: [
+            {
+                title: "Koronavirüsler - Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Koronavirüsler</strong>, zarflı RNA virüsleridir. İnsanlarda hafif soğuk algınlığından ciddi pnömoniye kadar geniş bir hastalık spektrumu oluşturabilir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Koronavirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Coronaviridae<br>
+                            <b>Genom:</b> Tek zincirli RNA (+), <b>en büyük RNA virüs genomu</b> (~30 kb)<br>
+                            <b>Zarf:</b> VAR<br>
+                            <b>Görünüm:</b> Spike proteinleri "taç" (corona) görünümü verir<br>
+                            <b>Bulaş:</b> Damlacık, aerosol, temas
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnsan Koronavirüsleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HCoV-229E, HCoV-OC43</b></td>
+                                    <td>Mevsimsel soğuk algınlığı</td>
+                                    <td>Hafif, kendini sınırlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HCoV-NL63, HCoV-HKU1</b></td>
+                                    <td>Mevsimsel soğuk algınlığı</td>
+                                    <td>Hafif üst solunum yolu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SARS-CoV</b></td>
+                                    <td>SARS (2002-2003)</td>
+                                    <td>Ciddi pnömoni, %10 mortalite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MERS-CoV</b></td>
+                                    <td>MERS (2012-)</td>
+                                    <td>Ciddi pnömoni, <b>%35 mortalite</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>SARS-CoV-2</b></td>
+                                    <td>COVID-19 (2019-)</td>
+                                    <td>Pandemi, geniş klinik spektrum</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">SARS vs MERS vs COVID-19</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>SARS</th>
+                                    <th>MERS</th>
+                                    <th>COVID-19</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yıl</b></td>
+                                    <td>2002-2003</td>
+                                    <td>2012-</td>
+                                    <td>2019-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaynak</b></td>
+                                    <td>Yarasa → Misk kedisi</td>
+                                    <td>Yarasa → Deve</td>
+                                    <td>Yarasa (muhtemelen)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Reseptör</b></td>
+                                    <td>ACE2</td>
+                                    <td>DPP4</td>
+                                    <td><b>ACE2</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mortalite</b></td>
+                                    <td>~%10</td>
+                                    <td><b>~%35</b></td>
+                                    <td>~%1-2</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaşıcılık</b></td>
+                                    <td>Orta</td>
+                                    <td>Düşük</td>
+                                    <td><b>Çok yüksek</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Koronavirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CORONA = TAÇ (spike proteinleri)"</b><br>
+                            <b>"EN BÜYÜK RNA VİRÜSÜ (~30 kb)"</b><br>
+                            <b>"MERS = DEVE, DPP4, EN YÜKSEK MORTALİTE"</b><br>
+                            <b>"SARS-CoV-2 = ACE2, EN BULAŞICI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "SARS-CoV-2 ve COVID-19",
+                icon: "fas fa-lungs-virus",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">SARS-CoV-2 - Yapı</p>
+                        <p class="highlight-box__content">
+                            <b>Spike (S) proteini:</b> ACE2'ye bağlanma, aşı hedefi<br>
+                            <b>Nükleokapsid (N):</b> RNA'yı sarar, tanı testlerinde hedef<br>
+                            <b>Membran (M):</b> Zarf bütünlüğü<br>
+                            <b>Envelope (E):</b> Virion montajı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">COVID-19 Klinik Spektrum</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Şiddet</th>
+                                    <th>Oran</th>
+                                    <th>Klinik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik</b></td>
+                                    <td>%20-40</td>
+                                    <td>Belirti yok ama bulaştırıcı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafif</b></td>
+                                    <td>%40-50</td>
+                                    <td>Ateş, öksürük, miyalji, anosmia</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orta</b></td>
+                                    <td>%15</td>
+                                    <td>Pnömoni, SpO2 ≥94%</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ciddi</b></td>
+                                    <td>%10</td>
+                                    <td>SpO2 <94%, solunum sıkıntısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kritik</b></td>
+                                    <td>%5</td>
+                                    <td>ARDS, şok, çoklu organ yetmezliği</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">COVID-19 Tipik Semptomlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sistem</th>
+                                    <th>Semptomlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Solunum</b></td>
+                                    <td>Öksürük, nefes darlığı, boğaz ağrısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sistemik</b></td>
+                                    <td>Ateş, titreme, halsizlik, miyalji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nörolojik</b></td>
+                                    <td><b>Anosmia</b> (koku kaybı), <b>ageusia</b> (tat kaybı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>GİS</b></td>
+                                    <td>İshal, bulantı, kusma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dermatolojik</b></td>
+                                    <td>"COVID parmağı", makulopapüler döküntü</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Ağır Hastalık Risk Faktörleri:</strong><br>
+                        İleri yaş (>65), Obezite, Diyabet, Kardiyovasküler hastalık, Kronik akciğer hastalığı, İmmünsupresyon, Kronik böbrek hastalığı</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">COVID-19 Komplikasyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Komplikasyon</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ARDS</b></td>
+                                    <td>En önemli mortalite nedeni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sitokin fırtınası</b></td>
+                                    <td>Aşırı inflamatuar yanıt, çoklu organ hasarı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tromboembolizm</b></td>
+                                    <td>DVT, PE, arteriyel tromboz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Miyokardit</b></td>
+                                    <td>Troponin yüksekliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MIS-C</b></td>
+                                    <td>Çocuklarda multisistem inflamatuar sendrom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Long COVID</b></td>
+                                    <td>Persistan semptomlar (yorgunluk, beyin sisi)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">COVID-19 Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ANOSMİA/AGEUSİA = COVID'e özgü erken bulgu"</b><br>
+                            <b>"ARDS = Ana ölüm nedeni"</b><br>
+                            <b>"SİTOKİN FIRTINASI = Aşırı immün yanıt"</b><br>
+                            <b>"TROMBOZ RİSKİ ↑ = Antikoagülan düşün"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">COVID-19 Tanı Testleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Hedef</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>RT-PCR</b></td>
+                                    <td>Viral RNA</td>
+                                    <td><b>Altın standart</b>, yüksek duyarlılık, nazofaringeal sürüntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antijen testi</b></td>
+                                    <td>N proteini</td>
+                                    <td>Hızlı, düşük duyarlılık (semptomatiklerde daha iyi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antikor testi</b></td>
+                                    <td>IgM, IgG (S veya N)</td>
+                                    <td>Geçirilmiş enfeksiyon, akut tanıda sınırlı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">PCR Yorumlama</p>
+                        <p class="highlight-box__content">
+                            <b>Ct değeri (Cycle threshold):</b><br>
+                            - <b>Düşük Ct (&lt;25):</b> Yüksek viral yük, bulaşıcı<br>
+                            - <b>Yüksek Ct (&gt;30):</b> Düşük viral yük, bulaşıcılık az<br>
+                            - PCR hastalık şiddetini göstermez
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Laboratuvar ve Görüntüleme</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Lenfopeni</b></td>
+                                    <td>Sık, ağır hastalıkla korelasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CRP, Ferritin ↑</b></td>
+                                    <td>İnflamasyon belirteçleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>D-dimer ↑</b></td>
+                                    <td>Tromboz riski, kötü prognoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LDH ↑</b></td>
+                                    <td>Doku hasarı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BT - Buzlu cam</b></td>
+                                    <td>Bilateral, periferik, alt lob</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BT - Crazy paving</b></td>
+                                    <td>İleri evrede</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PCR = ALTIN STANDART (aktif enfeksiyon)"</b><br>
+                            <b>"ANTİJEN = Hızlı ama düşük duyarlılık"</b><br>
+                            <b>"LENFOPENİ + D-DİMER↑ = Kötü prognoz"</b><br>
+                            <b>"BUZLU CAM = Bilateral, periferik"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi ve Aşılar",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">COVID-19 Tedavi Yaklaşımları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç/Yaklaşım</th>
+                                    <th>Endikasyon</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Deksametazon</b></td>
+                                    <td>Oksijen ihtiyacı olan hastalar</td>
+                                    <td>Anti-inflamatuar, mortalite ↓</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Remdesivir</b></td>
+                                    <td>Hastanede yatan, oksijen ihtiyacı</td>
+                                    <td>RNA polimeraz inhibitörü (nükleotid analoğu)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tocilizumab</b></td>
+                                    <td>Ağır, sitokin fırtınası</td>
+                                    <td>IL-6 reseptör antagonisti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Baricitinib</b></td>
+                                    <td>Ağır COVID</td>
+                                    <td>JAK inhibitörü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nirmatrelvir/Ritonavir (Paxlovid)</b></td>
+                                    <td>Yüksek riskli ayaktan hasta</td>
+                                    <td>Proteaz inhibitörü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antikoagülan</b></td>
+                                    <td>Hastanede yatan</td>
+                                    <td>Tromboprofilaksi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Deksametazon - RECOVERY Çalışması</p>
+                        <p class="highlight-box__content">
+                            <b>Deksametazon 6 mg/gün x 10 gün:</b><br>
+                            - Ventilatör ihtiyacı olanlarda mortaliteyi %35 ↓<br>
+                            - Sadece oksijen alanlarda %20 ↓<br>
+                            - <b>Oksijen ihtiyacı OLMAYANLARDA verilmemeli</b>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">COVID-19 Aşıları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Örnekler</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>mRNA</b></td>
+                                    <td>Pfizer-BioNTech, Moderna</td>
+                                    <td>S proteini kodlayan mRNA, lipid nanopartikül</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viral vektör</b></td>
+                                    <td>AstraZeneca, J&J, Sputnik</td>
+                                    <td>Adenovirüs vektör ile S proteini geni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnaktive virüs</b></td>
+                                    <td>Sinovac, Sinopharm</td>
+                                    <td>İnaktive edilmiş tam virüs</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Protein subünit</b></td>
+                                    <td>Novavax</td>
+                                    <td>Rekombinant S proteini + adjuvan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Aşı Yan Etkileri:</strong><br>
+                        <b>mRNA:</b> Miyokardit/perikardit riski (genç erkeklerde nadir)<br>
+                        <b>Viral vektör:</b> VITT (vaccine-induced thrombotic thrombocytopenia) - nadir ama ciddi</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi/Aşı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DEKSAMETAZON = Oksijen ihtiyacı varsa"</b><br>
+                            <b>"REMDESİVİR = RNA polimeraz inhibitörü"</b><br>
+                            <b>"PAXLOVİD = Proteaz inhibitörü (ayaktan)"</b><br>
+                            <b>"mRNA AŞI = Spike protein kodlar"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>SARS-CoV-2 reseptörü:</b> ACE2<br>
+                            2. <b>MERS-CoV reseptörü:</b> DPP4<br>
+                            3. <b>Tanı:</b> RT-PCR (altın standart)<br>
+                            4. <b>Tipik BT bulgusu:</b> Bilateral buzlu cam<br>
+                            5. <b>Tedavi:</b> Deksametazon (oksijen ihtiyacı varsa)<br>
+                            6. <b>mRNA aşı:</b> S proteini kodlar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Koronavirüs Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>SARS-CoV-2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Aile</td>
+                                    <td>Coronaviridae</td>
+                                </tr>
+                                <tr>
+                                    <td>Genom</td>
+                                    <td>ssRNA (+), en büyük RNA virüsü</td>
+                                </tr>
+                                <tr>
+                                    <td>Reseptör</td>
+                                    <td><b>ACE2</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Bulaş</td>
+                                    <td>Damlacık, aerosol</td>
+                                </tr>
+                                <tr>
+                                    <td>Spesifik semptom</td>
+                                    <td>Anosmia, ageusia</td>
+                                </tr>
+                                <tr>
+                                    <td>BT</td>
+                                    <td>Bilateral buzlu cam</td>
+                                </tr>
+                                <tr>
+                                    <td>Ağır hastalık tedavisi</td>
+                                    <td>Deksametazon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CORONA = TAÇ (spike proteinleri)"</b><br>
+                            <b>"EN BÜYÜK RNA = Coronaviridae"</b><br>
+                            <b>"SARS-CoV-2 = ACE2 reseptör"</b><br>
+                            <b>"MERS = DPP4, DEVE, %35 mortalite"</b><br>
+                            <b>"ANOSMİA = COVID erken bulgu"</b><br>
+                            <b>"PCR = Altın standart tanı"</b><br>
+                            <b>"DEKSAMETAZON = Oksijen ihtiyacı VARSA"</b><br>
+                            <b>"mRNA AŞI = S proteini, lipid nanopartikül"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Koronavirüs =</b> ssRNA (+), zarflı, en büyük RNA genom<br>
+                            2. <b>Spike proteini =</b> Bağlanma, aşı hedefi<br>
+                            3. <b>SARS-CoV-2 reseptörü =</b> ACE2<br>
+                            4. <b>MERS-CoV reseptörü =</b> DPP4<br>
+                            5. <b>MERS mortalitesi =</b> En yüksek (~%35)<br>
+                            6. <b>Anosmia/Ageusia =</b> COVID'e özgü<br>
+                            7. <b>BT =</b> Bilateral buzlu cam, periferik<br>
+                            8. <b>Tanı =</b> RT-PCR (altın standart)<br>
+                            9. <b>Lenfopeni + D-dimer↑ =</b> Kötü prognoz<br>
+                            10. <b>Deksametazon =</b> Oksijen ihtiyacı olanlarda mortalite ↓<br>
+                            11. <b>Remdesivir =</b> RNA polimeraz inhibitörü<br>
+                            12. <b>mRNA aşı =</b> S proteini kodlar (Pfizer, Moderna)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "SARS-CoV-2'nin hücreye giriş reseptörü?" → ACE2</li>
+                        <li><b>Soru tipi:</b> "En yüksek mortaliteli koronavirüs?" → MERS-CoV</li>
+                        <li><b>Soru tipi:</b> "COVID-19 tanısında altın standart?" → RT-PCR</li>
+                        <li><b>Soru tipi:</b> "COVID BT bulgusu?" → Bilateral buzlu cam</li>
+                        <li><b>Soru tipi:</b> "COVID'de mortaliteyi azaltan ilaç?" → Deksametazon</li>
+                        <li><b>Soru tipi:</b> "mRNA COVID aşısı hangi proteini kodlar?" → Spike (S)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 34,
+        category: "viroloji",
+        title: "Adenovirüs",
+        subtitle: "Solunum Yolu, GİS, Göz Enfeksiyonları ve Viral Vektör Kullanımı",
+        summary: "Adenoviridae ailesi, serotip çeşitliliği, solunum yolu enfeksiyonları, faringo-konjonktival ateş, epidemik keratokonjonktivit, gastroenterit ve gen terapisi/aşı vektörü kullanımı.",
+        tags: ["Adenovirüs", "Keratokonjonktivit", "Gastroenterit", "Viral Vektör", "Viroloji"],
+        sections: [
+            {
+                title: "Adenovirüs - Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Adenovirüsler</strong>, geniş bir hastalık spektrumu oluşturan, çevrede dayanıklı DNA virüsleridir. 50'den fazla serotipi vardır ve farklı dokuları hedefler.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Adenovirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Adenoviridae<br>
+                            <b>Genom:</b> Çift zincirli (ds) DNA, lineer<br>
+                            <b>Zarf:</b> YOK (çıplak virüs)<br>
+                            <b>Şekil:</b> İkozahedral, fiber (penton) çıkıntıları<br>
+                            <b>Özellik:</b> Çevrede çok dayanıklı, dezenfektana dirençli
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Adenovirüs Özellikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Serotip sayısı</b></td>
+                                    <td>>50 (A-G grupları)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Damlacık, fekal-oral, temas (yüzme havuzu)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dayanıklılık</b></td>
+                                    <td>Çevrede uzun süre, klora dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Latent enfeksiyon</b></td>
+                                    <td>Adenoid, tonsil dokusunda kalabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özel kullanım</b></td>
+                                    <td>Viral vektör (gen terapisi, aşı)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Neden Önemli?</strong><br>
+                        Adenovirüsler <b>zarfsız</b> oldukları için çevrede çok dayanıklıdır. Yüzme havuzlarında, okullarda, askeri kamplarda salgınlara neden olabilir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Adenovirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ADENOVİRÜS = ADENOİD'de bulundu (isim kaynağı)"</b><br>
+                            <b>"dsDNA + ZARFSIZ = Çevrede DAYANIKLI"</b><br>
+                            <b>"HAVUZ EPİDEMİLERİ = Adenovirüs"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Adenovirüs Hastalıkları",
+                icon: "fas fa-lungs",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Serotip-Hastalık İlişkisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Serotip</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut solunum yolu enfeksiyonu</b></td>
+                                    <td>1-7</td>
+                                    <td>Ateş, farenjit, öksürük, rinit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Faringo-konjonktival ateş</b></td>
+                                    <td>3, 7</td>
+                                    <td>Farenjit + konjonktivit + ateş (yaz kampları)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epidemik keratokonjonktivit</b></td>
+                                    <td>8, 19, 37</td>
+                                    <td><b>Çok bulaşıcı</b>, yoğun lakrime, subepitelyal infiltrat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut hemorajik sistit</b></td>
+                                    <td>11, 21</td>
+                                    <td>Ağrılı hematüri, çocuklarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gastroenterit</b></td>
+                                    <td><b>40, 41</b></td>
+                                    <td>İshal, kusma (rotavirüsten sonra en sık viral)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Askeri pnömonisi</b></td>
+                                    <td>4, 7</td>
+                                    <td>Askeri kamplarda epidemi (ABD'de aşı mevcut)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Faringo-Konjonktival Ateş (PCF)</p>
+                        <p class="highlight-box__content">
+                            <b>Triad:</b> Farenjit + Konjonktivit + Ateş<br>
+                            <b>Bulaş:</b> Yüzme havuzları ("swimming pool conjunctivitis")<br>
+                            <b>Serotip:</b> Adenovirüs 3, 7<br>
+                            <b>Mevsim:</b> Yaz ayları
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Epidemik Keratokonjonktivit (EKC)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etken</b></td>
+                                    <td>Adenovirüs 8, 19, 37</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Çok bulaşıcı, temas (el, havlu), oftalmik aletler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Tek taraflı başlar → bilateral, lakrime, ödem, fotofobi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td><b>Subepitelyal infiltrat</b> (haftalarca bulanık görme)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Destek, sekonder enfeksiyon önleme</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Adenoviral Gastroenterit</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Serotip</b></td>
+                                    <td>40, 41 (enterik adenovirüs)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td><2 yaş çocuklar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Sulu ishal, kusma, ateş (10-14 gün)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özellik</b></td>
+                                    <td>Rotavirüsten daha uzun seyirli</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hastalık Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PCF = Havuz + Farenjit + Konjonktivit + Ateş"</b><br>
+                            <b>"EKC = Çok bulaşıcı göz, subepitelyal infiltrat"</b><br>
+                            <b>"40-41 = GASTROENTERİT (enterik adeno)"</b><br>
+                            <b>"SİSTİT = 11, 21 (hematüri)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İmmünsuprese ve Özel Durumlar",
+                icon: "fas fa-user-shield",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmünsuprese Hastalarda Adenovirüs</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Klinik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kök hücre nakli</b></td>
+                                    <td>Dissemine hastalık, pnömoni, hepatit, hemorajik sistit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Solid organ nakli</b></td>
+                                    <td>Pnömoni, nefrit (böbrek nakli)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AIDS</b></td>
+                                    <td>Kronik ishal, dissemine enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prognoz</b></td>
+                                    <td>İmmünsupresede mortalite yüksek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Transplant Hastalarında:</strong><br>
+                        Adenovirüs reaktivasyonu ciddi morbidite/mortaliteye neden olabilir. İzlem ve erken tedavi (Cidofovir) önemlidir.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Viral Vektör Olarak Adenovirüs</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kullanım</th>
+                                    <th>Örnekler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>COVID-19 aşıları</b></td>
+                                    <td>AstraZeneca (ChAdOx1), J&J (Ad26), Sputnik (Ad26+Ad5)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ebola aşısı</b></td>
+                                    <td>Ad26.ZEBOV</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gen terapisi</b></td>
+                                    <td>Onkolitik virüs tedavisi, genetik hastalıklar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Neden Vektör Olarak Kullanılır?</p>
+                        <p class="highlight-box__content">
+                            - Genetik materyal taşıma kapasitesi yüksek<br>
+                            - Genomu konak DNA'ya entegre olmaz (güvenli)<br>
+                            - Hücreleri etkin şekilde enfekte eder<br>
+                            - <b>Dezavantaj:</b> Önceden var olan antikor yanıtı etkinliği azaltabilir
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Özel Durum Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TRANSPLANT = Adenovirüs reaktivasyon riski"</b><br>
+                            <b>"VİRAL VEKTÖR = COVID aşıları (AstraZeneca, J&J)"</b><br>
+                            <b>"ENTEGRASYON YOK = Güvenli vektör"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Adenovirüs Tanısı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>En sensitif, kantifikasyon mümkün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antijen testi</b></td>
+                                    <td>Hızlı, dışkı veya nazofarinks</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>Altın standart ama yavaş (günler-hafta)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td><b>Smudge cells</b> (bulanık nükleus görünümü)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İmmünkompetan</b></td>
+                                    <td>Destekleyici (self-limited)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünsuprese</b></td>
+                                    <td>Cidofovir (nefrotoksik), Brincidofovir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Keratokonjonktivit</b></td>
+                                    <td>Semptomatik, izolasyon (çok bulaşıcı)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı/Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SMUDGE CELLS = Adenovirüs histoloji"</b><br>
+                            <b>"CİDOFOVİR = İmmünsuprese tedavisi"</b><br>
+                            <b>"SELF-LIMITED = Normal konakta"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Faringo-konjonktival ateş:</b> Havuz, yaz, Adeno 3/7<br>
+                            2. <b>Epidemik keratokonjonktivit:</b> Çok bulaşıcı, Adeno 8/19/37<br>
+                            3. <b>Gastroenterit:</b> Adeno 40/41<br>
+                            4. <b>Hemorajik sistit:</b> Adeno 11/21<br>
+                            5. <b>Viral vektör:</b> COVID aşıları<br>
+                            6. <b>Dayanıklılık:</b> Zarfsız, klora dirençli
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Adenovirüs Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Serotip</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Faringo-konjonktival ateş</td>
+                                    <td>3, 7</td>
+                                </tr>
+                                <tr>
+                                    <td>Epidemik keratokonjonktivit</td>
+                                    <td>8, 19, 37</td>
+                                </tr>
+                                <tr>
+                                    <td>Gastroenterit</td>
+                                    <td><b>40, 41</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Hemorajik sistit</td>
+                                    <td>11, 21</td>
+                                </tr>
+                                <tr>
+                                    <td>Solunum yolu (askeri)</td>
+                                    <td>4, 7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ADENOVİRÜS = dsDNA, ZARFSIZ, DAYANIKLI"</b><br>
+                            <b>"HAVUZ + FARENJİT + KONJONKTİVİT = PCF (3, 7)"</b><br>
+                            <b>"EKC = Çok bulaşıcı göz (8, 19, 37)"</b><br>
+                            <b>"40-41 = GASTROENTERİT"</b><br>
+                            <b>"11-21 = SİSTİT"</b><br>
+                            <b>"VİRAL VEKTÖR = AstraZeneca, J&J"</b><br>
+                            <b>"SMUDGE CELLS = Histoloji"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Adenovirüs =</b> dsDNA, zarfsız, ikozahedral<br>
+                            2. <b>Zarfsız =</b> Çevrede dayanıklı, klora dirençli<br>
+                            3. <b>PCF =</b> Farenjit + konjonktivit + ateş (3, 7)<br>
+                            4. <b>EKC =</b> Çok bulaşıcı (8, 19, 37)<br>
+                            5. <b>Subepitelyal infiltrat =</b> EKC komplikasyonu<br>
+                            6. <b>Gastroenterit =</b> Adeno 40, 41<br>
+                            7. <b>Hemorajik sistit =</b> Adeno 11, 21<br>
+                            8. <b>Transplant =</b> Reaktivasyon, dissemine<br>
+                            9. <b>Tedavi =</b> Cidofovir (immünsuprese)<br>
+                            10. <b>Viral vektör =</b> COVID aşıları<br>
+                            11. <b>Smudge cells =</b> Histolojik bulgu
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Yüzme havuzundan sonra farenjit + konjonktivit + ateş?" → Faringo-konjonktival ateş (Adeno)</li>
+                        <li><b>Soru tipi:</b> "Çok bulaşıcı konjonktivit, subepitelyal infiltrat?" → Epidemik keratokonjonktivit (Adeno 8)</li>
+                        <li><b>Soru tipi:</b> "Çocukta viral gastroenterit, rotavirüsten uzun seyirli?" → Adenovirüs 40/41</li>
+                        <li><b>Soru tipi:</b> "Çocukta ağrılı hematüri, viral etiyoloji?" → Adenovirüs 11/21</li>
+                        <li><b>Soru tipi:</b> "Viral vektör aşı örnekleri?" → AstraZeneca, J&J (Adenovirüs)</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 35,
+        category: "viroloji",
+        title: "Arbovirüsler",
+        subtitle: "Sivrisinek ve Kene ile Bulaşan Virüsler: Dengue, Zika, Sarıhumma, Chikungunya, WNV",
+        summary: "Arthropod-borne virüsler (arbovirüsler), vektör-kaynaklı bulaş, Flaviviridae (Dengue, Zika, Sarıhumma, WNV), Togaviridae (Chikungunya), klinik tablolar ve önleme stratejileri.",
+        tags: ["Arbovirüs", "Dengue", "Zika", "Sarıhumma", "Chikungunya", "West Nile", "Vektör", "Viroloji"],
+        sections: [
+            {
+                title: "Arbovirüsler - Genel Özellikler",
+                icon: "fas fa-mosquito",
+                content: `
+                    <p><strong>Arbovirüsler</strong> (Arthropod-borne viruses), artropodlar (sivrisinek, kene) tarafından bulaştırılan virüslerdir. Tropik ve subtropik bölgelerde yaygındır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Arbovirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> Artropod vektörle bulaşan virüsler<br>
+                            <b>Vektörler:</b> Sivrisinek (Aedes, Culex), kene<br>
+                            <b>Genom:</b> Çoğu RNA virüsü<br>
+                            <b>Zarf:</b> Genellikle zarflı<br>
+                            <b>Coğrafya:</b> Tropik, subtropik, seyahat ilişkili
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Arbovirüs Aileleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aile</th>
+                                    <th>Virüsler</th>
+                                    <th>Vektör</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Flaviviridae</b></td>
+                                    <td>Dengue, Zika, Sarıhumma, West Nile, Japon ensefaliti, Kırım-Kongo</td>
+                                    <td>Aedes, Culex, Kene</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Togaviridae</b></td>
+                                    <td>Chikungunya, Doğu/Batı equine ensefaliti</td>
+                                    <td>Aedes</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bunyavirales</b></td>
+                                    <td>Kırım-Kongo hemorajik ateş, Rift Valley</td>
+                                    <td>Kene, sivrisinek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Vektör-Virüs İlişkisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Vektör</th>
+                                    <th>Virüsler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aedes aegypti</b></td>
+                                    <td><b>Dengue, Zika, Sarıhumma, Chikungunya</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Culex</b></td>
+                                    <td>West Nile, Japon ensefaliti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kene</b></td>
+                                    <td>Kırım-Kongo, TBE (kene ensefaliti)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Arbovirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AEDES = Dengue, Zika, Sarıhumma, Chikungunya"</b><br>
+                            <b>"CULEX = West Nile, Japon ensefaliti"</b><br>
+                            <b>"FLAVİVİRİDAE = En büyük arbovirüs ailesi"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Dengue Virüsü",
+                icon: "fas fa-virus",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Dengue - Temel Bilgiler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Flaviviridae<br>
+                            <b>Serotip:</b> DENV-1, 2, 3, 4 (4 serotip)<br>
+                            <b>Vektör:</b> <b>Aedes aegypti</b> (gündüz ısırır)<br>
+                            <b>Coğrafya:</b> Güneydoğu Asya, Latin Amerika, Afrika
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dengue Klinik Spektrumu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Özellikler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Dengue ateşi</b></td>
+                                    <td>Yüksek ateş, şiddetli baş ağrısı, retroorbital ağrı, <b>"kemik kırıcı" (breakbone fever)</b> miyalji/artralji, döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dengue hemorajik ateş (DHF)</b></td>
+                                    <td>Kapiller sızıntı, trombositopeni, kanama bulguları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dengue şok sendromu (DSS)</b></td>
+                                    <td>DHF + hipotansiyon, şok</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>İkincil Enfeksiyon Riski:</strong><br>
+                        Farklı serotiple ikinci enfeksiyon DHF/DSS riskini artırır (<b>antibody-dependent enhancement - ADE</b>). İlk enfeksiyondaki antikorlar, ikinci serotipe karşı koruyucu değil, hastalığı ağırlaştırıcı!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dengue - Laboratuvar ve Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Trombositopeni</b></td>
+                                    <td>Karakteristik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lökopeni</b></td>
+                                    <td>Sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hematokrit ↑</b></td>
+                                    <td>Kapiller sızıntı göstergesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NS1 antijeni</b></td>
+                                    <td>Erken tanı (ilk 1-7 gün)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgM/IgG</b></td>
+                                    <td>5-7 gün sonra</td>
+                                </tr>
+                                <tr>
+                                    <td><b>RT-PCR</b></td>
+                                    <td>Akut fazda</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Dengue Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"BREAKBONE = Kemik kırıcı ateş (şiddetli miyalji)"</b><br>
+                            <b>"RETROORBITAL AĞRI = Dengue karakteristik"</b><br>
+                            <b>"4 SEROTİP = İkinci enfeksiyonda ADE riski"</b><br>
+                            <b>"NS1 = Erken tanı antijeni"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Zika, Chikungunya ve Sarıhumma",
+                icon: "fas fa-baby",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Zika Virüsü</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Flaviviridae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vektör</b></td>
+                                    <td>Aedes aegypti, Aedes albopictus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Diğer bulaş</b></td>
+                                    <td><b>Cinsel, vertikal (anneden bebeğe)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Semptomlar</b></td>
+                                    <td>Hafif ateş, döküntü, konjonktivit, artralji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td><b>Mikrosefali</b> (fetal), Guillain-Barré sendromu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Zika ve Gebelik</p>
+                        <p class="highlight-box__content">
+                            <b>Konjenital Zika sendromu:</b><br>
+                            - <b>Mikrosefali</b> (en önemli)<br>
+                            - İntrakraniyal kalsifikasyon<br>
+                            - Oküler anomaliler<br>
+                            - Artrogripozis<br>
+                            <b>Öneri:</b> Zika endemik bölgelere gebe seyahati kaçınılmalı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Chikungunya</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Togaviridae (Alphavirus)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vektör</b></td>
+                                    <td>Aedes</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özellik</b></td>
+                                    <td><b>Şiddetli poliartralji</b> (aylarca sürebilir)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İsim anlamı</b></td>
+                                    <td>"That which bends up" (ağrıdan bükülme)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fark</b></td>
+                                    <td>Dengue'den farklı: daha az trombositopeni, daha çok artralji</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sarıhumma (Yellow Fever)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Flaviviridae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vektör</b></td>
+                                    <td>Aedes aegypti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Afrika, Güney Amerika</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Ateş → remisyon → toksik faz (sarılık, kanama, böbrek yetmezliği)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Patoloji</b></td>
+                                    <td><b>Councilman bodies</b> (karaciğer, eozinofilik apoptotik hepatositler)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aşı</b></td>
+                                    <td>17D (canlı attenüe), seyahat öncesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Sarıhumma Aşısı:</strong><br>
+                        Canlı attenüe aşı. İmmünsuprese, gebe, <6 ay bebeklerde kontrendike. Bazı ülkelere girişte zorunlu sertifika.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Virüs Karşılaştırma</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ZİKA = MİKROSEFALİ (gebelik), GBS"</b><br>
+                            <b>"CHİKUNGUNYA = Şiddetli ARTRALJİ (bükülme)"</b><br>
+                            <b>"SARIHUMMA = SARILIK + COUNCILMAN bodies"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "West Nile ve Diğer Ensefalitler",
+                icon: "fas fa-brain",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">West Nile Virüsü (WNV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Flaviviridae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vektör</b></td>
+                                    <td><b>Culex</b> sivrisinek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rezervuar</b></td>
+                                    <td>Kuşlar (insan ve at son konak)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>%80 asemptomatik, %20 ateş, <%1 nöroinvaziv</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nöroinvaziv</b></td>
+                                    <td>Ensefalit, menenjit, <b>akut flask paralizi</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk</b></td>
+                                    <td>Yaşlılar, immünsuprese</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Arbovirüs Ensefalitleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Vektör</th>
+                                    <th>Coğrafya</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Japon ensefaliti</b></td>
+                                    <td>Culex tritaeniorhynchus</td>
+                                    <td>Asya, Pasifik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TBE (Kene ensefaliti)</b></td>
+                                    <td>Ixodes kene</td>
+                                    <td>Avrupa, Rusya</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Doğu equine ensefaliti</b></td>
+                                    <td>Sivrisinek</td>
+                                    <td>Doğu ABD (en ölümcül)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kırım-Kongo Hemorajik Ateşi (KKHA)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aile</b></td>
+                                    <td>Nairoviridae (Bunyavirales)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vektör</b></td>
+                                    <td><b>Hyalomma</b> kene</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Coğrafya</b></td>
+                                    <td>Türkiye, Balkanlar, Orta Asya, Afrika</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Hemorajik ateş, DIC, çoklu organ yetmezliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mortalite</b></td>
+                                    <td>%10-40</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Ribavirin (tartışmalı etki)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>KKHA - Türkiye'de Önemli!</strong><br>
+                        Türkiye'de endemik. Kene teması, hayvanla temas, sağlık personeli bulaşı. <b>İzolasyon ve temas izlem</b> gerektirir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Ensefalit Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"WNV = CULEX + KUŞ + Flask paralizi"</b><br>
+                            <b>"JAPON ENSEFALİTİ = Asya, pirinç tarlası, domuz"</b><br>
+                            <b>"KKHA = HYALOMMA kene, Türkiye, hemorajik"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Aedes aegypti:</b> Dengue, Zika, Sarıhumma, Chikungunya<br>
+                            2. <b>Dengue:</b> Breakbone fever, retroorbital ağrı, ADE<br>
+                            3. <b>Zika:</b> Mikrosefali, cinsel bulaş<br>
+                            4. <b>Chikungunya:</b> Şiddetli artralji<br>
+                            5. <b>Sarıhumma:</b> Councilman bodies, aşı<br>
+                            6. <b>KKHA:</b> Hyalomma kene, Türkiye
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Arbovirüs Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Vektör</th>
+                                    <th>Ayırt Edici</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dengue</td>
+                                    <td>Aedes</td>
+                                    <td>Breakbone, retroorbital, ADE</td>
+                                </tr>
+                                <tr>
+                                    <td>Zika</td>
+                                    <td>Aedes</td>
+                                    <td><b>Mikrosefali</b>, cinsel bulaş</td>
+                                </tr>
+                                <tr>
+                                    <td>Chikungunya</td>
+                                    <td>Aedes</td>
+                                    <td><b>Şiddetli artralji</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Sarıhumma</td>
+                                    <td>Aedes</td>
+                                    <td><b>Sarılık, Councilman</b></td>
+                                </tr>
+                                <tr>
+                                    <td>West Nile</td>
+                                    <td>Culex</td>
+                                    <td>Kuş, ensefalit, flask paralizi</td>
+                                </tr>
+                                <tr>
+                                    <td>KKHA</td>
+                                    <td>Hyalomma kene</td>
+                                    <td>Hemorajik ateş, Türkiye</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AEDES = Dengue, Zika, Sarıhumma, Chikungunya"</b><br>
+                            <b>"DENGUE = Kemik kırıcı, retroorbital, ADE"</b><br>
+                            <b>"ZİKA = MİKROSEFALİ + CİNSEL BULAŞ"</b><br>
+                            <b>"CHİKUNGUNYA = Bükülme ağrısı (artralji)"</b><br>
+                            <b>"SARIHUMMA = Councilman bodies + 17D aşı"</b><br>
+                            <b>"WNV = Culex + Kuş + Ensefalit"</b><br>
+                            <b>"KKHA = Hyalomma + Türkiye + Hemorajik"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Aedes aegypti =</b> Gündüz ısırır (Dengue, Zika, Sarıhumma, Chikungunya)<br>
+                            2. <b>Culex =</b> Gece ısırır (WNV, Japon ensefaliti)<br>
+                            3. <b>Dengue =</b> "Breakbone fever", 4 serotip, ADE<br>
+                            4. <b>NS1 =</b> Dengue erken tanı<br>
+                            5. <b>Zika =</b> Mikrosefali, cinsel/vertikal bulaş<br>
+                            6. <b>Chikungunya =</b> Kronik artralji (aylarca)<br>
+                            7. <b>Sarıhumma =</b> Councilman bodies, 17D aşı<br>
+                            8. <b>WNV =</b> Kuş rezervuar, flask paralizi<br>
+                            9. <b>KKHA =</b> Hyalomma kene, Türkiye endemik<br>
+                            10. <b>Ribavirin =</b> KKHA tedavisi<br>
+                            11. <b>Önleme =</b> Vektör kontrolü, aşı (Sarıhumma, JE)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Şiddetli miyalji, retroorbital ağrı, trombositopeni?" → Dengue</li>
+                        <li><b>Soru tipi:</b> "Gebelikte enfeksiyon, mikrosefali?" → Zika</li>
+                        <li><b>Soru tipi:</b> "Ateş + şiddetli artralji, aylarca süren?" → Chikungunya</li>
+                        <li><b>Soru tipi:</b> "Karaciğerde Councilman bodies?" → Sarıhumma</li>
+                        <li><b>Soru tipi:</b> "Kene teması sonrası hemorajik ateş, Türkiye?" → KKHA</li>
+                        <li><b>Soru tipi:</b> "Kuş ölümlerinden sonra ensefalit?" → West Nile</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
