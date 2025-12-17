@@ -23519,6 +23519,534 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 36,
+        category: "viroloji",
+        title: "Rotavirüs ve GİS Virüsleri",
+        subtitle: "Viral Gastroenteritler: Rotavirüs, Norovirüs, Astrovirüs ve Sapovirüs",
+        summary: "Viral gastroenterit etkenleri, rotavirüs yapısı ve aşıları, norovirüs salgınları, çocuklarda ve yetişkinlerde viral ishal etiyolojisi, tanı ve tedavi yaklaşımları.",
+        tags: ["Rotavirüs", "Norovirüs", "Gastroenterit", "İshal", "Aşı", "Viroloji"],
+        sections: [
+            {
+                title: "Viral Gastroenteritler - Genel",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Viral gastroenterit</strong>, dünyada çocuk ölümlerinin önde gelen nedenlerinden biridir. Fekal-oral yolla bulaşır ve genellikle self-limited seyreder.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Viral Gastroenterit Etkenler</p>
+                        <p class="highlight-box__content">
+                            <b>Çocuklarda en sık:</b> Rotavirüs<br>
+                            <b>Yetişkinlerde en sık:</b> Norovirüs<br>
+                            <b>Salgınlarda en sık:</b> Norovirüs<br>
+                            <b>Diğer:</b> Adenovirüs 40/41, Astrovirüs, Sapovirüs
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Viral Gastroenterit Etkenleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Aile</th>
+                                    <th>Genom</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Rotavirüs</b></td>
+                                    <td>Reoviridae</td>
+                                    <td>dsRNA, segmentli</td>
+                                    <td>Çocuklarda en sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Norovirüs</b></td>
+                                    <td>Caliciviridae</td>
+                                    <td>ssRNA (+)</td>
+                                    <td>Salgınlar, yetişkin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Adenovirüs 40/41</b></td>
+                                    <td>Adenoviridae</td>
+                                    <td>dsDNA</td>
+                                    <td>Uzun süreli ishal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Astrovirüs</b></td>
+                                    <td>Astroviridae</td>
+                                    <td>ssRNA (+)</td>
+                                    <td>Hafif seyir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sapovirüs</b></td>
+                                    <td>Caliciviridae</td>
+                                    <td>ssRNA (+)</td>
+                                    <td>Norovirüs benzeri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">GİS Virüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ROTA = Çocuk, dsRNA, aşı VAR"</b><br>
+                            <b>"NORO = Yetişkin, salgın, kruvaziyer"</b><br>
+                            <b>"Tümü ZARFSIZ = Çevrede dayanıklı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Rotavirüs",
+                icon: "fas fa-baby",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Rotavirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Reoviridae<br>
+                            <b>Genom:</b> Çift zincirli (ds) RNA, <b>11 segmentli</b><br>
+                            <b>Zarf:</b> YOK (üç katlı kapsid)<br>
+                            <b>Görünüm:</b> "Tekerlek" (Latince rota = tekerlek)<br>
+                            <b>Bulaş:</b> Fekal-oral
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Rotavirüs Epidemiyolojisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>En sık yaş</b></td>
+                                    <td>6 ay - 2 yaş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mevsim</b></td>
+                                    <td>Kış ayları (Kuzey yarımküre)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaşıcılık</b></td>
+                                    <td>Çok yüksek, düşük enfeksiyöz doz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünite</b></td>
+                                    <td>İlk enfeksiyon ağır, sonrakiler hafif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Rotavirüs Kliniği</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnkübasyon</b></td>
+                                    <td>1-3 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kusma</b></td>
+                                    <td>Genellikle ilk başlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İshal</b></td>
+                                    <td><b>Sulu, kan/mukus YOK</b>, 3-8 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ateş</b></td>
+                                    <td>Sık (%60-70)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dehidratasyon</b></td>
+                                    <td>Ana komplikasyon ve mortalite nedeni</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Rotavirüs Aşıları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşı</th>
+                                    <th>Tip</th>
+                                    <th>Şema</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>RotaTeq (RV5)</b></td>
+                                    <td>Pentavalan, canlı attenüe</td>
+                                    <td>2, 4, 6 ay (3 doz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rotarix (RV1)</b></td>
+                                    <td>Monovalan, canlı attenüe</td>
+                                    <td>2, 4 ay (2 doz)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Rotavirüs Aşısı ve İntussusepsiyon:</strong><br>
+                        Eski aşı (RotaShield) intussusepsiyon riski nedeniyle geri çekildi. Güncel aşılarda risk çok düşük ama ilk dozdan sonra hafif artış bildiriliyor.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Rotavirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ROTA = TEKERLEK (11 segmentli dsRNA)"</b><br>
+                            <b>"6 ay - 2 yaş = En sık yaş grubu"</b><br>
+                            <b>"KIŞ = Rotavirüs mevsimi"</b><br>
+                            <b>"SULU İSHAL + KUSMA + ATEŞ = Triad"</b><br>
+                            <b>"DEHİDRATASYON = Ana tehlike"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Norovirüs",
+                icon: "fas fa-ship",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Norovirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Caliciviridae<br>
+                            <b>Genom:</b> Tek zincirli RNA (+)<br>
+                            <b>Zarf:</b> YOK<br>
+                            <b>Eski isim:</b> Norwalk virüsü<br>
+                            <b>Özellik:</b> Çok düşük enfeksiyöz doz (&lt;20 partikül)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Norovirüs Epidemiyolojisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>En sık yaş</b></td>
+                                    <td>Tüm yaşlar (yetişkinlerde daha sık)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Salgın ortamları</b></td>
+                                    <td><b>Kruvaziyer gemileri</b>, okullar, hastaneler, huzurevleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Fekal-oral, kontamine gıda/su, yüzey teması</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kontaminasyon</b></td>
+                                    <td>İstiridye/midye (filtreleme), salata</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Norovirüs Kliniği</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnkübasyon</b></td>
+                                    <td>12-48 saat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kusma</b></td>
+                                    <td><b>Belirgin, projektil</b> olabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İshal</b></td>
+                                    <td>Sulu, kansız</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td><b>Kısa (24-72 saat)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Diğer</b></td>
+                                    <td>Karın krampı, baş ağrısı, miyalji</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Norovirüs Dayanıklılığı:</strong><br>
+                        Zarfsız virüs olduğu için çevrede çok dayanıklı. Alkol bazlı el dezenfektanlarına nispeten dirençli - <b>sabunlu su ile el yıkama</b> daha etkili!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Rotavirüs vs Norovirüs</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Rotavirüs</th>
+                                    <th>Norovirüs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td>Bebek/küçük çocuk</td>
+                                    <td>Tüm yaşlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mevsim</b></td>
+                                    <td>Kış</td>
+                                    <td>Tüm yıl (kış piki)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>3-8 gün</td>
+                                    <td>24-72 saat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kusma</b></td>
+                                    <td>Var</td>
+                                    <td>Daha belirgin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Salgın</b></td>
+                                    <td>Kreş, hastane</td>
+                                    <td>Kruvaziyer, okullar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aşı</b></td>
+                                    <td>VAR</td>
+                                    <td>YOK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Norovirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"NORO = NORWALK = CRUISE SHİP (gemi salgını)"</b><br>
+                            <b>"KISA SÜRE (24-72 saat)"</b><br>
+                            <b>"PROJEKTİL KUSMA = Norovirüs"</b><br>
+                            <b>"SABUNLU SU > Alkol dezenfektan"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Viral Gastroenterit Tanısı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klinik tanı</b></td>
+                                    <td>Çoğu vakada yeterli (epidemiyoloji + klinik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dışkı antijen testi</b></td>
+                                    <td>Rotavirüs, Adenovirüs için hızlı test</td>
+                                </tr>
+                                <tr>
+                                    <td><b>RT-PCR</b></td>
+                                    <td>Norovirüs, salgın araştırması</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Elektron mikroskopi</b></td>
+                                    <td>Rotavirüs "tekerlek" görünümü (artık nadir)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi Prensipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaklaşım</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Oral rehidratasyon</b></td>
+                                    <td><b>Temel tedavi</b>, ORS (Oral Rehydration Solution)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IV sıvı</b></td>
+                                    <td>Ağır dehidratasyon, oral alamayanlarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Beslenme</b></td>
+                                    <td>Erken başlama, BRAT diyeti gerekli değil</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çinko</b></td>
+                                    <td>Çocuklarda ishal süresini kısaltır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antibiyotik</b></td>
+                                    <td>ENDİKE DEĞİL (viral)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antimotilite</b></td>
+                                    <td>Çocuklarda önerilmez</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Dehidratasyon Değerlendirmesi</p>
+                        <p class="highlight-box__content">
+                            <b>Hafif (%3-5):</b> Susuzluk, azalmış idrar, hafif kuru mukoza<br>
+                            <b>Orta (%6-9):</b> Çökük fontanel, azalmış turgor, taşikardi<br>
+                            <b>Ağır (%≥10):</b> Şok bulguları, letarji, kapiller dolum >2sn
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ORS = ORAL REHİDRATASYON = 1. BASAMAK"</b><br>
+                            <b>"ÇİNKO = Çocuklarda süreyi kısaltır"</b><br>
+                            <b>"ANTİBİYOTİK = HAYIR (viral)"</b><br>
+                            <b>"ERKEN BESLENME = Evet"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Çocuklarda en sık:</b> Rotavirüs<br>
+                            2. <b>Yetişkinlerde en sık:</b> Norovirüs<br>
+                            3. <b>Salgınlarda en sık:</b> Norovirüs (kruvaziyer)<br>
+                            4. <b>Rotavirüs genomu:</b> dsRNA, 11 segment<br>
+                            5. <b>Aşı:</b> Rotavirüs VAR, Norovirüs YOK<br>
+                            6. <b>Tedavi:</b> Oral rehidratasyon
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Viral Gastroenterit Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Yaş</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rotavirüs</td>
+                                    <td>6 ay - 2 yaş</td>
+                                    <td>dsRNA, 11 segment, kış, aşı VAR</td>
+                                </tr>
+                                <tr>
+                                    <td>Norovirüs</td>
+                                    <td>Tüm yaşlar</td>
+                                    <td>ssRNA (+), kısa süre, salgın</td>
+                                </tr>
+                                <tr>
+                                    <td>Adenovirüs 40/41</td>
+                                    <td>Çocuk</td>
+                                    <td>dsDNA, uzun süreli ishal</td>
+                                </tr>
+                                <tr>
+                                    <td>Astrovirüs</td>
+                                    <td>Çocuk</td>
+                                    <td>Hafif seyir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ROTA = ÇOCUK, dsRNA (11 segment), KIŞ, AŞI VAR"</b><br>
+                            <b>"NORO = YETİŞKİN, GEMİ, SALGIN, KISA SÜRE"</b><br>
+                            <b>"ADENO 40-41 = UZUN SÜRE"</b><br>
+                            <b>"ZARFSIZ = Çevrede dayanıklı"</b><br>
+                            <b>"TEDAVİ = ORS (oral rehidratasyon)"</b><br>
+                            <b>"ÇİNKO = Çocukta faydalı"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Rotavirüs =</b> Çocuklarda en sık viral gastroenterit<br>
+                            2. <b>Rotavirüs genom =</b> dsRNA, 11 segment<br>
+                            3. <b>Rotavirüs mevsim =</b> Kış<br>
+                            4. <b>Rotavirüs yaş =</b> 6 ay - 2 yaş<br>
+                            5. <b>Rotavirüs aşı =</b> Canlı attenüe, oral<br>
+                            6. <b>Norovirüs =</b> Yetişkinlerde en sık<br>
+                            7. <b>Norovirüs salgın =</b> Kruvaziyer gemileri, okullar<br>
+                            8. <b>Norovirüs süre =</b> 24-72 saat (kısa)<br>
+                            9. <b>Norovirüs aşı =</b> YOK<br>
+                            10. <b>Tedavi =</b> Oral rehidratasyon (ORS)<br>
+                            11. <b>Çinko =</b> Çocuklarda ishal süresini kısaltır<br>
+                            12. <b>Antibiyotik =</b> Endike DEĞİL
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Bebekte kışın sulu ishal, kusma?" → Rotavirüs</li>
+                        <li><b>Soru tipi:</b> "Kruvaziyer gemide salgın gastroenterit?" → Norovirüs</li>
+                        <li><b>Soru tipi:</b> "dsRNA, segmentli genom, viral gastroenterit?" → Rotavirüs</li>
+                        <li><b>Soru tipi:</b> "Çocuklarda ishal süresini kısaltan?" → Çinko</li>
+                        <li><b>Soru tipi:</b> "Canlı oral aşı olan gastroenterit etkeni?" → Rotavirüs</li>
+                        <li><b>Soru tipi:</b> "Aşısı olmayan viral gastroenterit etkeni?" → Norovirüs</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
