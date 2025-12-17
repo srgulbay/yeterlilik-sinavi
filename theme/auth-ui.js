@@ -42,11 +42,8 @@
       button.setAttribute('aria-label', 'Firebase yapılandırılmamış');
       button.title = 'Firebase yapılandırılmamış';
       button.classList.remove('auth-user-btn');
-      if (icon) {
-        icon.className = 'fas fa-user-slash';
-      } else {
-        button.innerHTML = '<i class="fas fa-user-slash"></i>';
-      }
+      // Always replace content to avoid leaving stale signed-in label/avatar.
+      button.innerHTML = '<i class="fas fa-user-slash"></i>';
       return;
     }
 
@@ -65,11 +62,8 @@
       button.setAttribute('aria-label', 'Giriş Yap');
       button.title = 'Giriş Yap';
       button.classList.remove('auth-user-btn');
-      if (icon) {
-        icon.className = 'fas fa-right-to-bracket';
-      } else {
-        button.innerHTML = '<i class="fas fa-right-to-bracket"></i>';
-      }
+      // Always replace content to avoid leaving stale signed-in label/avatar.
+      button.innerHTML = '<i class="fas fa-right-to-bracket"></i>';
     }
   }
 

@@ -722,12 +722,34 @@
     transform: scale(1.05);
 }
 
+/* Active favorite: show as colored (gold) star */
+.fav-btn.is-active {
+    border-color: var(--warning);
+    color: var(--icon-warning);
+}
+
+.fav-btn.is-active:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--warning);
+    color: var(--icon-warning);
+    transform: scale(1.05);
+}
+
 .fav-btn:active {
     transform: scale(0.95);
 }
 
 .share-btn:active {
     transform: scale(0.95);
+}
+
+/* Repeat ambiance (questions): low=red, high=green */
+.card.repeat-low {
+    border-color: var(--danger-light);
+}
+
+.card.repeat-high {
+    border-color: var(--success-light);
 }
 
 /* Share toast ve highlighted stilleri components.css ve animations.css'de tanımlı */

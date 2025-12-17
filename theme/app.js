@@ -37,6 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function getRepeatAmbianceClassByCount(count) {
+    const n = Number(count);
+    const value = Number.isFinite(n) ? Math.max(0, Math.trunc(n)) : 0;
+    if (value >= 5) return 'repeat-high';
+    if (value <= 1) return 'repeat-low';
+    return '';
+}
+
+function loadSrsTotalReviews(questionId) {
+    try {
+        if (typeof window === 'undefined' || !window.localStorage) return 0;
+        const raw = window.localStorage.getItem(`srs_card_${questionId}`);
+        if (!raw) return 0;
+        const parsed = JSON.parse(raw);
+        const v = Number(parsed && parsed.totalReviews);
+        return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
+    } catch (_) {
+        return 0;
+    }
+}
+
+function refreshQuestionRepeatAmbiance(targetId = null) {
+    const selector = targetId
+        ? `.card[data-question-id="${targetId}"]`
+        : '.card[data-question-id]';
+
+    document.querySelectorAll(selector).forEach((card) => {
+        const id = String(card.dataset.questionId || '');
+        const totalReviews = id ? loadSrsTotalReviews(id) : 0;
+        const cls = getRepeatAmbianceClassByCount(totalReviews);
+        card.classList.toggle('repeat-low', cls === 'repeat-low');
+        card.classList.toggle('repeat-high', cls === 'repeat-high');
+    });
+}
+
 function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
 }
@@ -323,6 +358,7 @@ function renderCards(data) {
     container.replaceChildren(fragment);
     syncCardToggles();
     refreshQuestionFavoriteButtons();
+    refreshQuestionRepeatAmbiance();
     
     // Scroll reveal'ı yenile
     setTimeout(() => refreshScrollReveal(), 50);

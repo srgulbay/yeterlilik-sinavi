@@ -38,6 +38,25 @@ function clampReadLevel(level) {
     return Math.max(0, Math.min(5, Math.trunc(n)));
 }
 
+function getRepeatAmbianceClassByLevel(readLevel) {
+    const level = clampReadLevel(readLevel);
+    if (level >= 4) return 'repeat-high';
+    if (level <= 1) return 'repeat-low';
+    return '';
+}
+
+function applyTopicRepeatAmbiance(el, readLevel) {
+    if (!el) return;
+    // User-specific: don't paint everything red when signed out.
+    if (!isAuthReady()) {
+        el.classList.remove('repeat-low', 'repeat-high');
+        return;
+    }
+    const cls = getRepeatAmbianceClassByLevel(readLevel);
+    el.classList.toggle('repeat-low', cls === 'repeat-low');
+    el.classList.toggle('repeat-high', cls === 'repeat-high');
+}
+
 function getTopicState(topicId) {
     const id = normalizeTopicId(topicId);
     const existing = topicStateById.get(id);
@@ -128,6 +147,7 @@ function updateTopicUIFor(topicId) {
 
     const card = document.querySelector(`.topic-preview[data-topic-id="${id}"]`);
     if (card) {
+        applyTopicRepeatAmbiance(card, state.readLevel);
         const favBtn = card.querySelector('[data-topic-fav]');
         if (favBtn) {
             favBtn.classList.toggle('is-active', state.favorite);
@@ -145,6 +165,7 @@ function updateTopicUIFor(topicId) {
 
     const detail = document.querySelector(`.topic-article [data-topic-actions][data-topic-id="${id}"]`);
     if (detail) {
+        applyTopicRepeatAmbiance(detail, state.readLevel);
         const favBtn = detail.querySelector('[data-topic-fav]');
         if (favBtn) {
             favBtn.classList.toggle('is-active', state.favorite);
@@ -429,9 +450,11 @@ function createTopicPreview(topic, index = 0) {
     const icon = getCategoryIcon(topic.category);
     // İlk 6 kart hemen görünür
     const visibilityClass = index < 6 ? 'scroll-reveal is-visible' : 'scroll-reveal';
+    const state = getTopicState(topic.id);
+    const repeatClass = isAuthReady() ? getRepeatAmbianceClassByLevel(state.readLevel) : '';
     
     return `
-        <article class="topic-preview ${visibilityClass}" data-topic-id="${topic.id}">
+        <article class="topic-preview ${visibilityClass} ${repeatClass}" data-topic-id="${topic.id}">
             <div class="topic-preview__header">
                 <div class="topic-preview__icon topic-preview__icon--${topic.category}">
                     <i class="${icon}"></i>
