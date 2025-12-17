@@ -61,6 +61,11 @@ async function initDetailFavorites() {
         if (favorite) detailFavorites.add(itemId);
         else detailFavorites.delete(itemId);
         refreshDetailFavoriteButtons(itemId);
+
+        if (window.dock?.activeSegment === 'favorites' || currentTopic === 'favorites') {
+            currentTopic = 'favorites';
+            renderDetailCards(detailsData);
+        }
     });
 }
 
@@ -226,7 +231,12 @@ function renderDetailCards(data) {
     // Filtreleme
     let filtered = data;
     
-    if (currentTopic !== 'all') {
+    if (currentTopic === 'favorites') {
+        filtered = filtered.filter((item) => {
+            const id = item && item.id != null ? String(item.id) : '';
+            return id && detailFavorites.has(id);
+        });
+    } else if (currentTopic !== 'all') {
         filtered = filtered.filter(item => item.category === currentTopic);
     }
     
@@ -500,6 +510,7 @@ window.filterDetailCards = function(filterId) {
  */
 function normalizeFilterId(filterId) {
     if (!filterId || filterId === 'all') return 'all';
+    if (filterId === 'favorites') return 'favorites';
     
     const lower = filterId.toLowerCase();
     const mappings = {

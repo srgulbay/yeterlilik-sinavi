@@ -113,6 +113,11 @@ async function initTopicState() {
         if (!topicId || !patch) return;
         setTopicStateLocal(topicId, patch);
         updateTopicUIFor(topicId);
+
+        // Favorites-only view needs re-filtering when favorite changes.
+        if (currentView === 'list' && currentCategory === 'favorites') {
+            renderTopicsList(topicsData);
+        }
     });
 }
 
@@ -400,8 +405,13 @@ function renderTopicsList(data) {
 
     // Filtreleme
     let filtered = data;
-    
-    if (currentCategory !== 'all') {
+
+    if (currentCategory === 'favorites') {
+        filtered = filtered.filter((item) => {
+            const st = getTopicState(item.id);
+            return !!st.favorite;
+        });
+    } else if (currentCategory !== 'all') {
         filtered = filtered.filter(item => item.category === currentCategory);
     }
     
@@ -686,6 +696,7 @@ function syncSidebarFilters() {
  */
 function normalizeFilterId(filterId) {
     if (!filterId || filterId === 'all') return 'all';
+    if (filterId === 'favorites') return 'favorites';
     
     const lower = filterId.toLowerCase();
     const mappings = {

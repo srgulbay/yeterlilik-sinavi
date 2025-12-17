@@ -183,6 +183,7 @@ class Dock {
         // Tüm olası kategori tanımları (verideki tüm kategorileri kapsar)
         const allCategorySegments = [
             { id: 'all', label: 'Tümü', icon: 'fa-th-large' },
+            { id: 'favorites', label: 'Favoriler', icon: 'fa-star' },
             // Ana kategoriler
             { id: 'Klinik Bakteriyoloji', label: 'Bakteriyoloji', icon: 'fa-microscope' },
             { id: 'Viroloji', label: 'Viroloji', icon: 'fa-virus' },
@@ -217,7 +218,7 @@ class Dock {
             const counts = this.getCategoryCounts();
             return allCategorySegments.filter(seg => {
                 // "Tümü" her zaman göster
-                if (seg.id === 'all') return true;
+                if (seg.id === 'all' || seg.id === 'favorites') return true;
                 // Diğerleri için içerik kontrolü
                 return counts[seg.id] > 0;
             });

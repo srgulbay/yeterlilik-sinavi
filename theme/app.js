@@ -9,6 +9,7 @@ const MOBILE_QUERY = typeof window !== 'undefined' && window.matchMedia
     : null;
 
 let questionFavorites = new Set(); // questionId(string)
+let dockFavoritesOnly = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!DATA_READY) {
@@ -72,6 +73,22 @@ function refreshQuestionRepeatAmbiance(targetId = null) {
     });
 }
 
+function renderFavoriteQuestionsOnly() {
+    const favorites = questionFavorites || new Set();
+    const source = Array.isArray(DATASET) ? DATASET : [];
+    const filtered = source.filter((item) => {
+        const id = item && item.id != null ? String(item.id) : '';
+        return id && favorites.has(id);
+    });
+
+    renderCards(filtered);
+
+    const filterText = document.getElementById('active-filter-text');
+    if (filterText) {
+        filterText.textContent = 'Favori kartlar görüntüleniyor';
+    }
+}
+
 function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
 }
@@ -107,6 +124,11 @@ async function initQuestionFavorites() {
         if (favorite) questionFavorites.add(itemId);
         else questionFavorites.delete(itemId);
         refreshQuestionFavoriteButtons(itemId);
+
+        if (window.dock?.activeSegment === 'favorites' || dockFavoritesOnly) {
+            dockFavoritesOnly = true;
+            renderFavoriteQuestionsOnly();
+        }
     });
 }
 
@@ -121,6 +143,11 @@ async function reloadQuestionFavorites() {
         // ignore
     }
     refreshQuestionFavoriteButtons();
+
+    if (window.dock?.activeSegment === 'favorites' || dockFavoritesOnly) {
+        dockFavoritesOnly = true;
+        renderFavoriteQuestionsOnly();
+    }
 }
 
 function refreshQuestionFavoriteButtons(targetId = null) {
@@ -394,6 +421,15 @@ function normalizeFilterId(filterId) {
 function filterCategory(category) {
     console.log('filterCategory called with:', category);
     console.log('CATEGORY_MAP keys:', Array.from(CATEGORY_MAP.keys()));
+
+    if (category === 'favorites') {
+        dockFavoritesOnly = true;
+        updateActiveButton('favorites');
+        renderFavoriteQuestionsOnly();
+        return;
+    }
+
+    dockFavoritesOnly = false;
     
     // Normalize the category ID
     const normalizedCategory = normalizeFilterId(category);

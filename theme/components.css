@@ -163,6 +163,11 @@
     color: var(--primary);
 }
 
+/* Dock favorites segment should appear as yellow star when active */
+.dock-segment__item[data-segment="favorites"].active {
+    color: var(--icon-warning);
+}
+
 .dock-segment__item i {
     font-size: 0.9em;
 }
