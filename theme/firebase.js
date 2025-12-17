@@ -39,6 +39,18 @@
     signIn: async () => {
       throw new Error('Firebase not configured');
     },
+    signInWithEmailPassword: async () => {
+      throw new Error('Firebase not configured');
+    },
+    signUpWithEmailPassword: async () => {
+      throw new Error('Firebase not configured');
+    },
+    startPhoneSignIn: async () => {
+      throw new Error('Firebase not configured');
+    },
+    confirmPhoneCode: async () => {
+      throw new Error('Firebase not configured');
+    },
     signOut: async () => {
       throw new Error('Firebase not configured');
     },
@@ -69,6 +81,10 @@
     const auth = window.firebase.auth();
     const db = window.firebase.firestore();
 
+    let phoneConfirmationResult = null;
+    let recaptchaVerifier = null;
+    let recaptchaContainerId = null;
+
     api.enabled = true;
 
     api.getUser = () => auth.currentUser;
@@ -93,6 +109,54 @@
         }
         throw err;
       }
+    };
+
+    api.signInWithEmailPassword = async (email, password) => {
+      const e = String(email || '').trim();
+      const p = String(password || '');
+      if (!e || !p) throw new Error('EMAIL_PASSWORD_REQUIRED');
+      await auth.signInWithEmailAndPassword(e, p);
+    };
+
+    api.signUpWithEmailPassword = async (email, password) => {
+      const e = String(email || '').trim();
+      const p = String(password || '');
+      if (!e || !p) throw new Error('EMAIL_PASSWORD_REQUIRED');
+      await auth.createUserWithEmailAndPassword(e, p);
+    };
+
+    api.startPhoneSignIn = async (phoneNumber, containerId) => {
+      const pn = String(phoneNumber || '').trim();
+      const cid = String(containerId || '').trim();
+      if (!pn) throw new Error('PHONE_REQUIRED');
+      if (!cid) throw new Error('RECAPTCHA_CONTAINER_REQUIRED');
+
+      // If container changed (re-render / navigation), recreate verifier.
+      if (!recaptchaVerifier || recaptchaContainerId !== cid) {
+        recaptchaVerifier = new window.firebase.auth.RecaptchaVerifier(cid, { size: 'invisible' }, auth);
+        recaptchaContainerId = cid;
+        try {
+          await recaptchaVerifier.render();
+        } catch (_) {
+          // ignore; render may throw if already rendered
+        }
+      }
+
+      phoneConfirmationResult = await auth.signInWithPhoneNumber(pn, recaptchaVerifier);
+      return true;
+    };
+
+    api.confirmPhoneCode = async (code) => {
+      const c = String(code || '').trim();
+      if (!phoneConfirmationResult) throw new Error('PHONE_START_REQUIRED');
+      if (!c) throw new Error('PHONE_CODE_REQUIRED');
+
+      try {
+        await phoneConfirmationResult.confirm(c);
+      } finally {
+        phoneConfirmationResult = null;
+      }
+      return true;
     };
 
     api.signOut = async () => {
