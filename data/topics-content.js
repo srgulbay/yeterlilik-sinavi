@@ -4948,6 +4948,663 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 9,
+        category: "mikoloji",
+        title: "Candida Türleri ve C. auris",
+        subtitle: "Kandidoz, Antifungal Direnç ve Enfeksiyon Kontrolü",
+        summary: "Candida türlerinin tanı, tedavi ve antifungal direnç özelliklerinin kapsamlı özeti. C. auris'in çoklu ilaç direnci, tanı zorlukları ve enfeksiyon kontrol önlemleri.",
+        tags: ["Candida", "C. auris", "Kandidemi", "Antifungal Direnç", "MALDI-TOF", "Ekinokandin", "Mikoloji"],
+        sections: [
+            {
+                title: "Candida Türlerine Genel Bakış",
+                icon: "fas fa-bacterium",
+                content: `
+                    <p><strong>Candida</strong> türleri en sık görülen invaziv fungal enfeksiyon etkenleridir. Maya mantarlarıdır ve normal insan florasında bulunurlar. İmmünsüpresyon, geniş spektrumlu antibiyotik kullanımı ve invaziv girişimler kandidoz riskini artırır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Candida Enfeksiyonları Spektrumu</p>
+                        <p class="highlight-box__content">
+                            <strong>Yüzeyel:</strong> Oral kandida (pamukçuk), vulvovajinal kandidoz, intertriginöz kandidoz<br>
+                            <strong>İnvaziv:</strong> Kandidemi, dissemine kandidoz, hepatosplenik kandidoz, oküler kandidoz<br>
+                            <strong>Biyofilm İlişkili:</strong> Kateter enfeksiyonları, protez enfeksiyonları
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Epidemiyoloji ve Sıklık</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Candida Türü</th>
+                                    <th>Kandidemideki Oran</th>
+                                    <th>Önemli Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>C. albicans</b></td>
+                                    <td>%40-60</td>
+                                    <td>En sık, azalan trend</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. glabrata</b></td>
+                                    <td>%15-25</td>
+                                    <td>Artan, yaşlılarda sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. parapsilosis</b></td>
+                                    <td>%10-20</td>
+                                    <td>Neonatal, kateter ilişkili</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. tropicalis</b></td>
+                                    <td>%5-10</td>
+                                    <td>Hematolojik malignite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. krusei</b></td>
+                                    <td>%2-5</td>
+                                    <td>Lösemi, flukonazol profilaksisi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. auris</b></td>
+                                    <td>Bölgesel salgınlar</td>
+                                    <td>Çoklu direnç, hastane salgınları</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Trend:</strong> Son yıllarda non-albicans Candida türleri artmaktadır! Özellikle flukonazol profilaksisi alan hastalarda C. glabrata ve C. krusei sıklığı artar.</p>
+                    </div>
+                `
+            },
+            {
+                title: "Candida Türlerinin Ayırıcı Özellikleri",
+                icon: "fas fa-microscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kapsamlı Tür Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>C. albicans</th>
+                                    <th>C. glabrata</th>
+                                    <th>C. krusei</th>
+                                    <th>C. parapsilosis</th>
+                                    <th>C. tropicalis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Germ Tüp</b></td>
+                                    <td><strong>POZİTİF</strong></td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klamidospor</b></td>
+                                    <td><strong>POZİTİF</strong></td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CHROMagar Rengi</b></td>
+                                    <td>Yeşil</td>
+                                    <td>Pembe-mor</td>
+                                    <td>Pembe (pürüzlü)</td>
+                                    <td>Krem-beyaz</td>
+                                    <td>Mavi-metalik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Flukonazol</b></td>
+                                    <td>Duyarlı</td>
+                                    <td>Doz bağımlı (SDD)</td>
+                                    <td><b>İntrinsik R!</b></td>
+                                    <td>Duyarlı</td>
+                                    <td>Duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ekinokandin</b></td>
+                                    <td>Duyarlı</td>
+                                    <td>Duyarlı (direnç ↑)</td>
+                                    <td>Duyarlı</td>
+                                    <td><b>Yüksek MİK!</b></td>
+                                    <td>Duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik İlişki</b></td>
+                                    <td>Tüm formlar</td>
+                                    <td>Yaşlı, ÜYE</td>
+                                    <td>Lösemi</td>
+                                    <td>Neonatal, kateter</td>
+                                    <td>Nötropeni</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 Germ Tüp Testi</p>
+                        <p class="highlight-box__content">
+                            <b>Prensip:</b> Serumda 2-3 saat, 37°C inkübasyonda hif uzantısı oluşumu<br>
+                            <b>Pozitif:</b> C. albicans ve C. dubliniensis<br>
+                            <b>Negatif:</b> Diğer tüm Candida türleri<br>
+                            <b>Ayırım:</b> C. albicans vs C. dubliniensis → 42-45°C'de üreme (albicans +, dubliniensis -)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">C. dubliniensis vs C. albicans</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>C. dubliniensis:</b> AIDS hastalarında oral kandidoz, germ tüp (+), 45°C'de üremez</li>
+                            <li class="feature-item"><b>C. albicans:</b> En sık tür, germ tüp (+), 45°C'de ürer</li>
+                            <li class="feature-item"><b>CHROMagar:</b> Her ikisi de yeşil, ayırt edilemez</li>
+                            <li class="feature-item"><b>Flukonazol:</b> C. dubliniensis azol direnci geliştirmeye yatkın</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hafıza: Candida Türleri</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ALBİCANS = ALtın standart, GERM (+)"</b><br>
+                            <b>"GLABRATA = GLİKOZ sevmez (Trehaloz+), YAŞLI"</b><br>
+                            <b>"KRUSEİ = KESİN flukonazol DİRENÇLİ"</b><br>
+                            <b>"PARAPSİLOSİS = PEDİATRİ + KATETER"</b><br>
+                            <b>"TROPİCALİS = TROMBOSİTOPENİ, lösemi"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Candida auris - Acil Tehdit",
+                icon: "fas fa-biohazard",
+                content: `
+                    <p><strong>Candida auris</strong>, 2009'da Japonya'da bir hastanın kulak kanalından (auris = kulak) ilk kez izole edilen, küresel halk sağlığı tehdidi olarak kabul edilen çoklu ilaca dirençli bir maya mantarıdır.</p>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>CDC "Urgent Threat" Sınıflandırması:</strong> C. auris, ABD CDC tarafından en yüksek tehdit kategorisinde yer alır. Çoklu ilaç direnci, hastane yayılımı ve yüksek mortalite nedeniyle acil müdahale gerektiren bir patojendir!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">C. auris'in Ayırıcı Özellikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>C. auris</th>
+                                    <th>Klinik Önemi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Çoklu İlaç Direnci</b></td>
+                                    <td>Flukonazol %90, AmB %30, Ekinokandin %5-10</td>
+                                    <td>Tedavi seçenekleri kısıtlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çevresel Persistans</b></td>
+                                    <td>Yüzeylerde haftalarca canlı kalır</td>
+                                    <td>Hastane salgınları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tanı Zorluğu</b></td>
+                                    <td>API/VITEK ile yanlış tanımlanır</td>
+                                    <td>MALDI-TOF veya PCR gerekli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Deri Kolonizasyonu</b></td>
+                                    <td>Uzun süreli, eradikasyon zor</td>
+                                    <td>Hastadan hastaya bulaş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mortalite</b></td>
+                                    <td>%30-60 (kandidemide)</td>
+                                    <td>Yüksek virülans</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Isı Toleransı</b></td>
+                                    <td>42°C'de ürer</td>
+                                    <td>Diğer Candida'lardan fark</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">C. auris Klad'ları (Coğrafi Köken)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klad</th>
+                                    <th>Coğrafi Köken</th>
+                                    <th>Direnç Profili</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klad I</b></td>
+                                    <td>Güney Asya (Hindistan, Pakistan)</td>
+                                    <td>Yüksek azol direnci</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klad II</b></td>
+                                    <td>Doğu Asya (Japonya, Kore)</td>
+                                    <td>Daha az dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klad III</b></td>
+                                    <td>Afrika (Güney Afrika)</td>
+                                    <td>Yüksek azol direnci</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klad IV</b></td>
+                                    <td>Güney Amerika (Venezuela)</td>
+                                    <td>Değişken</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klad V</b></td>
+                                    <td>İran</td>
+                                    <td>Yeni tanımlanan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🔬 C. auris Tanı Yöntemleri</p>
+                        <p class="highlight-box__content">
+                            <b>❌ YANLIŞ TANIMLAMA:</b><br>
+                            • API 20C AUX → C. haemulonii<br>
+                            • VITEK 2 YST → C. haemulonii, C. lusitaniae<br>
+                            • BD Phoenix → C. catenulata, C. famata<br><br>
+                            <b>✅ DOĞRU TANIMLAMA:</b><br>
+                            • MALDI-TOF MS (güncel veritabanı ile)<br>
+                            • ITS/D1-D2 Sekanslaması<br>
+                            • Spesifik PCR testleri
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "C. auris Enfeksiyon Kontrolü",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Temas İzolasyonu Önlemleri</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tek oda:</b> İdeal olarak özel odalı banyo</li>
+                            <li class="feature-item"><b>PPE:</b> Eldiven + önlük (odaya her girişte)</li>
+                            <li class="feature-item"><b>El hijyeni:</b> Alkol bazlı dezenfektan veya su + sabun</li>
+                            <li class="feature-item"><b>Özel ekipman:</b> Tansiyon aleti, stetoskop odada kalmalı</li>
+                            <li class="feature-item"><b>Kolonize hastalar:</b> Enfekte olmasa bile izolasyon!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Çevresel Dezenfeksiyon</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Dezenfektan</th>
+                                    <th>C. auris Etkinliği</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klor bazlı (1000 ppm)</b></td>
+                                    <td><strong>ETKİLİ</strong></td>
+                                    <td>Yüzey dezenfeksiyonu - önerilen</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hidrojen peroksit</b></td>
+                                    <td>Etkili</td>
+                                    <td>Terminal dezenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>UV-C</b></td>
+                                    <td>Etkili</td>
+                                    <td>Terminal dezenfeksiyon ek olarak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kuaterner amonyum</b></td>
+                                    <td><b>ETKİSİZ!</b></td>
+                                    <td>Kullanılmamalı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aktif Sürveyans Taraması</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>Tarama bölgeleri:</b> Aksilla VE kasık (birlikte swap)</li>
+                            <li class="feature-item"><b>Ek bölgeler:</b> Nares, rektum, kronik yara bölgeleri</li>
+                            <li class="feature-item"><b>Yöntem:</b> Selektif besiyeri (CHROMagar Candida + antifungal eklentili)</li>
+                            <li class="feature-item"><b>Sıklık:</b> YBÜ'de haftalık, pozitif kontaklarda seri tarama</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Kolonizasyon Eradikasyonu ZOR!</strong><br>
+                        C. auris kolonizasyonu aylarca persiste edebilir. Klorheksidin banyosu yapılabilir ancak eradikasyon garantisi yoktur. Kolonize hastalar "ömür boyu" izolasyon gerektirebilir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">C. auris Kontrol - "AKTİF İZOLE KLOR"</p>
+                        <p class="mnemonic-box__text">
+                            <b>A</b>ktif sürveyans taraması<br>
+                            <b>K</b>ontakt izolasyonu<br>
+                            <b>T</b>emas önlemleri (eldiven + önlük)<br>
+                            <b>İ</b>zole oda<br>
+                            <b>F</b>ırsatçı tarama (kontak hastaları)<br>
+                            <b>KLOR</b> bazlı dezenfektan (kuaterner amonyum ETKİSİZ!)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antifungal Direnç Mekanizmaları",
+                icon: "fas fa-pills",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Azol Direnci</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mekanizma</th>
+                                    <th>Gen/Hedef</th>
+                                    <th>Candida Türü</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ERG11 mutasyonu</b></td>
+                                    <td>Lanosterol 14α-demetilaz</td>
+                                    <td>C. albicans, C. auris</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ERG11 upregülasyonu</b></td>
+                                    <td>Hedef gen aşırı ekspresyonu</td>
+                                    <td>Tüm türler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Efflux pompası (CDR1/2)</b></td>
+                                    <td>ABC transporter</td>
+                                    <td>C. albicans, C. glabrata</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Efflux pompası (MDR1)</b></td>
+                                    <td>MFS transporter</td>
+                                    <td>C. albicans</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ekinokandin Direnci</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>FKS1 mutasyonu:</b> 1,3-β-D-glukan sentaz hot-spot bölgelerinde mutasyon</li>
+                            <li class="feature-item"><b>FKS2 mutasyonu:</b> C. glabrata'da önemli</li>
+                            <li class="feature-item"><b>En sık:</b> C. glabrata'da direnç artışı (uzun tedavi sonrası)</li>
+                            <li class="feature-item"><b>C. parapsilosis:</b> Doğal yüksek MİK (polimorfizm), klinik direnç değil</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Amfoterisin B Direnci</h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><b>ERG3/ERG6 mutasyonu:</b> Ergosterol sentez defekti</li>
+                            <li class="feature-item"><b>Nadir:</b> Klinik direnç çok az görülür</li>
+                            <li class="feature-item"><b>İstisna:</b> C. auris'te %30'a varan AmB direnci!</li>
+                            <li class="feature-item"><b>C. lusitaniae:</b> İntrinsik AmB direnci olabilir</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 Antifungal Duyarlılık Testi Ne Zaman?</p>
+                        <p class="highlight-box__content">
+                            • Tüm invaziv Candida enfeksiyonlarında<br>
+                            • C. glabrata izole edildiğinde (her zaman)<br>
+                            • C. auris şüphesi/izolasyonunda (acil)<br>
+                            • Tedavi başarısızlığında<br>
+                            • Uzun süreli antifungal kullanımı sonrası<br><br>
+                            <b>Yöntem:</b> CLSI M27 (sıvı dilüsyon) veya EUCAST E.DEF 7.3
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>İntrinsik Direnç - UNUTMA!</strong><br>
+                        • <b>C. krusei:</b> Flukonazole doğal DİRENÇLİ<br>
+                        • <b>C. glabrata:</b> Flukonazole doz-bağımlı duyarlı (SDD) veya dirençli<br>
+                        • <b>C. lusitaniae:</b> AmB'ye doğal dirençli olabilir<br>
+                        • <b>C. auris:</b> Çoklu intrinsik direnç!</p>
+                    </div>
+                `
+            },
+            {
+                title: "Kandidemi Tedavi Yaklaşımı",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ampirik Tedavi Seçimi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hasta Grubu</th>
+                                    <th>İlk Seçenek</th>
+                                    <th>Alternatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Nötropenik olmayan</b></td>
+                                    <td>Ekinokandin</td>
+                                    <td>Flukonazol (stabil, duyarlı tür)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nötropenik</b></td>
+                                    <td>Ekinokandin</td>
+                                    <td>Lipozomal AmB</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. auris şüphesi</b></td>
+                                    <td>Ekinokandin</td>
+                                    <td>Duyarlılık sonucuna göre</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS enfeksiyonu</b></td>
+                                    <td>Lipozomal AmB + Flusitozin</td>
+                                    <td>Flukonazol (step-down)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oküler tutulum</b></td>
+                                    <td>Flukonazol veya Vorikonazol</td>
+                                    <td>AmB (intravitreal ± sistemik)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Türe Göre Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Candida Türü</th>
+                                    <th>Önerilen Tedavi</th>
+                                    <th>Kaçınılması Gereken</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>C. albicans</b></td>
+                                    <td>Ekinokandin → Flukonazol step-down</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. glabrata</b></td>
+                                    <td>Ekinokandin (duyarlılık bekle)</td>
+                                    <td>Flukonazol (duyarlılıksız)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. krusei</b></td>
+                                    <td>Ekinokandin veya Vorikonazol</td>
+                                    <td><b>FLUKONAZOL!</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. parapsilosis</b></td>
+                                    <td>Flukonazol tercih edilebilir</td>
+                                    <td>Ekinokandin tek başına?</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. auris</b></td>
+                                    <td>Ekinokandin + duyarlılık testi</td>
+                                    <td>Ampirik flukonazol</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kandidemi Yönetim Kuralları</p>
+                        <p class="highlight-box__content">
+                            <b>1. Kateter çekimi:</b> Mümkünse 24-48 saat içinde<br>
+                            <b>2. Kan kültürü takibi:</b> Negatifleşene kadar her gün<br>
+                            <b>3. Fundoskopi:</b> Tüm kandidemi hastalarında (oküler tutulum?)<br>
+                            <b>4. Tedavi süresi:</b> Son pozitif kültürden 14 gün sonrasına kadar<br>
+                            <b>5. Ekokardiyografi:</b> Persistan bakteriyemi, kalp kapak hastalığı varsa
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>C. parapsilosis Paradoksu:</strong><br>
+                        In vitro ekinokandin MİK'leri yüksek ancak klinik başarısızlık oranı düşüktür. Yine de flukonazole duyarlı ise flukonazol tercih edilebilir. <b>Kateter çekimi bu türde kritik!</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kandidemi Tedavisi - "KAÇFET"</p>
+                        <p class="mnemonic-box__text">
+                            <b>K</b>ateter çek (24-48 saatte)<br>
+                            <b>A</b>ntifungal başla (ekinokandin ilk seçenek)<br>
+                            <b>Ç</b>ekilmiş kültür takibi (günlük)<br>
+                            <b>F</b>undoskopi yaptır (oküler kandidoz?)<br>
+                            <b>E</b>ko düşün (endokardit?)<br>
+                            <b>T</b>edavi süresi: negatif kültürden 14 gün sonra
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Germ tüp pozitif:</b> C. albicans (ve C. dubliniensis)<br>
+                            2. <b>Flukonazol intrinsik direnci:</b> C. krusei<br>
+                            3. <b>MALDI-TOF gerektiren:</b> C. auris<br>
+                            4. <b>Neonatal/Kateter ilişkili:</b> C. parapsilosis<br>
+                            5. <b>Çoklu ilaç direnci + salgın:</b> C. auris
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Karar Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik Senaryo</th>
+                                    <th>Düşün</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pamukçuk, germ tüp (+)</td>
+                                    <td>C. albicans</td>
+                                    <td>Flukonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Yaşlı kadın, ÜYE, tekrarlayan</td>
+                                    <td>C. glabrata</td>
+                                    <td>Ekinokandin/Duyarlılık bekle</td>
+                                </tr>
+                                <tr>
+                                    <td>Lösemi, flukonazol profilaksisi altında</td>
+                                    <td>C. krusei</td>
+                                    <td>Ekinokandin/Vorikonazol</td>
+                                </tr>
+                                <tr>
+                                    <td>Neonatal YBÜ, TPN, kateter</td>
+                                    <td>C. parapsilosis</td>
+                                    <td>Flukonazol + Kateter çekimi</td>
+                                </tr>
+                                <tr>
+                                    <td>YBÜ salgını, VITEK yanlış tanı</td>
+                                    <td>C. auris</td>
+                                    <td>Ekinokandin + İzolasyon</td>
+                                </tr>
+                                <tr>
+                                    <td>AIDS, oral kandidoz, 45°C üremez</td>
+                                    <td>C. dubliniensis</td>
+                                    <td>Flukonazol</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KRUSEİ = KENAN'A FLUKON VERMEZ!"</b> → İntrinsik flukonazol direnci<br>
+                            <b>"AURİS = ACİL TEHDİT, MALDİ-TOF"</b> → Tanı ve çoklu direnç<br>
+                            <b>"GERM TÜP = ALBİCANS"</b> → Hızlı tanı<br>
+                            <b>"PARAPSİLOSİS = PEDİATRİ KATETER"</b> → Neonatal YBÜ<br>
+                            <b>"GLABRATA = GRANDMA (yaşlı)"</b> → Yaşlı hastalarda artış<br>
+                            <b>"KUATERNER = C.AURİS'E OLMAZ"</b> → Klor bazlı dezenfektan kullan
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>MUTLAKA BİLİNMESİ GEREKENLER:</strong><br><br>
+                            1. <b>C. krusei =</b> Flukonazole DOĞAL DİRENÇLİ (asla kullanma!)<br>
+                            2. <b>C. auris =</b> API/VITEK ile YANLIŞ tanımlanır → MALDI-TOF şart<br>
+                            3. <b>C. glabrata =</b> Flukonazole doz-bağımlı, ekinokandin direnci artıyor<br>
+                            4. <b>C. parapsilosis =</b> Kateter çekimi kritik, el hijyeni yetersizliği<br>
+                            5. <b>Kandidemi =</b> Kateter çek + Fundoskopi yap + Kültür negatifleşene kadar izle
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Germ tüp pozitif maya?" → C. albicans</li>
+                        <li><b>Soru tipi:</b> "Doğal flukonazol dirençli?" → C. krusei</li>
+                        <li><b>Soru tipi:</b> "MALDI-TOF ile tanımlanan, salgın yapan?" → C. auris</li>
+                        <li><b>Soru tipi:</b> "Neonatal YBÜ salgını, kateter ilişkili?" → C. parapsilosis</li>
+                        <li><b>Soru tipi:</b> "Yaşlı, ÜYE, azol direnci artan?" → C. glabrata</li>
+                        <li><b>Soru tipi:</b> "Kuaterner amonyum etkisiz, klor gerekli?" → C. auris</li>
+                        <li><b>Soru tipi:</b> "AIDS, oral kandidoz, 45°C üremez?" → C. dubliniensis</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
