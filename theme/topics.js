@@ -201,6 +201,17 @@ function initTopicActions() {
                 return;
             }
 
+            const label = e.target.closest('label.topic-check');
+            if (label) {
+                e.preventDefault();
+                e.stopPropagation();
+                const input = label.querySelector('input[type="checkbox"][data-read-level]');
+                if (input) {
+                    await toggleReadLevel(input.dataset.topicId, input.dataset.readLevel);
+                }
+                return;
+            }
+
             const checkbox = e.target.closest('input[type="checkbox"][data-read-level]');
             if (checkbox) {
                 e.stopPropagation();
@@ -217,6 +228,17 @@ function initTopicActions() {
                 e.preventDefault();
                 e.stopPropagation();
                 await toggleFavorite(favBtn.dataset.topicId);
+                return;
+            }
+
+            const label = e.target.closest('label.topic-check');
+            if (label) {
+                e.preventDefault();
+                e.stopPropagation();
+                const input = label.querySelector('input[type="checkbox"][data-read-level]');
+                if (input) {
+                    await toggleReadLevel(input.dataset.topicId, input.dataset.readLevel);
+                }
                 return;
             }
 
