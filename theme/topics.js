@@ -9,6 +9,8 @@ let searchQuery = '';
 let currentView = 'list'; // 'list' veya 'detail'
 let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLevel:number }
 
+let topicsListLayout = 'cards'; // 'cards' | 'compact'
+
 let topicPriorityById = new Map(); // topicId(string) -> { score:number(0-100), tier:'high'|'med'|'low', label:string, iconClass:string }
 
 // Manual fine-tuning per topic (TUS/yan dal/yeterlilik “high-yield” emphasis).
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initTopicsModule() {
     initTopicPriority(topicsData);
+    initTopicsLayoutToggle();
     renderTopicsList(topicsData);
     initCategoryFilters();
     initSearch();
@@ -76,6 +79,61 @@ function initTopicsModule() {
     initDockChips();
     initTopicState();
     initTopicActions();
+}
+
+function storageGetSafe(key, fallback) {
+    try {
+        const v = window.localStorage?.getItem(key);
+        return v != null ? v : fallback;
+    } catch (_) {
+        return fallback;
+    }
+}
+
+function storageSetSafe(key, value) {
+    try {
+        window.localStorage?.setItem(key, String(value));
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
+function setTopicsListLayout(mode) {
+    const next = (mode === 'compact') ? 'compact' : 'cards';
+    topicsListLayout = next;
+    storageSetSafe('topics:listLayout', next);
+
+    const container = document.getElementById('topicsList');
+    if (container) {
+        container.classList.toggle('topics-list--compact', next === 'compact');
+    }
+
+    const btn = document.querySelector('[data-topics-layout-toggle]');
+    if (btn) {
+        const isCompact = next === 'compact';
+        btn.setAttribute('aria-label', isCompact ? 'Görünüm: Liste' : 'Görünüm: Kart');
+        btn.title = isCompact ? 'Görünüm: Liste' : 'Görünüm: Kart';
+        const icon = btn.querySelector('i');
+        if (icon) icon.className = isCompact ? 'fas fa-list' : 'fas fa-grip';
+    }
+}
+
+function initTopicsLayoutToggle() {
+    const saved = storageGetSafe('topics:listLayout', 'cards');
+    setTopicsListLayout(saved);
+
+    const btn = document.querySelector('[data-topics-layout-toggle]');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const next = topicsListLayout === 'compact' ? 'cards' : 'compact';
+        setTopicsListLayout(next);
+        // Re-render list if we're on list view.
+        if (currentView === 'list') {
+            renderTopicsList(topicsData);
+        }
+    });
 }
 
 function toSearchText(value) {
@@ -389,6 +447,24 @@ function updateTopicUIFor(topicId) {
         }
 
         card.querySelectorAll('input[type="checkbox"][data-read-level]').forEach((input) => {
+            const level = clampReadLevel(input.dataset.readLevel);
+            input.checked = level > 0 && level <= state.readLevel;
+            input.disabled = !isAuthReady();
+        });
+    }
+
+    const row = document.querySelector(`.topic-row[data-topic-id="${id}"]`);
+    if (row) {
+        applyTopicRepeatAmbiance(row, state.readLevel);
+        const favBtn = row.querySelector('[data-topic-fav]');
+        if (favBtn) {
+            favBtn.classList.toggle('is-active', state.favorite);
+            const icon = favBtn.querySelector('i');
+            if (icon) icon.className = state.favorite ? 'fas fa-star' : 'far fa-star';
+            favBtn.setAttribute('aria-pressed', String(state.favorite));
+        }
+
+        row.querySelectorAll('input[type="checkbox"][data-read-level]').forEach((input) => {
             const level = clampReadLevel(input.dataset.readLevel);
             input.checked = level > 0 && level <= state.readLevel;
             input.disabled = !isAuthReady();
@@ -756,6 +832,8 @@ function renderTopicsList(data) {
     const container = document.getElementById('topicsList');
     if (!container) return;
 
+    setTopicsListLayout(topicsListLayout);
+
     // Filtreleme
     let filtered = data;
 
@@ -791,22 +869,55 @@ function renderTopicsList(data) {
         return;
     }
 
-    container.innerHTML = filtered.map((topic, index) => createTopicPreview(topic, index)).join('');
+    if (topicsListLayout === 'compact') {
+        container.innerHTML = filtered.map((topic) => createTopicRow(topic)).join('');
+    } else {
+        container.innerHTML = filtered.map((topic, index) => createTopicPreview(topic, index)).join('');
+    }
     
-    // Kart tıklama olaylarını bağla
-    container.querySelectorAll('.topic-preview').forEach(card => {
-        card.addEventListener('click', (event) => {
-            // Ignore clicks on interactive controls
+    // Item click handlers (open detail)
+    container.querySelectorAll('.topic-preview, .topic-row').forEach((item) => {
+        item.addEventListener('click', (event) => {
             if (event.target && event.target.closest && event.target.closest('[data-topic-fav], input[data-read-level], .topic-read-checks, label.topic-check')) {
                 return;
             }
-            const topicId = parseInt(card.dataset.topicId);
+            const topicId = parseInt(item.dataset.topicId);
             showTopicDetail(topicId);
         });
     });
     
     // Scroll reveal'ı yenile
     setTimeout(() => refreshScrollReveal(), 50);
+}
+
+function createTopicRow(topic) {
+    const icon = getCategoryIcon(topic.category);
+    const state = getTopicState(topic.id);
+    const repeatClass = isAuthReady() ? getRepeatAmbianceClassByLevel(state.readLevel) : '';
+
+    return `
+        <article class="topic-row ${repeatClass}" data-topic-id="${topic.id}">
+            <div class="topic-row__left">
+                <div class="topic-row__icon-stack">
+                    <div class="topic-row__icon topic-preview__icon--${topic.category}">
+                        <i class="${icon}" aria-hidden="true"></i>
+                    </div>
+                    ${renderTopicRecommendation(topic.id)}
+                </div>
+                <div class="topic-row__text">
+                    <div class="topic-row__meta">
+                        <span class="topic-row__category">${getCategoryLabel(topic.category)}</span>
+                    </div>
+                    <div class="topic-row__title">${topic.title}</div>
+                    <div class="topic-row__subtitle">${topic.subtitle}</div>
+                </div>
+            </div>
+            <div class="topic-row__right">
+                ${renderFavoriteButton(topic.id)}
+                ${renderReadCheckboxes(topic.id)}
+            </div>
+        </article>
+    `;
 }
 
 function createTopicPreview(topic, index = 0) {
