@@ -2,6 +2,7 @@
   'use strict';
 
   const PANEL_ATTR = 'data-auth-panel';
+  const PANEL_OPEN_CLASS = 'is-open';
 
   function showToast(message) {
     const existing = document.querySelector('.share-toast');
@@ -76,11 +77,30 @@
       .replaceAll("'", '&#39;');
   }
 
-  function buildPanel(container) {
+  function ensureId(el, prefix) {
+    if (!el) return '';
+    if (el.id) return el.id;
+    const id = `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
+    el.id = id;
+    return id;
+  }
+
+  function buildPanel(container, triggerButton) {
     const existing = container.querySelector(`[${PANEL_ATTR}]`);
-    if (existing) return existing;
+    if (existing) {
+      if (triggerButton) {
+        const triggerId = ensureId(triggerButton, 'auth-trigger');
+        existing.dataset.triggerId = triggerId;
+        if (!existing.id) existing.id = `${triggerId}-panel`;
+        triggerButton.setAttribute('aria-controls', existing.id);
+        triggerButton.setAttribute('aria-haspopup', 'dialog');
+        triggerButton.setAttribute('aria-expanded', isPanelOpen(existing) ? 'true' : 'false');
+      }
+      return existing;
+    }
 
     const recaptchaId = `auth-recaptcha-${Math.random().toString(36).slice(2)}`;
+    const triggerId = triggerButton ? ensureId(triggerButton, 'auth-trigger') : '';
 
     const panel = document.createElement('div');
     panel.className = 'auth-panel';
@@ -88,75 +108,85 @@
     panel.setAttribute('aria-hidden', 'true');
     panel.hidden = true;
 
+    if (triggerId) {
+      panel.id = `${triggerId}-panel`;
+      panel.dataset.triggerId = triggerId;
+      triggerButton.setAttribute('aria-controls', panel.id);
+      triggerButton.setAttribute('aria-haspopup', 'dialog');
+      triggerButton.setAttribute('aria-expanded', 'false');
+    }
+
     panel.innerHTML = `
-      <div class="auth-panel__signed-in" data-auth-signed-in hidden>
-        <div class="auth-panel__user">
-          <div class="avatar avatar-sm auth-panel__avatar" data-auth-avatar aria-hidden="true">U</div>
-          <div class="auth-panel__user-meta">
-            <div class="auth-panel__user-title">Hesap</div>
-            <div class="auth-panel__user-email" data-auth-email></div>
-          </div>
-        </div>
-        <div class="auth-panel__actions auth-panel__actions--single">
-          <button type="button" class="btn btn-secondary btn-full" data-auth-logout>
-            <i class="fas fa-right-from-bracket"></i>
-            Çıkış Yap
-          </button>
-        </div>
-      </div>
-
-      <div class="auth-panel__signed-out" data-auth-signed-out>
-        <div class="auth-panel__tabs" role="tablist" aria-label="Giriş seçenekleri">
-          <button type="button" class="auth-panel__tab is-active" role="tab" aria-selected="true" data-auth-tab="google">Google</button>
-          <button type="button" class="auth-panel__tab" role="tab" aria-selected="false" data-auth-tab="email">E-posta</button>
-          <button type="button" class="auth-panel__tab" role="tab" aria-selected="false" data-auth-tab="phone">Telefon</button>
-        </div>
-        <div class="auth-panel__body">
-          <div class="auth-panel__view" data-auth-view="google">
-            <button type="button" class="btn btn-primary btn-full" data-auth-google>
-              <i class="fa-brands fa-google"></i>
-              Google ile devam et
-            </button>
-          </div>
-
-          <div class="auth-panel__view" data-auth-view="email" hidden>
-            <div class="auth-panel__form">
-              <div class="auth-panel__field">
-                <label class="auth-panel__label" for="authEmail">E-posta</label>
-                <input class="input" id="authEmail" type="email" autocomplete="email" placeholder="ornek@mail.com" />
-              </div>
-              <div class="auth-panel__field">
-                <label class="auth-panel__label" for="authPassword">Şifre</label>
-                <input class="input" id="authPassword" type="password" autocomplete="current-password" placeholder="••••••••" />
-              </div>
-              <div class="auth-panel__actions">
-                <button type="button" class="btn btn-primary" data-auth-email-signin>Giriş</button>
-                <button type="button" class="btn btn-secondary" data-auth-email-signup>Kayıt Ol</button>
-              </div>
+      <div class="auth-panel__surface">
+        <div class="auth-panel__signed-in" data-auth-signed-in hidden>
+          <div class="auth-panel__user">
+            <div class="avatar avatar-sm auth-panel__avatar" data-auth-avatar aria-hidden="true">U</div>
+            <div class="auth-panel__user-meta">
+              <div class="auth-panel__user-title">Hesap</div>
+              <div class="auth-panel__user-email" data-auth-email></div>
             </div>
           </div>
+          <div class="auth-panel__actions auth-panel__actions--single">
+            <button type="button" class="btn btn-secondary btn-full" data-auth-logout>
+              <i class="fas fa-right-from-bracket"></i>
+              Çıkış Yap
+            </button>
+          </div>
+        </div>
 
-          <div class="auth-panel__view" data-auth-view="phone" hidden>
-            <div class="auth-panel__form">
-              <div class="auth-panel__field">
-                <label class="auth-panel__label" for="authPhone">Telefon</label>
-                <input class="input" id="authPhone" type="tel" autocomplete="tel" placeholder="+90..." />
-                <p class="auth-panel__hint">Format: +90XXXXXXXXXX</p>
-              </div>
-              <div class="auth-panel__actions auth-panel__actions--single">
-                <button type="button" class="btn btn-primary btn-full" data-auth-phone-send>Kod Gönder</button>
-              </div>
+        <div class="auth-panel__signed-out" data-auth-signed-out>
+          <div class="auth-panel__tabs" role="tablist" aria-label="Giriş seçenekleri">
+            <button type="button" class="auth-panel__tab is-active" role="tab" aria-selected="true" data-auth-tab="google">Google</button>
+            <button type="button" class="auth-panel__tab" role="tab" aria-selected="false" data-auth-tab="email">E-posta</button>
+            <button type="button" class="auth-panel__tab" role="tab" aria-selected="false" data-auth-tab="phone">Telefon</button>
+          </div>
+          <div class="auth-panel__body">
+            <div class="auth-panel__view" data-auth-view="google">
+              <button type="button" class="btn btn-primary btn-full" data-auth-google>
+                <i class="fa-brands fa-google"></i>
+                Google ile devam et
+              </button>
+            </div>
 
-              <div class="auth-panel__divider"></div>
+            <div class="auth-panel__view" data-auth-view="email" hidden>
+              <div class="auth-panel__form">
+                <div class="auth-panel__field">
+                  <label class="auth-panel__label" for="authEmail">E-posta</label>
+                  <input class="input" id="authEmail" type="email" autocomplete="email" placeholder="ornek@mail.com" />
+                </div>
+                <div class="auth-panel__field">
+                  <label class="auth-panel__label" for="authPassword">Şifre</label>
+                  <input class="input" id="authPassword" type="password" autocomplete="current-password" placeholder="••••••••" />
+                </div>
+                <div class="auth-panel__actions">
+                  <button type="button" class="btn btn-primary" data-auth-email-signin>Giriş</button>
+                  <button type="button" class="btn btn-secondary" data-auth-email-signup>Kayıt Ol</button>
+                </div>
+              </div>
+            </div>
 
-              <div class="auth-panel__field">
-                <label class="auth-panel__label" for="authPhoneCode">SMS Kod</label>
-                <input class="input" id="authPhoneCode" inputmode="numeric" autocomplete="one-time-code" placeholder="123456" />
+            <div class="auth-panel__view" data-auth-view="phone" hidden>
+              <div class="auth-panel__form">
+                <div class="auth-panel__field">
+                  <label class="auth-panel__label" for="authPhone">Telefon</label>
+                  <input class="input" id="authPhone" type="tel" autocomplete="tel" placeholder="+90..." />
+                  <p class="auth-panel__hint">Format: +90XXXXXXXXXX</p>
+                </div>
+                <div class="auth-panel__actions auth-panel__actions--single">
+                  <button type="button" class="btn btn-primary btn-full" data-auth-phone-send>Kod Gönder</button>
+                </div>
+
+                <div class="auth-panel__divider"></div>
+
+                <div class="auth-panel__field">
+                  <label class="auth-panel__label" for="authPhoneCode">SMS Kod</label>
+                  <input class="input" id="authPhoneCode" inputmode="numeric" autocomplete="one-time-code" placeholder="123456" />
+                </div>
+                <div class="auth-panel__actions auth-panel__actions--single">
+                  <button type="button" class="btn btn-primary btn-full" data-auth-phone-verify>Doğrula</button>
+                </div>
+                <div class="auth-panel__recaptcha" id="${escapeHtml(recaptchaId)}"></div>
               </div>
-              <div class="auth-panel__actions auth-panel__actions--single">
-                <button type="button" class="btn btn-primary btn-full" data-auth-phone-verify>Doğrula</button>
-              </div>
-              <div class="auth-panel__recaptcha" id="${escapeHtml(recaptchaId)}"></div>
             </div>
           </div>
         </div>
@@ -191,16 +221,108 @@
     return !!panel && !panel.hidden && panel.getAttribute('aria-hidden') === 'false';
   }
 
-  function openPanel(panel) {
+  function getTriggerForPanel(panel) {
+    if (!panel) return null;
+    const triggerId = panel.dataset.triggerId;
+    if (triggerId) return document.getElementById(triggerId);
+    const panelId = panel.id;
+    if (!panelId) return null;
+    return document.querySelector(`[data-auth-trigger][aria-controls="${panelId}"]`);
+  }
+
+  function setExpanded(panel, expanded) {
+    const trigger = getTriggerForPanel(panel);
+    if (!trigger) return;
+    trigger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  }
+
+  function positionPanel(panel, triggerButton) {
+    if (!panel || !triggerButton) return;
+    const container = panel.parentElement;
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const triggerRect = triggerButton.getBoundingClientRect();
+
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const viewportMargin = 10;
+
+    // Align the panel to the trigger button (not the full actions container width).
+    let right = Math.max(0, containerRect.right - triggerRect.right);
+    const top = Math.max(0, triggerRect.bottom - containerRect.top + 12);
+
+    panel.style.top = `${top}px`;
+    panel.style.right = `${right}px`;
+    panel.style.left = 'auto';
+
+    // Ensure the panel stays within viewport margins.
+    const rect1 = panel.getBoundingClientRect();
+    if (rect1.left < viewportMargin) {
+      right = Math.max(0, right - (viewportMargin - rect1.left));
+      panel.style.right = `${right}px`;
+    } else if (rect1.right > viewportWidth - viewportMargin) {
+      right = right + (rect1.right - (viewportWidth - viewportMargin));
+      panel.style.right = `${right}px`;
+    }
+
+    const rect2 = panel.getBoundingClientRect();
+    const notch = triggerRect.left + triggerRect.width / 2 - rect2.left;
+    const notchSafe = Math.max(24, Math.min(notch, rect2.width - 24));
+    panel.style.setProperty('--auth-notch-x', `${notchSafe}px`);
+    panel.style.setProperty('--auth-origin-x', `${notchSafe}px`);
+  }
+
+  function openPanel(panel, triggerButton) {
     if (!panel) return;
+    panel.dataset.closeId = '';
     panel.hidden = false;
     panel.setAttribute('aria-hidden', 'false');
+    setExpanded(panel, true);
+    if (triggerButton) positionPanel(panel, triggerButton);
+
+    // Let the browser apply initial styles before animating.
+    panel.classList.remove(PANEL_OPEN_CLASS);
+    requestAnimationFrame(() => {
+      if (panel.getAttribute('aria-hidden') !== 'false') return;
+      panel.classList.add(PANEL_OPEN_CLASS);
+    });
   }
 
   function closePanel(panel) {
     if (!panel) return;
-    panel.hidden = true;
     panel.setAttribute('aria-hidden', 'true');
+    setExpanded(panel, false);
+    panel.classList.remove(PANEL_OPEN_CLASS);
+
+    const closeId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    panel.dataset.closeId = closeId;
+
+    const finalize = () => {
+      if (panel.dataset.closeId !== closeId) return;
+      panel.hidden = true;
+      panel.style.removeProperty('top');
+      panel.style.removeProperty('right');
+      panel.style.removeProperty('left');
+      panel.style.removeProperty('--auth-notch-x');
+      panel.style.removeProperty('--auth-origin-x');
+    };
+
+    const surface = panel.querySelector('.auth-panel__surface');
+    const onEnd = (e) => {
+      if (panel.dataset.closeId !== closeId) {
+        surface?.removeEventListener('transitionend', onEnd);
+        return;
+      }
+      if (e && e.propertyName !== 'clip-path') return;
+      surface?.removeEventListener('transitionend', onEnd);
+      finalize();
+    };
+
+    surface?.addEventListener('transitionend', onEnd);
+    window.setTimeout(() => {
+      surface?.removeEventListener('transitionend', onEnd);
+      finalize();
+    }, 340);
   }
 
   function setActiveTab(panel, tabName) {
@@ -237,13 +359,14 @@
     const user = window.appFirebase.getUser();
     try {
       const actionsContainer = button.closest('.page-header__actions') || button.parentElement || document.body;
-      const panel = buildPanel(actionsContainer);
+      const panel = buildPanel(actionsContainer, button);
+      wirePanel(panel);
       refreshPanelAuthState(panel);
 
       if (isPanelOpen(panel)) {
         closePanel(panel);
       } else {
-        openPanel(panel);
+        openPanel(panel, button);
       }
     } catch (err) {
       const msg = (err && err.message) ? err.message : 'İşlem başarısız';
@@ -260,6 +383,10 @@
       if (tabBtn) {
         e.preventDefault();
         setActiveTab(panel, tabBtn.dataset.authTab);
+        const trigger = getTriggerForPanel(panel);
+        if (trigger && isPanelOpen(panel)) {
+          requestAnimationFrame(() => positionPanel(panel, trigger));
+        }
         return;
       }
     });
@@ -377,16 +504,18 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         handleAuthClick(btn);
-
-        // Ensure panel exists and is wired when opening for the first time.
-        const actionsContainer = btn.closest('.page-header__actions') || btn.parentElement;
-        if (actionsContainer) {
-          const panel = actionsContainer.querySelector(`[${PANEL_ATTR}]`) || buildPanel(actionsContainer);
-          wirePanel(panel);
-          refreshPanelAuthState(panel);
-        }
       });
       setButtonState(btn, window.appFirebase?.getUser?.() || null);
+    });
+
+    window.addEventListener('resize', () => {
+      const panels = Array.from(document.querySelectorAll(`[${PANEL_ATTR}]`));
+      panels.forEach((panel) => {
+        if (!isPanelOpen(panel)) return;
+        const trigger = getTriggerForPanel(panel);
+        if (!trigger) return;
+        positionPanel(panel, trigger);
+      });
     });
 
     // Close panel on outside click / Esc.

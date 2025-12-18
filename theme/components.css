@@ -1486,6 +1486,50 @@
     top: calc(100% + var(--space-3));
     right: 0;
     width: min(360px, calc(100vw - 2 * var(--space-4)));
+    z-index: var(--z-popover, 12000);
+    pointer-events: none;
+
+    /* JS will set these to align notch + transform-origin with trigger */
+    --auth-notch-x: 90%;
+    --auth-origin-x: 90%;
+}
+
+.auth-panel.is-busy {
+    opacity: 1;
+}
+
+.auth-panel.is-open {
+    pointer-events: auto;
+}
+
+/* Small notch to visually “attach” the panel to the user button */
+.auth-panel::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--space-2) * -1);
+    left: var(--auth-notch-x);
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%) rotate(45deg);
+    background: var(--glass-bg);
+    border-left: 1px solid var(--glass-border);
+    border-top: 1px solid var(--glass-border);
+    border-radius: 4px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    opacity: 0;
+    transition: opacity 0.18s var(--ease-apple);
+    pointer-events: none;
+}
+
+.auth-panel.is-open::before {
+    opacity: 1;
+}
+
+/* Inner surface holds the actual glass + “pocket” opening animation */
+.auth-panel__surface {
+    position: relative;
+    z-index: 1;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
@@ -1493,10 +1537,28 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     padding: var(--space-4);
-    z-index: var(--z-popover, 12000);
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: var(--auth-origin-x) 0%;
+
+    /* Pocket reveal without scaling content too much */
+    clip-path: inset(0 0 100% 0 round var(--radius-lg));
+    transition:
+        opacity 0.18s var(--ease-apple),
+        transform 0.26s var(--ease-apple-out),
+        clip-path 0.28s var(--ease-apple-out);
+    will-change: opacity, transform, clip-path;
 }
 
-.auth-panel.is-busy {
+.auth-panel.is-open .auth-panel__surface {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0 round var(--radius-lg));
+}
+
+.auth-panel.is-busy .auth-panel__surface {
     opacity: 0.9;
 }
 
@@ -1671,14 +1733,6 @@
 }
 
 @media (max-width: 768px) {
-    .auth-panel {
-        right: 0;
-        left: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
-
     .auth-panel__actions {
         grid-template-columns: 1fr;
     }
