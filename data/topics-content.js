@@ -25944,6 +25944,2503 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 41,
+        category: "immunoloji",
+        title: "Antikorlar ve B Hücre İmmünitesi",
+        subtitle: "İmmünoglobulin Yapısı, İzotipler ve B Hücre Gelişimi",
+        summary: "Humoral immünitenin temel bileşenleri: antikor yapısı, IgG/IgM/IgA/IgE/IgD özellikleri, B hücre gelişimi ve aktivasyonu, izotip dönüşümü ve somatik hipermutasyon.",
+        tags: ["İmmünoloji", "Antikor", "İmmünoglobulin", "B Hücre", "Humoral İmmünite", "Plazma Hücresi"],
+        sections: [
+            {
+                title: "Antikor Yapısı",
+                icon: "fas fa-y-combinator",
+                content: `
+                    <p><strong>Antikorlar (İmmünoglobulinler)</strong>, B lenfositler ve plazma hücreleri tarafından üretilen glikoproteinlerdir. Y şeklinde yapıya sahiptirler.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Antikor Yapısının Temel Bileşenleri</p>
+                        <p class="highlight-box__content">
+                            <b>2 Ağır zincir (Heavy - H):</b> γ, μ, α, ε, δ → Sınıfı belirler<br>
+                            <b>2 Hafif zincir (Light - L):</b> κ veya λ<br>
+                            <b>Fab bölgesi:</b> Antijen bağlama (Fragment antigen-binding)<br>
+                            <b>Fc bölgesi:</b> Efektör fonksiyonlar (kompleman, fagositoz)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Antikor Bölgeleri ve Fonksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bölge</th>
+                                    <th>İçerik</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>VH + VL</b></td>
+                                    <td>Değişken bölge</td>
+                                    <td>Antijen özgüllüğü (CDR/hipervaryabl)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CH + CL</b></td>
+                                    <td>Sabit bölge</td>
+                                    <td>İzotip belirleme, Fc fonksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fab</b></td>
+                                    <td>VH+VL + CH1+CL</td>
+                                    <td>Antijen bağlama (2 adet)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fc</b></td>
+                                    <td>CH2 + CH3</td>
+                                    <td>Kompleman, FcR bağlama, plasentadan geçiş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hinge (Menteşe)</b></td>
+                                    <td>Fab-Fc arası</td>
+                                    <td>Esneklik, papain/pepsin kesim yeri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Proteolitik Parçalama</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enzim</th>
+                                    <th>Kesim Yeri</th>
+                                    <th>Ürünler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Papain</b></td>
+                                    <td>Menteşe üstü</td>
+                                    <td>2 Fab + 1 Fc</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pepsin</b></td>
+                                    <td>Menteşe altı</td>
+                                    <td>1 F(ab')₂ + Fc parçaları</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PaPain = Fab Parçalar (2 Fab)"</b><br>
+                            <b>"PePsin = Fc Parçalar"</b><br>
+                            <b>"Fab = Antijen bağlar, Fc = Fonksiyon"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İmmünoglobulin Sınıfları (İzotipler)",
+                icon: "fas fa-layer-group",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İzotip Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>IgG</th>
+                                    <th>IgM</th>
+                                    <th>IgA</th>
+                                    <th>IgE</th>
+                                    <th>IgD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ağır zincir</b></td>
+                                    <td>γ</td>
+                                    <td>μ</td>
+                                    <td>α</td>
+                                    <td>ε</td>
+                                    <td>δ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yapı</b></td>
+                                    <td>Monomer</td>
+                                    <td>Pentamer</td>
+                                    <td>Dimer (sekretuvar)</td>
+                                    <td>Monomer</td>
+                                    <td>Monomer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Serum %</b></td>
+                                    <td><b>75-80%</b></td>
+                                    <td>5-10%</td>
+                                    <td>10-15%</td>
+                                    <td>&lt;0.01%</td>
+                                    <td>&lt;1%</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Plasenta geçişi</b></td>
+                                    <td><b>EVET</b></td>
+                                    <td>Hayır</td>
+                                    <td>Hayır</td>
+                                    <td>Hayır</td>
+                                    <td>Hayır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kompleman</b></td>
+                                    <td>++</td>
+                                    <td><b>+++</b></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yarı ömür</b></td>
+                                    <td><b>23 gün</b></td>
+                                    <td>5 gün</td>
+                                    <td>6 gün</td>
+                                    <td>2 gün</td>
+                                    <td>3 gün</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İzotip Özellikleri - Detay</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İzotip</th>
+                                    <th>Ana Fonksiyon</th>
+                                    <th>Klinik Önemi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>IgG</b></td>
+                                    <td>Sekonder yanıt, opsonizasyon, ADCC, nötralizasyon</td>
+                                    <td>Pasif immünite (anne→bebek), en uzun yarı ömür</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgM</b></td>
+                                    <td>Primer yanıt, kompleman aktivasyonu</td>
+                                    <td>Akut enfeksiyon göstergesi, doğal antikorlar (ABO)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgA</b></td>
+                                    <td>Mukozal immünite</td>
+                                    <td>Anne sütü, sekretuar bileşen (SC), dimer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgE</b></td>
+                                    <td>Tip I alerji, parazit</td>
+                                    <td>Mast hücre/bazofil aktivasyonu, anafilaksi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgD</b></td>
+                                    <td>B hücre yüzey reseptörü</td>
+                                    <td>Fonksiyonu tam bilinmiyor</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>IgG Alt Sınıfları:</strong><br>
+                        <b>IgG1, IgG2, IgG3, IgG4</b><br>
+                        IgG3: En güçlü kompleman aktivasyonu<br>
+                        IgG4: Kompleman aktive etmez, alerjik hastalıklarda ↑</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İzotip Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"IgG = Geçer (plasenta), Genel (en fazla), Geç (sekonder)"</b><br>
+                            <b>"IgM = Mega (pentamer), Masum (ilk), Membran (BCR)"</b><br>
+                            <b>"IgA = Anne sütü, Ağız-Bağırsak (mukoza)"</b><br>
+                            <b>"IgE = Egzama, Eozinofil, Eozinofilik parazit"</b><br>
+                            <b>"GAME = IgG-A-M-E sırası (büyükten küçüğe serum)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "B Hücre Gelişimi",
+                icon: "fas fa-seedling",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">B Hücre Gelişim Yeri</p>
+                        <p class="highlight-box__content">
+                            <b>Primer (antijen-bağımsız):</b> Kemik iliği<br>
+                            <b>Sekonder (antijen-bağımlı):</b> Lenf nodu germinal merkez
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kemik İliğinde B Hücre Gelişimi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Ig Durumu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pro-B</b></td>
+                                    <td>Ig yok</td>
+                                    <td>D-J rekombinasyonu başlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pre-B</b></td>
+                                    <td>Sitoplazmik μ</td>
+                                    <td>V-DJ rekombinasyonu, surrogate L zincir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmatür B</b></td>
+                                    <td>Yüzey IgM</td>
+                                    <td>Negatif seleksiyon (self-reaktifler → apoptoz/anerji)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Matür (Naif) B</b></td>
+                                    <td>IgM + IgD</td>
+                                    <td>Perifere çıkar, antijen bekler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">B Hücre Yüzey Belirteçleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Belirteç</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>CD19, CD20, CD21</b></td>
+                                    <td>Pan-B hücre belirteçleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CD21 (CR2)</b></td>
+                                    <td>Kompleman reseptörü (C3d), EBV reseptörü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CD40</b></td>
+                                    <td>T hücre yardımı (CD40L ile etkileşim)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MHC-II</b></td>
+                                    <td>Antijen sunumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BCR (sIg)</b></td>
+                                    <td>Antijen tanıma (IgM/IgD)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>CD21 = EBV Reseptörü!</strong><br>
+                        Epstein-Barr virüsü B hücrelere CD21 üzerinden girer → Enfeksiyöz mononükleoz, Burkitt lenfoma riski</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">B Hücre CD Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CD19-20-21 = B hücre"</b><br>
+                            <b>"CD21 = EBV kapısı"</b><br>
+                            <b>"CD40 = T hücre yardımı alır"</b><br>
+                            <b>"Rituximab = Anti-CD20 (B hücre deplesyonu)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "B Hücre Aktivasyonu ve Germinal Merkez",
+                icon: "fas fa-bolt",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">B Hücre Aktivasyon Türleri</p>
+                        <p class="highlight-box__content">
+                            <b>T-bağımlı (TD):</b> Protein antijenler, izotip dönüşümü VAR, hafıza VAR<br>
+                            <b>T-bağımsız (TI):</b> Polisakkarit/LPS, sadece IgM, hafıza zayıf
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">T-Bağımlı B Hücre Aktivasyonu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sinyal</th>
+                                    <th>Kaynak</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sinyal 1</b></td>
+                                    <td>BCR + Antijen</td>
+                                    <td>Antijen tanıma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sinyal 2</b></td>
+                                    <td>CD40 + CD40L (T hücreden)</td>
+                                    <td>Kostimülasyon, izotip dönüşümü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sinyal 3</b></td>
+                                    <td>Sitokinler (IL-4, IL-21, IFN-γ)</td>
+                                    <td>İzotip belirleme, proliferasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Germinal Merkez Olayları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Olay</th>
+                                    <th>Yer</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Somatik hipermutasyon</b></td>
+                                    <td>Karanlık zon (Dark zone)</td>
+                                    <td>Afinite artışı (AID enzimi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İzotip (sınıf) dönüşümü</b></td>
+                                    <td>Germinal merkez</td>
+                                    <td>IgM → IgG/IgA/IgE (AID enzimi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Afinite olgunlaşması</b></td>
+                                    <td>Aydınlık zon (Light zone)</td>
+                                    <td>FDC üzerinde seçilim</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Plazma/Hafıza hücre</b></td>
+                                    <td>Germinal merkezden çıkış</td>
+                                    <td>Efektör veya uzun süreli hafıza</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Hyper-IgM Sendromu:</strong><br>
+                        <b>CD40L (CD154) mutasyonu</b> → İzotip dönüşümü YOK → Sadece IgM üretilir<br>
+                        <b>AID mutasyonu</b> → Aynı sonuç (sınıf dönüşümü olmaz)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Germinal Merkez Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KARANLIK = Mutasyon (hipermutasyon)"</b><br>
+                            <b>"AYDINLIK = Seçilim (afinite)"</b><br>
+                            <b>"AID = Hem mutasyon, hem sınıf dönüşümü"</b><br>
+                            <b>"CD40L yok = IgM takılı kalır = Hyper-IgM"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>IgG =</b> Plasentadan geçen tek Ig<br>
+                            2. <b>IgM =</b> Pentamer, primer yanıt, en iyi kompleman<br>
+                            3. <b>IgA =</b> Mukoza, anne sütü, dimer<br>
+                            4. <b>IgE =</b> Alerji, parazit, mast hücre<br>
+                            5. <b>CD21 =</b> EBV reseptörü<br>
+                            6. <b>Hyper-IgM =</b> CD40L eksikliği
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özet - İzotip Fonksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İzotip</th>
+                                    <th>Anahtar Kelime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IgG</td>
+                                    <td>Plasenta, sekonder, en fazla, en uzun ömür</td>
+                                </tr>
+                                <tr>
+                                    <td>IgM</td>
+                                    <td>Pentamer, primer, kompleman şampiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td>IgA</td>
+                                    <td>Mukoza, dimer, anne sütü, sekretuar</td>
+                                </tr>
+                                <tr>
+                                    <td>IgE</td>
+                                    <td>Alerji, anafilaksi, parazit, mast hücre</td>
+                                </tr>
+                                <tr>
+                                    <td>IgD</td>
+                                    <td>Naif B yüzeyi, fonksiyon ???</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Fab = Antijen bağlar, Fc = Fonksiyon yapar"</b><br>
+                            <b>"PaPain = 2 Fab + 1 Fc"</b><br>
+                            <b>"IgG = Geçer, Genel, Geç"</b><br>
+                            <b>"IgM = Mega, Masum, İlk"</b><br>
+                            <b>"CD40-CD40L = Sınıf dönüşümü anahtarı"</b><br>
+                            <b>"CD21 = EBV B hücreye girer"</b><br>
+                            <b>"AID = Mutasyon + Dönüşüm"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Plasentadan geçen tek Ig =</b> IgG<br>
+                            2. <b>Primer yanıt =</b> IgM (pentamer)<br>
+                            3. <b>Sekonder yanıt =</b> IgG<br>
+                            4. <b>Mukozal immünite =</b> Sekretuar IgA (dimer)<br>
+                            5. <b>Anne sütündeki Ig =</b> IgA<br>
+                            6. <b>Alerji/anafilaksi =</b> IgE + Mast hücre<br>
+                            7. <b>En fazla serumdaki =</b> IgG (%75-80)<br>
+                            8. <b>En iyi kompleman aktivatörü =</b> IgM<br>
+                            9. <b>CD21 =</b> EBV giriş reseptörü (B hücre)<br>
+                            10. <b>Hyper-IgM sendromu =</b> CD40L veya AID mutasyonu<br>
+                            11. <b>Rituximab hedefi =</b> CD20 (B hücre)<br>
+                            12. <b>Papain kesimi =</b> 2 Fab + 1 Fc
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Plasentadan geçen antikor?" → IgG</li>
+                        <li><b>Soru tipi:</b> "Primer enfeksiyonda artan Ig?" → IgM</li>
+                        <li><b>Soru tipi:</b> "Anne sütündeki immünoglobulin?" → IgA</li>
+                        <li><b>Soru tipi:</b> "Tip I alerji-anafilaksi aracı?" → IgE</li>
+                        <li><b>Soru tipi:</b> "EBV hangi hücreye girer, reseptör?" → B hücre, CD21</li>
+                        <li><b>Soru tipi:</b> "CD40L eksikliği sonucu?" → Hyper-IgM sendromu</li>
+                        <li><b>Soru tipi:</b> "Papain ile antikor kesimi?" → 2 Fab + 1 Fc</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 42,
+        category: "immunoloji",
+        title: "T Hücre İmmünitesi",
+        subtitle: "CD4/CD8, T Hücre Alt Tipleri ve MHC Sistemi",
+        summary: "Hücresel immünitenin temel bileşenleri: T hücre gelişimi, CD4+ yardımcı T hücreler (Th1, Th2, Th17, Treg), CD8+ sitotoksik T hücreler, MHC-I/II sistemi ve antijen sunumu.",
+        tags: ["İmmünoloji", "T Hücre", "CD4", "CD8", "MHC", "Th1", "Th2", "Sitotoksik"],
+        sections: [
+            {
+                title: "T Hücre Gelişimi ve Timik Seleksiyon",
+                icon: "fas fa-seedling",
+                content: `
+                    <p><strong>T hücreleri</strong> kemik iliğinden köken alır, ancak olgunlaşmaları <b>timusta</b> gerçekleşir. Timus, T hücre eğitiminin merkez üssüdür.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Timik Seleksiyon</p>
+                        <p class="highlight-box__content">
+                            <b>Pozitif Seleksiyon (Korteks):</b> Self-MHC tanıyanlar yaşar<br>
+                            <b>Negatif Seleksiyon (Medulla):</b> Self-antijene güçlü bağlananlar ölür<br>
+                            <b>Sonuç:</b> %95-98 timosit apoptoza gider (sadece %2-5 hayatta kalır)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">T Hücre Gelişim Evreleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>CD4/CD8</th>
+                                    <th>Yer</th>
+                                    <th>Olay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Çift negatif (DN)</b></td>
+                                    <td>CD4⁻ CD8⁻</td>
+                                    <td>Korteks</td>
+                                    <td>TCR β zincir rekombinasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çift pozitif (DP)</b></td>
+                                    <td>CD4⁺ CD8⁺</td>
+                                    <td>Korteks</td>
+                                    <td>Pozitif seleksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tek pozitif (SP)</b></td>
+                                    <td>CD4⁺ veya CD8⁺</td>
+                                    <td>Medulla</td>
+                                    <td>Negatif seleksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Matür T</b></td>
+                                    <td>CD4⁺ veya CD8⁺</td>
+                                    <td>Periferik kan</td>
+                                    <td>Antijen bekler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>AIRE Proteini:</strong><br>
+                        Timusu medullasında doku-özgül antijenlerin ekspresyonunu sağlar. AIRE mutasyonu → <b>APECED/APS-1</b> (Otoimmün Poliendokrinopati)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Timik Seleksiyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"POZİTİF = MHC tanı → YAŞA"</b><br>
+                            <b>"NEGATİF = Self-antijen tanı → ÖL"</b><br>
+                            <b>"KORTEKS = Pozitif, MEDULLA = Negatif"</b><br>
+                            <b>"%95 ölür, %5 yaşar"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "MHC Sistemi ve Antijen Sunumu",
+                icon: "fas fa-id-card",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">MHC Sınıfları</p>
+                        <p class="highlight-box__content">
+                            <b>MHC-I:</b> Tüm çekirdekli hücrelerde, CD8⁺ T'ye sunar, endojen antijen<br>
+                            <b>MHC-II:</b> Sadece APC'lerde, CD4⁺ T'ye sunar, eksojen antijen
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">MHC-I vs MHC-II Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>MHC-I</th>
+                                    <th>MHC-II</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HLA tipleri</b></td>
+                                    <td>HLA-A, B, C</td>
+                                    <td>HLA-DP, DQ, DR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yapı</b></td>
+                                    <td>α zincir + β₂-mikroglobulin</td>
+                                    <td>α + β zincir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ekspresyon</b></td>
+                                    <td>Tüm çekirdekli hücreler</td>
+                                    <td>APC (DC, makrofaj, B hücre)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antijen kaynağı</b></td>
+                                    <td>Endojen (sitoplazmik)</td>
+                                    <td>Eksojen (fagositoz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İşleme yolu</b></td>
+                                    <td>Proteazom → TAP → ER</td>
+                                    <td>Endozom/lizozom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>T hücre</b></td>
+                                    <td>CD8⁺ (sitotoksik)</td>
+                                    <td>CD4⁺ (yardımcı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Peptid uzunluğu</b></td>
+                                    <td>8-10 aa</td>
+                                    <td>13-25 aa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HLA ve Hastalık İlişkileri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HLA</th>
+                                    <th>İlişkili Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HLA-B27</b></td>
+                                    <td>Ankilozan spondilit, Reaktif artrit, Psöriatik artrit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HLA-DR3/DR4</b></td>
+                                    <td>Tip 1 Diabetes Mellitus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HLA-DR4</b></td>
+                                    <td>Romatoid Artrit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HLA-DR2</b></td>
+                                    <td>Multipl Skleroz, SLE</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HLA-DQ2/DQ8</b></td>
+                                    <td>Çölyak hastalığı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">MHC Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"MHC-I = 1 zincir + β₂m = CD8 = Endojen = Virüs/tümör"</b><br>
+                            <b>"MHC-II = 2 zincir = CD4 = Eksojen = Bakteri"</b><br>
+                            <b>"HLA-B27 = Spondiloartropatiler"</b><br>
+                            <b>"I x 8 = 8 (CD8), II x 4 = 8... ama II = CD4"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "CD4+ Yardımcı T Hücre Alt Tipleri",
+                icon: "fas fa-users",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Th Alt Tipleri Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Alt tip</th>
+                                    <th>Farklılaştıran Sitokin</th>
+                                    <th>Transkripsiyon Faktörü</th>
+                                    <th>Ürettiği Sitokinler</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Th1</b></td>
+                                    <td>IL-12, IFN-γ</td>
+                                    <td>T-bet</td>
+                                    <td><b>IFN-γ</b>, IL-2, TNF</td>
+                                    <td>Hücre içi patojenler, makrofaj aktivasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Th2</b></td>
+                                    <td>IL-4</td>
+                                    <td>GATA-3</td>
+                                    <td><b>IL-4, IL-5, IL-13</b></td>
+                                    <td>Parazit, alerji, B hücre yardımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Th17</b></td>
+                                    <td>IL-6, TGF-β, IL-23</td>
+                                    <td>RORγt</td>
+                                    <td><b>IL-17, IL-22</b></td>
+                                    <td>Hücre dışı bakteri, fungi, otoimmünite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Treg</b></td>
+                                    <td>TGF-β, IL-2</td>
+                                    <td>FoxP3</td>
+                                    <td><b>IL-10, TGF-β</b></td>
+                                    <td>İmmün supresyon, tolerans</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tfh</b></td>
+                                    <td>IL-6, IL-21</td>
+                                    <td>Bcl-6</td>
+                                    <td><b>IL-21, IL-4</b></td>
+                                    <td>Germinal merkez B hücre yardımı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Th1 vs Th2 Dengesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Th1</th>
+                                    <th>Th2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ana sitokin</b></td>
+                                    <td>IFN-γ</td>
+                                    <td>IL-4</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hedef patojen</b></td>
+                                    <td>Hücre içi (virüs, mikobakteri)</td>
+                                    <td>Helmint, ekstraselüler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hastalık ilişkisi</b></td>
+                                    <td>Gecikmiş tip hipersensitivite</td>
+                                    <td>Alerji, atopi, astım</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karşılıklı inhibisyon</b></td>
+                                    <td>IFN-γ → Th2 baskılar</td>
+                                    <td>IL-4 → Th1 baskılar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>FoxP3 Mutasyonu = IPEX Sendromu:</strong><br>
+                        <b>I</b>mmune dysregulation, <b>P</b>olyendocrinopathy, <b>E</b>nteropathy, <b>X</b>-linked<br>
+                        Treg yokluğu → Ağır otoimmünite</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Th Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Th1 = IFN-γ = İntrasellüler = T-bet"</b><br>
+                            <b>"Th2 = IL-4 = Alerji/Parazit = GATA-3"</b><br>
+                            <b>"Th17 = IL-17 = Fungi/Bakteri = RORγt"</b><br>
+                            <b>"Treg = IL-10 = Tolerans = FoxP3"</b><br>
+                            <b>"FoxP3 yok = IPEX"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "CD8+ Sitotoksik T Hücreler",
+                icon: "fas fa-crosshairs",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">CTL (Cytotoxic T Lymphocyte)</p>
+                        <p class="highlight-box__content">
+                            <b>Tanıma:</b> MHC-I üzerinde sunulan endojen antijen (virüs, tümör)<br>
+                            <b>Öldürme:</b> Perforin-granzim yolu veya Fas-FasL yolu<br>
+                            <b>Hedef:</b> Virüs-enfekte hücreler, tümör hücreleri
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CTL Öldürme Mekanizmaları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mekanizma</th>
+                                    <th>Molekül</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Granül ekzositozu</b></td>
+                                    <td>Perforin + Granzim B</td>
+                                    <td>Perforin delik açar, granzim apoptoz başlatır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fas-FasL yolu</b></td>
+                                    <td>FasL (CTL) + Fas (hedef)</td>
+                                    <td>Kaspaz aktivasyonu → Apoptoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sitokin sekresyonu</b></td>
+                                    <td>IFN-γ, TNF-α</td>
+                                    <td>Antiviral durum, makrofaj aktivasyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CTL vs NK Hücre</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>CTL (CD8+)</th>
+                                    <th>NK Hücre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İmmünite tipi</b></td>
+                                    <td>Adaptif</td>
+                                    <td>Doğal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aktivasyon</b></td>
+                                    <td>MHC-I + antijen tanıma</td>
+                                    <td>MHC-I yokluğu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Reseptör</b></td>
+                                    <td>TCR (özgül)</td>
+                                    <td>KIR, NKG2D (patern)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafıza</b></td>
+                                    <td>VAR</td>
+                                    <td>Klasik hafıza YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Öldürme</b></td>
+                                    <td>Perforin-granzim, Fas</td>
+                                    <td>Perforin-granzim, ADCC</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>"Missing Self" Hipotezi:</strong><br>
+                        Virüsler ve tümörler MHC-I'i downregüle eder → CTL'den kaçar<br>
+                        AMA: NK hücreler MHC-I yokluğunu algılar → Öldürür</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">CTL Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CD8 = Sitotoksik = Öldürücü"</b><br>
+                            <b>"Perforin = Delik, Granzim = Apoptoz"</b><br>
+                            <b>"MHC-I yüksek = CTL öldürür"</b><br>
+                            <b>"MHC-I düşük = NK öldürür"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>MHC-I =</b> CD8, endojen, tüm çekirdekli hücreler<br>
+                            2. <b>MHC-II =</b> CD4, eksojen, sadece APC<br>
+                            3. <b>HLA-B27 =</b> Spondiloartropatiler<br>
+                            4. <b>Th1 =</b> IFN-γ, hücre içi patojenler<br>
+                            5. <b>Th2 =</b> IL-4, alerji/parazit<br>
+                            6. <b>FoxP3 =</b> Treg, eksikliği IPEX
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özet - T Hücre Alt Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hücre</th>
+                                    <th>Anahtar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Th1</td>
+                                    <td>IFN-γ, T-bet, hücre içi patojen</td>
+                                </tr>
+                                <tr>
+                                    <td>Th2</td>
+                                    <td>IL-4, GATA-3, alerji/parazit</td>
+                                </tr>
+                                <tr>
+                                    <td>Th17</td>
+                                    <td>IL-17, RORγt, fungi/bakteri</td>
+                                </tr>
+                                <tr>
+                                    <td>Treg</td>
+                                    <td>IL-10, FoxP3, tolerans</td>
+                                </tr>
+                                <tr>
+                                    <td>CTL</td>
+                                    <td>Perforin, granzim, virüs/tümör öldürme</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"MHC-I = CD8 = Endojen = VİRÜS/TÜMÖR"</b><br>
+                            <b>"MHC-II = CD4 = Eksojen = BAKTERİ"</b><br>
+                            <b>"HLA-B27 = Spondilo = Bel ağrısı"</b><br>
+                            <b>"Th1 = IFN-γ = Tüberküloz/virüs"</b><br>
+                            <b>"Th2 = IL-4 = Alerji/parazit"</b><br>
+                            <b>"FoxP3 yok = IPEX = Otoimmünite"</b><br>
+                            <b>"Perforin+Granzim = CTL silahı"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>T hücre olgunlaşması =</b> Timus<br>
+                            2. <b>Pozitif seleksiyon =</b> Korteks, MHC tanıma<br>
+                            3. <b>Negatif seleksiyon =</b> Medulla, self-tolerans<br>
+                            4. <b>MHC-I =</b> HLA-A,B,C → CD8<br>
+                            5. <b>MHC-II =</b> HLA-DP,DQ,DR → CD4<br>
+                            6. <b>HLA-B27 =</b> Ankilozan spondilit, reaktif artrit<br>
+                            7. <b>Th1 =</b> IFN-γ, T-bet, makrofaj aktivasyonu<br>
+                            8. <b>Th2 =</b> IL-4, GATA-3, IgE artışı<br>
+                            9. <b>Th17 =</b> IL-17, otoimmün hastalıklar<br>
+                            10. <b>Treg =</b> FoxP3, IPEX sendromu (eksiklikte)<br>
+                            11. <b>CTL öldürme =</b> Perforin-granzim, Fas-FasL<br>
+                            12. <b>AIRE eksikliği =</b> APECED sendromu
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "MHC-I ile etkileşen T hücre?" → CD8+</li>
+                        <li><b>Soru tipi:</b> "HLA-B27 ilişkili hastalık?" → Ankilozan spondilit</li>
+                        <li><b>Soru tipi:</b> "Th1 ana sitokini?" → IFN-γ</li>
+                        <li><b>Soru tipi:</b> "Alerji ile ilişkili Th alt tipi?" → Th2</li>
+                        <li><b>Soru tipi:</b> "Treg transkripsiyon faktörü?" → FoxP3</li>
+                        <li><b>Soru tipi:</b> "FoxP3 mutasyonunda görülen sendrom?" → IPEX</li>
+                        <li><b>Soru tipi:</b> "CTL öldürme mekanizması?" → Perforin-granzim</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 43,
+        category: "immunoloji",
+        title: "Hipersensitivite Reaksiyonları",
+        subtitle: "Tip I-IV Reaksiyonlar, Alerji ve İmmün Hasarlanma",
+        summary: "İmmün sistemin aşırı veya uygunsuz yanıtları: Tip I (anafilaksi), Tip II (sitotoksik), Tip III (immün kompleks), Tip IV (gecikmiş tip) hipersensitivite reaksiyonları ve klinik örnekleri.",
+        tags: ["İmmünoloji", "Hipersensitivite", "Alerji", "Anafilaksi", "IgE", "Otoimmünite"],
+        sections: [
+            {
+                title: "Hipersensitivite Genel Bakış",
+                icon: "fas fa-exclamation-triangle",
+                content: `
+                    <p><strong>Hipersensitivite</strong>, immün yanıtın zararlı doku hasarına yol açtığı patolojik durumlardır. Gell ve Coombs sınıflamasına göre 4 tipe ayrılır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Hipersensitivite Sınıflaması</p>
+                        <p class="highlight-box__content">
+                            <b>Tip I:</b> Ani/Anafilaktik (IgE aracılı) - dakikalar<br>
+                            <b>Tip II:</b> Sitotoksik (IgG/IgM aracılı) - saatler<br>
+                            <b>Tip III:</b> İmmün kompleks - saatler/günler<br>
+                            <b>Tip IV:</b> Gecikmiş tip (T hücre aracılı) - 48-72 saat
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Genel Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Aracı</th>
+                                    <th>Süre</th>
+                                    <th>Antikor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tip I</b></td>
+                                    <td>Mast hücre, bazofil</td>
+                                    <td>Dakikalar</td>
+                                    <td>IgE</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip II</b></td>
+                                    <td>NK, kompleman, fagosit</td>
+                                    <td>Saatler</td>
+                                    <td>IgG, IgM</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip III</b></td>
+                                    <td>Nötrofil, kompleman</td>
+                                    <td>Saatler-günler</td>
+                                    <td>IgG, IgM</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip IV</b></td>
+                                    <td>T hücre, makrofaj</td>
+                                    <td>48-72 saat</td>
+                                    <td>YOK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tip Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Tip I = IgE = Immediate = Ani"</b><br>
+                            <b>"Tip II = Antibody = Sitotoksik"</b><br>
+                            <b>"Tip III = Immune Complex"</b><br>
+                            <b>"Tip IV = T hücre = Delayed = Geç"</b><br>
+                            <b>"I-II-III = Antikor, IV = Hücre"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tip I - Ani (Anafilaktik) Hipersensitivite",
+                icon: "fas fa-bolt",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tip I Mekanizma</p>
+                        <p class="highlight-box__content">
+                            <b>1. Sensibilizasyon:</b> İlk temas → B hücre → IgE üretimi<br>
+                            <b>2. IgE bağlanması:</b> Mast hücre/bazofil FcεRI reseptörüne<br>
+                            <b>3. Aktivasyon:</b> Tekrar temas → Çapraz bağlanma → Degranülasyon
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Mast Hücre Mediatörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Mediatör</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Preformed (Primer)</b></td>
+                                    <td>Histamin</td>
+                                    <td>Vazodilatasyon, permeabilite ↑, bronkospazm</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Triptaz</td>
+                                    <td>Doku hasarı (mast hücre belirteci)</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Heparin</td>
+                                    <td>Antikoagülasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yeni sentez</b></td>
+                                    <td>Lökotrien C4, D4, E4</td>
+                                    <td>Bronkospazm (histaminden güçlü)</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Prostaglandin D2</td>
+                                    <td>Vazodilatasyon, bronkospazm</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sitokinler</b></td>
+                                    <td>IL-4, IL-5, IL-13, TNF</td>
+                                    <td>Geç faz reaksiyonu, eozinofil</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tip I Hastalık Örnekleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Alerjen</th>
+                                    <th>Klinik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Anafilaksi</b></td>
+                                    <td>İlaç, arı, fıstık</td>
+                                    <td>Hipotansiyon, laringeal ödem, şok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alerjik rinit</b></td>
+                                    <td>Polen, ev tozu</td>
+                                    <td>Hapşırma, burun akıntısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alerjik astım</b></td>
+                                    <td>Çeşitli alerjenler</td>
+                                    <td>Bronkospazm, wheezing</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ürtiker</b></td>
+                                    <td>Gıda, ilaç</td>
+                                    <td>Kaşıntılı papüller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atopik dermatit</b></td>
+                                    <td>Çeşitli</td>
+                                    <td>Egzema, kaşıntı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Anafilaksi Tedavisi:</strong><br>
+                        <b>1. EPİNEFRİN (IM uyluk)</b> - Birinci basamak!<br>
+                        2. Antihistaminik (H1 bloker)<br>
+                        3. Kortikosteroid (geç fazı önler)<br>
+                        4. Bronkodilatör (nebül)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tip I Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"IgE = Mast = Histamin = ANİ"</b><br>
+                            <b>"Triptaz = Mast hücre belirteci"</b><br>
+                            <b>"Lökotrien = En güçlü bronkospazm"</b><br>
+                            <b>"Anafilaksi = EPİNEFRİN ilk!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tip II - Sitotoksik Hipersensitivite",
+                icon: "fas fa-bullseye",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tip II Mekanizma</p>
+                        <p class="highlight-box__content">
+                            <b>Antikor (IgG/IgM)</b> hücre yüzeyindeki antijene bağlanır:<br>
+                            1. <b>Kompleman aktivasyonu →</b> MAC ile lizis<br>
+                            2. <b>ADCC →</b> NK hücre, makrofaj ile öldürme<br>
+                            3. <b>Opsonizasyon →</b> Fagositoz<br>
+                            4. <b>Fonksiyon bozuklugu →</b> Reseptör stimülasyonu/blokajı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tip II Alt Tipleri ve Hastalıklar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mekanizma</th>
+                                    <th>Hastalık</th>
+                                    <th>Hedef</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hücre yıkımı</b></td>
+                                    <td>Otoimmün hemolitik anemi</td>
+                                    <td>Eritrosit yüzey antijeni</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>İmmün trombositopeni (ITP)</td>
+                                    <td>Trombosit</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Transfüzyon reaksiyonu</td>
+                                    <td>ABO uyumsuz eritrosit</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Rh uyuşmazlığı (HDFN)</td>
+                                    <td>Fetal eritrosit</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Goodpasture sendromu</td>
+                                    <td>Tip IV kollajen (bazal membran)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Reseptör stimülasyonu</b></td>
+                                    <td>Graves hastalığı</td>
+                                    <td>TSH reseptörü (stimüle)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Reseptör blokajı</b></td>
+                                    <td>Myasthenia gravis</td>
+                                    <td>Asetilkolin reseptörü (bloke)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Goodpasture Sendromu:</strong><br>
+                        Anti-GBM (Glomerüler Bazal Membran) antikoru<br>
+                        <b>Akciğer + Böbrek tutulumu</b> → Pulmoner hemoraji + Glomerülonefrit</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tip II Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Tip II = Antikor hücreye bağlanır"</b><br>
+                            <b>"GRAVES = Stimüle, MYASTHENIA = Bloke"</b><br>
+                            <b>"Goodpasture = Akciğer + Böbrek"</b><br>
+                            <b>"AIHA, ITP = Kan hücre yıkımı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tip III - İmmün Kompleks Hipersensitivite",
+                icon: "fas fa-cubes",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tip III Mekanizma</p>
+                        <p class="highlight-box__content">
+                            <b>Antijen-antikor kompleksleri</b> dolaşımda oluşur veya dokulara çöker:<br>
+                            1. Kompleman aktivasyonu<br>
+                            2. Nötrofil kemotaksisi (C5a)<br>
+                            3. Doku hasarı (proteazlar, ROS)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tip III Hastalık Örnekleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Antijen</th>
+                                    <th>Tutulum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>SLE</b></td>
+                                    <td>Nükleer antijenler (dsDNA, histon)</td>
+                                    <td>Böbrek, deri, eklem, çoklu organ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Post-strep GN</b></td>
+                                    <td>Streptokokal antijen</td>
+                                    <td>Böbrek (glomerül)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Serum hastalığı</b></td>
+                                    <td>Yabancı protein (antiserum)</td>
+                                    <td>Ateş, döküntü, artralji, proteinüri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Arthus reaksiyonu</b></td>
+                                    <td>Lokal enjekte antijen</td>
+                                    <td>Lokal nekroz (intradermal)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Poliarteritis nodoza</b></td>
+                                    <td>HBV antijeni</td>
+                                    <td>Orta boy arterler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hipersensitivite pnömonisi</b></td>
+                                    <td>Organik tozlar (küf, kuş)</td>
+                                    <td>Akciğer (Tip III + IV)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Arthus vs Serum Hastalığı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Arthus</th>
+                                    <th>Serum Hastalığı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Antijen</b></td>
+                                    <td>Lokal enjeksiyon</td>
+                                    <td>Sistemik (IV)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tutulum</b></td>
+                                    <td>Lokal (enjeksiyon yeri)</td>
+                                    <td>Sistemik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>4-8 saat</td>
+                                    <td>7-14 gün sonra</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tip III Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Tip III = Kompleks = Çöker = Vaskülit"</b><br>
+                            <b>"SLE = Tip III şampiyonu"</b><br>
+                            <b>"Serum hastalığı = 7-14 gün sonra"</b><br>
+                            <b>"Arthus = Lokal nekroz"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tip IV - Gecikmiş Tip Hipersensitivite",
+                icon: "fas fa-clock",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tip IV Mekanizma</p>
+                        <p class="highlight-box__content">
+                            <b>Antikor YOK!</b> T hücre aracılıdır:<br>
+                            <b>CD4+ Th1:</b> Makrofaj aktivasyonu (granülom)<br>
+                            <b>CD8+ CTL:</b> Hücre yıkımı<br>
+                            <b>Süre:</b> 24-72 saat (gecikmiş)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tip IV Alt Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Alt tip</th>
+                                    <th>Hücre</th>
+                                    <th>Mekanizma</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tip IVa (DTH)</b></td>
+                                    <td>Th1</td>
+                                    <td>Makrofaj aktivasyonu, IFN-γ</td>
+                                    <td>Tüberkülin (PPD) testi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip IVb</b></td>
+                                    <td>Th2</td>
+                                    <td>Eozinofil, IL-4/IL-5</td>
+                                    <td>Kronik astım</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip IVc</b></td>
+                                    <td>CTL (CD8)</td>
+                                    <td>Direkt sitotoksisite</td>
+                                    <td>Kontakt dermatit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip IVd</b></td>
+                                    <td>Nötrofil</td>
+                                    <td>IL-8, GM-CSF</td>
+                                    <td>AGEP (püstüler)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tip IV Hastalık Örnekleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Antijen</th>
+                                    <th>Klinik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tüberkülin (PPD) testi</b></td>
+                                    <td>Mikobakteri proteini</td>
+                                    <td>48-72 saat sonra indürasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kontakt dermatit</b></td>
+                                    <td>Nikel, poison ivy, lateks</td>
+                                    <td>Kaşıntı, vezikül (24-48 saat)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Granülomatöz hastalıklar</b></td>
+                                    <td>Tbc, lepra, sarkoidoz</td>
+                                    <td>Granülom oluşumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip 1 DM</b></td>
+                                    <td>β hücre antijenleri</td>
+                                    <td>Adacık hücre yıkımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Multipl skleroz</b></td>
+                                    <td>Miyelin</td>
+                                    <td>Demiyelinizasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hashimoto tiroiditi</b></td>
+                                    <td>Tiroid antijenleri</td>
+                                    <td>Tiroid yıkımı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>PPD (Mantoux) Testi:</strong><br>
+                        <b>Okunum:</b> 48-72 saat sonra<br>
+                        <b>Değerlendirme:</b> İndürasyon ölçülür (eritem değil!)<br>
+                        <b>Pozitiflik:</b> Genel popülasyon ≥15mm, risk grubu ≥10mm, immünsuprese ≥5mm</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tip IV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Tip IV = T hücre = Gecikmiş = 48-72 saat"</b><br>
+                            <b>"PPD, Kontakt = Tip IV klasik"</b><br>
+                            <b>"GRANÜLOM = Th1 + Makrofaj"</b><br>
+                            <b>"Antikor YOK, hücre VAR"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Tip I =</b> IgE, mast hücre, anafilaksi<br>
+                            2. <b>Tip II =</b> IgG/IgM hücreye bağlanır<br>
+                            3. <b>Tip III =</b> İmmün kompleks, vaskülit, SLE<br>
+                            4. <b>Tip IV =</b> T hücre, 48-72 saat, PPD<br>
+                            5. <b>Graves =</b> Tip II (stimüle)<br>
+                            6. <b>Myasthenia =</b> Tip II (bloke)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hastalık-Tip Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Tip</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Anafilaksi, Astım, Alerjik rinit</td>
+                                    <td>Tip I</td>
+                                </tr>
+                                <tr>
+                                    <td>AIHA, ITP, Graves, Myasthenia</td>
+                                    <td>Tip II</td>
+                                </tr>
+                                <tr>
+                                    <td>SLE, Serum hastalığı, Post-strep GN</td>
+                                    <td>Tip III</td>
+                                </tr>
+                                <tr>
+                                    <td>PPD, Kontakt dermatit, Tip 1 DM</td>
+                                    <td>Tip IV</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ACID = Anaphylactic, Cytotoxic, Immune complex, Delayed"</b><br>
+                            <b>"I-II-III = Antikor, IV = Hücre"</b><br>
+                            <b>"Tip I = IgE = Ani"</b><br>
+                            <b>"Tip II = Hücre üstüne Ab"</b><br>
+                            <b>"Tip III = Kompleks çöker"</b><br>
+                            <b>"Tip IV = T hücre = Geç (48-72 saat)"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Tip I =</b> IgE + Mast hücre + Histamin<br>
+                            2. <b>Anafilaksi tedavisi =</b> EPİNEFRİN (IM, ilk)<br>
+                            3. <b>Mast hücre belirteci =</b> Triptaz<br>
+                            4. <b>Tip II (yıkım) =</b> AIHA, ITP, transfüzyon rx<br>
+                            5. <b>Tip II (stimüle) =</b> Graves hastalığı<br>
+                            6. <b>Tip II (bloke) =</b> Myasthenia gravis<br>
+                            7. <b>Goodpasture =</b> Tip II, akciğer+böbrek<br>
+                            8. <b>Tip III klasiği =</b> SLE, serum hastalığı<br>
+                            9. <b>Arthus =</b> Lokal Tip III<br>
+                            10. <b>Tip IV =</b> T hücre, ANTİKOR YOK<br>
+                            11. <b>PPD testi =</b> 48-72 saat, indürasyon<br>
+                            12. <b>Kontakt dermatit =</b> Tip IV (nikel, lateks)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Anafilaksi tedavisinde ilk ilaç?" → Epinefrin</li>
+                        <li><b>Soru tipi:</b> "IgE aracılı reaksiyon?" → Tip I</li>
+                        <li><b>Soru tipi:</b> "TSH reseptörünü stimüle eden antikor?" → Graves (Tip II)</li>
+                        <li><b>Soru tipi:</b> "SLE hangi tip hipersensitivite?" → Tip III</li>
+                        <li><b>Soru tipi:</b> "PPD kaç saat sonra okunur?" → 48-72 saat</li>
+                        <li><b>Soru tipi:</b> "Nikel alerjisi hangi tip?" → Tip IV</li>
+                        <li><b>Soru tipi:</b> "Granülom hangi tip hipersensitivite?" → Tip IV</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 44,
+        category: "immunoloji",
+        title: "Primer İmmün Yetmezlikler",
+        subtitle: "Konjenital İmmün Sistem Defektleri",
+        summary: "Doğuştan immün sistem bozuklukları: B hücre (humoral), T hücre (hücresel), kombine, fagosit ve kompleman yetmezlikleri. SCID, Bruton, DiGeorge, CGD, LAD ve diğer primer immün yetmezlikler.",
+        tags: ["İmmünoloji", "İmmün Yetmezlik", "SCID", "Bruton", "DiGeorge", "CGD", "LAD"],
+        sections: [
+            {
+                title: "Primer İmmün Yetmezlik Sınıflaması",
+                icon: "fas fa-shield-halved",
+                content: `
+                    <p><strong>Primer (konjenital) immün yetmezlikler</strong>, genetik defektlere bağlı immün sistem bozukluklarıdır. Tekrarlayan, ağır veya fırsatçı enfeksiyonlarla karakterizedir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ana Kategoriler</p>
+                        <p class="highlight-box__content">
+                            <b>B hücre (Humoral):</b> En sık (~50%), bakteri enfeksiyonları<br>
+                            <b>T hücre (Hücresel):</b> Viral, fungal, fırsatçı enfeksiyonlar<br>
+                            <b>Kombine (B+T):</b> En ağır, SCID<br>
+                            <b>Fagosit:</b> Piyojenik bakteri, mantar<br>
+                            <b>Kompleman:</b> Neisseria, SLE benzeri
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yetmezlik Tipine Göre Enfeksiyon Paterni</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yetmezlik Tipi</th>
+                                    <th>Tipik Patojenler</th>
+                                    <th>Enfeksiyon Tipi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>B hücre (Humoral)</b></td>
+                                    <td>S. pneumoniae, H. influenzae, Giardia</td>
+                                    <td>Sinopulmoner, GİS</td>
+                                </tr>
+                                <tr>
+                                    <td><b>T hücre</b></td>
+                                    <td>Virüsler, Candida, PCP, mikobakteri</td>
+                                    <td>Fırsatçı, dissemine</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fagosit</b></td>
+                                    <td>S. aureus, Aspergillus, Gram (-)</td>
+                                    <td>Deri, lenf nodu, karaciğer absesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kompleman</b></td>
+                                    <td>Neisseria, kapsüllü bakteriler</td>
+                                    <td>Menenjit, sepsis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Enfeksiyon Paterni Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"B yetmezlik = Bakteri (kapsüllü) + Giardia"</b><br>
+                            <b>"T yetmezlik = Viral + Fungal + Fırsatçı"</b><br>
+                            <b>"Fagosit = Katalaz (+) organizmalar"</b><br>
+                            <b>"Kompleman = Neisseria"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "B Hücre (Humoral) Yetmezlikler",
+                icon: "fas fa-virus-slash",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Major B Hücre Yetmezlikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Genetik Defekt</th>
+                                    <th>Bulgu</th>
+                                    <th>Kalıtım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>X-linked Agamaglobulinemi (Bruton)</b></td>
+                                    <td>BTK (Bruton tirozin kinaz)</td>
+                                    <td>B hücre YOK, tüm Ig ↓↓</td>
+                                    <td>X-linked</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Common Variable ID (CVID)</b></td>
+                                    <td>Çeşitli (ICOS, TACI, CD19)</td>
+                                    <td>B hücre VAR, Ig ↓, geç başlangıç</td>
+                                    <td>Değişken</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Selektif IgA eksikliği</b></td>
+                                    <td>Bilinmiyor</td>
+                                    <td>IgA ↓, diğer Ig normal</td>
+                                    <td>En sık PID!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hyper-IgM sendromu</b></td>
+                                    <td>CD40L veya AID</td>
+                                    <td>IgM normal/↑, IgG-A-E ↓</td>
+                                    <td>X-linked/AR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transient hipogamaglobulinemi</b></td>
+                                    <td>Fizyolojik gecikme</td>
+                                    <td>6 ay-3 yaş, kendiliğinden düzelir</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Bruton (XLA) - Klinik İpuçları:</strong><br>
+                        • 6 aydan sonra başlar (maternal IgG düşünce)<br>
+                        • Erkek çocuk, tekrarlayan sinopulmoner enfeksiyon<br>
+                        • Tonsil/lenf nodu YOK (B hücre yok!)<br>
+                        • Canlı aşı kontrendike</p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Selektif IgA Eksikliği:</strong><br>
+                        • En sık primer immün yetmezlik (1/500-700)<br>
+                        • Çoğu asemptomatik<br>
+                        • Kan transfüzyonunda anafilaksi riski! (Anti-IgA Ab)<br>
+                        • Çölyak, otoimmünite ilişkisi</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">B Hücre Yetmezlik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"BRUTON = BTK = B hücre YOK = Erkek"</b><br>
+                            <b>"CVID = En sık semptomatik = Geç başlangıç"</b><br>
+                            <b>"IgA eksik = En sık PID = Transfüzyon riski"</b><br>
+                            <b>"Hyper-IgM = CD40L = Sınıf dönüşümü yok"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "T Hücre ve Kombine Yetmezlikler",
+                icon: "fas fa-dna",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kombine ve T Hücre Yetmezlikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Genetik Defekt</th>
+                                    <th>Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>SCID (Ağır Kombine)</b></td>
+                                    <td>IL-2Rγ (X), ADA, RAG1/2, JAK3</td>
+                                    <td>T yok, B±, NK±; en ağır PID</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DiGeorge sendromu</b></td>
+                                    <td>22q11.2 delesyon</td>
+                                    <td>Timus hipoplazisi, T ↓, kardiak defekt</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Wiskott-Aldrich</b></td>
+                                    <td>WASP</td>
+                                    <td>Trombositopeni, egzema, immün yetm.</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ataxia-Telangiectasia</b></td>
+                                    <td>ATM</td>
+                                    <td>Ataksi, telenjiektazi, IgA ↓, AFP ↑</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bare Lymphocyte Sendromu</b></td>
+                                    <td>MHC-I veya MHC-II eksikliği</td>
+                                    <td>CD8 ↓ (Tip I), CD4 ↓ (Tip II)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SCID - En Ağır İmmün Yetmezlik:</strong><br>
+                        • <b>Erken bebek döneminde:</b> Ağır enfeksiyonlar, ishal, büyüme geriliği<br>
+                        • <b>BCG aşısı:</b> Dissemine BCG enfeksiyonu<br>
+                        • <b>Tedavi:</b> Kemik iliği nakli (küratif)<br>
+                        • <b>Canlı aşı:</b> Kesinlikle kontrendike!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">DiGeorge Sendromu - CATCH 22</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Harf</th>
+                                    <th>Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>C</b></td>
+                                    <td>Cardiac defects (Fallot, aortik ark anomalileri)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>A</b></td>
+                                    <td>Abnormal facies</td>
+                                </tr>
+                                <tr>
+                                    <td><b>T</b></td>
+                                    <td>Thymic hypoplasia (T hücre ↓)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C</b></td>
+                                    <td>Cleft palate</td>
+                                </tr>
+                                <tr>
+                                    <td><b>H</b></td>
+                                    <td>Hypocalcemia (paratiroid yokluğu)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>22</b></td>
+                                    <td>22q11.2 delesyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kombine Yetmezlik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SCID = En ağır = BCG öldürür"</b><br>
+                            <b>"DiGeorge = CATCH-22 = Timus yok = Hipokalsemi"</b><br>
+                            <b>"Wiskott = WASP = Trombosit + Egzema"</b><br>
+                            <b>"Ataxia-Tel = ATM = Ataksi + AFP yüksek"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Fagosit ve Kompleman Yetmezlikleri",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Fagosit Yetmezlikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Defekt</th>
+                                    <th>Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kronik Granülomatöz Hastalık (CGD)</b></td>
+                                    <td>NADPH oksidaz (gp91, p47)</td>
+                                    <td>Katalaz (+) organizmalar, granülom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LAD Tip I</b></td>
+                                    <td>CD18 (β2 integrin)</td>
+                                    <td>Gecikmiş göbek düşmesi, lökositoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LAD Tip II</b></td>
+                                    <td>Sialyl-Lewis X (selectin ligand)</td>
+                                    <td>Mental retardasyon, Bombay fenotipi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Chediak-Higashi</b></td>
+                                    <td>LYST (lizozomal trafik)</td>
+                                    <td>Dev granüller, albinizm, nöropati</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Myeloperoksidaz eksikliği</b></td>
+                                    <td>MPO</td>
+                                    <td>Genelde asemptomatik, Candida riski</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>CGD - Katalaz (+) Organizmalar:</strong><br>
+                        <b>"SPACE"</b> = <b>S</b>erratia, <b>P</b>seudomonas, <b>A</b>spergillus, <b>C</b>andida, <b>E</b>. coli (+ S. aureus, Nocardia, B. cepacia)<br>
+                        <b>Tanı:</b> NBT veya DHR testi (oksidatif patlama yok)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kompleman Yetmezlikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Eksik Bileşen</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>C1, C2, C4</b></td>
+                                    <td>SLE benzeri otoimmünite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C3</b></td>
+                                    <td>Ağır piyojenik enfeksiyonlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C5-C9 (MAC)</b></td>
+                                    <td>Neisseria enfeksiyonları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C1 inhibitör</b></td>
+                                    <td>Herediter anjiyoödem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DAF/CD55, CD59</b></td>
+                                    <td>PNH (hemoliz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MBL</b></td>
+                                    <td>Çocuklukta enfeksiyon artışı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Fagosit/Kompleman Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CGD = NADPH = Katalaz+ = SPACE"</b><br>
+                            <b>"LAD = CD18 = Göbek düşmez"</b><br>
+                            <b>"Chediak = Dev granül = Albino"</b><br>
+                            <b>"MAC yok = Neisseria"</b><br>
+                            <b>"C1-INH yok = Anjiyoödem"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>En sık PID =</b> Selektif IgA eksikliği<br>
+                            2. <b>Bruton =</b> BTK, B hücre yok, X-linked<br>
+                            3. <b>SCID =</b> En ağır, T yok, BCG kontrendike<br>
+                            4. <b>DiGeorge =</b> 22q11.2, timus yok, hipokalsemi<br>
+                            5. <b>CGD =</b> NADPH, katalaz (+) organizmalar<br>
+                            6. <b>LAD =</b> CD18, göbek geç düşer
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Eşleştirme Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Erkek, B hücre yok, tonsil yok</td>
+                                    <td>Bruton (XLA)</td>
+                                </tr>
+                                <tr>
+                                    <td>Transfüzyonda anafilaksi</td>
+                                    <td>IgA eksikliği</td>
+                                </tr>
+                                <tr>
+                                    <td>BCG'den ölüm</td>
+                                    <td>SCID</td>
+                                </tr>
+                                <tr>
+                                    <td>Kardiak defekt + hipokalsemi</td>
+                                    <td>DiGeorge</td>
+                                </tr>
+                                <tr>
+                                    <td>Katalaz (+) enfeksiyonlar</td>
+                                    <td>CGD</td>
+                                </tr>
+                                <tr>
+                                    <td>Göbek geç düşmesi, lökositoz</td>
+                                    <td>LAD</td>
+                                </tr>
+                                <tr>
+                                    <td>Egzema + trombositopeni</td>
+                                    <td>Wiskott-Aldrich</td>
+                                </tr>
+                                <tr>
+                                    <td>Ataksi + AFP yüksek</td>
+                                    <td>Ataxia-telangiectasia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"BRUTON = BTK = B yok = Bakteri"</b><br>
+                            <b>"SCID = IL-2Rγ/ADA = En ağır = BCG öldürür"</b><br>
+                            <b>"DiGeorge = CATCH-22 = Timus-Paratiroid"</b><br>
+                            <b>"CGD = NADPH = NBT(-) = Katalaz(+)"</b><br>
+                            <b>"LAD = CD18 = Lökosit yapışamaz = Göbek"</b><br>
+                            <b>"MAC yok = Meningokok"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>En sık PID =</b> Selektif IgA eksikliği<br>
+                            2. <b>Bruton =</b> BTK mutasyonu, X-linked, B hücre YOK<br>
+                            3. <b>CVID =</b> En sık semptomatik, geç başlangıç<br>
+                            4. <b>Hyper-IgM =</b> CD40L, sınıf dönüşümü yok<br>
+                            5. <b>SCID =</b> IL-2Rγ veya ADA, BCG öldürücü<br>
+                            6. <b>DiGeorge =</b> 22q11.2, CATCH-22, hipokalsemi<br>
+                            7. <b>Wiskott-Aldrich =</b> WASP, egzema+trombositopeni<br>
+                            8. <b>CGD =</b> NADPH oksidaz, NBT testi, SPACE org.<br>
+                            9. <b>LAD =</b> CD18, gecikmiş göbek düşmesi<br>
+                            10. <b>Chediak-Higashi =</b> Dev granül, albinizm<br>
+                            11. <b>MAC eksikliği =</b> Neisseria enfeksiyonları<br>
+                            12. <b>C1-INH eksikliği =</b> Herediter anjiyoödem
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "BTK mutasyonu hangi hastalık?" → Bruton (XLA)</li>
+                        <li><b>Soru tipi:</b> "En sık primer immün yetmezlik?" → Selektif IgA eksikliği</li>
+                        <li><b>Soru tipi:</b> "BCG aşısından sonra dissemine enfeksiyon?" → SCID</li>
+                        <li><b>Soru tipi:</b> "Hipokalsemi + kardiak anomali + enfeksiyon?" → DiGeorge</li>
+                        <li><b>Soru tipi:</b> "NBT testi negatif, katalaz (+) enfeksiyonlar?" → CGD</li>
+                        <li><b>Soru tipi:</b> "Gecikmiş göbek düşmesi, lökositoz?" → LAD</li>
+                        <li><b>Soru tipi:</b> "Tekrarlayan Neisseria menenjiti?" → MAC (C5-C9) eksikliği</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 45,
+        category: "immunoloji",
+        title: "Otoimmün Hastalıklar",
+        subtitle: "Self-Tolerans Kaybı ve Otoimmünite",
+        summary: "Otoimmün hastalıkların patogenezi, tolerans mekanizmaları, organ-spesifik ve sistemik otoimmün hastalıklar, otoantikor tanısı ve immünolojik mekanizmalar.",
+        tags: ["İmmünoloji", "Otoimmünite", "SLE", "Romatoid Artrit", "Hashimoto", "Otoantikor"],
+        sections: [
+            {
+                title: "Otoimmünite ve Tolerans",
+                icon: "fas fa-shield-halved",
+                content: `
+                    <p><strong>Otoimmünite</strong>, immün sistemin self (kendi) antijenlere karşı yanıt vermesidir. Normal tolerans mekanizmalarının bozulmasıyla gelişir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tolerans Mekanizmaları</p>
+                        <p class="highlight-box__content">
+                            <b>Santral Tolerans:</b><br>
+                            • T hücre: Timus, negatif seleksiyon (AIRE)<br>
+                            • B hücre: Kemik iliği, klonal delesyon/anerji<br><br>
+                            <b>Periferik Tolerans:</b><br>
+                            • Anerji (kostimülasyon yokluğu)<br>
+                            • Regülatör T hücreler (Treg, FoxP3)<br>
+                            • Aktivasyon-indüklü hücre ölümü (AICD)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Otoimmünite Risk Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Genetik</b></td>
+                                    <td>HLA ilişkisi (B27, DR3, DR4)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çevresel</b></td>
+                                    <td>Enfeksiyon, ilaç, UV, sigara</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hormonal</b></td>
+                                    <td>Kadınlarda daha sık (östrojen)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Moleküler benzerlik</b></td>
+                                    <td>Rheumatic fever (M protein-miyosin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epitop yayılımı</b></td>
+                                    <td>Doku hasarı → yeni antijen sunumu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>AIRE Mutasyonu = APECED:</strong><br>
+                        <b>A</b>utoimmune <b>P</b>olyendocrinopathy-<b>C</b>andidiasis-<b>E</b>ctodermal <b>D</b>ystrophy<br>
+                        Timus AIRE bozuk → Self-antijen sunumu yok → Otoimmünite</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tolerans Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SANTRAL = Timus/Kemik = Klonal delesyon"</b><br>
+                            <b>"PERİFERİK = Anerji + Treg + AICD"</b><br>
+                            <b>"AIRE yok = APECED = Otoimmün"</b><br>
+                            <b>"FoxP3 yok = IPEX = Otoimmün"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Organ-Spesifik Otoimmün Hastalıklar",
+                icon: "fas fa-lungs",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Organ-Spesifik Otoimmün Hastalıklar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Hedef Organ</th>
+                                    <th>Otoantikor</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hashimoto tiroiditi</b></td>
+                                    <td>Tiroid</td>
+                                    <td>Anti-TPO, Anti-Tg</td>
+                                    <td>Tip IV (T hücre), destrüktif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Graves hastalığı</b></td>
+                                    <td>Tiroid</td>
+                                    <td>Anti-TSH reseptör (TSI)</td>
+                                    <td>Tip II (stimülan)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip 1 Diabetes Mellitus</b></td>
+                                    <td>Pankreas β hücre</td>
+                                    <td>Anti-GAD, Anti-IA2, Anti-insülin</td>
+                                    <td>Tip IV (CTL yıkımı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Myasthenia gravis</b></td>
+                                    <td>NMJ</td>
+                                    <td>Anti-AChR, Anti-MuSK</td>
+                                    <td>Tip II (blokan)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pernisiyöz anemi</b></td>
+                                    <td>Mide parietal hücre</td>
+                                    <td>Anti-intrinsik faktör, Anti-parietal</td>
+                                    <td>B12 emilimi ↓</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Goodpasture sendromu</b></td>
+                                    <td>Akciğer, Böbrek</td>
+                                    <td>Anti-GBM (Tip IV kollajen)</td>
+                                    <td>Tip II</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pemfigus vulgaris</b></td>
+                                    <td>Deri</td>
+                                    <td>Anti-desmoglein 3</td>
+                                    <td>Akantoliz, bül</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Multipl skleroz</b></td>
+                                    <td>SSS miyelini</td>
+                                    <td>Anti-MBP, Anti-MOG</td>
+                                    <td>Tip IV, demiyelinizasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Graves vs Hashimoto:</strong><br>
+                        <b>Graves:</b> Anti-TSH-R (stimülan) → Hipertiroidi<br>
+                        <b>Hashimoto:</b> Anti-TPO/Tg + T hücre → Hipotiroidi</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Organ-Spesifik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GRAVES = Stimüle = Hiper"</b><br>
+                            <b>"HASHIMOTO = Harap = Hipo"</b><br>
+                            <b>"Tip 1 DM = GAD antikoru"</b><br>
+                            <b>"Myasthenia = AChR bloke = Kas zayıf"</b><br>
+                            <b>"Goodpasture = Akciğer + Böbrek = GBM"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sistemik Otoimmün Hastalıklar",
+                icon: "fas fa-person",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sistemik Lupus Eritematozus (SLE)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Patogenez</b></td>
+                                    <td>Tip III hipersensitivite (immün kompleks)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk</b></td>
+                                    <td>Genç kadın, HLA-DR2/DR3, kompleman eksikliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>En spesifik Ab</b></td>
+                                    <td>Anti-dsDNA, Anti-Smith</td>
+                                </tr>
+                                <tr>
+                                    <td><b>En sensitif Ab</b></td>
+                                    <td>ANA (antinükleer antikor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kompleman</b></td>
+                                    <td>C3, C4 düşük (tüketim)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Böbrek</b></td>
+                                    <td>Lupus nefriti (Class IV en kötü)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Sistemik Otoimmün Hastalıklar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Otoantikor</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Romatoid Artrit</b></td>
+                                    <td>RF, Anti-CCP</td>
+                                    <td>Simetrik poliartrit, pannus, HLA-DR4</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sjögren sendromu</b></td>
+                                    <td>Anti-SSA/Ro, Anti-SSB/La</td>
+                                    <td>Kuru göz/ağız (sicca)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sistemik skleroz</b></td>
+                                    <td>Anti-Scl-70 (diffüz), Anti-sentromer (limited)</td>
+                                    <td>Deri sertliği, Raynaud</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dermatomiyozit/Polimiyozit</b></td>
+                                    <td>Anti-Jo-1, Anti-Mi-2</td>
+                                    <td>Proksimal kas zayıflığı, heliotrope rash</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antifosfolipid sendromu</b></td>
+                                    <td>Anti-kardiyolipin, Lupus antikoagülan</td>
+                                    <td>Tromboz, düşük, PTT uzar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ANCA+ vaskülit</b></td>
+                                    <td>c-ANCA (PR3), p-ANCA (MPO)</td>
+                                    <td>GPA, MPA, EGPA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Anti-SSA/Ro ve Gebelik:</strong><br>
+                        SLE veya Sjögren'li annelerde Anti-SSA → Plasenta geçer → <b>Neonatal lupus, Konjenital kalp bloğu</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Sistemik Otoimmün Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SLE = dsDNA = Smith = Kompleman düşük"</b><br>
+                            <b>"RA = RF + Anti-CCP = DR4"</b><br>
+                            <b>"Sjögren = SSA/SSB = Sicca = Kuru"</b><br>
+                            <b>"Skleroderma = Scl-70 (diffüz) / Sentromer (limited)"</b><br>
+                            <b>"APS = Tromboz + Düşük + PTT uzar"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Otoantikor Tanı Rehberi",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hastalık-Otoantikor Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Otoantikor</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Anti-dsDNA</b></td>
+                                    <td>SLE (spesifik, aktivite takibi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-Smith</b></td>
+                                    <td>SLE (en spesifik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-CCP</b></td>
+                                    <td>Romatoid Artrit (erken, spesifik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-TPO</b></td>
+                                    <td>Hashimoto tiroiditi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-TSH-R (TSI)</b></td>
+                                    <td>Graves hastalığı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-AChR</b></td>
+                                    <td>Myasthenia gravis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-GBM</b></td>
+                                    <td>Goodpasture sendromu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-SSA/Ro</b></td>
+                                    <td>Sjögren, SLE, Neonatal lupus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-Scl-70 (Topoizomeraz)</b></td>
+                                    <td>Diffüz sistemik skleroz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-sentromer</b></td>
+                                    <td>Limited sistemik skleroz (CREST)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>c-ANCA (PR3)</b></td>
+                                    <td>GPA (Wegener)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>p-ANCA (MPO)</b></td>
+                                    <td>MPA, EGPA</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-mitokondriyal (AMA)</b></td>
+                                    <td>Primer biliyer kolanjit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Otoantikor Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"dsDNA = SLE = Çift sarmal"</b><br>
+                            <b>"CCP = RA = Cyclic Citrullinated Peptide"</b><br>
+                            <b>"TPO = Tiroid Peroksidaz = Hashimoto"</b><br>
+                            <b>"AChR = Asetilkolin Reseptör = Myasthenia"</b><br>
+                            <b>"c-ANCA = Cytoplasmic = GPA"</b><br>
+                            <b>"p-ANCA = Perinükleer = MPA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>SLE spesifik =</b> Anti-dsDNA, Anti-Smith<br>
+                            2. <b>RA spesifik =</b> Anti-CCP<br>
+                            3. <b>Graves =</b> Anti-TSH-R (stimülan)<br>
+                            4. <b>Hashimoto =</b> Anti-TPO<br>
+                            5. <b>Myasthenia =</b> Anti-AChR<br>
+                            6. <b>Sjögren =</b> Anti-SSA/Ro
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HLA ve Otoimmünite</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>HLA</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HLA-B27</td>
+                                    <td>Ankilozan spondilit, Reaktif artrit</td>
+                                </tr>
+                                <tr>
+                                    <td>HLA-DR3/DR4</td>
+                                    <td>Tip 1 DM</td>
+                                </tr>
+                                <tr>
+                                    <td>HLA-DR4</td>
+                                    <td>Romatoid artrit</td>
+                                </tr>
+                                <tr>
+                                    <td>HLA-DR2/DR3</td>
+                                    <td>SLE</td>
+                                </tr>
+                                <tr>
+                                    <td>HLA-DQ2/DQ8</td>
+                                    <td>Çölyak</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SLE = dsDNA + Smith + Tip III + Kompleman↓"</b><br>
+                            <b>"RA = RF + CCP + DR4 + Pannus"</b><br>
+                            <b>"Graves = TSH-R stimüle = Hiper"</b><br>
+                            <b>"Hashimoto = TPO = Hipo"</b><br>
+                            <b>"Myasthenia = AChR bloke = Kas yorgun"</b><br>
+                            <b>"SSA = Neonatal lupus = Kalp bloğu"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>SLE en spesifik Ab =</b> Anti-Smith<br>
+                            2. <b>SLE aktivite takibi =</b> Anti-dsDNA, C3/C4<br>
+                            3. <b>RA erken tanı =</b> Anti-CCP<br>
+                            4. <b>Graves =</b> TSH-R stimülan antikoru<br>
+                            5. <b>Myasthenia gravis =</b> Anti-AChR (%85)<br>
+                            6. <b>Neonatal lupus =</b> Anti-SSA/Ro geçişi<br>
+                            7. <b>Diffüz skleroderma =</b> Anti-Scl-70<br>
+                            8. <b>Limited skleroderma =</b> Anti-sentromer<br>
+                            9. <b>GPA (Wegener) =</b> c-ANCA (PR3)<br>
+                            10. <b>Primer biliyer kolanjit =</b> AMA<br>
+                            11. <b>Antifosfolipid =</b> Tromboz paradoksu (PTT↑ ama tromboz)<br>
+                            12. <b>AIRE mutasyonu =</b> APECED
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "SLE'de en spesifik antikor?" → Anti-Smith</li>
+                        <li><b>Soru tipi:</b> "Graves hastalığında patolojik antikor?" → Anti-TSH reseptör</li>
+                        <li><b>Soru tipi:</b> "Myasthenia gravis tanısında antikor?" → Anti-AChR</li>
+                        <li><b>Soru tipi:</b> "Sjögren'li annede yenidoğan komplikasyonu?" → Konjenital kalp bloğu</li>
+                        <li><b>Soru tipi:</b> "c-ANCA pozitifliği hangi vaskülit?" → GPA (Wegener)</li>
+                        <li><b>Soru tipi:</b> "PTT uzun ama tromboz?" → Antifosfolipid sendromu</li>
+                        <li><b>Soru tipi:</b> "HLA-B27 ilişkili hastalık?" → Ankilozan spondilit</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
