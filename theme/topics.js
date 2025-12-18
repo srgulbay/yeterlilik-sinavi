@@ -11,6 +11,10 @@ let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLe
 
 let topicsListLayout = 'cards'; // 'cards' | 'compact'
 
+let topicsSortMode = 'added'; // 'added' | 'category' | 'priority' | 'needsReview' | 'mostReviewed'
+
+let topicAddedIndexById = new Map(); // topicId(string) -> index(number)
+
 let suppressRemotePrefsWrite = false;
 
 let topicPriorityById = new Map(); // topicId(string) -> { score:number(0-100), tier:'high'|'med'|'low', label:string, iconClass:string }
@@ -73,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initTopicsModule() {
     initTopicPriority(topicsData);
+    initTopicAddedOrder(topicsData);
     initTopicsLayoutToggle();
+    initTopicsSortControl();
     renderTopicsList(topicsData);
     initCategoryFilters();
     initSearch();
@@ -99,6 +105,158 @@ function storageSetSafe(key, value) {
     } catch (_) {
         return false;
     }
+}
+
+function initTopicAddedOrder(data) {
+    const source = Array.isArray(data) ? data : [];
+    const map = new Map();
+    source.forEach((t, idx) => {
+        if (!t || t.id == null) return;
+        map.set(normalizeTopicId(t.id), idx);
+    });
+    topicAddedIndexById = map;
+}
+
+function normalizeTopicsSortMode(mode) {
+    const v = String(mode || '').trim();
+    if (v === 'topic') return 'category';
+    if (v === 'added' || v === 'category' || v === 'priority' || v === 'needsReview' || v === 'mostReviewed') return v;
+    return 'added';
+}
+
+function setTopicsSortMode(mode) {
+    const next = normalizeTopicsSortMode(mode);
+    topicsSortMode = next;
+    storageSetSafe('topics:sortMode', next);
+
+    const sortRoot = document.querySelector('[data-topics-sort]');
+    const label = sortRoot?.querySelector('[data-topics-sort-label]');
+    if (label) {
+        label.textContent = getSortLabel(next);
+    }
+
+    if (sortRoot) {
+        sortRoot.querySelectorAll('[data-sort-value]').forEach((btn) => {
+            const v = String(btn.getAttribute('data-sort-value') || '');
+            btn.setAttribute('aria-selected', String(v === next));
+        });
+    }
+
+    if (!suppressRemotePrefsWrite && isAuthReady() && window.appFirebase && typeof window.appFirebase.setUserPrefs === 'function') {
+        window.appFirebase.setUserPrefs({ topicsSortMode: next }).catch(() => {});
+    }
+}
+
+function getSortLabel(mode) {
+    switch (mode) {
+        case 'category': return 'Kategori sırası';
+        case 'priority': return 'Öncelik skoru';
+        case 'needsReview': return 'Az tekrar edilenler';
+        case 'mostReviewed': return 'Çok tekrar edilenler';
+        case 'added':
+        default:
+            return 'Ekleniş sırası';
+    }
+}
+
+async function hydrateTopicsSortFromUserPrefs() {
+    if (!isAuthReady() || !window.appFirebase || typeof window.appFirebase.loadUserPrefs !== 'function') return;
+    try {
+        const prefs = await window.appFirebase.loadUserPrefs();
+        const remote = prefs && typeof prefs === 'object' ? prefs.topicsSortMode : null;
+        if (remote === 'topic' || remote === 'added' || remote === 'category' || remote === 'priority' || remote === 'needsReview' || remote === 'mostReviewed') {
+            suppressRemotePrefsWrite = true;
+            setTopicsSortMode(remote);
+            suppressRemotePrefsWrite = false;
+            if (currentView === 'list') {
+                renderTopicsList(topicsData);
+            }
+            return;
+        }
+
+        // If remote has no value yet, seed it from local preference.
+        await window.appFirebase.setUserPrefs({ topicsSortMode: topicsSortMode });
+    } catch (_) {
+        // ignore
+    } finally {
+        suppressRemotePrefsWrite = false;
+    }
+}
+
+function initTopicsSortControl() {
+    const saved = storageGetSafe('topics:sortMode', 'added');
+    setTopicsSortMode(saved);
+
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
+
+    if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+        window.appFirebase.onAuth((user) => {
+            if (user) {
+                hydrateTopicsSortFromUserPrefs();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        hydrateTopicsSortFromUserPrefs();
+    }
+
+    const root = document.querySelector('[data-topics-sort]');
+    if (!root) return;
+    const trigger = root.querySelector('[data-topics-sort-trigger]');
+    const menu = root.querySelector('[data-topics-sort-menu]');
+    if (!trigger || !menu) return;
+
+    setTopicsSortMode(topicsSortMode);
+
+    const close = () => {
+        root.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+    };
+
+    const open = () => {
+        root.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+    };
+
+    const toggle = () => {
+        if (root.classList.contains('is-open')) close();
+        else open();
+    };
+
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggle();
+    });
+
+    menu.querySelectorAll('[data-sort-value]').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const v = String(btn.getAttribute('data-sort-value') || '');
+            setTopicsSortMode(v);
+            close();
+            if (currentView === 'list') {
+                renderTopicsList(topicsData);
+            }
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!root.classList.contains('is-open')) return;
+        const t = e.target;
+        if (t && root.contains(t)) return;
+        close();
+    }, { capture: true });
+
+    document.addEventListener('keydown', (e) => {
+        if (!root.classList.contains('is-open')) return;
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+        }
+    });
 }
 
 function setTopicsListLayout(mode) {
@@ -875,6 +1033,20 @@ function setupTopicEndPrompt(topicId) {
 
 // Konu listesi render
 function renderTopicsList(data) {
+    if (typeof document !== 'undefined' && typeof document.startViewTransition === 'function') {
+        const prefersReduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        if (!prefersReduce) {
+            document.startViewTransition(() => {
+                renderTopicsListCore(data);
+            });
+            return;
+        }
+    }
+
+    renderTopicsListCore(data);
+}
+
+function renderTopicsListCore(data) {
     const container = document.getElementById('topicsList');
     if (!container) return;
 
@@ -902,6 +1074,11 @@ function renderTopicsList(data) {
         );
     }
 
+    filtered = sortTopics(filtered);
+
+    // Premium wave: stagger the view-transition animations top-to-bottom.
+    installTopicsWaveTransitionStyles(filtered);
+
     if (filtered.length === 0) {
         container.innerHTML = `
             <div class="topics-empty">
@@ -920,6 +1097,9 @@ function renderTopicsList(data) {
     } else {
         container.innerHTML = filtered.map((topic, index) => createTopicPreview(topic, index)).join('');
     }
+
+    // Fallback wave for browsers without View Transitions.
+    applyWaveFallbackAnimation(container);
     
     // Item click handlers (open detail)
     container.querySelectorAll('.topic-preview, .topic-row').forEach((item) => {
@@ -936,16 +1116,150 @@ function renderTopicsList(data) {
     setTimeout(() => refreshScrollReveal(), 50);
 }
 
+function installTopicsWaveTransitionStyles(orderedTopics) {
+    if (typeof document === 'undefined') return;
+    if (typeof document.startViewTransition !== 'function') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const items = Array.isArray(orderedTopics) ? orderedTopics : [];
+    const ids = items
+        .slice(0, 30)
+        .map((t) => (t && t.id != null ? String(t.id) : ''))
+        .filter(Boolean);
+
+    let styleEl = document.getElementById('topicsWaveVTStyles');
+    if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = 'topicsWaveVTStyles';
+        document.head.appendChild(styleEl);
+    }
+
+    const stepMs = 30;
+    const maxDelay = 600;
+    const durationMs = 420;
+    let css = '@media (prefers-reduced-motion: no-preference) {\n';
+    ids.forEach((id, idx) => {
+        const delay = Math.min(maxDelay, idx * stepMs);
+        css += `::view-transition-group(topicItem-${id}), ::view-transition-group(topicIcon-${id}), ::view-transition-group(topicTitle-${id}) { animation-delay: ${delay}ms; animation-duration: ${durationMs}ms; animation-timing-function: var(--ease-apple-out); }\n`;
+    });
+    css += '}\n';
+    styleEl.textContent = css;
+}
+
+function applyWaveFallbackAnimation(container) {
+    if (!container) return;
+    if (typeof document !== 'undefined' && typeof document.startViewTransition === 'function') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const items = Array.from(container.querySelectorAll('.topic-preview, .topic-row'));
+    if (items.length === 0) return;
+
+    const stepMs = 26;
+    const maxDelay = 520;
+    items.forEach((el, idx) => {
+        const delay = Math.min(maxDelay, idx * stepMs);
+        el.style.setProperty('--enter-delay', `${delay}ms`);
+    });
+
+    container.classList.remove('is-wave-enter');
+    requestAnimationFrame(() => {
+        container.classList.add('is-wave-enter');
+        window.setTimeout(() => {
+            container.classList.remove('is-wave-enter');
+        }, 900);
+    });
+}
+
+function sortTopics(list) {
+    const source = Array.isArray(list) ? list : [];
+    if (source.length <= 1) return source;
+    const arr = source.slice();
+
+    const getIdNum = (t) => {
+        const n = Number(t && t.id);
+        return Number.isFinite(n) ? n : 0;
+    };
+
+    const getAddedIdx = (t) => {
+        const key = normalizeTopicId(t && t.id);
+        const idx = topicAddedIndexById.get(key);
+        return Number.isFinite(idx) ? idx : 999999;
+    };
+
+    const byIdAsc = (a, b) => getIdNum(a) - getIdNum(b);
+
+    const categoryOrder = {
+        'bakteriyoloji': 1,
+        'viroloji': 2,
+        'mikoloji': 3,
+        'parazitoloji': 4,
+        'immunoloji': 5,
+    };
+
+    const getCategoryRank = (t) => {
+        const key = String(t && t.category || '').trim().toLowerCase();
+        const rank = categoryOrder[key];
+        return Number.isFinite(rank) ? rank : 999;
+    };
+
+    if (topicsSortMode === 'category') {
+        arr.sort((a, b) => {
+            const ca = getCategoryRank(a);
+            const cb = getCategoryRank(b);
+            if (ca !== cb) return ca - cb;
+            return byIdAsc(a, b) || (getAddedIdx(a) - getAddedIdx(b));
+        });
+        return arr;
+    }
+
+    if (topicsSortMode === 'priority') {
+        arr.sort((a, b) => {
+            const pa = getTopicPriority(a && a.id).score;
+            const pb = getTopicPriority(b && b.id).score;
+            return (pb - pa) || byIdAsc(a, b) || (getAddedIdx(a) - getAddedIdx(b));
+        });
+        return arr;
+    }
+
+    if (topicsSortMode === 'needsReview') {
+        arr.sort((a, b) => {
+            const ra = clampReadLevel(getTopicState(a && a.id).readLevel);
+            const rb = clampReadLevel(getTopicState(b && b.id).readLevel);
+            if (ra !== rb) return ra - rb;
+            const pa = getTopicPriority(a && a.id).score;
+            const pb = getTopicPriority(b && b.id).score;
+            return (pb - pa) || byIdAsc(a, b) || (getAddedIdx(a) - getAddedIdx(b));
+        });
+        return arr;
+    }
+
+    if (topicsSortMode === 'mostReviewed') {
+        arr.sort((a, b) => {
+            const ra = clampReadLevel(getTopicState(a && a.id).readLevel);
+            const rb = clampReadLevel(getTopicState(b && b.id).readLevel);
+            if (ra !== rb) return rb - ra;
+            const pa = getTopicPriority(a && a.id).score;
+            const pb = getTopicPriority(b && b.id).score;
+            return (pb - pa) || byIdAsc(a, b) || (getAddedIdx(a) - getAddedIdx(b));
+        });
+        return arr;
+    }
+
+    // added (default): preserve dataset order
+    arr.sort((a, b) => (getAddedIdx(a) - getAddedIdx(b)) || byIdAsc(a, b));
+    return arr;
+}
+
 function createTopicRow(topic) {
     const icon = getCategoryIcon(topic.category);
     const state = getTopicState(topic.id);
     const repeatClass = isAuthReady() ? getRepeatAmbianceClassByLevel(state.readLevel) : '';
 
     return `
-        <article class="topic-row ${repeatClass}" data-topic-id="${topic.id}">
+        <article class="topic-row ${repeatClass}" data-topic-id="${topic.id}" style="view-transition-name: topicItem-${topic.id}">
             <div class="topic-row__left">
                 <div class="topic-row__icon-stack">
-                    <div class="topic-row__icon topic-preview__icon--${topic.category}">
+                    <div class="topic-row__icon topic-preview__icon--${topic.category}" style="view-transition-name: topicIcon-${topic.id}">
                         <i class="${icon}" aria-hidden="true"></i>
                     </div>
                     ${renderTopicRecommendation(topic.id)}
@@ -954,7 +1268,7 @@ function createTopicRow(topic) {
                     <div class="topic-row__meta">
                         <span class="topic-row__category">${getCategoryLabel(topic.category)}</span>
                     </div>
-                    <div class="topic-row__title">${topic.title}</div>
+                    <div class="topic-row__title" style="view-transition-name: topicTitle-${topic.id}">${topic.title}</div>
                     <div class="topic-row__subtitle">${topic.subtitle}</div>
                 </div>
             </div>
@@ -974,14 +1288,14 @@ function createTopicPreview(topic, index = 0) {
     const repeatClass = isAuthReady() ? getRepeatAmbianceClassByLevel(state.readLevel) : '';
     
     return `
-        <article class="topic-preview ${visibilityClass} ${repeatClass}" data-topic-id="${topic.id}">
+        <article class="topic-preview ${visibilityClass} ${repeatClass}" data-topic-id="${topic.id}" style="view-transition-name: topicItem-${topic.id}">
             <div class="topic-preview__header">
-                <div class="topic-preview__icon topic-preview__icon--${topic.category}">
+                <div class="topic-preview__icon topic-preview__icon--${topic.category}" style="view-transition-name: topicIcon-${topic.id}">
                     <i class="${icon}"></i>
                 </div>
                 <div class="topic-preview__info">
                     <p class="topic-preview__category">${getCategoryLabel(topic.category)}</p>
-                    <h3 class="topic-preview__title">${topic.title}</h3>
+                    <h3 class="topic-preview__title" style="view-transition-name: topicTitle-${topic.id}">${topic.title}</h3>
                     <p class="topic-preview__subtitle">${topic.subtitle}</p>
                 </div>
                 ${renderTopicRecommendation(topic.id)}

@@ -30,9 +30,17 @@ service cloud.firestore {
     }
 
     function isPrefsValid(data) {
-      return data.keys().hasOnly(['theme', 'topicsListLayout', 'updatedAt'])
+      return data.keys().hasOnly(['theme', 'topicsListLayout', 'topicsSortMode', 'updatedAt'])
         && (!('theme' in data) || (data.theme is string && (data.theme == 'light' || data.theme == 'dark')))
         && (!('topicsListLayout' in data) || (data.topicsListLayout is string && (data.topicsListLayout == 'cards' || data.topicsListLayout == 'compact')))
+        && (!('topicsSortMode' in data) || (data.topicsSortMode is string && (
+          data.topicsSortMode == 'added' ||
+          data.topicsSortMode == 'topic' ||
+          data.topicsSortMode == 'category' ||
+          data.topicsSortMode == 'priority' ||
+          data.topicsSortMode == 'needsReview' ||
+          data.topicsSortMode == 'mostReviewed'
+        )))
         && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }
   }

@@ -144,6 +144,14 @@
       }
     }
 
+    if (Object.prototype.hasOwnProperty.call(data, 'topicsSortMode')) {
+      const raw = String(data.topicsSortMode || '').trim();
+      const v = raw === 'topic' ? 'category' : raw;
+      if (v === 'added' || v === 'category' || v === 'priority' || v === 'needsReview' || v === 'mostReviewed') {
+        patch.topicsSortMode = v;
+      }
+    }
+
     return patch;
   }
 
