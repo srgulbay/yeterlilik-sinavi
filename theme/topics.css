@@ -1226,3 +1226,25 @@
 }
 
 /* Share button ve toast stilleri components.css ve animations.css'de tanımlı */
+
+@media (hover: none) and (pointer: coarse) {
+    .topic-fav-btn,
+    .topic-read__badge {
+        width: var(--touch-target-min);
+        height: var(--touch-target-min);
+    }
+
+    .topic-back-btn {
+        min-height: var(--touch-target-min);
+    }
+
+    .topic-check {
+        padding: 6px 8px;
+        border-radius: var(--radius-full);
+    }
+
+    .topic-check input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+}

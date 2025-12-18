@@ -281,6 +281,12 @@
     transition: var(--transition-fast);
 }
 
+@media (hover: none) and (pointer: coarse) {
+    .header-btn {
+        min-height: var(--touch-target-min);
+    }
+}
+
 .header-btn:hover {
     color: var(--primary);
     border-color: var(--primary);
@@ -709,6 +715,14 @@
     flex-shrink: 0;
 }
 
+@media (hover: none) and (pointer: coarse) {
+    .share-btn,
+    .fav-btn {
+        width: var(--touch-target-min);
+        height: var(--touch-target-min);
+    }
+}
+
 .share-btn:hover {
     background: var(--primary);
     border-color: var(--primary);
@@ -1061,6 +1075,13 @@
     color: var(--text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .dock-filter-menu__close {
+        width: var(--touch-target-min);
+        height: var(--touch-target-min);
+    }
 }
 
 .dock-filter-menu__close:hover {

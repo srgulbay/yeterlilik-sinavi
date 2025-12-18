@@ -133,6 +133,13 @@
     transition: all var(--transition-fast);
 }
 
+@media (hover: none) and (pointer: coarse) {
+    .global-search__close {
+        min-width: var(--touch-target-min);
+        min-height: var(--touch-target-min);
+    }
+}
+
 .global-search__close:hover {
     background: var(--bg-secondary);
     color: var(--text-primary);

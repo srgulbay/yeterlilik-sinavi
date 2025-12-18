@@ -194,8 +194,13 @@
 }
 
 .dock-segment--mobile .dock-segment__item {
-    width: 38px;
-    height: 32px;
+    width: var(--touch-target-min);
+    height: var(--touch-target-min);
+    font-size: var(--icon-sm);
+}
+
+.dock-segment--mobile .dock-segment__item i {
+    font-size: 1em;
 }
 
 /* Segment control wrapper - page header altı (legacy) */
@@ -1244,6 +1249,20 @@
     }
 }
 
+@media (hover: none) and (pointer: coarse) {
+    .segment-control__item {
+        min-height: var(--touch-target-min);
+    }
+
+    .btn-sm {
+        min-height: var(--touch-target-min);
+    }
+
+    .auth-panel__tab {
+        min-height: var(--touch-target-min);
+    }
+}
+
 /* ===========================================
    SHARE TOAST COMPONENT
    Global paylaşım bildirimi - tüm sayfalarda kullanılır
@@ -1343,6 +1362,14 @@
 .share-btn--article i,
 .share-btn--card i {
     font-size: var(--text-sm);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .share-btn--article,
+    .share-btn--card {
+        width: var(--touch-target-min);
+        height: var(--touch-target-min);
+    }
 }
 
 /* Highlighted Card State */
@@ -1513,6 +1540,26 @@ mark.text-highlight.is-active {
     .highlight-toolbar__btn {
         width: 38px;
         height: 38px;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .highlight-toolbar {
+        max-width: calc(100vw - 20px);
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: var(--radius-2xl);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .highlight-toolbar__divider {
+        display: none;
+    }
+
+    .highlight-toolbar__swatch,
+    .highlight-toolbar__btn {
+        width: var(--touch-target-min);
+        height: var(--touch-target-min);
     }
 }
 

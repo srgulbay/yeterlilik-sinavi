@@ -271,6 +271,13 @@
         min-height: 40px;
         font-size: var(--icon-sm);
     }
+
+    .dock__minimize-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
     
     .dock__panel {
         max-height: 90vh;
@@ -293,6 +300,13 @@
     }
     
     .dock__pill-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .dock__minimize-btn {
         width: 40px;
         height: 40px;
         min-width: 40px;
@@ -324,10 +338,10 @@
    ========================================== */
 
 .dock__minimize-btn {
-    min-width: 36px;
-    min-height: 36px;
-    width: 36px;
-    height: 36px;
+    min-width: var(--touch-target-min);
+    min-height: var(--touch-target-min);
+    width: var(--touch-target-min);
+    height: var(--touch-target-min);
     display: flex;
     align-items: center;
     justify-content: center;
