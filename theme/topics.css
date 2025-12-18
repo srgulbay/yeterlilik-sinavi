@@ -158,6 +158,12 @@
     border-color: var(--border);
 }
 
+.page-header__sort-item:focus-visible {
+    outline: none;
+    background: var(--primary-ghost);
+    border-color: var(--primary);
+}
+
 .page-header__sort-item[aria-selected="true"] {
     background: var(--primary-soft);
     border-color: var(--primary-light);

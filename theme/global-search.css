@@ -20,7 +20,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 12vh;
+    padding: 12vh var(--space-4) 0;
     
     /* Hidden by default */
     opacity: 0;
@@ -61,7 +61,7 @@
     position: relative;
     width: 100%;
     max-width: 640px;
-    margin: 0 var(--space-4);
+    margin: 0;
     
     /* Glassmorphism */
     background: var(--glass-bg-solid);

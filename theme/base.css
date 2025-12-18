@@ -40,6 +40,15 @@ html {
     
     /* Prevent tap highlight on mobile */
     -webkit-tap-highlight-color: transparent;
+
+    /* Prevent accidental horizontal scroll on mobile */
+    overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+    html {
+        overflow-x: clip;
+    }
 }
 
 body {
