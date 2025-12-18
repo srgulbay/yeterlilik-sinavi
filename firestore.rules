@@ -12,6 +12,11 @@ service cloud.firestore {
         && isFavoriteValid(request.resource.data);
     }
 
+    match /users/{uid}/prefs/{prefId} {
+      allow read, write: if request.auth != null && request.auth.uid == uid
+        && isPrefsValid(request.resource.data);
+    }
+
     function isValid(data) {
       return (data.favorite is bool || !('favorite' in data))
         && (data.readLevel is int || !('readLevel' in data))
@@ -22,6 +27,13 @@ service cloud.firestore {
       return (data.type is string || !('type' in data))
         && (data.itemId is string || !('itemId' in data))
         && (data.favorite is bool || !('favorite' in data));
+    }
+
+    function isPrefsValid(data) {
+      return data.keys().hasOnly(['theme', 'topicsListLayout', 'updatedAt'])
+        && (!('theme' in data) || (data.theme is string && (data.theme == 'light' || data.theme == 'dark')))
+        && (!('topicsListLayout' in data) || (data.topicsListLayout is string && (data.topicsListLayout == 'cards' || data.topicsListLayout == 'compact')))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }
   }
 }

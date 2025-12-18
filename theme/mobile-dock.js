@@ -48,11 +48,61 @@ class MobileDock {
         
         // Update theme icon
         this.updateThemeIcon();
+
+        // Sync user preferences when signed in
+        this.initUserPrefsSync();
         
         // Observe theme changes
         this.observeThemeChanges();
         
         console.log('MobileDock: Initialized');
+    }
+
+    isAuthReady() {
+        return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+    }
+
+    initUserPrefsSync() {
+        if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+            window.appFirebase.init();
+        }
+
+        const hydrate = async () => {
+            if (!this.isAuthReady()) return;
+            if (!window.appFirebase || typeof window.appFirebase.loadUserPrefs !== 'function') return;
+            try {
+                const prefs = await window.appFirebase.loadUserPrefs();
+                const remoteTheme = prefs && typeof prefs === 'object' ? prefs.theme : null;
+                if (remoteTheme === 'dark' || remoteTheme === 'light') {
+                    document.documentElement.setAttribute('data-theme', remoteTheme);
+                    try {
+                        localStorage.setItem('theme', remoteTheme);
+                    } catch (_) {
+                        // ignore
+                    }
+                    this.updateThemeIcon();
+                    return;
+                }
+
+                // Seed remote from current theme if not set.
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                if (window.appFirebase && typeof window.appFirebase.setUserPrefs === 'function') {
+                    await window.appFirebase.setUserPrefs({ theme: currentTheme });
+                }
+            } catch (_) {
+                // ignore
+            }
+        };
+
+        if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+            window.appFirebase.onAuth((user) => {
+                if (user) hydrate();
+            });
+        }
+
+        if (this.isAuthReady()) {
+            hydrate();
+        }
     }
     
     /**
@@ -202,6 +252,11 @@ class MobileDock {
         
         // Save preference
         localStorage.setItem('theme', newTheme);
+
+        // Save preference (signed-in users)
+        if (this.isAuthReady() && window.appFirebase && typeof window.appFirebase.setUserPrefs === 'function') {
+            window.appFirebase.setUserPrefs({ theme: newTheme }).catch(() => {});
+        }
         
         // Update icon
         this.updateThemeIcon();

@@ -72,6 +72,10 @@
     return `appFirebase:v1:topics:${uid}`;
   }
 
+  function storageKeyPrefs(uid) {
+    return `appFirebase:v1:prefs:${uid}`;
+  }
+
   function storageKeyFavorites(uid, type) {
     return `appFirebase:v1:favorites:${uid}:${String(type || '').trim().toLowerCase() || 'unknown'}`;
   }
@@ -122,6 +126,38 @@
     storageSet(storageKeyFavorites(uid, type), { items, updatedAt: Date.now() });
   }
 
+  function sanitizeUiPrefsPatch(input) {
+    const patch = {};
+    const data = input && typeof input === 'object' ? input : {};
+
+    if (Object.prototype.hasOwnProperty.call(data, 'theme')) {
+      const t = String(data.theme || '').trim().toLowerCase();
+      if (t === 'dark' || t === 'light') {
+        patch.theme = t;
+      }
+    }
+
+    if (Object.prototype.hasOwnProperty.call(data, 'topicsListLayout')) {
+      const v = String(data.topicsListLayout || '').trim().toLowerCase();
+      if (v === 'cards' || v === 'compact') {
+        patch.topicsListLayout = v;
+      }
+    }
+
+    return patch;
+  }
+
+  function loadCachedPrefs(uid) {
+    const raw = storageGet(storageKeyPrefs(uid), null);
+    if (!raw || typeof raw !== 'object' || !raw.prefs || typeof raw.prefs !== 'object') return {};
+    return sanitizeUiPrefsPatch(raw.prefs);
+  }
+
+  function saveCachedPrefs(uid, prefs) {
+    const clean = sanitizeUiPrefsPatch(prefs);
+    storageSet(storageKeyPrefs(uid), { prefs: clean, updatedAt: Date.now() });
+  }
+
   const api = {
     enabled: false,
     init: () => false,
@@ -151,6 +187,10 @@
     },
     loadFavorites: async () => new Set(),
     setFavorite: async () => {
+      throw new Error('Firebase not configured');
+    },
+    loadUserPrefs: async () => ({}),
+    setUserPrefs: async () => {
       throw new Error('Firebase not configured');
     },
     _clampReadLevel: clampReadLevel,
@@ -405,6 +445,48 @@
 
       await db.collection('users').doc(user.uid).collection('favorites').doc(docId).set(patch, { merge: true });
       safeDispatch('favorites:updated', { type: t, itemId: id, favorite: !!favorite });
+    };
+
+    api.loadUserPrefs = async () => {
+      const user = auth.currentUser;
+      if (!user) return {};
+
+      const cached = loadCachedPrefs(user.uid);
+      try {
+        const snap = await db.collection('users').doc(user.uid).collection('prefs').doc('ui').get();
+        const data = snap && snap.exists ? (snap.data() || {}) : {};
+        const prefs = sanitizeUiPrefsPatch(data);
+        saveCachedPrefs(user.uid, prefs);
+        return prefs;
+      } catch (_) {
+        return cached;
+      }
+    };
+
+    api.setUserPrefs = async (nextPrefs) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+
+      const cleanPatch = sanitizeUiPrefsPatch(nextPrefs);
+      // Nothing to write.
+      if (!cleanPatch || Object.keys(cleanPatch).length === 0) return false;
+
+      const patch = {
+        ...cleanPatch,
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+      };
+
+      // Update cache immediately.
+      try {
+        const current = loadCachedPrefs(user.uid);
+        saveCachedPrefs(user.uid, { ...current, ...cleanPatch });
+      } catch (_) {
+        // ignore
+      }
+
+      await db.collection('users').doc(user.uid).collection('prefs').doc('ui').set(patch, { merge: true });
+      safeDispatch('prefs:updated', { patch: cleanPatch });
+      return true;
     };
 
     return true;

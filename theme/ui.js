@@ -20,6 +20,38 @@
     const THEME_KEY = 'theme';
     const VALID_THEMES = new Set(['light', 'dark']);
 
+    let suppressRemoteThemeWrite = false;
+
+    function isAuthReady() {
+        return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+    }
+
+    async function hydrateThemeFromUserPrefs() {
+        if (!isAuthReady()) return;
+        if (!window.appFirebase || typeof window.appFirebase.loadUserPrefs !== 'function') return;
+
+        try {
+            const prefs = await window.appFirebase.loadUserPrefs();
+            const remoteTheme = prefs && typeof prefs === 'object' ? prefs.theme : null;
+            if (remoteTheme === 'dark' || remoteTheme === 'light') {
+                suppressRemoteThemeWrite = true;
+                setTheme(remoteTheme, { persist: true });
+                suppressRemoteThemeWrite = false;
+                return;
+            }
+
+            // Seed remote if not set yet.
+            if (typeof window.appFirebase.setUserPrefs === 'function') {
+                const currentTheme = getTheme();
+                await window.appFirebase.setUserPrefs({ theme: currentTheme });
+            }
+        } catch (error) {
+            // ignore
+        } finally {
+            suppressRemoteThemeWrite = false;
+        }
+    }
+
     // ============================================
     // THEME MANAGEMENT
     // ============================================
@@ -91,6 +123,11 @@
         const theme = nextTheme === 'dark' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', theme);
         if (persist) safeSetStoredTheme(theme);
+
+        if (persist && !suppressRemoteThemeWrite && isAuthReady() && window.appFirebase && typeof window.appFirebase.setUserPrefs === 'function') {
+            window.appFirebase.setUserPrefs({ theme }).catch(() => {});
+        }
+
         updateThemeUI(theme);
 
         try {
@@ -198,6 +235,20 @@
     // INITIALIZATION
     // ============================================
     function init() {
+        if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+            window.appFirebase.init();
+        }
+
+        if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+            window.appFirebase.onAuth((user) => {
+                if (user) hydrateThemeFromUserPrefs();
+            });
+        }
+
+        if (isAuthReady()) {
+            hydrateThemeFromUserPrefs();
+        }
+
         initThemeToggles();
         initMobileDockListeners();
         initPageTransitions(); // Apple-style page transitions

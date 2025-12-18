@@ -11,6 +11,8 @@ let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLe
 
 let topicsListLayout = 'cards'; // 'cards' | 'compact'
 
+let suppressRemotePrefsWrite = false;
+
 let topicPriorityById = new Map(); // topicId(string) -> { score:number(0-100), tier:'high'|'med'|'low', label:string, iconClass:string }
 
 // Manual fine-tuning per topic (TUS/yan dal/yeterlilik “high-yield” emphasis).
@@ -104,6 +106,10 @@ function setTopicsListLayout(mode) {
     topicsListLayout = next;
     storageSetSafe('topics:listLayout', next);
 
+    if (!suppressRemotePrefsWrite && isAuthReady() && window.appFirebase && typeof window.appFirebase.setUserPrefs === 'function') {
+        window.appFirebase.setUserPrefs({ topicsListLayout: next }).catch(() => {});
+    }
+
     const container = document.getElementById('topicsList');
     if (container) {
         container.classList.toggle('topics-list--compact', next === 'compact');
@@ -119,9 +125,49 @@ function setTopicsListLayout(mode) {
     }
 }
 
+async function hydrateTopicsLayoutFromUserPrefs() {
+    if (!isAuthReady() || !window.appFirebase || typeof window.appFirebase.loadUserPrefs !== 'function') return;
+    try {
+        const prefs = await window.appFirebase.loadUserPrefs();
+        const remote = prefs && typeof prefs === 'object' ? prefs.topicsListLayout : null;
+        if (remote === 'cards' || remote === 'compact') {
+            suppressRemotePrefsWrite = true;
+            setTopicsListLayout(remote);
+            suppressRemotePrefsWrite = false;
+            if (currentView === 'list') {
+                renderTopicsList(topicsData);
+            }
+            return;
+        }
+
+        // If remote has no value yet, seed it from local preference.
+        await window.appFirebase.setUserPrefs({ topicsListLayout: topicsListLayout });
+    } catch (_) {
+        // ignore
+    } finally {
+        suppressRemotePrefsWrite = false;
+    }
+}
+
 function initTopicsLayoutToggle() {
     const saved = storageGetSafe('topics:listLayout', 'cards');
     setTopicsListLayout(saved);
+
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
+
+    if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+        window.appFirebase.onAuth((user) => {
+            if (user) {
+                hydrateTopicsLayoutFromUserPrefs();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        hydrateTopicsLayoutFromUserPrefs();
+    }
 
     const btn = document.querySelector('[data-topics-layout-toggle]');
     if (!btn) return;
