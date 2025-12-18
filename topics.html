@@ -116,8 +116,15 @@
     <!-- Dock FAB - Minimize/Expand Toggle -->
     <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="Mikrobiyoloji Yeterlilik">
         <span class="dock-fab__icon">
-            <svg class="crescent-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 2.7a9.3 9.3 0 1 0 0 18.6a9.3 9.3 0 1 0 0-18.6ZM14.2 4.1a7.9 7.9 0 1 0 0 15.8a7.9 7.9 0 1 0 0-15.8Z"/>
+            <svg class="crescent-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <defs>
+                    <mask id="dockCrescentMask" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                        <rect width="24" height="24" fill="black"></rect>
+                        <circle cx="11" cy="12" r="9.3" fill="white"></circle>
+                        <circle cx="14.2" cy="12" r="7.9" fill="black"></circle>
+                    </mask>
+                </defs>
+                <rect width="24" height="24" fill="currentColor" mask="url(#dockCrescentMask)"></rect>
             </svg>
         </span>
     </button>

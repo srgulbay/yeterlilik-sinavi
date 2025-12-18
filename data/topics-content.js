@@ -30908,6 +30908,1031 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 51,
+        category: "bakteriyoloji",
+        title: "Staphylococcus aureus",
+        subtitle: "MSSA, MRSA, Toksinler ve Klinik Tablolar",
+        summary: "S. aureus'un virilans faktörleri, MSSA/MRSA ayrımı, toksin ilişkili hastalıklar, deri/yumuşak doku enfeksiyonları ve tedavi yaklaşımları.",
+        tags: ["Bakteriyoloji", "Stafilokok", "MRSA", "Toksin", "Deri Enfeksiyonu", "Gram Pozitif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">S. aureus Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-pozitif kok, üzüm salkımı dizilimi<br>
+                            <b>Hemoliz:</b> Beta-hemolitik (kanlı agarda)<br>
+                            <b>Koagülaz:</b> POZİTİF (en önemli ayırıcı özellik)<br>
+                            <b>Katalaz:</b> POZİTİF<br>
+                            <b>Mannitol:</b> Fermente eder (sarı koloni - MSA)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Stafilokok Ayrımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>S. aureus</th>
+                                    <th>S. epidermidis</th>
+                                    <th>S. saprophyticus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Koagülaz</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mannitol</b></td>
+                                    <td>Pozitif</td>
+                                    <td>Negatif</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Novobiosin</b></td>
+                                    <td>Duyarlı</td>
+                                    <td>Duyarlı</td>
+                                    <td>DİRENÇLİ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ana enfeksiyon</b></td>
+                                    <td>Çok çeşitli</td>
+                                    <td>Kateter, protez</td>
+                                    <td>ÜSİ (genç kadın)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Stafilokok Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"S. aureus = ALTIN = Koagülaz POZİTİF"</b><br>
+                            <b>"S. saprophyticus = SAPROFİT = Novobiosin DİRENÇLİ = ÜSİ"</b><br>
+                            <b>"Koagülaz (+) = aureus, Koagülaz (-) = epidermidis/saprophyticus"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Virilans Faktörleri ve Toksinler",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yüzey Yapıları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Protein A</b></td>
+                                    <td>IgG Fc'ye bağlanır → Opsonizasyonu engeller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Koagülaz</b></td>
+                                    <td>Fibrin pıhtı oluşturur → Bakteri korunur</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Clumping factor</b></td>
+                                    <td>Fibrinojene bağlanır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kapsül</b></td>
+                                    <td>Fagositozu engeller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biyofilm</b></td>
+                                    <td>Kateter/protez kolonizasyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Toksinler ve İlişkili Hastalıklar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Toksin</th>
+                                    <th>Hastalık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>TSST-1</b></td>
+                                    <td>Toksik Şok Sendromu</td>
+                                    <td>Süperantijen, tampon kullanımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eksfoliyatif toksin (ETA/ETB)</b></td>
+                                    <td>Haşlanmış Deri Sendromu (SSSS)</td>
+                                    <td>Desmoglein-1 yıkımı, bebeklerde</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterotoksinler (A-E)</b></td>
+                                    <td>Gıda zehirlenmesi</td>
+                                    <td>Isıya dayanıklı, 1-6 saat, kusma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PVL (Panton-Valentine)</b></td>
+                                    <td>Nekrotizan pnömoni, apse</td>
+                                    <td>CA-MRSA ile ilişkili</td>
+                                </tr>
+                                <tr>
+                                    <td><b>α-toksin (Alfa hemolizin)</b></td>
+                                    <td>Hücre lizisi</td>
+                                    <td>Deri nekrozu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Toksik Şok Sendromu (TSS):</strong><br>
+                        • TSST-1 süperantijen → T hücre aktivasyonu<br>
+                        • Yüksek ateş, döküntü, hipotansiyon<br>
+                        • Tampon kullanımı, yara enfeksiyonu<br>
+                        • Deskuamasyon (özellikle el/ayak)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Toksin Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TSST = Tampon = Toksik Şok"</b><br>
+                            <b>"Eksfoliyatif = Haşlanmış bebek = SSSS"</b><br>
+                            <b>"Enterotoksin = 1-6 saat = Kusma = Isıya dayanıklı"</b><br>
+                            <b>"PVL = Pnömoni + Nekroz = CA-MRSA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "MSSA vs MRSA",
+                icon: "fas fa-shield-halved",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">MRSA Nedir?</p>
+                        <p class="highlight-box__content">
+                            <b>MRSA:</b> Metisiline Dirençli S. aureus<br>
+                            <b>Mekanizma:</b> mecA geni → PBP2a (değişik penisilin bağlayan protein)<br>
+                            <b>Sonuç:</b> TÜM beta-laktamlara direnç (penisilin, sefalosporin, karbapenem)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">MSSA vs MRSA Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>MSSA</th>
+                                    <th>MRSA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Beta-laktam</b></td>
+                                    <td>DUYARLI</td>
+                                    <td>DİRENÇLİ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Flukloksasilin, Sefazolin</td>
+                                    <td>Vankomisin, Linezolid, Daptomisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genetik</b></td>
+                                    <td>mecA yok</td>
+                                    <td>mecA pozitif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HA-MRSA vs CA-MRSA</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>HA-MRSA (Hastane)</th>
+                                    <th>CA-MRSA (Toplum)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kaynak</b></td>
+                                    <td>Hastane ortamı</td>
+                                    <td>Toplum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PVL toksin</b></td>
+                                    <td>Nadir</td>
+                                    <td>SIKLIKLA POZİTİF</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Direnç profili</b></td>
+                                    <td>Çoklu direnç</td>
+                                    <td>Daha az direnç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tipik enfeksiyon</b></td>
+                                    <td>Bakteriyemi, pnömoni</td>
+                                    <td>Deri apsesi, nekrotizan fasiit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SCCmec tipi</b></td>
+                                    <td>Tip I, II, III</td>
+                                    <td>Tip IV, V</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>MRSA Tanısı:</strong><br>
+                        • Sefoksitin disk difüzyon testi<br>
+                        • mecA veya mecC gen tespiti (PCR)<br>
+                        • PBP2a (lateks aglütinasyon)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">MRSA Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"mecA = MRSA = Beta-laktam DİRENÇ"</b><br>
+                            <b>"MRSA tedavi = VLD (Vankomisin, Linezolid, Daptomisin)"</b><br>
+                            <b>"CA-MRSA = PVL = Deri apsesi"</b><br>
+                            <b>"HA-MRSA = Hastane = Çoklu direnç"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">S. aureus Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sistem</th>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Deri/Yumuşak doku</b></td>
+                                    <td>Follikülit, Fronkül, Karbonkül, Selülit, İmpetigo</td>
+                                    <td>En sık S. aureus enfeksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kemik/Eklem</b></td>
+                                    <td>Osteomiyelit, Septik artrit</td>
+                                    <td>Çocuklarda #1 etken</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kardiyak</b></td>
+                                    <td>Akut endokardit</td>
+                                    <td>IV ilaç kullanıcıları, triküspit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pulmoner</b></td>
+                                    <td>Nekrotizan pnömoni</td>
+                                    <td>PVL+, influenza sonrası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSS</b></td>
+                                    <td>Beyin apsesi</td>
+                                    <td>Hematojen yayılım</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kan</b></td>
+                                    <td>Bakteriyemi, Sepsis</td>
+                                    <td>Metastatik enfeksiyonlar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Toksin Aracılı Hastalıklar</p>
+                        <p class="highlight-box__content">
+                            <b>1. Gıda Zehirlenmesi:</b><br>
+                            • Enterotoksin (ısıya dayanıklı)<br>
+                            • Kuluçka: 1-6 saat (çok kısa!)<br>
+                            • Kusma ön planda, ateş yok/düşük<br><br>
+                            <b>2. Toksik Şok Sendromu:</b><br>
+                            • TSST-1 süperantijen<br>
+                            • Ateş, döküntü, deskuamasyon, şok<br><br>
+                            <b>3. Haşlanmış Deri Sendromu (SSSS):</b><br>
+                            • Eksfoliyatif toksin<br>
+                            • Nikolsky (+), bebek/küçük çocuk<br>
+                            • Kültürde lezyon steril (toksin etkisi)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"S. aureus = Apse yapıcı #1"</b><br>
+                            <b>"Osteomiyelit çocuk = S. aureus"</b><br>
+                            <b>"IV ilaç + Endokardit = S. aureus"</b><br>
+                            <b>"Gıda zehirlenmesi 1-6 saat = S. aureus"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">S. aureus Tedavi Seçenekleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>1. Seçenek</th>
+                                    <th>Alternatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>MSSA - Hafif</b></td>
+                                    <td>Flukloksasilin PO</td>
+                                    <td>Sefaleksin, Klindamisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MSSA - Ağır</b></td>
+                                    <td>Flukloksasilin IV, Sefazolin</td>
+                                    <td>Nafsilin, Oksasilin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MRSA - Hafif (deri)</b></td>
+                                    <td>TMP-SMX, Doksisiklin</td>
+                                    <td>Klindamisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MRSA - Ağır</b></td>
+                                    <td>VANKOMİSİN IV</td>
+                                    <td>Daptomisin, Linezolid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MRSA Pnömoni</b></td>
+                                    <td>Vankomisin veya Linezolid</td>
+                                    <td>Daptomisin kontrendike (akciğer)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Daptomisin Uyarısı:</strong><br>
+                        Daptomisin pnömonide KULLANILMAZ!<br>
+                        Sürfaktan tarafından inaktive edilir.</p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Toksin Hastalıklarında Tedavi:</strong><br>
+                        <b>TSS:</b> Kaynak kontrolü + Klindamisin (toksin üretimini azaltır)<br>
+                        <b>SSSS:</b> Anti-stafilokokal antibiyotik<br>
+                        <b>Gıda zehirlenmesi:</b> Destek tedavi (antibiyotik gereksiz)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"MSSA = Anti-stafilokokal penisilin (Flukloksasilin)"</b><br>
+                            <b>"MRSA ağır = Vankomisin IV"</b><br>
+                            <b>"MRSA pnömoni = Vankomisin veya Linezolid (Daptomisin YOK!)"</b><br>
+                            <b>"Toksin hastalığı = Klindamisin ekle"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Koagülaz pozitif =</b> S. aureus<br>
+                            2. <b>MRSA mekanizma =</b> mecA → PBP2a<br>
+                            3. <b>MRSA tedavi =</b> Vankomisin<br>
+                            4. <b>Gıda zehirlenmesi 1-6 saat =</b> S. aureus enterotoksin<br>
+                            5. <b>TSST-1 =</b> Toksik Şok Sendromu<br>
+                            6. <b>SSSS =</b> Eksfoliyatif toksin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Toksin-Hastalık Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Toksin</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>TSST-1</td>
+                                    <td>Toksik Şok Sendromu</td>
+                                </tr>
+                                <tr>
+                                    <td>Eksfoliyatif (ETA/ETB)</td>
+                                    <td>SSSS (Haşlanmış Deri)</td>
+                                </tr>
+                                <tr>
+                                    <td>Enterotoksin</td>
+                                    <td>Gıda zehirlenmesi</td>
+                                </tr>
+                                <tr>
+                                    <td>PVL</td>
+                                    <td>Nekrotizan pnömoni, Deri apsesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Koagülaz (+) = aureus = ALTIN"</b><br>
+                            <b>"mecA = MRSA = Tüm beta-laktam dirençli"</b><br>
+                            <b>"MRSA = VLD (Vankomisin, Linezolid, Daptomisin)"</b><br>
+                            <b>"Gıda 1-6 saat + Kusma = S. aureus"</b><br>
+                            <b>"Tampon + Şok = TSST-1 = TSS"</b><br>
+                            <b>"Bebek + Haşlanmış deri = SSSS = Eksfoliyatif"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Koagülaz pozitif stafilokok =</b> S. aureus<br>
+                            2. <b>Novobiosin dirençli CoNS =</b> S. saprophyticus (ÜSİ)<br>
+                            3. <b>MRSA direnç geni =</b> mecA<br>
+                            4. <b>MRSA direnç mekanizması =</b> PBP2a (değişik PBP)<br>
+                            5. <b>MRSA 1. seçenek =</b> Vankomisin IV<br>
+                            6. <b>MRSA pnömonide Daptomisin =</b> KULLANILMAZ<br>
+                            7. <b>S. aureus gıda zehirlenmesi =</b> 1-6 saat, kusma, ateşsiz<br>
+                            8. <b>Enterotoksin özelliği =</b> Isıya dayanıklı<br>
+                            9. <b>TSST-1 hastalığı =</b> Toksik Şok Sendromu<br>
+                            10. <b>Eksfoliyatif toksin =</b> SSSS (bebeklerde)<br>
+                            11. <b>PVL toksin =</b> CA-MRSA, nekrotizan pnömoni<br>
+                            12. <b>Protein A fonksiyonu =</b> IgG Fc bağlar, opsonizasyon engeller<br>
+                            13. <b>Çocukta osteomiyelit etkeni =</b> S. aureus<br>
+                            14. <b>IV ilaç + endokardit =</b> S. aureus<br>
+                            15. <b>CA-MRSA vs HA-MRSA farkı =</b> PVL, SCCmec tipi
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Koagülaz pozitif stafilokok hangisi?" → S. aureus</li>
+                        <li><b>Soru tipi:</b> "MRSA'da direnç mekanizması?" → mecA geni, PBP2a</li>
+                        <li><b>Soru tipi:</b> "MRSA tedavisinde ilk seçenek?" → Vankomisin</li>
+                        <li><b>Soru tipi:</b> "1-6 saat kuluçka ile gıda zehirlenmesi etkeni?" → S. aureus</li>
+                        <li><b>Soru tipi:</b> "Toksik şok sendromu toksini?" → TSST-1</li>
+                        <li><b>Soru tipi:</b> "Haşlanmış deri sendromu etkeni?" → S. aureus (Eksfoliyatif toksin)</li>
+                        <li><b>Soru tipi:</b> "Novobiosin dirençli stafilokok?" → S. saprophyticus</li>
+                        <li><b>Soru tipi:</b> "CA-MRSA ile ilişkili toksin?" → PVL</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 52,
+        category: "bakteriyoloji",
+        title: "Streptococcus pyogenes (GAS)",
+        subtitle: "Grup A Streptokok, Komplikasyonlar ve Tedavi",
+        summary: "S. pyogenes enfeksiyonları, virilans faktörleri, akut romatizmal ateş, post-streptokoksik glomerülonefrit, nekrotizan fasiit ve tedavi.",
+        tags: ["Bakteriyoloji", "Streptokok", "GAS", "Romatizmal Ateş", "Farenjit", "Gram Pozitif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">S. pyogenes Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-pozitif kok, zincir dizilimi<br>
+                            <b>Hemoliz:</b> BETA-hemolitik (tam hemoliz)<br>
+                            <b>Lancefield grubu:</b> GRUP A (GAS)<br>
+                            <b>Katalaz:</b> NEGATİF (Stafilokoktan ayırır)<br>
+                            <b>Basitrasin:</b> DUYARLI (S. agalactiae'den ayırır)<br>
+                            <b>PYR:</b> POZİTİF
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Beta-Hemolitik Streptokok Ayrımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>S. pyogenes (GAS)</th>
+                                    <th>S. agalactiae (GBS)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Lancefield</b></td>
+                                    <td>Grup A</td>
+                                    <td>Grup B</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Basitrasin</b></td>
+                                    <td>DUYARLI</td>
+                                    <td>Dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CAMP testi</b></td>
+                                    <td>Negatif</td>
+                                    <td>POZİTİF</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PYR</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hippurat</b></td>
+                                    <td>Negatif</td>
+                                    <td>POZİTİF</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Önemli:</strong> S. pyogenes'e karşı PENİSİLİN DİRENCİ HİÇ GÖRÜLMEMİŞTİR! Penisilin her zaman etkilidir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">GAS Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GAS = Grup A = Basitrasin DUYARLI = PYR POZİTİF"</b><br>
+                            <b>"GBS = Grup B = CAMP POZİTİF = Hippurat POZİTİF"</b><br>
+                            <b>"GAS = Penisilin HER ZAMAN ETKİLİ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Virilans Faktörleri",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">S. pyogenes Virilans Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>M proteini</b></td>
+                                    <td>Anti-fagositik, tip spesifik bağışıklık, ARF ile ilişkili</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hyalüronik asit kapsül</b></td>
+                                    <td>Anti-fagositik, insan dokusuna benzer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Streptokinaz</b></td>
+                                    <td>Pıhtı eritir, yayılımı kolaylaştırır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Streptolizin O</b></td>
+                                    <td>Oksijene labil, ASO antikoru oluşturur</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Streptolizin S</b></td>
+                                    <td>Oksijene stabil, beta hemolizden sorumlu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DNaz (Streptodornaz)</b></td>
+                                    <td>DNA yıkımı, anti-DNaz B antikoru</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eritrojenik toksin (Spe A, B, C)</b></td>
+                                    <td>Kızıl döküntüsü, süperantijen</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C5a peptidaz</b></td>
+                                    <td>Kompleman inhibisyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">M Proteini - En Önemli Virilans Faktörü</p>
+                        <p class="highlight-box__content">
+                            • Anti-fagositik etki<br>
+                            • Tip spesifik bağışıklık (>200 serotip)<br>
+                            • Kalp dokusuna çapraz reaksiyon (ARF patogenezi)<br>
+                            • Emm gen tiplemesi ile epidemiyoloji
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Virilans Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"M proteini = Major virilans = Moleküler benzerlik = ARF"</b><br>
+                            <b>"Streptolizin O = ASO = Serolojik tanı"</b><br>
+                            <b>"Eritrojenik toksin = Kızıl = Scarlet fever"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Süpüratif Enfeksiyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Farenjit/Tonsillit</b></td>
+                                    <td>EN SIK GAS enfeksiyonu, eksudalı, ağrılı LAP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kızıl (Scarlet fever)</b></td>
+                                    <td>Farenjit + Döküntü (eritrojenik toksin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmpetigo</b></td>
+                                    <td>Yüzeyel deri enfeksiyonu, bal rengi kabuk</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Erizipel</b></td>
+                                    <td>Dermiş enfeksiyonu, keskin sınırlı, yüzde sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Selülit</b></td>
+                                    <td>Subkutan doku enfeksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nekrotizan Fasiit</b></td>
+                                    <td>"Etçil bakteri", acil cerrahi, yüksek mortalite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Streptokoksik TSS</b></td>
+                                    <td>S. aureus TSS'ye benzer, daha ağır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kızıl (Scarlet Fever)</p>
+                        <p class="highlight-box__content">
+                            <b>Etken:</b> S. pyogenes + Eritrojenik toksin<br>
+                            <b>Döküntü:</b> Kum kağıdı hissi, gövdeden başlar<br>
+                            <b>Dil:</b> Çilek dili → Ahududu dili<br>
+                            <b>Yüz:</b> Perioral solukluk<br>
+                            <b>Pastia çizgileri:</b> Kıvrım yerlerinde peteşi<br>
+                            <b>Deskuamasyon:</b> İyileşmede el/ayakta
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Nekrotizan Fasiit:</strong><br>
+                        • Hızlı ilerleyen, ağrı orantısız<br>
+                        • Krepitasyon, bül, nekroz<br>
+                        • ACİL cerrahi debridman<br>
+                        • Antibiyotik: Penisilin + Klindamisin</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Kızıl = Kum kağıdı + Çilek dili + Perioral solukluk"</b><br>
+                            <b>"Nekrotizan fasiit = ACİL cerrah çağır!"</b><br>
+                            <b>"Erizipel = Keskin sınır = Dermis"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Non-Süpüratif Komplikasyonlar",
+                icon: "fas fa-heart-pulse",
+                content: `
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>İmmün Aracılı Komplikasyonlar:</strong><br>
+                        Enfeksiyondan 1-4 hafta sonra ortaya çıkar. Antibiyotik tedavisi ARF'yi ÖNLER!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Akut Romatizmal Ateş (ARF)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Jones Kriterleri (Revize 2015)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>MAJÖR</b></td>
+                                    <td>Kardit, Poliartrit, Sydenham koresi, Eritema marginatum, Subkutan nodüller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MİNÖR</b></td>
+                                    <td>Ateş, Artralji, Uzamış PR, ↑ESR/CRP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TANI</b></td>
+                                    <td>2 majör VEYA 1 majör + 2 minör + GAS kanıtı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">ARF Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Patogenez:</b> M proteini ile kalp dokusuna çapraz reaksiyon<br>
+                            <b>Tetikleyici:</b> SADECE FARENJİT (impetigo ARF yapmaz!)<br>
+                            <b>Kardit:</b> En ciddi, kalıcı hasar (mitral > aort)<br>
+                            <b>Poliartrit:</b> En sık, gezici, büyük eklem<br>
+                            <b>Kore:</b> Geç bulgu (aylar sonra), kızlarda sık<br>
+                            <b>Eritema marginatum:</b> Halka şeklinde, gövdede<br>
+                            <b>Subkutan nodül:</b> Ağrısız, kemik çıkıntılarında
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Post-Streptokoksik Glomerülonefrit (PSGN)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Patogenez</b></td>
+                                    <td>İmmün kompleks birikimi (Tip III hipersensitivite)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tetikleyici</b></td>
+                                    <td>Farenjit VEYA İmpetigo (her ikisi de)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Latent süre</b></td>
+                                    <td>Farenjit: 1-2 hafta, İmpetigo: 3-6 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Hematüri (cola rengi), ödem, hipertansiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Laboratuvar</b></td>
+                                    <td>↓C3, ↑ASO/Anti-DNaz B</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Prognoz</b></td>
+                                    <td>Çocuklarda genellikle iyi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Komplikasyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ARF = SADECE farenjit = Jones kriterleri"</b><br>
+                            <b>"PSGN = Farenjit + İmpetigo = İmmün kompleks"</b><br>
+                            <b>"Jones MAJÖR = Kardit, Poliartrit, Kore, Eritema marginatum, Subkutan nodül"</b><br>
+                            <b>"Antibiyotik ARF'yi ÖNLER, PSGN'yi ÖNLEMEZ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">GAS Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hızlı Antijen Testi (RAT)</b></td>
+                                    <td>Dakikalar, yüksek spesifisite, düşük sensitivite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Boğaz kültürü</b></td>
+                                    <td>Altın standart, 24-48 saat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ASO (Anti-Streptolizin O)</b></td>
+                                    <td>Farenjit sonrası yükselir, komplikasyon tanısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anti-DNaz B</b></td>
+                                    <td>İmpetigo sonrası yükselir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tedavi</p>
+                        <p class="highlight-box__content">
+                            <b>GAS Farenjit:</b><br>
+                            • 1. Seçenek: Penisilin V (10 gün) veya Amoksisilin<br>
+                            • Alternatif: Sefaleksin, Azitromisin (alerji)<br>
+                            • Benzatin Penisilin G IM tek doz<br><br>
+                            <b>ARF Profilaksisi:</b><br>
+                            • Benzatin Penisilin G IM her 3-4 haftada<br>
+                            • Süre: Kardit yoksa 5 yıl veya 21 yaşa kadar<br>
+                            • Kardit varsa: Ömür boyu veya 40 yaşa kadar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enfeksiyona Göre Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Farenjit</b></td>
+                                    <td>Penisilin V / Amoksisilin 10 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmpetigo</b></td>
+                                    <td>Topikal mupirosin veya oral antibiyotik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Erizipel/Selülit</b></td>
+                                    <td>Penisilin veya Sefalosporin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nekrotizan Fasiit</b></td>
+                                    <td>Cerrahi + Penisilin + Klindamisin + IVIG</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GAS = Penisilin HER ZAMAN ETKİLİ (direnç yok!)"</b><br>
+                            <b>"Farenjit tedavisi = ARF'yi önler"</b><br>
+                            <b>"Nekrotizan fasiit = Cerrahi + Klindamisin (toksin azaltır)"</b><br>
+                            <b>"RAT (-) → Kültür yap"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>GAS ayrımı =</b> Basitrasin duyarlı, PYR (+)<br>
+                            2. <b>GAS direnç =</b> Penisilin direnci YOK<br>
+                            3. <b>ARF tetikleyici =</b> SADECE farenjit<br>
+                            4. <b>PSGN tetikleyici =</b> Farenjit + İmpetigo<br>
+                            5. <b>Jones majör =</b> Kardit, Poliartrit, Kore, Eritema marginatum, Nodül<br>
+                            6. <b>Kızıl =</b> Eritrojenik toksin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ARF vs PSGN</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>ARF</th>
+                                    <th>PSGN</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tetikleyici</td>
+                                    <td>Sadece farenjit</td>
+                                    <td>Farenjit + İmpetigo</td>
+                                </tr>
+                                <tr>
+                                    <td>Patogenez</td>
+                                    <td>Moleküler benzerlik</td>
+                                    <td>İmmün kompleks</td>
+                                </tr>
+                                <tr>
+                                    <td>Antibiyotik önlemi</td>
+                                    <td>EVET</td>
+                                    <td>HAYIR</td>
+                                </tr>
+                                <tr>
+                                    <td>Kompleman</td>
+                                    <td>Normal</td>
+                                    <td>↓C3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GAS = Basitrasin DUYARLI = PYR (+)"</b><br>
+                            <b>"GBS = CAMP (+) = Hippurat (+)"</b><br>
+                            <b>"GAS = Penisilin DİRENCİ YOK!"</b><br>
+                            <b>"ARF = Farenjit ONLY = Tedavi ÖNLER"</b><br>
+                            <b>"PSGN = Farenjit + İmpetigo = Tedavi ÖNLEMEZ"</b><br>
+                            <b>"Jones = Kardit, Poliartrit, Kore, Eritema marginatum, Nodül"</b><br>
+                            <b>"Kızıl = Çilek dili + Kum kağıdı + Pastia"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>GAS Lancefield grubu =</b> Grup A<br>
+                            2. <b>GAS ayrımı =</b> Basitrasin duyarlı, PYR pozitif<br>
+                            3. <b>GAS penisilin direnci =</b> HİÇ BİLDİRİLMEMİŞ<br>
+                            4. <b>M proteini fonksiyonu =</b> Anti-fagositik, ARF patogenezi<br>
+                            5. <b>ASO antikoru neyi ölçer =</b> Streptolizin O'ya karşı<br>
+                            6. <b>ARF tetikleyicisi =</b> SADECE farenjit<br>
+                            7. <b>PSGN tetikleyicisi =</b> Farenjit + İmpetigo<br>
+                            8. <b>Jones majör kriterleri =</b> Kardit, Poliartrit, Kore, Eritema marginatum, Subkutan nodül<br>
+                            9. <b>ARF'de en sık bulgu =</b> Poliartrit<br>
+                            10. <b>ARF'de kalıcı hasar =</b> Kardit (mitral kapak)<br>
+                            11. <b>Kızıl döküntü nedeni =</b> Eritrojenik toksin<br>
+                            12. <b>Çilek/Ahududu dili =</b> Kızıl<br>
+                            13. <b>Nekrotizan fasiit tedavi =</b> Cerrahi + Penisilin + Klindamisin<br>
+                            14. <b>PSGN'de kompleman =</b> C3 düşük<br>
+                            15. <b>Antibiyotik ARF'yi önler mi? =</b> EVET<br>
+                            16. <b>Antibiyotik PSGN'yi önler mi? =</b> HAYIR
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Basitrasin duyarlı beta-hemolitik streptokok?" → S. pyogenes (GAS)</li>
+                        <li><b>Soru tipi:</b> "ARF hangi enfeksiyondan sonra gelişir?" → Sadece farenjit</li>
+                        <li><b>Soru tipi:</b> "Jones majör kriterleri?" → Kardit, Poliartrit, Kore, Eritema marginatum, Nodül</li>
+                        <li><b>Soru tipi:</b> "PSGN'de kompleman?" → C3 düşük</li>
+                        <li><b>Soru tipi:</b> "Kızılda döküntü nedeni?" → Eritrojenik toksin</li>
+                        <li><b>Soru tipi:</b> "GAS'a karşı penisilin direnci?" → Hiç bildirilmemiş</li>
+                        <li><b>Soru tipi:</b> "M proteini hangi komplikasyonla ilişkili?" → ARF</li>
+                        <li><b>Soru tipi:</b> "Post-streptokoksik glomerülonefritte idrar?" → Hematüri (cola rengi)</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
