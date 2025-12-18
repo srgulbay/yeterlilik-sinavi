@@ -37285,6 +37285,2620 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 66,
+        category: "sterilizasyon-dezenfeksiyon",
+        title: "Sterilizasyon Yöntemleri",
+        subtitle: "Fiziksel ve Kimyasal Sterilizasyon Teknikleri",
+        summary: "Tüm mikroorganizmaların (sporlar dahil) öldürülmesi veya uzaklaştırılması için kullanılan fiziksel ve kimyasal yöntemler, sterilizasyon kontrol testleri ve klinik uygulamalar.",
+        tags: ["Sterilizasyon", "Otoklav", "Etilen Oksit", "Spor", "Enfeksiyon Kontrolü"],
+        sections: [
+            {
+                title: "Temel Kavramlar ve Tanımlar",
+                icon: "fas fa-book",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Sterilizasyon Nedir?</p>
+                        <p class="highlight-box__content">
+                            <b>Sterilizasyon:</b> Sporlar dahil TÜM canlı mikroorganizmaların öldürülmesi veya uzaklaştırılması işlemidir.<br><br>
+                            <b>Anahtar:</b> Sterilizasyon = Spor ölümü = Mutlak kavram (yarı steril diye bir şey YOKTUR!)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Temel Kavramlar Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kavram</th>
+                                    <th>Tanım</th>
+                                    <th>Hedef</th>
+                                    <th>Spor Durumu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sterilizasyon</b></td>
+                                    <td>Tüm mikropların öldürülmesi</td>
+                                    <td>Cansız materyaller</td>
+                                    <td><span style="color:green">✓ Öldürür</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dezenfeksiyon</b></td>
+                                    <td>Patojen mikropların öldürülmesi</td>
+                                    <td>Cansız yüzeyler</td>
+                                    <td><span style="color:red">✗ Öldürmez*</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antisepsi</b></td>
+                                    <td>Canlı dokuda mikrop azaltma</td>
+                                    <td>Deri, mukoza</td>
+                                    <td><span style="color:red">✗ Öldürmez</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sanitasyon</b></td>
+                                    <td>Mikrop yükünü güvenli düzeye indirme</td>
+                                    <td>Genel temizlik</td>
+                                    <td><span style="color:red">✗ Öldürmez</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.9em; color:#666;">*Yüksek düzey dezenfeksiyon bazı sporları öldürebilir</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">-Sid vs -Statik Etki</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Etki Tipi</th>
+                                    <th>Anlam</th>
+                                    <th>Örnek Terim</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>-Sidal / -Sid</b></td>
+                                    <td>Öldürücü etki (irreversibl)</td>
+                                    <td>Bakterisid, fungisid, virisid, sporisid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>-Statik</b></td>
+                                    <td>Durdurucu etki (reversibl)</td>
+                                    <td>Bakteriyostatik, fungistatik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Sterilizasyon Gerekli Durumlar:</strong><br>
+                        • Cerrahi aletler<br>
+                        • İmplantlar ve protezler<br>
+                        • Parenteral solüsyonlar<br>
+                        • Steril vücut boşluklarına giren materyaller<br>
+                        • Mikrobiyoloji besiyerleri</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Temel Kavram Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Sterilizasyon = SPOR dahil HEPSİ ölür"</b><br>
+                            <b>"Dezenfeksiyon = Cansız yüzey, sporlar sağ kalabilir"</b><br>
+                            <b>"Antisepsi = Canlı doku (deri/mukoza)"</b><br>
+                            <b>"-Sid = Öldürür, -Statik = Durdurur"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Fiziksel Sterilizasyon - Isı ile Sterilizasyon",
+                icon: "fas fa-fire",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Isı ile Sterilizasyon Prensibi</p>
+                        <p class="highlight-box__content">
+                            Isı, proteinleri denatüre ederek ve nükleik asitleri hasara uğratarak mikroorganizmaları öldürür.<br>
+                            <b>Kural:</b> Nemli ısı, kuru ısıdan daha etkilidir (aynı sıcaklıkta)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Nemli Isı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Koşullar</th>
+                                    <th>Kullanım Alanı</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Otoklav (Buhar)</b></td>
+                                    <td>121°C, 15-20 dk, 1 atm</td>
+                                    <td>Cerrahi alet, besiyeri, tekstil</td>
+                                    <td><span style="color:green">EN ETKİLİ yöntem</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Otoklav (Hızlı)</b></td>
+                                    <td>134°C, 3-4 dk, 2 atm</td>
+                                    <td>Acil durumlar, prion</td>
+                                    <td>Flash sterilizasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kaynatma</b></td>
+                                    <td>100°C, 10-30 dk</td>
+                                    <td>Dezenfeksiyon (sterilizasyon değil!)</td>
+                                    <td><span style="color:red">Sporları öldürmez</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tindalizasyon</b></td>
+                                    <td>56-80°C, 30 dk, 3-5 gün tekrar</td>
+                                    <td>Isıya duyarlı materyaller</td>
+                                    <td>Kesintili (fraksiyone) sterilizasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pastörizasyon</b></td>
+                                    <td>63°C 30 dk veya 72°C 15 sn</td>
+                                    <td>Süt, meyve suyu</td>
+                                    <td><span style="color:orange">Sterilizasyon DEĞİL</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>SINAV TUZAĞI!</strong><br>
+                        <b>Kaynatma ve pastörizasyon STERİLİZASYON DEĞİLDİR!</b><br>
+                        Sporları öldürmez → Sadece vejetatif formları öldürür</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Otoklav Detayları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Standart</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sıcaklık</b></td>
+                                    <td>121°C (134°C hızlı)</td>
+                                    <td>Doymuş buhar basıncı ile sağlanır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Basınç</b></td>
+                                    <td>1 atm (15 psi)</td>
+                                    <td>Basınç sadece sıcaklığı artırmak için</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>15-20 dakika</td>
+                                    <td>Materyal hacmine göre değişir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etki mekanizması</b></td>
+                                    <td>Protein denatürasyonu</td>
+                                    <td>Nemli ısı koagülasyonu hızlandırır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kuru Isı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Koşullar</th>
+                                    <th>Kullanım Alanı</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sıcak Hava Fırını (Etüv)</b></td>
+                                    <td>160°C 2 saat veya 170°C 1 saat</td>
+                                    <td>Cam, metal, yağ, toz</td>
+                                    <td>Uzun süre, yüksek ısı gerekir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alevle Yakma</b></td>
+                                    <td>Alev geçirme</td>
+                                    <td>Öze, iğne, ağızlık</td>
+                                    <td>Sadece küçük metal aletler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yakma (İnsinerasyon)</b></td>
+                                    <td>Yüksek ısı</td>
+                                    <td>Enfeksiyöz atık, kadavra</td>
+                                    <td>Materyal yok edilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Kuru vs Nemli Isı Karşılaştırması:</strong><br>
+                        <b>Nemli Isı (Otoklav):</b> 121°C, 15 dk → Daha etkili, daha düşük ısı<br>
+                        <b>Kuru Isı (Etüv):</b> 160°C, 2 saat → Daha az etkili, daha yüksek ısı<br><br>
+                        <b>Neden?</b> Su, ısı transferini artırır ve protein denatürasyonunu kolaylaştırır</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Otoklavda Sterilize Edilemeyenler</h4>
+                        <ul class="feature-list">
+                            <li><b>Yağlar ve tozlar:</b> Su ile karışmaz → Kuru ısı kullan</li>
+                            <li><b>Plastik ve kauçuk (bazıları):</b> Erir → Kimyasal veya radyasyon</li>
+                            <li><b>Kesici aletler:</b> Körleşir → Kimyasal veya plazma</li>
+                            <li><b>Elektronik cihazlar:</b> Hasar görür → Etilen oksit veya plazma</li>
+                            <li><b>Kapalı kaplar:</b> Buhar girmez → Açık olmalı</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Isı Sterilizasyonu Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"OTOKLAV = 121°C + 15dk + 1atm = ALTIN STANDART"</b><br>
+                            <b>"Nemli > Kuru (aynı sıcaklıkta daha etkili)"</b><br>
+                            <b>"Kaynatma = SPOR SAĞKALIR = Sterilizasyon DEĞİL"</b><br>
+                            <b>"Yağ/Toz = Kuru ısı (Etüv)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Fiziksel Sterilizasyon - Radyasyon ve Filtrasyon",
+                icon: "fas fa-radiation",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Radyasyon ile Sterilizasyon</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Radyasyon Tipi</th>
+                                    <th>Özellik</th>
+                                    <th>Kullanım</th>
+                                    <th>Etki Mekanizması</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Gama Işınları (γ)</b></td>
+                                    <td>İyonizan, yüksek penetrasyon</td>
+                                    <td>Tek kullanımlık malzeme, ilaç, gıda</td>
+                                    <td>DNA kırıkları, serbest radikaller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>X-ışınları</b></td>
+                                    <td>İyonizan</td>
+                                    <td>Endüstriyel sterilizasyon</td>
+                                    <td>DNA hasarı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ultraviyole (UV)</b></td>
+                                    <td>Non-iyonizan, düşük penetrasyon</td>
+                                    <td>Yüzey, hava, su dezenfeksiyonu</td>
+                                    <td>Timin dimerleri (DNA)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Elektron Demeti</b></td>
+                                    <td>İyonizan, düşük penetrasyon</td>
+                                    <td>İnce materyaller</td>
+                                    <td>DNA hasarı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>UV Işınları Hakkında:</strong><br>
+                        • UV (254 nm) sadece <b>YÜZEY</b> dezenfeksiyonu sağlar<br>
+                        • Penetrasyon gücü çok düşük (gölge alanlar etkilenmez)<br>
+                        • <b>STERİLİZASYON DEĞİLDİR!</b><br>
+                        • Kullanım: Laminar flow kabin, ameliyathane havası, su arıtma</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Filtrasyon ile Sterilizasyon</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Filtre Tipi</th>
+                                    <th>Por Çapı</th>
+                                    <th>Tutulan</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Membran filtre</b></td>
+                                    <td>0.22 μm</td>
+                                    <td>Bakteri, maya, küf</td>
+                                    <td>Isıya duyarlı sıvılar, serum, antibiyotik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HEPA filtre</b></td>
+                                    <td>0.3 μm</td>
+                                    <td>%99.97 partikül</td>
+                                    <td>Laminar flow, ameliyathane havası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ULPA filtre</b></td>
+                                    <td>0.12 μm</td>
+                                    <td>%99.999 partikül</td>
+                                    <td>Yüksek güvenlikli alanlar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Filtrasyon Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Avantaj:</b> Isıya duyarlı materyaller için ideal (serum, vitamin, antibiyotik)<br>
+                            <b>Dezavantaj:</b> Virüsleri tutmaz (çok küçük), prionları tutmaz<br>
+                            <b>Standart:</b> 0.22 μm = Bakteri geçirmez
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Radyasyon/Filtrasyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Gama ışını = Tek kullanımlık, yüksek penetrasyon"</b><br>
+                            <b>"UV = Sadece YÜZEY, sterilizasyon DEĞİL"</b><br>
+                            <b>"0.22 μm filtre = Bakteri tutulur, virüs GEÇER"</b><br>
+                            <b>"HEPA = %99.97 hava filtrasyonu"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kimyasal Sterilizasyon Yöntemleri",
+                icon: "fas fa-flask",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kimyasal Sterilizasyon Ne Zaman?</p>
+                        <p class="highlight-box__content">
+                            Isıya ve radyasyona duyarlı materyaller için kullanılır:<br>
+                            • Plastik, kauçuk malzemeler<br>
+                            • Elektronik cihazlar<br>
+                            • Optik aletler (endoskop, laparoskop)<br>
+                            • Kesici aletler (körleşme istenmeyen)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kimyasal Sterilizasyon Ajanları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Ajan</th>
+                                    <th>Özellik</th>
+                                    <th>Kullanım</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etilen Oksit (EtO)</b></td>
+                                    <td>Alkilleyici, gaz, penetran</td>
+                                    <td>Tek kullanımlık, plastik, kauçuk</td>
+                                    <td>Toksik, karsinojenik, uzun havalandırma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Formaldehit</b></td>
+                                    <td>Alkilleyici, gaz/sıvı</td>
+                                    <td>Oda fumigasyonu, histoloji</td>
+                                    <td>Toksik, karsinojenik, irritan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Glutaraldehit (%2)</b></td>
+                                    <td>Alkilleyici, sıvı</td>
+                                    <td>Endoskop, yüksek düzey dezenfeksiyon</td>
+                                    <td>Uzun temas süresi (10 saat sterilizasyon)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hidrojen Peroksit Plazma</b></td>
+                                    <td>Oksidatif, gaz plazma</td>
+                                    <td>Isıya duyarlı cerrahi alet</td>
+                                    <td>Selüloz/sıvı içeren malzeme olmaz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Perasetik Asit</b></td>
+                                    <td>Oksidatif, sıvı</td>
+                                    <td>Endoskop, hemodiyaliz</td>
+                                    <td>Korozif, kısa raf ömrü</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Etilen Oksit (EtO) Detayları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Parametre</th>
+                                    <th>Değer/Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>DNA ve proteinleri alkilleyerek inaktive eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sıcaklık</b></td>
+                                    <td>30-60°C (düşük sıcaklık)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>1-6 saat + 8-12 saat havalandırma (aerasyon)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Avantaj</b></td>
+                                    <td>Mükemmel penetrasyon, ısıya duyarlı için ideal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dezavantaj</b></td>
+                                    <td>Toksik, mutajenik, karsinojenik, patlayıcı, uzun süre</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>EtO Toksisite:</strong><br>
+                        • Mutajenik ve karsinojenik (lösemi riski)<br>
+                        • Yanıcı ve patlayıcı<br>
+                        • Dermatit, konjunktivit yapabilir<br>
+                        • <b>Zorunlu aerasyon:</b> Rezidü EtO uzaklaştırılmalı (8-12 saat)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hidrojen Peroksit Plazma (STERRAD®)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>H₂O₂ → Plazma (serbest radikaller) → Oksidasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sıcaklık</b></td>
+                                    <td>45-50°C (düşük sıcaklık)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>28-75 dakika (EtO'dan çok daha kısa)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Avantaj</b></td>
+                                    <td>Toksik rezidü yok, kısa süre, çevre dostu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dezavantaj</b></td>
+                                    <td>Selüloz absorbe eder, sıvı içeren malzeme olmaz</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kimyasal Sterilizasyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"EtO = Alkilleyici = Plastik/Elektronik = TOKSİK = Aerasyon şart"</b><br>
+                            <b>"Plazma = H₂O₂ = Kısa süre = Selüloz/sıvı OLMAZ"</b><br>
+                            <b>"Glutaraldehit = Endoskop = 10 saat = Yüksek düzey dezenfeksiyon"</b><br>
+                            <b>"Formaldehit = Fumigasyon = Karsinojenik"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sterilizasyon Kontrol Testleri",
+                icon: "fas fa-check-double",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Sterilizasyon Kontrolü Neden Önemli?</p>
+                        <p class="highlight-box__content">
+                            Sterilizasyon işleminin başarılı olduğunu doğrulamak için kontrol testleri zorunludur.<br>
+                            <b>Üç tip kontrol:</b> Fiziksel, Kimyasal, Biyolojik
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kontrol Test Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test Tipi</th>
+                                    <th>Yöntem</th>
+                                    <th>Ne Gösterir?</th>
+                                    <th>Güvenilirlik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Fiziksel</b></td>
+                                    <td>Termometre, manometre, zamanlayıcı</td>
+                                    <td>Parametreler sağlandı mı?</td>
+                                    <td>⭐ Düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kimyasal</b></td>
+                                    <td>İndikatör bant, entegratör</td>
+                                    <td>Sterilizasyon koşullarına maruz kaldı mı?</td>
+                                    <td>⭐⭐ Orta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biyolojik</b></td>
+                                    <td>Spor testleri</td>
+                                    <td>Sporlar öldü mü? (Gerçek sterilizasyon)</td>
+                                    <td>⭐⭐⭐ EN YÜKSEK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Biyolojik İndikatörler (ALTIN STANDART)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sterilizasyon Yöntemi</th>
+                                    <th>Biyolojik İndikatör</th>
+                                    <th>Neden Bu Spor?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Otoklav (Buhar)</b></td>
+                                    <td><i>Geobacillus stearothermophilus</i></td>
+                                    <td>Nemli ısıya en dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kuru Isı (Etüv)</b></td>
+                                    <td><i>Bacillus atrophaeus</i></td>
+                                    <td>Kuru ısıya en dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etilen Oksit (EtO)</b></td>
+                                    <td><i>Bacillus atrophaeus</i></td>
+                                    <td>EtO'ya en dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>H₂O₂ Plazma</b></td>
+                                    <td><i>Geobacillus stearothermophilus</i></td>
+                                    <td>H₂O₂'ye en dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Radyasyon</b></td>
+                                    <td><i>Bacillus pumilus</i></td>
+                                    <td>Radyasyona en dirençli</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Biyolojik İndikatör Mantığı:</strong><br>
+                        "En dirençli sporu öldürdüysen, diğer her şeyi de öldürmüşsündür!"<br><br>
+                        <b>Kullanım:</b> Haftalık rutin + her implant yükünde</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bowie-Dick Testi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Bilgi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Amaç</b></td>
+                                    <td>Ön-vakum otoklavlarda hava çıkarma ve buhar penetrasyonunu test eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ne zaman?</b></td>
+                                    <td>Her gün ilk döngüde</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yorumlama</b></td>
+                                    <td>Homojen renk değişimi = Başarılı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Sterilizasyon Kontrol Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Biyolojik = ALTIN STANDART = Gerçek sterilizasyon kanıtı"</b><br>
+                            <b>"G. stearothermophilus = Steam (Buhar)"</b><br>
+                            <b>"B. atrophaeus = Dry (Kuru) + EtO"</b><br>
+                            <b>"Bowie-Dick = Ön-vakum otoklav = Günlük ilk döngü"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Prion İnaktivasyonu",
+                icon: "fas fa-brain",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Prion Nedir?</p>
+                        <p class="highlight-box__content">
+                            <b>Prion:</b> Anormal katlanan bulaşıcı protein (PrPSc)<br>
+                            <b>Hastalıklar:</b> Creutzfeldt-Jakob (CJD), Kuru, BSE (deli dana)<br>
+                            <b>Özellik:</b> Nükleik asit içermez, aşırı dirençli!
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>PRİONLAR AŞIRI DİRENÇLİDİR:</strong><br>
+                        • Rutin otoklav (121°C) ETKİSİZ<br>
+                        • UV ışınları ETKİSİZ<br>
+                        • Formaldehit ETKİSİZ<br>
+                        • Glutaraldehit ETKİSİZ<br>
+                        • Etilen oksit ETKİSİZ</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Prion İnaktivasyon Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Koşullar</th>
+                                    <th>Etkinlik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yakma (İnsinerasyon)</b></td>
+                                    <td>1000°C</td>
+                                    <td><span style="color:green">EN ETKİLİ</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>1N NaOH</b></td>
+                                    <td>1 saat + otoklav (134°C, 18 dk)</td>
+                                    <td><span style="color:green">Etkili</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sodyum Hipoklorit (%5.25)</b></td>
+                                    <td>1 saat + otoklav</td>
+                                    <td><span style="color:green">Etkili</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Uzun süreli otoklav</b></td>
+                                    <td>134°C, 18 dakika (6 döngü)</td>
+                                    <td><span style="color:orange">Kısmi</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Prion Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Prion = Protein = Nükleik asit YOK = Aşırı dirençli"</b><br>
+                            <b>"Rutin otoklav/UV/EtO/Formaldehit = ETKİSİZ"</b><br>
+                            <b>"NaOH + Hipoklorit + 134°C uzun süre = ETKİLİ"</b><br>
+                            <b>"En iyi yöntem = YAKMA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Otoklav koşulları =</b> 121°C, 15-20 dk, 1 atm<br>
+                            2. <b>Kuru ısı (Etüv) =</b> 160°C, 2 saat<br>
+                            3. <b>Biyolojik indikatör otoklav =</b> G. stearothermophilus<br>
+                            4. <b>Biyolojik indikatör EtO =</b> B. atrophaeus<br>
+                            5. <b>UV =</b> Yüzey dezenfeksiyonu (sterilizasyon DEĞİL)<br>
+                            6. <b>Filtrasyon =</b> 0.22 μm (virüs GEÇER)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yöntem Seçim Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Materyal</th>
+                                    <th>Önerilen Yöntem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cerrahi alet (metal)</td>
+                                    <td>Otoklav</td>
+                                </tr>
+                                <tr>
+                                    <td>Cam malzeme</td>
+                                    <td>Otoklav veya Kuru ısı</td>
+                                </tr>
+                                <tr>
+                                    <td>Yağ, toz</td>
+                                    <td>Kuru ısı (Etüv)</td>
+                                </tr>
+                                <tr>
+                                    <td>Plastik, kauçuk</td>
+                                    <td>EtO veya H₂O₂ Plazma</td>
+                                </tr>
+                                <tr>
+                                    <td>Endoskop</td>
+                                    <td>H₂O₂ Plazma veya Perasetik asit</td>
+                                </tr>
+                                <tr>
+                                    <td>Isıya duyarlı sıvı</td>
+                                    <td>Filtrasyon (0.22 μm)</td>
+                                </tr>
+                                <tr>
+                                    <td>Tek kullanımlık malzeme</td>
+                                    <td>Gama radyasyon veya EtO</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>En etkili sterilizasyon =</b> Otoklav (nemli ısı)<br>
+                            2. <b>Otoklav parametreleri =</b> 121°C, 15-20 dk, 1 atm<br>
+                            3. <b>Kuru ısı parametreleri =</b> 160°C, 2 saat<br>
+                            4. <b>Nemli ısı > Kuru ısı =</b> Aynı sıcaklıkta daha etkili<br>
+                            5. <b>Kaynatma =</b> Sterilizasyon DEĞİL (spor sağkalır)<br>
+                            6. <b>Pastörizasyon =</b> Sterilizasyon DEĞİL<br>
+                            7. <b>UV =</b> Sadece yüzey dezenfeksiyonu<br>
+                            8. <b>0.22 μm filtre =</b> Bakteri tutulur, virüs GEÇER<br>
+                            9. <b>HEPA filtre =</b> %99.97 hava filtrasyonu<br>
+                            10. <b>EtO avantajı =</b> Plastiğe uygun, iyi penetrasyon<br>
+                            11. <b>EtO dezavantajı =</b> Toksik, karsinojenik, aerasyon gerekir<br>
+                            12. <b>Plazma dezavantajı =</b> Selüloz/sıvı içeren malzeme olmaz<br>
+                            13. <b>Biyolojik indikatör =</b> ALTIN STANDART kontrol<br>
+                            14. <b>Bowie-Dick =</b> Ön-vakum otoklavda günlük test<br>
+                            15. <b>Prion =</b> Rutin yöntemlere dirençli, NaOH + uzun otoklav gerekir
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Cerrahi alet sterilizasyonu için en uygun yöntem?" → Otoklav</li>
+                        <li><b>Soru tipi:</b> "Yağ sterilizasyonu için hangi yöntem?" → Kuru ısı (Etüv)</li>
+                        <li><b>Soru tipi:</b> "Plastik malzeme sterilizasyonu?" → EtO veya H₂O₂ Plazma</li>
+                        <li><b>Soru tipi:</b> "Otoklav biyolojik indikatörü?" → G. stearothermophilus</li>
+                        <li><b>Soru tipi:</b> "Kaynatma ile sporlar öldürülür mü?" → HAYIR</li>
+                        <li><b>Soru tipi:</b> "UV ne yapar?" → Yüzey dezenfeksiyonu (sterilizasyon değil)</li>
+                        <li><b>Soru tipi:</b> "Isıya duyarlı sıvı nasıl sterilize edilir?" → Filtrasyon</li>
+                        <li><b>Soru tipi:</b> "EtO'nun dezavantajı?" → Toksik, karsinojenik, uzun aerasyon</li>
+                        <li><b>Soru tipi:</b> "CJD şüphelisinde alet yönetimi?" → NaOH + 134°C uzun otoklav veya yakma</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 67,
+        category: "sterilizasyon-dezenfeksiyon",
+        title: "Dezenfeksiyon ve Antisepsi",
+        subtitle: "Dezenfektanlar, Antiseptikler ve Spaulding Sınıflaması",
+        summary: "Dezenfeksiyon düzeyleri, Spaulding sınıflaması, dezenfektan ve antiseptik ajanların özellikleri, etki mekanizmaları, kullanım alanları ve direnç mekanizmaları.",
+        tags: ["Dezenfeksiyon", "Antisepsi", "Spaulding", "Klorheksidin", "Alkol", "Enfeksiyon Kontrolü"],
+        sections: [
+            {
+                title: "Temel Kavramlar ve Spaulding Sınıflaması",
+                icon: "fas fa-layer-group",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Dezenfeksiyon vs Antisepsi</p>
+                        <p class="highlight-box__content">
+                            <b>Dezenfeksiyon:</b> Cansız yüzeylerde patojen mikroorganizmaların öldürülmesi (sporlar hariç)<br>
+                            <b>Antisepsi:</b> Canlı dokularda (deri, mukoza) mikrop sayısının azaltılması<br><br>
+                            <b>Anahtar:</b> Dezenfektan = Cansız yüzey | Antiseptik = Canlı doku
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Spaulding Sınıflaması (1968)</h4>
+                        <p>Tıbbi aletlerin enfeksiyon riski ve gereken işlem düzeyine göre sınıflandırması:</p>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Temas Yeri</th>
+                                    <th>Enfeksiyon Riski</th>
+                                    <th>Gereken İşlem</th>
+                                    <th>Örnekler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kritik</b></td>
+                                    <td>Steril doku, kan damarı</td>
+                                    <td>🔴 Yüksek</td>
+                                    <td><b>STERİLİZASYON</b></td>
+                                    <td>Cerrahi alet, implant, kateter, iğne</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yarı-Kritik</b></td>
+                                    <td>Mukoza, bütünlüğü bozuk deri</td>
+                                    <td>🟠 Orta</td>
+                                    <td><b>Yüksek düzey dezenfeksiyon</b></td>
+                                    <td>Endoskop, laringoskop, solunum cihazı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kritik Olmayan</b></td>
+                                    <td>Sağlam deri</td>
+                                    <td>🟢 Düşük</td>
+                                    <td><b>Düşük/Orta düzey dezenfeksiyon</b></td>
+                                    <td>Tansiyon aleti, stetoskop, yatak</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dezenfeksiyon Düzeyleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Düzey</th>
+                                    <th>Öldürdükleri</th>
+                                    <th>Öldüremedikleri</th>
+                                    <th>Örnek Ajanlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yüksek Düzey</b></td>
+                                    <td>Bakteri, virüs, mantar, mikobakteri, BAZI sporlar</td>
+                                    <td>Yüksek sayıda bakteri sporu</td>
+                                    <td>Glutaraldehit, OPA, H₂O₂, perasetik asit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orta Düzey</b></td>
+                                    <td>Bakteri, çoğu virüs, mantar, mikobakteri</td>
+                                    <td>Sporlar</td>
+                                    <td>Alkol, klor bileşikleri, fenol, iyodofor</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Düşük Düzey</b></td>
+                                    <td>Çoğu bakteri, bazı virüs, bazı mantar</td>
+                                    <td>Mikobakteri, sporlar, zarfsız virüsler</td>
+                                    <td>Kuaterner amonyum bileşikleri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Spaulding Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KRİTİK = Steril doku = STERİLİZASYON (cerrahi alet)"</b><br>
+                            <b>"YARI-KRİTİK = Mukoza = Yüksek düzey dezenfeksiyon (endoskop)"</b><br>
+                            <b>"KRİTİK OLMAYAN = Sağlam deri = Düşük düzey (stetoskop)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Dezenfektanlar - Aldehitler ve Oksidanlar",
+                icon: "fas fa-flask",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aldehitler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Ajan</th>
+                                    <th>Konsantrasyon</th>
+                                    <th>Etki</th>
+                                    <th>Kullanım</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Glutaraldehit</b></td>
+                                    <td>%2</td>
+                                    <td>Yüksek düzey (20 dk)<br>Sterilizasyon (10 saat)</td>
+                                    <td>Endoskop, solunum ekipmanı</td>
+                                    <td>Toksik, irritan, fiske edici</td>
+                                </tr>
+                                <tr>
+                                    <td><b>OPA (ortho-phthalaldehit)</b></td>
+                                    <td>%0.55</td>
+                                    <td>Yüksek düzey (12 dk)</td>
+                                    <td>Endoskop (glutaraldehit alternatifi)</td>
+                                    <td>Pahalı, anaftlaksi riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Formaldehit</b></td>
+                                    <td>%1-8</td>
+                                    <td>Yüksek düzey/Sterilizasyon</td>
+                                    <td>Oda fumigasyonu, histoloji</td>
+                                    <td>Karsinojenik, irritan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Oksidan Dezenfektanlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Ajan</th>
+                                    <th>Konsantrasyon</th>
+                                    <th>Etki</th>
+                                    <th>Kullanım</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hidrojen Peroksit (H₂O₂)</b></td>
+                                    <td>%3-6</td>
+                                    <td>Orta düzey</td>
+                                    <td>Yüzey, yara</td>
+                                    <td>Güvenli yıkım ürünleri (H₂O + O₂)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>H₂O₂ (yüksek kons.)</b></td>
+                                    <td>%7.5-30</td>
+                                    <td>Yüksek düzey/Sterilizasyon</td>
+                                    <td>Endoskop, plazma sterilizasyon</td>
+                                    <td>Korozif olabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Perasetik Asit</b></td>
+                                    <td>%0.2-0.35</td>
+                                    <td>Yüksek düzey/Sterilizasyon</td>
+                                    <td>Endoskop, hemodiyaliz</td>
+                                    <td>Hızlı etki, organik maddeye dayanıklı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Perasetik Asit Avantajları:</strong><br>
+                        • Çok hızlı etki (5-10 dakika)<br>
+                        • Organik madde varlığında etkili<br>
+                        • Çevre dostu yıkım ürünleri<br>
+                        • Biyofilm penetrasyonu iyi</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aldehit/Oksidan Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Glutaraldehit = Endoskop = 20 dk yüksek düzey = Toksik"</b><br>
+                            <b>"OPA = Glutaraldehit alternatifi = Daha az irritan"</b><br>
+                            <b>"Formaldehit = Fumigasyon = Karsinojenik"</b><br>
+                            <b>"Perasetik asit = Hızlı + Organik maddeye dayanıklı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Dezenfektanlar - Halojenler ve Alkoller",
+                icon: "fas fa-tint",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Halojen Bileşikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Ajan</th>
+                                    <th>Konsantrasyon</th>
+                                    <th>Kullanım</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sodyum Hipoklorit (Çamaşır suyu)</b></td>
+                                    <td>%0.5-5.25</td>
+                                    <td>Yüzey, kan döküntüsü, su</td>
+                                    <td>Korozif, organik maddeyle inaktif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Povidon-İyot (Betadin)</b></td>
+                                    <td>%7.5-10</td>
+                                    <td>Cilt antisepsisi, cerrahi scrub</td>
+                                    <td>Tiroid etkisi, alerji</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Klor Bileşikleri Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Avantaj:</b> Ucuz, geniş spektrum, hızlı etki<br>
+                            <b>Dezavantaj:</b><br>
+                            • Organik madde varlığında ETKİSİZLEŞİR<br>
+                            • Metallerle korozif<br>
+                            • Cildi tahriş eder<br>
+                            • İnstabil (ışık ve ısıda bozulur)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Alkoller</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Ajan</th>
+                                    <th>Optimal Konsantrasyon</th>
+                                    <th>Kullanım</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etil Alkol (Etanol)</b></td>
+                                    <td>%60-80</td>
+                                    <td>El antisepsisi, cilt, yüzey</td>
+                                    <td>Hızlı etki, rezidü yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İzopropil Alkol</b></td>
+                                    <td>%60-90</td>
+                                    <td>Cilt, yüzey, termometre</td>
+                                    <td>Etanolden biraz daha toksik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Alkollerin Özellikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Avantaj</th>
+                                    <th>Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>✓ Hızlı etki (saniyeler-dakikalar)</td>
+                                    <td>✗ Sporları öldürmez</td>
+                                </tr>
+                                <tr>
+                                    <td>✓ Geniş spektrum</td>
+                                    <td>✗ Organik maddede etki azalır</td>
+                                </tr>
+                                <tr>
+                                    <td>✓ Rezidü bırakmaz</td>
+                                    <td>✗ Zarfsız virüslere sınırlı etki</td>
+                                </tr>
+                                <tr>
+                                    <td>✓ Ucuz ve kolay bulunur</td>
+                                    <td>✗ Uçucu ve yanıcı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KRİTİK:</strong><br>
+                        <b>%100 alkol neden kullanılmaz?</b><br>
+                        • Protein denatürasyonu için SU gerekir<br>
+                        • %100 alkol çok hızlı buharlaşır<br>
+                        • Yüzeyde koruyucu koagulum oluşturur<br>
+                        • <b>Optimal: %60-80</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Halojen/Alkol Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Hipoklorit = Ucuz + Geniş spektrum + Organik maddede ETKİSİZ"</b><br>
+                            <b>"Povidon-iyot = Betadin = Cerrahi scrub"</b><br>
+                            <b>"Alkol = %60-80 optimal = SPOR ÖLDÜRMEZ"</b><br>
+                            <b>"%100 alkol = Çok hızlı buharlaşır = ETKİSİZ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Antiseptikler ve El Hijyeni",
+                icon: "fas fa-hand-sparkles",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Başlıca Antiseptikler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antiseptik</th>
+                                    <th>Avantaj</th>
+                                    <th>Dezavantaj</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klorheksidin (%2-4)</b></td>
+                                    <td>Rezidüel aktivite, geniş spektrum</td>
+                                    <td>Ototoksik (kulak), göze uygulanmaz</td>
+                                    <td>Cerrahi scrub, el antisepsisi, kateter bakımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alkol (%60-80)</b></td>
+                                    <td>Hızlı etki, geniş spektrum</td>
+                                    <td>Rezidüel aktivite yok, cildi kurutur</td>
+                                    <td>El antisepsisi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Povidon-iyot</b></td>
+                                    <td>Geniş spektrum, sporisidal</td>
+                                    <td>Tiroid etkisi, alerji, leke</td>
+                                    <td>Cerrahi alan, yara</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klorheksidin + Alkol</b></td>
+                                    <td>Hızlı + Rezidüel etki kombine</td>
+                                    <td>Yanıcı</td>
+                                    <td>Cerrahi alan antisepsisi (ALTIN STANDART)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">El Hijyeni - WHO 5 Moment</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Moment</th>
+                                    <th>Açıklama</th>
+                                    <th>Amaç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Hasta teması ÖNCE</b></td>
+                                    <td>Hastaya dokunmadan önce</td>
+                                    <td>Hastayı koru</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Aseptik işlem ÖNCE</b></td>
+                                    <td>Steril/temiz işlem öncesi</td>
+                                    <td>Hastayı koru</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Vücut sıvısı riski SONRA</b></td>
+                                    <td>Kan/sıvı teması sonrası</td>
+                                    <td>Sağlık çalışanını koru</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Hasta teması SONRA</b></td>
+                                    <td>Hastaya dokunduktan sonra</td>
+                                    <td>Çalışanı ve çevreyi koru</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Hasta çevresi SONRA</b></td>
+                                    <td>Hasta yatağı/eşyası sonrası</td>
+                                    <td>Çevreyi koru</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">El Yıkama vs El Antisepsisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Sabunlu Su</th>
+                                    <th>Alkol Bazlı El Antiseptiği</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>40-60 saniye</td>
+                                    <td>20-30 saniye</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C. difficile</b></td>
+                                    <td><span style="color:green">Tercih edilir</span></td>
+                                    <td><span style="color:red">Etkisiz</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Norovirüs</b></td>
+                                    <td><span style="color:green">Tercih edilir</span></td>
+                                    <td><span style="color:orange">Sınırlı etki</span></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Görünür kirlilik</b></td>
+                                    <td><span style="color:green">Etkili</span></td>
+                                    <td><span style="color:red">Etkisiz</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>C. difficile ve Norovirüs için:</strong><br>
+                        <b>SABUNLU SU İLE EL YIKAMA ZORUNLU!</b><br>
+                        Alkol bazlı el antiseptikleri bu patojenler için YETERSİZDİR.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">El Hijyeni Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"5 Moment = 2 önce (hasta/işlem) + 3 sonra (sıvı/hasta/çevre)"</b><br>
+                            <b>"Klorheksidin = REZİDÜEL etki = Cerrahi scrub"</b><br>
+                            <b>"C. diff / Norovirüs = SABUNLU SU (alkol etkisiz)"</b><br>
+                            <b>"Görünür kirlilik = Önce yıka, sonra antiseptik"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Mikroorganizma Direnç Sıralaması",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dezenfektanlara Direnç Sıralaması (En Dirençli → En Duyarlı)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Direnç Düzeyi</th>
+                                    <th>Mikroorganizma</th>
+                                    <th>Gerekli Yöntem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>EN DİRENÇLİ</b></td>
+                                    <td>Prionlar (CJD)</td>
+                                    <td>Yakma, NaOH + uzun otoklav</td>
+                                </tr>
+                                <tr>
+                                    <td>⬇️</td>
+                                    <td>Bakteri sporları (Bacillus, Clostridium)</td>
+                                    <td>Sterilizasyon</td>
+                                </tr>
+                                <tr>
+                                    <td>⬇️</td>
+                                    <td>Mikobakteriler (M. tuberculosis)</td>
+                                    <td>Yüksek düzey dezenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td>⬇️</td>
+                                    <td>Küçük zarfsız virüsler (HAV, norovirüs)</td>
+                                    <td>Yüksek/Orta düzey dezenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td>⬇️</td>
+                                    <td>Gram negatif bakteriler</td>
+                                    <td>Orta düzey dezenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td>⬇️</td>
+                                    <td>Gram pozitif bakteriler</td>
+                                    <td>Düşük düzey dezenfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>EN DUYARLI</b></td>
+                                    <td>Zarflı virüsler (HIV, HBV, influenza, COVID)</td>
+                                    <td>Düşük düzey dezenfeksiyon yeterli</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Neden Zarflı Virüsler En Duyarlı?</p>
+                        <p class="highlight-box__content">
+                            Zarflı virüslerin lipit membranı kolayca bozulur.<br>
+                            <b>Alkol, deterjan, sabun</b> → Lipid zarfı eritir → Virüs inaktive<br><br>
+                            <b>Örnek:</b> HIV, HBV, HCV, COVID-19, influenza çok kolay dezenfekte edilir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dezenfeksiyon Etkinliğini Etkileyen Faktörler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Organik madde</b></td>
+                                    <td>↓↓ Etki (kan, serum koruyucu bariyer)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konsantrasyon</b></td>
+                                    <td>↑ Konsantrasyon = ↑ Etki (alkol hariç)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Temas süresi</b></td>
+                                    <td>↑ Süre = ↑ Etki</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biyofilm</b></td>
+                                    <td>↓↓↓ Etki (100-1000x direnç)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Direnç Sıralaması Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PRİSM-GPZ" (yukarıdan aşağı):</b><br>
+                            <b>P</b>rion → <b>S</b>por → Mikobakteri → Zarfsız virüs → <b>G(-)</b> → <b>G(+)</b> → <b>Z</b>arflı virüs<br><br>
+                            <b>"Zarflı virüs = Sabun bile yeterli (HIV, COVID)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Spaulding Kritik =</b> Steril doku = Sterilizasyon<br>
+                            2. <b>Spaulding Yarı-Kritik =</b> Mukoza = Yüksek düzey dezenfeksiyon<br>
+                            3. <b>Klorheksidin =</b> Rezidüel aktivite olan antiseptik<br>
+                            4. <b>C. difficile/Norovirüs =</b> Sabunlu su ile el yıkama<br>
+                            5. <b>Alkol optimal =</b> %60-80<br>
+                            6. <b>Organik madde =</b> Dezenfektanı inaktive eder
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dezenfektan Seçim Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Önerilen Ajan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Endoskop dezenfeksiyonu</td>
+                                    <td>Glutaraldehit, OPA, Perasetik asit</td>
+                                </tr>
+                                <tr>
+                                    <td>Cerrahi alan antisepsisi</td>
+                                    <td>Klorheksidin + Alkol (altın standart)</td>
+                                </tr>
+                                <tr>
+                                    <td>C. difficile sonrası</td>
+                                    <td>Sabunlu su + Hipoklorit</td>
+                                </tr>
+                                <tr>
+                                    <td>Kan döküntüsü</td>
+                                    <td>Hipoklorit (%0.5 veya %1)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Spaulding kritik örneği =</b> Cerrahi alet, implant, kateter<br>
+                            2. <b>Spaulding yarı-kritik örneği =</b> Endoskop, laringoskop<br>
+                            3. <b>Spaulding kritik olmayan örneği =</b> Stetoskop, tansiyon aleti<br>
+                            4. <b>Glutaraldehit kullanımı =</b> Endoskop dezenfeksiyonu<br>
+                            5. <b>Alkol optimal konsantrasyonu =</b> %60-80<br>
+                            6. <b>%100 alkol neden etkisiz =</b> Hızlı buharlaşır, su gerekli<br>
+                            7. <b>Klorheksidin avantajı =</b> Rezidüel aktivite<br>
+                            8. <b>Klorheksidin kontrendikasyonu =</b> Kulak (ototoksik), göz<br>
+                            9. <b>Hipoklorit dezavantajı =</b> Organik maddede inaktif<br>
+                            10. <b>C. difficile için =</b> Sabunlu su + Hipoklorit<br>
+                            11. <b>WHO 5 moment =</b> 2 önce + 3 sonra<br>
+                            12. <b>En dirençli =</b> Prion > Spor > Mikobakteri<br>
+                            13. <b>En duyarlı =</b> Zarflı virüsler (HIV, COVID)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Endoskop hangi düzeyde işlem gerektirir?" → Yarı-kritik = Yüksek düzey dezenfeksiyon</li>
+                        <li><b>Soru tipi:</b> "Cerrahi alan antisepsisi için en iyi ajan?" → Klorheksidin + Alkol</li>
+                        <li><b>Soru tipi:</b> "C. difficile hastasında el hijyeni?" → Sabunlu su ile yıkama</li>
+                        <li><b>Soru tipi:</b> "%100 alkol neden kullanılmaz?" → Hızlı buharlaşır, su gerekli</li>
+                        <li><b>Soru tipi:</b> "Klorheksidin avantajı?" → Rezidüel (kalıcı) aktivite</li>
+                        <li><b>Soru tipi:</b> "En dirençli mikroorganizma?" → Prion</li>
+                        <li><b>Soru tipi:</b> "Zarflı virüsler neden kolay öldürülür?" → Lipid zarf kolayca bozulur</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 68,
+        category: "sterilizasyon-dezenfeksiyon",
+        title: "Tıbbi Atık Yönetimi",
+        subtitle: "Sınıflandırma, Renk Kodları ve Bertaraf Yöntemleri",
+        summary: "Tıbbi atıkların sınıflandırılması, renk kodlu torba sistemi, atık bertaraf yöntemleri, kesici-delici alet yönetimi ve yasal düzenlemeler.",
+        tags: ["Tıbbi Atık", "Enfeksiyon Kontrolü", "Biyogüvenlik", "Atık Bertarafı", "Kesici-Delici"],
+        sections: [
+            {
+                title: "Tıbbi Atık Sınıflandırması",
+                icon: "fas fa-biohazard",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tıbbi Atık Tanımı</p>
+                        <p class="highlight-box__content">
+                            Sağlık kuruluşlarında tanı, tedavi ve araştırma faaliyetleri sırasında ortaya çıkan, insan sağlığı ve çevre için potansiyel risk taşıyan atıklar.
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Atık Kategorileri (WHO ve Türkiye Mevzuatı)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Tanım</th>
+                                    <th>Örnekler</th>
+                                    <th>Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Evsel Nitelikli Atıklar</b></td>
+                                    <td>Enfeksiyöz olmayan genel atıklar</td>
+                                    <td>Kağıt, ambalaj, yemek artığı</td>
+                                    <td>🟢 Düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tıbbi Atıklar (Enfeksiyöz)</b></td>
+                                    <td>Patojen içeren veya temas eden</td>
+                                    <td>Kanlı malzeme, kültür, laboratuvar atığı</td>
+                                    <td>🔴 Yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kesici-Delici Atıklar</b></td>
+                                    <td>Yaralanma riski olan keskin objeler</td>
+                                    <td>İğne, bistüri, cam tüp, lanset</td>
+                                    <td>🔴 Çok Yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Patolojik Atıklar</b></td>
+                                    <td>İnsan doku ve organları</td>
+                                    <td>Ameliyat materyali, plasenta, amputasyon</td>
+                                    <td>🔴 Yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tehlikeli Atıklar</b></td>
+                                    <td>Kimyasal, farmasötik, radyoaktif</td>
+                                    <td>Sitotoksik ilaç, cıva, röntgen filmi</td>
+                                    <td>🟠 Özel</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Önemli:</strong> Tüm tıbbi atıkların yaklaşık <b>%75-90'ı evsel nitelikli</b> atıktır. Sadece <b>%10-25'i gerçek tehlikeli tıbbi atık</b>tır. Doğru ayrıştırma maliyet ve çevre açısından kritiktir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Atık Kategorisi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ETPKT":</b> <b>E</b>vsel (genel) - <b>T</b>ıbbi (enfeksiyöz) - <b>P</b>atolojik - <b>K</b>esici delici - <b>T</b>ehlikeli (kimyasal/radyoaktif)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Renk Kodlu Torba Sistemi",
+                icon: "fas fa-shopping-bag",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Türkiye'de Renk Kodları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Renk</th>
+                                    <th>Atık Türü</th>
+                                    <th>Örnekler</th>
+                                    <th>Bertaraf</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #ff0000; color: white; text-align: center;"><b>🔴 KIRMIZI</b></td>
+                                    <td>Tıbbi (Enfeksiyöz) Atık</td>
+                                    <td>Kanlı malzeme, laboratuvar atığı, diyaliz atığı</td>
+                                    <td>Sterilizasyon + Yakma</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #000000; color: white; text-align: center;"><b>⚫ SİYAH</b></td>
+                                    <td>Evsel Nitelikli Atık</td>
+                                    <td>Kağıt, ambalaj, yemek artığı</td>
+                                    <td>Düzenli depolama</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #0000ff; color: white; text-align: center;"><b>🔵 MAVİ</b></td>
+                                    <td>Geri Dönüşüm</td>
+                                    <td>Temiz plastik, kağıt, cam</td>
+                                    <td>Geri dönüşüm tesisi</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #ffff00; color: black; text-align: center;"><b>🟡 SARI</b></td>
+                                    <td>Kesici-Delici Atık</td>
+                                    <td>İğne, bistüri, cam tüp</td>
+                                    <td>Delinmez kutu + Yakma</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kesici-Delici Atık Kutusu Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Renk:</b> Sarı<br>
+                            <b>Malzeme:</b> Delinmez, sızdırmaz plastik<br>
+                            <b>Kapasite:</b> ¾ dolunca kapatılır (hiçbir zaman tam doldurulmaz)<br>
+                            <b>Etiket:</b> Biyotehlike işareti + "Kesici-Delici Atık" yazısı<br>
+                            <b>Konum:</b> İşlem yapılan yerin hemen yanında
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>KRİTİK KURAL:</strong><br>
+                        <b>Kullanılmış iğne ASLA:</b><br>
+                        • Kapağına geri takılmaz (recapping yasak)<br>
+                        • Elle bükülmez veya kırılmaz<br>
+                        • Enjektörden ayrılmaz<br>
+                        <b>→ Doğrudan kesici-delici kutusuna atılır!</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Renk Kodu Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"KIRMIZI = KAN (enfeksiyöz)"</b><br>
+                            <b>"SİYAH = Evsel (genel çöp)"</b><br>
+                            <b>"MAVİ = Geri dönüşüM"</b><br>
+                            <b>"SARI = Sivri/Kesici (sarı kutu)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Atık Bertaraf Yöntemleri",
+                icon: "fas fa-fire-alt",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bertaraf Teknolojileri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Prensip</th>
+                                    <th>Uygun Atıklar</th>
+                                    <th>Avantaj/Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yakma (İnsinerasyon)</b></td>
+                                    <td>850-1100°C'de yanma</td>
+                                    <td>Tüm tıbbi atıklar, patolojik, farmasötik</td>
+                                    <td>✓ Hacim azaltma %90<br>✗ Emisyon kontrolü gerek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Otoklav</b></td>
+                                    <td>121-134°C basınçlı buhar</td>
+                                    <td>Enfeksiyöz atıklar (kesici delici hariç)</td>
+                                    <td>✓ Çevre dostu<br>✗ Hacim azaltmaz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hidroklav</b></td>
+                                    <td>Buhar + parçalama</td>
+                                    <td>Enfeksiyöz + kesici delici</td>
+                                    <td>✓ Tanınmaz hale getirir<br>✗ Pahalı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kimyasal Dezenfeksiyon</b></td>
+                                    <td>Hipoklorit, aldehit</td>
+                                    <td>Sıvı atıklar, laboratuvar</td>
+                                    <td>✓ Ucuz<br>✗ Sadece sıvılara uygun</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mikrodalga</b></td>
+                                    <td>2450 MHz radyasyon</td>
+                                    <td>Enfeksiyöz atıklar</td>
+                                    <td>✓ Emisyon yok<br>✗ Metal içeremez</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Atık Türüne Göre Bertaraf</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Atık Türü</th>
+                                    <th>Önerilen Bertaraf</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Kanlı malzeme, pansuman</td>
+                                    <td>Kırmızı torba → Otoklav/Yakma</td>
+                                </tr>
+                                <tr>
+                                    <td>Kesici-delici</td>
+                                    <td>Sarı kutu → Yakma (otoklav yetersiz)</td>
+                                </tr>
+                                <tr>
+                                    <td>Patolojik (organ, doku)</td>
+                                    <td>Yakma veya derin gömme</td>
+                                </tr>
+                                <tr>
+                                    <td>Sitotoksik ilaç</td>
+                                    <td>Yüksek sıcaklıkta yakma (1200°C)</td>
+                                </tr>
+                                <tr>
+                                    <td>Radyoaktif atık</td>
+                                    <td>TAEK'e teslim</td>
+                                </tr>
+                                <tr>
+                                    <td>Cıvalı atık</td>
+                                    <td>Tehlikeli atık tesisi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Bertaraf Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Enfeksiyöz = Otoklav veya Yakma"</b><br>
+                            <b>"Kesici-delici = YAKMA (otoklav yetersiz)"</b><br>
+                            <b>"Patolojik = Yakma veya gömme"</b><br>
+                            <b>"Sitotoksik = Yüksek sıcaklık yakma"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İğne Batması ve Maruziyet Yönetimi",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İğne Batması Sonrası Acil Yaklaşım</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Adım</th>
+                                    <th>Uygulama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. İlk Yardım</b></td>
+                                    <td>• Su ve sabun ile yıka<br>• Antiseptik uygula<br>• Kanamaya izin ver (sıkma/emme yapma)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Raporlama</b></td>
+                                    <td>• Enfeksiyon kontrol birimine bildir<br>• Olay raporu doldur<br>• Kaynak hastayı belirle</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Risk Değerlendirme</b></td>
+                                    <td>• Kaynak hasta serolojisi<br>• Yaralanma tipi ve derinliği<br>• Kan miktarı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Profilaksi</b></td>
+                                    <td>• HBV: HBIG + aşı (72 saat içinde)<br>• HIV: PEP (2-72 saat içinde)<br>• HCV: Takip (profilaksi yok)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Post-Exposure Profilaksi (PEP) Zamanlaması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Patojen</th>
+                                    <th>Profilaksi Süresi</th>
+                                    <th>Optimal Başlangıç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HIV</b></td>
+                                    <td>28 gün antiretroviral</td>
+                                    <td>İlk 2 saat (en geç 72 saat)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HBV</b></td>
+                                    <td>HBIG + Aşı serisi</td>
+                                    <td>İlk 24-48 saat (en geç 7 gün)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HCV</b></td>
+                                    <td>Profilaksi YOK</td>
+                                    <td>Sadece serolojik takip</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>HIV PEP Kritik Süre:</strong><br>
+                        <b>2 saat içinde</b> → En etkili<br>
+                        <b>72 saatten sonra</b> → Başlanmaz (etkisiz)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İğne Batması Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"YIRA" → Yıka - İhbar - Risk değerlendir - Antiretroviral"</b><br>
+                            <b>"HIV PEP = 2-72 saat"</b><br>
+                            <b>"HBV = HBIG + Aşı"</b><br>
+                            <b>"HCV = Profilaksi YOK"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Atık Yönetimi İlkeleri",
+                icon: "fas fa-tasks",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Atık Minimizasyonu Hiyerarşisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Öncelik</th>
+                                    <th>Strateji</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Önleme</b></td>
+                                    <td>Atık oluşumunu engelle</td>
+                                    <td>Gereksiz malzeme kullanmama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Azaltma</b></td>
+                                    <td>Atık miktarını minimize et</td>
+                                    <td>Doğru ayrıştırma (evsel vs tıbbi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Yeniden Kullanım</b></td>
+                                    <td>Uygun malzemeleri tekrar kullan</td>
+                                    <td>Sterilize edilebilir aletler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Geri Dönüşüm</b></td>
+                                    <td>Temiz malzemeleri dönüştür</td>
+                                    <td>Temiz plastik, kağıt</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Bertaraf</b></td>
+                                    <td>Son çare olarak imha et</td>
+                                    <td>Yakma, düzenli depolama</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Atık Yönetimi Kuralları</h4>
+                        <ul class="feature-list">
+                            <li><b>Kaynakta ayrıştırma:</b> Atık üretildiği yerde doğru torba/kutuya konur</li>
+                            <li><b>Taşıma:</b> Ayrı araçlarla, kapalı konteynerlerle</li>
+                            <li><b>Depolama:</b> 48 saatten fazla bekletilmez (yaz: 24 saat)</li>
+                            <li><b>Etiketleme:</b> Tarih, birim, atık türü</li>
+                            <li><b>Eğitim:</b> Tüm personel düzenli eğitim almalı</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Yasal Çerçeve (Türkiye)</p>
+                        <p class="highlight-box__content">
+                            <b>Tıbbi Atıkların Kontrolü Yönetmeliği</b> (2017)<br>
+                            • Sağlık kuruluşları atık yönetim planı hazırlar<br>
+                            • Atık takip sistemi (TABS) kullanılır<br>
+                            • Lisanslı firmalar tarafından taşıma ve bertaraf<br>
+                            • İhlallerde idari para cezası
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Atık Yönetimi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Önce ÖAYG-B":</b><br>
+                            <b>Ö</b>nleme → <b>A</b>zaltma → <b>Y</b>eniden kullanım → <b>G</b>eri dönüşüm → <b>B</b>ertaraf
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Kırmızı torba =</b> Tıbbi/Enfeksiyöz atık<br>
+                            2. <b>Sarı kutu =</b> Kesici-delici atık<br>
+                            3. <b>Siyah torba =</b> Evsel atık<br>
+                            4. <b>İğne kapağı geri takılmaz =</b> Recapping yasak<br>
+                            5. <b>HIV PEP =</b> 2-72 saat içinde başla<br>
+                            6. <b>HCV profilaksisi =</b> YOK (sadece takip)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Özet Tablosu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Doğru Uygulama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Kanlı pansuman</td>
+                                    <td>Kırmızı torba</td>
+                                </tr>
+                                <tr>
+                                    <td>Kullanılmış iğne</td>
+                                    <td>Sarı kesici-delici kutu (¾ dolunca kapatılır)</td>
+                                </tr>
+                                <tr>
+                                    <td>Temiz ambalaj</td>
+                                    <td>Mavi geri dönüşüm</td>
+                                </tr>
+                                <tr>
+                                    <td>Yemek artığı</td>
+                                    <td>Siyah evsel atık</td>
+                                </tr>
+                                <tr>
+                                    <td>Amputasyon materyali</td>
+                                    <td>Patolojik atık → Yakma</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Kırmızı torba içeriği =</b> Kanlı malzeme, laboratuvar atığı<br>
+                            2. <b>Sarı kutu içeriği =</b> İğne, bistüri, cam tüp, lanset<br>
+                            3. <b>Kesici-delici kutu kapasitesi =</b> ¾ dolunca kapatılır<br>
+                            4. <b>Recapping =</b> İğne kapağı geri TAKMA<br>
+                            5. <b>Tıbbi atık oranı =</b> %10-25 (gerisi evsel)<br>
+                            6. <b>İğne batması ilk müdahale =</b> Su + sabun ile yıka<br>
+                            7. <b>HIV PEP başlangıç =</b> En geç 72 saat<br>
+                            8. <b>HIV PEP süresi =</b> 28 gün<br>
+                            9. <b>HBV profilaksisi =</b> HBIG + Aşı<br>
+                            10. <b>HCV profilaksisi =</b> YOK<br>
+                            11. <b>Kesici-delici bertaraf =</b> Yakma (otoklav yetersiz)<br>
+                            12. <b>Atık depolama süresi =</b> Maksimum 48 saat
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Kanlı pansuman hangi renkli torbaya?" → Kırmızı</li>
+                        <li><b>Soru tipi:</b> "Kullanılmış iğne nasıl atılır?" → Kapak takılmadan sarı kutuya</li>
+                        <li><b>Soru tipi:</b> "HIV pozitif hastadan iğne battı, ilk müdahale?" → Su ve sabun ile yıka</li>
+                        <li><b>Soru tipi:</b> "HIV PEP ne zaman başlanmalı?" → İlk 2 saat, en geç 72 saat</li>
+                        <li><b>Soru tipi:</b> "HCV maruziyetinde profilaksi?" → Profilaksi yok, takip</li>
+                        <li><b>Soru tipi:</b> "Kesici-delici kutu ne zaman kapatılır?" → ¾ dolunca</li>
+                        <li><b>Soru tipi:</b> "Tıbbi atıkların yüzdesi?" → %10-25</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 69,
+        category: "sterilizasyon-dezenfeksiyon",
+        title: "Hastane Enfeksiyonu Kontrolü",
+        subtitle: "İzolasyon Önlemleri, Sürveyans ve Enfeksiyon Kontrol Programları",
+        summary: "Hastane enfeksiyonları tanımı, izolasyon önlemleri (standart, temas, damlacık, hava yolu), kişisel koruyucu ekipman kullanımı, sürveyans yöntemleri ve enfeksiyon kontrol komitesi görevleri.",
+        tags: ["Hastane Enfeksiyonu", "İzolasyon", "Enfeksiyon Kontrolü", "PPE", "Sürveyans", "HEK"],
+        sections: [
+            {
+                title: "Hastane Enfeksiyonu Tanımı ve Epidemiyoloji",
+                icon: "fas fa-hospital",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Hastane Enfeksiyonu (Nozokomiyal) Tanımı</p>
+                        <p class="highlight-box__content">
+                            Hastanın yatışı sırasında mevcut olmayan veya inkübasyon döneminde bulunmayan, yatıştan <b>48-72 saat sonra</b> ortaya çıkan enfeksiyonlar.<br><br>
+                            <b>Cerrahi alan enfeksiyonu:</b> 30 gün içinde (implant varsa 1 yıl)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">En Sık Hastane Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Enfeksiyon Tipi</th>
+                                    <th>En Sık Etken</th>
+                                    <th>Risk Faktörü</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1</b></td>
+                                    <td>Üriner sistem enfeksiyonu (ÜSE)</td>
+                                    <td>E. coli, Enterokoklar</td>
+                                    <td>Üriner kateter</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2</b></td>
+                                    <td>Cerrahi alan enfeksiyonu (CAE)</td>
+                                    <td>S. aureus, KNS</td>
+                                    <td>Cerrahi işlem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3</b></td>
+                                    <td>Pnömoni (VAP)</td>
+                                    <td>P. aeruginosa, Acinetobacter</td>
+                                    <td>Mekanik ventilasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4</b></td>
+                                    <td>Kan dolaşımı enfeksiyonu</td>
+                                    <td>KNS, S. aureus, Candida</td>
+                                    <td>Santral venöz kateter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hastane Enfeksiyonu Bulaş Yolları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulaş Yolu</th>
+                                    <th>Açıklama</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Temas (En sık)</b></td>
+                                    <td>Direkt veya indirekt temas</td>
+                                    <td>MRSA, VRE, C. difficile</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Damlacık</b></td>
+                                    <td>>5 μm partiküller, 1-2 m mesafe</td>
+                                    <td>İnfluenza, meningokok, boğmaca</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hava yolu</b></td>
+                                    <td><5 μm partiküller, uzun mesafe</td>
+                                    <td>Tüberküloz, kızamık, suçiçeği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ortak kaynak</b></td>
+                                    <td>Kontamine su, ilaç, cihaz</td>
+                                    <td>Legionella (su), hepatit (çoklu doz flakon)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Hastane Enfeksiyonu Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ÜPCK" (sıklık sırası):</b> <b>Ü</b>riner → <b>P</b>nömoni (CAE ile yarışır) → <b>C</b>errahi alan → <b>K</b>an<br>
+                            <b>"48-72 saat" =</b> Hastane enfeksiyonu kriteri<br>
+                            <b>"Temas = En sık bulaş yolu"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Standart Önlemler",
+                icon: "fas fa-shield-alt",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Standart Önlemler (Universal Precautions)</p>
+                        <p class="highlight-box__content">
+                            <b>TÜM hastalar</b> için, tanı ne olursa olsun uygulanan temel enfeksiyon kontrol önlemleri.<br><br>
+                            <b>Prensip:</b> Her hastanın potansiyel enfeksiyöz olduğu kabul edilir.
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Standart Önlem Bileşenleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Önlem</th>
+                                    <th>Uygulama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>El hijyeni</b></td>
+                                    <td>WHO 5 moment, sabun/antiseptik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eldiven</b></td>
+                                    <td>Kan, vücut sıvısı, mukoza teması riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Önlük</b></td>
+                                    <td>Sıçrama/bulaş riski olan işlemler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Maske + Göz koruma</b></td>
+                                    <td>Sıçrama riski, aerosol oluşturan işlemler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Solunum hijyeni</b></td>
+                                    <td>Öksürük etiği, maske kullanımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kesici-delici güvenliği</b></td>
+                                    <td>Güvenli atık, recapping yasak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çevre temizliği</b></td>
+                                    <td>Yüzey dezenfeksiyonu, aletlerin işlenmesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hasta yerleştirme</b></td>
+                                    <td>Uygun hasta odası seçimi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Eldiven Kullanım Kuralları:</strong><br>
+                        • Eldiven el hijyeninin YERİNE geçmez<br>
+                        • Eldiven çıkarıldıktan sonra el hijyeni ZORUNLU<br>
+                        • Farklı hastalar için farklı eldiven<br>
+                        • Eldiven yıkanmaz, tek kullanımlık</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Standart Önlem Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"EL-EMOS-KÇH":</b><br>
+                            <b>EL</b> hijyeni + <b>E</b>ldiven + <b>M</b>aske + <b>Ö</b>nlük + <b>S</b>olunum hijyeni + <b>K</b>esici güvenliği + <b>Ç</b>evre + <b>H</b>asta yerleşimi
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Bulaşa Dayalı İzolasyon Önlemleri",
+                icon: "fas fa-door-closed",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İzolasyon Türleri Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Temas İzolasyonu</th>
+                                    <th>Damlacık İzolasyonu</th>
+                                    <th>Hava Yolu İzolasyonu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Partikül boyutu</b></td>
+                                    <td>-</td>
+                                    <td>>5 μm</td>
+                                    <td><5 μm (aerosol)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş mesafesi</b></td>
+                                    <td>Direkt/indirekt temas</td>
+                                    <td>1-2 metre</td>
+                                    <td>Uzun mesafe (hava akımı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oda</b></td>
+                                    <td>Tek kişilik veya kohort</td>
+                                    <td>Tek kişilik, kapı kapalı</td>
+                                    <td><b>Negatif basınçlı oda</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Maske</b></td>
+                                    <td>Gerekmiyor</td>
+                                    <td>Cerrahi maske (odaya girerken)</td>
+                                    <td><b>N95/FFP2</b> (odaya girerken)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eldiven</b></td>
+                                    <td><b>EVET</b></td>
+                                    <td>Standart önlem gereği</td>
+                                    <td>Standart önlem gereği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Önlük</b></td>
+                                    <td><b>EVET</b></td>
+                                    <td>Standart önlem gereği</td>
+                                    <td>Standart önlem gereği</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İzolasyon Türüne Göre Patojenler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Temas İzolasyonu</th>
+                                    <th>Damlacık İzolasyonu</th>
+                                    <th>Hava Yolu İzolasyonu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MRSA</td>
+                                    <td>İnfluenza</td>
+                                    <td><b>Tüberküloz</b></td>
+                                </tr>
+                                <tr>
+                                    <td>VRE</td>
+                                    <td>Meningokok</td>
+                                    <td><b>Kızamık (Measles)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>C. difficile</td>
+                                    <td>Boğmaca (Pertussis)</td>
+                                    <td><b>Suçiçeği (Varicella)</b></td>
+                                </tr>
+                                <tr>
+                                    <td>ESBL üretenler</td>
+                                    <td>Kabakulak (Mumps)</td>
+                                    <td><b>Dissemine Herpes zoster</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Uyuz</td>
+                                    <td>Kızamıkçık (Rubella)</td>
+                                    <td>SARS, COVID-19*</td>
+                                </tr>
+                                <tr>
+                                    <td>Rotavirüs, Norovirüs</td>
+                                    <td>Difteri</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>COVID-19 İzolasyonu:</strong><br>
+                        Hem damlacık hem hava yolu önlemleri uygulanır.<br>
+                        Aerosol oluşturan işlemlerde (entübasyon, bronkoskopi) → Hava yolu izolasyonu + N95</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İzolasyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TEMAS = MRSA, VRE, C. diff, ESBL (dirençli bakteriler)"</b><br>
+                            <b>"DAMLACIK = İnfluenza, Meningokok, Boğmaca (İMB)"</b><br>
+                            <b>"HAVA YOLU = TKS (TB, Kızamık, Suçiçeği) = Negatif basınç + N95"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kişisel Koruyucu Ekipman (KKE/PPE)",
+                icon: "fas fa-user-shield",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">KKE Türleri ve Kullanımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Ekipman</th>
+                                    <th>Koruma</th>
+                                    <th>Kullanım Endikasyonu</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Eldiven</b></td>
+                                    <td>El kontaminasyonu</td>
+                                    <td>Kan, vücut sıvısı, mukoza teması</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Önlük/Gömlek</b></td>
+                                    <td>Vücut/giysi kontaminasyonu</td>
+                                    <td>Sıçrama riski, temas izolasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cerrahi Maske</b></td>
+                                    <td>Damlacık (>5 μm)</td>
+                                    <td>Damlacık izolasyonu, solunum hijyeni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>N95/FFP2</b></td>
+                                    <td>Aerosol (<5 μm)</td>
+                                    <td>Hava yolu izolasyonu, aerosol işlemler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Göz koruma</b></td>
+                                    <td>Göz mukozası</td>
+                                    <td>Sıçrama riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yüz siperliği</b></td>
+                                    <td>Tüm yüz</td>
+                                    <td>Yüksek sıçrama riski</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">KKE Giyme ve Çıkarma Sırası</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>GİYME Sırası (Dıştan içe)</th>
+                                    <th>ÇIKARMA Sırası (İçten dışa)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1. Önlük</td>
+                                    <td>1. Eldiven (en kirli)</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Maske (N95 veya cerrahi)</td>
+                                    <td>2. Önlük</td>
+                                </tr>
+                                <tr>
+                                    <td>3. Göz koruma/Siperlik</td>
+                                    <td>3. Göz koruma/Siperlik</td>
+                                </tr>
+                                <tr>
+                                    <td>4. Eldiven (en son)</td>
+                                    <td>4. Maske (en son)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">N95 vs Cerrahi Maske</p>
+                        <p class="highlight-box__content">
+                            <b>N95/FFP2:</b> ≥%95 filtrasyon, aerosol koruma, sızdırmaz fit<br>
+                            <b>Cerrahi maske:</b> Damlacık koruma, gevşek fit, aerosol için yetersiz<br><br>
+                            <b>N95 gereken durumlar:</b><br>
+                            • Tüberküloz<br>
+                            • Kızamık, suçiçeği<br>
+                            • Aerosol oluşturan işlemler (entübasyon, bronkoskopi)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">KKE Sırası Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>GİYME: "ÖMGE" (Önlük-Maske-Göz-Eldiven)</b><br>
+                            <b>ÇIKARMA: "EGÖM" (Eldiven-Gömlek/Önlük-Örtü/Göz-Maske)</b><br><br>
+                            <b>"Eldiven en son giyilir, en önce çıkarılır"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sürveyans ve Enfeksiyon Kontrol Komitesi",
+                icon: "fas fa-chart-line",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hastane Enfeksiyonu Sürveyansı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sürveyans Tipi</th>
+                                    <th>Tanım</th>
+                                    <th>Avantaj/Dezavantaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Prospektif (Aktif)</b></td>
+                                    <td>Günlük hasta ziyareti, laboratuvar takibi</td>
+                                    <td>✓ Altın standart<br>✗ Zaman/personel yoğun</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Retrospektif (Pasif)</b></td>
+                                    <td>Dosya taraması, ICD kodları</td>
+                                    <td>✓ Kolay<br>✗ Düşük duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hedefli</b></td>
+                                    <td>Belirli ünite/enfeksiyon tipi izleme</td>
+                                    <td>✓ Verimli kaynak kullanımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Laboratuvar bazlı</b></td>
+                                    <td>Pozitif kültür bildirimleri</td>
+                                    <td>✓ Objektif<br>✗ Sadece kültür pozitif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enfeksiyon Kontrol Göstergeleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Gösterge</th>
+                                    <th>Formül</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnsidans hızı</b></td>
+                                    <td>(Yeni enfeksiyon sayısı / Toplam yatış günü) × 1000</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kateter ilişkili ÜSE</b></td>
+                                    <td>(ÜSE sayısı / Kateter günü) × 1000</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VAP hızı</b></td>
+                                    <td>(VAP sayısı / Ventilatör günü) × 1000</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CAE oranı</b></td>
+                                    <td>(CAE sayısı / Ameliyat sayısı) × 100</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enfeksiyon Kontrol Komitesi (EKK) Görevleri</h4>
+                        <ul class="feature-list">
+                            <li><b>Sürveyans:</b> Hastane enfeksiyonlarını izleme ve raporlama</li>
+                            <li><b>Politika:</b> Enfeksiyon kontrol protokolleri oluşturma</li>
+                            <li><b>Eğitim:</b> Personel eğitim programları</li>
+                            <li><b>Salgın yönetimi:</b> Kümelenme ve salgın soruşturması</li>
+                            <li><b>Antibiyotik yönetimi:</b> Antimikrobiyal stewardship</li>
+                            <li><b>Çevre kontrolü:</b> Sterilizasyon, dezenfeksiyon, atık yönetimi</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">EKK Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"SPEAÇS":</b> <b>S</b>ürveyans + <b>P</b>olitika + <b>E</b>ğitim + <b>A</b>ntibiyotik yönetimi + <b>Ç</b>evre + <b>S</b>algın yönetimi
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Cihaz İlişkili Enfeksiyon Önleme",
+                icon: "fas fa-medkit",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kateter İlişkili ÜSE Önleme (CAUTI Bundle)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Strateji</th>
+                                    <th>Uygulama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Endikasyon değerlendirme</b></td>
+                                    <td>Gerçekten gerekli mi? Günlük sorgula</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aseptik takma</b></td>
+                                    <td>Steril teknik, el hijyeni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kapalı sistem</b></td>
+                                    <td>Kapalı drenaj sistemi kullan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Erken çıkarma</b></td>
+                                    <td>En kısa sürede çıkar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Santral Kateter İlişkili Kan Dolaşımı Enfeksiyonu (CLABSI Bundle)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bundle Elemanı</th>
+                                    <th>Uygulama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>El hijyeni</b></td>
+                                    <td>İşlem öncesi/sonrası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Maksimal bariyer</b></td>
+                                    <td>Tam steril örtü, maske, eldiven, önlük, bone</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klorheksidin antisepsi</b></td>
+                                    <td>%2 klorheksidin ile cilt hazırlığı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Optimal bölge seçimi</b></td>
+                                    <td>Subklavyen > Juguler > Femoral</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Günlük değerlendirme</b></td>
+                                    <td>Gerekli mi? Erken çıkarma</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ventilatör İlişkili Pnömoni (VAP Bundle)</h4>
+                        <ul class="feature-list">
+                            <li><b>Yatak başı elevasyonu:</b> 30-45° (aspirasyon önleme)</li>
+                            <li><b>Sedasyon tatili:</b> Günlük sedasyon kesme</li>
+                            <li><b>DVT profilaksisi:</b> Derin ven trombozu önleme</li>
+                            <li><b>Ülser profilaksisi:</b> Stres ülseri önleme</li>
+                            <li><b>Oral bakım:</b> Klorheksidin ile</li>
+                            <li><b>Erken ekstübasyon:</b> Mümkün olan en kısa sürede</li>
+                        </ul>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Bundle Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>CLABSI:</b> "El-Maksimal bariyer-Klorheksidin-Yer-Günlük değerlendir"<br>
+                            <b>VAP:</b> "30° baş-Sedasyon kes-DVT-Ülser-Oral bakım"<br>
+                            <b>CAUTI:</b> "Endikasyon-Aseptik-Kapalı sistem-Erken çıkar"
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Hastane enfeksiyonu kriteri =</b> 48-72 saat sonra<br>
+                            2. <b>En sık hastane enfeksiyonu =</b> Üriner sistem<br>
+                            3. <b>En sık bulaş yolu =</b> Temas<br>
+                            4. <b>Hava yolu izolasyonu =</b> TB, kızamık, suçiçeği<br>
+                            5. <b>Negatif basınçlı oda =</b> Hava yolu izolasyonu<br>
+                            6. <b>N95 endikasyonu =</b> Hava yolu izolasyonu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İzolasyon Hızlı Özet</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Patojen</th>
+                                    <th>İzolasyon</th>
+                                    <th>Anahtar Önlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MRSA, C. difficile</td>
+                                    <td>Temas</td>
+                                    <td>Eldiven + Önlük</td>
+                                </tr>
+                                <tr>
+                                    <td>İnfluenza, Meningokok</td>
+                                    <td>Damlacık</td>
+                                    <td>Cerrahi maske</td>
+                                </tr>
+                                <tr>
+                                    <td>Tüberküloz</td>
+                                    <td>Hava yolu</td>
+                                    <td>N95 + Negatif basınç</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Hastane enfeksiyonu süresi =</b> 48-72 saat sonra<br>
+                            2. <b>En sık hastane enfeksiyonu =</b> ÜSE (kateter ilişkili)<br>
+                            3. <b>En sık bulaş yolu =</b> Temas<br>
+                            4. <b>Temas izolasyonu örnek =</b> MRSA, VRE, C. difficile<br>
+                            5. <b>Damlacık izolasyonu örnek =</b> İnfluenza, meningokok, boğmaca<br>
+                            6. <b>Hava yolu izolasyonu örnek =</b> TB, kızamık, suçiçeği<br>
+                            7. <b>Negatif basınçlı oda =</b> Hava yolu izolasyonu için<br>
+                            8. <b>N95 endikasyonu =</b> Hava yolu izolasyonu, aerosol işlem<br>
+                            9. <b>Standart önlem =</b> TÜM hastalar için<br>
+                            10. <b>Eldiven el hijyeni yerine geçmez =</b> Eldiven sonrası el hijyeni ZORUNLU<br>
+                            11. <b>KKE giyme sırası =</b> Önlük-Maske-Göz-Eldiven<br>
+                            12. <b>KKE çıkarma sırası =</b> Eldiven-Önlük-Göz-Maske<br>
+                            13. <b>CLABSI önleme bölge seçimi =</b> Subklavyen > Juguler > Femoral<br>
+                            14. <b>VAP yatak başı =</b> 30-45° elevasyonu
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Tüberküloz hastası için hangi izolasyon?" → Hava yolu (negatif basınç + N95)</li>
+                        <li><b>Soru tipi:</b> "MRSA hastası için izolasyon?" → Temas (eldiven + önlük)</li>
+                        <li><b>Soru tipi:</b> "İnfluenza için izolasyon?" → Damlacık (cerrahi maske)</li>
+                        <li><b>Soru tipi:</b> "En sık hastane enfeksiyonu?" → Üriner sistem enfeksiyonu</li>
+                        <li><b>Soru tipi:</b> "En sık bulaş yolu?" → Temas</li>
+                        <li><b>Soru tipi:</b> "KKE ilk ne çıkarılır?" → Eldiven (en kirli)</li>
+                        <li><b>Soru tipi:</b> "Santral kateter için optimal bölge?" → Subklavyen</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
