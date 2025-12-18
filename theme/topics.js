@@ -655,6 +655,14 @@ function updateTopicUIFor(topicId) {
             input.checked = level > 0 && level <= state.readLevel;
             input.disabled = !isAuthReady();
         });
+
+        const badge = card.querySelector('[data-topic-read-badge]');
+        if (badge) {
+            const countEl = badge.querySelector('.topic-read__badge-count');
+            if (countEl) countEl.textContent = String(clampReadLevel(state.readLevel));
+            badge.setAttribute('aria-label', `Tekrar: ${clampReadLevel(state.readLevel)}/5`);
+            badge.title = `Tekrar: ${clampReadLevel(state.readLevel)}/5`;
+        }
     }
 
     const row = document.querySelector(`.topic-row[data-topic-id="${id}"]`);
@@ -673,6 +681,14 @@ function updateTopicUIFor(topicId) {
             input.checked = level > 0 && level <= state.readLevel;
             input.disabled = !isAuthReady();
         });
+
+        const badge = row.querySelector('[data-topic-read-badge]');
+        if (badge) {
+            const countEl = badge.querySelector('.topic-read__badge-count');
+            if (countEl) countEl.textContent = String(clampReadLevel(state.readLevel));
+            badge.setAttribute('aria-label', `Tekrar: ${clampReadLevel(state.readLevel)}/5`);
+            badge.title = `Tekrar: ${clampReadLevel(state.readLevel)}/5`;
+        }
     }
 
     const detail = document.querySelector(`.topic-article [data-topic-actions][data-topic-id="${id}"]`);
@@ -690,24 +706,38 @@ function updateTopicUIFor(topicId) {
             input.checked = level > 0 && level <= state.readLevel;
             input.disabled = !isAuthReady();
         });
+
+        const badge = detail.querySelector('[data-topic-read-badge]');
+        if (badge) {
+            const countEl = badge.querySelector('.topic-read__badge-count');
+            if (countEl) countEl.textContent = String(clampReadLevel(state.readLevel));
+            badge.setAttribute('aria-label', `Tekrar: ${clampReadLevel(state.readLevel)}/5`);
+            badge.title = `Tekrar: ${clampReadLevel(state.readLevel)}/5`;
+        }
     }
 }
 
 function renderReadCheckboxes(topicId) {
     const state = getTopicState(topicId);
     const disabledAttr = isAuthReady() ? '' : 'disabled';
+    const levelNow = clampReadLevel(state.readLevel);
 
     return `
-        <div class="topic-read-checks" data-topic-read>
-            ${[1, 2, 3, 4, 5].map((n) => {
-                const checked = state.readLevel >= n ? 'checked' : '';
-                return `
-                    <label class="topic-check" title="${n}. tur">
-                        <input type="checkbox" ${checked} ${disabledAttr} data-topic-id="${topicId}" data-read-level="${n}">
-                        <span>${n}</span>
-                    </label>
-                `;
-            }).join('')}
+        <div class="topic-read" data-topic-read>
+            <button class="topic-read__badge" type="button" data-topic-read-badge data-topic-id="${topicId}" aria-label="Tekrar: ${levelNow}/5" title="Tekrar: ${levelNow}/5">
+                <span class="topic-read__badge-count">${levelNow}</span>
+            </button>
+            <div class="topic-read-checks" data-topic-read-checks>
+                ${[1, 2, 3, 4, 5].map((n) => {
+                    const checked = state.readLevel >= n ? 'checked' : '';
+                    return `
+                        <label class="topic-check" title="${n}. tur">
+                            <input type="checkbox" ${checked} ${disabledAttr} data-topic-id="${topicId}" data-read-level="${n}">
+                            <span>${n}</span>
+                        </label>
+                    `;
+                }).join('')}
+            </div>
         </div>
     `;
 }
@@ -726,6 +756,26 @@ function initTopicActions() {
     const list = document.getElementById('topicsList');
     if (list) {
         list.addEventListener('click', async (e) => {
+            const repeatBadge = e.target.closest('[data-topic-read-badge]');
+            if (repeatBadge) {
+                e.preventDefault();
+                e.stopPropagation();
+                const wrapper = repeatBadge.closest('[data-topic-read]');
+                if (wrapper) {
+                    const isOpen = !wrapper.classList.contains('is-open');
+                    document.querySelectorAll('[data-topic-read].is-open').forEach((el) => {
+                        if (el === wrapper) return;
+                        el.classList.remove('is-open');
+                        const row = el.closest('.topic-row');
+                        if (row) row.classList.remove('is-read-open');
+                    });
+                    wrapper.classList.toggle('is-open', isOpen);
+                    const row = wrapper.closest('.topic-row');
+                    if (row) row.classList.toggle('is-read-open', isOpen);
+                }
+                return;
+            }
+
             const favBtn = e.target.closest('[data-topic-fav]');
             if (favBtn) {
                 e.preventDefault();
@@ -742,6 +792,12 @@ function initTopicActions() {
                 if (input) {
                     await toggleReadLevel(input.dataset.topicId, input.dataset.readLevel);
                 }
+                const wrapper = label.closest('[data-topic-read]');
+                if (wrapper) {
+                    wrapper.classList.remove('is-open');
+                    const row = wrapper.closest('.topic-row');
+                    if (row) row.classList.remove('is-read-open');
+                }
                 return;
             }
 
@@ -749,6 +805,12 @@ function initTopicActions() {
             if (checkbox) {
                 e.stopPropagation();
                 await toggleReadLevel(checkbox.dataset.topicId, checkbox.dataset.readLevel);
+                const wrapper = checkbox.closest('[data-topic-read]');
+                if (wrapper) {
+                    wrapper.classList.remove('is-open');
+                    const row = wrapper.closest('.topic-row');
+                    if (row) row.classList.remove('is-read-open');
+                }
             }
         });
     }
@@ -1104,7 +1166,7 @@ function renderTopicsListCore(data) {
     // Item click handlers (open detail)
     container.querySelectorAll('.topic-preview, .topic-row').forEach((item) => {
         item.addEventListener('click', (event) => {
-            if (event.target && event.target.closest && event.target.closest('[data-topic-fav], input[data-read-level], .topic-read-checks, label.topic-check')) {
+            if (event.target && event.target.closest && event.target.closest('[data-topic-fav], input[data-read-level], [data-topic-read], [data-topic-read-badge], .topic-read-checks, label.topic-check')) {
                 return;
             }
             const topicId = parseInt(item.dataset.topicId);
