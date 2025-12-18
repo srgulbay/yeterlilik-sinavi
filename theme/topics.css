@@ -10,7 +10,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: var(--space-5);
-    padding: 0 var(--space-6) var(--space-24);
+    padding: 0 var(--space-6);
+    margin-bottom: var(--space-24);
 }
 
 ::view-transition-old(topics-list) {

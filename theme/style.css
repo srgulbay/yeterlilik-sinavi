@@ -763,6 +763,7 @@
     bottom: var(--space-4);
     margin: 0 auto var(--space-4);
     width: min(1100px, calc(100% - var(--space-8)));
+    view-transition-name: dock-session;
     background: var(--glass-bg-solid);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
@@ -773,7 +774,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    z-index: var(--z-sticky);
+    z-index: var(--z-dock);
 }
 
 .dock-content {
@@ -1190,6 +1191,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: var(--z-dock, 1000);
+    view-transition-name: dock-fab;
     
     /* Pill Button - Logo size */
     width: 60px;

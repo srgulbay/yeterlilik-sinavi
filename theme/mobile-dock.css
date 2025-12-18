@@ -34,6 +34,7 @@
     left: 50%;
     transform: translateX(-50%) translateY(0);
     z-index: var(--z-dock);
+    view-transition-name: dock-mobile;
     pointer-events: auto;
     opacity: 1;
     visibility: visible;
