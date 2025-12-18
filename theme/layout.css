@@ -319,6 +319,12 @@
     .app-wrapper {
         min-height: 100dvh;
     }
+
+    /* Slightly wider content on mobile for no-sidebar pages */
+    .app-wrapper--no-sidebar .main-content {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
     
     .main-content {
         padding-bottom: var(--space-28); /* More space for dock */
@@ -359,6 +365,11 @@
 @media (max-width: 480px) {
     .top-header {
         padding: var(--space-3);
+    }
+
+    .app-wrapper--no-sidebar .main-content {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
     }
     
     .cards-container {

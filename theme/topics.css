@@ -74,11 +74,6 @@
    .topic-preview__icon--bakteriyoloji, --viroloji, --mikoloji, --parazitoloji, --immunoloji */
 
 .topic-preview__info {
-
-.topic-end-sentinel {
-    width: 100%;
-    height: 1px;
-}
     flex: 1;
     min-width: 0;
 }
@@ -544,6 +539,27 @@
     background: rgba(79, 70, 229, 0.03);
 }
 
+/* Horizontal scroll wrapper for wide tables (esp. mobile) */
+.table-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    margin: var(--space-4) 0;
+}
+
+.table-scroll .article-table {
+    margin: 0;
+    width: max-content;
+    min-width: 100%;
+}
+
+.topic-end-sentinel {
+    width: 100%;
+    height: 1px;
+}
+
 /* Sub-section */
 .sub-section {
     margin: var(--space-5) 0;
@@ -676,6 +692,7 @@
         width: 56px;
         height: 56px;
         font-size: var(--icon-lg);
+    }
 
     .header-search {
         max-width: 100%;

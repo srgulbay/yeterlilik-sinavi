@@ -645,10 +645,27 @@ function showTopicDetail(topicId) {
     // Makaleyi render et
     articleContainer.innerHTML = renderTopicArticle(topic);
 
+    wrapScrollableTables(articleContainer);
+
     setupTopicEndPrompt(topicId);
 
     // Sayfanın üstüne scroll
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function wrapScrollableTables(scopeEl) {
+    if (!scopeEl || !scopeEl.querySelectorAll) return;
+    const tables = Array.from(scopeEl.querySelectorAll('.article-content table.article-table'));
+    tables.forEach((table) => {
+        if (!table || table.closest('.table-scroll')) return;
+        const parent = table.parentElement;
+        if (!parent) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-scroll';
+        parent.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
 }
 
 function renderTopicArticle(topic) {
