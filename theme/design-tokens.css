@@ -106,6 +106,7 @@
     --glass-bg: rgba(255, 255, 255, 0.8);
     --glass-bg-light: rgba(255, 255, 255, 0.6);
     --glass-bg-heavy: rgba(255, 255, 255, 0.95);
+    --glass-bg-solid: var(--glass-bg-heavy);
     --glass-border: rgba(255, 255, 255, 0.3);
     --glass-border-light: rgba(255, 255, 255, 0.2);
     --glass-border-width: 1px;
@@ -322,6 +323,7 @@
     --glass-bg: rgba(15, 23, 42, 0.7);
     --glass-bg-light: rgba(15, 23, 42, 0.5);
     --glass-bg-heavy: rgba(15, 23, 42, 0.95);
+    --glass-bg-solid: var(--glass-bg-heavy);
     --glass-border: rgba(148, 163, 184, 0.2);
     --glass-border-light: rgba(148, 163, 184, 0.1);
     --glass-blur: blur(20px) saturate(180%);

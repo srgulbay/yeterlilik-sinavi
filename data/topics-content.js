@@ -31933,6 +31933,4893 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 53,
+        category: "bakteriyoloji",
+        title: "Streptococcus pneumoniae",
+        subtitle: "Pnömokok, Kapsül, Aşı ve Klinik Tablolar",
+        summary: "S. pneumoniae'nin virilans faktörleri, otit media, pnömoni, menenjit, optochin testi, safra çözünürlüğü ve pnömokok aşıları.",
+        tags: ["Bakteriyoloji", "Pnömokok", "Menenjit", "Pnömoni", "Otit", "Aşı", "Gram Pozitif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">S. pneumoniae Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-pozitif diplokok (mum alevi/lanset şekli)<br>
+                            <b>Hemoliz:</b> ALFA-hemolitik (yeşil zon)<br>
+                            <b>Kapsül:</b> POZİTİF (en önemli virilans faktörü)<br>
+                            <b>Katalaz:</b> NEGATİF<br>
+                            <b>Optochin:</b> DUYARLI<br>
+                            <b>Safra çözünürlüğü:</b> POZİTİF
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Alfa-Hemolitik Streptokok Ayrımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>S. pneumoniae</th>
+                                    <th>Viridans Streptokoklar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Optochin</b></td>
+                                    <td>DUYARLI (≥14 mm)</td>
+                                    <td>Dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Safra çözünürlüğü</b></td>
+                                    <td>POZİTİF (erir)</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kapsül</b></td>
+                                    <td>VAR (>90 serotip)</td>
+                                    <td>Genellikle yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Quellung reaksiyonu</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>Negatif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Pnömokok Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"OOPS = Optochin duyarlı + Safra çözünür = Pnömokok"</b><br>
+                            <b>"Lanset/Mum alevi = Diplokok = Pnömokok"</b><br>
+                            <b>"Alfa hemoliz + Optochin (+) = S. pneumoniae"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Virilans Faktörleri",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">S. pneumoniae Virilans Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Polisakkarit Kapsül</b></td>
+                                    <td>EN ÖNEMLİ virilans faktörü, anti-fagositik, >90 serotip</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pnömolizin</b></td>
+                                    <td>Sitotoksin, silier fonksiyonu bozar, inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgA1 proteaz</b></td>
+                                    <td>Mukozal IgA'yı yıkar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nöraminidaz</b></td>
+                                    <td>Mukus yıkımı, kolonizasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Otolizin (LytA)</b></td>
+                                    <td>Hücre duvarı yıkımı → İnflamatuar madde salınımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fosforilkolin</b></td>
+                                    <td>PAF reseptörüne bağlanma, invazyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kapsülün Önemi</p>
+                        <p class="highlight-box__content">
+                            • Ana virilans faktörü<br>
+                            • Fagositozu engeller<br>
+                            • >90 serotip (aşı hedefi)<br>
+                            • Quellung reaksiyonu ile tespit<br>
+                            • Kapsülsüz suşlar avirülan
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Quellung Reaksiyonu:</strong><br>
+                        Anti-kapsüler antikor → Kapsül şişmesi görülür (mikroskopide)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Virilans Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Kapsül = #1 virilans = Fagositoz engeli"</b><br>
+                            <b>"Pnömolizin = Akciğer hasarı"</b><br>
+                            <b>"Otolizin = Safra çözünürlüğü nedeni"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>S. pneumoniae = Lober Pnömoni #1 Etkeni</strong><br>
+                        Toplum kökenli pnömoninin en sık bakteriyel etkeni!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">S. pneumoniae Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                    <th>Risk Grubu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toplum Kökenli Pnömoni</b></td>
+                                    <td>#1 bakteriyel etken, lober pnömoni, paslı balgam</td>
+                                    <td>Yaşlılar, KOAH, diyabet</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut Otitis Media</b></td>
+                                    <td>#1 veya #2 etken (H. influenzae ile)</td>
+                                    <td>Çocuklar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut Sinüzit</b></td>
+                                    <td>En sık bakteriyel etkenlerden</td>
+                                    <td>Herkes</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bakteriyel Menenjit</b></td>
+                                    <td>#1 etken (erişkin), #2 etken (çocuk)</td>
+                                    <td>BOS kaçağı, splenektomi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bakteriyemi/Sepsis</b></td>
+                                    <td>Fonksiyonel aspleni riski</td>
+                                    <td>Orak hücre, splenektomi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Risk Faktörleri</p>
+                        <p class="highlight-box__content">
+                            <b>Aspleni/Fonksiyonel aspleni:</b> Orak hücre hastalığı, splenektomi<br>
+                            <b>İmmün yetmezlik:</b> HIV, hipogamaglobulinemi<br>
+                            <b>Kronik hastalık:</b> KOAH, kalp yetmezliği, diyabet, siroz<br>
+                            <b>Yaş:</b> <2 yaş, >65 yaş<br>
+                            <b>Anatomik:</b> BOS kaçağı, koklear implant
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Aspleni ve Pnömokok:</strong><br>
+                        Dalak olmadan kapsüllü bakterilere karşı savunma zayıflar!<br>
+                        <b>SHiNE:</b> S. pneumoniae, H. influenzae, N. meningitidis, E. coli K1<br>
+                        Splenektomi öncesi mutlaka aşılama!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Lober pnömoni = Pnömokok = Paslı balgam"</b><br>
+                            <b>"Erişkin menenjit #1 = Pnömokok"</b><br>
+                            <b>"Aspleni = Kapsüllü bakteri riski = SHiNE"</b><br>
+                            <b>"Otit #1 = Pnömokok veya H. influenzae"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Gram boyama</b></td>
+                                    <td>Gram (+) lanset şekli diplokok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>Kanlı agar, alfa hemoliz, CO2 gerekir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Optochin testi</b></td>
+                                    <td>Duyarlı (≥14 mm zon)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Safra çözünürlüğü</b></td>
+                                    <td>Pozitif (otolizin sayesinde)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Quellung reaksiyonu</b></td>
+                                    <td>Kapsül şişmesi (serotipleme)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İdrar antijen testi</b></td>
+                                    <td>Pnömoni tanısında hızlı, C-polisakkarit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pnömoni (duyarlı)</b></td>
+                                    <td>Penisilin, Amoksisilin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pnömoni (dirençli)</b></td>
+                                    <td>Seftriakson, Florokinolon (Moksifloksasin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Menenjit</b></td>
+                                    <td>Seftriakson + Vankomisin (ampirik), + Deksametazon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Otit/Sinüzit</b></td>
+                                    <td>Amoksisilin yüksek doz, Amoksisilin-Klavulanat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Penisilin Direnci:</strong><br>
+                        • PBP değişikliği (mecA değil!)<br>
+                        • Beta-laktamaz ÜRETMİYOR<br>
+                        • Yüksek doz penisilin genellikle etkili (non-menenjit)<br>
+                        • Menenjitte yüksek düzey direnç önemli → Vankomisin ekle</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pnömokok pnömoni = Penisilin/Amoksisilin"</b><br>
+                            <b>"Pnömokok menenjit = Seftriakson + Vankomisin"</b><br>
+                            <b>"Direnç = PBP değişikliği (beta-laktamaz değil!)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Pnömokok Aşıları",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pnömokok Aşı Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>PCV (Konjuge)</th>
+                                    <th>PPSV23 (Polisakkarit)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tip</b></td>
+                                    <td>Konjuge (polisakkarit + protein)</td>
+                                    <td>Polisakkarit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Serotip</b></td>
+                                    <td>PCV13 (13), PCV15, PCV20</td>
+                                    <td>23 serotip</td>
+                                </tr>
+                                <tr>
+                                    <td><b>&lt;2 yaş etkinlik</b></td>
+                                    <td>ETKİLİ (T-bağımlı)</td>
+                                    <td>ETKİSİZ (T-bağımsız)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmün hafıza</b></td>
+                                    <td>VAR</td>
+                                    <td>ZAYIF</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rutin çocuk aşısı</b></td>
+                                    <td>EVET</td>
+                                    <td>HAYIR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Aşı Endikasyonları</p>
+                        <p class="highlight-box__content">
+                            <b>Rutin çocuk (PCV):</b> 2, 4, 6, 12-15 ay<br><br>
+                            <b>Risk grupları (PPSV23 ± PCV):</b><br>
+                            • ≥65 yaş<br>
+                            • Aspleni/fonksiyonel aspleni<br>
+                            • İmmünsupresyon<br>
+                            • Kronik akciğer, kalp, böbrek, karaciğer hastalığı<br>
+                            • Diyabet<br>
+                            • Koklear implant<br>
+                            • BOS kaçağı
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aşı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PCV = Konjuge = Çocuklarda etkili = T-bağımlı"</b><br>
+                            <b>"PPSV23 = Polisakkarit = &lt;2 yaşta etkisiz"</b><br>
+                            <b>"Splenektomi = Mutlaka aşıla!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Optochin duyarlı =</b> S. pneumoniae<br>
+                            2. <b>Lober pnömoni #1 =</b> S. pneumoniae<br>
+                            3. <b>Erişkin menenjit #1 =</b> S. pneumoniae<br>
+                            4. <b>Aspleni riski =</b> Kapsüllü bakteriler (SHiNE)<br>
+                            5. <b>&lt;2 yaşta etkili aşı =</b> Konjuge (PCV)<br>
+                            6. <b>Direnç mekanizması =</b> PBP değişikliği
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pnömokok Tanı Testleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Optochin</td>
+                                    <td>Duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td>Safra çözünürlüğü</td>
+                                    <td>Pozitif</td>
+                                </tr>
+                                <tr>
+                                    <td>Quellung</td>
+                                    <td>Pozitif (kapsül)</td>
+                                </tr>
+                                <tr>
+                                    <td>Katalaz</td>
+                                    <td>Negatif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"OOPS = Optochin + Safra = Pnömokok"</b><br>
+                            <b>"Lanset diplokok + Alfa hemoliz + Optochin = Pnömokok"</b><br>
+                            <b>"Lober pnömoni + Paslı balgam = Pnömokok"</b><br>
+                            <b>"Aspleni = SHiNE riski = S. pneumo, H. inf, N. menin, E. coli"</b><br>
+                            <b>"PCV = Konjuge = &lt;2 yaş etkili"</b><br>
+                            <b>"PPSV = Polisakkarit = &lt;2 yaş etkisiz"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Optochin duyarlı alfa-hemolitik streptokok =</b> S. pneumoniae<br>
+                            2. <b>Safra çözünürlüğü pozitif =</b> S. pneumoniae<br>
+                            3. <b>Lanset/mum alevi şekli =</b> S. pneumoniae<br>
+                            4. <b>En önemli virilans faktörü =</b> Polisakkarit kapsül<br>
+                            5. <b>Toplum kökenli pnömoni #1 =</b> S. pneumoniae<br>
+                            6. <b>Erişkin bakteriyel menenjit #1 =</b> S. pneumoniae<br>
+                            7. <b>Otitis media #1 etken =</b> S. pneumoniae veya H. influenzae<br>
+                            8. <b>Aspleni enfeksiyon riski =</b> Kapsüllü bakteriler (SHiNE)<br>
+                            9. <b>Pnömokok direnç mekanizması =</b> PBP değişikliği<br>
+                            10. <b>&lt;2 yaşta etkili pnömokok aşısı =</b> PCV (Konjuge)<br>
+                            11. <b>Menenjit tedavisi =</b> Seftriakson + Vankomisin + Deksametazon<br>
+                            12. <b>Quellung reaksiyonu =</b> Kapsül şişmesi<br>
+                            13. <b>İdrar antijen testi =</b> Pnömoni hızlı tanı<br>
+                            14. <b>Splenektomi öncesi =</b> Pnömokok aşısı şart<br>
+                            15. <b>Paslı balgam =</b> Pnömokok pnömonisi
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Optochin duyarlı streptokok?" → S. pneumoniae</li>
+                        <li><b>Soru tipi:</b> "Toplum kökenli pnömoninin en sık bakteriyel etkeni?" → S. pneumoniae</li>
+                        <li><b>Soru tipi:</b> "Erişkinde bakteriyel menenjit en sık etken?" → S. pneumoniae</li>
+                        <li><b>Soru tipi:</b> "Asplenik hastada enfeksiyon riski?" → Kapsüllü bakteriler</li>
+                        <li><b>Soru tipi:</b> "2 yaş altında etkili pnömokok aşısı?" → PCV (Konjuge)</li>
+                        <li><b>Soru tipi:</b> "Pnömokokta direnç mekanizması?" → PBP değişikliği</li>
+                        <li><b>Soru tipi:</b> "Quellung reaksiyonu neyi gösterir?" → Kapsül varlığı</li>
+                        <li><b>Soru tipi:</b> "Paslı balgam hangi pnömoniyi düşündürür?" → Pnömokok</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 54,
+        category: "bakteriyoloji",
+        title: "Enterococcus",
+        subtitle: "VRE, İntrinsik Direnç ve Nozokomiyal Enfeksiyonlar",
+        summary: "Enterokokların özellikleri, intrinsik ve kazanılmış direnç mekanizmaları, VRE, üriner ve biliyer enfeksiyonlar, endokardit ve tedavi.",
+        tags: ["Bakteriyoloji", "Enterokok", "VRE", "Nozokomiyal", "Direnç", "Gram Pozitif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Enterococcus Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-pozitif kok, çift veya kısa zincir<br>
+                            <b>Hemoliz:</b> Genellikle gama (non-hemolitik) veya alfa<br>
+                            <b>Lancefield:</b> Grup D<br>
+                            <b>Katalaz:</b> NEGATİF<br>
+                            <b>PYR:</b> POZİTİF<br>
+                            <b>Safra-eskülin:</b> POZİTİF<br>
+                            <b>%6.5 NaCl:</b> ÜRER (tuz toleransı)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Enterococcus Türleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Sıklık</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E. faecalis</b></td>
+                                    <td>%80-90</td>
+                                    <td>En sık, genellikle daha duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E. faecium</b></td>
+                                    <td>%10-15</td>
+                                    <td>Daha dirençli, VRE sık</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Grup D Streptokok Ayrımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Enterococcus</th>
+                                    <th>S. gallolyticus (bovis)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>%6.5 NaCl</b></td>
+                                    <td>ÜRER</td>
+                                    <td>Üremez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PYR</b></td>
+                                    <td>POZİTİF</td>
+                                    <td>Negatif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik ilişki</b></td>
+                                    <td>ÜSİ, endokardit</td>
+                                    <td>Kolon kanseri ile ilişkili!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Enterokok Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Enterokok = Grup D = PYR (+) = Safra-eskülin (+) = %6.5 NaCl (+)"</b><br>
+                            <b>"E. faecalis = En sık = Daha duyarlı"</b><br>
+                            <b>"E. faecium = VRE sık = Daha dirençli"</b><br>
+                            <b>"S. bovis = Kolon kanseri ara!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İntrinsik ve Kazanılmış Direnç",
+                icon: "fas fa-shield-halved",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Enterokoklar Doğuştan Dirençlidir!</strong><br>
+                        Birçok antibiyotiğe intrinsik (doğal) direnç gösterirler.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İntrinsik (Doğal) Direnç</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antibiyotik</th>
+                                    <th>Direnç Nedeni</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sefalosporinler</b></td>
+                                    <td>Düşük PBP afinitesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aminoglikozidler (düşük düzey)</b></td>
+                                    <td>Zayıf hücre duvarı geçişi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klindamisin</b></td>
+                                    <td>Doğal direnç</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TMP-SMX</b></td>
+                                    <td>In vivo etkisiz (folat kullanır)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oksasilin/Nafsilin</b></td>
+                                    <td>PBP afinitesi düşük</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kazanılmış Direnç</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antibiyotik</th>
+                                    <th>Mekanizma</th>
+                                    <th>Klinik Önem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Vankomisin (VRE)</b></td>
+                                    <td>vanA, vanB, vanC genleri</td>
+                                    <td>Tedavi çok zor!</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yüksek düzey aminoglikozid</b></td>
+                                    <td>Modifiye edici enzimler</td>
+                                    <td>Sinerjizm kaybolur</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ampisilin (E. faecium)</b></td>
+                                    <td>PBP5 overekspresyonu</td>
+                                    <td>E. faecium'da sık</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">VRE (Vankomisine Dirençli Enterokok)</p>
+                        <p class="highlight-box__content">
+                            <b>vanA:</b> Vankomisin + Teikoplanin dirençli (en sık, aktarılabilir)<br>
+                            <b>vanB:</b> Sadece Vankomisin dirençli, Teikoplanin duyarlı<br>
+                            <b>vanC:</b> Düşük düzey, intrinsik (E. gallinarum, E. casseliflavus)<br><br>
+                            <b>Tedavi:</b> Linezolid, Daptomisin, Tigesiklin
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Direnç Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Enterokok = Sefalosporin DOĞAL DİRENÇLİ"</b><br>
+                            <b>"vanA = Vankomisin + Teikoplanin dirençli"</b><br>
+                            <b>"vanB = Sadece Vankomisin dirençli"</b><br>
+                            <b>"VRE tedavi = Linezolid, Daptomisin"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enterococcus Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Üriner Sistem Enfeksiyonu</b></td>
+                                    <td>EN SIK, kateterli hastalarda, nozokomiyal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Biliyer Enfeksiyonlar</b></td>
+                                    <td>Kolesistit, kolanjit (genellikle polimikrobiyal)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İntra-abdominal Enfeksiyon</b></td>
+                                    <td>Genellikle miks flora ile birlikte</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bakteriyemi</b></td>
+                                    <td>Kateter ilişkili, GI/GU kaynaklı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endokardit</b></td>
+                                    <td>Subakut, yaşlı erkeklerde, GU/GI prosedür sonrası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yara Enfeksiyonu</b></td>
+                                    <td>Cerrahi sonrası, miks flora</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Enterokok Endokarditi</p>
+                        <p class="highlight-box__content">
+                            • Subakut seyir<br>
+                            • Yaşlı erkeklerde sık<br>
+                            • GI/GU prosedür sonrası<br>
+                            • Tedavi: Ampisilin + Gentamisin (sinerjizm) 4-6 hafta<br>
+                            • VRE veya HLAR: Daptomisin veya Ampisilin + Seftriakson
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Sinerjizm Önemli!</strong><br>
+                        Enterokok ciddi enfeksiyonlarında (endokardit) tek başına beta-laktam YETERSİZ!<br>
+                        <b>Hücre duvarı aktif ajan + Aminoglikozid = Sinerjizm</b><br>
+                        Ancak yüksek düzey aminoglikozid direnci varsa sinerjizm ÇALIŞMAZ!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Enterokok = ÜSİ + Biliyer + Endokardit"</b><br>
+                            <b>"Enterokok endokardit = Yaşlı + GU prosedür + Subakut"</b><br>
+                            <b>"Tedavi = Ampisilin + Gentamisin = Sinerjizm"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enterokok Tedavi Seçenekleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Komplike olmayan ÜSİ</b></td>
+                                    <td>Ampisilin, Amoksisilin, Nitrofurantoin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ciddi enfeksiyon (duyarlı)</b></td>
+                                    <td>Ampisilin + Gentamisin veya Ampisilin + Seftriakson</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Penisilin alerjisi</b></td>
+                                    <td>Vankomisin + Gentamisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VRE</b></td>
+                                    <td>Linezolid, Daptomisin, Tigesiklin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VRE endokardit</b></td>
+                                    <td>Daptomisin (yüksek doz) veya Linezolid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ampisilin + Seftriakson Kombinasyonu</p>
+                        <p class="highlight-box__content">
+                            • HLAR (Yüksek düzey aminoglikozid direnci) varlığında kullanılır<br>
+                            • Farklı PBP'lere bağlanarak sinerjizm sağlar<br>
+                            • Aminoglikozid nefrotoksisitesinden kaçınır<br>
+                            • E. faecalis endokarditinde etkili
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Sefalosporin Paradoksu:</strong><br>
+                        Enterokoklar sefalosporinlere intrinsik dirençli, ANCAK Ampisilin + Seftriakson kombinasyonu sinerjistik!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Enterokok = Ampisilin ± Aminoglikozid"</b><br>
+                            <b>"HLAR varsa = Ampisilin + Seftriakson"</b><br>
+                            <b>"VRE = Linezolid veya Daptomisin"</b><br>
+                            <b>"Sefalosporin tek başına = ETKİSİZ"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Sefalosporin intrinsik direnç =</b> Enterokok<br>
+                            2. <b>vanA =</b> Vankomisin + Teikoplanin dirençli<br>
+                            3. <b>VRE tedavi =</b> Linezolid, Daptomisin<br>
+                            4. <b>Endokardit tedavi =</b> Ampisilin + Gentamisin<br>
+                            5. <b>S. bovis =</b> Kolon kanseri ile ilişkili<br>
+                            6. <b>%6.5 NaCl =</b> Enterokok ayrımı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">VRE Fenotipler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Gen</th>
+                                    <th>Vankomisin</th>
+                                    <th>Teikoplanin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>vanA</td>
+                                    <td>Dirençli</td>
+                                    <td>Dirençli</td>
+                                </tr>
+                                <tr>
+                                    <td>vanB</td>
+                                    <td>Dirençli</td>
+                                    <td>Duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td>vanC</td>
+                                    <td>Düşük direnç</td>
+                                    <td>Duyarlı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Enterokok = Sefalosporin + Aminoglikozid (tek) = ETKİSİZ"</b><br>
+                            <b>"vanA = Her ikisine dirençli = En kötü"</b><br>
+                            <b>"vanB = Vankomisin dirençli, Teikoplanin duyarlı"</b><br>
+                            <b>"VRE = Linezolid veya Daptomisin"</b><br>
+                            <b>"S. bovis + Endokardit = KOLONOSKOPİ yap!"</b><br>
+                            <b>"Enterokok = %6.5 NaCl'de ürer"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Enterokok Lancefield grubu =</b> Grup D<br>
+                            2. <b>En sık tür =</b> E. faecalis (%80-90)<br>
+                            3. <b>VRE'de sık tür =</b> E. faecium<br>
+                            4. <b>Sefalosporin direnci =</b> İntrinsik (doğal)<br>
+                            5. <b>vanA geni =</b> Vankomisin + Teikoplanin dirençli<br>
+                            6. <b>vanB geni =</b> Sadece Vankomisin dirençli<br>
+                            7. <b>VRE tedavisi =</b> Linezolid, Daptomisin<br>
+                            8. <b>Endokardit tedavisi =</b> Ampisilin + Gentamisin (sinerjizm)<br>
+                            9. <b>HLAR varsa =</b> Ampisilin + Seftriakson<br>
+                            10. <b>%6.5 NaCl üreme =</b> Enterokok (S. bovis üremez)<br>
+                            11. <b>S. bovis endokarditi =</b> Kolonoskopi yap (kanser?)<br>
+                            12. <b>En sık enfeksiyon =</b> ÜSİ (kateterli hastalarda)<br>
+                            13. <b>PYR pozitif Grup D =</b> Enterokok<br>
+                            14. <b>Safra-eskülin =</b> Pozitif<br>
+                            15. <b>Aminoglikozid tek başına =</b> ETKİSİZ (hücre duvarına girmez)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Sefalosporinlere intrinsik dirençli Gram-pozitif kok?" → Enterococcus</li>
+                        <li><b>Soru tipi:</b> "vanA geninin anlamı?" → Vankomisin + Teikoplanin direnci</li>
+                        <li><b>Soru tipi:</b> "VRE tedavisinde kullanılan ilaç?" → Linezolid, Daptomisin</li>
+                        <li><b>Soru tipi:</b> "S. bovis endokarditi görülünce ne yapılmalı?" → Kolonoskopi</li>
+                        <li><b>Soru tipi:</b> "Enterokok endokardit tedavisi?" → Ampisilin + Gentamisin</li>
+                        <li><b>Soru tipi:</b> "%6.5 NaCl'de üreyen Grup D streptokok?" → Enterococcus</li>
+                        <li><b>Soru tipi:</b> "HLAR varlığında endokardit tedavisi?" → Ampisilin + Seftriakson</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 55,
+        category: "bakteriyoloji",
+        title: "Neisseria meningitidis",
+        subtitle: "Meningokok Menenjiti, Profilaksi ve Aşı",
+        summary: "N. meningitidis'in virilans faktörleri, menenjit, meningokoksemi, Waterhouse-Friderichsen sendromu, profilaksi ve meningokok aşıları.",
+        tags: ["Bakteriyoloji", "Meningokok", "Menenjit", "Sepsis", "Profilaksi", "Aşı", "Gram Negatif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">N. meningitidis Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif diplokok (kahve çekirdeği/böbrek şekli)<br>
+                            <b>Oksidaz:</b> POZİTİF<br>
+                            <b>Katalaz:</b> POZİTİF<br>
+                            <b>Kapsül:</b> POZİTİF (serogruplama)<br>
+                            <b>Besiyeri:</b> Çikolata agar, Thayer-Martin<br>
+                            <b>Glukoz ve Maltoz:</b> Fermente eder
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Neisseria Ayrımı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>N. meningitidis</th>
+                                    <th>N. gonorrhoeae</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Maltoz</b></td>
+                                    <td>FERMENTE EDER</td>
+                                    <td>Fermente etmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Glukoz</b></td>
+                                    <td>Fermente eder</td>
+                                    <td>Fermente eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kapsül</b></td>
+                                    <td>VAR</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Solunum</td>
+                                    <td>Cinsel</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Serogruplar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Serogrup</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>A, C, W, Y</b></td>
+                                    <td>Aşı ile önlenebilir (polisakkarit/konjuge)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>B</b></td>
+                                    <td>Polisakkarit aşı yok (sialik asit), protein bazlı aşı var</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Neisseria Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Meningokok = Maltoz (+) = Menenjit"</b><br>
+                            <b>"Gonokok = Maltoz (-) = Gonore"</b><br>
+                            <b>"İkisi de = Oksidaz (+) = Kahve çekirdeği"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Virilans Faktörleri",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">N. meningitidis Virilans Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Polisakkarit Kapsül</b></td>
+                                    <td>EN ÖNEMLİ, anti-fagositik, serogrup belirler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lipooligosakkarit (LOS)</b></td>
+                                    <td>Endotoksin, şok ve DIC'den sorumlu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pili</b></td>
+                                    <td>Nazofarinks mukozasına tutunma</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgA1 proteaz</b></td>
+                                    <td>Mukozal IgA yıkımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Opa/Opc proteinleri</b></td>
+                                    <td>Hücreye invazyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Serogrup B Sorunu</p>
+                        <p class="highlight-box__content">
+                            • Kapsül = Sialik asit polimeri<br>
+                            • İnsan nöral dokusuna benzer<br>
+                            • Polisakkarit aşı etkisiz (otoimmünite riski)<br>
+                            • Çözüm: Protein bazlı aşılar (OMV, fHbp)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Virilans Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Kapsül = #1 virilans = Serogrup"</b><br>
+                            <b>"LOS = Endotoksin = Şok"</b><br>
+                            <b>"Serogrup B = Sialik asit = Aşı zor"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">N. meningitidis Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Meningokoksik Menenjit</b></td>
+                                    <td>En sık invazif hastalık, çocuk/genç erişkin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Meningokoksemi</b></td>
+                                    <td>Sepsis, peteşi/purpura, DIC, şok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Waterhouse-Friderichsen</b></td>
+                                    <td>Bilateral adrenal hemoraji, fulminan seyir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Taşıyıcılık</b></td>
+                                    <td>Nazofarinks, %5-10 asemptomatik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Waterhouse-Friderichsen Sendromu:</strong><br>
+                        • Bilateral adrenal hemoraji<br>
+                        • Fulminan meningokoksemi<br>
+                        • DIC, şok, purpura fulminans<br>
+                        • Çok yüksek mortalite<br>
+                        • Acil steroid ve antibiyotik!</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Risk Faktörleri</p>
+                        <p class="highlight-box__content">
+                            <b>Kompleman eksikliği:</b> C5-C9 (MAC), properdin, faktör D<br>
+                            <b>Aspleni:</b> Kapsüllü bakterilere yatkınlık<br>
+                            <b>Yaş:</b> Bebekler, adolesanlar<br>
+                            <b>Kalabalık ortam:</b> Askeri kışla, yurt
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Kompleman Eksikliği:</strong><br>
+                        Tekrarlayan Neisseria enfeksiyonu = Kompleman eksikliği ara!<br>
+                        Özellikle terminal kompleman (C5-C9) ve alternatif yol</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Peteşi/Purpura + Menenjit = Meningokok"</b><br>
+                            <b>"Waterhouse-Friderichsen = Adrenal hemoraji = Fulminan"</b><br>
+                            <b>"Tekrarlayan Neisseria = Kompleman eksikliği"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı, Tedavi ve Profilaksi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>BOS Gram boyama</b></td>
+                                    <td>Gram (-) diplokok, intraselüler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>Çikolata agar, CO2, Thayer-Martin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>BOS/kan, hızlı, duyarlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lateks aglütinasyon</b></td>
+                                    <td>BOS'ta antijen tespiti</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Menenjit/Sepsis</b></td>
+                                    <td>Seftriakson veya Penisilin G</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ampirik (şüphe)</b></td>
+                                    <td>Seftriakson + Vankomisin (direnç bilinmeden)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kemoprofilaksi</p>
+                        <p class="highlight-box__content">
+                            <b>Endikasyon:</b> Yakın temas (ev halkı, kreş, sekresyona maruz)<br><br>
+                            <b>İlaçlar:</b><br>
+                            • <b>Rifampisin:</b> 2 gün (en sık kullanılan)<br>
+                            • <b>Siprofloksasin:</b> Tek doz (erişkin)<br>
+                            • <b>Seftriakson:</b> Tek doz IM (gebe)<br><br>
+                            <b>Zamanlama:</b> Teması takiben en kısa sürede
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Hastanın Kendisi de Profilaksi Almalı!</strong><br>
+                        IV Seftriakson taşıyıcılığı temizlemez. Taburcu öncesi Rifampisin veya Siprofloksasin verilmeli.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aşılar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşı</th>
+                                    <th>Kapsam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>MenACWY (Konjuge)</b></td>
+                                    <td>Serogrup A, C, W, Y</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MenB (Protein)</b></td>
+                                    <td>Serogrup B</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Profilaksi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Rifampisin = 2 gün = En sık"</b><br>
+                            <b>"Siprofloksasin = Tek doz = Erişkin"</b><br>
+                            <b>"Seftriakson = Tek doz = Gebe/Çocuk"</b><br>
+                            <b>"Hasta da profilaksi alsın!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Maltoz (+) Neisseria =</b> N. meningitidis<br>
+                            2. <b>Peteşi + Menenjit =</b> Meningokok<br>
+                            3. <b>Waterhouse-Friderichsen =</b> Adrenal hemoraji<br>
+                            4. <b>Profilaksi =</b> Rifampisin 2 gün<br>
+                            5. <b>Tekrarlayan Neisseria =</b> Kompleman eksikliği<br>
+                            6. <b>Serogrup B aşı =</b> Protein bazlı
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Meningokok = Maltoz (+) = Menenjit"</b><br>
+                            <b>"Gonokok = Maltoz (-) = Gonore"</b><br>
+                            <b>"Peteşi + Ense sertliği = Meningokok"</b><br>
+                            <b>"Waterhouse = Adrenal = Fulminan"</b><br>
+                            <b>"Profilaksi = RCS (Rifampisin, Cipro, Seftriakson)"</b><br>
+                            <b>"Tekrarlayan Neisseria = C5-C9 eksikliği"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Maltoz fermentasyonu =</b> N. meningitidis (+), N. gonorrhoeae (-)<br>
+                            2. <b>Peteşi/purpura + menenjit =</b> Meningokok düşün<br>
+                            3. <b>Waterhouse-Friderichsen =</b> Bilateral adrenal hemoraji<br>
+                            4. <b>Tekrarlayan Neisseria enfeksiyonu =</b> Kompleman eksikliği (C5-C9)<br>
+                            5. <b>Profilaksi 1. seçenek =</b> Rifampisin 2 gün<br>
+                            6. <b>Gebede profilaksi =</b> Seftriakson tek doz<br>
+                            7. <b>Yakın temas tanımı =</b> Ev halkı, kreş, sekresyona maruz<br>
+                            8. <b>MenACWY aşısı =</b> Konjuge, A-C-W-Y serogrupları<br>
+                            9. <b>MenB aşısı =</b> Protein bazlı (polisakkarit değil)<br>
+                            10. <b>Serogrup B kapsülü =</b> Sialik asit (nöral dokuya benzer)<br>
+                            11. <b>Tedavi =</b> Seftriakson veya Penisilin G<br>
+                            12. <b>En önemli virilans =</b> Polisakkarit kapsül<br>
+                            13. <b>LOS =</b> Endotoksin, şok ve DIC<br>
+                            14. <b>Besiyeri =</b> Çikolata agar, Thayer-Martin<br>
+                            15. <b>Risk grubu =</b> Aspleni, kompleman eksikliği, kalabalık ortam
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Maltoz fermente eden Neisseria?" → N. meningitidis</li>
+                        <li><b>Soru tipi:</b> "Peteşi ve menenjit birlikteliği?" → Meningokok</li>
+                        <li><b>Soru tipi:</b> "Waterhouse-Friderichsen sendromu nedir?" → Adrenal hemoraji</li>
+                        <li><b>Soru tipi:</b> "Meningokok profilaksisi?" → Rifampisin 2 gün</li>
+                        <li><b>Soru tipi:</b> "Tekrarlayan Neisseria enfeksiyonu nedeni?" → Kompleman eksikliği</li>
+                        <li><b>Soru tipi:</b> "Serogrup B'ye karşı aşı tipi?" → Protein bazlı</li>
+                        <li><b>Soru tipi:</b> "Gebede meningokok profilaksisi?" → Seftriakson</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 56,
+        category: "bakteriyoloji",
+        title: "Neisseria gonorrhoeae",
+        subtitle: "Gonore, Direnç Patternleri ve Tedavi",
+        summary: "N. gonorrhoeae'nin özellikleri, gonore, dissemine gonokok enfeksiyonu, oftalmia neonatorum, antibiyotik direnci ve güncel tedavi yaklaşımları.",
+        tags: ["Bakteriyoloji", "Gonokok", "Gonore", "CYBE", "Direnç", "Gram Negatif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">N. gonorrhoeae Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif diplokok (kahve çekirdeği şekli)<br>
+                            <b>Oksidaz:</b> POZİTİF<br>
+                            <b>Katalaz:</b> POZİTİF<br>
+                            <b>Kapsül:</b> YOK<br>
+                            <b>Glukoz:</b> Fermente eder<br>
+                            <b>Maltoz:</b> FERMENTE ETMEZ<br>
+                            <b>Besiyeri:</b> Thayer-Martin (VCN), çikolata agar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Thayer-Martin Besiyeri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antibiyotik</th>
+                                    <th>İnhibe Ettiği</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Vankomisin</b></td>
+                                    <td>Gram pozitif bakteriler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kolistin</b></td>
+                                    <td>Gram negatif bakteriler (Neisseria hariç)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nistatin</b></td>
+                                    <td>Mayalar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">N. meningitidis vs N. gonorrhoeae</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>N. gonorrhoeae</th>
+                                    <th>N. meningitidis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Maltoz</b></td>
+                                    <td>NEGATİF</td>
+                                    <td>POZİTİF</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kapsül</b></td>
+                                    <td>YOK</td>
+                                    <td>VAR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Cinsel</td>
+                                    <td>Solunum</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Neisseria Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Gonokok = Maltoz (-) = Gonore"</b><br>
+                            <b>"Meningokok = Maltoz (+) = Menenjit"</b><br>
+                            <b>"Thayer-Martin = VCN = Seçici"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Virilans Faktörleri",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">N. gonorrhoeae Virilans Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pili (Fimbria)</b></td>
+                                    <td>Tutunma, antijenik varyasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Opa (Opacity) proteinleri</b></td>
+                                    <td>Tutunma ve invazyon, faz varyasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Por (Porin) proteinleri</b></td>
+                                    <td>Kompleman inhibisyonu, fagozom füzyonu engeller</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LOS (Lipooligosakkarit)</b></td>
+                                    <td>Endotoksin, inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgA1 proteaz</b></td>
+                                    <td>Mukozal IgA yıkımı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Beta-laktamaz</b></td>
+                                    <td>Penisilin direnci</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Antijenik Varyasyon</p>
+                        <p class="highlight-box__content">
+                            • Pili ve Opa proteinlerinde faz varyasyonu<br>
+                            • Aşı geliştirmeyi zorlaştırır<br>
+                            • Reenfeksiyon mümkün<br>
+                            • Koruyucu bağışıklık oluşmaz
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Virilans Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pili + Opa = Tutunma + Antijenik varyasyon"</b><br>
+                            <b>"Por = Kompleman inhibisyonu"</b><br>
+                            <b>"Antijenik varyasyon = Aşı YOK"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gonokok Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Üretrit (Erkek)</b></td>
+                                    <td>Pürülan akıntı, dizüri, 2-5 gün inkübasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Servisit (Kadın)</b></td>
+                                    <td>%50 asemptomatik olabilir, mukopürülan akıntı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PID</b></td>
+                                    <td>Salpenjit, ektopik gebelik, infertilite riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epididimit</b></td>
+                                    <td><35 yaş erkeklerde (C. trachomatis ile birlikte)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Proktit</b></td>
+                                    <td>Anorektal enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Farenjit</b></td>
+                                    <td>Oral seks ile bulaş, genellikle asemptomatik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Dissemine Gonokok Enfeksiyonu (DGI)</p>
+                        <p class="highlight-box__content">
+                            <b>İki fazlı seyir:</b><br>
+                            <b>1. Bakteriyemik faz:</b> Ateş, poliartralji, dermatit (peteşi-püstül)<br>
+                            <b>2. Septik artrit fazı:</b> Monoartrit (genellikle diz/el bileği)<br><br>
+                            <b>Risk faktörleri:</b> Kompleman eksikliği, menstrüasyon, gebelik
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Oftalmia Neonatorum:</strong><br>
+                        • Doğum sırasında bulaş (vertikal)<br>
+                        • Doğumdan sonra 2-5 gün içinde<br>
+                        • Bilateral pürülan konjonktivit<br>
+                        • TEDAVİ EDİLMEZSE → Kornea ülseri → KÖRLÜK<br>
+                        • Profilaksi: %1 Gümüş nitrat veya Eritromisin pomad</p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Chlamydia Koenfeksiyonu:</strong><br>
+                        Gonore tanısında C. trachomatis koenfeksiyonu %20-40 oranında görülür!<br>
+                        <b>Her iki organizma için de tedavi verilmeli!</b></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pürülan akıntı = Gonokok"</b><br>
+                            <b>"DGI = Dermatit + Artrit"</b><br>
+                            <b>"Oftalmia neonatorum = 2-5 gün = Körlük riski"</b><br>
+                            <b>"Gonore + Klamidya = Birlikte tedavi"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Gram boyama</b></td>
+                                    <td>Erkek üretral örnekte yüksek duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NAAT (PCR)</b></td>
+                                    <td>ALTIN STANDART, idrar veya sürüntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>Direnç testi için, Thayer-Martin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Direnç Sorunu!</strong><br>
+                        • Penisilin direnci: Beta-laktamaz<br>
+                        • Kinolon direnci: Yaygın<br>
+                        • Azitromisin direnci: Artıyor<br>
+                        • Seftriakson direnci: Bildirilmeye başlandı (endişe verici!)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Güncel Tedavi (CDC)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Komplike olmayan gonore</b></td>
+                                    <td>Seftriakson 500 mg IM tek doz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klamidya ekarte edilemezse</b></td>
+                                    <td>+ Doksisiklin 100 mg PO 2x1, 7 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DGI (Artrit)</b></td>
+                                    <td>Seftriakson 1 g IV/IM günlük, 7 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oftalmia neonatorum</b></td>
+                                    <td>Seftriakson 25-50 mg/kg IM/IV tek doz</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Partner Bildirimi ve Takip</p>
+                        <p class="highlight-box__content">
+                            • Son 60 gün içindeki tüm partnerler bilgilendirilmeli<br>
+                            • Test ve tedavi önerilmeli<br>
+                            • HIV ve diğer CYBE taraması yapılmalı<br>
+                            • Tedavi sonrası kontrol kültürü gerekmez (kür genellikle %100)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Gonore = Seftriakson 500 mg IM tek doz"</b><br>
+                            <b>"+ Klamidya şüphesi = + Doksisiklin 7 gün"</b><br>
+                            <b>"Kinolon/Penisilin = Kullanma (direnç!)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Maltoz (-) Neisseria =</b> N. gonorrhoeae<br>
+                            2. <b>Pürülan üretral akıntı =</b> Gonokok<br>
+                            3. <b>DGI =</b> Dermatit + Septik artrit<br>
+                            4. <b>Oftalmia neonatorum =</b> 2-5 gün, körlük riski<br>
+                            5. <b>Tedavi =</b> Seftriakson tek doz<br>
+                            6. <b>Koenfeksiyon =</b> Klamidya tedavisi ekle
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Gonokok = Maltoz (-) = Gonore"</b><br>
+                            <b>"Meningokok = Maltoz (+) = Menenjit"</b><br>
+                            <b>"Pürülan akıntı = Gonokok"</b><br>
+                            <b>"Berrak akıntı = Klamidya veya Ureaplasma"</b><br>
+                            <b>"DGI = Döküntü + Artrit = Kompleman eksikliği ara"</b><br>
+                            <b>"Gonore = Seftriakson = Klamidya ekle"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Maltoz fermentasyonu =</b> Gonokok (-), Meningokok (+)<br>
+                            2. <b>Thayer-Martin =</b> VCN (Vankomisin, Kolistin, Nistatin)<br>
+                            3. <b>Pürülan üretral akıntı + dizüri =</b> Gonore<br>
+                            4. <b>DGI triadı =</b> Ateş + Dermatit + Poliartralji/Artrit<br>
+                            5. <b>Oftalmia neonatorum =</b> Doğumdan 2-5 gün sonra<br>
+                            6. <b>Neonatal profilaksi =</b> Eritromisin pomad veya Gümüş nitrat<br>
+                            7. <b>Tedavi =</b> Seftriakson 500 mg IM tek doz<br>
+                            8. <b>Klamidya koenfeksiyonu =</b> %20-40, doksisiklin ekle<br>
+                            9. <b>Tekrarlayan DGI =</b> Kompleman eksikliği düşün<br>
+                            10. <b>Kinolon/Penisilin =</b> DİRENÇ nedeniyle kullanma<br>
+                            11. <b>NAAT =</b> Tanıda altın standart<br>
+                            12. <b>Gram boyama =</b> Erkek üretral örnekte duyarlı<br>
+                            13. <b>Antijenik varyasyon =</b> Aşı yok, reenfeksiyon olabilir<br>
+                            14. <b>Kadında gonore =</b> %50 asemptomatik olabilir<br>
+                            15. <b>PID komplikasyonları =</b> Ektopik gebelik, infertilite
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Maltoz fermente etmeyen Neisseria?" → N. gonorrhoeae</li>
+                        <li><b>Soru tipi:</b> "Pürülan üretral akıntı etkeni?" → Gonokok</li>
+                        <li><b>Soru tipi:</b> "DGI klinik bulguları?" → Dermatit + Artrit</li>
+                        <li><b>Soru tipi:</b> "Oftalmia neonatorum ne zaman başlar?" → 2-5 gün</li>
+                        <li><b>Soru tipi:</b> "Gonore tedavisi?" → Seftriakson tek doz</li>
+                        <li><b>Soru tipi:</b> "Gonore ile birlikte hangi enfeksiyon aranmalı?" → Klamidya</li>
+                        <li><b>Soru tipi:</b> "Thayer-Martin besiyerinde hangi antibiyotikler var?" → VCN</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 57,
+        category: "bakteriyoloji",
+        title: "Haemophilus influenzae",
+        subtitle: "Epiglottit, Tip b Aşısı ve X-V Faktör",
+        summary: "H. influenzae'nin özellikleri, kapsüllü (tip b) ve kapsülsüz formlar, epiglottit, menenjit, Hib aşısının etkisi ve X-V faktör gereksinimi.",
+        tags: ["Bakteriyoloji", "Haemophilus", "Epiglottit", "Menenjit", "Aşı", "Gram Negatif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">H. influenzae Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif kokobasil (pleomorfik)<br>
+                            <b>Oksidaz:</b> POZİTİF<br>
+                            <b>Katalaz:</b> POZİTİF<br>
+                            <b>Besiyeri:</b> Çikolata agar (kanlı agar'da üremez!)<br>
+                            <b>Üreme gereksinimi:</b> X faktör + V faktör
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">X ve V Faktör</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Kimyasal</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>X faktör</b></td>
+                                    <td>Hemin (Hematin)</td>
+                                    <td>Sitokrom sentezi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>V faktör</b></td>
+                                    <td>NAD/NADP</td>
+                                    <td>Elektron transportu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Kanlı Agar'da Neden Üremez?</strong><br>
+                        V faktörü (NAD) kanlı agar'da eritrosit içinde kilitli!<br>
+                        Çikolata agar'da eritrositler lizis olduğu için V faktörü serbest kalır.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Satellit (Uydu) Fenomeni</h4>
+                        <p>Kanlı agar'da S. aureus kolonileri etrafında H. influenzae üremesi görülür.</p>
+                        <p><b>Neden?</b> S. aureus hemoliz yaparak V faktörünü serbest bırakır.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kapsüllü vs Kapsülsüz</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Özellik</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tip b (Hib)</b></td>
+                                    <td>Kapsüllü, PRP polisakkarit</td>
+                                    <td>Menenjit, epiglottit, selülit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kapsülsüz (NTHi)</b></td>
+                                    <td>Kapsülsüz</td>
+                                    <td>Otit, sinüzit, KOAH alevlenme, konjonktivit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Haemophilus Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"X = Hemin = X-ray (görünür yapar)"</b><br>
+                            <b>"V = NAD = Vitality (enerji)"</b><br>
+                            <b>"Çikolata agar = Çok iyi ürer"</b><br>
+                            <b>"Satellit = S. aureus etrafında"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hib (Kapsüllü Tip b) Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Menenjit</b></td>
+                                    <td>Aşı öncesi dönemde EN SIK bakteriyel menenjit etkeni (6 ay-6 yaş)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Epiglottit</b></td>
+                                    <td>ACİL! 2-7 yaş, ateş, stridör, tükürük akması, tripod pozisyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Selülit</b></td>
+                                    <td>Yüz (bukkal), mavi-mor renk, 6 ay-2 yaş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Septik artrit</b></td>
+                                    <td>Çocuklarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Osteomiyelit</b></td>
+                                    <td>Çocuklarda</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Epiglottit ACİL!</strong><br>
+                        <b>4D:</b> Drooling (salya akması), Dysphagia, Dysphonia, Distress<br>
+                        <b>Tripod pozisyonu:</b> Öne eğilmiş, ağız açık<br>
+                        <b>Kiraz kırmızısı epiglot</b><br>
+                        <b>ASLA laringoskopi/direk bakı deneme!</b> → Laringospazm riski<br>
+                        <b>Lateral boyun grafisi:</b> Thumbprint sign (başparmak işareti)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kapsülsüz (NTHi) Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut Otitis Media</b></td>
+                                    <td>Çocuklarda en sık etkenlerden (S. pneumoniae ile)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sinüzit</b></td>
+                                    <td>S. pneumoniae ve M. catarrhalis ile</td>
+                                </tr>
+                                <tr>
+                                    <td><b>KOAH Alevlenme</b></td>
+                                    <td>Erişkinlerde sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konjonktivit</b></td>
+                                    <td>Çocuklarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Brezilya purpurik ateşi</b></td>
+                                    <td>H. influenzae biogroup aegyptius, konjonktivit sonrası fulminan sepsis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Hib = Menenjit + Epiglottit + Selülit"</b><br>
+                            <b>"Epiglottit = 4D = Thumbprint sign"</b><br>
+                            <b>"NTHi = Otit + Sinüzit + KOAH"</b><br>
+                            <b>"Aşı sonrası Hib hastalıkları AZALDI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tanı ve Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Gram boyama</b></td>
+                                    <td>Gram (-) kokobasil, pleomorfik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür</b></td>
+                                    <td>Çikolata agar, X+V faktör gereksinimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lateks aglütinasyon</b></td>
+                                    <td>BOS/idrar'da Hib kapsül antijeni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Satellit test</b></td>
+                                    <td>S. aureus etrafında üreme</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Menenjit/Epiglottit</b></td>
+                                    <td>Seftriakson veya Sefotaksim</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Otit/Sinüzit</b></td>
+                                    <td>Amoksisilin-klavulanat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>KOAH alevlenme</b></td>
+                                    <td>Amoksisilin-klavulanat, FQ, Makrolid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Beta-laktamaz Üretimi!</strong><br>
+                        H. influenzae suşlarının %30-40'ı beta-laktamaz üretir.<br>
+                        <b>Tedavi:</b> Amoksisilin-klavulanat veya 3. kuşak sefalosporin</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kemoprofilaksi</p>
+                        <p class="highlight-box__content">
+                            <b>Endikasyon:</b> Ev halkında <4 yaş aşısız çocuk varsa<br>
+                            <b>İlaç:</b> Rifampisin 4 gün<br>
+                            <b>Hasta da profilaksi almalı</b> (Seftriakson taşıyıcılığı temizlemez)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Ciddi Hib = Seftriakson"</b><br>
+                            <b>"Otit/Sinüzit = Amoksisilin-klavulanat"</b><br>
+                            <b>"Beta-laktamaz = Klavulanat ekle"</b><br>
+                            <b>"Profilaksi = Rifampisin 4 gün"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Hib Aşısı",
+                icon: "fas fa-syringe",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Hib Konjuge Aşısı</p>
+                        <p class="highlight-box__content">
+                            <b>Tip:</b> Konjuge aşı (PRP + protein taşıyıcı)<br>
+                            <b>Antijen:</b> PRP (Polyribosylribitol phosphate) polisakkarit<br>
+                            <b>Taşıyıcı protein:</b> Tetanoz toksoidi, difteri protein vs.<br>
+                            <b>Amaç:</b> T-bağımlı yanıt oluşturma (<2 yaş etkili)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Polisakkarit vs Konjuge Aşı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Polisakkarit</th>
+                                    <th>Konjuge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yanıt tipi</b></td>
+                                    <td>T-bağımsız</td>
+                                    <td>T-bağımlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b><2 yaş etkinlik</b></td>
+                                    <td>ZAYIF</td>
+                                    <td>ETKİLİ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafıza</b></td>
+                                    <td>Zayıf</td>
+                                    <td>Güçlü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Booster yanıtı</b></td>
+                                    <td>Yok</td>
+                                    <td>Var</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Aşının Dramatik Etkisi:</strong><br>
+                        Hib aşısı öncesi dönemde H. influenzae tip b:<br>
+                        • Çocuklarda EN SIK bakteriyel menenjit etkeni<br>
+                        • Epiglottit vakalarının ana nedeni<br><br>
+                        Aşı sonrası dönemde bu hastalıklar %99 azaldı!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aşı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Hib = Konjuge = PRP + Protein"</b><br>
+                            <b>"Konjuge = <2 yaş etkili"</b><br>
+                            <b>"Polisakkarit tek başına = <2 yaş zayıf"</b><br>
+                            <b>"Aşı = Hib hastalıkları %99 azaldı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>X + V faktör =</b> H. influenzae<br>
+                            2. <b>Epiglottit =</b> Hib, 4D, thumbprint sign<br>
+                            3. <b>Satellit fenomen =</b> S. aureus etrafında<br>
+                            4. <b>Hib aşısı =</b> Konjuge, PRP<br>
+                            5. <b>Çikolata agar =</b> V faktörü serbest<br>
+                            6. <b>NTHi =</b> Otit, sinüzit, KOAH
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"X = Hemin = Hematin"</b><br>
+                            <b>"V = NAD = Vitamin (enerji)"</b><br>
+                            <b>"Haemophilus = Hem (X) + Vitamin (V) sever"</b><br>
+                            <b>"Epiglottit = 4D = Thumbprint"</b><br>
+                            <b>"Hib aşısı = Konjuge = Bebeklerde etkili"</b><br>
+                            <b>"Satellit = Stafilokok etrafında"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>X faktör =</b> Hemin (Hematin)<br>
+                            2. <b>V faktör =</b> NAD/NADP<br>
+                            3. <b>Besiyeri =</b> Çikolata agar (kanlı agar değil!)<br>
+                            4. <b>Satellit fenomen =</b> S. aureus etrafında üreme<br>
+                            5. <b>Hib =</b> Kapsüllü tip b, invazif hastalık<br>
+                            6. <b>NTHi =</b> Kapsülsüz, otit/sinüzit<br>
+                            7. <b>Epiglottit =</b> Hib, 2-7 yaş, ACİL<br>
+                            8. <b>4D =</b> Drooling, Dysphagia, Dysphonia, Distress<br>
+                            9. <b>Thumbprint sign =</b> Lateral boyun grafisi<br>
+                            10. <b>Hib aşısı =</b> Konjuge (PRP + protein)<br>
+                            11. <b>Konjuge aşı avantajı =</b> <2 yaş etkili, T-bağımlı yanıt<br>
+                            12. <b>Beta-laktamaz =</b> %30-40 suşta, klavulanat ekle<br>
+                            13. <b>Ciddi enfeksiyon tedavisi =</b> Seftriakson<br>
+                            14. <b>Profilaksi =</b> Rifampisin 4 gün<br>
+                            15. <b>Aşı sonrası =</b> Hib hastalıkları %99 azaldı
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "X ve V faktör gerektiren bakteri?" → H. influenzae</li>
+                        <li><b>Soru tipi:</b> "Satellit fenomen nedir?" → S. aureus etrafında H. influenzae üremesi</li>
+                        <li><b>Soru tipi:</b> "Epiglottit bulguları?" → 4D + Thumbprint sign</li>
+                        <li><b>Soru tipi:</b> "Hib aşısı tipi?" → Konjuge (PRP + protein)</li>
+                        <li><b>Soru tipi:</b> "Çikolata agar neden gerekli?" → V faktörü serbest</li>
+                        <li><b>Soru tipi:</b> "Kapsülsüz H. influenzae hangi hastalıklara neden olur?" → Otit, sinüzit, KOAH</li>
+                        <li><b>Soru tipi:</b> "Hib profilaksisi?" → Rifampisin 4 gün</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 58,
+        category: "bakteriyoloji",
+        title: "Enterobacterales (Genel)",
+        subtitle: "ESBL, Karbapenemaz ve Gram Negatif Direnç",
+        summary: "Enterobacterales ailesinin genel özellikleri, önemli türler (E. coli, Klebsiella, Enterobacter, Serratia, Proteus, Salmonella, Shigella), ESBL, Karbapenemaz ve direnç mekanizmaları.",
+        tags: ["Bakteriyoloji", "Enterobacterales", "ESBL", "Karbapenemaz", "Gram Negatif", "Direnç"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Enterobacterales Ortak Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif basil<br>
+                            <b>Oksidaz:</b> NEGATİF (Pseudomonas'tan ayırır!)<br>
+                            <b>Katalaz:</b> POZİTİF<br>
+                            <b>Glukoz fermentasyonu:</b> POZİTİF<br>
+                            <b>Nitrat redüksiyonu:</b> POZİTİF<br>
+                            <b>Hareket:</b> Değişken (peritrik flagella)<br>
+                            <b>Yaşam alanı:</b> Bağırsak florası, çevre
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Enterobacterales Üyeleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bakteri</th>
+                                    <th>Laktoz</th>
+                                    <th>Önemli Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E. coli</b></td>
+                                    <td>+</td>
+                                    <td>ÜSİ, ishal, menenjit (K1)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klebsiella</b></td>
+                                    <td>+</td>
+                                    <td>Pnömoni (alkolik), ÜSİ, ESBL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterobacter</b></td>
+                                    <td>+</td>
+                                    <td>Nozokomiyal, AmpC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Serratia</b></td>
+                                    <td>Geç +</td>
+                                    <td>Kırmızı pigment, IV ilaç kullanıcıları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Proteus</b></td>
+                                    <td>-</td>
+                                    <td>ÜSİ (alkali idrar, struvit taşı)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Salmonella</b></td>
+                                    <td>-</td>
+                                    <td>Gastroenterit, tifo</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Shigella</b></td>
+                                    <td>-</td>
+                                    <td>Dizanteri (kanlı ishal)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Laktoz Fermentasyonu Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Laktoz (+) = CEEK" (Citrobacter, E. coli, Enterobacter, Klebsiella)</b><br>
+                            <b>"Laktoz (-) = Shigella, Salmonella, Proteus"</b><br>
+                            <b>"Oksidaz (-) = Enterobacterales"</b><br>
+                            <b>"Oksidaz (+) = Pseudomonas, Aeromonas"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Önemli Türler ve Özellikleri",
+                icon: "fas fa-list-check",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">E. coli Patojenite Grupları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Mekanizma</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ETEC</b></td>
+                                    <td>Isıya labil/stabil toksin</td>
+                                    <td>Turist ishali (sulu)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>EHEC (O157:H7)</b></td>
+                                    <td>Shiga toksin</td>
+                                    <td>Kanlı ishal, HÜS</td>
+                                </tr>
+                                <tr>
+                                    <td><b>EIEC</b></td>
+                                    <td>İnvazyon</td>
+                                    <td>Dizanteri benzeri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>EPEC</b></td>
+                                    <td>Tutunma-silinme</td>
+                                    <td>Bebek ishali</td>
+                                </tr>
+                                <tr>
+                                    <td><b>EAEC</b></td>
+                                    <td>Agregasyon</td>
+                                    <td>Kronik ishal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>EHEC O157:H7:</strong><br>
+                        • Sorbitol fermente ETMEZ (MacConkey-Sorbitol)<br>
+                        • Shiga toksin (Stx1, Stx2) üretir<br>
+                        • HÜS (Hemolitik Üremik Sendrom) riski<br>
+                        • Antibiyotik toksin salınımını artırabilir → VERME!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer Önemli Türler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bakteri</th>
+                                    <th>Ayırt Edici Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klebsiella pneumoniae</b></td>
+                                    <td>Kalın kapsül, mukoid koloni, currant jelly balgam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Proteus mirabilis</b></td>
+                                    <td>Üreaz (+), swarming (kayma), alkali idrar, struvit taşı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Serratia marcescens</b></td>
+                                    <td>Kırmızı pigment (prodigiosin), IV ilaç kullanıcıları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterobacter</b></td>
+                                    <td>AmpC indüksiyon, SPICE organizmaları</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Türler Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"EHEC = E. coli O157:H7 = HÜS = Antibiyotik VERME"</b><br>
+                            <b>"Klebsiella = Kapsül = Currant jelly = Alkolik"</b><br>
+                            <b>"Proteus = Üreaz = Swarming = Struvit taşı"</b><br>
+                            <b>"Serratia = Red (kırmızı) pigment"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Direnç Mekanizmaları",
+                icon: "fas fa-shield-halved",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Beta-Laktamaz Sınıflandırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Ambler Sınıfı</th>
+                                    <th>Etki Spektrumu</th>
+                                    <th>İnhibitör</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ESBL</b></td>
+                                    <td>A</td>
+                                    <td>Penisilin, Sefalosporin (3.kuşak dahil)</td>
+                                    <td>Klavulanat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AmpC</b></td>
+                                    <td>C</td>
+                                    <td>Penisilin, Sefalosporin (3.kuşak), Sefamisinler</td>
+                                    <td>Kloksasilin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>KPC</b></td>
+                                    <td>A</td>
+                                    <td>Karbapenemler dahil tüm beta-laktamlar</td>
+                                    <td>Avibaktam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MBL (NDM, VIM)</b></td>
+                                    <td>B</td>
+                                    <td>Karbapenemler dahil (Aztreonam hariç)</td>
+                                    <td>EDTA (çinko şelatörü)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>OXA-48</b></td>
+                                    <td>D</td>
+                                    <td>Karbapenemler (zayıf), Penisilinler</td>
+                                    <td>Avibaktam</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">ESBL (Genişlemiş Spektrumlu Beta-Laktamaz)</p>
+                        <p class="highlight-box__content">
+                            <b>En sık:</b> E. coli, Klebsiella<br>
+                            <b>Genler:</b> CTX-M, TEM, SHV<br>
+                            <b>Direnç:</b> 3. kuşak sefalosporinler (seftriakson, seftazidim)<br>
+                            <b>Duyarlı:</b> Karbapenemler (1. seçenek tedavi)<br>
+                            <b>İnhibitör:</b> Klavulanat, Avibaktam, Vaborbaktam
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Karbapenemaz Üreten Enterobacterales (KPE/CRE):</strong><br>
+                        • KPC (A sınıfı): En sık, Klebsiella'da sık<br>
+                        • NDM, VIM, IMP (B sınıfı - Metallo): Aztreonam duyarlı!<br>
+                        • OXA-48 (D sınıfı): Zayıf karbapenemaz aktivitesi<br>
+                        • Tedavi: Seftazidim-avibaktam, Meropenem-vaborbaktam, Sefiderokol</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">AmpC ve SPICE Organizmaları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>SPICE</th>
+                                    <th>Organizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>S</b></td>
+                                    <td>Serratia</td>
+                                </tr>
+                                <tr>
+                                    <td><b>P</b></td>
+                                    <td>Providencia, Pseudomonas</td>
+                                </tr>
+                                <tr>
+                                    <td><b>I</b></td>
+                                    <td>Indole (+) Proteus (P. vulgaris)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C</b></td>
+                                    <td>Citrobacter freundii</td>
+                                </tr>
+                                <tr>
+                                    <td><b>E</b></td>
+                                    <td>Enterobacter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Bu organizmalar AmpC beta-laktamaz üretir. 3. kuşak sefalosporin kullanımı AmpC indüksiyonuna yol açabilir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Direnç Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ESBL = 3. kuşak sefalosporine dirençli = Karbapenem ver"</b><br>
+                            <b>"KPE = Karbapeneme dirençli = Seftazidim-avibaktam"</b><br>
+                            <b>"MBL (NDM) = Aztreonam DUYARLI (Metallo = Çinko bağımlı)"</b><br>
+                            <b>"SPICE = AmpC = 3. kuşak sefalosporin tetikler"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi Yaklaşımları",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Direnç Durumuna Göre Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Direnç</th>
+                                    <th>Tedavi Seçenekleri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Duyarlı</b></td>
+                                    <td>Ampisilin, TMP-SMX, Sefalosporinler, FQ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ESBL</b></td>
+                                    <td>Karbapenemler (ertapenem, meropenem)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AmpC</b></td>
+                                    <td>Sefepim, Karbapenemler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>KPC (Serin KPE)</b></td>
+                                    <td>Seftazidim-avibaktam, Meropenem-vaborbaktam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MBL (Metallo)</b></td>
+                                    <td>Aztreonam + Avibaktam, Sefiderokol</td>
+                                </tr>
+                                <tr>
+                                    <td><b>OXA-48</b></td>
+                                    <td>Seftazidim-avibaktam</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Yeni Beta-Laktamaz İnhibitörleri</p>
+                        <p class="highlight-box__content">
+                            <b>Avibaktam:</b> ESBL, KPC, OXA-48, AmpC'yi inhibe eder (MBL DEĞİL)<br>
+                            <b>Vaborbaktam:</b> KPC'yi inhibe eder<br>
+                            <b>Relebaktam:</b> ESBL, KPC, AmpC'yi inhibe eder<br><br>
+                            <b>MBL'ye karşı:</b> Sefiderokol (siderophore sefalosporin)
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ESBL = Karbapenem"</b><br>
+                            <b>"KPC = Seftazidim-Avibaktam"</b><br>
+                            <b>"MBL = Aztreonam + Avibaktam veya Sefiderokol"</b><br>
+                            <b>"Avibaktam = MBL HARİÇ hepsini inhibe eder"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Oksidaz (-) =</b> Enterobacterales<br>
+                            2. <b>EHEC O157:H7 =</b> HÜS, antibiyotik verme<br>
+                            3. <b>ESBL tedavi =</b> Karbapenem<br>
+                            4. <b>MBL =</b> Aztreonam duyarlı<br>
+                            5. <b>Proteus =</b> Üreaz, struvit taşı<br>
+                            6. <b>SPICE =</b> AmpC üreticileri
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Laktoz (+) = CEEK"</b><br>
+                            <b>"Laktoz (-) = Shigella, Salmonella, Proteus"</b><br>
+                            <b>"EHEC = O157:H7 = HÜS = Antibiyotik VERME"</b><br>
+                            <b>"Klebsiella = Kapsül = Currant jelly"</b><br>
+                            <b>"Proteus = Üreaz = Swarming = Struvit"</b><br>
+                            <b>"ESBL = Karbapenem"</b><br>
+                            <b>"MBL = Metallo = Aztreonam OK"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Oksidaz (-) + Glukoz (+) =</b> Enterobacterales<br>
+                            2. <b>Laktoz (+) =</b> E. coli, Klebsiella, Enterobacter<br>
+                            3. <b>Laktoz (-) =</b> Salmonella, Shigella, Proteus<br>
+                            4. <b>EHEC O157:H7 =</b> Sorbitol (-), Shiga toksin, HÜS<br>
+                            5. <b>Klebsiella =</b> Kalın kapsül, currant jelly balgam<br>
+                            6. <b>Proteus =</b> Üreaz (+), swarming, struvit taşı<br>
+                            7. <b>Serratia =</b> Kırmızı pigment (prodigiosin)<br>
+                            8. <b>ESBL =</b> 3. kuşak sefalosporine dirençli<br>
+                            9. <b>ESBL tedavi =</b> Karbapenem<br>
+                            10. <b>SPICE =</b> AmpC üreten organizmalar<br>
+                            11. <b>KPC =</b> A sınıfı karbapenemaz<br>
+                            12. <b>NDM, VIM =</b> B sınıfı (Metallo), Aztreonam duyarlı<br>
+                            13. <b>Avibaktam =</b> ESBL, KPC, AmpC inhibe (MBL değil)<br>
+                            14. <b>E. coli K1 kapsül =</b> Neonatal menenjit<br>
+                            15. <b>ETEC =</b> Turist ishali (LT, ST toksin)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Oksidaz negatif Gram negatif basil?" → Enterobacterales</li>
+                        <li><b>Soru tipi:</b> "ESBL üreten bakteriye karşı tedavi?" → Karbapenem</li>
+                        <li><b>Soru tipi:</b> "EHEC'te neden antibiyotik verilmez?" → Toksin salınımı ↑, HÜS riski</li>
+                        <li><b>Soru tipi:</b> "MBL'ye karşı hangi antibiyotik etkili?" → Aztreonam</li>
+                        <li><b>Soru tipi:</b> "Struvit taşına neden olan bakteri?" → Proteus (üreaz)</li>
+                        <li><b>Soru tipi:</b> "Currant jelly balgam hangi bakteride?" → Klebsiella</li>
+                        <li><b>Soru tipi:</b> "SPICE organizmaları nedir?" → AmpC üreten bakteriler</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 59,
+        category: "bakteriyoloji",
+        title: "Pseudomonas aeruginosa",
+        subtitle: "Nozokomiyal Enfeksiyonlar, Pigmentler ve Direnç",
+        summary: "P. aeruginosa'nın özellikleri, pigmentleri, nozokomiyal enfeksiyonlar, kistik fibroz, opak ve mukoid formlar, intrinsik ve kazanılmış direnç mekanizmaları.",
+        tags: ["Bakteriyoloji", "Pseudomonas", "Nozokomiyal", "Kistik Fibroz", "Direnç", "Gram Negatif"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">P. aeruginosa Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif basil<br>
+                            <b>Oksidaz:</b> POZİTİF (Enterobacterales'den ayırır!)<br>
+                            <b>Katalaz:</b> POZİTİF<br>
+                            <b>Hareket:</b> Monotrik polar flagella<br>
+                            <b>Spor:</b> YOK<br>
+                            <b>Aerob:</b> Zorunlu aerob<br>
+                            <b>Üreme:</b> 42°C'de ürer, geniş pH toleransı
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Karakteristik Pigmentler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Pigment</th>
+                                    <th>Renk</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pyocyanin</b></td>
+                                    <td>Mavi-yeşil</td>
+                                    <td>En karakteristik, ROS üretimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pyoverdin</b></td>
+                                    <td>Yeşil-sarı floresan</td>
+                                    <td>Siderophore (demir bağlar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pyorubin</b></td>
+                                    <td>Kırmızı-kahve</td>
+                                    <td>Bazı suşlarda</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Tanıda Önemli:</strong><br>
+                        • Meyve (üzüm) kokusu<br>
+                        • Mavi-yeşil pü veya balgam<br>
+                        • UV altında floresan</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Pseudomonas Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"P. aeruginosa = Pyocyanin = Mavi-yeşil = Üzüm kokusu"</b><br>
+                            <b>"Oksidaz (+) = Pseudomonas (Enterobacterales değil!)"</b><br>
+                            <b>"Pyoverdin = Floresan = Demir bağlar"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Virilans Faktörleri",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">P. aeruginosa Virilans Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ekzotoksin A</b></td>
+                                    <td>EN ÖNEMLİ, EF-2 inhibisyonu (difteri benzeri)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Elastaz, Proteazlar</b></td>
+                                    <td>Doku hasarı, vasküler invazyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fosfolipaz C</b></td>
+                                    <td>Sürfaktan yıkımı, doku hasarı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pili</b></td>
+                                    <td>Tutunma (solunum epiteli)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aljinat (mukoid)</b></td>
+                                    <td>Biyofilm, fagositozdan korunma (KF'de)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>LPS (Lipid A)</b></td>
+                                    <td>Endotoksin, septik şok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pyocyanin</b></td>
+                                    <td>ROS üretimi, silia hasarı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ekzotoksin A</p>
+                        <p class="highlight-box__content">
+                            • EF-2 (Elongation Factor 2) ADP-ribozilasyonu<br>
+                            • Protein sentezini durdurur<br>
+                            • Difteri toksininin aynı mekanizması<br>
+                            • Lokal nekroz ve sistemik toksisite
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Virilans Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Ekzotoksin A = EF-2 = Difteri benzeri"</b><br>
+                            <b>"Aljinat = Biyofilm = KF'de mukoid form"</b><br>
+                            <b>"Elastaz = Doku invazyonu = Ektima gangrenosum"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik Tablolar",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">P. aeruginosa Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Risk Grubu/Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>VİP (Ventilatör İlişkili Pnömoni)</b></td>
+                                    <td>YBÜ, mekanik ventilasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kistik Fibroz Pnömonisi</b></td>
+                                    <td>KF hastalarında EN SIK ölüm nedeni, mukoid form</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yanık Enfeksiyonu</b></td>
+                                    <td>Yanık hastalarında invazif enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ektima Gangrenosum</b></td>
+                                    <td>Nötropenik hastalarda, vasküler invazyon, nekrotik lezyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Malign Otitis Externa</b></td>
+                                    <td>Diyabetik yaşlılarda, osteomiyelit riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endokardit</b></td>
+                                    <td>IV ilaç kullanıcıları, triküspit kapak</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kateter İlişkili ÜSİ</b></td>
+                                    <td>Hastane kaynaklı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Folikülit (Hot tub)</b></td>
+                                    <td>Jakuzi, havuz kaynaklı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Keratit</b></td>
+                                    <td>Kontakt lens kullanıcıları</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Ektima Gangrenosum:</strong><br>
+                        • Nötropenik hastada karakteristik<br>
+                        • Başlangıçta eritematöz, sonra siyah nekrotik eskar<br>
+                        • Vasküler invazyon nedeniyle (elastaz)<br>
+                        • Bakteriyemi göstergesi olabilir</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kistik Fibrozda Pseudomonas</p>
+                        <p class="highlight-box__content">
+                            • KF hastalarının %80'inde kolonize<br>
+                            • Mukoid (aljinat üreten) forma dönüşür<br>
+                            • Biyofilm oluşturur<br>
+                            • Kronik enfeksiyon, progresif akciğer hasarı<br>
+                            • Eradikasyon zor, en önemli ölüm nedeni
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pseudomonas = Su sever = Hot tub, kontakt lens, KF"</b><br>
+                            <b>"Ektima gangrenosum = Nötropenik + Nekrotik"</b><br>
+                            <b>"Malign otit = Diyabet + Yaşlı"</b><br>
+                            <b>"IV ilaç = Triküspit endokardit"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Direnç ve Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>P. aeruginosa = Çoklu İlaç Direnci!</strong><br>
+                        İntrinsik ve kazanılmış direnç mekanizmaları sayesinde birçok antibiyotiğe dirençlidir.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İntrinsik Direnç</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antibiyotik</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ampisilin, Amoksisilin</b></td>
+                                    <td>AmpC beta-laktamaz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>1-2. kuşak sefalosporinler</b></td>
+                                    <td>AmpC, düşük porin geçirgenliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ertapenem</b></td>
+                                    <td>Porin geçirgenliği düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tigesiklin</b></td>
+                                    <td>MexXY-OprM efluks pompası</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-Pseudomonal Antibiyotikler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sınıf</th>
+                                    <th>İlaçlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Beta-laktamlar</b></td>
+                                    <td>Piperasilin-tazobaktam, Seftazidim, Sefepim, Aztreonam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karbapenemler</b></td>
+                                    <td>Meropenem, Imipenem, Doripenem (Ertapenem DEĞİL!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Aminoglikozidler</b></td>
+                                    <td>Tobramisin, Amikasin, Gentamisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Florokinolonlar</b></td>
+                                    <td>Siprofloksasin, Levofloksasin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Polimiksinler</b></td>
+                                    <td>Kolistin (son çare)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ciddi Pseudomonas Enfeksiyonu Tedavisi</p>
+                        <p class="highlight-box__content">
+                            <b>Kombine tedavi:</b> Beta-laktam + Aminoglikozid veya Florokinolon<br>
+                            <b>Kistik fibrozda:</b> Tobramisin inhalasyon + Sistemik tedavi<br>
+                            <b>MDR Pseudomonas:</b> Seftazidim-avibaktam, Seftolozan-tazobaktam, Kolistin
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Ertapenem = Pseudomonas'a ETKİSİZ"</b><br>
+                            <b>"Anti-Pseudomonal = PCSAM" (Pip-tazo, Ceftazidim, Sefepim, Aztreonam, Meropenem)</b><br>
+                            <b>"Ciddi enfeksiyon = Kombinasyon tedavisi"</b><br>
+                            <b>"MDR = Seftolozan-tazo, Seftazidim-avi, Kolistin"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Oksidaz (+) + Mavi-yeşil pigment =</b> P. aeruginosa<br>
+                            2. <b>Ektima gangrenosum =</b> Nötropenik hastada<br>
+                            3. <b>Malign otit =</b> Diyabetik yaşlı<br>
+                            4. <b>KF'de mukoid form =</b> Aljinat<br>
+                            5. <b>Ertapenem =</b> Pseudomonas'a etkisiz<br>
+                            6. <b>Ekzotoksin A =</b> EF-2 inhibisyonu
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pyocyanin = Mavi-yeşil = Pseudomonas"</b><br>
+                            <b>"Pyoverdin = Floresan = Siderophore"</b><br>
+                            <b>"Üzüm kokusu = Pseudomonas"</b><br>
+                            <b>"Oksidaz (+) = Enterobacterales DEĞİL"</b><br>
+                            <b>"Ektima = Nötropeni = Nekroz"</b><br>
+                            <b>"Malign otit = DM = Osteomiyelit"</b><br>
+                            <b>"KF = Mukoid = Aljinat = Biyofilm"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Oksidaz =</b> POZİTİF (Enterobacterales negatif!)<br>
+                            2. <b>Pyocyanin =</b> Mavi-yeşil pigment<br>
+                            3. <b>Pyoverdin =</b> Floresan, siderophore<br>
+                            4. <b>Ekzotoksin A =</b> EF-2 ADP-ribozilasyonu (difteri benzeri)<br>
+                            5. <b>Ektima gangrenosum =</b> Nötropenik hastada nekrotik lezyon<br>
+                            6. <b>Malign otitis externa =</b> Diyabetik yaşlılarda<br>
+                            7. <b>Hot tub folikülit =</b> Jakuzi kaynaklı<br>
+                            8. <b>Keratit =</b> Kontakt lens kullanıcıları<br>
+                            9. <b>KF pnömonisi =</b> Mukoid form, aljinat, biyofilm<br>
+                            10. <b>Ertapenem =</b> Pseudomonas'a ETKİSİZ<br>
+                            11. <b>Anti-pseudomonal =</b> Pip-tazo, Seftazidim, Meropenem<br>
+                            12. <b>IV ilaç endokarditi =</b> Triküspit kapak<br>
+                            13. <b>VİP =</b> En sık nozokomiyal etkenlerden<br>
+                            14. <b>Yanık enfeksiyonu =</b> Önemli invazif patojen<br>
+                            15. <b>MDR tedavi =</b> Seftolozan-tazo, Seftazidim-avi, Kolistin
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Oksidaz pozitif Gram negatif basil?" → P. aeruginosa</li>
+                        <li><b>Soru tipi:</b> "Mavi-yeşil balgam ve üzüm kokusunun nedeni?" → Pyocyanin</li>
+                        <li><b>Soru tipi:</b> "Nötropenik hastada nekrotik deri lezyonu?" → Ektima gangrenosum</li>
+                        <li><b>Soru tipi:</b> "Diyabetik yaşlıda ağrılı otit ve yüz felci?" → Malign otitis externa</li>
+                        <li><b>Soru tipi:</b> "KF'de mukoid Pseudomonas neden zor tedavi edilir?" → Aljinat/biyofilm</li>
+                        <li><b>Soru tipi:</b> "Pseudomonas'a etkisiz karbapenem?" → Ertapenem</li>
+                        <li><b>Soru tipi:</b> "Ekzotoksin A hangi mekanizma ile etkili?" → EF-2 inhibisyonu</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 60,
+        category: "bakteriyoloji",
+        title: "Mycobacterium tuberculosis",
+        subtitle: "Tüberküloz, LTBE ve Anti-TB Tedavi",
+        summary: "M. tuberculosis'in özellikleri, primer ve sekonder TB, latent TB enfeksiyonu (LTBE), TST/IGRA, anti-TB ilaçlar, ilaç direnci ve BCG aşısı.",
+        tags: ["Bakteriyoloji", "Tüberküloz", "Mikobakteri", "ARB", "LTBE", "İlaç Direnci"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">M. tuberculosis Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> İnce, hafif eğri basil<br>
+                            <b>Gram boyama:</b> Gram pozitif gibi, ancak zor boyanır<br>
+                            <b>ARB (Aside Dirençli Basil):</b> Ziehl-Neelsen, Kinyoun<br>
+                            <b>Aerob:</b> Zorunlu aerob (apeks sevdiği için)<br>
+                            <b>Üreme:</b> YAVAS (2-6 hafta), Löwenstein-Jensen<br>
+                            <b>Kapsül/Spor:</b> YOK<br>
+                            <b>Özel yapı:</b> Mikolik asit (aside direnç sağlar)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aside Direnç (ARB) Nedeni</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yapı</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Mikolik Asit</b></td>
+                                    <td>Uzun zincirli yağ asidi, hidrofobik bariyer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Arabinogalaktan</b></td>
+                                    <td>Mikolik asidi peptidoglikana bağlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cord Factor (Trehalose dimikolat)</b></td>
+                                    <td>Virilans, makrofaj toksisitesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Yöntemleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ARB boyama</b></td>
+                                    <td>Hızlı, düşük duyarlılık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültür (L-J, MGIT)</b></td>
+                                    <td>Altın standart, 2-6 hafta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NAAT (GeneXpert)</b></td>
+                                    <td>2 saat, rifampisin direnci de gösterir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TST (PPD)</b></td>
+                                    <td>LTBE taraması, 48-72 saat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IGRA</b></td>
+                                    <td>LTBE taraması, BCG'den etkilenmez</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">MTB Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Mikolik asit = Aside direnç = ARB"</b><br>
+                            <b>"Cord factor = Kordon oluşumu = Virilans"</b><br>
+                            <b>"Yavaş ürer = 2-6 hafta = L-J besiyeri"</b><br>
+                            <b>"GeneXpert = 2 saat = Rifampisin direnci"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Patogenez ve Klinik",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Primer vs Sekonder TB</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Primer TB</th>
+                                    <th>Sekonder TB (Reaktivasyon)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Zaman</b></td>
+                                    <td>İlk enfeksiyon</td>
+                                    <td>Yıllar sonra reaktivasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lokalizasyon</b></td>
+                                    <td>Alt ve orta lob</td>
+                                    <td>APEX (üst lob)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ghon kompleksi</b></td>
+                                    <td>VAR (parankim + LAP)</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kavite</b></td>
+                                    <td>Nadir</td>
+                                    <td>SIK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaştırıcılık</b></td>
+                                    <td>Düşük</td>
+                                    <td>YÜKSEK</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Ghon Kompleksi ve Ranke Kompleksi</p>
+                        <p class="highlight-box__content">
+                            <b>Ghon odağı:</b> Primer akciğer lezyonu (genellikle alt/orta lob)<br>
+                            <b>Ghon kompleksi:</b> Ghon odağı + Hiler LAP<br>
+                            <b>Ranke kompleksi:</b> Kalsifiye Ghon kompleksi (iyileşmiş primer TB)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ekstrapulmoner TB</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Organ</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Miliyer TB</b></td>
+                                    <td>Hematojen yayılım, tüm organlarda granülom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TB menenjit</b></td>
+                                    <td>Baziller menenjit, düşük glukoz, lenfosit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pott hastalığı</b></td>
+                                    <td>Vertebra TB, gibbus deformitesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Böbrek TB</b></td>
+                                    <td>Steril piyüri, kültürde üreme yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Addison hastalığı</b></td>
+                                    <td>Adrenal yetmezlik (TB nedenli)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Steril Piyüri:</strong><br>
+                        İdrarda lökosit var ama rutin kültürde üreme yok = Böbrek TB düşün!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Klinik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Primer = Alt lob = Ghon kompleksi"</b><br>
+                            <b>"Sekonder = APEX = Kavite = Bulaştırıcı"</b><br>
+                            <b>"Pott = Vertebra = Gibbus"</b><br>
+                            <b>"Steril piyüri = Böbrek TB"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "LTBE Tanısı",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Latent TB Enfeksiyonu (LTBE)</p>
+                        <p class="highlight-box__content">
+                            • MTB ile enfekte ama AKTİF hastalık yok<br>
+                            • Asemptomatik, bulaştırıcı değil<br>
+                            • Akciğer grafisi normal<br>
+                            • TST veya IGRA pozitif<br>
+                            • %5-10 yaşam boyu reaktivasyon riski
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">TST (Tüberkülin Deri Testi)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Endürasyon</th>
+                                    <th>Pozitif Kabul</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>≥5 mm</b></td>
+                                    <td>HIV, temas, fibrotik lezyon, immunsupresif</td>
+                                </tr>
+                                <tr>
+                                    <td><b>≥10 mm</b></td>
+                                    <td>Sağlık çalışanı, yüksek prevalans, çocuk, DM, KBY</td>
+                                </tr>
+                                <tr>
+                                    <td><b>≥15 mm</b></td>
+                                    <td>Risk faktörü olmayan erişkin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">TST vs IGRA</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>TST</th>
+                                    <th>IGRA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>BCG etkisi</b></td>
+                                    <td>ETKİLENİR (yanlış pozitif)</td>
+                                    <td>ETKİLENMEZ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Okuma zamanı</b></td>
+                                    <td>48-72 saat</td>
+                                    <td>Aynı gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tekrar ziyaret</b></td>
+                                    <td>GEREKLİ</td>
+                                    <td>Gerekmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antijen</b></td>
+                                    <td>PPD (çok antijen)</td>
+                                    <td>ESAT-6, CFP-10 (spesifik)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">LTBE Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TST = BCG'den etkilenir"</b><br>
+                            <b>"IGRA = BCG'den ETKİLENMEZ"</b><br>
+                            <b>"≥5 mm = HIV, temas, immunsupresif"</b><br>
+                            <b>"≥10 mm = Sağlık çalışanı, DM"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aktif TB Tedavisi (RIPE)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Etki</th>
+                                    <th>Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Rifampisin (R)</b></td>
+                                    <td>RNA polimeraz inhibisyonu</td>
+                                    <td>Hepatotoksisite, turuncu vücut sıvıları, CYP450 indüksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İzoniazid (H)</b></td>
+                                    <td>Mikolik asit sentez inhibisyonu</td>
+                                    <td>Hepatotoksisite, periferal nöropati (B6 eksikliği)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pirazinamid (Z)</b></td>
+                                    <td>Asidik ortamda aktif (makrofaj içi)</td>
+                                    <td>Hepatotoksisite, hiperürisemi, artralji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etambutol (E)</b></td>
+                                    <td>Arabinozil transferaz inhibisyonu</td>
+                                    <td>Optik nörit (renk körlüğü)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Standart Rejim</p>
+                        <p class="highlight-box__content">
+                            <b>İntensif faz:</b> 2 ay RHZE (4'lü)<br>
+                            <b>İdame faz:</b> 4 ay RH (2'li)<br>
+                            <b>Toplam:</b> 6 ay<br><br>
+                            <b>B6 (Piridoksin):</b> İzoniazid ile birlikte (nöropati profilaksisi)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">LTBE Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Rejim</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İzoniazid (H)</b></td>
+                                    <td>9 ay (veya 6 ay)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rifampisin (R)</b></td>
+                                    <td>4 ay</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3HP (İzoniazid + Rifapentin)</b></td>
+                                    <td>3 ay, haftalık</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>İlaç Direnci:</strong><br>
+                        <b>MDR-TB:</b> Rifampisin + İzoniazid direnci<br>
+                        <b>XDR-TB:</b> MDR + Florokinolon + 1 enjektabl (Amikasin vb.) direnci<br>
+                        GeneXpert rifampisin direncini 2 saatte gösterir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"RIPE = Rifampisin + İzoniazid + Pirazinamid + Etambutol"</b><br>
+                            <b>"2RHZE + 4RH = 6 ay"</b><br>
+                            <b>"İzoniazid = B6 ver (nöropati)"</b><br>
+                            <b>"Etambutol = Göz (optik nörit)"</b><br>
+                            <b>"Rifampisin = Turuncu (idrar, ter, gözyaşı)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>ARB =</b> Mikolik asit<br>
+                            2. <b>Sekonder TB =</b> Apex, kavite<br>
+                            3. <b>Ghon kompleksi =</b> Primer TB<br>
+                            4. <b>IGRA =</b> BCG'den etkilenmez<br>
+                            5. <b>İzoniazid yan etkisi =</b> Nöropati, B6 ile önle<br>
+                            6. <b>Etambutol yan etkisi =</b> Optik nörit
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Mikolik asit = ARB = Aside direnç"</b><br>
+                            <b>"Cord factor = Kordon = Virilans"</b><br>
+                            <b>"Primer = Alt lob = Ghon"</b><br>
+                            <b>"Sekonder = Apex = Kavite = Bulaştırıcı"</b><br>
+                            <b>"Pott = Vertebra = Gibbus"</b><br>
+                            <b>"Steril piyüri = Böbrek TB"</b><br>
+                            <b>"RIPE = 2+4 = 6 ay"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Aside direnç nedeni =</b> Mikolik asit<br>
+                            2. <b>Ziehl-Neelsen =</b> ARB boyama<br>
+                            3. <b>Besiyeri =</b> Löwenstein-Jensen (2-6 hafta)<br>
+                            4. <b>GeneXpert =</b> NAAT, 2 saat, rifampisin direnci<br>
+                            5. <b>Primer TB =</b> Alt/orta lob, Ghon kompleksi<br>
+                            6. <b>Sekonder TB =</b> Apex, kavite, bulaştırıcı<br>
+                            7. <b>Miliyer TB =</b> Hematojen yayılım<br>
+                            8. <b>Pott hastalığı =</b> Vertebra TB, gibbus<br>
+                            9. <b>TST ≥5 mm pozitif =</b> HIV, yakın temas<br>
+                            10. <b>IGRA avantajı =</b> BCG'den etkilenmez<br>
+                            11. <b>RIPE =</b> Rifampisin, İzoniazid, Pirazinamid, Etambutol<br>
+                            12. <b>İzoniazid yan etki =</b> Periferal nöropati (B6 ver)<br>
+                            13. <b>Etambutol yan etki =</b> Optik nörit<br>
+                            14. <b>Rifampisin yan etki =</b> Turuncu vücut sıvıları, CYP indüksiyon<br>
+                            15. <b>MDR-TB =</b> Rifampisin + İzoniazid direnci
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Aside dirençli basil boyama yöntemi?" → Ziehl-Neelsen</li>
+                        <li><b>Soru tipi:</b> "Sekonder TB lokalizasyonu?" → Akciğer apeksi</li>
+                        <li><b>Soru tipi:</b> "Ghon kompleksi nedir?" → Primer odak + Hiler LAP</li>
+                        <li><b>Soru tipi:</b> "BCG'den etkilenmeyen LTBE testi?" → IGRA</li>
+                        <li><b>Soru tipi:</b> "İzoniazid ile birlikte ne verilmeli?" → B6 (Piridoksin)</li>
+                        <li><b>Soru tipi:</b> "Etambutolun yan etkisi?" → Optik nörit</li>
+                        <li><b>Soru tipi:</b> "MDR-TB tanımı?" → Rifampisin + İzoniazid direnci</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 61,
+        category: "bakteriyoloji",
+        title: "Atipik Mikobakteriler (NTM)",
+        subtitle: "Non-Tüberküloz Mikobakteriler ve MAC",
+        summary: "Atipik mikobakterilerin sınıflandırması (Runyon), MAC, M. kansasii, M. marinum, hızlı üreyenler, tedavi yaklaşımları ve klinik önemi.",
+        tags: ["Bakteriyoloji", "NTM", "MAC", "Mikobakteri", "HIV/AIDS", "Atipik"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Atipik Mikobakteriler (NTM)</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> M. tuberculosis kompleksi ve M. leprae dışındaki mikobakteriler<br>
+                            <b>Diğer adlar:</b> NTM (Non-Tuberculous Mycobacteria), MOTT<br>
+                            <b>Bulaş:</b> Çevresel kaynak (su, toprak), kişiden kişiye BULAŞMAZ<br>
+                            <b>ARB:</b> POZİTİF (aside dirençli)<br>
+                            <b>Üreme hızı:</b> Yavaş veya hızlı (türe göre)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Runyon Sınıflaması (Yavaş Üreyenler)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Grup</th>
+                                    <th>Pigment</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>I - Fotokromojen</b></td>
+                                    <td>Işıkta pigment üretir</td>
+                                    <td>M. kansasii, M. marinum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>II - Skotokromojen</b></td>
+                                    <td>Karanlıkta pigment üretir</td>
+                                    <td>M. scrofulaceum, M. gordonae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>III - Nonkromojen</b></td>
+                                    <td>Pigment üretmez</td>
+                                    <td>MAC (M. avium kompleksi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IV - Hızlı üreyenler</b></td>
+                                    <td>Değişken</td>
+                                    <td>M. fortuitum, M. abscessus, M. chelonae</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Runyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Foto = Işık = Fotokromojen (Grup I)"</b><br>
+                            <b>"Skoto = Karanlık = Skotokromojen (Grup II)"</b><br>
+                            <b>"Non = Pigment yok = Nonkromojen (Grup III)"</b><br>
+                            <b>"Grup IV = Hızlı = 7 günde ürer"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "MAC (M. avium Kompleksi)",
+                icon: "fas fa-virus",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>HIV/AIDS'de En Sık NTM!</strong><br>
+                        CD4 < 50 hücre/mm³'de dissemine MAC enfeksiyonu görülür.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">MAC Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>İçerik:</b> M. avium, M. intracellulare<br>
+                            <b>Runyon:</b> Grup III (Nonkromojen)<br>
+                            <b>Kaynak:</b> Su, toprak, aerosol<br>
+                            <b>Risk grubu:</b> HIV/AIDS (CD4 < 50), KF, bronşektazi
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">MAC Klinik Tablolar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tablo</th>
+                                    <th>Risk Grubu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Dissemine MAC</b></td>
+                                    <td>AIDS (CD4 < 50)</td>
+                                    <td>Ateş, gece terlemesi, kilo kaybı, hepatosplenomegali</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pulmoner MAC</b></td>
+                                    <td>Bronşektazi, KF, KOAH</td>
+                                    <td>"Lady Windermere sendromu" (yaşlı kadın, RML)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lenfadenit</b></td>
+                                    <td>Çocuklar</td>
+                                    <td>Servikal LAP, cerrahi eksizyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">MAC Tedavi ve Profilaksi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Dissemine MAC</b></td>
+                                    <td>Klaritromisin + Etambutol ± Rifabutin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pulmoner MAC</b></td>
+                                    <td>Klaritromisin + Etambutol + Rifampisin (12-18 ay)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Profilaksi (CD4 < 50)</b></td>
+                                    <td>Azitromisin haftalık (ART başlanana kadar)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">MAC Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"MAC = AIDS = CD4 < 50"</b><br>
+                            <b>"MAC tedavi = Makrolid + Etambutol"</b><br>
+                            <b>"Profilaksi = Azitromisin"</b><br>
+                            <b>"Lady Windermere = Yaşlı kadın = RML = Pulmoner MAC"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer Önemli NTM'ler",
+                icon: "fas fa-list-check",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yavaş Üreyenler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Runyon</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>M. kansasii</b></td>
+                                    <td>I (Foto)</td>
+                                    <td>TB benzeri pnömoni (kaviter), en sık tedavi gerektiren</td>
+                                </tr>
+                                <tr>
+                                    <td><b>M. marinum</b></td>
+                                    <td>I (Foto)</td>
+                                    <td>Akvaryum granulomu (balık tankı dermatiti)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>M. scrofulaceum</b></td>
+                                    <td>II (Skoto)</td>
+                                    <td>Çocuklarda servikal lenfadenit (skrofula)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>M. ulcerans</b></td>
+                                    <td>III (Non)</td>
+                                    <td>Buruli ülseri (tropikal), mycolactone toksini</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">M. marinum - Akvaryum Granulomu</p>
+                        <p class="highlight-box__content">
+                            • Balık tankı, yüzme havuzu<br>
+                            • El/kol sırtında nodüler lezyonlar<br>
+                            • Sporotrikoid yayılım (lenfatikler boyunca)<br>
+                            • 30°C'de optimal üreme<br>
+                            • Tedavi: Klaritromisin + Etambutol veya Rifampisin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Üreyenler (Grup IV)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tür</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>M. abscessus</b></td>
+                                    <td>KF'de pulmoner enfeksiyon, deri/yumuşak doku, TEDAVİSİ EN ZOR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>M. fortuitum</b></td>
+                                    <td>Cerrahi yara enfeksiyonu, kateter enfeksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>M. chelonae</b></td>
+                                    <td>Deri enfeksiyonları, protez enfeksiyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Hızlı üreyenler 7 gün içinde koloni oluşturur!</p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>M. abscessus - Tedavisi Zor!</strong><br>
+                        • KF hastalarında önemli<br>
+                        • İntrinsik makrolid direnci gelişebilir (erm41 geni)<br>
+                        • Uzun süreli, kombine tedavi gerekir<br>
+                        • Amikasin + Tigesiklin + İmipenem kombinasyonları</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">NTM Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"M. marinum = Marine (deniz) = Akvaryum = 30°C"</b><br>
+                            <b>"M. kansasii = Kaviter pnömoni = TB benzeri"</b><br>
+                            <b>"M. scrofulaceum = Scrofula = Servikal LAP = Çocuk"</b><br>
+                            <b>"Hızlı üreyenler = Cerrahi yara, kateter"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>AIDS'te NTM =</b> MAC, CD4 < 50<br>
+                            2. <b>Akvaryum granulomu =</b> M. marinum<br>
+                            3. <b>Runyon Grup I =</b> Fotokromojen<br>
+                            4. <b>MAC tedavi =</b> Makrolid + Etambutol<br>
+                            5. <b>Hızlı üreyenler =</b> 7 gün, cerrahi yara<br>
+                            6. <b>Kişiden kişiye bulaş =</b> YOK
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"NTM = Çevreden bulaş = Kişiden kişiye DEĞİL"</b><br>
+                            <b>"MAC = AIDS = CD4 < 50 = Makrolid + Etambutol"</b><br>
+                            <b>"Fotokromojen = Işık = M. kansasii, M. marinum"</b><br>
+                            <b>"M. marinum = Marine = Akvaryum = 30°C"</b><br>
+                            <b>"Hızlı = 7 gün = Fortuitum, Abscessus, Chelonae"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>NTM bulaş =</b> Çevreden (su, toprak), kişiden kişiye DEĞİL<br>
+                            2. <b>Runyon Grup I =</b> Fotokromojen (ışıkta pigment)<br>
+                            3. <b>Runyon Grup II =</b> Skotokromojen (karanlıkta pigment)<br>
+                            4. <b>Runyon Grup III =</b> Nonkromojen (pigment yok) - MAC<br>
+                            5. <b>Runyon Grup IV =</b> Hızlı üreyenler (7 gün)<br>
+                            6. <b>MAC =</b> AIDS'te en sık NTM (CD4 < 50)<br>
+                            7. <b>MAC tedavi =</b> Klaritromisin + Etambutol<br>
+                            8. <b>MAC profilaksi =</b> Azitromisin (CD4 < 50)<br>
+                            9. <b>M. marinum =</b> Akvaryum granulomu, 30°C<br>
+                            10. <b>M. kansasii =</b> TB benzeri kaviter pnömoni<br>
+                            11. <b>M. scrofulaceum =</b> Çocukta servikal lenfadenit<br>
+                            12. <b>M. ulcerans =</b> Buruli ülseri<br>
+                            13. <b>Hızlı üreyenler =</b> M. fortuitum, M. abscessus, M. chelonae<br>
+                            14. <b>M. abscessus =</b> KF'de pulmoner, tedavisi zor<br>
+                            15. <b>Cerrahi yara NTM =</b> M. fortuitum, M. chelonae
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "CD4 < 50 olan AIDS hastasında en sık NTM?" → MAC</li>
+                        <li><b>Soru tipi:</b> "Akvaryum ile temas sonrası el sırtında nodüler lezyon?" → M. marinum</li>
+                        <li><b>Soru tipi:</b> "Işıkta pigment üreten mikobakteri grubu?" → Fotokromojen (Grup I)</li>
+                        <li><b>Soru tipi:</b> "MAC profilaksisi nasıl yapılır?" → Azitromisin haftalık</li>
+                        <li><b>Soru tipi:</b> "7 günde üreyen mikobakteriler?" → Hızlı üreyenler (Grup IV)</li>
+                        <li><b>Soru tipi:</b> "NTM nasıl bulaşır?" → Çevreden (su, toprak), kişiden kişiye DEĞİL</li>
+                        <li><b>Soru tipi:</b> "TB benzeri kaviter pnömoni yapan NTM?" → M. kansasii</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 62,
+        category: "bakteriyoloji",
+        title: "Clostridioides difficile",
+        subtitle: "Antibiyotik İlişkili İshal ve Psödomembranöz Kolit",
+        summary: "C. difficile'nin özellikleri, toksinler (A ve B), risk faktörleri, psödomembranöz kolit, tanı yöntemleri, tedavi ve rekürren enfeksiyon yönetimi.",
+        tags: ["Bakteriyoloji", "C. difficile", "AAD", "Psödomembranöz Kolit", "Anaerop", "Toksin"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">C. difficile Temel Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Eski adı:</b> Clostridium difficile<br>
+                            <b>Morfoloji:</b> Gram-pozitif basil<br>
+                            <b>Spor:</b> POZİTİF (subterminal)<br>
+                            <b>Oksijen:</b> Zorunlu anaerop<br>
+                            <b>Toksin:</b> Toksin A (Enterotoksin) + Toksin B (Sitotoksin)<br>
+                            <b>Habitat:</b> Bağırsak florası (%3-5 erişkin taşıyıcı)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">C. difficile Toksinleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Toksin</th>
+                                    <th>Tip</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toksin A (TcdA)</b></td>
+                                    <td>Enterotoksin</td>
+                                    <td>Sıvı sekresyonu, inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksin B (TcdB)</b></td>
+                                    <td>Sitotoksin</td>
+                                    <td>Aktin depolimerizasyonu, hücre ölümü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Binary Toksin (CDT)</b></td>
+                                    <td>ADP-riboziltransferaz</td>
+                                    <td>Hipervirülan suşlarda (NAP1/BI/027)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Hipervirülan Suş - NAP1/BI/027:</strong><br>
+                        • Binary toksin (CDT) üretir<br>
+                        • Toksin A ve B'yi 16-23 kat fazla üretir<br>
+                        • Florokinolon dirençli<br>
+                        • Daha ciddi hastalık, daha yüksek rekürrens</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">CDI Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Toksin A = Enterotoksin = Sulu ishal"</b><br>
+                            <b>"Toksin B = Sitotoksin = Hücre ölümü = Daha önemli"</b><br>
+                            <b>"Spor = Alkol dezenfektanına dirençli"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Risk Faktörleri ve Patogenez",
+                icon: "fas fa-exclamation-triangle",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Risk Faktörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Faktörler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Antibiyotik</b></td>
+                                    <td>Klindamisin, Florokinolonlar, Sefalosporinler, Ampisilin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td>>65 yaş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hastane</b></td>
+                                    <td>Uzun yatış, YBÜ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İlaçlar</b></td>
+                                    <td>PPI, kemoterapi, immünsupresifler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komorbiditeler</b></td>
+                                    <td>IBD, KBY, malignite</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Patogenez Basamakları</p>
+                        <p class="highlight-box__content">
+                            1. Antibiyotik → Normal flora bozulması<br>
+                            2. C. difficile sporları ile kolonizasyon<br>
+                            3. Vejetatif forma dönüşüm<br>
+                            4. Toksin üretimi (A ve B)<br>
+                            5. Mukozal hasar → Psödomembran oluşumu
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>En Riskli Antibiyotikler:</strong><br>
+                        4C = Clindamycin, Cephalosporins, Ciprofloxacin (ve diğer FQ), Co-amoxiclav</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Risk Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"4C = Clindamycin, Cephalosporin, Cipro, Co-amoxiclav"</b><br>
+                            <b>"Yaşlı + Antibiyotik + Hastane = CDI düşün"</b><br>
+                            <b>"PPI = Risk artırır"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Klinik ve Tanı",
+                icon: "fas fa-stethoscope",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Spektrum</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tablo</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik taşıyıcılık</b></td>
+                                    <td>%3-5 erişkin, tedavi gerektirmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafif-orta CDI</b></td>
+                                    <td>Sulu ishal, kramp, düşük ateş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ciddi CDI</b></td>
+                                    <td>WBC > 15.000, Kreatinin > 1.5x bazal, Albümin < 3</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fulminan CDI</b></td>
+                                    <td>İleus, toksik megakolon, şok, perforasyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Psödomembranöz Kolit</p>
+                        <p class="highlight-box__content">
+                            • Kolonoskopide sarı-beyaz plaklar (psödomembran)<br>
+                            • Summit lezyonları (volkan görünümü)<br>
+                            • Mukozal ödem ve eritem<br>
+                            • Histopatoloji: Fibrin, nötrofil, debris
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı Algoritması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>GDH (Glutamat Dehidrogenaz)</b></td>
+                                    <td>Tarama, yüksek duyarlılık, düşük özgüllük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksin EIA</b></td>
+                                    <td>Toksin A/B, hızlı, özgül ama duyarlılık düşük</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NAAT (PCR)</b></td>
+                                    <td>Toksin geni, yüksek duyarlılık (aşırı tanı riski)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksin B sitotoksisite</b></td>
+                                    <td>Altın standart ama yavaş</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><b>Önerilen:</b> 2 basamaklı algoritma (GDH + Toksin EIA, uyumsuzlukta NAAT)</p>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Test of Cure Yapma!</strong><br>
+                        Tedavi sonrası test tekrarı önerilmez. Toksin/PCR haftalarca pozitif kalabilir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tanı Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GDH = Tarama (duyarlı)"</b><br>
+                            <b>"Toksin EIA = Özgül (ama duyarlılık düşük)"</b><br>
+                            <b>"PCR = Aşırı duyarlı (taşıyıcı da pozitif!)"</b><br>
+                            <b>"Test of cure = YAPMA"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">CDI Tedavi Algoritması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>1. Seçenek</th>
+                                    <th>Alternatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İlk atak (hafif-orta)</b></td>
+                                    <td>Fidaksomisin 200 mg PO 2x1, 10 gün</td>
+                                    <td>Vankomisin 125 mg PO 4x1, 10 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İlk atak (ciddi)</b></td>
+                                    <td>Vankomisin 125 mg PO 4x1, 10 gün</td>
+                                    <td>Fidaksomisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fulminan</b></td>
+                                    <td>Vankomisin PO/rektal + Metronidazol IV</td>
+                                    <td>Cerrahi (kolektomi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>1. rekürrens</b></td>
+                                    <td>Fidaksomisin veya Vankomisin taper</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><b>≥2. rekürrens</b></td>
+                                    <td>FMT (Fekal Mikrobiyota Transplantasyonu)</td>
+                                    <td>Bezlotoxumab</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Önemli Tedavi Notları</p>
+                        <p class="highlight-box__content">
+                            • <b>Metronidazol PO:</b> Artık 1. seçenek değil (rekürrens yüksek)<br>
+                            • <b>Fidaksomisin:</b> Dar spektrum, flora koruyucu, rekürrens düşük<br>
+                            • <b>Vankomisin:</b> Sadece ORAL etkili (IV emilmez)<br>
+                            • <b>Sorumlu antibiyotiği kes!</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>FMT (Fekal Mikrobiyota Transplantasyonu):</strong><br>
+                        • Tekrarlayan CDI'da %90 başarı<br>
+                        • Sağlıklı donörden dışkı transferi<br>
+                        • Kolonoskopi, nazogastrik tüp veya kapsül ile<br>
+                        • Normal florayı restore eder</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Fidaksomisin = 1. seçenek = Rekürrens düşük"</b><br>
+                            <b>"Vankomisin = ORAL = IV etkisiz"</b><br>
+                            <b>"Metronidazol = Artık 1. seçenek DEĞİL"</b><br>
+                            <b>"Tekrarlayan = FMT"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Antibiyotik ilişkili ishal =</b> C. difficile<br>
+                            2. <b>Toksin B =</b> Sitotoksin, daha önemli<br>
+                            3. <b>Psödomembran =</b> Kolonoskopide sarı plaklar<br>
+                            4. <b>Tedavi =</b> Oral Vankomisin veya Fidaksomisin<br>
+                            5. <b>Tekrarlayan CDI =</b> FMT<br>
+                            6. <b>Spor =</b> Alkole dirençli
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"4C = Clinda, Cefalo, Cipro, Co-amox = CDI riski"</b><br>
+                            <b>"Toksin A = Enterotoksin = İshal"</b><br>
+                            <b>"Toksin B = Sitotoksin = Hasar"</b><br>
+                            <b>"Oral Vankomisin = Etkili (IV değil!)"</b><br>
+                            <b>"Fidaksomisin = Rekürrens az"</b><br>
+                            <b>"FMT = Tekrarlayan CDI = %90 başarı"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>En sık neden =</b> Antibiyotik kullanımı<br>
+                            2. <b>Riskli antibiyotikler =</b> Klindamisin, Sefalosporin, FQ<br>
+                            3. <b>Spor =</b> Alkol dezenfektanına DİRENÇLİ<br>
+                            4. <b>Toksin A =</b> Enterotoksin (TcdA)<br>
+                            5. <b>Toksin B =</b> Sitotoksin (TcdB), daha önemli<br>
+                            6. <b>NAP1/BI/027 =</b> Hipervirülan suş, binary toksin<br>
+                            7. <b>Psödomembran =</b> Sarı-beyaz plaklar, summit lezyonu<br>
+                            8. <b>GDH =</b> Tarama testi (duyarlı)<br>
+                            9. <b>Toksin EIA =</b> Özgül ama duyarlılık düşük<br>
+                            10. <b>Test of cure =</b> YAPMA<br>
+                            11. <b>İlk atak tedavi =</b> Fidaksomisin veya Oral Vankomisin<br>
+                            12. <b>Metronidazol =</b> Artık 1. seçenek DEĞİL<br>
+                            13. <b>IV Vankomisin =</b> Kolona ulaşmaz, ETKİSİZ<br>
+                            14. <b>Fulminan =</b> Oral/rektal Vankomisin + IV Metronidazol<br>
+                            15. <b>Tekrarlayan CDI =</b> FMT (%90 başarı)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Antibiyotik sonrası ishal etkeni?" → C. difficile</li>
+                        <li><b>Soru tipi:</b> "Psödomembranöz kolit tanısı?" → Kolonoskopi + Toksin testi</li>
+                        <li><b>Soru tipi:</b> "CDI tedavisinde hangi ilaç oral verilir?" → Vankomisin (IV etkisiz)</li>
+                        <li><b>Soru tipi:</b> "Tekrarlayan CDI'da en etkili tedavi?" → FMT</li>
+                        <li><b>Soru tipi:</b> "C. difficile sporları neye dirençli?" → Alkol</li>
+                        <li><b>Soru tipi:</b> "En riskli antibiyotikler?" → Klindamisin, Sefalosporin, FQ</li>
+                        <li><b>Soru tipi:</b> "NAP1/027 suşunun özelliği?" → Hipervirülan, binary toksin</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 63,
+        category: "bakteriyoloji",
+        title: "Anaerop Bakteriler",
+        subtitle: "Bacteroides, Clostridium ve Diğer Anaeroplar",
+        summary: "Anaerop bakterilerin genel özellikleri, Bacteroides fragilis, Clostridium türleri (perfringens, tetani, botulinum), Fusobacterium, Actinomyces, tanı ve tedavi.",
+        tags: ["Bakteriyoloji", "Anaerop", "Bacteroides", "Clostridium", "Gazlı Gangren", "Tetanoz"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Anaerop Bakterilerin Ortak Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> Oksijenin yokluğunda veya çok düşük olduğunda üreyen bakteriler<br>
+                            <b>Normal flora:</b> Ağız, kolon, vajina<br>
+                            <b>Enfeksiyon:</b> Genellikle endojen kaynaklı<br>
+                            <b>Kültür:</b> Anaerop ortam, özel besiyerleri<br>
+                            <b>Koku:</b> Pis kokulu akıntı (butirik asit vs.)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anaerop Enfeksiyon İpuçları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İpucu</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pis koku</b></td>
+                                    <td>Kısa zincirli yağ asitleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gaz oluşumu</b></td>
+                                    <td>Dokuda krepitasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nekrotik doku</b></td>
+                                    <td>Düşük redoks potansiyeli</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mukoza yakını</b></td>
+                                    <td>Ağız, kolon, pelvis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kültürde üreme yok</b></td>
+                                    <td>Aerobik kültürde negatif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Anaerop Bakteriler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bakteri</th>
+                                    <th>Gram</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bacteroides fragilis</b></td>
+                                    <td>G(-) basil</td>
+                                    <td>En sık anaerop patojen, intraabdominal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Clostridium perfringens</b></td>
+                                    <td>G(+) basil</td>
+                                    <td>Gazlı gangren, gıda zehirlenmesi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Clostridium tetani</b></td>
+                                    <td>G(+) basil</td>
+                                    <td>Tetanoz (tetanospazmin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Clostridium botulinum</b></td>
+                                    <td>G(+) basil</td>
+                                    <td>Botulizm (flask paralizi)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fusobacterium</b></td>
+                                    <td>G(-) basil</td>
+                                    <td>Lemierre sendromu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Actinomyces</b></td>
+                                    <td>G(+) basil</td>
+                                    <td>Sülfür granülleri, fistül</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Anaerop Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pis koku + Gaz + Nekroz = Anaerop düşün"</b><br>
+                            <b>"B. fragilis = Karın içi = En sık anaerop"</b><br>
+                            <b>"Clostridium = Spor = Toksin"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Bacteroides fragilis",
+                icon: "fas fa-virus",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">B. fragilis Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif basil<br>
+                            <b>Spor:</b> YOK<br>
+                            <b>Kapsül:</b> VAR (virilans faktörü)<br>
+                            <b>Habitat:</b> Kolon florası<br>
+                            <b>Önem:</b> En sık klinik anaerop izolat
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">B. fragilis Enfeksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İntraabdominal apse</b></td>
+                                    <td>En sık, perforasyon sonrası</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Peritonit</b></td>
+                                    <td>Genellikle polimikrobiyal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pelvik enfeksiyon</b></td>
+                                    <td>Tubo-ovaryen apse</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bakteriyemi</b></td>
+                                    <td>GI/GU kaynaklı</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Direnç Önemli!</strong><br>
+                        B. fragilis penisilin ve çoğu sefalosporine DİRENÇLİ!<br>
+                        <b>Beta-laktamaz üretir.</b><br>
+                        Tedavi: Metronidazol, Karbapenem, BL-BLI</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">B. fragilis Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"B. fragilis = Karın içi apse = En sık anaerop"</b><br>
+                            <b>"Penisiline dirençli = Beta-laktamaz"</b><br>
+                            <b>"Tedavi = Metronidazol"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Clostridium Türleri",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Clostridium perfringens</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Toksin/Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Gazlı gangren (Miyonekroz)</b></td>
+                                    <td>Alfa-toksin (lesitinaz/fosfolipaz C)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gıda zehirlenmesi</b></td>
+                                    <td>Enterotoksin, et yemekleri, 8-24 saat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nekrotizan enterit (Pig-bel)</b></td>
+                                    <td>Beta-toksin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Gazlı Gangren:</strong><br>
+                        • Travma, cerrahi sonrası<br>
+                        • Şiddetli ağrı, krepitasyon, gaz<br>
+                        • Hızlı yayılım, yüksek mortalite<br>
+                        • Tedavi: Debridman + Penisilin + Klindamisin<br>
+                        • Hiperbarik oksijen (adjuvan)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Clostridium tetani - Tetanoz</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toksin</b></td>
+                                    <td>Tetanospazmin (nörotoksin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>İnhibitör nörotransmitter salınımını engeller (GABA, glisin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Spastik paralizi, trismus, opistotonus, risus sardonicus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>TIG, debridman, Metronidazol, destek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Clostridium botulinum - Botulizm</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toksin</b></td>
+                                    <td>Botulinum toksini (en güçlü biyolojik toksin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>Asetilkolin salınımını engeller (presinaptik)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Flask paralizi, INen (kranyal → periferik), solunum yetmezliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Formlar</b></td>
+                                    <td>Gıda kaynaklı, infant (bal!), yara</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Tetanoz vs Botulizm:</strong><br>
+                        <b>Tetanoz:</b> SPASTİK paralizi (kasılma) - İnhibitör nöronlar bloke<br>
+                        <b>Botulizm:</b> FLASK paralizi (gevşek) - Asetilkolin bloke</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Clostridium Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Perfringens = Alfa-toksin = Gazlı gangren"</b><br>
+                            <b>"Tetani = Tetanospazmin = Spastik = GABA/Glisin blokaj"</b><br>
+                            <b>"Botulinum = Flask = ACh blokaj = Bal (infant)"</b><br>
+                            <b>"Tetanoz = Yukarı çıkar, Botulizm = Aşağı iner"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Diğer Anaeroplar",
+                icon: "fas fa-list-check",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Fusobacterium necrophorum - Lemierre Sendromu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Patojen</b></td>
+                                    <td>Fusobacterium necrophorum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Başlangıç</b></td>
+                                    <td>Farenjit, peritonsillar apse</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td>İnternal jugüler ven tromboflebiti</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Yayılım</b></td>
+                                    <td>Septik emboli (akciğer, eklem)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Risk grubu</b></td>
+                                    <td>Genç, sağlıklı erişkin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Actinomyces - Aktinomikoz</p>
+                        <p class="highlight-box__content">
+                            <b>Özellik:</b> Gram-pozitif, dallanmış basil, fakültatif anaerop<br>
+                            <b>Sülfür granülleri:</b> Sarı, pürülan materyalde<br>
+                            <b>Formlar:</b><br>
+                            • Servikofasiyal (%55) - Diş çekimi sonrası, çene<br>
+                            • Torasik (%15) - Pnömoni, göğüs duvarı invazyonu<br>
+                            • Abdominal (%20) - Apendektomi sonrası, IUD<br>
+                            <b>Tedavi:</b> Uzun süreli Penisilin (6-12 ay)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Aktinomikoz İpuçları:</strong><br>
+                        • Anatomik bariyerleri aşar (kemik, fasya)<br>
+                        • Sinüs traktları ve fistüller<br>
+                        • Sülfür granülleri (pürülandan sarı partiküller)<br>
+                        • IUD ile pelvik aktinomikoz ilişkisi</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Diğer Anaeroplar Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Lemierre = Farenjit → Jugüler tromboz → Septik emboli"</b><br>
+                            <b>"Aktinomikoz = Sülfür granülleri = Fistül = Uzun Penisilin"</b><br>
+                            <b>"IUD = Pelvik aktinomikoz"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tedavi ve Sınav Özeti",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anaerop Enfeksiyon Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Spektrum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Metronidazol</b></td>
+                                    <td>Tüm anaeroplar (Actinomyces HARİÇ)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klindamisin</b></td>
+                                    <td>Anaeroplar + bazı Gram (+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>BL-BLI</b></td>
+                                    <td>Pip-tazo, Ampi-sulbaktam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karbapenemler</b></td>
+                                    <td>Geniş spektrum (anaerop dahil)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Penisilin</b></td>
+                                    <td>Clostridium, Actinomyces (B. fragilis DEĞİL)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>En sık anaerop patojen =</b> B. fragilis<br>
+                            2. <b>Gazlı gangren =</b> C. perfringens, alfa-toksin<br>
+                            3. <b>Tetanoz =</b> Spastik paralizi, tetanospazmin<br>
+                            4. <b>Botulizm =</b> Flask paralizi, ACh blokajı<br>
+                            5. <b>Lemierre =</b> Farenjit → Jugüler tromboz<br>
+                            6. <b>Sülfür granülleri =</b> Aktinomikoz
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Anaerop ipuçları =</b> Pis koku, gaz, nekroz<br>
+                            2. <b>B. fragilis =</b> En sık anaerop, karın içi apse<br>
+                            3. <b>B. fragilis direnci =</b> Penisiline dirençli (beta-laktamaz)<br>
+                            4. <b>C. perfringens =</b> Alfa-toksin (lesitinaz), gazlı gangren<br>
+                            5. <b>Gazlı gangren tedavi =</b> Debridman + Penisilin + Klindamisin<br>
+                            6. <b>Tetanospazmin =</b> GABA/Glisin blokajı, spastik paralizi<br>
+                            7. <b>Botulinum toksin =</b> ACh blokajı, flask paralizi<br>
+                            8. <b>İnfant botulizm =</b> Bal (<1 yaş verme!)<br>
+                            9. <b>Lemierre sendromu =</b> Fusobacterium, jugüler tromboflebit<br>
+                            10. <b>Aktinomikoz =</b> Sülfür granülleri, fistül<br>
+                            11. <b>Aktinomikoz tedavi =</b> Uzun süreli Penisilin<br>
+                            12. <b>IUD =</b> Pelvik aktinomikoz riski<br>
+                            13. <b>Metronidazol =</b> Tüm anaeroplar (Actinomyces hariç)<br>
+                            14. <b>Tetanoz profilaksi =</b> Td/Tdap + TIG<br>
+                            15. <b>Opistotonus =</b> Tetanozda yay şeklinde kasılma
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Pis kokulu karın içi apse etkeni?" → B. fragilis</li>
+                        <li><b>Soru tipi:</b> "Gazlı gangren toksini?" → Alfa-toksin (C. perfringens)</li>
+                        <li><b>Soru tipi:</b> "Spastik paralizi yapan toksin?" → Tetanospazmin</li>
+                        <li><b>Soru tipi:</b> "Flask paralizi yapan toksin?" → Botulinum toksin</li>
+                        <li><b>Soru tipi:</b> "Bebeklere neden bal verilmez?" → İnfant botulizm</li>
+                        <li><b>Soru tipi:</b> "Farenjit sonrası jugüler ven trombozu?" → Lemierre sendromu</li>
+                        <li><b>Soru tipi:</b> "Sülfür granülleri hangi hastalıkta?" → Aktinomikoz</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 64,
+        category: "bakteriyoloji",
+        title: "Spirochaetales",
+        subtitle: "Treponema, Borrelia ve Leptospira",
+        summary: "Spiroket bakterilerin özellikleri, Treponema pallidum (sifiliz), Borrelia burgdorferi (Lyme), Borrelia recurrentis (dönek ateş), Leptospira interrogans (leptospiroz).",
+        tags: ["Bakteriyoloji", "Spiroket", "Sifiliz", "Lyme", "Leptospiroz", "Zoonoz"],
+        sections: [
+            {
+                title: "Genel Özellikler",
+                icon: "fas fa-bacterium",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Spiroket Ortak Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Spiral/helikal şekil, ince, uzun<br>
+                            <b>Hareket:</b> Endoflagella (aksiyal filament)<br>
+                            <b>Gram boyama:</b> Zor boyanır, karanlık alan/gümüşleme<br>
+                            <b>Kültür:</b> Zor veya imkansız (Leptospira hariç)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Spiroketler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Cins</th>
+                                    <th>Tür</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Treponema</b></td>
+                                    <td>T. pallidum</td>
+                                    <td>Sifiliz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Borrelia</b></td>
+                                    <td>B. burgdorferi</td>
+                                    <td>Lyme hastalığı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Borrelia</b></td>
+                                    <td>B. recurrentis</td>
+                                    <td>Dönek ateş (Relapsing fever)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Leptospira</b></td>
+                                    <td>L. interrogans</td>
+                                    <td>Leptospiroz (Weil hastalığı)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Spiroket Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Spiroket = Spiral = Endoflagella"</b><br>
+                            <b>"Treponema = Sifiliz"</b><br>
+                            <b>"Borrelia = Lyme + Dönek ateş"</b><br>
+                            <b>"Leptospira = İdrar bulaşı = Weil"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Treponema pallidum - Sifiliz",
+                icon: "fas fa-disease",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sifiliz Evreleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Primer</b></td>
+                                    <td>3-6 hafta</td>
+                                    <td>Şankr (ağrısız, sert, tek ülser), LAP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sekonder</b></td>
+                                    <td>6 hafta-6 ay</td>
+                                    <td>Makülopapüler döküntü (avuç içi/tabanda), condylomata lata, mukoza plakları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Latent</b></td>
+                                    <td>Yıllar</td>
+                                    <td>Asemptomatik, seroloji (+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tersiyer</b></td>
+                                    <td>15-30 yıl</td>
+                                    <td>Gom, kardiyovasküler (aort), nörosifiliz</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Nörosifiliz</p>
+                        <p class="highlight-box__content">
+                            <b>Erken:</b> Menenjit, meningovasküler (inme)<br>
+                            <b>Geç:</b><br>
+                            • Tabes dorsalis (arka kordon, Argyll Robertson pupil)<br>
+                            • Genel parezi (demans, kişilik değişikliği)<br>
+                            <b>Argyll Robertson pupil:</b> Akomodasyon (+), ışık refleksi (-)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sifiliz Serolojisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Tip</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>VDRL, RPR</b></td>
+                                    <td>Nontreponemal</td>
+                                    <td>Tarama, aktivite takibi, yanlış (+) olabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>FTA-ABS, TPPA</b></td>
+                                    <td>Treponemal</td>
+                                    <td>Doğrulama, ömür boyu (+) kalır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Primer/Sekonder/Erken Latent</b></td>
+                                    <td>Benzatin Penisilin G 2.4 MU IM tek doz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Geç Latent/Tersiyer</b></td>
+                                    <td>Benzatin Penisilin G 2.4 MU IM haftalık x3</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nörosifiliz</b></td>
+                                    <td>Kristalize Penisilin G IV 10-14 gün</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Jarisch-Herxheimer Reaksiyonu:</strong><br>
+                        Tedavi başlangıcında ateş, baş ağrısı, miyalji<br>
+                        Treponema ölümüne bağlı sitokin fırtınası<br>
+                        Destekleyici tedavi yeterli</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Sifiliz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Primer = Şankr = Ağrısız ülser"</b><br>
+                            <b>"Sekonder = Avuç içi/taban döküntü"</b><br>
+                            <b>"Tersiyer = Gom + Aort + Nöro"</b><br>
+                            <b>"VDRL = Tarama, FTA-ABS = Doğrulama"</b><br>
+                            <b>"Penisilin = Her evre"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Borrelia - Lyme ve Dönek Ateş",
+                icon: "fas fa-bug",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Lyme Hastalığı (B. burgdorferi)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Evre 1 (Erken lokal)</b></td>
+                                    <td>1-4 hafta</td>
+                                    <td>Erythema migrans (EM), grip benzeri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Evre 2 (Erken dissemine)</b></td>
+                                    <td>Haftalar-aylar</td>
+                                    <td>Çoklu EM, kardiyak (AV blok), nörolojik (Bell, menenjit)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Evre 3 (Geç)</b></td>
+                                    <td>Aylar-yıllar</td>
+                                    <td>Kronik artrit (diz), kronik nöroboreliyoz</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Erythema Migrans</p>
+                        <p class="highlight-box__content">
+                            • Kene ısırığı yerinde, 7-14 gün sonra<br>
+                            • Hedef (bull's eye) görünümü<br>
+                            • Santral açılma, periferik yayılım<br>
+                            • Lyme tanısı için YETERLİ (seroloji gerekmez)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Lyme Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Erken Lyme (EM)</b></td>
+                                    <td>Doksisiklin 100 mg 2x1, 10-14 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nöroboreliyoz, Kardiyak</b></td>
+                                    <td>Seftriakson IV 14-21 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lyme artrit</b></td>
+                                    <td>Doksisiklin veya Amoksisilin 28 gün</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Dönek Ateş (Relapsing Fever)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Vektör</th>
+                                    <th>Etken</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Epidemik</b></td>
+                                    <td>Bit (Pediculus)</td>
+                                    <td>B. recurrentis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endemik</b></td>
+                                    <td>Yumuşak kene (Ornithodoros)</td>
+                                    <td>B. hermsii ve diğerleri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Antijenik varyasyon nedeniyle tekrarlayan ateş atakları (3-5 gün)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Borrelia Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Lyme = Kene = Erythema migrans = Bull's eye"</b><br>
+                            <b>"Evre 2 = Kalp (AV blok) + Nöro (Bell)"</b><br>
+                            <b>"Evre 3 = Kronik artrit (diz)"</b><br>
+                            <b>"Dönek ateş = Antijenik varyasyon = Relaps"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Leptospira - Leptospiroz",
+                icon: "fas fa-water",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Leptospira interrogans</p>
+                        <p class="highlight-box__content">
+                            <b>Bulaş:</b> Enfekte hayvan idrarı ile kontamine su<br>
+                            <b>Rezervuar:</b> Kemirgenler, köpek, sığır<br>
+                            <b>Risk:</b> Sel, su sporları, tarım, veteriner<br>
+                            <b>Kültür:</b> Mümkün (Fletcher, EMJH besiyeri)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Leptospiroz Klinik Evreleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faz</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Septisemik (1. faz)</b></td>
+                                    <td>3-7 gün</td>
+                                    <td>Ateş, baş ağrısı, miyalji (baldır), konjonktival suffüzyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmün (2. faz)</b></td>
+                                    <td>Değişken</td>
+                                    <td>Aseptik menenjit, üveit, döküntü</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Weil Hastalığı (Ciddi Leptospiroz):</strong><br>
+                        • İkterik leptospiroz (%10)<br>
+                        • Hepatorenal sendrom: Sarılık + AKI<br>
+                        • Pulmoner hemoraji<br>
+                        • Yüksek mortalite (%10-40)</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yöntem</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>MAT (Mikroaglütinasyon)</b></td>
+                                    <td>Altın standart seroloji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Erken dönemde kan/idrarda</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi (hafif)</b></td>
+                                    <td>Doksisiklin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi (ciddi)</b></td>
+                                    <td>Penisilin G IV veya Seftriakson</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Leptospiroz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Leptospira = Su + İdrar = Sel"</b><br>
+                            <b>"Baldır ağrısı + Konjonktival suffüzyon = Leptospiroz"</b><br>
+                            <b>"Weil = Sarılık + Böbrek yetmezliği"</b><br>
+                            <b>"Tedavi = Doksisiklin veya Penisilin"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Şankr =</b> Primer sifiliz, ağrısız<br>
+                            2. <b>Avuç içi döküntü =</b> Sekonder sifiliz<br>
+                            3. <b>Erythema migrans =</b> Lyme, bull's eye<br>
+                            4. <b>Bell palsi + AV blok =</b> Lyme evre 2<br>
+                            5. <b>Weil hastalığı =</b> Sarılık + AKI<br>
+                            6. <b>VDRL/RPR =</b> Nontreponemal tarama
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Sifiliz = Şankr → Döküntü → Gom/Nöro"</b><br>
+                            <b>"Argyll Robertson = Işık (-), Akomodasyon (+)"</b><br>
+                            <b>"Lyme = Kene → EM → Kalp/Nöro → Artrit"</b><br>
+                            <b>"Dönek ateş = Antijenik varyasyon = Relaps"</b><br>
+                            <b>"Leptospira = Su = Baldır = Weil"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Spiroket morfoloji =</b> Spiral, endoflagella<br>
+                            2. <b>Primer sifiliz =</b> Ağrısız şankr (ülser)<br>
+                            3. <b>Sekonder sifiliz =</b> Avuç içi/taban döküntü, condylomata lata<br>
+                            4. <b>Tersiyer sifiliz =</b> Gom, aort anevrizması, nörosifiliz<br>
+                            5. <b>Tabes dorsalis =</b> Arka kordon tutulumu<br>
+                            6. <b>Argyll Robertson =</b> Işık refleksi (-), akomodasyon (+)<br>
+                            7. <b>Sifiliz tedavi =</b> Benzatin Penisilin G<br>
+                            8. <b>Nörosifiliz =</b> Kristalize Penisilin IV<br>
+                            9. <b>Erythema migrans =</b> Bull's eye, Lyme patognomonik<br>
+                            10. <b>Lyme evre 2 =</b> Bell palsi, AV blok<br>
+                            11. <b>Lyme evre 3 =</b> Kronik artrit (diz)<br>
+                            12. <b>Lyme vektörü =</b> Ixodes (sert kene)<br>
+                            13. <b>Dönek ateş =</b> Antijenik varyasyon, relaps<br>
+                            14. <b>Leptospiroz bulaş =</b> Hayvan idrarı, su<br>
+                            15. <b>Weil hastalığı =</b> İkterik leptospiroz, hepatorenal
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Ağrısız genital ülser etkeni?" → T. pallidum (sifiliz)</li>
+                        <li><b>Soru tipi:</b> "Avuç içi ve tabanda döküntü?" → Sekonder sifiliz</li>
+                        <li><b>Soru tipi:</b> "Bull's eye döküntü?" → Erythema migrans (Lyme)</li>
+                        <li><b>Soru tipi:</b> "Lyme hastalığında AV blok?" → Evre 2 (erken dissemine)</li>
+                        <li><b>Soru tipi:</b> "Sarılık + böbrek yetmezliği + su teması?" → Weil hastalığı</li>
+                        <li><b>Soru tipi:</b> "Tekrarlayan ateş atakları (relapsing fever)?" → Borrelia recurrentis</li>
+                        <li><b>Soru tipi:</b> "Argyll Robertson pupil hangi hastalıkta?" → Nörosifiliz</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
