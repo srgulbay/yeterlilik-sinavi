@@ -28441,6 +28441,2473 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 46,
+        category: "immunoloji",
+        title: "Transplantasyon İmmünolojisi",
+        subtitle: "Greft Reddi, HLA Uyumu ve İmmünsupresyon",
+        summary: "Transplantasyon immunolojisinin temelleri: HLA sistemi, greft red tipleri (hiperakut, akut, kronik), GVHD, immünsupresif tedavi ve cross-match testleri.",
+        tags: ["İmmünoloji", "Transplantasyon", "HLA", "Greft Reddi", "GVHD", "İmmünsupresyon"],
+        sections: [
+            {
+                title: "Transplantasyon Temelleri",
+                icon: "fas fa-hand-holding-medical",
+                content: `
+                    <p><strong>Transplantasyon</strong>, bir donörden alıcıya doku veya organ aktarımıdır. Başarı büyük ölçüde HLA uyumuna ve immünsupresyona bağlıdır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Greft Türleri</p>
+                        <p class="highlight-box__content">
+                            <b>Otogreft:</b> Kendi dokusundan (cilt, kemik)<br>
+                            <b>İzogreft (Singreft):</b> Özdeş ikizden<br>
+                            <b>Allogreft:</b> Aynı türün farklı bireyinden (en sık)<br>
+                            <b>Ksenogreft:</b> Farklı türden (domuz kalp kapağı)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Transplantasyonda Kritik HLA Lokusu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Organ</th>
+                                    <th>En Önemli HLA</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Böbrek</b></td>
+                                    <td>HLA-DR > B > A</td>
+                                    <td>6 antijen eşleşmesi ideal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kemik iliği</b></td>
+                                    <td>HLA-A, B, C, DR, DQ</td>
+                                    <td>10/10 uyum ideal, GVHD riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karaciğer</b></td>
+                                    <td>ABO uyumu yeterli</td>
+                                    <td>İmmünolojik ayrıcalıklı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kalp/Akciğer</b></td>
+                                    <td>HLA eşleşme + boyut</td>
+                                    <td>Acil durumda ABO öncelik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pre-Transplant Testler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Amaç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ABO uyumu</b></td>
+                                    <td>Temel, hiperakut reddi önler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HLA tiplemesi</b></td>
+                                    <td>Uyumlu donör seçimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Crossmatch</b></td>
+                                    <td>Alıcı serumu + donör lenfositleri (önceden Ab?)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PRA (Panel Reactive Ab)</b></td>
+                                    <td>Sensitizasyon derecesi (%)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Greft Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"OTO = Kendi, İZO = İkiz, ALLO = Başka, KSENO = Tür"</b><br>
+                            <b>"ALLO = En sık kullanılan"</b><br>
+                            <b>"Crossmatch (+) = YAPMA!"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Greft Reddi Tipleri",
+                icon: "fas fa-ban",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Red Tiplerinin Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Süre</th>
+                                    <th>Mekanizma</th>
+                                    <th>Histopatoloji</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hiperakut Red</b></td>
+                                    <td>Dakikalar-saatler</td>
+                                    <td>Preformed Ab (ABO, HLA)</td>
+                                    <td>Tromboz, nekroz, nötrofil</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut Humoral</b></td>
+                                    <td>Günler-haftalar</td>
+                                    <td>Yeni Ab oluşumu</td>
+                                    <td>Vaskülit, C4d (+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut Hücresel</b></td>
+                                    <td>Günler-haftalar</td>
+                                    <td>T hücre infiltrasyonu</td>
+                                    <td>Tubulitis, lenfosit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik Red</b></td>
+                                    <td>Aylar-yıllar</td>
+                                    <td>Kronik Ab + T hücre</td>
+                                    <td>Fibrozis, vaskülopati</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Hiperakut Red:</strong><br>
+                        • <b>Önceden oluşmuş antikor</b> (ABO uyumsuz, sensitize hasta)<br>
+                        • Ameliyathanede dakikalar içinde<br>
+                        • Greft siyanotik, nekrotik<br>
+                        • <b>Tedavi YOK</b> → Greftektomi<br>
+                        • <b>Önlem:</b> Crossmatch, ABO uyumu</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Akut Red Tedavisi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Red Tipi</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut hücresel</b></td>
+                                    <td>Pulse steroid, ATG, OKT3</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Akut humoral</b></td>
+                                    <td>Plazmaferez, IVIG, Rituximab</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Red Tipi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HİPERAKUT = Preformed Ab = Dakika = Geri dönüşsüz"</b><br>
+                            <b>"AKUT = T hücre veya yeni Ab = Tedavi edilebilir"</b><br>
+                            <b>"KRONİK = Fibrozis = Geri dönüşsüz"</b><br>
+                            <b>"C4d = Humoral red belirteci"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Graft-Versus-Host Hastalığı (GVHD)",
+                icon: "fas fa-arrows-turn-right",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">GVHD Nedir?</p>
+                        <p class="highlight-box__content">
+                            <b>Donör T hücreleri</b> alıcı dokularına saldırır.<br>
+                            <b>Şart:</b> İmmünkompetan donör hücre + immünsuprese alıcı + HLA uyumsuzluk<br>
+                            <b>En sık:</b> Allojenik kemik iliği nakli<br>
+                            <b>Hedef organlar:</b> Deri, Karaciğer, GİS
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Akut vs Kronik GVHD</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Akut GVHD</th>
+                                    <th>Kronik GVHD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>&lt;100 gün</td>
+                                    <td>&gt;100 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Deri</b></td>
+                                    <td>Makülopapüler döküntü</td>
+                                    <td>Skleroderma benzeri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Karaciğer</b></td>
+                                    <td>Hepatit, sarılık</td>
+                                    <td>Kolestaz, siroz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>GİS</b></td>
+                                    <td>Sulu ishal, karın ağrısı</td>
+                                    <td>Striktür, malabsorbsiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mekanizma</b></td>
+                                    <td>Th1/CTL</td>
+                                    <td>Fibrotik, otoimmün benzeri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">GVHD Risk Durumları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Allojenik kemik iliği nakli</td>
+                                    <td>EN YÜKSEK</td>
+                                </tr>
+                                <tr>
+                                    <td>Işınlanmamış kan transfüzyonu</td>
+                                    <td>İmmünsuprese hastada</td>
+                                </tr>
+                                <tr>
+                                    <td>Fetal-maternal transfüzyon</td>
+                                    <td>Nadir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Transfüzyon-İlişkili GVHD (TA-GVHD):</strong><br>
+                        İmmünsuprese hastaya ışınlanmamış kan → Fatal olabilir!<br>
+                        <b>Önlem:</b> Kan ürünlerini ışınlama (25-50 Gy)</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">GVHD Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"GVHD = Graft bana saldırıyor!"</b><br>
+                            <b>"Deri + KC + GİS = Klasik triad"</b><br>
+                            <b>"Akut &lt;100 gün, Kronik &gt;100 gün"</b><br>
+                            <b>"KİT = GVHD riski yüksek"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İmmünsupresif Tedavi",
+                icon: "fas fa-pills",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmünsupresif İlaçlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Mekanizma</th>
+                                    <th>Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Siklosporin</b></td>
+                                    <td>Kalsinörin inhibitörü (IL-2 ↓)</td>
+                                    <td>Nefrotoksisite, hipertansiyon, hirsutizm</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tacrolimus (FK506)</b></td>
+                                    <td>Kalsinörin inhibitörü (daha potent)</td>
+                                    <td>Nefrotoksisite, DM, nörotoksisite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sirolimus (Rapamisin)</b></td>
+                                    <td>mTOR inhibitörü</td>
+                                    <td>Hiperlipidemi, yara iyileşme ↓</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Azatioprin</b></td>
+                                    <td>Pürin sentez inhibitörü</td>
+                                    <td>Kemik iliği supresyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mikofenolat</b></td>
+                                    <td>IMPDH inhibitörü (pürin)</td>
+                                    <td>GİS, lökopeni</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ATG</b></td>
+                                    <td>Anti-timosit globülin</td>
+                                    <td>Serum hastalığı, enfeksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Basiliximab</b></td>
+                                    <td>Anti-IL2R (CD25)</td>
+                                    <td>İndüksiyon tedavisi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Kalsinörin İnhibitörleri:</strong><br>
+                        <b>Siklosporin:</b> Siklofilin'e bağlanır<br>
+                        <b>Tacrolimus:</b> FKBP'ye bağlanır<br>
+                        İkisi de → Kalsinörin inhibisyonu → NFAT aktivasyonu ↓ → IL-2 ↓</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İmmünsupresyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Siklosporin/Tacrolimus = Kalsinörin = IL-2 yok"</b><br>
+                            <b>"Sirolimus = mTOR = Proliferasyon yok"</b><br>
+                            <b>"Azatioprin = Pürin = Kemik iliği"</b><br>
+                            <b>"Tacrolimus = Daha potent + Diyabet riski"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Hiperakut red =</b> Preformed Ab, dakikalar<br>
+                            2. <b>Akut red =</b> T hücre veya yeni Ab<br>
+                            3. <b>C4d =</b> Humoral red belirteci<br>
+                            4. <b>GVHD =</b> Donör T → alıcı doku saldırısı<br>
+                            5. <b>Crossmatch (+) =</b> Transplant yapılmaz<br>
+                            6. <b>Kalsinörin inh =</b> Siklosporin, tacrolimus
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Red Tipi Özet</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Red</th>
+                                    <th>Anahtar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hiperakut</td>
+                                    <td>Preformed Ab, dakika, tromboz, önlenemez</td>
+                                </tr>
+                                <tr>
+                                    <td>Akut</td>
+                                    <td>Günler-haftalar, T hücre/Ab, tedavi var</td>
+                                </tr>
+                                <tr>
+                                    <td>Kronik</td>
+                                    <td>Aylar-yıllar, fibrozis, irreversibl</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ALLO = En sık greft tipi"</b><br>
+                            <b>"HİPERAKUT = Preformed = Önlenemez = Dakika"</b><br>
+                            <b>"AKUT = T hücre = Tedavi edilebilir"</b><br>
+                            <b>"KRONİK = Fibrozis = Geri dönüşsüz"</b><br>
+                            <b>"GVHD = Deri + KC + GİS"</b><br>
+                            <b>"Kalsinörin = IL-2 yok = Siklosporin/Tacrolimus"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Hiperakut red =</b> Preformed Ab, dakikalar, önlenemez<br>
+                            2. <b>Crossmatch testi =</b> Alıcı serum + donör hücre<br>
+                            3. <b>C4d pozitifliği =</b> Humoral (Ab-mediated) red<br>
+                            4. <b>GVHD organları =</b> Deri, karaciğer, GİS<br>
+                            5. <b>GVHD riski en yüksek =</b> Allojenik KİT<br>
+                            6. <b>TA-GVHD önlemi =</b> Kan ışınlama<br>
+                            7. <b>Siklosporin mekanizma =</b> Kalsinörin inh, IL-2 ↓<br>
+                            8. <b>Tacrolimus yan etki =</b> Diyabet (siklosporinden fazla)<br>
+                            9. <b>Sirolimus =</b> mTOR inhibitörü<br>
+                            10. <b>Böbrek nakli HLA =</b> DR en önemli<br>
+                            11. <b>Karaciğer nakli =</b> ABO yeterli (immünolojik ayrıcalık)<br>
+                            12. <b>Akut hücresel red tedavi =</b> Pulse steroid
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Ameliyatta dakikalar içinde greft nekrozu?" → Hiperakut red</li>
+                        <li><b>Soru tipi:</b> "Kemik iliği nakli sonrası deri döküntüsü + ishal + sarılık?" → GVHD</li>
+                        <li><b>Soru tipi:</b> "Crossmatch testi neyi gösterir?" → Preformed anti-HLA antikor</li>
+                        <li><b>Soru tipi:</b> "Kalsinörin inhibitörü hangisi?" → Siklosporin, Tacrolimus</li>
+                        <li><b>Soru tipi:</b> "mTOR inhibitörü?" → Sirolimus (Rapamisin)</li>
+                        <li><b>Soru tipi:</b> "Humoral red belirteci?" → C4d</li>
+                        <li><b>Soru tipi:</b> "Akut red tedavisi?" → Pulse steroid, ATG</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 47,
+        category: "immunoloji",
+        title: "Aşı İmmünolojisi",
+        subtitle: "Aşı Tipleri, Adjuvanlar ve Koruyucu İmmünite",
+        summary: "Aşıların immunolojik temelleri: canlı atenüe, inaktive, subünit, konjuge, mRNA aşıları, adjuvanlar ve immunolojik hafıza oluşumu.",
+        tags: ["İmmünoloji", "Aşı", "İmmünizasyon", "Adjuvan", "Antikor", "Hafıza"],
+        sections: [
+            {
+                title: "Aşı Temelleri",
+                icon: "fas fa-syringe",
+                content: `
+                    <p><strong>Aşılama (İmmünizasyon)</strong>, hastalık geçirmeden immün hafıza oluşturma yöntemidir. Aktif veya pasif olabilir.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Aktif vs Pasif İmmünizasyon</p>
+                        <p class="highlight-box__content">
+                            <b>Aktif İmmünizasyon:</b><br>
+                            • Aşı verilir → Kişi kendi antikor/hafıza üretir<br>
+                            • Yavaş başlar, uzun sürer<br>
+                            • Aşılar<br><br>
+                            <b>Pasif İmmünizasyon:</b><br>
+                            • Hazır antikor verilir<br>
+                            • Hemen etki, kısa sürer<br>
+                            • IVIG, antiserum, anne sütü IgA
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aktif vs Pasif Karşılaştırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Aktif</th>
+                                    <th>Pasif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etki başlangıcı</b></td>
+                                    <td>Yavaş (haftalar)</td>
+                                    <td>Hızlı (hemen)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Etki süresi</b></td>
+                                    <td>Uzun (yıllar)</td>
+                                    <td>Kısa (haftalar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafıza</b></td>
+                                    <td>VAR</td>
+                                    <td>YOK</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Örnek</b></td>
+                                    <td>Aşılar</td>
+                                    <td>IVIG, anti-D, tetanoz Ig</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İmmünizasyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AKTİF = Aşı = Yavaş + Uzun + Hafıza"</b><br>
+                            <b>"PASİF = Hazır Ab = Hızlı + Kısa + Hafıza yok"</b><br>
+                            <b>"Anne sütü, IVIG = Pasif"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Aşı Tipleri",
+                icon: "fas fa-flask-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aşı Tipi Karşılaştırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Özellik</th>
+                                    <th>Örnekler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Canlı Atenüe</b></td>
+                                    <td>Zayıflatılmış canlı, en güçlü yanıt</td>
+                                    <td>MMR, BCG, OPV, Sarıhumma, Varisella, Rotavirüs</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnaktive (Ölü)</b></td>
+                                    <td>Öldürülmüş patojen, daha güvenli</td>
+                                    <td>IPV, Hepatit A, Kuduz, İnfluenza (enjektabl)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Subünit/Rekombinan</b></td>
+                                    <td>Patojen parçası veya protein</td>
+                                    <td>Hepatit B (HBsAg), HPV, Aselüler boğmaca</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toksoid</b></td>
+                                    <td>İnaktive toksin</td>
+                                    <td>Tetanoz, Difteri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Konjuge</b></td>
+                                    <td>Polisakkarit + protein taşıyıcı</td>
+                                    <td>Hib, Pnömokok (PCV), Meningokok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>mRNA</b></td>
+                                    <td>Genetik materyal → protein üretimi</td>
+                                    <td>COVID-19 (Pfizer, Moderna)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viral vektör</b></td>
+                                    <td>Başka virüs taşıyıcı</td>
+                                    <td>COVID-19 (AstraZeneca, J&J)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Canlı Aşı Kontrendikasyonları:</strong><br>
+                        • İmmünsuprese hastalar (SCID, HIV/AIDS ileri)<br>
+                        • Gebelik<br>
+                        • Yüksek doz steroid alanlar<br>
+                        • Son 3-11 ay içinde IVIG alanlar</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Konjuge Aşıların Önemi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Polisakkarit Aşı</th>
+                                    <th>Konjuge Aşı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>T hücre yardımı</b></td>
+                                    <td>T-bağımsız (TI)</td>
+                                    <td>T-bağımlı (TD)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>&lt;2 yaş etkinlik</b></td>
+                                    <td>Zayıf</td>
+                                    <td>ETKİLİ</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İzotip dönüşümü</b></td>
+                                    <td>Sınırlı (IgM)</td>
+                                    <td>VAR (IgG)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafıza</b></td>
+                                    <td>Zayıf</td>
+                                    <td>Güçlü</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aşı Tipi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CANLI = En güçlü = İmmünsupresede YASAK"</b><br>
+                            <b>"İNAKTİVE = Ölü = Güvenli = Rapel gerekir"</b><br>
+                            <b>"KONJUGE = Polisakkarit + Protein = &lt;2 yaş ETKİLİ"</b><br>
+                            <b>"MMR, BCG, OPV, Sarıhumma, Varisella = CANLI"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Adjuvanlar ve İmmün Yanıt",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Adjuvan Nedir?</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> Antijene karşı immün yanıtı güçlendiren maddeler<br>
+                            <b>Etki:</b> APC aktivasyonu, depo etkisi, sitokin indüksiyonu<br>
+                            <b>Kullanım:</b> İnaktive ve subünit aşılarda (canlı aşılarda gerekmez)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaygın Adjuvanlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Adjuvan</th>
+                                    <th>Mekanizma</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Alüminyum tuzları (Alum)</b></td>
+                                    <td>Depo etkisi, NLRP3 aktivasyonu</td>
+                                    <td>DaBT, Hepatit B, en yaygın</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MF59 (Squalene)</b></td>
+                                    <td>Emülsiyon, APC aktivasyonu</td>
+                                    <td>İnfluenza</td>
+                                </tr>
+                                <tr>
+                                    <td><b>AS04</b></td>
+                                    <td>Alum + MPL (TLR4 agonist)</td>
+                                    <td>HPV (Cervarix)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CpG (TLR9 agonist)</b></td>
+                                    <td>B hücre ve pDC aktivasyonu</td>
+                                    <td>Hepatit B (yeni)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Aşı Yanıtını Etkileyen Faktörler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faktör</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yaş</b></td>
+                                    <td>Bebekler ve yaşlılarda azalmış yanıt</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Beslenme</b></td>
+                                    <td>Malnütrisyon yanıtı azaltır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Genetik</b></td>
+                                    <td>HLA tipleri, sitokin polimorfizmleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünsupresyon</b></td>
+                                    <td>Yanıt azalır, canlı aşı kontrendike</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Maternal antikor</b></td>
+                                    <td>&lt;6 ay aşı yanıtını engelleyebilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Adjuvan Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ALUM = En yaygın = Depo etkisi"</b><br>
+                            <b>"Adjuvan = İnaktive aşılarda gerekli"</b><br>
+                            <b>"Canlı aşı = Adjuvan gereksiz (kendi adjuvanı)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Koruyucu İmmünite ve Hafıza",
+                icon: "fas fa-shield-heart",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Aşı İmmün Yanıtı</p>
+                        <p class="highlight-box__content">
+                            <b>Primer yanıt:</b> İlk aşı → IgM baskın, yavaş, düşük afinite<br>
+                            <b>Sekonder yanıt:</b> Rapel → IgG baskın, hızlı, yüksek afinite<br>
+                            <b>Hafıza hücreleri:</b> B ve T hafıza hücreleri uzun süreli koruma sağlar
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Koruyucu İmmünite Göstergeleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aşı</th>
+                                    <th>Koruyucu Gösterge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hepatit B</b></td>
+                                    <td>Anti-HBs ≥10 mIU/mL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tetanoz</b></td>
+                                    <td>Anti-tetanoz IgG ≥0.1 IU/mL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kızamık</b></td>
+                                    <td>Anti-kızamık IgG pozitifliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kuduz (post-exposure)</b></td>
+                                    <td>Nötralizan Ab ≥0.5 IU/mL</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sürü Bağışıklığı (Herd Immunity)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Gerekli Aşılama Oranı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kızamık</b></td>
+                                    <td>%93-95 (çok bulaşıcı, R₀=12-18)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Difteri</b></td>
+                                    <td>%85</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Polio</b></td>
+                                    <td>%80-85</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Hepatit B Non-Responder:</strong><br>
+                        Anti-HBs &lt;10 mIU/mL → Ek doz<br>
+                        Hâlâ yanıt yoksa → Double dose veya intradermal<br>
+                        Risk faktörleri: Yaş, obezite, sigara, immünsupresyon</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Koruma Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Primer = IgM = Yavaş"</b><br>
+                            <b>"Sekonder = IgG = Hızlı = Yüksek afinite"</b><br>
+                            <b>"Anti-HBs ≥10 = Koruyucu"</b><br>
+                            <b>"Kızamık = %95 aşılama = Sürü bağışıklığı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Canlı aşılar =</b> MMR, BCG, OPV, Varisella<br>
+                            2. <b>İmmünsupresede kontrendike =</b> Canlı aşılar<br>
+                            3. <b>Konjuge =</b> &lt;2 yaşta etkili, Hib, PCV<br>
+                            4. <b>Adjuvan en yaygın =</b> Alüminyum (Alum)<br>
+                            5. <b>Anti-HBs koruyucu =</b> ≥10 mIU/mL<br>
+                            6. <b>Pasif immünizasyon =</b> IVIG, hızlı, kısa
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Canlı vs İnaktive Aşı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Canlı</th>
+                                    <th>İnaktive</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>İmmün yanıt</td>
+                                    <td>Güçlü</td>
+                                    <td>Zayıf (rapel gerekir)</td>
+                                </tr>
+                                <tr>
+                                    <td>İmmünsuprese</td>
+                                    <td>KONTRENDIKE</td>
+                                    <td>Güvenli</td>
+                                </tr>
+                                <tr>
+                                    <td>Adjuvan</td>
+                                    <td>Gerekmez</td>
+                                    <td>Gerekir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CANLI = MMR, BCG, OPV, Sarıhumma, Varisella, Rotavirüs"</b><br>
+                            <b>"CANLI = İmmünsuprese + Gebe = YASAK"</b><br>
+                            <b>"KONJUGE = Bebekte etkili = Hib, PCV, Meningokok"</b><br>
+                            <b>"PASIF = Hazır Ab = IVIG = Hızlı + Kısa"</b><br>
+                            <b>"ALUM = En yaygın adjuvan"</b><br>
+                            <b>"Anti-HBs ≥10 = KORUMA VAR"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Canlı aşılar =</b> MMR, BCG, OPV, Varisella, Rotavirüs, Sarıhumma<br>
+                            2. <b>Canlı aşı kontrendike =</b> İmmünsupresyon, gebelik<br>
+                            3. <b>Konjuge aşı avantajı =</b> &lt;2 yaşta T-bağımlı yanıt<br>
+                            4. <b>Toksoid aşı =</b> Tetanoz, Difteri<br>
+                            5. <b>mRNA aşı =</b> Pfizer/Moderna COVID-19<br>
+                            6. <b>En yaygın adjuvan =</b> Alüminyum (Alum)<br>
+                            7. <b>Pasif immünizasyon =</b> IVIG, Anti-D, Tetanoz Ig<br>
+                            8. <b>Hepatit B koruma =</b> Anti-HBs ≥10 mIU/mL<br>
+                            9. <b>Kızamık sürü bağışıklığı =</b> %93-95<br>
+                            10. <b>SCID'de BCG =</b> Dissemine BCG (kontrendike!)<br>
+                            11. <b>Maternal Ab =</b> 6 aya kadar korur, aşı yanıtını engelleyebilir<br>
+                            12. <b>Rapel =</b> IgG artışı, afinite olgunlaşması
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "İmmünsuprese hastada kontrendike aşı tipi?" → Canlı atenüe</li>
+                        <li><b>Soru tipi:</b> "2 yaş altında kapsüllü bakterilere karşı etkili aşı?" → Konjuge</li>
+                        <li><b>Soru tipi:</b> "Hepatit B aşısında koruyucu antikor düzeyi?" → ≥10 mIU/mL</li>
+                        <li><b>Soru tipi:</b> "En yaygın kullanılan adjuvan?" → Alüminyum tuzları</li>
+                        <li><b>Soru tipi:</b> "IVIG ne tip immünizasyon?" → Pasif</li>
+                        <li><b>Soru tipi:</b> "BCG hangi tip aşı?" → Canlı atenüe</li>
+                        <li><b>Soru tipi:</b> "Tetanoz aşısı hangi tip?" → Toksoid</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 48,
+        category: "immunoloji",
+        title: "Tümör İmmünolojisi",
+        subtitle: "Tümör Antijenleri, İmmün Kaçış ve İmmünoterapi",
+        summary: "Tümörlerin immunolojik tanınması, immün kaçış mekanizmaları, checkpoint inhibitörleri, CAR-T ve kanser immünoterapisi.",
+        tags: ["İmmünoloji", "Onkoloji", "İmmünoterapi", "Checkpoint", "CAR-T", "PD-1"],
+        sections: [
+            {
+                title: "Tümör Antijenleri",
+                icon: "fas fa-disease",
+                content: `
+                    <p><strong>Tümör antijenleri</strong>, immün sistemin tümör hücrelerini tanımasını sağlayan moleküllerdir. Spesifik veya tümörle ilişkili olabilir.</p>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tümör Antijen Sınıflandırması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Özellik</th>
+                                    <th>Örnekler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tümöre Özgü Antijenler (TSA)</b></td>
+                                    <td>Sadece tümörde, mutasyondan kaynaklı</td>
+                                    <td>Neoantijenler, BCR-ABL füzyon proteini</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tümörle İlişkili Antijenler (TAA)</b></td>
+                                    <td>Normal dokuda az, tümörde fazla</td>
+                                    <td>CEA, AFP, PSA, HER2, MAGE</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Onkofetal Antijenler</b></td>
+                                    <td>Fetal dönem + tümörde eksprese</td>
+                                    <td>CEA (kolon), AFP (karaciğer)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viral Antijenler</b></td>
+                                    <td>Onkojenik virüs kaynaklı</td>
+                                    <td>HPV E6/E7, EBV LMP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cancer-Testis Antijenleri</b></td>
+                                    <td>Normalde sadece testis/plasenta</td>
+                                    <td>MAGE, NY-ESO-1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Tümör Belirteçleri (Markers)</p>
+                        <p class="highlight-box__content">
+                            <b>CEA:</b> Kolorektal kanser<br>
+                            <b>AFP:</b> Hepatoselüler karsinom, Germ hücreli tümör<br>
+                            <b>PSA:</b> Prostat kanseri<br>
+                            <b>CA-125:</b> Over kanseri<br>
+                            <b>CA 19-9:</b> Pankreas kanseri<br>
+                            <b>β-hCG:</b> Koryokarsinom, Germ hücreli tümör
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tümör Antijen Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TSA = Tümöre Spesifik = Mutasyon = Neoantijen"</b><br>
+                            <b>"TAA = Tümörle Asociated = Normal dokuda da var ama az"</b><br>
+                            <b>"CEA = Kolon, AFP = Karaciğer, PSA = Prostat"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Tümöre Karşı İmmün Yanıt",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Anti-Tümör İmmünite</p>
+                        <p class="highlight-box__content">
+                            <b>Ana efektörler:</b><br>
+                            • <b>CD8+ Sitotoksik T hücreleri (CTL):</b> EN ÖNEMLİ, MHC-I tanıma<br>
+                            • <b>NK hücreleri:</b> MHC-I kaybını tanır, "missing self"<br>
+                            • <b>Makrofajlar:</b> M1 anti-tümör, fagositoz<br>
+                            • <b>Antikorlar:</b> ADCC, kompleman aktivasyonu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmün Sürveyans (Immunoediting)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Faz</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Eliminasyon</b></td>
+                                    <td>İmmün sistem tümör hücrelerini yok eder</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Denge (Equilibrium)</b></td>
+                                    <td>Tümör kontrol altında tutulur, yok edilemez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Kaçış (Escape)</b></td>
+                                    <td>Tümör immün sistemden kaçar, büyür</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">NK Hücre Tümör Tanıma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>NK Yanıtı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Normal hücre (MHC-I VAR)</td>
+                                    <td>İnhibitör sinyal → Öldürmez</td>
+                                </tr>
+                                <tr>
+                                    <td>Tümör (MHC-I YOK)</td>
+                                    <td>"Missing self" → ÖLDÜRÜR</td>
+                                </tr>
+                                <tr>
+                                    <td>Stres ligandları (MICA/B)</td>
+                                    <td>Aktivatör sinyal → ÖLDÜRÜR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Anti-Tümör Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CD8+ CTL = Ana tümör öldürücü = MHC-I tanır"</b><br>
+                            <b>"NK = MHC-I yok ise öldürür = Missing self"</b><br>
+                            <b>"3E = Elimination → Equilibrium → Escape"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İmmün Kaçış Mekanizmaları",
+                icon: "fas fa-person-running",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Tümörlerin İmmün Kaçış Yolları:</strong><br>
+                        Tümörler immün sistemden kaçmak için çeşitli stratejiler geliştirir!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İmmün Kaçış Mekanizmaları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Mekanizma</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>MHC-I down-regülasyonu</b></td>
+                                    <td>CTL tanıyamaz (ama NK tanır!)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Antijen kaybı</b></td>
+                                    <td>İmmünojenik olmayan varyantlar seçilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PD-L1 ekspresyonu</b></td>
+                                    <td>T hücre PD-1'e bağlanır → İnhibisyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Treg infiltrasyonu</b></td>
+                                    <td>Tümör mikro-çevresinde Treg birikimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MDSC (Myeloid-Derived Suppressor)</b></td>
+                                    <td>T hücre fonksiyonunu baskılar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmünsupresif sitokinler</b></td>
+                                    <td>TGF-β, IL-10 salgılama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IDO ekspresyonu</b></td>
+                                    <td>Triptofan yıkımı → T hücre baskılanması</td>
+                                </tr>
+                                <tr>
+                                    <td><b>FasL ekspresyonu</b></td>
+                                    <td>T hücrelerde apoptozu indükler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Checkpoint Molekülleri</p>
+                        <p class="highlight-box__content">
+                            <b>CTLA-4:</b> T hücrede, CD28 ile yarışır, erken inhibisyon<br>
+                            <b>PD-1:</b> T hücrede, PD-L1/L2 ile bağlanır, geç inhibisyon<br>
+                            <b>PD-L1:</b> Tümör hücresinde, T hücreyi baskılar<br>
+                            <b>LAG-3, TIM-3, TIGIT:</b> Diğer checkpoint molekülleri
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kaçış Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PD-L1 = Tümör freni = T hücreyi durdurur"</b><br>
+                            <b>"CTLA-4 = Erken fren = Lenf nodunda"</b><br>
+                            <b>"PD-1 = Geç fren = Tümör mikro-çevresinde"</b><br>
+                            <b>"Treg + MDSC + TGF-β = Baskılayıcı mikro-çevre"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kanser İmmünoterapisi",
+                icon: "fas fa-prescription-bottle-medical",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">İmmünoterapi Yaklaşımları</p>
+                        <p class="highlight-box__content">
+                            İmmün sistemi tümöre karşı aktive eden veya güçlendiren tedaviler
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Checkpoint İnhibitörleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Hedef</th>
+                                    <th>Endikasyonlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ipilimumab</b></td>
+                                    <td>Anti-CTLA-4</td>
+                                    <td>Melanom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pembrolizumab (Keytruda)</b></td>
+                                    <td>Anti-PD-1</td>
+                                    <td>Melanom, NSCLC, birçok tümör</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nivolumab (Opdivo)</b></td>
+                                    <td>Anti-PD-1</td>
+                                    <td>Melanom, RCC, NSCLC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Atezolizumab</b></td>
+                                    <td>Anti-PD-L1</td>
+                                    <td>Mesane, NSCLC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Durvalumab</b></td>
+                                    <td>Anti-PD-L1</td>
+                                    <td>NSCLC, mesane</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Diğer İmmünoterapiler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yaklaşım</th>
+                                    <th>Mekanizma</th>
+                                    <th>Örnek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>CAR-T Hücre Tedavisi</b></td>
+                                    <td>Hastanın T hücreleri modifiye edilir</td>
+                                    <td>CD19-CAR-T (ALL, lenfoma)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bispesifik Antikorlar</b></td>
+                                    <td>T hücre + tümörü birleştirir</td>
+                                    <td>Blinatumomab (CD19-CD3)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Terapötik Antikorlar</b></td>
+                                    <td>ADCC, CDC, sinyal blokajı</td>
+                                    <td>Rituximab (CD20), Trastuzumab (HER2)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sitokin Tedavisi</b></td>
+                                    <td>İmmün aktivasyon</td>
+                                    <td>IL-2, IFN-α</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kanser Aşıları</b></td>
+                                    <td>Tümör antijenine karşı immunizasyon</td>
+                                    <td>Sipuleucel-T (prostat)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Onkolitik Virüsler</b></td>
+                                    <td>Tümörü enfekte eder + immün aktive</td>
+                                    <td>T-VEC (melanom)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Checkpoint İnhibitörü Yan Etkileri:</strong><br>
+                        İmmün-ilişkili advers olaylar (irAE):<br>
+                        • Otoimmün kolit, hepatit<br>
+                        • Pnömonit<br>
+                        • Tiroidit<br>
+                        • Hipofizit<br>
+                        • Dermatit</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İmmünoterapi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Anti-PD-1 = Pembrolizumab, Nivolumab"</b><br>
+                            <b>"Anti-CTLA-4 = Ipilimumab"</b><br>
+                            <b>"CAR-T = CD19 = ALL, Lenfoma"</b><br>
+                            <b>"irAE = Otoimmün yan etkiler"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Ana tümör öldürücü =</b> CD8+ Sitotoksik T hücre<br>
+                            2. <b>MHC-I kaybı =</b> NK hücre tanır (missing self)<br>
+                            3. <b>PD-1/PD-L1 =</b> İmmün checkpoint, T hücre inhibisyonu<br>
+                            4. <b>Pembrolizumab =</b> Anti-PD-1<br>
+                            5. <b>Ipilimumab =</b> Anti-CTLA-4<br>
+                            6. <b>CAR-T =</b> CD19+ ALL/Lenfoma tedavisi
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tümör Belirteçleri Hızlı Tablo</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Belirteç</th>
+                                    <th>Tümör</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CEA</td>
+                                    <td>Kolorektal</td>
+                                </tr>
+                                <tr>
+                                    <td>AFP</td>
+                                    <td>Hepatoselüler, Germ hücreli</td>
+                                </tr>
+                                <tr>
+                                    <td>PSA</td>
+                                    <td>Prostat</td>
+                                </tr>
+                                <tr>
+                                    <td>CA-125</td>
+                                    <td>Over</td>
+                                </tr>
+                                <tr>
+                                    <td>CA 19-9</td>
+                                    <td>Pankreas</td>
+                                </tr>
+                                <tr>
+                                    <td>β-hCG</td>
+                                    <td>Koryokarsinom</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"CD8+ CTL = Tümör katili = MHC-I tanır"</b><br>
+                            <b>"NK = MHC-I yok ise öldürür = Missing self"</b><br>
+                            <b>"PD-L1 = Tümör freni = Checkpoint"</b><br>
+                            <b>"Pembrolizumab = PD-1 bloke = Freni kaldır"</b><br>
+                            <b>"CAR-T = CD19 = Lenfoma/ALL"</b><br>
+                            <b>"3E = Eliminasyon → Equilibrium → Escape"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Ana tümör öldürücü hücre =</b> CD8+ CTL<br>
+                            2. <b>MHC-I kaybeden tümörü kim öldürür? =</b> NK hücresi<br>
+                            3. <b>Missing self konsepti =</b> NK hücre, MHC-I yokluğunu tanır<br>
+                            4. <b>PD-1 nerede? =</b> T hücrede<br>
+                            5. <b>PD-L1 nerede? =</b> Tümör hücresinde<br>
+                            6. <b>Anti-PD-1 ilaçlar =</b> Pembrolizumab, Nivolumab<br>
+                            7. <b>Anti-CTLA-4 ilaç =</b> Ipilimumab<br>
+                            8. <b>CAR-T hedefi =</b> CD19 (B hücre maligniteleri)<br>
+                            9. <b>Checkpoint inhibitör yan etkisi =</b> Otoimmün (irAE)<br>
+                            10. <b>CEA =</b> Kolon, AFP = Karaciğer, PSA = Prostat<br>
+                            11. <b>Tümör mikro-çevre baskılayıcıları =</b> Treg, MDSC, TGF-β<br>
+                            12. <b>Rituximab hedefi =</b> CD20 (B hücre)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Tümöre karşı ana efektör hücre?" → CD8+ Sitotoksik T</li>
+                        <li><b>Soru tipi:</b> "MHC-I kaybeden tümörü tanıyan?" → NK hücresi</li>
+                        <li><b>Soru tipi:</b> "Melanomda checkpoint inhibitörü?" → Pembrolizumab/Ipilimumab</li>
+                        <li><b>Soru tipi:</b> "CAR-T tedavisinin hedefi?" → CD19</li>
+                        <li><b>Soru tipi:</b> "PD-L1 ekspresyonunun amacı?" → T hücre inhibisyonu</li>
+                        <li><b>Soru tipi:</b> "Kolorektal kanser belirteci?" → CEA</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 49,
+        category: "immunoloji",
+        title: "Sitokinler ve İnflamasyon",
+        subtitle: "İnterlökinler, TNF, İnterferonlar ve Akut Faz Yanıtı",
+        summary: "Sitokin aileleri, pro-inflamatuar ve anti-inflamatuar sitokinler, kemokinler, akut faz proteinleri ve sitokin fırtınası.",
+        tags: ["İmmünoloji", "Sitokin", "İnterlökin", "TNF", "İnflamasyon", "Akut Faz"],
+        sections: [
+            {
+                title: "Sitokin Temelleri",
+                icon: "fas fa-comment-dots",
+                content: `
+                    <p><strong>Sitokinler</strong>, immün hücrelerin iletişim kurduğu küçük protein mesajcılardır. Otokrin, parakrin veya endokrin etki gösterebilirler.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Sitokin Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Pleiotropi:</b> Bir sitokin, farklı hücrelerde farklı etki<br>
+                            <b>Redundancy:</b> Farklı sitokinler benzer etki<br>
+                            <b>Sinerjizm:</b> Birlikte daha güçlü etki<br>
+                            <b>Antagonizm:</b> Birbirini baskılama
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sitokin Aileleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aile</th>
+                                    <th>Üyeler</th>
+                                    <th>Ana Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>İnterlökinler (IL)</b></td>
+                                    <td>IL-1 → IL-40+</td>
+                                    <td>Lökositler arası iletişim</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İnterferonlar (IFN)</b></td>
+                                    <td>IFN-α, β, γ</td>
+                                    <td>Antiviral, immün aktivasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tümör Nekroz Faktörleri</b></td>
+                                    <td>TNF-α, LT-α/β</td>
+                                    <td>İnflamasyon, apoptoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kemokinler</b></td>
+                                    <td>CXCL, CCL, CX3CL, XCL</td>
+                                    <td>Hücre göçü (kemotaksis)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Koloni Stimüle Edici Faktörler</b></td>
+                                    <td>G-CSF, GM-CSF, M-CSF</td>
+                                    <td>Hematopoez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transforming Growth Factor</b></td>
+                                    <td>TGF-β</td>
+                                    <td>İmmünsupresyon, fibrozis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Sitokin Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"IL = İnterlökin = Lökositler arası"</b><br>
+                            <b>"IFN = İnterferon = Viral interferans"</b><br>
+                            <b>"TNF = Tümör Nekroz = İnflamasyon şefi"</b><br>
+                            <b>"Kemokin = Kemotaksis = Göç"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Önemli Sitokinler",
+                icon: "fas fa-list-check",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pro-İnflamatuar Sitokinler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sitokin</th>
+                                    <th>Kaynak</th>
+                                    <th>Ana Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>IL-1</b></td>
+                                    <td>Makrofaj</td>
+                                    <td>Ateş, akut faz, inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IL-6</b></td>
+                                    <td>Makrofaj, T hücre</td>
+                                    <td>Akut faz (CRP↑), B hücre diferansiyasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TNF-α</b></td>
+                                    <td>Makrofaj</td>
+                                    <td>Septik şok, kaşeksi, apoptoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IL-12</b></td>
+                                    <td>Makrofaj, DC</td>
+                                    <td>Th1 diferansiyasyonu, IFN-γ indüksiyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IL-17</b></td>
+                                    <td>Th17</td>
+                                    <td>Nötrofil toplanması, otoimmünite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IL-18</b></td>
+                                    <td>Makrofaj</td>
+                                    <td>IFN-γ indüksiyonu (IL-12 ile sinerjik)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Anti-İnflamatuar Sitokinler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sitokin</th>
+                                    <th>Kaynak</th>
+                                    <th>Ana Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>IL-10</b></td>
+                                    <td>Treg, Makrofaj</td>
+                                    <td>Makrofaj inhibisyonu, Th1/Th2 baskılama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TGF-β</b></td>
+                                    <td>Treg, çeşitli</td>
+                                    <td>İmmünsupresyon, Treg indüksiyonu, fibrozis</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IL-4</b></td>
+                                    <td>Th2, Mast</td>
+                                    <td>Th2 diferansiyasyonu, IgE class switch</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">T Helper Alt Tip Sitokinleri</p>
+                        <p class="highlight-box__content">
+                            <b>Th1:</b> IFN-γ, IL-2 → Hücre içi patojenler<br>
+                            <b>Th2:</b> IL-4, IL-5, IL-13 → Parazitler, alerji<br>
+                            <b>Th17:</b> IL-17, IL-22 → Fungal/bakteriyel, otoimmün<br>
+                            <b>Treg:</b> IL-10, TGF-β → Baskılama
+                        </p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Sitokin Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"IL-1, IL-6, TNF = İnflamasyon Üçlüsü = Ateş + Akut faz"</b><br>
+                            <b>"IL-10, TGF-β = Anti-inflamatuar = Baskılayıcı"</b><br>
+                            <b>"IL-4, IL-5 = Th2 = IgE = Alerji"</b><br>
+                            <b>"IL-12 = Th1 maker = IFN-γ indükler"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "İnterferonlar",
+                icon: "fas fa-shield-halved",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnterferon Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Üyeler</th>
+                                    <th>Kaynak</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tip I</b></td>
+                                    <td>IFN-α, IFN-β</td>
+                                    <td>Tüm hücreler (özellikle pDC)</td>
+                                    <td>ANTİVİRAL, MHC-I↑</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip II</b></td>
+                                    <td>IFN-γ</td>
+                                    <td>T hücre, NK</td>
+                                    <td>Makrofaj aktivasyonu, Th1</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tip III</b></td>
+                                    <td>IFN-λ</td>
+                                    <td>Epitel</td>
+                                    <td>Mukozal antiviral</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">IFN-γ (İmmün İnterferon)</p>
+                        <p class="highlight-box__content">
+                            <b>Kaynak:</b> Th1, CD8+ T, NK hücreleri<br>
+                            <b>Fonksiyon:</b><br>
+                            • Makrofaj aktivasyonu (klasik M1)<br>
+                            • MHC-I ve MHC-II ekspresyonu↑<br>
+                            • Th1 diferansiyasyonu<br>
+                            • IgG2a/IgG3 class switch<br>
+                            • Th2 inhibisyonu
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Klinik Kullanım:</strong><br>
+                        <b>IFN-α:</b> Hepatit B/C, hairy cell lösemi, melanom<br>
+                        <b>IFN-β:</b> Multiple skleroz<br>
+                        <b>IFN-γ:</b> Kronik granülomatöz hastalık</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">İnterferon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Tip I (α, β) = Antiviral = Tüm hücreler"</b><br>
+                            <b>"Tip II (γ) = İmmün = T ve NK"</b><br>
+                            <b>"IFN-γ = Makrofaj aktivatör = Th1 sitokin"</b><br>
+                            <b>"IFN-α = Hepatit tedavisi"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Akut Faz Yanıtı ve Kemokinler",
+                icon: "fas fa-fire",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Akut Faz Yanıtı</p>
+                        <p class="highlight-box__content">
+                            <b>Tetikleyici:</b> IL-1, IL-6, TNF-α → Karaciğere sinyal<br>
+                            <b>Sonuç:</b> Akut faz proteinleri üretimi
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Akut Faz Proteinleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Protein</th>
+                                    <th>Değişim</th>
+                                    <th>Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>CRP (C-Reaktif Protein)</b></td>
+                                    <td>↑↑↑ (1000x artabilir)</td>
+                                    <td>Opsonizasyon, kompleman aktivasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Serum Amiloid A (SAA)</b></td>
+                                    <td>↑↑↑</td>
+                                    <td>Lipid metabolizması, amiloidoz prekursörü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fibrinojen</b></td>
+                                    <td>↑↑</td>
+                                    <td>Koagülasyon, sedimantasyon↑</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hepsidin</b></td>
+                                    <td>↑</td>
+                                    <td>Demir sekestasyonu (anemi of chronic disease)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ferritin</b></td>
+                                    <td>↑</td>
+                                    <td>Demir depolama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Albumin</b></td>
+                                    <td>↓ (Negatif)</td>
+                                    <td>Sentez azalır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Transferrin</b></td>
+                                    <td>↓ (Negatif)</td>
+                                    <td>Sentez azalır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kemokin Aileleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Aile</th>
+                                    <th>Örnek</th>
+                                    <th>Hedef Hücre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>CXC (CXCL8/IL-8)</b></td>
+                                    <td>IL-8</td>
+                                    <td>NÖTROFİL çekimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CC (CCL2/MCP-1)</b></td>
+                                    <td>MCP-1</td>
+                                    <td>Monosit/makrofaj çekimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CC (CCL5/RANTES)</b></td>
+                                    <td>RANTES</td>
+                                    <td>T hücre, eozinofil</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CC (CCL11/Eotaksin)</b></td>
+                                    <td>Eotaksin</td>
+                                    <td>EOZİNOFİL çekimi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Akut Faz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"IL-6 = CRP'nin babası = Akut faz indükleyici"</b><br>
+                            <b>"CRP = En çok artan = 1000x"</b><br>
+                            <b>"Albumin, Transferrin = NEGATİF akut faz = AZALIR"</b><br>
+                            <b>"IL-8 = Nötrofil çağırır"</b><br>
+                            <b>"Eotaksin = Eozinofil çağırır"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>İnflamasyon üçlüsü =</b> IL-1, IL-6, TNF-α<br>
+                            2. <b>CRP indükleyici =</b> IL-6<br>
+                            3. <b>IgE class switch =</b> IL-4<br>
+                            4. <b>Th1 diferansiyasyonu =</b> IL-12, IFN-γ<br>
+                            5. <b>Nötrofil kemotaksisi =</b> IL-8 (CXCL8)<br>
+                            6. <b>Anti-inflamatuar =</b> IL-10, TGF-β
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sitokin Hızlı Referans</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Sitokin</th>
+                                    <th>Anahtar Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IL-1</td>
+                                    <td>Ateş, inflamasyon</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-2</td>
+                                    <td>T hücre proliferasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-4</td>
+                                    <td>Th2, IgE class switch</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-5</td>
+                                    <td>Eozinofil</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-6</td>
+                                    <td>Akut faz (CRP), B hücre</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-8</td>
+                                    <td>Nötrofil kemotaksisi</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-10</td>
+                                    <td>Anti-inflamatuar</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-12</td>
+                                    <td>Th1, IFN-γ indüksiyon</td>
+                                </tr>
+                                <tr>
+                                    <td>IL-17</td>
+                                    <td>Th17, nötrofil, otoimmün</td>
+                                </tr>
+                                <tr>
+                                    <td>TNF-α</td>
+                                    <td>Septik şok, kaşeksi</td>
+                                </tr>
+                                <tr>
+                                    <td>IFN-γ</td>
+                                    <td>Makrofaj aktivasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td>TGF-β</td>
+                                    <td>İmmünsupresyon, fibrozis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"IL-1, IL-6, TNF = Ateş + Akut faz = İnflamasyon şefleri"</b><br>
+                            <b>"IL-4 = 4 harf = Th2 = IgE = Alerji"</b><br>
+                            <b>"IL-5 = 5ozinofil = Eozinofil"</b><br>
+                            <b>"IL-8 = Nötrofil8 = Nötrofil çeker"</b><br>
+                            <b>"IL-10, TGF-β = OFF switch = Anti-inflamatuar"</b><br>
+                            <b>"IL-12 = Th1 = IFN-γ = Makrofaj aktive"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>İnflamasyon sitokinleri =</b> IL-1, IL-6, TNF-α<br>
+                            2. <b>CRP'yi indükleyen =</b> IL-6<br>
+                            3. <b>Ateş yapan =</b> IL-1, TNF-α, IL-6<br>
+                            4. <b>IgE class switch =</b> IL-4<br>
+                            5. <b>Eozinofil =</b> IL-5<br>
+                            6. <b>Nötrofil kemotaksisi =</b> IL-8 (CXCL8)<br>
+                            7. <b>Th1 diferansiyasyonu =</b> IL-12<br>
+                            8. <b>Th2 diferansiyasyonu =</b> IL-4<br>
+                            9. <b>Th17 sitokin =</b> IL-17<br>
+                            10. <b>Anti-inflamatuar =</b> IL-10, TGF-β<br>
+                            11. <b>Makrofaj aktivasyonu =</b> IFN-γ<br>
+                            12. <b>Septik şok =</b> TNF-α<br>
+                            13. <b>Negatif akut faz =</b> Albumin, Transferrin (AZALIR)<br>
+                            14. <b>Tip I IFN =</b> α, β = Antiviral<br>
+                            15. <b>Tip II IFN =</b> γ = İmmün/Makrofaj<br>
+                            16. <b>Sitokin fırtınası =</b> Aşırı sitokin → ARDS, şok
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "CRP'yi indükleyen sitokin?" → IL-6</li>
+                        <li><b>Soru tipi:</b> "IgE class switch için gereken sitokin?" → IL-4</li>
+                        <li><b>Soru tipi:</b> "Nötrofil kemotaksisinde ana kemokin?" → IL-8</li>
+                        <li><b>Soru tipi:</b> "Th1 diferansiyasyonunu sağlayan?" → IL-12</li>
+                        <li><b>Soru tipi:</b> "Septik şokta ana sitokin?" → TNF-α</li>
+                        <li><b>Soru tipi:</b> "Negatif akut faz proteini?" → Albumin, Transferrin</li>
+                        <li><b>Soru tipi:</b> "Makrofajı aktive eden sitokin?" → IFN-γ</li>
+                        <li><b>Soru tipi:</b> "Anti-inflamatuar sitokin?" → IL-10</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 50,
+        category: "pediatrik-enfeksiyon",
+        title: "Antibiyotikler",
+        subtitle: "Sınıflar, Spektrum, Pediatrik Kullanım ve Ampirik Tedavi",
+        summary: "Antibiyotik sınıfları, etki mekanizmaları, spektrum haritası, pediatrik kontrendikasyonlar, ampirik tedavi seçimi ve önemli yan etkiler.",
+        tags: ["Enfeksiyon", "Antibiyotik", "Pediatri", "Tedavi", "Farmakoloji", "Spektrum"],
+        sections: [
+            {
+                title: "Antibiyotik Sınıfları ve Etki Mekanizmaları",
+                icon: "fas fa-capsules",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Etki Mekanizmasına Göre Sınıflandırma</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hedef</th>
+                                    <th>Antibiyotik Sınıfı</th>
+                                    <th>Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hücre Duvarı Sentezi</b></td>
+                                    <td>Beta-laktamlar, Glikopeptidler</td>
+                                    <td>Peptidoglikan sentezini inhibe</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Protein Sentezi (30S)</b></td>
+                                    <td>Aminoglikozidler, Tetrasiklinler</td>
+                                    <td>30S ribozom inhibisyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Protein Sentezi (50S)</b></td>
+                                    <td>Makrolidler, Klindamisin, Kloramfenikol, Linezolid</td>
+                                    <td>50S ribozom inhibisyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>DNA Giraz/Topoizomeraz</b></td>
+                                    <td>Florokinolonlar</td>
+                                    <td>DNA replikasyonu inhibe</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Folat Sentezi</b></td>
+                                    <td>Sulfonamidler, Trimetoprim</td>
+                                    <td>Folat metabolizması inhibe</td>
+                                </tr>
+                                <tr>
+                                    <td><b>RNA Sentezi</b></td>
+                                    <td>Rifampisin</td>
+                                    <td>RNA polimeraz inhibisyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Beta-Laktam Ailesi</p>
+                        <p class="highlight-box__content">
+                            <b>Penisilinler:</b> Penisilin G/V, Ampisilin, Amoksisilin, Piperasilin<br>
+                            <b>Sefalosporinler:</b> 1.-5. kuşak<br>
+                            <b>Karbapenemler:</b> Meropenem, İmipenem, Ertapenem<br>
+                            <b>Monobaktamlar:</b> Aztreonam (sadece Gram-negatif)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sefalosporin Kuşakları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kuşak</th>
+                                    <th>Örnekler</th>
+                                    <th>Spektrum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1. Kuşak</b></td>
+                                    <td>Sefazolin, Sefaleksin</td>
+                                    <td>Gram (+) güçlü, Gram (-) zayıf</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2. Kuşak</b></td>
+                                    <td>Sefuroksim, Sefaklor</td>
+                                    <td>Gram (+) ve (-) dengeli, H. influenzae</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3. Kuşak</b></td>
+                                    <td>Seftriakson, Sefotaksim, Seftazidim</td>
+                                    <td>Gram (-) güçlü, BOS geçişi iyi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4. Kuşak</b></td>
+                                    <td>Sefepim</td>
+                                    <td>Pseudomonas dahil geniş spektrum</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5. Kuşak</b></td>
+                                    <td>Seftarolin, Seftobiprol</td>
+                                    <td>MRSA dahil</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Etki Mekanizması Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"30S = Aminoglikozid + Tetrasiklin (A-T = 30)"</b><br>
+                            <b>"50S = Makrolid, Klindamisin, Kloramfenikol, Linezolid (M-K-K-L = 50)"</b><br>
+                            <b>"Beta-laktam = Duvar = Bakterisidal"</b><br>
+                            <b>"Florokinolon = DNA Giraz = Bakterisidal"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Spektrum Haritası",
+                icon: "fas fa-bacteria",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gram Pozitif Kapsam</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Patojen</th>
+                                    <th>1. Seçenek</th>
+                                    <th>Alternatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>S. aureus (MSSA)</b></td>
+                                    <td>Flukloksasilin, Sefazolin</td>
+                                    <td>Klindamisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>S. aureus (MRSA)</b></td>
+                                    <td>VANKOMİSİN</td>
+                                    <td>Linezolid, Daptomisin, TMP-SMX</td>
+                                </tr>
+                                <tr>
+                                    <td><b>S. pneumoniae</b></td>
+                                    <td>Penisilin, Amoksisilin</td>
+                                    <td>Seftriakson, Makrolid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>S. pyogenes (GAS)</b></td>
+                                    <td>PENİSİLİN (hiç direnç yok!)</td>
+                                    <td>Sefalosporin, Makrolid</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Enterococcus</b></td>
+                                    <td>Ampisilin ± Gentamisin</td>
+                                    <td>Vankomisin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Gram Negatif Kapsam</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Patojen</th>
+                                    <th>1. Seçenek</th>
+                                    <th>Alternatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>E. coli, Klebsiella</b></td>
+                                    <td>Seftriakson, Siprofloksasin</td>
+                                    <td>Aminoglikozid, TMP-SMX</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pseudomonas aeruginosa</b></td>
+                                    <td>Piperasilin-Tazobaktam, Seftazidim</td>
+                                    <td>Meropenem, Siprofloksasin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>H. influenzae</b></td>
+                                    <td>Amoksisilin-Klavulanat</td>
+                                    <td>Seftriakson, Azitromisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>N. meningitidis</b></td>
+                                    <td>Seftriakson</td>
+                                    <td>Penisilin G</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Salmonella/Shigella</b></td>
+                                    <td>Seftriakson, Siprofloksasin</td>
+                                    <td>Azitromisin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özel Patojenler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Patojen</th>
+                                    <th>Antibiyotik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Atipikler (Mycoplasma, Chlamydia, Legionella)</b></td>
+                                    <td>MAKROLİD (Azitromisin), Florokinolon</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anaeroblar</b></td>
+                                    <td>Metronidazol, Klindamisin, Piperasilin-Tazobaktam</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ESBL üretenler</b></td>
+                                    <td>KARBAPENEM (Meropenem)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VRE</b></td>
+                                    <td>Linezolid, Daptomisin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Spektrum Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"MRSA = Vankomisin, Linezolid, Daptomisin, TMP-SMX"</b><br>
+                            <b>"Pseudomonas = Anti-pseudomonal (Pip-Tazo, Seftazidim, Meropenem)"</b><br>
+                            <b>"Atipik = Makrolid = Mycoplasma, Chlamydia, Legionella"</b><br>
+                            <b>"Anaerob = Metronidazol"</b><br>
+                            <b>"ESBL = Karbapenem kurtarıcı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Pediatride Özel Durumlar",
+                icon: "fas fa-child",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Pediatrik Kontrendikasyonlar - SINAV FAVORİSİ!</strong><br>
+                        Bu ilaçlar çocuklarda dikkatli kullanılmalı veya kontrendike!</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yaşa Göre Kontrendikasyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>İlaç</th>
+                                    <th>Yaş Sınırı</th>
+                                    <th>Neden</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tetrasiklinler</b></td>
+                                    <td>&lt;8 yaş YASAK</td>
+                                    <td>Diş renk değişikliği, kemik gelişimi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Florokinolonlar</b></td>
+                                    <td>&lt;18 yaş DİKKAT</td>
+                                    <td>Kıkırdak toksisitesi (artropati)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kloramfenikol</b></td>
+                                    <td>Yenidoğan YASAK</td>
+                                    <td>Gray baby sendromu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sulfonamidler</b></td>
+                                    <td>&lt;2 ay YASAK</td>
+                                    <td>Kernikterus riski</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seftriakson</b></td>
+                                    <td>Yenidoğan + Ca içeren sıvı</td>
+                                    <td>Kalsiyum presipitasyonu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Florokinolon - Ne Zaman Kullanılabilir?</p>
+                        <p class="highlight-box__content">
+                            Pediatride genellikle kaçınılır ancak bazı endikasyonlarda kullanılabilir:<br><br>
+                            • Komplike ÜSİ (Pseudomonas şüphesi)<br>
+                            • Kistik fibrozis<br>
+                            • MDR Gram-negatif enfeksiyonlar<br>
+                            • Alternatif yoksa
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yenidoğan Döneminde Antibiyotik</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tercih</th>
+                                    <th>Not</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Erken sepsis</b></td>
+                                    <td>Ampisilin + Gentamisin</td>
+                                    <td>GBS, E. coli, Listeria</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Geç sepsis (nozokomiyal)</b></td>
+                                    <td>Vankomisin + Aminoglikozid/3. kuşak sef</td>
+                                    <td>Staph, Gram-negatifler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Menenjit</b></td>
+                                    <td>Ampisilin + Sefotaksim</td>
+                                    <td>Listeria kapsamı için ampisilin şart</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Pediatrik Kontrendikasyon Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TETRASİKLİN = &lt;8 yaş = DİŞ sarı"</b><br>
+                            <b>"FLOROKİNOLON = &lt;18 yaş = KIKIRDAK"</b><br>
+                            <b>"KLORAMFENIKOL = Yenidoğan = GRAY baby"</b><br>
+                            <b>"SULFONAMİD = &lt;2 ay = KERNİKTERUS"</b><br>
+                            <b>"YD sepsis = Ampisilin + Gentamisin"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Ampirik Tedavi Seçimi",
+                icon: "fas fa-prescription",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Enfeksiyona Göre Ampirik Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Enfeksiyon</th>
+                                    <th>1. Seçenek</th>
+                                    <th>Alternatif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut Otitis Media</b></td>
+                                    <td>Amoksisilin (yüksek doz)</td>
+                                    <td>Amoksisilin-Klavulanat, Seftriakson</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Streptokoksik Farenjit</b></td>
+                                    <td>Penisilin V, Amoksisilin</td>
+                                    <td>Sefaleksin, Azitromisin (alerji)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toplum Kökenli Pnömoni (&lt;5 yaş)</b></td>
+                                    <td>Amoksisilin</td>
+                                    <td>Amoksisilin-Klavulanat</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Toplum Kökenli Pnömoni (&gt;5 yaş)</b></td>
+                                    <td>Amoksisilin veya MAKROLİD</td>
+                                    <td>Atipik düşünülüyorsa makrolid ekle</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplike Olmayan ÜSİ</b></td>
+                                    <td>TMP-SMX, Sefiksim</td>
+                                    <td>Amoksisilin-Klavulanat, Nitrofurantoin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Piyelonefrit</b></td>
+                                    <td>Seftriakson IV</td>
+                                    <td>Aminoglikozid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Bakteriyel Menenjit - Acil Tedavi:</strong><br>
+                        <b>0-1 ay:</b> Ampisilin + Sefotaksim (veya Gentamisin)<br>
+                        <b>1-23 ay:</b> Seftriakson + Vankomisin (± Deksametazon)<br>
+                        <b>&gt;2 yaş:</b> Seftriakson + Vankomisin (± Deksametazon)<br><br>
+                        <i>Deksametazon: H. influenzae menenjitinde işitme kaybını azaltır</i></p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Ağır Enfeksiyonlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Ampirik Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Toplum kökenli sepsis</b></td>
+                                    <td>Seftriakson ± Vankomisin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nozokomiyal sepsis</b></td>
+                                    <td>Vankomisin + Pip-Tazo veya Meropenem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Febril nötropeni</b></td>
+                                    <td>Pip-Tazo veya Sefepim veya Meropenem</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nekrotizan fasiit</b></td>
+                                    <td>Meropenem + Vankomisin + Klindamisin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Ampirik Tedavi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Otit/Farenjit = Amoksisilin"</b><br>
+                            <b>"Menenjit = Seftriakson + Vankomisin"</b><br>
+                            <b>"YD Menenjit = Ampisilin + Sefotaksim (Listeria!)"</b><br>
+                            <b>"Febril nötropeni = Anti-pseudomonal (Pip-Tazo)"</b><br>
+                            <b>"&gt;5 yaş pnömoni + atipik şüphesi = Makrolid ekle"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Yan Etkiler ve Uyarılar",
+                icon: "fas fa-triangle-exclamation",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İlaç-Yan Etki Eşleştirmesi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Antibiyotik</th>
+                                    <th>Karakteristik Yan Etki</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Aminoglikozidler</b></td>
+                                    <td>OTOTOKSİSİTE + NEFROTOKSİSİTE</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vankomisin</b></td>
+                                    <td>RED MAN sendromu, Nefrotoksisite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klindamisin</b></td>
+                                    <td>C. difficile koliti (psödomembranöz)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Florokinolonlar</b></td>
+                                    <td>Tendon rüptürü, QT uzaması, Artropati</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TMP-SMX</b></td>
+                                    <td>Stevens-Johnson, Kemik iliği supresyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Metronidazol</b></td>
+                                    <td>Metalik tat, Disulfiram benzeri (alkol)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Rifampisin</b></td>
+                                    <td>Turuncu sekresyonlar, Hepatotoksisite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Penisilinler</b></td>
+                                    <td>Anafilaksi, Döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Linezolid</b></td>
+                                    <td>Trombositopeni, Serotonin sendromu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Daptomisin</b></td>
+                                    <td>Miyopati, CPK yükselmesi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Penisilin Alerjisi Yönetimi</p>
+                        <p class="highlight-box__content">
+                            <b>Tip I (Anafilaksi):</b> Beta-laktam VERİLMEZ<br>
+                            • Alternatif: Makrolid, Florokinolon, Vankomisin<br><br>
+                            <b>Hafif reaksiyon (döküntü):</b> Sefalosporin genellikle güvenli<br>
+                            • Çapraz reaktivite: %1-2 (eskiden %10 deniyordu)<br><br>
+                            <b>Aztreonam:</b> Penisilin alerjisinde GÜVENLİ (farklı yapı)
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Red Man Sendromu:</strong><br>
+                        • Vankomisin hızlı infüzyonunda görülür<br>
+                        • Histamin salınımı (IgE-bağımsız)<br>
+                        • Yüz, boyun, gövde üzerinde kızarıklık, kaşıntı<br>
+                        • <b>Tedavi:</b> İnfüzyonu yavaşlat, antihistaminik<br>
+                        • Gerçek alerji DEĞİL, tekrar verilebilir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Yan Etki Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"AMİNOglikozid = AMİ(kulaK) + NEFro = Oto + Nefro toksik"</b><br>
+                            <b>"VANKOmisin = KIRMIZI adam = Red man"</b><br>
+                            <b>"KLİNDAMİSİN = C. diff = Kolit"</b><br>
+                            <b>"FLOROkinolon = TENDON rüptürü"</b><br>
+                            <b>"RİFAMPİSİN = TURUNCU idrar/gözyaşı"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>&lt;8 yaş kontrendike =</b> Tetrasiklin (diş)<br>
+                            2. <b>Florokinolon yan etkisi =</b> Kıkırdak/tendon<br>
+                            3. <b>MRSA tedavisi =</b> Vankomisin<br>
+                            4. <b>Atipik pnömoni =</b> Makrolid<br>
+                            5. <b>YD sepsis =</b> Ampisilin + Gentamisin<br>
+                            6. <b>Menenjit =</b> Seftriakson + Vankomisin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hızlı Antibiyotik Seçimi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>İlaç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GAS farenjit</td>
+                                    <td>Penisilin/Amoksisilin</td>
+                                </tr>
+                                <tr>
+                                    <td>Otitis media</td>
+                                    <td>Amoksisilin yüksek doz</td>
+                                </tr>
+                                <tr>
+                                    <td>Atipik pnömoni</td>
+                                    <td>Azitromisin</td>
+                                </tr>
+                                <tr>
+                                    <td>MRSA</td>
+                                    <td>Vankomisin</td>
+                                </tr>
+                                <tr>
+                                    <td>Pseudomonas</td>
+                                    <td>Pip-Tazo, Seftazidim</td>
+                                </tr>
+                                <tr>
+                                    <td>Anaerob</td>
+                                    <td>Metronidazol</td>
+                                </tr>
+                                <tr>
+                                    <td>ESBL</td>
+                                    <td>Meropenem</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TETRASİKLİN &lt;8 = DİŞ sarı/kahve"</b><br>
+                            <b>"FLOROKİNOLON &lt;18 = KIKIRDAK hasarı"</b><br>
+                            <b>"GRAY baby = Kloramfenikol + YD"</b><br>
+                            <b>"MRSA = VLD (Vankomisin, Linezolid, Daptomisin)"</b><br>
+                            <b>"Atipik = MCL (Mycoplasma, Chlamydia, Legionella) = Makrolid"</b><br>
+                            <b>"30S = Aminoglikozid, Tetrasiklin"</b><br>
+                            <b>"50S = Makrolid, Klindamisin, Kloramfenikol"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Tetrasiklin &lt;8 yaş =</b> Diş renk değişikliği<br>
+                            2. <b>Florokinolon pediatrik =</b> Kıkırdak toksisitesi<br>
+                            3. <b>Gray baby =</b> Kloramfenikol + Yenidoğan<br>
+                            4. <b>Sulfonamid &lt;2 ay =</b> Kernikterus riski<br>
+                            5. <b>Aminoglikozid =</b> Ototoksisite + Nefrotoksisite<br>
+                            6. <b>Red man sendromu =</b> Vankomisin hızlı infüzyon<br>
+                            7. <b>MRSA tedavisi =</b> Vankomisin 1. seçenek<br>
+                            8. <b>Atipik patojen =</b> Makrolid (Azitromisin)<br>
+                            9. <b>YD sepsis ampirik =</b> Ampisilin + Gentamisin<br>
+                            10. <b>Menenjit &gt;1 ay =</b> Seftriakson + Vankomisin<br>
+                            11. <b>YD menenjit =</b> Ampisilin + Sefotaksim (Listeria!)<br>
+                            12. <b>C. diff koliti =</b> Klindamisin ile ilişkili<br>
+                            13. <b>Pseudomonas =</b> Pip-Tazo, Seftazidim, Meropenem<br>
+                            14. <b>ESBL =</b> Karbapenem (Meropenem)<br>
+                            15. <b>Penisilin alerjisi (anafilaksi) =</b> Makrolid veya Vankomisin<br>
+                            16. <b>GAS farenjit =</b> Penisilin (direnç YOK!)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "6 yaşında çocuğa kontrendike antibiyotik?" → Tetrasiklin</li>
+                        <li><b>Soru tipi:</b> "MRSA pnömonisinde ilk seçenek?" → Vankomisin</li>
+                        <li><b>Soru tipi:</b> "Yenidoğan sepsisinde ampirik tedavi?" → Ampisilin + Gentamisin</li>
+                        <li><b>Soru tipi:</b> "Mycoplasma pnömonisinde tedavi?" → Azitromisin</li>
+                        <li><b>Soru tipi:</b> "Aminoglikozid yan etkisi?" → Ototoksisite, Nefrotoksisite</li>
+                        <li><b>Soru tipi:</b> "Red man sendromu hangi ilaçla?" → Vankomisin</li>
+                        <li><b>Soru tipi:</b> "Bakteriyel menenjitte ampirik tedavi?" → Seftriakson + Vankomisin</li>
+                        <li><b>Soru tipi:</b> "Gray baby sendromu nedeni?" → Kloramfenikol</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 

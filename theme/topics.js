@@ -1452,7 +1452,8 @@ function getCategoryIcon(category) {
         'mikoloji': 'fas fa-seedling',
         'parazitoloji': 'fas fa-bug',
         'immunoloji': 'fas fa-shield-virus',
-        'laboratuvar': 'fas fa-flask'
+        'laboratuvar': 'fas fa-flask',
+        'pediatrik-enfeksiyon': 'fas fa-child'
     };
     return icons[category] || 'fas fa-file-medical';
 }
@@ -1464,7 +1465,8 @@ function getCategoryLabel(category) {
         'mikoloji': 'Mikoloji',
         'parazitoloji': 'Parazitoloji',
         'immunoloji': 'İmmünoloji',
-        'laboratuvar': 'Laboratuvar'
+        'laboratuvar': 'Laboratuvar',
+        'pediatrik-enfeksiyon': 'Pediatrik Enfeksiyon'
     };
     return labels[category] || category;
 }

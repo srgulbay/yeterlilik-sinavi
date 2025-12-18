@@ -107,6 +107,7 @@ class Dock {
             'enfeksiyon hastalıkları': 'Enfeksiyon Hastalıkları',
             'laboratuvar': 'laboratuvar',
             'immunoloji': 'immunoloji',
+            'pediatrik-enfeksiyon': 'pediatrik-enfeksiyon',
             'yeterlilik sınavı 2025': 'Yeterlilik sınavı 2025',
             'hastane enfeksiyonları': 'Hastane Enfeksiyonları',
             'mikrobiyota': 'Mikrobiyota'
@@ -198,7 +199,8 @@ class Dock {
             { id: 'Hastane Enfeksiyonları', label: 'Hastane', icon: 'fa-hospital' },
             { id: 'Mikrobiyota', label: 'Mikrobiyota', icon: 'fa-bacteria' },
             { id: 'laboratuvar', label: 'Laboratuvar', icon: 'fa-flask' },
-            { id: 'immunoloji', label: 'İmmünoloji', icon: 'fa-shield-virus' }
+            { id: 'immunoloji', label: 'İmmünoloji', icon: 'fa-shield-virus' },
+            { id: 'pediatrik-enfeksiyon', label: 'Pediatrik Enfeksiyon', icon: 'fa-child' }
         ];
         
         // SRS modları (study sayfası için)

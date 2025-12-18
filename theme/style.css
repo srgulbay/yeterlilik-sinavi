@@ -1200,15 +1200,23 @@
     border: none;
     cursor: pointer;
     
-    /* Glassmorphism - Green crescent gradient */
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    box-shadow: 
-        0 8px 32px rgba(16, 185, 129, 0.4),
-        0 4px 16px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    /* Brand FAB - glass + vivid crescent */
+    background:
+        radial-gradient(
+            120% 120% at 30% 25%,
+            rgba(255, 255, 255, 0.42) 0%,
+            rgba(255, 255, 255, 0.12) 28%,
+            rgba(255, 255, 255, 0) 62%
+        ),
+        linear-gradient(135deg, var(--success) 0%, var(--accent-dark) 55%, var(--success-dark) 100%);
+    box-shadow:
+        0 14px 40px rgba(16, 185, 129, 0.34),
+        0 10px 24px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
     
     /* Icon - Logo */
-    color: white;
+    color: rgba(255, 255, 255, 0.96);
     font-size: 1.5rem;
     display: flex;
     align-items: center;
@@ -1244,9 +1252,10 @@
 .dock-fab:hover {
     transform: translateX(-50%) translateY(-3px) scale(1.08);
     box-shadow: 
-        0 12px 40px rgba(16, 185, 129, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        0 18px 56px rgba(16, 185, 129, 0.42),
+        0 12px 28px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.42),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 .dock-fab:active {
@@ -1389,10 +1398,19 @@
 
 /* Dark mode */
 [data-theme="dark"] .dock-fab {
+    background:
+        radial-gradient(
+            120% 120% at 30% 25%,
+            rgba(255, 255, 255, 0.24) 0%,
+            rgba(255, 255, 255, 0.06) 28%,
+            rgba(255, 255, 255, 0) 62%
+        ),
+        linear-gradient(135deg, var(--success-dark) 0%, var(--accent-dark) 55%, #065f46 100%);
     box-shadow: 
-        0 8px 32px rgba(16, 185, 129, 0.5),
-        0 4px 16px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 18px 56px rgba(16, 185, 129, 0.38),
+        0 12px 28px rgba(0, 0, 0, 0.52),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.10);
 }
 
 /* iOS Safe Area */
