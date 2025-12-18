@@ -76,7 +76,7 @@
     -ms-overflow-style: none;
     
     /* Glassmorphism background */
-    background: var(--glass-bg-heavy);
+    background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
@@ -130,7 +130,7 @@
     padding: var(--space-2) var(--space-3);
     
     /* Glassmorphism - same as desktop session-dock */
-    background: var(--glass-bg-heavy);
+    background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
@@ -142,7 +142,7 @@
 
 /* Dark theme pill */
 [data-theme="dark"] .dock__pill {
-    background: var(--glass-bg-heavy);
+    background: var(--glass-bg);
     border-color: var(--glass-border);
     box-shadow: var(--glass-shadow);
 }

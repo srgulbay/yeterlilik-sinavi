@@ -36820,6 +36820,471 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 65,
+        category: "bakteriyoloji",
+        title: "Zoonotik Bakteriler",
+        subtitle: "Brucella, Francisella, Yersinia, Bartonella ve Pasteurella",
+        summary: "Zoonotik bakterilerin özellikleri, bruselloz, tularemi, veba, kedi tırmığı hastalığı, hayvan ısırığı enfeksiyonları, tanı ve tedavi yaklaşımları.",
+        tags: ["Bakteriyoloji", "Zoonoz", "Bruselloz", "Tularemi", "Veba", "Bartonella", "Biyoterör"],
+        sections: [
+            {
+                title: "Brucella - Bruselloz",
+                icon: "fas fa-cow",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Brucella Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif kokobasil<br>
+                            <b>Üreme:</b> Yavaş (1-4 hafta), fakültatif intraselüler<br>
+                            <b>Bulaş:</b> Pastörize olmayan süt/peynir, temas, inhalasyon<br>
+                            <b>Türler:</b> B. melitensis (keçi/koyun), B. abortus (sığır), B. suis (domuz)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bruselloz Klinik</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ateş</b></td>
+                                    <td>Ondülan (dalgalı) ateş</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hepatosplenomegali</b></td>
+                                    <td>RES tutulumu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Osteoartiküler</b></td>
+                                    <td>En sık komplikasyon, sakroileit, spondilodiskit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Nörobruselloz</b></td>
+                                    <td>Menenjit, ensefalit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Endokardit</b></td>
+                                    <td>En sık ölüm nedeni</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rose Bengal (tarama)</td>
+                                    <td rowspan="3">Doksisiklin + Streptomisin (6 hafta)<br>veya<br>Doksisiklin + Rifampisin (6 hafta)</td>
+                                </tr>
+                                <tr>
+                                    <td>Wright/SAT (standart)</td>
+                                </tr>
+                                <tr>
+                                    <td>Kan kültürü (yavaş)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Laboratuvar Tehlikesi!</strong><br>
+                        Brucella en sık laboratuvar kaynaklı enfeksiyon etkenidir. Biyogüvenlik düzey 3 gerektirir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Bruselloz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Brucella = Peynir = Pastörize olmayan"</b><br>
+                            <b>"Ondülan ateş = Dalgalı"</b><br>
+                            <b>"En sık komplikasyon = Osteoartiküler"</b><br>
+                            <b>"Tedavi = Doksisiklin + Aminoglikozid/Rifampisin"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Francisella tularensis - Tularemi",
+                icon: "fas fa-paw",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">F. tularensis Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif kokobasil<br>
+                            <b>Fakültatif intraselüler:</b> Makrofaj içinde yaşar<br>
+                            <b>Bulaş:</b> Kene, tavşan/kemirgen teması, inhalasyon<br>
+                            <b>Biyoterör:</b> Kategori A ajan
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tularemi Klinik Formları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Bulaş</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Ülseroglandüler</b></td>
+                                    <td>Kene/temas</td>
+                                    <td>En sık, deri ülseri + bölgesel LAP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Glandüler</b></td>
+                                    <td>Kene/temas</td>
+                                    <td>LAP, ülser yok</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Oküloglandüler</b></td>
+                                    <td>Göze bulaş</td>
+                                    <td>Konjonktivit + preauriküler LAP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orofarengeal</b></td>
+                                    <td>Kontamine su/gıda</td>
+                                    <td>Farenjit, servikal LAP</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pnömonik</b></td>
+                                    <td>İnhalasyon</td>
+                                    <td>En ölümcül, biyoterör formu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tifoidal</b></td>
+                                    <td>Sistemik</td>
+                                    <td>Ateş, lokalize bulgu yok</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı ve Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanı</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Seroloji (MAT)</td>
+                                    <td rowspan="2"><b>Streptomisin</b> veya <b>Gentamisin</b><br>Alternatif: Doksisiklin, Siprofloksasin</td>
+                                </tr>
+                                <tr>
+                                    <td>Kültür (tehlikeli, sistein gerekir)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Tularemi Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Tavşan + Kene = Tularemi"</b><br>
+                            <b>"Ülseroglandüler = En sık form"</b><br>
+                            <b>"Pnömonik = Biyoterör = En ölümcül"</b><br>
+                            <b>"Tedavi = Aminoglikozid (Streptomisin)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Yersinia pestis - Veba",
+                icon: "fas fa-skull",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Y. pestis Özellikleri</p>
+                        <p class="highlight-box__content">
+                            <b>Morfoloji:</b> Gram-negatif kokobasil, güvenlik iğnesi (bipolar boyama)<br>
+                            <b>Bulaş:</b> Pire (Xenopsylla cheopis), kemirgenler<br>
+                            <b>Biyoterör:</b> Kategori A ajan<br>
+                            <b>Tarih:</b> Kara Ölüm (14. yy)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Veba Klinik Formları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Bulaş</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bubonik</b></td>
+                                    <td>Pire ısırığı</td>
+                                    <td>En sık, ağrılı LAP (bubo), inguinal sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Septisemik</b></td>
+                                    <td>Hematojen</td>
+                                    <td>Şok, DIC, purpura (Kara Ölüm)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pnömonik</b></td>
+                                    <td>İnhalasyon/sekonder</td>
+                                    <td>En ölümcül, kişiden kişiye bulaş, biyoterör</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Pnömonik Veba:</strong><br>
+                        • Kişiden kişiye bulaşan TEK form<br>
+                        • Tedavi edilmezse %100 ölümcül<br>
+                        • 24 saat içinde tedavi başlanmalı<br>
+                        • Temas profilaksisi gerekir</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Streptomisin, Gentamisin, Doksisiklin, Siprofloksasin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Profilaksi</b></td>
+                                    <td>Doksisiklin veya Siprofloksasin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Veba Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Pire + Kemirgen = Veba"</b><br>
+                            <b>"Bubo = Ağrılı LAP = En sık form"</b><br>
+                            <b>"Pnömonik = Kişiden kişiye = %100 ölümcül"</b><br>
+                            <b>"Güvenlik iğnesi = Bipolar boyama"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Bartonella ve Pasteurella",
+                icon: "fas fa-cat",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bartonella henselae - Kedi Tırmığı Hastalığı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Kedi tırmığı/ısırığı, pire</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Papül → Bölgesel LAP (aksiller, servikal)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özellik</b></td>
+                                    <td>Self-limited, genellikle tedavi gerektirmez</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Histopatoloji</b></td>
+                                    <td>Stellat (yıldız şekilli) granülom</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi (gerekirse)</b></td>
+                                    <td>Azitromisin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Bartonella - AIDS'te</p>
+                        <p class="highlight-box__content">
+                            <b>Basiller anjiomatozis:</b> Vasküler proliferasyon, deri lezyonları (Kaposi benzeri)<br>
+                            <b>Basiller peliozis:</b> Karaciğer/dalak vasküler lezyonları<br>
+                            <b>Tedavi:</b> Eritromisin veya Doksisiklin
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pasteurella multocida - Hayvan Isırığı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Bulaş</b></td>
+                                    <td>Kedi/köpek ısırığı (normal flora)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Klinik</b></td>
+                                    <td>Hızlı gelişen selülit (<24 saat), apse</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyon</b></td>
+                                    <td>Osteomiyelit, septik artrit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tedavi</b></td>
+                                    <td>Amoksisilin-klavulanat (1. seçenek)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">💡</span>
+                        <p class="alert-box__text"><strong>Hayvan Isırığı Enfeksiyonu:</strong><br>
+                        <b>Kedi ısırığı:</b> Pasteurella sık, derin penetrasyon<br>
+                        <b>Köpek ısırığı:</b> Pasteurella + Capnocytophaga (asplenik için tehlikeli)<br>
+                        <b>İnsan ısırığı:</b> Eikenella corrodens</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Bartonella/Pasteurella Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Kedi tırmığı = Bartonella = LAP = Self-limited"</b><br>
+                            <b>"Kedi/köpek ısırığı = Pasteurella = Hızlı selülit"</b><br>
+                            <b>"AIDS + Vasküler lezyon = Basiller anjiomatozis"</b><br>
+                            <b>"Hayvan ısırığı tedavi = Amoksisilin-klavulanat"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Pastörize olmayan süt/peynir =</b> Bruselloz<br>
+                            2. <b>Ondülan ateş =</b> Bruselloz<br>
+                            3. <b>Tavşan + kene =</b> Tularemi<br>
+                            4. <b>Pire + bubo =</b> Veba<br>
+                            5. <b>Kedi tırmığı + LAP =</b> Bartonella<br>
+                            6. <b>Hayvan ısırığı =</b> Pasteurella
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Biyoterör Ajanları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori A</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bacillus anthracis</td>
+                                    <td>Şarbon</td>
+                                </tr>
+                                <tr>
+                                    <td>Yersinia pestis</td>
+                                    <td>Veba</td>
+                                </tr>
+                                <tr>
+                                    <td>Francisella tularensis</td>
+                                    <td>Tularemi</td>
+                                </tr>
+                                <tr>
+                                    <td>Clostridium botulinum</td>
+                                    <td>Botulizm</td>
+                                </tr>
+                                <tr>
+                                    <td>Variola major</td>
+                                    <td>Çiçek</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Brucella = Peynir = Ondülan ateş = Doksisiklin+Streptomisin"</b><br>
+                            <b>"Tularemi = Tavşan = Ülseroglandüler = Aminoglikozid"</b><br>
+                            <b>"Veba = Pire = Bubo = Pnömonik %100 ölümcül"</b><br>
+                            <b>"Bartonella = Kedi tırmığı = LAP = Self-limited"</b><br>
+                            <b>"Pasteurella = Isırık = <24 saat selülit = Amoks-klav"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Bruselloz bulaş =</b> Pastörize olmayan süt/peynir<br>
+                            2. <b>En sık Brucella türü =</b> B. melitensis (en patojen)<br>
+                            3. <b>Bruselloz en sık komplikasyon =</b> Osteoartiküler<br>
+                            4. <b>Bruselloz tedavi =</b> Doksisiklin + Streptomisin/Rifampisin<br>
+                            5. <b>Tularemi bulaş =</b> Kene, tavşan teması<br>
+                            6. <b>Tularemi en sık form =</b> Ülseroglandüler<br>
+                            7. <b>Veba bulaş =</b> Pire ısırığı<br>
+                            8. <b>Bubo =</b> Ağrılı LAP (veba)<br>
+                            9. <b>Pnömonik veba =</b> Kişiden kişiye bulaşır<br>
+                            10. <b>Bipolar boyama =</b> Y. pestis (güvenlik iğnesi)<br>
+                            11. <b>Kedi tırmığı hastalığı =</b> B. henselae<br>
+                            12. <b>Stellat granülom =</b> Kedi tırmığı hastalığı<br>
+                            13. <b>Basiller anjiomatozis =</b> Bartonella + AIDS<br>
+                            14. <b>Pasteurella bulaş =</b> Kedi/köpek ısırığı<br>
+                            15. <b>Hayvan ısırığı tedavi =</b> Amoksisilin-klavulanat
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Pastörize olmayan peynir sonrası ondülan ateş?" → Bruselloz</li>
+                        <li><b>Soru tipi:</b> "Tavşan teması sonrası ülser + LAP?" → Tularemi</li>
+                        <li><b>Soru tipi:</b> "Pire ısırığı sonrası ağrılı inguinal LAP?" → Bubonik veba</li>
+                        <li><b>Soru tipi:</b> "Kedi tırmığı sonrası aksiller LAP?" → Bartonella</li>
+                        <li><b>Soru tipi:</b> "Kedi ısırığı sonrası hızlı gelişen selülit?" → Pasteurella</li>
+                        <li><b>Soru tipi:</b> "Kategori A biyoterör ajanları?" → Şarbon, Veba, Tularemi, Botulizm, Çiçek</li>
+                        <li><b>Soru tipi:</b> "AIDS'te vasküler deri lezyonları?" → Basiller anjiomatozis (Bartonella)</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
