@@ -28,9 +28,13 @@
 
 /* Keep docks above View Transition snapshots (prevents overlap during in-page transitions). */
 ::view-transition-group(dock-session),
-::view-transition-group(dock-mobile),
+::view-transition-group(dock-mobile) {
+    z-index: var(--z-dock);
+}
+
+/* FAB should stay above dock bar when minimized. */
 ::view-transition-group(dock-fab) {
-    z-index: var(--z-max);
+    z-index: var(--z-dock-panel);
 }
 
 @keyframes pageSlideOut {

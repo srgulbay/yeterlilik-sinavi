@@ -1190,7 +1190,7 @@
     bottom: var(--space-6);
     left: 50%;
     transform: translateX(-50%);
-    z-index: var(--z-dock, 1000);
+    z-index: var(--z-dock-panel, 1001);
     view-transition-name: dock-fab;
     
     /* Pill Button - Logo size */
@@ -1227,7 +1227,8 @@
 }
 
 /* FAB görünür durumu - Apple-style spring */
-.dock-fab.visible {
+.dock-fab.visible,
+:root[data-dock-minimized="true"] .dock-fab {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -1417,7 +1418,8 @@
         visibility 0s linear 0s;
 }
 
-.session-dock.minimized {
+.session-dock.minimized,
+:root[data-dock-minimized="true"] .session-dock {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1439,7 +1441,8 @@
         visibility 0s linear 0s;
 }
 
-.mobile-dock.minimized {
+.mobile-dock.minimized,
+:root[data-dock-minimized="true"] .mobile-dock {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1450,7 +1453,8 @@
         visibility 0s linear 0.25s;
 }
 
-.mobile-dock.minimized .dock__panel {
+.mobile-dock.minimized .dock__panel,
+:root[data-dock-minimized="true"] .mobile-dock .dock__panel {
     display: none;
 }
 

@@ -198,7 +198,7 @@ class Dock {
             { id: 'Hastane Enfeksiyonları', label: 'Hastane', icon: 'fa-hospital' },
             { id: 'Mikrobiyota', label: 'Mikrobiyota', icon: 'fa-bacteria' },
             { id: 'laboratuvar', label: 'Laboratuvar', icon: 'fa-flask' },
-            { id: 'immunoloji', label: 'İmmunoloji', icon: 'fa-shield-virus' }
+            { id: 'immunoloji', label: 'İmmünoloji', icon: 'fa-shield-virus' }
         ];
         
         // SRS modları (study sayfası için)

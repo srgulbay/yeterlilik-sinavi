@@ -114,13 +114,16 @@ class DockFab {
      */
     minimize() {
         this.isMinimized = true;
-        
+
         // Add minimized class to docks
         this.sessionDock?.classList.add('minimized');
         this.mobileDock?.classList.add('minimized');
-        
+
         // Show FAB
         this.fab.classList.add('visible');
+
+        // Sync early-paint state attribute (used to prevent flash on load)
+        document.documentElement.setAttribute('data-dock-minimized', 'true');
         
         // Save state
         this.saveState();
@@ -134,13 +137,16 @@ class DockFab {
      */
     expand() {
         this.isMinimized = false;
-        
+
         // Remove minimized class from docks
         this.sessionDock?.classList.remove('minimized');
         this.mobileDock?.classList.remove('minimized');
-        
+
         // Hide FAB
         this.fab.classList.remove('visible');
+
+        // Sync early-paint state attribute (used to prevent flash on load)
+        document.documentElement.removeAttribute('data-dock-minimized');
         
         // Save state
         this.saveState();

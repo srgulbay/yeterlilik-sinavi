@@ -24047,6 +24047,1903 @@ const topicsData = [
                 `
             }
         ]
+    },
+    {
+        id: 37,
+        category: "viroloji",
+        title: "Parvovirüs B19",
+        subtitle: "Eritema İnfeksiyozum, Aplastik Kriz ve Hidrops Fetalis",
+        summary: "İnsanda hastalık yapan tek parvovirüs, en küçük DNA virüsü, eritroid progenitör hücreleri enfekte eder. Beşinci hastalık (eritema infeksiyozum), aplastik kriz ve fetal hidrops nedeni.",
+        tags: ["Parvovirüs", "ssDNA", "Eritema İnfeksiyozum", "Aplastik Kriz", "Hidrops Fetalis", "Viroloji"],
+        sections: [
+            {
+                title: "Viroloji ve Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Parvovirüs B19</strong>, insanlarda hastalık yapan tek parvovirüstür. En küçük DNA virüsüdür ve eritroid progenitör hücreleri hedef alır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Parvovirüs B19 - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Parvoviridae<br>
+                            <b>Genom:</b> <b>Tek zincirli (ss) lineer DNA</b><br>
+                            <b>Kapsid:</b> İkozahedral<br>
+                            <b>Zarf:</b> YOK (çıplak virüs)<br>
+                            <b>Boyut:</b> ~22 nm (en küçük DNA virüsü)<br>
+                            <b>Replikasyon:</b> Nükleus (S fazında)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Önemli Virolojik Özellikler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Hedef hücre</b></td>
+                                    <td><b>Eritroid progenitör hücreler</b> (kemik iliği)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Reseptör</b></td>
+                                    <td><b>P antijeni (Globozid)</b> - eritrosit yüzeyinde</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Replikasyon</b></td>
+                                    <td>Hızlı bölünen hücrelere bağımlı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sitotoksik etki</b></td>
+                                    <td>Eritroid hücreleri öldürür → geçici aplazi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>P Antijeni Negatif Bireyler:</strong><br>
+                        P antijeni (Globozid) olmayan nadir kişiler Parvovirüs B19'a doğal olarak dirençlidir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Parvovirüs B19 Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PARVO = EN KÜÇÜK DNA virüsü"</b><br>
+                            <b>"ssDNA = Tek zincirli DNA"</b><br>
+                            <b>"P antijeni = Reseptör (Globozid)"</b><br>
+                            <b>"ERİTROİD = Hedef hücre"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Eritema İnfeksiyozum (Beşinci Hastalık)",
+                icon: "fas fa-child",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Beşinci Hastalık</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> Klasik çocukluk çağı döküntülü hastalıklarından 5.si<br>
+                            <b>Yaş:</b> 4-10 yaş okul çocukları<br>
+                            <b>Mevsim:</b> İlkbahar<br>
+                            <b>Bulaş:</b> Solunum damlacıkları
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Seyir</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Evre</th>
+                                    <th>Süre</th>
+                                    <th>Bulgular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Prodrom</b></td>
+                                    <td>7-10 gün</td>
+                                    <td>Hafif ateş, grip benzeri, baş ağrısı</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Evre 1</b></td>
+                                    <td>1-4 gün</td>
+                                    <td><b>"Tokatlanmış yanak"</b> (slapped cheek) - yüzde parlak kızarıklık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Evre 2</b></td>
+                                    <td>1-6 hafta</td>
+                                    <td>Gövde ve ekstremitelerde <b>dantel benzeri (retiküler)</b> döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Evre 3</b></td>
+                                    <td>Değişken</td>
+                                    <td>Döküntü sıcak, güneş, stresle tekrar ortaya çıkabilir</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Bulaşıcılık:</strong><br>
+                        Döküntü ortaya çıktığında viremi bitmiş, hasta artık bulaştırıcı DEĞİLDİR! Bulaştırıcılık prodrom dönemindedir.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Beşinci Hastalık Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"5. HASTALIK = Parvovirüs B19"</b><br>
+                            <b>"TOKATLANMIŞ YANAK = Slapped cheek"</b><br>
+                            <b>"DANTEL DÖKÜNTü = Retiküler pattern"</b><br>
+                            <b>"DÖKÜNTÜ VAR = Bulaştırıcı DEĞİL"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Aplastik Kriz ve Risk Grupları",
+                icon: "fas fa-tint",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Transient Aplastik Kriz (TAC)</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> Eritropoezin geçici durması<br>
+                            <b>Süre:</b> 7-10 gün<br>
+                            <b>Risk:</b> Kronik hemolitik anemisi olan hastalar<br>
+                            <b>Ciddiyet:</b> Hayatı tehdit edici olabilir
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Risk Altındaki Gruplar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Grup</th>
+                                    <th>Hastalık</th>
+                                    <th>Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Orak hücre anemisi</b></td>
+                                    <td>Hemolitik anemi</td>
+                                    <td>Ağır aplastik kriz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Talasemi</b></td>
+                                    <td>Hemolitik anemi</td>
+                                    <td>Ağır aplastik kriz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Herediter sferositoz</b></td>
+                                    <td>Hemolitik anemi</td>
+                                    <td>Ağır aplastik kriz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmün yetmezlik</b></td>
+                                    <td>AIDS, transplant</td>
+                                    <td>Kronik anemi, pure red cell aplasia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yetişkinlerde Artropati</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Sıklık</b></td>
+                                    <td>Yetişkin kadınlarda %60</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Tutulan eklemler</b></td>
+                                    <td>El, bilek, diz - simetrik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Süre</b></td>
+                                    <td>Haftalar-aylar (self-limited)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ayırıcı tanı</b></td>
+                                    <td>Romatoid artrit benzeri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Aplastik Kriz Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ORAK HÜCRE + PARVO = APLASTİK KRİZ"</b><br>
+                            <b>"HEMOLİTİK ANEMİ = Yüksek risk"</b><br>
+                            <b>"KADIN + PARVO = ARTRİT"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Gebelik ve Hidrops Fetalis",
+                icon: "fas fa-baby",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>UYARI:</strong> Parvovirüs B19 gebelikte fetal kayba neden olabilir!</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Gebelikte Parvovirüs B19</p>
+                        <p class="highlight-box__content">
+                            <b>Vertikal geçiş:</b> %30-50<br>
+                            <b>Fetal kayıp riski:</b> %5-10 (özellikle 2. trimester)<br>
+                            <b>Hidrops fetalis:</b> Fetal anemi → kalp yetmezliği → ödem<br>
+                            <b>Teratojen:</b> DEĞİL (malformasyon yapmaz)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Hidrops Fetalis Mekanizması</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Basamak</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>1</b></td>
+                                    <td>Virüs plasenta yoluyla fetüse geçer</td>
+                                </tr>
+                                <tr>
+                                    <td><b>2</b></td>
+                                    <td>Fetal eritroid progenitörler enfekte olur</td>
+                                </tr>
+                                <tr>
+                                    <td><b>3</b></td>
+                                    <td>Ağır fetal anemi gelişir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>4</b></td>
+                                    <td>High-output kalp yetmezliği</td>
+                                </tr>
+                                <tr>
+                                    <td><b>5</b></td>
+                                    <td>Hidrops (yaygın ödem, asit, plevral efüzyon)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Yönetim</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Yaklaşım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Temas sonrası</b></td>
+                                    <td>IgG/IgM serolojisi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgG(+), IgM(-)</b></td>
+                                    <td>Geçmiş enfeksiyon, bağışık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IgG(-), IgM(+)</b></td>
+                                    <td>Akut enfeksiyon, yakın takip</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fetal anemi</b></td>
+                                    <td>İntrauterin transfüzyon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Gebelik Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"2. TRİMESTER = En riskli dönem"</b><br>
+                            <b>"HİDROPS = Anemi → Kalp yetmezliği → Ödem"</b><br>
+                            <b>"TERATOJEN DEĞİL = Malformasyon yapmaz"</b><br>
+                            <b>"TEDAVİ = İntrauterin transfüzyon"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Beşinci hastalık =</b> Parvovirüs B19<br>
+                            2. <b>Tokatlanmış yanak =</b> Slapped cheek<br>
+                            3. <b>En küçük DNA virüsü =</b> Parvovirüs<br>
+                            4. <b>Genom:</b> ssDNA (tek zincirli)<br>
+                            5. <b>Hedef:</b> Eritroid progenitör hücreler<br>
+                            6. <b>Reseptör:</b> P antijeni (Globozid)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Tablolar Özeti</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Klinik</th>
+                                    <th>Hasta Grubu</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Eritema infeksiyozum</td>
+                                    <td>Çocuk</td>
+                                    <td>Tokatlanmış yanak, dantel döküntü</td>
+                                </tr>
+                                <tr>
+                                    <td>Aplastik kriz</td>
+                                    <td>Hemolitik anemi</td>
+                                    <td>Orak hücre, talasemi</td>
+                                </tr>
+                                <tr>
+                                    <td>Artropati</td>
+                                    <td>Yetişkin kadın</td>
+                                    <td>Simetrik poliartrit</td>
+                                </tr>
+                                <tr>
+                                    <td>Hidrops fetalis</td>
+                                    <td>Fetüs</td>
+                                    <td>Fetal anemi, kalp yetmezliği</td>
+                                </tr>
+                                <tr>
+                                    <td>Kronik anemi</td>
+                                    <td>İmmün yetmezlik</td>
+                                    <td>Pure red cell aplasia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"PARVO B19 = 5. HASTALIK + TOKAT + DANTEL"</b><br>
+                            <b>"ssDNA = En küçük DNA virüsü"</b><br>
+                            <b>"P ANTİJENİ = Eritrosit reseptörü"</b><br>
+                            <b>"ORAK HÜCRE = APLASTİK KRİZ"</b><br>
+                            <b>"GEBELİK = HİDROPS FETALİS"</b><br>
+                            <b>"DÖKÜNTÜ VARSA = Bulaştırıcı DEĞİL"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Parvovirüs B19 =</b> En küçük DNA virüsü<br>
+                            2. <b>Genom =</b> ssDNA (tek zincirli, lineer)<br>
+                            3. <b>Zarf =</b> YOK<br>
+                            4. <b>Hedef hücre =</b> Eritroid progenitör<br>
+                            5. <b>Reseptör =</b> P antijeni (Globozid)<br>
+                            6. <b>Beşinci hastalık =</b> Eritema infeksiyozum<br>
+                            7. <b>Klasik bulgu =</b> Tokatlanmış yanak (slapped cheek)<br>
+                            8. <b>Döküntü paterni =</b> Dantel benzeri (retiküler)<br>
+                            9. <b>Aplastik kriz =</b> Orak hücre, talasemi hastalarında<br>
+                            10. <b>Gebelik komplikasyonu =</b> Hidrops fetalis (2. trimester)<br>
+                            11. <b>Teratojenik =</b> DEĞİL<br>
+                            12. <b>Bulaştırıcılık =</b> Prodromda (döküntü varsa bulaştırıcı değil)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Çocukta tokatlanmış yanak görünümü?" → Parvovirüs B19</li>
+                        <li><b>Soru tipi:</b> "Orak hücre hastasında ani Hb düşüşü?" → Aplastik kriz (Parvo B19)</li>
+                        <li><b>Soru tipi:</b> "En küçük DNA virüsü?" → Parvovirüs</li>
+                        <li><b>Soru tipi:</b> "ssDNA genom, eritroid hücre tropizmi?" → Parvovirüs B19</li>
+                        <li><b>Soru tipi:</b> "Gebede non-teratojenik fetal kayıp nedeni?" → Parvovirüs B19</li>
+                        <li><b>Soru tipi:</b> "Dantel benzeri döküntü, 5. hastalık?" → Eritema infeksiyozum</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 38,
+        category: "viroloji",
+        title: "Poksvirüsler",
+        subtitle: "Variola (Çiçek), Molluscum Contagiosum, Maymun Çiçeği ve Orf",
+        summary: "En büyük ve en kompleks DNA virüsleri, sitoplazmada replike olur. Variola (eradike), molluscum contagiosum, monkeypox ve zoonotik poksvirüsler.",
+        tags: ["Poksvirüs", "Variola", "Molluscum", "Monkeypox", "dsDNA", "Viroloji"],
+        sections: [
+            {
+                title: "Viroloji ve Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Poxviridae</strong> ailesi, en büyük ve en kompleks virüslerdir. Benzersiz şekilde sitoplazmada replike olurlar.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Poksvirüs - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Poxviridae<br>
+                            <b>Genom:</b> <b>Çift zincirli (ds) lineer DNA</b><br>
+                            <b>Boyut:</b> 200-400 nm (en büyük virüs)<br>
+                            <b>Şekil:</b> Tuğla/dikdörtgen ("brick-shaped")<br>
+                            <b>Zarf:</b> VAR (kompleks)<br>
+                            <b>Replikasyon:</b> <b>SİTOPLAZMA</b> (DNA virüsü için benzersiz!)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">İnsanda Hastalık Yapan Poksvirüsler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Hastalık</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Variola</b></td>
+                                    <td>Çiçek (Smallpox)</td>
+                                    <td><b>ERADİKE (1980)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Molluscum contagiosum</b></td>
+                                    <td>Molluscum</td>
+                                    <td>Yaygın, selim</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Monkeypox</b></td>
+                                    <td>Maymun çiçeği</td>
+                                    <td>Zoonotik, salgınlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Vaccinia</b></td>
+                                    <td>Aşı suşu</td>
+                                    <td>Laboratuvar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Orf</b></td>
+                                    <td>Ecthyma contagiosum</td>
+                                    <td>Koyun/keçi temas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--info">
+                        <span class="alert-box__icon">ℹ️</span>
+                        <p class="alert-box__text"><strong>Sitoplazmada Replikasyon:</strong><br>
+                        Poksvirüsler kendi DNA polimeraz ve transkripsiyon enzimlerini taşır. Bu nedenle nükleusa ihtiyaç duymadan sitoplazmada çoğalabilirler - DNA virüsleri arasında benzersiz!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Poksvirüs Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"POKS = EN BÜYÜK DNA virüsü"</b><br>
+                            <b>"TUĞLA ŞEKLİ = Brick-shaped"</b><br>
+                            <b>"SİTOPLAZMA = Replikasyon yeri (benzersiz!)"</b><br>
+                            <b>"VARİOLA = Eradike (1980)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Variola (Çiçek Hastalığı)",
+                icon: "fas fa-skull-crossbones",
+                content: `
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Variola 1980'de WHO tarafından eradike edilmiştir!</strong> İnsanlık tarihinde eradike edilen ilk hastalıktır.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Variola - Tarihsel Önemi</p>
+                        <p class="highlight-box__content">
+                            <b>Mortalite:</b> %30 (V. major)<br>
+                            <b>Eradikasyon:</b> 1980 - WHO<br>
+                            <b>Son doğal vaka:</b> 1977, Somali<br>
+                            <b>Biyoterörizm:</b> Potansiyel ajan<br>
+                            <b>Stok:</b> CDC (ABD) ve VECTOR (Rusya)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Variola Klinik Özellikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Variola (Çiçek)</th>
+                                    <th>Varicella (Suçiçeği)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Etken</b></td>
+                                    <td>Variola virüs (Poxvirus)</td>
+                                    <td>VZV (Herpesvirus)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Döküntü dağılımı</b></td>
+                                    <td><b>Santrifugal</b> (yüz, ekstremite)</td>
+                                    <td><b>Santripetal</b> (gövde)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lezyon evresi</b></td>
+                                    <td><b>Hepsi aynı evrede</b></td>
+                                    <td>Farklı evrelerde</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Avuç içi/taban</b></td>
+                                    <td>TUTULUR</td>
+                                    <td>Genellikle tutulmaz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Skar</b></td>
+                                    <td>Kalıcı çukur skar</td>
+                                    <td>Nadiren skar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Variola vs Varicella Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"VARİOLA = SantRİFUGAL (dışa)"</b><br>
+                            <b>"VARİCELLA = SantRİPETAL (içe)"</b><br>
+                            <b>"VARİOLA = Aynı evrede lezyon"</b><br>
+                            <b>"VARİCELLA = Farklı evrelerde lezyon"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Molluscum Contagiosum",
+                icon: "fas fa-circle",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Molluscum Contagiosum</p>
+                        <p class="highlight-box__content">
+                            <b>Etken:</b> Molluscum contagiosum virüs (MCV)<br>
+                            <b>Bulaş:</b> Direkt temas, cinsel temas, fomit<br>
+                            <b>Risk grubu:</b> Çocuklar, cinsel aktif yetişkinler, immün yetmezlik<br>
+                            <b>Seyir:</b> Self-limited (6-12 ay)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Özellikler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Lezyon</b></td>
+                                    <td>Dome-shaped, <b>göbekli (umblike)</b> papül</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Boyut</b></td>
+                                    <td>2-5 mm (immün yetmezlikte dev)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Renk</b></td>
+                                    <td>Ten rengi, parlak, sedefsi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İçerik</b></td>
+                                    <td>Beyaz peynir kıvamında materyal</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lokalizasyon</b></td>
+                                    <td>Gövde, aksilla, genital (yetişkin)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Histopatoloji</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Henderson-Paterson cisimcikleri</b></td>
+                                    <td>İntrastoplazmik inklüzyon cisimcikleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Molluscum bodies</b></td>
+                                    <td>Enfekte epidermal hücreler</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>AIDS Belirteci:</strong><br>
+                        Yüzde yaygın, dev molluscum lezyonları AIDS'in deri belirtisi olabilir!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Molluscum Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DOME + GÖBEK = Molluscum"</b><br>
+                            <b>"HENDERSON-PATERSON = İnklüzyon cisimciği"</b><br>
+                            <b>"SELF-LIMITED = 6-12 ay"</b><br>
+                            <b>"DEV MOLLUSCUM = AIDS düşün"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Monkeypox ve Diğer Poksvirüsler",
+                icon: "fas fa-paw",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Monkeypox (Mpox)</p>
+                        <p class="highlight-box__content">
+                            <b>Rezervuar:</b> Kemirgenler (Afrika)<br>
+                            <b>Bulaş:</b> Hayvan teması, damlacık, cinsel temas<br>
+                            <b>Klinik:</b> Variola benzeri ama daha hafif<br>
+                            <b>Özellik:</b> <b>Lenfadenopati</b> (varioladan ayırıcı)<br>
+                            <b>2022 salgını:</b> Global yayılım
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Zoonotik Poksvirüsler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Kaynak</th>
+                                    <th>Hastalık</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Orf</b></td>
+                                    <td>Koyun, keçi</td>
+                                    <td>Ecthyma contagiosum (elde nodül)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cowpox</b></td>
+                                    <td>Kedi, kemirgen</td>
+                                    <td>Lokalize deri lezyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Pseudocowpox</b></td>
+                                    <td>Sığır</td>
+                                    <td>Milker's nodule</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Vaccinia (Aşı Suşu)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kullanım</b></td>
+                                    <td>Çiçek aşısı (ilk aşı - Jenner)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Güncel endikasyon</b></td>
+                                    <td>Laboratuvar çalışanları, biyodefans</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Komplikasyonlar</b></td>
+                                    <td>Eczema vaccinatum, generalize vaccinia</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Diğer Poksvirüsler Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"MONKEYPOX = LAP var (variola'da yok)"</b><br>
+                            <b>"ORF = KOYUN/KEÇİ = Elde nodül"</b><br>
+                            <b>"VACCİNİA = İLK AŞI (Jenner)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>En büyük DNA virüsü =</b> Poksvirüs<br>
+                            2. <b>Sitoplazmada replike =</b> Poksvirüs (DNA virüsü için benzersiz)<br>
+                            3. <b>Variola eradikasyon =</b> 1980, WHO<br>
+                            4. <b>Santrifugal döküntü =</b> Variola<br>
+                            5. <b>Göbekli papül =</b> Molluscum contagiosum<br>
+                            6. <b>Henderson-Paterson =</b> Molluscum inklüzyonu
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Poksvirüs Hastalıkları Özet</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Virüs</th>
+                                    <th>Hastalık</th>
+                                    <th>Anahtar Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Variola</td>
+                                    <td>Çiçek</td>
+                                    <td>Eradike, santrifugal, aynı evre</td>
+                                </tr>
+                                <tr>
+                                    <td>Molluscum</td>
+                                    <td>Molluscum</td>
+                                    <td>Göbekli papül, self-limited</td>
+                                </tr>
+                                <tr>
+                                    <td>Monkeypox</td>
+                                    <td>Mpox</td>
+                                    <td>LAP var, variola benzeri</td>
+                                </tr>
+                                <tr>
+                                    <td>Orf</td>
+                                    <td>Ecthyma</td>
+                                    <td>Koyun/keçi, elde nodül</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"POKS = EN BÜYÜK DNA + SİTOPLAZMA"</b><br>
+                            <b>"TUĞLA ŞEKLİ = Brick-shaped"</b><br>
+                            <b>"VARİOLA = 1980 ERADİKE + SANTRİFUGAL"</b><br>
+                            <b>"MOLLUSCUM = GÖBEK + HENDERSON-PATERSON"</b><br>
+                            <b>"MONKEYPOX = LAP VARLIĞI"</b><br>
+                            <b>"VARİOLA vs VARİCELLA = Fugal vs Petal"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Poksvirüs =</b> En büyük DNA virüsü<br>
+                            2. <b>Genom =</b> dsDNA, lineer<br>
+                            3. <b>Replikasyon =</b> SİTOPLAZMA (benzersiz!)<br>
+                            4. <b>Şekil =</b> Tuğla (brick-shaped)<br>
+                            5. <b>Variola =</b> 1980'de eradike edildi<br>
+                            6. <b>Variola döküntü =</b> Santrifugal, aynı evrede<br>
+                            7. <b>Varicella döküntü =</b> Santripetal, farklı evrelerde<br>
+                            8. <b>Molluscum lezyon =</b> Dome-shaped, göbekli papül<br>
+                            9. <b>Henderson-Paterson =</b> Molluscum inklüzyon cisimciği<br>
+                            10. <b>Monkeypox ayırıcı =</b> Lenfadenopati (variola'da yok)<br>
+                            11. <b>Orf =</b> Koyun/keçi teması, elde nodül<br>
+                            12. <b>İlk aşı =</b> Vaccinia (Jenner, çiçek aşısı)
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Sitoplazmada replike olan DNA virüsü?" → Poksvirüs</li>
+                        <li><b>Soru tipi:</b> "En büyük DNA virüsü?" → Poksvirüs</li>
+                        <li><b>Soru tipi:</b> "1980'de eradike edilen hastalık?" → Çiçek (Variola)</li>
+                        <li><b>Soru tipi:</b> "Santrifugal döküntü, aynı evrede lezyonlar?" → Variola</li>
+                        <li><b>Soru tipi:</b> "Göbekli papül, Henderson-Paterson cisimciği?" → Molluscum</li>
+                        <li><b>Soru tipi:</b> "Variola benzeri ama LAP eşlik eden?" → Monkeypox</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 39,
+        category: "viroloji",
+        title: "HTLV-1 ve HTLV-2",
+        subtitle: "Human T-Lenfotropik Virüs - ATL ve HAM/TSP",
+        summary: "İnsan T-lenfosit tropik retrovirüsleri, Adult T-cell Lösemi/Lenfoma (ATL) ve HTLV-associated Myelopati/Tropical Spastic Paraparesis (HAM/TSP) etkenleri.",
+        tags: ["HTLV", "Retrovirüs", "ATL", "HAM/TSP", "Onkojenik", "Viroloji"],
+        sections: [
+            {
+                title: "Viroloji ve Genel Özellikler",
+                icon: "fas fa-virus",
+                content: `
+                    <p><strong>Human T-Lymphotropic Virus (HTLV)</strong>, HIV gibi Retroviridae ailesinden bir retrovirüstür ancak onkojenik özellikleri ile ayrılır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HTLV - Temel Özellikler</p>
+                        <p class="highlight-box__content">
+                            <b>Aile:</b> Retroviridae<br>
+                            <b>Cins:</b> Deltaretrovirus<br>
+                            <b>Genom:</b> <b>Diploid (+) ssRNA</b><br>
+                            <b>Enzim:</b> Revers transkriptaz, integraz<br>
+                            <b>Zarf:</b> VAR<br>
+                            <b>Hedef:</b> <b>CD4+ T lenfosit</b>
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HTLV Tipleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Hastalık</th>
+                                    <th>Coğrafya</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>HTLV-1</b></td>
+                                    <td>ATL, HAM/TSP</td>
+                                    <td>Japonya, Karayipler, Afrika</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HTLV-2</b></td>
+                                    <td>Nadiren nörolojik hastalık</td>
+                                    <td>IV ilaç kullanıcıları</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HTLV-3, 4</b></td>
+                                    <td>Hastalık ilişkisi belirsiz</td>
+                                    <td>Afrika</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HTLV vs HIV</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>HTLV-1</th>
+                                    <th>HIV</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Cins</b></td>
+                                    <td>Deltaretrovirus</td>
+                                    <td>Lentivirus</td>
+                                </tr>
+                                <tr>
+                                    <td><b>CD4 hücre</b></td>
+                                    <td>İmmortalizes (dönüştürür)</td>
+                                    <td>Öldürür</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bulaşıcılık</b></td>
+                                    <td>Düşük</td>
+                                    <td>Yüksek</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Latans</b></td>
+                                    <td>Dekadlar (20-40 yıl)</td>
+                                    <td>Yıllar (8-10 yıl)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hastalık</b></td>
+                                    <td>Kanser (ATL)</td>
+                                    <td>İmmün yetmezlik (AIDS)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HTLV Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HTLV = T hücreyi DÖNÜŞTÜRÜR (kanser)"</b><br>
+                            <b>"HIV = T hücreyi ÖLDÜRÜR (AIDS)"</b><br>
+                            <b>"HTLV = Onkojenik retrovirüs"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Adult T-Cell Leukemia/Lymphoma (ATL)",
+                icon: "fas fa-disease",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">ATL - Adult T-Cell Leukemia/Lymphoma</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> HTLV-1'in neden olduğu agresif T hücre malignitesi<br>
+                            <b>Latans:</b> 20-40 yıl<br>
+                            <b>Risk:</b> Enfekte olanların %2-5'inde gelişir<br>
+                            <b>Yaş:</b> Orta yaş ve üzeri
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ATL Klinik Formları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Form</th>
+                                    <th>Özellik</th>
+                                    <th>Prognoz</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Akut</b></td>
+                                    <td>Lösemi, hiperkalsemi, deri</td>
+                                    <td>Kötü (aylar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lenfomatöz</b></td>
+                                    <td>LAP belirgin, lösemi yok</td>
+                                    <td>Kötü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kronik</b></td>
+                                    <td>Hafif lenfositoz, deri</td>
+                                    <td>Orta</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Smoldering</b></td>
+                                    <td>Minimal bulgular</td>
+                                    <td>İyi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ATL Karakteristik Bulgular</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Flower cell (Çiçek hücre)</b></td>
+                                    <td>Lobüle çekirdekli atipik lenfosit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hiperkalsemi</b></td>
+                                    <td>PTHrP salınımı, %70 hastada</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Deri tutulumu</b></td>
+                                    <td>Papül, nodül, eritrodermi</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lenfadenopati</b></td>
+                                    <td>Yaygın</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hepatosplenomegali</b></td>
+                                    <td>Sık</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fırsatçı enfeksiyonlar</b></td>
+                                    <td>Strongyloides, PCP</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Hiperkalsemi + T hücre malignite + Deri tutulumu = ATL düşün!</strong></p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">ATL Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"FLOWER CELL = Çiçek hücre = ATL patognomonik"</b><br>
+                            <b>"HİPERKALSEMİ = %70 hastada"</b><br>
+                            <b>"LATANS = 20-40 yıl"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "HAM/TSP (HTLV-Associated Myelopathy)",
+                icon: "fas fa-wheelchair",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">HAM/TSP</p>
+                        <p class="highlight-box__content">
+                            <b>HAM:</b> HTLV-Associated Myelopathy<br>
+                            <b>TSP:</b> Tropical Spastic Paraparesis<br>
+                            <b>Mekanizma:</b> Otoimmün demiyelinizasyon<br>
+                            <b>Risk:</b> Enfekte olanların %0.25-3'ünde
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Klinik Özellikler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bulgu</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Spastik paraparezi</b></td>
+                                    <td>Alt ekstremite güçsüzlüğü, spastisite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mesane disfonksiyonu</b></td>
+                                    <td>Sık idrara çıkma, inkontinans</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Duyusal bulgular</b></td>
+                                    <td>Ağrı, parestezi (hafif)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Seyir</b></td>
+                                    <td>Progresif, yıllar içinde</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lokalizasyon</b></td>
+                                    <td>Torakal spinal kord</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">ATL vs HAM/TSP</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>ATL</th>
+                                    <th>HAM/TSP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Tip</b></td>
+                                    <td>Neoplastik</td>
+                                    <td>İnflamatuar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hedef</b></td>
+                                    <td>T hücre transformasyonu</td>
+                                    <td>Spinal kord</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Latans</b></td>
+                                    <td>20-40 yıl</td>
+                                    <td>Daha kısa olabilir</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Birlikte görülme</b></td>
+                                    <td colspan="2">Nadiren aynı hastada birlikte</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">HAM/TSP Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HAM = Myelopati = Spinal kord"</b><br>
+                            <b>"TSP = Tropical Spastic Paraparesis"</b><br>
+                            <b>"SPASTİK PARAparezi + MESANE = HAM/TSP"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Bulaş, Tanı ve Tedavi",
+                icon: "fas fa-vial",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Bulaş Yolları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yol</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Anne sütü</b></td>
+                                    <td><b>En önemli</b> (uzun süreli emzirme)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Cinsel temas</b></td>
+                                    <td>Erkekten kadına daha etkili</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kan transfüzyonu</b></td>
+                                    <td>Hücresel kan ürünleri</td>
+                                </tr>
+                                <tr>
+                                    <td><b>IV ilaç kullanımı</b></td>
+                                    <td>Ortak enjektör</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Emzirme ve HTLV:</strong><br>
+                        HTLV-1 pozitif anneler emzirmemeli! Anne sütü en önemli bulaş yoludur.</p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tanı</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Kullanım</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>ELISA</b></td>
+                                    <td>Tarama (antikor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Western blot</b></td>
+                                    <td>Doğrulama</td>
+                                </tr>
+                                <tr>
+                                    <td><b>PCR</b></td>
+                                    <td>Proviral DNA, viral yük</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Tedavi</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Tedavi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Asemptomatik</b></td>
+                                    <td>İzlem, bulaş önleme</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ATL</b></td>
+                                    <td>Kemoterapi, AZT + IFN-α, allojenik transplant</td>
+                                </tr>
+                                <tr>
+                                    <td><b>HAM/TSP</b></td>
+                                    <td>Kortikosteroidler, semptomatik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Bulaş Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"ANNE SÜTÜ = En önemli bulaş"</b><br>
+                            <b>"HTLV+ = EMZİRME YASAK"</b><br>
+                            <b>"KAN TARAMASI = HTLV dahil"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>HTLV-1 hastalıkları =</b> ATL ve HAM/TSP<br>
+                            2. <b>Onkojenik retrovirüs =</b> HTLV (HIV değil)<br>
+                            3. <b>Flower cell =</b> ATL patognomonik<br>
+                            4. <b>Hiperkalsemi =</b> ATL'de sık<br>
+                            5. <b>En önemli bulaş =</b> Anne sütü<br>
+                            6. <b>Latans =</b> 20-40 yıl (çok uzun)
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">HTLV-1 Hastalıkları Özet</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hastalık</th>
+                                    <th>Tip</th>
+                                    <th>Anahtar Bulgu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ATL</td>
+                                    <td>Neoplastik</td>
+                                    <td>Flower cell, hiperkalsemi, deri</td>
+                                </tr>
+                                <tr>
+                                    <td>HAM/TSP</td>
+                                    <td>Nörolojik</td>
+                                    <td>Spastik paraparezi, mesane</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"HTLV = ONKOJENİK retrovirüs"</b><br>
+                            <b>"HIV = İMMÜN YETMEZLİK retrovirüsü"</b><br>
+                            <b>"HTLV CD4'ü DÖNÜŞTÜRÜR, HIV ÖLDÜRÜR"</b><br>
+                            <b>"FLOWER CELL = ATL = ÇİÇEK HÜCRE"</b><br>
+                            <b>"HİPERKALSEMİ + T MALİGNİTE = ATL"</b><br>
+                            <b>"SPASTİK + MESANE = HAM/TSP"</b><br>
+                            <b>"ANNE SÜTÜ = #1 BULAŞ"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>HTLV-1 =</b> Onkojenik retrovirüs<br>
+                            2. <b>Genom =</b> (+) ssRNA, diploid<br>
+                            3. <b>Hedef hücre =</b> CD4+ T lenfosit<br>
+                            4. <b>ATL =</b> Adult T-cell Leukemia/Lymphoma<br>
+                            5. <b>Flower cell =</b> Lobüle çekirdekli atipik lenfosit<br>
+                            6. <b>ATL hiperkalsemi =</b> PTHrP, %70 hastada<br>
+                            7. <b>ATL latans =</b> 20-40 yıl<br>
+                            8. <b>HAM/TSP =</b> Spastik paraparezi + mesane disfonksiyonu<br>
+                            9. <b>HAM mekanizma =</b> Otoimmün demiyelinizasyon<br>
+                            10. <b>En önemli bulaş =</b> Anne sütü<br>
+                            11. <b>HTLV+ anne =</b> Emzirmemeli<br>
+                            12. <b>Coğrafya =</b> Japonya, Karayipler, Afrika
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Onkojenik retrovirüs?" → HTLV-1</li>
+                        <li><b>Soru tipi:</b> "Flower cell (çiçek hücre) hangi hastalıkta?" → ATL</li>
+                        <li><b>Soru tipi:</b> "Hiperkalsemi + T hücre malignitesi?" → ATL</li>
+                        <li><b>Soru tipi:</b> "Spastik paraparezi + mesane disfonksiyonu?" → HAM/TSP</li>
+                        <li><b>Soru tipi:</b> "HTLV-1 en önemli bulaş yolu?" → Anne sütü</li>
+                        <li><b>Soru tipi:</b> "CD4 hücreyi dönüştüren retrovirüs?" → HTLV</li>
+                    </ul>
+                `
+            }
+        ]
+    },
+    {
+        id: 40,
+        category: "immunoloji",
+        title: "İmmün Sistem Temelleri",
+        subtitle: "Doğal ve Adaptif İmmünite, İmmün Hücreler ve Organlar",
+        summary: "İmmün sistemin temel bileşenleri, doğal (innate) ve adaptif (kazanılmış) immünite ayrımı, immün hücreler, lenfoid organlar ve kompleman sistemi.",
+        tags: ["İmmünoloji", "Doğal İmmünite", "Adaptif İmmünite", "Kompleman", "Lenfosit", "İmmün Organlar"],
+        sections: [
+            {
+                title: "İmmün Sistem Genel Bakış",
+                icon: "fas fa-shield-alt",
+                content: `
+                    <p><strong>İmmün sistem</strong>, vücudu patojenlere, tümörlere ve yabancı maddelere karşı koruyan karmaşık bir savunma ağıdır. İki ana kola ayrılır.</p>
+
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">İmmün Sistemin İki Kolu</p>
+                        <p class="highlight-box__content">
+                            <b>1. Doğal (İnnate) İmmünite:</b> Doğuştan var, hızlı, özgül değil, hafıza yok<br>
+                            <b>2. Adaptif (Kazanılmış) İmmünite:</b> Sonradan gelişir, yavaş, özgül, hafıza var
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Doğal vs Adaptif İmmünite</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Özellik</th>
+                                    <th>Doğal İmmünite</th>
+                                    <th>Adaptif İmmünite</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Yanıt süresi</b></td>
+                                    <td>Dakikalar-saatler</td>
+                                    <td>Günler-haftalar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Özgüllük</b></td>
+                                    <td>Düşük (patern tanıma)</td>
+                                    <td>Yüksek (antijen özgül)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hafıza</b></td>
+                                    <td>YOK</td>
+                                    <td>VAR</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Reseptörler</b></td>
+                                    <td>PRR (TLR, NLR vb.)</td>
+                                    <td>TCR, BCR (antikor)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Hücreler</b></td>
+                                    <td>Makrofaj, nötrofil, NK, DC</td>
+                                    <td>T ve B lenfositler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Çeşitlilik</b></td>
+                                    <td>Sınırlı (germline)</td>
+                                    <td>Çok yüksek (rekombinasyon)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Temel Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DOĞAL = HIZLI + HAFIZASIZ"</b><br>
+                            <b>"ADAPTİF = YAVAŞ + HAFIZALI"</b><br>
+                            <b>"T ve B = Adaptif"</b><br>
+                            <b>"Makrofaj, Nötrofil, NK = Doğal"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Doğal İmmünite Bileşenleri",
+                icon: "fas fa-shield-virus",
+                content: `
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Fiziksel ve Kimyasal Bariyerler</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Bariyer</th>
+                                    <th>Mekanizma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Deri</b></td>
+                                    <td>Keratinize epitel, düşük pH, defensinler</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mukoza</b></td>
+                                    <td>Mukus, silier hareket, IgA</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mide asidi</b></td>
+                                    <td>Düşük pH (1-2)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lizozim</b></td>
+                                    <td>Gözyaşı, tükürükte; peptidoglikan parçalar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Laktoferin</b></td>
+                                    <td>Demir bağlar, bakteriostatik</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Doğal İmmünite Hücreleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hücre</th>
+                                    <th>Fonksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Nötrofil</b></td>
+                                    <td>Fagositoz, NET oluşumu</td>
+                                    <td>En fazla, ilk gelen, piyojenik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Makrofaj</b></td>
+                                    <td>Fagositoz, antijen sunumu</td>
+                                    <td>Doku rezidan, APC</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dendritik hücre</b></td>
+                                    <td>Antijen sunumu</td>
+                                    <td>En güçlü APC, T hücre aktivasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>NK hücre</b></td>
+                                    <td>Virüs enfekte/tümör hücre öldürme</td>
+                                    <td>MHC-I düşükse öldürür</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mast hücre</b></td>
+                                    <td>Histamin salınımı</td>
+                                    <td>Alerjik reaksiyon, IgE reseptörü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Eozinofil</b></td>
+                                    <td>Parazit öldürme</td>
+                                    <td>MBP, parazit ve alerji</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Bazofil</b></td>
+                                    <td>Histamin, heparin</td>
+                                    <td>Kanda en az, Tip I alerji</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Pattern Recognition Receptors (PRR)</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Reseptör</th>
+                                    <th>Lokalizasyon</th>
+                                    <th>Tanıdığı PAMP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>TLR-2</b></td>
+                                    <td>Hücre yüzeyi</td>
+                                    <td>Peptidoglikan, lipoteikoik asit (Gram+)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TLR-4</b></td>
+                                    <td>Hücre yüzeyi</td>
+                                    <td><b>LPS (Gram-)</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>TLR-5</b></td>
+                                    <td>Hücre yüzeyi</td>
+                                    <td>Flagellin</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TLR-3</b></td>
+                                    <td>Endozom</td>
+                                    <td>dsRNA (virüs)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TLR-7/8</b></td>
+                                    <td>Endozom</td>
+                                    <td>ssRNA (virüs)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>TLR-9</b></td>
+                                    <td>Endozom</td>
+                                    <td>CpG DNA (bakteri)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">TLR Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"TLR-4 = LPS = GRAM NEGATİF = Sepsis"</b><br>
+                            <b>"TLR-2 = GRAM POZİTİF"</b><br>
+                            <b>"TLR-5 = FLAGELLİN"</b><br>
+                            <b>"3,7,8,9 = Endozom = Nükleik asit"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Lenfoid Organlar",
+                icon: "fas fa-sitemap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Lenfoid Organ Sınıflaması</p>
+                        <p class="highlight-box__content">
+                            <b>Primer (Santral):</b> Lenfosit gelişimi → Kemik iliği, Timus<br>
+                            <b>Sekonder (Periferal):</b> İmmün yanıt başlangıcı → Lenf nodu, Dalak, MALT
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Primer Lenfoid Organlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Organ</th>
+                                    <th>Fonksiyon</th>
+                                    <th>Gelişen Hücre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Kemik iliği</b></td>
+                                    <td>Hematopoez, B hücre olgunlaşması</td>
+                                    <td>Tüm kan hücreleri, B lenfosit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Timus</b></td>
+                                    <td>T hücre olgunlaşması, seleksiyon</td>
+                                    <td>T lenfosit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Timus ve T Hücre Seleksiyonu</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Seleksiyon</th>
+                                    <th>Yer</th>
+                                    <th>Mekanizma</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Pozitif seleksiyon</b></td>
+                                    <td>Korteks</td>
+                                    <td>Self-MHC tanıma</td>
+                                    <td>MHC tanıyamayanlar → Apoptoz</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Negatif seleksiyon</b></td>
+                                    <td>Medulla</td>
+                                    <td>Self-antijen tanıma</td>
+                                    <td>Otoreaktifler → Apoptoz veya Treg</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Sekonder Lenfoid Organlar</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Organ</th>
+                                    <th>Fonksiyon</th>
+                                    <th>Özellik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Lenf nodu</b></td>
+                                    <td>Lenf filtreleme, immün yanıt</td>
+                                    <td>T hücre: Parakorteks, B hücre: Korteks</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Dalak</b></td>
+                                    <td>Kan filtreleme, kapsüllü bakteri</td>
+                                    <td>Beyaz pulpa: Lenfosit, Kırmızı: Eritrosit</td>
+                                </tr>
+                                <tr>
+                                    <td><b>MALT</b></td>
+                                    <td>Mukozal immünite</td>
+                                    <td>Tonsil, Peyer plakları, appendiks</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--warning">
+                        <span class="alert-box__icon">⚠️</span>
+                        <p class="alert-box__text"><strong>Splenektomi Riski:</strong><br>
+                        Dalak çıkarılan hastalar <b>kapsüllü bakterilere</b> (S. pneumoniae, H. influenzae, N. meningitidis) karşı savunmasızdır. Aşılama şart!</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Lenfoid Organ Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"Kemik = B, Timus = T"</b><br>
+                            <b>"Korteks = B, Parakorteks = T (lenf nodunda)"</b><br>
+                            <b>"DALAK = Kapsüllü bakteri savunması"</b><br>
+                            <b>"MALT = Mukozal (IgA)"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Kompleman Sistemi",
+                icon: "fas fa-project-diagram",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">Kompleman - Temel</p>
+                        <p class="highlight-box__content">
+                            <b>Tanım:</b> Doğal immünitenin proteaz kaskadı<br>
+                            <b>Üretim:</b> Karaciğer<br>
+                            <b>Aktivasyon:</b> 3 yol → Ortak terminal yol<br>
+                            <b>Son ürün:</b> MAC (C5b-C9) → Hücre lizisi
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kompleman Aktivasyon Yolları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Yol</th>
+                                    <th>Başlatıcı</th>
+                                    <th>Anahtar Molekül</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Klasik yol</b></td>
+                                    <td>Antikor-antijen kompleksi (IgG, IgM)</td>
+                                    <td><b>C1q</b> (antikor bağlar)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Lektin yolu</b></td>
+                                    <td>Mannoz içeren yüzeyler</td>
+                                    <td><b>MBL</b> (Mannose-Binding Lectin)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Alternatif yol</b></td>
+                                    <td>Patojen yüzeyleri (spontan)</td>
+                                    <td><b>C3</b> (direkt hidroliz)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kompleman Fonksiyonları</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Fonksiyon</th>
+                                    <th>Molekül</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Opsonizasyon</b></td>
+                                    <td><b>C3b</b></td>
+                                    <td>Fagositozu kolaylaştırır</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Kemotaksis</b></td>
+                                    <td><b>C5a</b></td>
+                                    <td>Nötrofil çeker, en güçlü kemotaktik</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Anafilatoksin</b></td>
+                                    <td><b>C3a, C4a, C5a</b></td>
+                                    <td>Mast hücre degranülasyonu</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Sitoliz (MAC)</b></td>
+                                    <td><b>C5b-C9</b></td>
+                                    <td>Membran yıkımı, hücre ölümü</td>
+                                </tr>
+                                <tr>
+                                    <td><b>İmmün kompleks temizliği</b></td>
+                                    <td>C3b</td>
+                                    <td>Eritrosit üzerinde taşınma</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Kompleman Eksiklikleri</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Eksiklik</th>
+                                    <th>Sonuç</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>C1, C2, C4 (Klasik yol)</b></td>
+                                    <td>SLE benzeri otoimmünite</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C3</b></td>
+                                    <td>Ağır piyojenik enfeksiyonlar</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C5-C9 (MAC)</b></td>
+                                    <td><b>Neisseria enfeksiyonları</b></td>
+                                </tr>
+                                <tr>
+                                    <td><b>DAF/CD55, CD59</b></td>
+                                    <td>PNH (Paroksismal Nokturnal Hemoglobinüri)</td>
+                                </tr>
+                                <tr>
+                                    <td><b>C1 inhibitör</b></td>
+                                    <td>Herediter anjiyoödem</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>Terminal Kompleman (C5-C9) Eksikliği = Neisseria!</strong><br>
+                        Tekrarlayan meningokok veya gonokok enfeksiyonu varsa MAC eksikliği düşün.</p>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Kompleman Hafıza</p>
+                        <p class="mnemonic-box__text">
+                            <b>"C3b = OPSONİZASYON (en önemli)"</b><br>
+                            <b>"C5a = KEMOTAKSİ + ANAFİLATOKSİN (en güçlü)"</b><br>
+                            <b>"C5-9 = MAC = LİZİS"</b><br>
+                            <b>"MAC eksik = NEİSSERİA"</b><br>
+                            <b>"Klasik yol eksik = SLE"</b>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Sınav İçin Kritik Özet",
+                icon: "fas fa-graduation-cap",
+                content: `
+                    <div class="highlight-box">
+                        <p class="highlight-box__title">🎯 En Sık Sorulan Konular</p>
+                        <p class="highlight-box__content">
+                            1. <b>Doğal vs Adaptif =</b> Hafıza farkı<br>
+                            2. <b>TLR-4 =</b> LPS (Gram negatif)<br>
+                            3. <b>C3b =</b> Opsonizasyon<br>
+                            4. <b>C5a =</b> Kemotaksi (en güçlü)<br>
+                            5. <b>MAC eksikliği =</b> Neisseria enfeksiyonları<br>
+                            6. <b>Dalak =</b> Kapsüllü bakteri savunması
+                        </p>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4 class="sub-section__title">Özet Tablo - Hücre ve Fonksiyon</h4>
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Hücre</th>
+                                    <th>İmmünite Tipi</th>
+                                    <th>Ana Fonksiyon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nötrofil</td>
+                                    <td>Doğal</td>
+                                    <td>Fagositoz (ilk gelen)</td>
+                                </tr>
+                                <tr>
+                                    <td>Makrofaj</td>
+                                    <td>Doğal</td>
+                                    <td>Fagositoz + APC</td>
+                                </tr>
+                                <tr>
+                                    <td>Dendritik</td>
+                                    <td>Doğal → Adaptif köprü</td>
+                                    <td>En güçlü APC</td>
+                                </tr>
+                                <tr>
+                                    <td>NK</td>
+                                    <td>Doğal</td>
+                                    <td>Virüs/tümör öldürme</td>
+                                </tr>
+                                <tr>
+                                    <td>T lenfosit</td>
+                                    <td>Adaptif</td>
+                                    <td>Hücresel immünite</td>
+                                </tr>
+                                <tr>
+                                    <td>B lenfosit</td>
+                                    <td>Adaptif</td>
+                                    <td>Humoral immünite (antikor)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mnemonic-box">
+                        <p class="mnemonic-box__label">Mega Hafıza Kodları</p>
+                        <p class="mnemonic-box__text">
+                            <b>"DOĞAL = HIZLI, HAFIZASIZ, PRR"</b><br>
+                            <b>"ADAPTİF = YAVAŞ, HAFIZALI, T/B"</b><br>
+                            <b>"TLR4 = LPS = GRAM(-) = SEPSİS"</b><br>
+                            <b>"C3b = OPSONİZASYON"</b><br>
+                            <b>"C5a = KEMOTAKSİ"</b><br>
+                            <b>"C5-9 = MAC = NEİSSERİA eksikliği"</b><br>
+                            <b>"TİMUS = T, KEMİK = B"</b><br>
+                            <b>"DALAK ↓ = KAPSÜLLÜ BAKTERİ ↑"</b>
+                        </p>
+                    </div>
+
+                    <div class="alert-box alert-box--danger">
+                        <span class="alert-box__icon">🚨</span>
+                        <p class="alert-box__text"><strong>SINAV İÇİN KESİN BİL:</strong><br><br>
+                            1. <b>Doğal immünite =</b> Hızlı, hafızasız, PRR ile tanıma<br>
+                            2. <b>Adaptif immünite =</b> Yavaş, hafızalı, özgül<br>
+                            3. <b>TLR-4 =</b> LPS (Gram negatif) tanır<br>
+                            4. <b>TLR-2 =</b> Peptidoglikan (Gram pozitif) tanır<br>
+                            5. <b>En güçlü APC =</b> Dendritik hücre<br>
+                            6. <b>NK hücre =</b> MHC-I düşükse öldürür<br>
+                            7. <b>Primer lenfoid =</b> Kemik iliği (B), Timus (T)<br>
+                            8. <b>C3b =</b> Opsonizasyon<br>
+                            9. <b>C5a =</b> En güçlü kemotaktik, anafilatoksin<br>
+                            10. <b>MAC (C5-9) eksikliği =</b> Neisseria enfeksiyonları<br>
+                            11. <b>C1 inhibitör eksikliği =</b> Herediter anjiyoödem<br>
+                            12. <b>Splenektomi =</b> Kapsüllü bakteri riski
+                        </p>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><b>Soru tipi:</b> "Hafızası olan immünite?" → Adaptif</li>
+                        <li><b>Soru tipi:</b> "LPS'i tanıyan reseptör?" → TLR-4</li>
+                        <li><b>Soru tipi:</b> "En güçlü kemotaktik faktör?" → C5a</li>
+                        <li><b>Soru tipi:</b> "Opsonizasyonda rol alan kompleman?" → C3b</li>
+                        <li><b>Soru tipi:</b> "Tekrarlayan Neisseria enfeksiyonu, eksik olan?" → C5-C9 (MAC)</li>
+                        <li><b>Soru tipi:</b> "T hücre olgunlaşma yeri?" → Timus</li>
+                        <li><b>Soru tipi:</b> "En güçlü antijen sunan hücre?" → Dendritik hücre</li>
+                    </ul>
+                `
+            }
+        ]
     }
 ];
 
