@@ -1353,6 +1353,170 @@
 }
 
 /* ===========================================
+   TEXT HIGHLIGHTER
+   Kullanıcı highlight sistemi (mark + toolbar)
+   =========================================== */
+
+mark.text-highlight {
+    --hl-color: #facc15;
+    --hl-bg: rgba(250, 204, 21, 0.22);
+    --hl-border: rgba(250, 204, 21, 0.36);
+
+    color: inherit;
+    background: var(--hl-bg);
+    border: 1px solid var(--hl-border);
+    border-radius: 0.5em;
+    padding: 0.05em 0.14em;
+    margin: 0 -0.04em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 8px 20px -18px rgba(0, 0, 0, 0.38);
+    transition:
+        background-color 0.18s var(--ease-apple),
+        border-color 0.18s var(--ease-apple),
+        box-shadow 0.25s var(--ease-apple-out);
+}
+
+mark.text-highlight:hover {
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 12px 26px -18px rgba(0, 0, 0, 0.42);
+}
+
+mark.text-highlight.is-active {
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.10) inset,
+        0 0 0 3px rgba(79, 70, 229, 0.24),
+        0 12px 26px -18px rgba(0, 0, 0, 0.42);
+}
+
+.highlight-toolbar {
+    position: fixed;
+    z-index: var(--z-popover);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px) scale(0.98);
+    transform-origin: 50% 100%;
+    transition:
+        opacity 0.16s var(--ease-apple),
+        transform 0.22s var(--ease-apple-out),
+        visibility 0s linear 0.22s;
+}
+
+.highlight-toolbar.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition:
+        opacity 0.18s var(--ease-apple),
+        transform 0.26s var(--ease-apple-out),
+        visibility 0s linear 0s;
+}
+
+.highlight-toolbar__swatch {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: var(--swatch, rgba(250, 204, 21, 0.65));
+    box-shadow:
+        0 10px 22px -18px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(0, 0, 0, 0.12) inset;
+    cursor: pointer;
+    transition:
+        transform 0.18s var(--ease-apple),
+        box-shadow 0.22s var(--ease-apple-out),
+        border-color 0.18s var(--ease-apple);
+}
+
+.highlight-toolbar__swatch:hover {
+    transform: translateY(-1px) scale(1.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 14px 26px -18px rgba(0, 0, 0, 0.62),
+        0 0 0 1px rgba(0, 0, 0, 0.16) inset;
+}
+
+.highlight-toolbar__swatch:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.highlight-toolbar__btn {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition:
+        transform 0.18s var(--ease-apple),
+        background-color 0.18s var(--ease-apple),
+        color 0.18s var(--ease-apple),
+        box-shadow 0.22s var(--ease-apple-out),
+        border-color 0.18s var(--ease-apple);
+}
+
+.highlight-toolbar__btn:hover {
+    transform: translateY(-1px);
+    background: var(--primary-ghost);
+    color: var(--primary);
+    border-color: color-mix(in srgb, var(--glass-border), var(--primary) 30%);
+    box-shadow: 0 10px 22px -18px rgba(0, 0, 0, 0.55);
+}
+
+.highlight-toolbar__btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+.highlight-toolbar__btn[disabled] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.highlight-toolbar__divider {
+    width: 1px;
+    height: 22px;
+    background: rgba(148, 163, 184, 0.28);
+}
+
+@media (max-width: 768px) {
+    .highlight-toolbar {
+        gap: var(--space-1);
+        padding: var(--space-2) var(--space-2);
+    }
+    .highlight-toolbar__swatch {
+        width: 36px;
+        height: 36px;
+    }
+    .highlight-toolbar__btn {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* ===========================================
    CATEGORY ICON SYSTEM
    Mikrobiyoloji kategori ikonları - tüm sayfalarda kullanılır
    =========================================== */

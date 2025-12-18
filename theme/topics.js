@@ -1408,6 +1408,11 @@ function showTopicDetail(topicId) {
 
     setupTopicEndPrompt(topicId);
 
+    // Highlighter: load and apply user highlights for this topic.
+    if (window.appHighlighter && typeof window.appHighlighter.attach === 'function') {
+        window.appHighlighter.attach({ topicId, rootEl: articleContainer });
+    }
+
     // Sayfanın üstüne scroll
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -1487,6 +1492,11 @@ function showTopicsList() {
 
     // URL'yi temizle
     updateURL(null);
+
+    // Highlighter: cleanup floating UI when leaving detail view.
+    if (window.appHighlighter && typeof window.appHighlighter.detach === 'function') {
+        window.appHighlighter.detach();
+    }
     
     // Sayfa başlığını geri al
     document.title = 'Konu Özetleri | Mikrobiyoloji Anlatımları';

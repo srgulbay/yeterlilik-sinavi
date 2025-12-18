@@ -17,6 +17,13 @@ service cloud.firestore {
         && isPrefsValid(request.resource.data);
     }
 
+    match /users/{uid}/highlights/{highlightId} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && isHighlightValid(request.resource.data);
+      allow delete: if request.auth != null && request.auth.uid == uid;
+    }
+
     function isValid(data) {
       return (data.favorite is bool || !('favorite' in data))
         && (data.readLevel is int || !('readLevel' in data))
@@ -41,6 +48,18 @@ service cloud.firestore {
           data.topicsSortMode == 'needsReview' ||
           data.topicsSortMode == 'mostReviewed'
         )))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isHighlightValid(data) {
+      return data.keys().hasOnly(['topicId', 'start', 'end', 'quote', 'prefix', 'suffix', 'color', 'updatedAt'])
+        && ('topicId' in data) && (data.topicId is string) && (data.topicId.size() > 0) && (data.topicId.size() <= 64)
+        && ('start' in data) && (data.start is int) && (data.start >= 0)
+        && ('end' in data) && (data.end is int) && (data.end > data.start) && ((data.end - data.start) <= 20000)
+        && ('quote' in data) && (data.quote is string) && (data.quote.size() > 0) && (data.quote.size() <= 1600)
+        && ('prefix' in data) && (data.prefix is string) && (data.prefix.size() <= 36)
+        && ('suffix' in data) && (data.suffix is string) && (data.suffix.size() <= 36)
+        && ('color' in data) && (data.color is string) && (data.color.matches('^#([0-9a-fA-F]{6})$'))
         && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }
   }

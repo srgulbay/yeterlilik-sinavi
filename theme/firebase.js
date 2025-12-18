@@ -80,6 +80,80 @@
     return `appFirebase:v1:favorites:${uid}:${String(type || '').trim().toLowerCase() || 'unknown'}`;
   }
 
+  function storageKeyHighlights(uid, topicId) {
+    return `appFirebase:v1:highlights:${uid}:${normalizeTopicId(topicId)}`;
+  }
+
+  const HIGHLIGHT_CONTEXT_MAX = 36;
+  const HIGHLIGHT_QUOTE_MAX = 1600;
+
+  function clampInt(value, min, max) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return min;
+    return Math.max(min, Math.min(max, Math.trunc(n)));
+  }
+
+  function normalizeHexColor(input) {
+    const raw = String(input || '').trim();
+    if (!raw) return '';
+    const hex = raw.startsWith('#') ? raw : `#${raw}`;
+    const m = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.exec(hex);
+    if (!m) return '';
+    const value = m[1];
+    if (value.length === 6) return `#${value.toLowerCase()}`;
+    const expanded = value.split('').map((c) => c + c).join('');
+    return `#${expanded.toLowerCase()}`;
+  }
+
+  function normalizeHighlightRecord(docId, data) {
+    const id = String(docId || '').trim();
+    const obj = data && typeof data === 'object' ? data : {};
+    const topicId = obj.topicId == null ? '' : normalizeTopicId(obj.topicId);
+    if (!id || !topicId) return null;
+
+    const start = clampInt(obj.start, 0, Number.MAX_SAFE_INTEGER);
+    const end = clampInt(obj.end, start + 1, Number.MAX_SAFE_INTEGER);
+    const quote = String(obj.quote || '').slice(0, HIGHLIGHT_QUOTE_MAX);
+    const prefix = String(obj.prefix || '').slice(0, HIGHLIGHT_CONTEXT_MAX);
+    const suffix = String(obj.suffix || '').slice(0, HIGHLIGHT_CONTEXT_MAX);
+    const color = normalizeHexColor(obj.color) || '#facc15';
+
+    let updatedAt = 0;
+    try {
+      if (obj.updatedAt && typeof obj.updatedAt.toMillis === 'function') {
+        updatedAt = obj.updatedAt.toMillis();
+      } else if (obj.updatedAt instanceof Date) {
+        updatedAt = obj.updatedAt.getTime();
+      }
+    } catch (_) {
+      updatedAt = 0;
+    }
+
+    return {
+      id,
+      topicId,
+      start,
+      end,
+      quote,
+      prefix,
+      suffix,
+      color,
+      updatedAt,
+      v: 1,
+    };
+  }
+
+  function loadCachedHighlights(uid, topicId) {
+    const raw = storageGet(storageKeyHighlights(uid, topicId), null);
+    if (!raw || typeof raw !== 'object' || !Array.isArray(raw.items)) return [];
+    return raw.items.map((item) => normalizeHighlightRecord(item?.id, item)).filter(Boolean);
+  }
+
+  function saveCachedHighlights(uid, topicId, items) {
+    const safe = Array.isArray(items) ? items.map((item) => normalizeHighlightRecord(item?.id, item)).filter(Boolean) : [];
+    storageSet(storageKeyHighlights(uid, topicId), { items: safe, updatedAt: Date.now() });
+  }
+
   function loadCachedTopics(uid) {
     const raw = storageGet(storageKeyTopics(uid), null);
     if (!raw || typeof raw !== 'object' || !raw.items || typeof raw.items !== 'object') return new Map();
@@ -199,6 +273,16 @@
     },
     loadUserPrefs: async () => ({}),
     setUserPrefs: async () => {
+      throw new Error('Firebase not configured');
+    },
+    loadHighlights: async () => [],
+    saveHighlight: async () => {
+      throw new Error('Firebase not configured');
+    },
+    deleteHighlight: async () => {
+      throw new Error('Firebase not configured');
+    },
+    clearHighlights: async () => {
       throw new Error('Firebase not configured');
     },
     _clampReadLevel: clampReadLevel,
@@ -494,6 +578,130 @@
 
       await db.collection('users').doc(user.uid).collection('prefs').doc('ui').set(patch, { merge: true });
       safeDispatch('prefs:updated', { patch: cleanPatch });
+      return true;
+    };
+
+    api.loadHighlights = async (topicId) => {
+      const user = auth.currentUser;
+      if (!user) return [];
+
+      const id = normalizeTopicId(topicId);
+      const cached = loadCachedHighlights(user.uid, id);
+
+      try {
+        const snap = await db.collection('users').doc(user.uid).collection('highlights')
+          .where('topicId', '==', id)
+          .get();
+
+        const items = [];
+        snap.forEach((doc) => {
+          const rec = normalizeHighlightRecord(doc.id, doc.data() || {});
+          if (rec) items.push(rec);
+        });
+
+        // Keep newest for duplicate ids.
+        const map = new Map();
+        items.forEach((r) => {
+          const prev = map.get(r.id);
+          if (!prev || r.updatedAt >= prev.updatedAt) map.set(r.id, r);
+        });
+        const list = Array.from(map.values()).sort((a, b) => (a.start - b.start) || a.id.localeCompare(b.id));
+        saveCachedHighlights(user.uid, id, list);
+        return list;
+      } catch (_) {
+        return cached;
+      }
+    };
+
+    api.saveHighlight = async (highlight) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+
+      const h = highlight && typeof highlight === 'object' ? highlight : {};
+      const docId = String(h.id || '').trim();
+      if (!docId) throw new Error('HIGHLIGHT_ID_REQUIRED');
+
+      if (h.topicId == null) throw new Error('TOPIC_ID_REQUIRED');
+      const topicId = normalizeTopicId(h.topicId);
+      const start = clampInt(h.start, 0, Number.MAX_SAFE_INTEGER);
+      const end = clampInt(h.end, start + 1, Number.MAX_SAFE_INTEGER);
+      const quote = String(h.quote || '').slice(0, HIGHLIGHT_QUOTE_MAX);
+      const prefix = String(h.prefix || '').slice(0, HIGHLIGHT_CONTEXT_MAX);
+      const suffix = String(h.suffix || '').slice(0, HIGHLIGHT_CONTEXT_MAX);
+      const color = normalizeHexColor(h.color) || '#facc15';
+
+      const patch = {
+        topicId,
+        start,
+        end,
+        quote,
+        prefix,
+        suffix,
+        color,
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+      };
+
+      // Update cache immediately.
+      try {
+        const current = loadCachedHighlights(user.uid, topicId);
+        const next = current.filter((x) => x.id !== docId);
+        next.push({ id: docId, topicId, start, end, quote, prefix, suffix, color, updatedAt: Date.now(), v: 1 });
+        next.sort((a, b) => (a.start - b.start) || a.id.localeCompare(b.id));
+        saveCachedHighlights(user.uid, topicId, next);
+      } catch (_) {
+        // ignore
+      }
+
+      await db.collection('users').doc(user.uid).collection('highlights').doc(docId).set(patch, { merge: true });
+      safeDispatch('highlights:updated', { topicId, highlightId: docId, patch: { start, end, color } });
+      return true;
+    };
+
+    api.deleteHighlight = async (highlightId, topicId) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+
+      const docId = String(highlightId || '').trim();
+      if (!docId) return false;
+
+      // Update cache best-effort when topicId is provided.
+      if (topicId != null) {
+        try {
+          const tid = normalizeTopicId(topicId);
+          const current = loadCachedHighlights(user.uid, tid);
+          saveCachedHighlights(user.uid, tid, current.filter((x) => x.id !== docId));
+        } catch (_) {
+          // ignore
+        }
+      }
+
+      await db.collection('users').doc(user.uid).collection('highlights').doc(docId).delete();
+      safeDispatch('highlights:deleted', { topicId: topicId != null ? normalizeTopicId(topicId) : null, highlightId: docId });
+      return true;
+    };
+
+    api.clearHighlights = async (topicId) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+      const tid = normalizeTopicId(topicId);
+      if (!tid) return false;
+
+      // Cache: clear immediately.
+      try {
+        saveCachedHighlights(user.uid, tid, []);
+      } catch (_) {
+        // ignore
+      }
+
+      // Batch delete for this topic.
+      const snap = await db.collection('users').doc(user.uid).collection('highlights')
+        .where('topicId', '==', tid)
+        .get();
+
+      const batch = db.batch();
+      snap.forEach((doc) => batch.delete(doc.ref));
+      await batch.commit();
+      safeDispatch('highlights:cleared', { topicId: tid });
       return true;
     };
 
