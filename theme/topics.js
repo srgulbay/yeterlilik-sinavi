@@ -9,6 +9,8 @@ let searchQuery = '';
 let currentView = 'list'; // 'list' veya 'detail'
 let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLevel:number }
 
+let topicEndObserver = null;
+
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     initTopicsModule();
@@ -322,6 +324,33 @@ async function toggleReadLevel(topicId, clickedLevel) {
     }
 }
 
+async function incrementReadLevelOnce(topicId) {
+    const id = normalizeTopicId(topicId);
+    if (!isAuthReady()) {
+        showToast('İşaretlemek için giriş yapın');
+        updateTopicUIFor(id);
+        return;
+    }
+
+    const prev = getTopicState(id);
+    if (prev.readLevel >= 5) {
+        updateTopicUIFor(id);
+        return;
+    }
+
+    const nextLevel = clampReadLevel(prev.readLevel + 1);
+    setTopicStateLocal(id, { readLevel: nextLevel });
+    updateTopicUIFor(id);
+
+    try {
+        await window.appFirebase.setTopicState(id, { readLevel: nextLevel });
+    } catch (_) {
+        setTopicStateLocal(id, { readLevel: prev.readLevel });
+        updateTopicUIFor(id);
+        showToast('Kaydetme başarısız');
+    }
+}
+
 // URL'den paylaşım linkini kontrol et
 function handleShareLink() {
     const params = new URLSearchParams(window.location.search);
@@ -396,6 +425,105 @@ function showToast(message) {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
     }, 2500);
+}
+
+function showConfirmToast({ message, confirmText = 'Evet', cancelText = 'Hayır', onConfirm, onCancel }) {
+    const existing = document.querySelector('.share-toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'share-toast share-toast--confirm';
+    toast.innerHTML = `
+        <div class="share-toast__text">
+            <i class="fas fa-check-circle"></i>
+            <span>${message}</span>
+        </div>
+        <div class="share-toast__actions">
+            <button type="button" class="btn btn-sm btn-primary" data-toast-confirm>${confirmText}</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-toast-cancel>${cancelText}</button>
+        </div>
+    `;
+
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    const cleanup = () => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    };
+
+    toast.querySelector('[data-toast-confirm]')?.addEventListener('click', async () => {
+        cleanup();
+        try {
+            await onConfirm?.();
+        } catch (_) {
+            // ignore
+        }
+    });
+    toast.querySelector('[data-toast-cancel]')?.addEventListener('click', () => {
+        cleanup();
+        try {
+            onCancel?.();
+        } catch (_) {
+            // ignore
+        }
+    });
+}
+
+function clearTopicEndObserver() {
+    try {
+        topicEndObserver?.disconnect();
+    } catch (_) {
+        // ignore
+    }
+    topicEndObserver = null;
+}
+
+function setupTopicEndPrompt(topicId) {
+    clearTopicEndObserver();
+
+    const id = normalizeTopicId(topicId);
+    const sentinel = document.querySelector('[data-topic-end-sentinel]');
+    if (!sentinel) return;
+
+    const sessionKey = `topics:end-toast-shown:${id}`;
+    if (sessionStorage.getItem(sessionKey)) return;
+
+    topicEndObserver = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        if (!entry || !entry.isIntersecting) return;
+
+        sessionStorage.setItem(sessionKey, '1');
+        clearTopicEndObserver();
+
+        if (!isAuthReady()) {
+            showToast('Tebrikler! Konu özetini bitirdin. Tekrar işaretlemek için giriş yap.');
+            return;
+        }
+
+        const state = getTopicState(id);
+        const nextLevel = clampReadLevel(state.readLevel + 1);
+
+        // If already maxed, just congratulate.
+        if (state.readLevel >= 5 || nextLevel <= state.readLevel) {
+            showToast('Tebrikler! Konu özetini bitirdin.');
+            return;
+        }
+
+        showConfirmToast({
+            message: 'Tebrikler! Konu özetini bitirdin. 1 tekrar işaretlensin mi?',
+            confirmText: 'Evet',
+            cancelText: 'Hayır',
+            onConfirm: async () => {
+                await incrementReadLevelOnce(id);
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.25
+    });
+
+    topicEndObserver.observe(sentinel);
 }
 
 // Konu listesi render
@@ -517,6 +645,8 @@ function showTopicDetail(topicId) {
     // Makaleyi render et
     articleContainer.innerHTML = renderTopicArticle(topic);
 
+    setupTopicEndPrompt(topicId);
+
     // Sayfanın üstüne scroll
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -570,6 +700,7 @@ function renderTopicArticle(topic) {
         </header>
         <div class="article-content">
             ${sectionsHTML}
+            <div class="topic-end-sentinel" data-topic-end-sentinel aria-hidden="true"></div>
         </div>
     `;
 }
@@ -587,6 +718,8 @@ function showTopicsList() {
     detailSection.style.display = 'none';
     listSection.style.display = 'grid';
     currentView = 'list';
+
+    clearTopicEndObserver();
 }
 
 // Geri butonu
