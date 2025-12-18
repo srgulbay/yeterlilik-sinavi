@@ -9,6 +9,55 @@ let searchQuery = '';
 let currentView = 'list'; // 'list' veya 'detail'
 let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLevel:number }
 
+let topicPriorityById = new Map(); // topicId(string) -> { score:number(0-100), tier:'high'|'med'|'low', label:string, iconClass:string }
+
+// Manual fine-tuning per topic (TUS/yan dal/yeterlilik “high-yield” emphasis).
+// Keep boosts modest: overall ranking still derives from content-derived signals.
+const TOPIC_PRIORITY_MANUAL_OVERRIDES = {
+    // Bakteriyoloji
+    '1': { boost: 6 },   // Bacillus anthracis
+    '3': { boost: 8 },   // Streptococcus agalactiae
+    '4': { boost: 26 },  // Bakteriyoloji Ayırıcı Testler
+    '8': { boost: 22 },  // Fenotipik Direnç Testleri
+
+    // Mikoloji
+    '9': { boost: 18 },  // Candida + C. auris
+    '20': { boost: 16 }, // Aspergillus
+    '21': { boost: 10 }, // Dermatofitler
+    '22': { boost: 14 }, // Cryptococcus
+    '23': { boost: 10 }, // Dimorfik mantarlar
+    '24': { boost: 18 }, // Antifungal ilaçlar/direnç
+    '25': { boost: 14 }, // Mukormikoz
+    '26': { boost: 14 }, // Pneumocystis
+
+    // Parazitoloji
+    '10': { boost: 16 }, // Malarya
+    '11': { boost: 10 }, // Bağırsak protozoonları
+    '12': { boost: 16 }, // Toxoplasma
+    '13': { boost: 10 }, // Leishmania
+    '14': { boost: 10 }, // Nematodlar
+    '15': { boost: 10 }, // Cestodlar
+    '16': { boost: 10 }, // Trematodlar
+    '17': { boost: 16 }, // Tanı yöntemleri + antiparaziterler
+
+    // Viroloji
+    '2': { boost: 18 },  // Ortomiksovirüsler (influenza)
+    '18': { boost: 10 }, // Paramiksovirüsler
+    '27': { boost: 24 }, // Hepatit virüsleri
+    '28': { boost: 28 }, // HIV + ART
+    '29': { boost: 16 }, // Herpesvirüsler
+    '30': { boost: 12 }, // Kuduz
+    '31': { boost: 14 }, // HPV
+    '32': { boost: 10 }, // Enterovirüsler
+    '33': { boost: 10 }, // Koronavirüsler
+    '34': { boost: 6 },  // Adenovirüs
+    '35': { boost: 10 }, // Arbovirüsler
+    '36': { boost: 10 }, // Rotavirüs
+
+    // Laboratuvar
+    '19': { boost: 18 }, // Temel lab kavramları
+};
+
 let topicEndObserver = null;
 
 // Sayfa yüklendiğinde
@@ -19,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initTopicsModule() {
+    initTopicPriority(topicsData);
     renderTopicsList(topicsData);
     initCategoryFilters();
     initSearch();
@@ -26,6 +76,181 @@ function initTopicsModule() {
     initDockChips();
     initTopicState();
     initTopicActions();
+}
+
+function toSearchText(value) {
+    return String(value || '')
+        .toLocaleLowerCase('tr-TR')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function countMatches(text, re) {
+    if (!text) return 0;
+    const regex = re.global ? re : new RegExp(re.source, `${re.flags}g`);
+    let count = 0;
+    let m;
+    // Guard against zero-length matches.
+    while ((m = regex.exec(text)) !== null) {
+        count += 1;
+        if (m.index === regex.lastIndex) regex.lastIndex += 1;
+    }
+    return count;
+}
+
+function scoreLog(count, weight, cap = 999) {
+    const c = Math.min(cap, Math.max(0, Number(count) || 0));
+    if (c <= 0) return 0;
+    // Diminishing returns: 1→1.0, 2→1.58, 3→2.0, ...
+    return (Number(weight) || 0) * Math.log1p(c);
+}
+
+function computeTopicPriorityBaseScore(topic) {
+    const title = toSearchText(topic?.title);
+    const subtitle = toSearchText(topic?.subtitle);
+    const summary = toSearchText(topic?.summary);
+    const tags = Array.isArray(topic?.tags) ? topic.tags.map(toSearchText).join(' ') : '';
+    const sectionTitles = Array.isArray(topic?.sections)
+        ? topic.sections.map((s) => toSearchText(s?.title)).join(' ')
+        : '';
+
+    const sectionContent = Array.isArray(topic?.sections)
+        ? topic.sections.map((s) => toSearchText(s?.content)).join(' ')
+        : '';
+
+    // IMPORTANT:
+    // We cannot know real exam frequencies without an external corpus.
+    // Instead, we infer “exam-likelihood” from:
+    // - explicit exam cues embedded in the content (Sınav Notu / Soru tipi)
+    // - decision-making density (tanı/tedavi/algoritma/ayırıcı)
+    // - high-yield phrasing (en sık, klasik, altın standart, ilk seçenek)
+    // - structure density (tables, warning/alert boxes, mnemonics)
+    const hay = `${title} ${subtitle} ${summary} ${tags} ${sectionTitles} ${sectionContent}`;
+
+    let score = 0;
+
+    // Explicit exam cues (strongest signal when present)
+    const explicitExam = countMatches(hay, /\bsınav\s*notu\b|\bsinav\s*notu\b|\bsoru\s*tipi\b|\btus\b|\byeterlilik\b/g);
+    score += scoreLog(explicitExam, 42, 10);
+
+    // “High-yield” phrasing, frequency & importance hints
+    const freqHints = countMatches(hay, /\ben\s*sık\b|\ben\s*önemli\b|\bklasik\b|\btipik\b|\bmutlaka\b|\bçok\s*sık\b|\bsıklıkla\b/g);
+    score += scoreLog(freqHints, 16, 30);
+
+    // Diagnostic reasoning & interpretation
+    const diagnosis = countMatches(hay, /\btanı\b|\btanıda\b|\btanısal\b|\byorum\b|\bdiferansiyel\b|\bayırıcı\b|\baltın\s*standart\b|\bsensitivite\b|\bspesifisite\b|\bduyarlılık\b|\bözgüllük\b/g);
+    score += scoreLog(diagnosis, 14, 60);
+
+    // Treatment & prevention
+    const treatment = countMatches(hay, /\btedavi\b|\bprofilaksi\b|\başı\b|\başılama\b|\bilk\s*seç(enek|im)\b|\bilk\s*tercih\b|\bkontrendike\b|\byan\s*etki\b|\bdoz\b/g);
+    score += scoreLog(treatment, 12, 60);
+
+    // Antimicrobial resistance / guidelines
+    const resistance = countMatches(hay, /\bdirenç\b|\bresistans\b|\bcls[ıi]\b|\beucast\b|\b(esbl|ampc|mrsa|vre)\b|\bkarbapenem\b|\bvankomisin\b|\bsefalosporin\b|\bbeta\s*-?laktam\b|\bkinolon\b/g);
+    score += scoreLog(resistance, 12, 50);
+
+    // Core clinical syndromes that tend to be repeatedly queried
+    const syndromes = countMatches(hay, /\bsepsis\b|\bmenenjit\b|\bpnömoni\b|\bhepatit\b|\bhiv\b|\btüberküloz\b|\bendokardit\b|\bü(se|ye)\b|\bosteomiyelit\b|\bishal\b|\bkolera\b/g);
+    score += scoreLog(syndromes, 10, 40);
+
+    // Special populations / infection control
+    const specialPops = countMatches(hay, /\bgebelik\b|\byenidoğan\b|\bimmünsüprese\b|\bimmunsuprese\b|\baids\b|\bnozokomiyal\b|\bhastane\s*enfeksiyonu\b|\bizolasyon\b/g);
+    score += scoreLog(specialPops, 9, 40);
+
+    // Structure density (content author already encoded “teachable moments”)
+    const tableCount = countMatches(sectionContent, /<table\b/g);
+    score += scoreLog(tableCount, 7, 12);
+
+    const alertCount = countMatches(sectionContent, /alert-box\b|⚠️|🚨/g);
+    score += scoreLog(alertCount, 5, 20);
+
+    const mnemonicCount = countMatches(sectionContent, /mnemonic-box\b|\bmnemonik\b/g);
+    score += scoreLog(mnemonicCount, 4, 12);
+
+    const algorithmicLists = countMatches(sectionContent, /\b(1\.|2\.|3\.|4\.|5\.)\b|→/g);
+    score += scoreLog(algorithmicLists, 2.5, 120);
+
+    // Breadth: cap strongly to avoid rewarding mere length.
+    const sectionCount = Array.isArray(topic?.sections) ? topic.sections.length : 0;
+    const tagCount = Array.isArray(topic?.tags) ? topic.tags.length : 0;
+    score += Math.min(18, sectionCount * 1.8);
+    score += Math.min(8, tagCount * 0.8);
+
+    // Mild category prior (kept subtle)
+    const category = toSearchText(topic?.category);
+    if (category === 'immunoloji') score += 4;
+    if (category === 'viroloji') score += 2;
+
+    return score;
+}
+
+function initTopicPriority(data) {
+    const items = Array.isArray(data) ? data : [];
+    const raw = items
+        .map((t) => {
+            const id = normalizeTopicId(t?.id);
+            const base = computeTopicPriorityBaseScore(t);
+            const manual = TOPIC_PRIORITY_MANUAL_OVERRIDES[id]?.boost ?? 0;
+            return { id, rawScore: base + (Number(manual) || 0) };
+        })
+        .filter((x) => x.id);
+
+    if (raw.length === 0) {
+        topicPriorityById = new Map();
+        return;
+    }
+
+    const rawScores = raw.map((x) => x.rawScore);
+    const min = Math.min(...rawScores);
+    const max = Math.max(...rawScores);
+
+    // Normalize to 0..100 so it stays stable when new topics are added.
+    const normalized = raw.map((x) => {
+        const score = (max === min)
+            ? 50
+            : Math.round(((x.rawScore - min) / (max - min)) * 100);
+        return { id: x.id, score };
+    }).sort((a, b) => b.score - a.score);
+
+    const n = normalized.length;
+    const highCut = Math.max(1, Math.round(n * 0.15));
+    const medCut = Math.max(highCut + 1, Math.round(n * 0.50));
+
+    const map = new Map();
+    normalized.forEach((x, idx) => {
+        let tier = 'low';
+        let label = 'Düşük';
+        let iconClass = 'far fa-bookmark';
+        if (idx < highCut) {
+            tier = 'high';
+            label = 'Yüksek';
+            iconClass = 'fas fa-bolt';
+        } else if (idx < medCut) {
+            tier = 'med';
+            label = 'Orta';
+            iconClass = 'fas fa-lightbulb';
+        }
+        map.set(x.id, { score: x.score, tier, label, iconClass });
+    });
+
+    topicPriorityById = map;
+}
+
+function getTopicPriority(topicId) {
+    const id = normalizeTopicId(topicId);
+    const p = topicPriorityById.get(id);
+    if (p) return p;
+    return { score: 50, tier: 'low', label: 'Düşük', iconClass: 'far fa-bookmark' };
+}
+
+function renderTopicRecommendation(topicId) {
+    const p = getTopicPriority(topicId);
+    const title = `Öneri önceliği: ${p.label} (${p.score}/100)`;
+    return `
+        <span class="topic-reco topic-reco--${p.tier}" title="${title}" aria-label="${title}">
+            <i class="${p.iconClass}" aria-hidden="true"></i>
+        </span>
+    `;
 }
 
 function normalizeTopicId(topicId) {
@@ -602,6 +827,7 @@ function createTopicPreview(topic, index = 0) {
                     <h3 class="topic-preview__title">${topic.title}</h3>
                     <p class="topic-preview__subtitle">${topic.subtitle}</p>
                 </div>
+                ${renderTopicRecommendation(topic.id)}
             </div>
             <div class="topic-preview__body">
                 <p class="topic-preview__summary">${topic.summary}</p>
