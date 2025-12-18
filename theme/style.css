@@ -1191,7 +1191,8 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: var(--z-dock-panel, 1001);
-    view-transition-name: dock-fab;
+    /* Only participate in View Transitions when visible (prevents load-time ghost snapshot). */
+    view-transition-name: none;
     
     /* Pill Button - Logo size */
     width: 60px;
@@ -1231,6 +1232,7 @@
 /* FAB görünür durumu - Apple-style spring */
 .dock-fab.visible,
 :root[data-dock-minimized="true"] .dock-fab {
+    view-transition-name: dock-fab;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
