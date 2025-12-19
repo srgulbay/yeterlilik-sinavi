@@ -16,5 +16,4 @@ VAPID_SUBJECT = "mailto:srgulbay@gmail.com"
 
 # Public key is not secret; you paste it into theme/push-config.js
 # Set this after generating keys (see scripts/generate-vapid.cjs)
-VAPID_PUBLIC_KEY = ""
-
+VAPID_PUBLIC_KEY = "BJUN_xgXwUkm7xHKOo-e8G3UuVUD_1L9jqm-VDnCZeiZL1CLNqyjNWpyO3MlIn0VvfNn8E6b6VCazOKC3zdqYOo"
