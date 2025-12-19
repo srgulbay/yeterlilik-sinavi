@@ -108,6 +108,31 @@
   const SRS_NEXT_SHOW_MAX = 1000000;
   const SRS_DIFFICULTY_MIN = 1;
   const SRS_DIFFICULTY_MAX = 5;
+  const TOPIC_PROGRESS_MAX = 100;
+
+  function clampTopicProgress(value) {
+    return clampInt(value, 0, TOPIC_PROGRESS_MAX);
+  }
+
+  const TOPIC_SECTION_ID_MAX = 140;
+  function normalizeTopicSectionId(value) {
+    const s = String(value == null ? '' : value).trim();
+    if (!s) return '';
+    return s.slice(0, TOPIC_SECTION_ID_MAX);
+  }
+
+  const EMAIL_MAX = 180;
+  function normalizeEmail(value) {
+    const s = String(value == null ? '' : value).trim();
+    if (!s) return '';
+    return s.slice(0, EMAIL_MAX);
+  }
+
+  function normalizeEmailLower(value) {
+    const e = normalizeEmail(value);
+    if (!e) return '';
+    return e.toLowerCase();
+  }
 
   function clampSrsDifficulty(value) {
     const n = Number(value);
@@ -346,6 +371,8 @@
       map.set(String(topicId), {
         favorite: !!item.favorite,
         readLevel: clampReadLevel(item.readLevel),
+        readingProgress: clampTopicProgress(item.readingProgress),
+        readingSectionId: normalizeTopicSectionId(item.readingSectionId),
       });
     });
     return map;
@@ -358,6 +385,8 @@
         items[String(key)] = {
           favorite: !!value.favorite,
           readLevel: clampReadLevel(value.readLevel),
+          readingProgress: clampTopicProgress(value.readingProgress),
+          readingSectionId: normalizeTopicSectionId(value.readingSectionId),
         };
       });
     } catch (_) {
@@ -559,6 +588,31 @@
 
     api.getUser = () => auth.currentUser;
 
+    async function upsertUserProfile(user) {
+      const uid = user && user.uid ? String(user.uid) : '';
+      if (!uid) return false;
+      const email = normalizeEmail(user.email);
+      const emailLower = normalizeEmailLower(email);
+
+      const now = window.firebase.firestore.FieldValue.serverTimestamp();
+      const patch = {
+        uid,
+        email: email || null,
+        emailLower: emailLower || null,
+        lastSeenAt: now,
+        updatedAt: now,
+      };
+
+      const ref = db.collection('userProfiles').doc(uid);
+      try {
+        await ref.update(patch);
+        return true;
+      } catch (_) {
+        await ref.set({ ...patch, createdAt: now }, { merge: true });
+        return true;
+      }
+    }
+
     function getSrsCache() {
       const user = auth.currentUser;
       if (!user) {
@@ -580,6 +634,9 @@
         if (!user) {
           srsUid = null;
           srsStateById = new Map();
+        } else {
+          // Best-effort: ensure a user profile doc exists for admin search / targeting.
+          upsertUserProfile(user).catch(() => {});
         }
         safeDispatch('auth:changed', { user: user ? { uid: user.uid, email: user.email || null } : null });
         if (typeof callback === 'function') callback(user);
@@ -680,6 +737,8 @@
           map.set(doc.id, {
             favorite: !!data.favorite,
             readLevel: clampReadLevel(data.readLevel),
+            readingProgress: clampTopicProgress(data.readingProgress),
+            readingSectionId: normalizeTopicSectionId(data.readingSectionId),
           });
         });
         saveCachedTopics(user.uid, map);
@@ -702,16 +761,24 @@
       if (Object.prototype.hasOwnProperty.call(nextState, 'readLevel')) {
         patch.readLevel = clampReadLevel(nextState.readLevel);
       }
+      if (Object.prototype.hasOwnProperty.call(nextState, 'readingProgress')) {
+        patch.readingProgress = clampTopicProgress(nextState.readingProgress);
+      }
+      if (Object.prototype.hasOwnProperty.call(nextState, 'readingSectionId')) {
+        patch.readingSectionId = normalizeTopicSectionId(nextState.readingSectionId);
+      }
 
       patch.updatedAt = window.firebase.firestore.FieldValue.serverTimestamp();
 
       // Update cache immediately so UI survives navigation.
       try {
         const current = loadCachedTopics(user.uid);
-        const prev = current.get(id) || { favorite: false, readLevel: 0 };
+        const prev = current.get(id) || { favorite: false, readLevel: 0, readingProgress: 0, readingSectionId: '' };
         const merged = {
           favorite: Object.prototype.hasOwnProperty.call(patch, 'favorite') ? !!patch.favorite : !!prev.favorite,
           readLevel: Object.prototype.hasOwnProperty.call(patch, 'readLevel') ? clampReadLevel(patch.readLevel) : clampReadLevel(prev.readLevel),
+          readingProgress: Object.prototype.hasOwnProperty.call(patch, 'readingProgress') ? clampTopicProgress(patch.readingProgress) : clampTopicProgress(prev.readingProgress),
+          readingSectionId: Object.prototype.hasOwnProperty.call(patch, 'readingSectionId') ? normalizeTopicSectionId(patch.readingSectionId) : normalizeTopicSectionId(prev.readingSectionId),
         };
         current.set(id, merged);
         saveCachedTopics(user.uid, current);
@@ -739,6 +806,8 @@
           map.set(doc.id, {
             favorite: !!data.favorite,
             readLevel: clampReadLevel(data.readLevel),
+            readingProgress: clampTopicProgress(data.readingProgress),
+            readingSectionId: normalizeTopicSectionId(data.readingSectionId),
           });
         });
         saveCachedTopics(uid, map);

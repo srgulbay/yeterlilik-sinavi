@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AlgoSPOT">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <title>AlgoSPOT | Admin</title>
+    <script src="theme/init-theme.js"></script>
+    <script src="theme/ui.js" defer></script>
+    <script src="theme/pwa.js" defer></script>
+    <link rel="stylesheet" href="theme/style.css">
+    <link rel="stylesheet" href="theme/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-wrapper app-wrapper--no-sidebar">
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-header__info">
+                    <a class="page-header__brand" href="index.html" aria-label="AlgoSPOT Anasayfa">
+                        <span class="page-header__brand-dot" aria-hidden="true"></span>
+                        <span class="page-header__brand-word">Algo<span>SPOT</span></span>
+                    </a>
+                    <h1 class="page-header__title">Admin Panel</h1>
+                </div>
+                <div class="page-header__actions">
+                    <button class="page-header__icon-btn" type="button" data-auth-trigger aria-label="Giriş Yap" title="Giriş Yap">
+                        <i class="fas fa-right-to-bracket"></i>
+                    </button>
+                    <button class="page-header__icon-btn" type="button" data-notif-trigger aria-label="Bildirimler" title="Bildirimler">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="notif-badge" data-notif-badge hidden>0</span>
+                    </button>
+                    <button class="page-header__search-btn" type="button" data-search-trigger>
+                        <i class="fas fa-magnifying-glass"></i>
+                        <span>Ara...</span>
+                        <kbd>⌘K</kbd>
+                    </button>
+                </div>
+                <div class="metrics-bar" id="metricsBar" role="status" aria-label="Ziyaretçi istatistikleri">
+                    <div class="metrics-bar__inner">
+                        <div class="metrics-bar__item" data-metric="online">
+                            <span class="metrics-bar__pulse"></span>
+                            <span class="metrics-bar__value" id="onlineCount">0</span>
+                            <span class="metrics-bar__label">Çevrimiçi</span>
+                        </div>
+                        <div class="metrics-bar__divider"></div>
+                        <div class="metrics-bar__item" data-metric="members">
+                            <i class="fas fa-user-check"></i>
+                            <span class="metrics-bar__value" id="memberCount">0</span>
+                            <span class="metrics-bar__label">Üye</span>
+                        </div>
+                        <div class="metrics-bar__divider"></div>
+                        <div class="metrics-bar__item" data-metric="guests">
+                            <i class="fas fa-user"></i>
+                            <span class="metrics-bar__value" id="guestCount">0</span>
+                            <span class="metrics-bar__label">Misafir</span>
+                        </div>
+                        <div class="metrics-bar__divider"></div>
+                        <div class="metrics-bar__item" data-metric="total">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="metrics-bar__value" id="totalVisits">0</span>
+                            <span class="metrics-bar__label">Toplam Ziyaret</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="admin" aria-live="polite">
+                <div class="admin__gate" data-admin-gate>
+                    <div class="empty-state">
+                        <div class="empty-state__icon"><i class="fas fa-lock"></i></div>
+                        <h2 class="empty-state__title">Admin erişimi gerekli</h2>
+                        <p class="empty-state__description">Devam etmek için giriş yapın ve admin yetkinizin olduğundan emin olun.</p>
+                    </div>
+                </div>
+
+                <div class="admin__content" data-admin-content hidden>
+                    <div class="admin-grid">
+                        <article class="card card-compact admin-card" aria-label="Özet istatistikler">
+                            <div class="card__header">
+                                <div>
+                                    <h3 class="card__title">İstatistikler</h3>
+                                    <p class="card__subtitle">Projeye hızlı bakış</p>
+                                </div>
+                                <span class="badge badge-neutral" data-admin-status-badge>Hazırlanıyor</span>
+                            </div>
+                            <div class="card__body">
+                                <div class="admin-stats">
+                                    <div class="admin-stat">
+                                        <span class="admin-stat__label">Kullanıcı</span>
+                                        <strong class="admin-stat__value" data-stat-users>—</strong>
+                                    </div>
+                                    <div class="admin-stat">
+                                        <span class="admin-stat__label">Admin</span>
+                                        <strong class="admin-stat__value" data-stat-admins>—</strong>
+                                    </div>
+                                    <div class="admin-stat">
+                                        <span class="admin-stat__label">Son bildirim</span>
+                                        <strong class="admin-stat__value" data-stat-last-notif>—</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card admin-card admin-card--span" aria-label="Bildirim gönder">
+                            <div class="card__header">
+                                <div>
+                                    <h3 class="card__title">Bildirim Gönder</h3>
+                                    <p class="card__subtitle">Seçili kullanıcılara in-app (ve push varsa) bildirim</p>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <form class="admin-form" data-admin-notif-form>
+                                    <div class="admin-form__row">
+                                        <label class="admin-form__label" for="adminNotifTitle">Başlık</label>
+                                        <input class="input" id="adminNotifTitle" maxlength="120" placeholder="Örn: Yeni içerik eklendi" required />
+                                    </div>
+
+                                    <div class="admin-form__row">
+                                        <label class="admin-form__label" for="adminNotifBody">Mesaj</label>
+                                        <textarea class="input admin-form__textarea" id="adminNotifBody" maxlength="800" rows="3" placeholder="Kısa bir açıklama yazın (opsiyonel)"></textarea>
+                                    </div>
+
+                                    <div class="admin-form__row">
+                                        <label class="admin-form__label" for="adminNotifUrl">Bağlantı (opsiyonel)</label>
+                                        <input class="input" id="adminNotifUrl" maxlength="500" placeholder="Örn: /topics.html?topic=1" />
+                                    </div>
+
+                                    <div class="admin-form__row">
+                                        <div class="admin-target">
+                                            <div class="admin-target__top">
+                                                <span class="admin-form__label">Hedef</span>
+                                                <label class="admin-toggle">
+                                                    <input type="checkbox" data-admin-broadcast>
+                                                    <span>Herkese gönder</span>
+                                                </label>
+                                            </div>
+
+                                            <div class="admin-target__picker" data-admin-target-picker>
+                                                <div class="admin-target__search">
+                                                    <input class="input" type="search" placeholder="E-posta/UID ile ara..." data-admin-user-search />
+                                                    <div class="admin-target__results" data-admin-user-results hidden></div>
+                                                </div>
+
+                                                <div class="admin-target__selected" data-admin-selected>
+                                                    <div class="admin-target__selected-title">Seçilenler</div>
+                                                    <div class="admin-target__chips" data-admin-selected-chips></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="admin-form__row admin-form__row--actions">
+                                        <button class="btn btn-primary" type="submit" data-admin-send>
+                                            <i class="fas fa-paper-plane"></i>
+                                            Gönder
+                                        </button>
+                                        <button class="btn btn-secondary" type="button" data-admin-clear>
+                                            Temizle
+                                        </button>
+                                        <span class="admin-form__hint" data-admin-send-hint></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </article>
+
+                        <article class="card admin-card" aria-label="Admin yetkileri">
+                            <div class="card__header">
+                                <div>
+                                    <h3 class="card__title">Admin Yetkileri</h3>
+                                    <p class="card__subtitle">Admin ekle/çıkar</p>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <form class="admin-form" data-admins-form>
+                                    <div class="admin-form__row">
+                                        <label class="admin-form__label" for="adminAddInput">UID veya e-posta</label>
+                                        <div class="admin-inline">
+                                            <input class="input" id="adminAddInput" placeholder="UID veya e-posta" data-admin-add-input />
+                                            <button class="btn btn-primary" type="submit" data-admin-add>
+                                                <i class="fas fa-plus"></i>
+                                                Ekle
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="admin-list" data-admins-list></div>
+                            </div>
+                        </article>
+
+                        <article class="card admin-card" aria-label="Son bildirimler">
+                            <div class="card__header">
+                                <div>
+                                    <h3 class="card__title">Son Bildirimler</h3>
+                                    <p class="card__subtitle">Gönderim kayıtları</p>
+                                </div>
+                            </div>
+                            <div class="card__body">
+                                <div class="admin-list" data-admin-notifs-list></div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="session-dock" role="region" aria-label="Hızlı erişim dock">
+        <div class="dock-content">
+            <div class="dock-nav">
+                <a href="index.html" class="dock-nav-btn" data-page="index" title="Anasayfa">
+                    <i class="fas fa-home"></i>
+                    <span>Anasayfa</span>
+                </a>
+                <a href="details.html" class="dock-nav-btn" data-page="details" title="Hafıza Kartları">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Kartlar</span>
+                </a>
+                <a href="topics.html" class="dock-nav-btn" data-page="topics" title="Konu Özetleri">
+                    <i class="fas fa-book-open"></i>
+                    <span>Özetler</span>
+                </a>
+                <a href="study.html" class="dock-nav-btn dock-nav-btn--primary" data-page="study" title="SRS Çalışma">
+                    <i class="fas fa-brain"></i>
+                    <span>SRS</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/enriched_content.js"></script>
+    <script src="data/details-content.js"></script>
+    <script src="data/topics-content.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+    <script src="theme/firebase-config.js"></script>
+    <script src="theme/firebase.js"></script>
+    <script src="theme/auth-ui.js"></script>
+    <script src="theme/admin-gate.js"></script>
+    <script src="theme/notifications.js"></script>
+    <script src="theme/admin.js"></script>
+    <script src="theme/dock.js"></script>
+    <script src="theme/mobile-dock.js"></script>
+    <script src="theme/dock-fab.js"></script>
+    <script src="theme/global-search.js"></script>
+    <script src="theme/visitor-metrics.js"></script>
+</body>
+</html>
+

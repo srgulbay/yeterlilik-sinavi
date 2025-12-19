@@ -2,45 +2,96 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
     match /users/{uid}/topics/{topicId} {
-      allow read: if request.auth != null && request.auth.uid == uid;
-      allow create, update: if request.auth != null && request.auth.uid == uid
-        && isValid(request.resource.data);
-      allow delete: if request.auth != null && request.auth.uid == uid;
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && isTopicStateValid(request.resource.data);
+      allow delete: if isOwner(uid);
     }
 
     match /users/{uid}/favorites/{favId} {
-      allow read: if request.auth != null && request.auth.uid == uid;
-      allow create, update: if request.auth != null && request.auth.uid == uid
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
         && isFavoriteValid(request.resource.data);
-      allow delete: if request.auth != null && request.auth.uid == uid;
+      allow delete: if isOwner(uid);
     }
 
     match /users/{uid}/prefs/{prefId} {
-      allow read: if request.auth != null && request.auth.uid == uid;
-      allow create, update: if request.auth != null && request.auth.uid == uid
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
         && isPrefsValid(request.resource.data);
-      allow delete: if request.auth != null && request.auth.uid == uid;
+      allow delete: if isOwner(uid);
     }
 
     match /users/{uid}/srs/{cardId} {
-      allow read: if request.auth != null && request.auth.uid == uid;
-      allow create, update: if request.auth != null && request.auth.uid == uid
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
         && isSrsValid(request.resource.data);
-      allow delete: if request.auth != null && request.auth.uid == uid;
+      allow delete: if isOwner(uid);
     }
 
     match /users/{uid}/highlights/{highlightId} {
-      allow read: if request.auth != null && request.auth.uid == uid;
-      allow create, update: if request.auth != null && request.auth.uid == uid
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
         && isHighlightValid(request.resource.data);
-      allow delete: if request.auth != null && request.auth.uid == uid;
+      allow delete: if isOwner(uid);
     }
 
-    function isValid(data) {
+    match /users/{uid}/inbox/{notificationId} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create: if isAdmin() && isInboxValid(request.resource.data);
+      allow update: if isOwner(uid)
+        && isInboxValid(request.resource.data)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['readAt']);
+      allow delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /users/{uid}/pushTokens/{tokenId} {
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid) && isPushTokenValid(request.resource.data);
+      allow delete: if isOwner(uid);
+    }
+
+    match /admins/{adminUid} {
+      allow read: if isOwner(adminUid) || isAdmin();
+      allow create, update: if isAdmin() && isAdminDocValid(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /userProfiles/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create, update: if isOwner(uid) && isUserProfileValid(uid, request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /adminNotifications/{logId} {
+      allow read: if isAdmin();
+      allow create, update: if isAdmin() && isAdminNotificationLogValid(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    function isTopicStateValid(data) {
       return (data.favorite is bool || !('favorite' in data))
         && (data.readLevel is int || !('readLevel' in data))
-        && (!('readLevel' in data) || (data.readLevel >= 0 && data.readLevel <= 5));
+        && (!('readLevel' in data) || (data.readLevel >= 0 && data.readLevel <= 5))
+        && (data.readingProgress is int || !('readingProgress' in data))
+        && (!('readingProgress' in data) || (data.readingProgress >= 0 && data.readingProgress <= 100))
+        && (data.readingSectionId is string || !('readingSectionId' in data))
+        && (!('readingSectionId' in data) || (data.readingSectionId.size() <= 140))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }
 
     function isFavoriteValid(data) {
@@ -86,6 +137,53 @@ service cloud.firestore {
         && ('suffix' in data) && (data.suffix is string) && (data.suffix.size() <= 36)
         && ('color' in data) && (data.color is string) && (data.color.matches('^#([0-9a-fA-F]{6})$'))
         && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isInboxValid(data) {
+      return data.keys().hasOnly(['title', 'body', 'url', 'createdAt', 'createdBy', 'readAt'])
+        && ('title' in data) && (data.title is string) && (data.title.size() > 0) && (data.title.size() <= 120)
+        && (!('body' in data) || (data.body is string && data.body.size() <= 800))
+        && (!('url' in data) || (data.url is string && data.url.size() <= 500))
+        && (!('createdBy' in data) || (data.createdBy is string && data.createdBy.size() > 0 && data.createdBy.size() <= 128))
+        && (!('createdAt' in data) || (data.createdAt is timestamp))
+        && (!('readAt' in data) || (data.readAt is timestamp));
+    }
+
+    function isPushTokenValid(data) {
+      return data.keys().hasOnly(['token', 'userAgent', 'updatedAt'])
+        && ('token' in data) && (data.token is string) && (data.token.size() > 0) && (data.token.size() <= 2048)
+        && (!('userAgent' in data) || (data.userAgent is string && data.userAgent.size() <= 180))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isAdminDocValid(data) {
+      return data.keys().hasOnly(['role', 'createdAt', 'createdBy', 'updatedAt'])
+        && (!('role' in data) || (data.role is string && data.role.size() <= 32))
+        && (!('createdBy' in data) || (data.createdBy is string && data.createdBy.size() > 0 && data.createdBy.size() <= 128))
+        && (!('createdAt' in data) || (data.createdAt is timestamp))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isUserProfileValid(uid, data) {
+      return data.keys().hasOnly(['uid', 'email', 'emailLower', 'createdAt', 'lastSeenAt', 'updatedAt'])
+        && (!('uid' in data) || (data.uid is string && data.uid == uid))
+        && (!('email' in data) || (data.email is string && data.email.size() <= 180))
+        && (!('emailLower' in data) || (data.emailLower is string && data.emailLower.size() <= 180))
+        && (!('createdAt' in data) || (data.createdAt is timestamp))
+        && (!('lastSeenAt' in data) || (data.lastSeenAt is timestamp))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isAdminNotificationLogValid(data) {
+      return data.keys().hasOnly(['title', 'body', 'url', 'recipientsCount', 'broadcast', 'recipientsSample', 'createdAt', 'createdBy'])
+        && ('title' in data) && (data.title is string) && (data.title.size() > 0) && (data.title.size() <= 120)
+        && (!('body' in data) || (data.body is string && data.body.size() <= 800))
+        && (!('url' in data) || (data.url is string && data.url.size() <= 500))
+        && (!('recipientsCount' in data) || (data.recipientsCount is int && data.recipientsCount >= 0))
+        && (!('broadcast' in data) || (data.broadcast is bool))
+        && (!('recipientsSample' in data) || (data.recipientsSample is list && data.recipientsSample.size() <= 50))
+        && (!('createdBy' in data) || (data.createdBy is string && data.createdBy.size() > 0 && data.createdBy.size() <= 128))
+        && (!('createdAt' in data) || (data.createdAt is timestamp));
     }
   }
 }

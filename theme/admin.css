@@ -1,0 +1,311 @@
+/* ==========================================
+   ADMIN PANEL
+   ========================================== */
+
+.admin {
+    padding: 0 var(--space-6) var(--space-24);
+    max-width: 1100px;
+}
+
+@media (max-width: 768px) {
+    .admin {
+        padding: 0 var(--space-4) var(--space-24);
+    }
+}
+
+.admin__gate {
+    margin-top: var(--space-6);
+}
+
+.admin__content {
+    margin-top: var(--space-6);
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--space-5);
+}
+
+.admin-card {
+    grid-column: span 6;
+}
+
+.admin-card--span {
+    grid-column: span 12;
+}
+
+@media (max-width: 900px) {
+    .admin-card {
+        grid-column: span 12;
+    }
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-stat {
+    padding: var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface);
+}
+
+.admin-stat__label {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-1);
+}
+
+.admin-stat__value {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.admin-form__row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.admin-form__row--actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.admin-form__label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-main);
+}
+
+.admin-form__textarea {
+    resize: vertical;
+    min-height: 92px;
+}
+
+.admin-form__hint {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.admin-inline {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .admin-inline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.admin-target {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.admin-target__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.admin-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    user-select: none;
+}
+
+.admin-toggle input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.admin-target__picker {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.admin-target__search {
+    position: relative;
+}
+
+.admin-target__results {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+    right: 0;
+    z-index: var(--z-popover, 12000);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.admin-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--glass-border-light);
+}
+
+.admin-result:last-child {
+    border-bottom: none;
+}
+
+.admin-result__meta {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.admin-result__title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-main);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-result__sub {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-target__selected {
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    border: 1px dashed var(--border);
+    background: var(--bg-surface);
+}
+
+.admin-target__selected-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3);
+}
+
+.admin-target__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.admin-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    max-width: 100%;
+}
+
+.admin-chip__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 320px;
+}
+
+.admin-chip__remove {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.admin-chip__remove:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-ghost);
+}
+
+.admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.admin-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+}
+
+.admin-item__left {
+    min-width: 0;
+}
+
+.admin-item__title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-main);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-item__sub {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

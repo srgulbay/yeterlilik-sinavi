@@ -34,6 +34,13 @@
                     <button class="page-header__icon-btn" type="button" data-auth-trigger aria-label="Giriş Yap" title="Giriş Yap">
                         <i class="fas fa-right-to-bracket"></i>
                     </button>
+                    <button class="page-header__icon-btn" type="button" data-notif-trigger aria-label="Bildirimler" title="Bildirimler">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="notif-badge" data-notif-badge hidden>0</span>
+                    </button>
+                    <a class="page-header__icon-btn" href="admin.html" data-admin-link aria-label="Admin Panel" title="Admin Panel" hidden>
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                    </a>
                     <div class="page-header__sort" data-topics-sort>
                         <button class="page-header__sort-trigger" type="button" data-topics-sort-trigger aria-haspopup="listbox" aria-expanded="false" title="Sıralama">
                             <i class="fas fa-arrow-up-wide-short" aria-hidden="true"></i>
@@ -202,11 +209,14 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
     <script src="theme/firebase-config.js"></script>
     <script src="theme/firebase.js"></script>
     <script src="theme/auth-ui.js"></script>
+    <script src="theme/admin-gate.js"></script>
     <script src="theme/highlighter.js"></script>
     <script src="theme/topics.js"></script>
+    <script src="theme/notifications.js"></script>
     <script src="theme/dock.js"></script>
     <script src="theme/mobile-dock.js"></script>
     <script src="theme/dock-fab.js"></script>

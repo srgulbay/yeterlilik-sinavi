@@ -1,44 +1,52 @@
-# Mikrobiyoloji Yeterlilik Asistanı
+# AlgoSPOT
 
-Tarayıcı üzerinden çalışan, mikrobiyoloji yeterlilik soruları için etkileşimli bir uzman paneli.
+Tarayıcı/PWA üzerinden çalışan; konu özetleri, hafıza kartları ve SRS çalışma akışı sunan bir öğrenme asistanı.
 
 ## Nasıl Çalıştırılır?
 
+> Not: Firebase Auth/Firestore için `file://` üzerinden açmak yerine local server kullanın.
+
 ```bash
 cd /Users/sr/Desktop/App-Yeterlilik
-open index.html
+python3 -m http.server 5173
 ```
 
-Bu komut, varsayılan tarayıcıda uygulamayı açar (macOS).
+Ardından `http://localhost:5173/index.html` adresine gidin.
 
 ## Özellikler
-- Konu bazlı filtreleme (Genel Mikrobiyoloji, Sterilizasyon, Pre-Analitik, Klinik Bakteriyoloji, Mikrobiyota)
-- Arama kutusu ile soru, konu ve açıklama içinde arama
-- Her soru için doğru cevap, uzman analizi, kritik notlar ve sık yapılan hatalar
-- Modern, responsive masaüstü arayüz
+- Konu özetleri (tekrar/okunma takibi, favoriler, okuma ilerlemesi ve “kaldığın yerden devam et”)
+- Hafıza kartları ve SRS (misafir: localStorage, giriş: Firestore senkron)
+- Global arama, responsive arayüz, PWA (offline sayfa + service worker)
+- Bildirim sistemi: in‑app inbox + (opsiyonel) push bildirimleri
+- Admin paneli: kullanıcı seçip bildirim gönderme + temel istatistikler + admin yönetimi
 
 ## Yapı
 - `index.html` – Uygulama iskeleti
-- `theme/style.css` – Tema ve bileşen stilleri
+- `theme/style.css` – Tema ve bileşen stilleri (import’lar dahil)
 - `data/enriched_content.js` – Zenginleştirilmiş soru/analiz verisi
-- `theme/app.js` – Kartların render edilmesi, filtreleme ve arama mantığı
+- `theme/topics.js` – Konu özetleri + okuma ilerlemesi + senkron
+- `theme/firebase.js` – Auth/Firestore wrapper
+- `admin.html` – Admin paneli
+- `functions/` – Push bildirim backend (Cloud Functions)
 
-## Firebase (GitHub Pages) Kurulumu
+## Firebase Kurulumu
 
-Bu proje statik olduğu için Firebase Auth + Firestore doğrudan GitHub Pages üzerinde çalışır.
+1) Firebase Console → Authentication → Sign-in method: Google / Email / Phone etkinleştirin.
+2) Firebase Console → Authentication → Settings → Authorized domains: kullandığınız domainleri ekleyin.
+3) Firestore’u etkinleştirip kuralları deploy edin: `firestore.rules`.
 
-1) Firebase Console → Project Settings → Web App oluşturun ve config’i alın.
-2) [theme/firebase-config.js](theme/firebase-config.js) içindeki `window.FIREBASE_CONFIG = null;` satırını kendi config objeniz ile değiştirin.
-3) Firebase Console → Authentication → Sign-in method: Google’ı etkinleştirin.
-4) Firebase Console → Authentication → Settings → Authorized domains listesine `localhost` ve GitHub Pages domaininizi ekleyin.
-5) Firestore’u etkinleştirip security rules’u kullanıcı bazlı (users/{uid}/...) olacak şekilde ayarlayın.
+> Proje config’i `theme/firebase-config.js` içinde (public) tutulur.
 
-Örnek kurallar: [firestore.rules](firestore.rules)
+## Admin Yetkisi
 
-## Firebase CLI (isteğe bağlı)
+Bir kullanıcıyı admin yapmak için Firestore’da `admins/{uid}` dokümanı oluşturun (dokümanın içeriği opsiyonel).
 
-Bu repo için Firebase Hosting kullanacaksan:
+## Push Bildirimler (FCM)
 
-1) `firebase login`
-2) [./.firebaserc](.firebaserc) içindeki `YOUR_FIREBASE_PROJECT_ID` alanını kendi project id’n ile değiştir (Firebase Console → Project Settings).
-3) `firebase deploy` (Hosting + Firestore rules)
+1) Firebase Console → Project settings → Cloud Messaging → Web Push certificates → VAPID key alın.
+2) `theme/firebase-config.js` içinde `FIREBASE_MESSAGING_VAPID_KEY` değerini doldurun.
+3) Cloud Functions kurulum/deploy:
+   - `cd functions && npm i`
+   - `firebase deploy --only functions`
+
+> Admin paneli in‑app inbox’a yazar; push için `functions/index.js` tetikleyicisi (`users/{uid}/inbox/*`) gerekir.

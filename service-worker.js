@@ -1,6 +1,81 @@
 /* eslint-disable no-restricted-globals */
 
-const CACHE_VERSION = '2025-12-19-2';
+// Optional: Firebase Cloud Messaging support (background notifications).
+(function initFirebaseMessaging() {
+  try {
+    const version = '9.23.0';
+    importScripts(`https://www.gstatic.com/firebasejs/${version}/firebase-app-compat.js`);
+    importScripts(`https://www.gstatic.com/firebasejs/${version}/firebase-messaging-compat.js`);
+    importScripts('theme/firebase-config.js');
+
+    if (!self.firebase || !self.FIREBASE_CONFIG) return;
+    if (!self.firebase.apps || self.firebase.apps.length === 0) {
+      self.firebase.initializeApp(self.FIREBASE_CONFIG);
+    }
+
+    if (!self.firebase.messaging) return;
+    const messaging = self.firebase.messaging();
+
+    messaging.onBackgroundMessage((payload) => {
+      try {
+        const data = payload && payload.data ? payload.data : {};
+        const title = data.title || payload?.notification?.title || 'AlgoSPOT';
+        const body = data.body || payload?.notification?.body || '';
+        const url = data.url || data.click_action || data.link || './';
+
+        const options = {
+          body,
+          icon: data.icon || './icons/icon-192.png',
+          badge: './icons/icon-192.png',
+          data: { url },
+        };
+        self.registration.showNotification(title, options);
+      } catch (_) {
+        // ignore
+      }
+    });
+  } catch (_) {
+    // ignore
+  }
+})();
+
+self.addEventListener('notificationclick', (event) => {
+  try {
+    event.notification?.close?.();
+  } catch (_) {
+    // ignore
+  }
+
+  const target = (() => {
+    const raw = event?.notification?.data?.url;
+    if (!raw) return './';
+    try {
+      return new URL(String(raw), self.location.origin).toString();
+    } catch (_) {
+      return './';
+    }
+  })();
+
+  event.waitUntil((async () => {
+    try {
+      const list = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+      for (const client of list) {
+        if (!client || !client.url) continue;
+        if (client.url === target && typeof client.focus === 'function') {
+          return client.focus();
+        }
+      }
+      if (self.clients.openWindow) {
+        return self.clients.openWindow(target);
+      }
+    } catch (_) {
+      // ignore
+    }
+    return undefined;
+  })());
+});
+
+const CACHE_VERSION = '2025-12-19-3';
 const CORE_CACHE = `app-yeterlilik-core-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `app-yeterlilik-runtime-${CACHE_VERSION}`;
 
@@ -10,6 +85,7 @@ const PRECACHE_URLS = [
   './details.html',
   './topics.html',
   './study.html',
+  './admin.html',
   './offline.html',
   './manifest.webmanifest',
   './theme/pwa.js',
@@ -25,6 +101,7 @@ const PRECACHE_URLS = [
   './theme/details.css',
   './theme/topics.css',
   './theme/study.css',
+  './theme/admin.css',
   './theme/mobile-dock.css',
   './theme/global-search.css',
   './theme/app.js',
@@ -34,6 +111,9 @@ const PRECACHE_URLS = [
   './theme/firebase-config.js',
   './theme/firebase.js',
   './theme/auth-ui.js',
+  './theme/admin-gate.js',
+  './theme/notifications.js',
+  './theme/admin.js',
   './theme/dock.js',
   './theme/mobile-dock.js',
   './theme/dock-fab.js',

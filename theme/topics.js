@@ -20,6 +20,21 @@ let suppressRemotePrefsWrite = false;
 
 let topicPriorityById = new Map(); // topicId(string) -> { score:number(0-100), tier:'high'|'med'|'low', label:string, iconClass:string }
 
+// Reading progress (topic detail view)
+let readingProgressEl = null;
+let readingProgressValueEl = null;
+let readingProgressToggleEl = null;
+let readingProgressTopicId = null;
+let readingProgressLastPercent = 0;
+let readingProgressLastSectionId = '';
+let readingProgressRaf = 0;
+let readingProgressScrollHandler = null;
+let readingProgressObserver = null;
+let readingProgressSaveTimer = null;
+let readingProgressLastSavedAt = 0;
+let readingProgressLastSavedPercent = -1;
+let readingProgressLastSavedSectionId = '';
+
 // Manual fine-tuning per topic (TUS/yan dal/yeterlilik “high-yield” emphasis).
 // Keep boosts modest: overall ranking still derives from content-derived signals.
 const TOPIC_PRIORITY_MANUAL_OVERRIDES = {
@@ -88,6 +103,7 @@ function initTopicsModule() {
     initDockChips();
     initTopicState();
     initTopicActions();
+    initReadingProgressLifecycle();
 }
 
 function storageGetSafe(key, fallback) {
@@ -528,6 +544,12 @@ function clampReadLevel(level) {
     return Math.max(0, Math.min(5, Math.trunc(n)));
 }
 
+function clampProgressPercent(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(0, Math.min(100, Math.round(n)));
+}
+
 function getRepeatAmbianceClassByLevel(readLevel) {
     const level = clampReadLevel(readLevel);
     if (level >= 4) return 'repeat-high';
@@ -553,10 +575,12 @@ function getTopicState(topicId) {
     if (existing) {
         return {
             favorite: !!existing.favorite,
-            readLevel: clampReadLevel(existing.readLevel)
+            readLevel: clampReadLevel(existing.readLevel),
+            readingProgress: clampProgressPercent(existing.readingProgress),
+            readingSectionId: existing.readingSectionId ? String(existing.readingSectionId) : ''
         };
     }
-    return { favorite: false, readLevel: 0 };
+    return { favorite: false, readLevel: 0, readingProgress: 0, readingSectionId: '' };
 }
 
 function setTopicStateLocal(topicId, patch) {
@@ -565,12 +589,24 @@ function setTopicStateLocal(topicId, patch) {
     const next = {
         favorite: Object.prototype.hasOwnProperty.call(patch, 'favorite') ? !!patch.favorite : prev.favorite,
         readLevel: Object.prototype.hasOwnProperty.call(patch, 'readLevel') ? clampReadLevel(patch.readLevel) : prev.readLevel,
+        readingProgress: Object.prototype.hasOwnProperty.call(patch, 'readingProgress') ? clampProgressPercent(patch.readingProgress) : clampProgressPercent(prev.readingProgress),
+        readingSectionId: Object.prototype.hasOwnProperty.call(patch, 'readingSectionId') ? String(patch.readingSectionId || '') : String(prev.readingSectionId || ''),
     };
     topicStateById.set(id, next);
 }
 
 function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+function refreshTopicAuthUI() {
+    const ids = new Set();
+    document.querySelectorAll('.topic-preview[data-topic-id], .topic-row[data-topic-id], [data-topic-actions][data-topic-id]').forEach((el) => {
+        const raw = el?.dataset?.topicId;
+        if (!raw) return;
+        ids.add(normalizeTopicId(raw));
+    });
+    ids.forEach((id) => updateTopicUIFor(id));
 }
 
 function stopTopicStatesWatch() {
@@ -597,7 +633,11 @@ function applyRemoteTopicStates(nextMap) {
             const prevRead = clampReadLevel(prevVal && prevVal.readLevel);
             const nextFav = !!(nextVal && nextVal.favorite);
             const nextRead = clampReadLevel(nextVal && nextVal.readLevel);
-            if (prevFav !== nextFav || prevRead !== nextRead) {
+            const prevProgress = clampProgressPercent(prevVal && prevVal.readingProgress);
+            const nextProgress = clampProgressPercent(nextVal && nextVal.readingProgress);
+            const prevSection = String(prevVal && prevVal.readingSectionId || '');
+            const nextSection = String(nextVal && nextVal.readingSectionId || '');
+            if (prevFav !== nextFav || prevRead !== nextRead || prevProgress !== nextProgress || prevSection !== nextSection) {
                 changed.add(String(id));
             }
             if (prevFav !== nextFav) favoritesChanged = true;
@@ -624,6 +664,13 @@ function applyRemoteTopicStates(nextMap) {
         const params = new URLSearchParams(window.location.search);
         const topicId = params.get('topic');
         if (topicId) updateTopicUIFor(topicId);
+        // Remote update might include reading progress; keep widget in sync best-effort.
+        if (topicId && readingProgressTopicId && normalizeTopicId(topicId) === normalizeTopicId(readingProgressTopicId)) {
+            const state = getTopicState(topicId);
+            if (state && typeof state.readingProgress === 'number') {
+                setReadingProgressUI(state.readingProgress);
+            }
+        }
         return;
     }
 
@@ -654,12 +701,14 @@ async function initTopicState() {
                         topicStatesUnsubscribe = window.appFirebase.watchTopicStates((map) => {
                             applyRemoteTopicStates(map);
                         });
+                        refreshTopicAuthUI();
                         return;
                     } catch (_) {
                         topicStatesUnsubscribe = null;
                     }
                 }
                 await reloadTopicStates();
+                refreshTopicAuthUI();
                 return;
             }
 
@@ -681,6 +730,7 @@ async function initTopicState() {
         if (!topicStatesUnsubscribe) {
             await reloadTopicStates();
         }
+        refreshTopicAuthUI();
     }
 
     document.addEventListener('topics:state-updated', (e) => {
@@ -693,6 +743,347 @@ async function initTopicState() {
         // Favorites-only view needs re-filtering when favorite changes.
         if (currentView === 'list' && currentCategory === 'favorites') {
             renderTopicsList(topicsData);
+        }
+    });
+}
+
+function readingLocalStorageKey(topicId) {
+    return `topics:reading:v1:${normalizeTopicId(topicId)}`;
+}
+
+function loadReadingProgressLocal(topicId) {
+    try {
+        const raw = window.localStorage?.getItem(readingLocalStorageKey(topicId));
+        if (!raw) return { percent: 0, sectionId: '', updatedAt: 0 };
+        const parsed = JSON.parse(raw);
+        return {
+            percent: clampProgressPercent(parsed?.percent),
+            sectionId: parsed?.sectionId ? String(parsed.sectionId) : '',
+            updatedAt: Number(parsed?.updatedAt) || 0
+        };
+    } catch (_) {
+        return { percent: 0, sectionId: '', updatedAt: 0 };
+    }
+}
+
+function saveReadingProgressLocal(topicId, payload) {
+    try {
+        const record = {
+            percent: clampProgressPercent(payload?.percent),
+            sectionId: payload?.sectionId ? String(payload.sectionId) : '',
+            updatedAt: Date.now()
+        };
+        window.localStorage?.setItem(readingLocalStorageKey(topicId), JSON.stringify(record));
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
+function getSavedReadingProgress(topicId) {
+    const id = normalizeTopicId(topicId);
+    if (isAuthReady()) {
+        const state = getTopicState(id);
+        return {
+            percent: clampProgressPercent(state.readingProgress),
+            sectionId: state.readingSectionId ? String(state.readingSectionId) : '',
+            updatedAt: 0
+        };
+    }
+    return loadReadingProgressLocal(id);
+}
+
+function ensureReadingProgressWidget() {
+    if (readingProgressEl) return readingProgressEl;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'reading-progress';
+    wrapper.hidden = true;
+    wrapper.setAttribute('aria-hidden', 'true');
+
+    wrapper.innerHTML = `
+        <button class="reading-progress__toggle" type="button" aria-label="İlerleme göstergesini gizle" title="Gizle">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <div class="reading-progress__ring" role="progressbar" aria-label="Okuma ilerlemesi" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span class="reading-progress__value">0%</span>
+        </div>
+    `;
+
+    document.body.appendChild(wrapper);
+
+    readingProgressEl = wrapper;
+    readingProgressValueEl = wrapper.querySelector('.reading-progress__value');
+    readingProgressToggleEl = wrapper.querySelector('.reading-progress__toggle');
+
+    const savedCollapsed = (() => {
+        try {
+            return window.localStorage?.getItem('topics:readingProgressCollapsed') === '1';
+        } catch (_) {
+            return false;
+        }
+    })();
+    wrapper.classList.toggle('is-collapsed', savedCollapsed);
+    if (readingProgressToggleEl) {
+        readingProgressToggleEl.setAttribute('aria-label', savedCollapsed ? 'İlerleme göstergesini göster' : 'İlerleme göstergesini gizle');
+        readingProgressToggleEl.title = savedCollapsed ? 'Göster' : 'Gizle';
+        const icon = readingProgressToggleEl.querySelector('i');
+        if (icon) icon.className = savedCollapsed ? 'fas fa-chevron-left' : 'fas fa-chevron-right';
+    }
+
+    readingProgressToggleEl?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const next = !wrapper.classList.contains('is-collapsed');
+        wrapper.classList.toggle('is-collapsed', next);
+        try {
+            window.localStorage?.setItem('topics:readingProgressCollapsed', next ? '1' : '0');
+        } catch (_) {
+            // ignore
+        }
+        if (readingProgressToggleEl) {
+            readingProgressToggleEl.setAttribute('aria-label', next ? 'İlerleme göstergesini göster' : 'İlerleme göstergesini gizle');
+            readingProgressToggleEl.title = next ? 'Göster' : 'Gizle';
+            const icon = readingProgressToggleEl.querySelector('i');
+            if (icon) icon.className = next ? 'fas fa-chevron-left' : 'fas fa-chevron-right';
+        }
+    });
+
+    return wrapper;
+}
+
+let readingProgressLifecycleWired = false;
+function initReadingProgressLifecycle() {
+    if (readingProgressLifecycleWired) return;
+    readingProgressLifecycleWired = true;
+
+    window.addEventListener('beforeunload', () => {
+        try {
+            flushReadingProgressSave();
+        } catch (_) {
+            // ignore
+        }
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'hidden') return;
+        try {
+            flushReadingProgressSave();
+        } catch (_) {
+            // ignore
+        }
+    });
+}
+
+function setReadingProgressUI(percent) {
+    const p = clampProgressPercent(percent);
+    if (!readingProgressEl) return;
+    readingProgressEl.style.setProperty('--progress', `${p}%`);
+    const ring = readingProgressEl.querySelector('.reading-progress__ring');
+    if (ring) ring.setAttribute('aria-valuenow', String(p));
+    if (readingProgressValueEl) readingProgressValueEl.textContent = `${p}%`;
+}
+
+function computeReadingProgressPercent(articleEl) {
+    if (!articleEl) return 0;
+    const rect = articleEl.getBoundingClientRect();
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const articleTop = scrollY + rect.top;
+    const articleHeight = Math.max(1, articleEl.offsetHeight || rect.height || 1);
+    const viewport = Math.max(1, window.innerHeight || document.documentElement.clientHeight || 1);
+
+    const start = articleTop;
+    const end = Math.max(start, articleTop + articleHeight - viewport);
+    if (end <= start) return 100;
+    const raw = (scrollY - start) / (end - start);
+    return clampProgressPercent(raw * 100);
+}
+
+function stopReadingProgressObserver() {
+    try {
+        readingProgressObserver?.disconnect();
+    } catch (_) {
+        // ignore
+    }
+    readingProgressObserver = null;
+}
+
+function startReadingProgressObserver(articleEl) {
+    stopReadingProgressObserver();
+    if (!articleEl || !articleEl.querySelectorAll) return;
+    const sections = Array.from(articleEl.querySelectorAll('.article-section[data-section-id]'));
+    if (sections.length === 0) return;
+
+    readingProgressObserver = new IntersectionObserver((entries) => {
+        // Pick the intersecting section closest to the top band.
+        const visible = entries
+            .filter((e) => e && e.isIntersecting && e.target)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        const hit = visible[0];
+        const id = hit?.target?.dataset?.sectionId ? String(hit.target.dataset.sectionId) : '';
+        if (!id) return;
+        readingProgressLastSectionId = id;
+    }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '-30% 0px -60% 0px'
+    });
+
+    sections.forEach((s) => readingProgressObserver.observe(s));
+}
+
+function persistReadingProgress(topicId, percent, sectionId) {
+    const id = normalizeTopicId(topicId);
+    const p = clampProgressPercent(percent);
+    const sid = sectionId ? String(sectionId) : '';
+
+    if (isAuthReady() && window.appFirebase && typeof window.appFirebase.setTopicState === 'function') {
+        setTopicStateLocal(id, { readingProgress: p, readingSectionId: sid });
+        window.appFirebase.setTopicState(id, { readingProgress: p, readingSectionId: sid }).catch(() => {});
+        return;
+    }
+
+    saveReadingProgressLocal(id, { percent: p, sectionId: sid });
+}
+
+function scheduleReadingProgressSave() {
+    if (!readingProgressTopicId) return;
+    if (readingProgressSaveTimer) return;
+
+    readingProgressSaveTimer = window.setTimeout(() => {
+        readingProgressSaveTimer = null;
+        if (!readingProgressTopicId) return;
+
+        const now = Date.now();
+        // Throttle writes.
+        if (now - readingProgressLastSavedAt < 1500) return;
+
+        const p = clampProgressPercent(readingProgressLastPercent);
+        const sid = readingProgressLastSectionId ? String(readingProgressLastSectionId) : '';
+        if (p === readingProgressLastSavedPercent && sid === readingProgressLastSavedSectionId) return;
+
+        readingProgressLastSavedAt = now;
+        readingProgressLastSavedPercent = p;
+        readingProgressLastSavedSectionId = sid;
+        persistReadingProgress(readingProgressTopicId, p, sid);
+    }, 800);
+}
+
+function flushReadingProgressSave() {
+    if (!readingProgressTopicId) return;
+    if (readingProgressSaveTimer) {
+        window.clearTimeout(readingProgressSaveTimer);
+        readingProgressSaveTimer = null;
+    }
+    const p = clampProgressPercent(readingProgressLastPercent);
+    const sid = readingProgressLastSectionId ? String(readingProgressLastSectionId) : '';
+    persistReadingProgress(readingProgressTopicId, p, sid);
+    readingProgressLastSavedAt = Date.now();
+    readingProgressLastSavedPercent = p;
+    readingProgressLastSavedSectionId = sid;
+}
+
+function startReadingProgressTracking(topicId, articleEl) {
+    const id = normalizeTopicId(topicId);
+    const widget = ensureReadingProgressWidget();
+    readingProgressTopicId = id;
+    widget.hidden = false;
+    widget.setAttribute('aria-hidden', 'false');
+
+    const onScroll = () => {
+        if (!readingProgressTopicId) return;
+        if (readingProgressRaf) return;
+        readingProgressRaf = window.requestAnimationFrame(() => {
+            readingProgressRaf = 0;
+            if (!readingProgressTopicId) return;
+            const percent = computeReadingProgressPercent(articleEl);
+            readingProgressLastPercent = percent;
+            setReadingProgressUI(percent);
+            scheduleReadingProgressSave();
+        });
+    };
+
+    readingProgressScrollHandler = onScroll;
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    startReadingProgressObserver(articleEl);
+    onScroll();
+}
+
+function stopReadingProgressTracking() {
+    flushReadingProgressSave();
+
+    if (readingProgressScrollHandler) {
+        window.removeEventListener('scroll', readingProgressScrollHandler);
+    }
+    readingProgressScrollHandler = null;
+
+    if (readingProgressRaf) {
+        window.cancelAnimationFrame(readingProgressRaf);
+        readingProgressRaf = 0;
+    }
+
+    stopReadingProgressObserver();
+
+    readingProgressTopicId = null;
+    readingProgressLastPercent = 0;
+    readingProgressLastSectionId = '';
+
+    if (readingProgressEl) {
+        readingProgressEl.hidden = true;
+        readingProgressEl.setAttribute('aria-hidden', 'true');
+    }
+}
+
+function resumeToSavedReadingPosition(topicId, saved) {
+    const id = normalizeTopicId(topicId);
+    const s = saved && typeof saved === 'object' ? saved : getSavedReadingProgress(id);
+    const sectionId = s.sectionId ? String(s.sectionId) : '';
+
+    const el = sectionId ? document.getElementById(sectionId) : null;
+    if (el && typeof el.scrollIntoView === 'function') {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return true;
+    }
+
+    // Fallback: approximate with percent.
+    const articleEl = document.getElementById('topicArticle');
+    if (!articleEl) return false;
+    const rect = articleEl.getBoundingClientRect();
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const articleTop = scrollY + rect.top;
+    const articleHeight = Math.max(1, articleEl.offsetHeight || rect.height || 1);
+    const viewport = Math.max(1, window.innerHeight || document.documentElement.clientHeight || 1);
+    const start = articleTop;
+    const end = Math.max(start, articleTop + articleHeight - viewport);
+    const ratio = clampProgressPercent(s.percent) / 100;
+    const target = start + ratio * (end - start);
+    window.scrollTo({ top: Math.max(0, Math.round(target)), behavior: 'smooth' });
+    return true;
+}
+
+function maybePromptResume(topicId) {
+    const id = normalizeTopicId(topicId);
+    const saved = getSavedReadingProgress(id);
+    const percent = clampProgressPercent(saved.percent);
+    const sectionId = saved.sectionId ? String(saved.sectionId) : '';
+
+    if (!sectionId && percent <= 2) return;
+    if (percent >= 99) return;
+
+    const sessionKey = `topics:resume-prompted:${id}`;
+    try {
+        if (window.sessionStorage?.getItem(sessionKey)) return;
+        window.sessionStorage?.setItem(sessionKey, '1');
+    } catch (_) {
+        // ignore
+    }
+
+    showConfirmToast({
+        message: `Kaldığın yerden devam etmek ister misin? (${percent}%)`,
+        confirmText: 'Devam et',
+        cancelText: 'Hayır',
+        onConfirm: async () => {
+            resumeToSavedReadingPosition(id, saved);
         }
     });
 }
@@ -1500,6 +1891,10 @@ function showTopicDetail(topicId) {
         window.appHighlighter.attach({ topicId, rootEl: articleContainer });
     }
 
+    stopReadingProgressTracking();
+    startReadingProgressTracking(topicId, articleContainer);
+    maybePromptResume(topicId);
+
     // Sayfanın üstüne scroll
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -1524,9 +1919,10 @@ function renderTopicArticle(topic) {
     const topicId = topic.id;
     const state = getTopicState(topicId);
     
-    let sectionsHTML = topic.sections.map(section => {
+    let sectionsHTML = topic.sections.map((section, index) => {
+        const sid = `topic-${normalizeTopicId(topicId)}-sec-${index}`;
         return `
-            <div class="article-section">
+            <div class="article-section" id="${sid}" data-section-id="${sid}">
                 <h2 class="section-title">
                     <i class="${section.icon || 'fas fa-bookmark'}"></i>
                     ${section.title}
@@ -1584,9 +1980,11 @@ function showTopicsList() {
     if (window.appHighlighter && typeof window.appHighlighter.detach === 'function') {
         window.appHighlighter.detach();
     }
+
+    stopReadingProgressTracking();
     
     // Sayfa başlığını geri al
-    document.title = 'Konu Özetleri | Mikrobiyoloji Anlatımları';
+    document.title = 'AlgoSPOT | Konu Özetleri';
 
     detailSection.style.display = 'none';
     listSection.style.display = 'grid';
@@ -1612,7 +2010,8 @@ function getCategoryIcon(category) {
         'parazitoloji': 'fas fa-bug',
         'immunoloji': 'fas fa-shield-virus',
         'laboratuvar': 'fas fa-flask',
-        'pediatrik-enfeksiyon': 'fas fa-child'
+        'pediatrik-enfeksiyon': 'fas fa-child',
+        'sterilizasyon-dezenfeksiyon': 'fas fa-fire-flame-curved'
     };
     return icons[category] || 'fas fa-file-medical';
 }
@@ -1625,7 +2024,8 @@ function getCategoryLabel(category) {
         'parazitoloji': 'Parazitoloji',
         'immunoloji': 'İmmünoloji',
         'laboratuvar': 'Laboratuvar',
-        'pediatrik-enfeksiyon': 'Pediatrik Enfeksiyon'
+        'pediatrik-enfeksiyon': 'Pediatrik Enfeksiyon',
+        'sterilizasyon-dezenfeksiyon': 'Sterilizasyon'
     };
     return labels[category] || category;
 }
@@ -1713,7 +2113,9 @@ function normalizeFilterId(filterId) {
         'klinik bakteriyoloji': 'bakteriyoloji',
         'viroloji': 'viroloji',
         'mikoloji': 'mikoloji',
-        'parazitoloji': 'parazitoloji'
+        'parazitoloji': 'parazitoloji',
+        'sterilizasyon': 'sterilizasyon-dezenfeksiyon',
+        'sterilizasyon-dezenfeksiyon': 'sterilizasyon-dezenfeksiyon'
     };
     
     return mappings[lower] || filterId.toLowerCase();
