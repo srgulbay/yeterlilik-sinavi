@@ -1070,6 +1070,16 @@
           if (rec) map.set(doc.id, rec);
         });
 
+        // Best-effort: migrate any legacy localStorage `srs_card_*` into Firestore for this user.
+        // This ensures cross-device sync even if the user studied as a guest before signing in.
+        try {
+          if (!storageGet(storageKeySrsMigrated(uid), null)) {
+            maybeMigrateLegacySrs(user, map).catch(() => {});
+          }
+        } catch (_) {
+          // ignore
+        }
+
         saveCachedSrs(uid, map);
         srsUid = uid;
         srsStateById = map;

@@ -90,6 +90,22 @@ function refreshQuestionRepeatAmbiance(targetId = null) {
     });
 }
 
+function wrapScrollableTables(scopeEl) {
+    if (!scopeEl || !scopeEl.querySelectorAll) return;
+    const tables = Array.from(scopeEl.querySelectorAll('table'));
+    tables.forEach((table) => {
+        if (!table) return;
+        if (table.closest('.table-scroll')) return;
+        if (table.closest('.detail-card__table')) return;
+        const parent = table.parentElement;
+        if (!parent) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-scroll';
+        parent.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
+}
+
 function renderFavoriteQuestionsOnly() {
     const favorites = questionFavorites || new Set();
     const source = Array.isArray(DATASET) ? DATASET : [];
@@ -510,6 +526,7 @@ function renderCards(data) {
     });
 
     container.replaceChildren(fragment);
+    wrapScrollableTables(container);
     syncCardToggles();
     refreshQuestionFavoriteButtons();
     refreshQuestionRepeatAmbiance();

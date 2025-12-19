@@ -309,6 +309,7 @@ class SRSManager {
         }
         
         document.getElementById('card-details').innerHTML = detailsHTML;
+        wrapScrollableTables(document.getElementById('card-details'));
         
         // Zorluk butonlarının zamanlarını güncelle
         this.updateDifficultyTimes(card);
@@ -382,6 +383,22 @@ class SRSManager {
 
         updateReadyState();
     }
+}
+
+function wrapScrollableTables(scopeEl) {
+    if (!scopeEl || !scopeEl.querySelectorAll) return;
+    const tables = Array.from(scopeEl.querySelectorAll('table'));
+    tables.forEach((table) => {
+        if (!table) return;
+        if (table.closest('.table-scroll')) return;
+        if (table.closest('.detail-card__table')) return;
+        const parent = table.parentElement;
+        if (!parent) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-scroll';
+        parent.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
 }
 
 // Global instance
