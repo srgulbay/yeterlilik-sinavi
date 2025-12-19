@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AlgoSPOT">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <title>AlgoSPOT | Bildirim</title>
+    <script src="theme/init-theme.js"></script>
+    <script src="theme/ui.js" defer></script>
+    <script src="theme/pwa.js" defer></script>
+    <link rel="stylesheet" href="theme/style.css">
+    <link rel="stylesheet" href="theme/notification.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-wrapper app-wrapper--no-sidebar">
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-header__info">
+                    <a class="page-header__brand" href="index.html" aria-label="AlgoSPOT Anasayfa">
+                        <span class="page-header__brand-dot" aria-hidden="true"></span>
+                        <span class="page-header__brand-word">Algo<span>SPOT</span></span>
+                    </a>
+                    <h1 class="page-header__title">Bildirim</h1>
+                </div>
+                <div class="page-header__actions">
+                    <button class="page-header__icon-btn" type="button" data-auth-trigger aria-label="Giriş Yap" title="Giriş Yap">
+                        <i class="fas fa-right-to-bracket"></i>
+                    </button>
+                    <button class="page-header__icon-btn" type="button" data-notif-trigger aria-label="Bildirimler" title="Bildirimler">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="notif-badge" data-notif-badge hidden>0</span>
+                    </button>
+                    <a class="page-header__icon-btn" href="admin.html" data-admin-link aria-label="Admin Panel" title="Admin Panel" hidden>
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                    </a>
+                    <button class="page-header__search-btn" type="button" data-search-trigger>
+                        <i class="fas fa-magnifying-glass"></i>
+                        <span>Ara...</span>
+                        <kbd>⌘K</kbd>
+                    </button>
+                </div>
+            </header>
+
+            <section class="notification-page" aria-live="polite">
+                <div class="notification-state notification-state--loading" data-notification-loading>
+                    <div class="empty-state">
+                        <div class="empty-state__icon"><i class="fas fa-circle-notch fa-spin"></i></div>
+                        <h2 class="empty-state__title">Yükleniyor…</h2>
+                        <p class="empty-state__description">Bildirim içeriği hazırlanıyor.</p>
+                    </div>
+                </div>
+
+                <div class="notification-state" data-notification-signed-out hidden>
+                    <div class="empty-state">
+                        <div class="empty-state__icon"><i class="fas fa-right-to-bracket"></i></div>
+                        <h2 class="empty-state__title">Giriş gerekli</h2>
+                        <p class="empty-state__description">Bildirim içeriğini görmek ve yorum eklemek için giriş yapın.</p>
+                        <div class="notification-state__actions">
+                            <button class="btn btn-primary" type="button" data-auth-trigger>
+                                <i class="fas fa-right-to-bracket"></i>
+                                Giriş Yap
+                            </button>
+                            <a class="btn btn-secondary" href="index.html">
+                                <i class="fas fa-house"></i>
+                                Anasayfa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-state" data-notification-invalid hidden>
+                    <div class="empty-state">
+                        <div class="empty-state__icon"><i class="fas fa-triangle-exclamation"></i></div>
+                        <h2 class="empty-state__title">Geçersiz bildirim</h2>
+                        <p class="empty-state__description">Bildirim bağlantısı eksik ya da hatalı.</p>
+                        <div class="notification-state__actions">
+                            <a class="btn btn-primary" href="index.html">
+                                <i class="fas fa-house"></i>
+                                Anasayfa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-state" data-notification-not-found hidden>
+                    <div class="empty-state">
+                        <div class="empty-state__icon"><i class="fas fa-envelope-open-text"></i></div>
+                        <h2 class="empty-state__title">Bildirim bulunamadı</h2>
+                        <p class="empty-state__description">Silinmiş olabilir veya size ait değildir.</p>
+                        <div class="notification-state__actions">
+                            <a class="btn btn-primary" href="index.html">
+                                <i class="fas fa-house"></i>
+                                Anasayfa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-view" data-notification-view hidden>
+                    <article class="card notification-card" aria-label="Bildirim içeriği">
+                        <div class="card__header">
+                            <div class="notification-card__head">
+                                <h2 class="card__title" data-notification-title>Bildirim</h2>
+                                <div class="notification-card__meta">
+                                    <span class="badge badge-primary" data-notification-badge hidden>Okunmadı</span>
+                                    <span class="notification-card__time" data-notification-time></span>
+                                </div>
+                            </div>
+                            <div class="notification-card__actions">
+                                <a class="btn btn-sm btn-secondary" href="#" data-notification-open-link hidden>
+                                    <i class="fas fa-arrow-up-right-from-square"></i>
+                                    İçeriğe Git
+                                </a>
+                                <button class="btn btn-sm btn-secondary" type="button" data-notification-toggle-read>
+                                    <i class="fas fa-check"></i>
+                                    Okundu
+                                </button>
+                                <button class="btn btn-sm btn-danger" type="button" data-notification-delete>
+                                    <i class="fas fa-trash"></i>
+                                    Sil
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="notification-card__body" data-notification-body></div>
+                        </div>
+                    </article>
+
+                    <article class="card notification-card" aria-label="Yorumunuz">
+                        <div class="card__header">
+                            <div>
+                                <h3 class="card__title" data-notification-comment-title>Yorumunuz</h3>
+                                <p class="card__subtitle" data-notification-comment-subtitle>İsterseniz bu bildirim için not bırakın. Adminler görebilir.</p>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <textarea class="input notification-comment__textarea" rows="5" placeholder="Yorum yazın..." data-notification-comment></textarea>
+                            <div class="notification-comment__footer">
+                                <span class="notification-comment__hint" data-notification-comment-hint></span>
+                                <button class="btn btn-primary" type="button" data-notification-comment-save>
+                                    <i class="fas fa-floppy-disk"></i>
+                                    Kaydet
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Dock FAB - Minimize/Expand Toggle -->
+    <button class="dock-fab" id="dockFab" type="button" aria-label="Dock'u aç" title="AlgoSPOT">
+        <span class="dock-fab__icon">
+            <svg class="crescent-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <defs>
+                    <mask id="dockCrescentMask" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                        <rect width="24" height="24" fill="black"></rect>
+                        <circle cx="11" cy="12" r="9.3" fill="white"></circle>
+                        <circle cx="14.2" cy="12" r="7.9" fill="black"></circle>
+                    </mask>
+                </defs>
+                <rect width="24" height="24" fill="currentColor" mask="url(#dockCrescentMask)"></rect>
+            </svg>
+        </span>
+    </button>
+
+    <!-- Mobile Dock - Glassmorphism Pill Style -->
+    <nav class="mobile-dock" id="mobileDock" role="navigation" aria-label="Mobil navigasyon">
+        <div class="mobile-dock__segment"></div>
+        <div class="dock__pill">
+            <button class="dock__pill-btn" data-action="search" aria-label="Arama">
+                <i class="fas fa-magnifying-glass"></i>
+            </button>
+            <button class="dock__pill-btn" data-action="theme" aria-label="Tema değiştir">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="index" aria-label="Anasayfa">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="details" aria-label="Hafıza Kartları">
+                <i class="fas fa-layer-group"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="topics" aria-label="Konu Özetleri">
+                <i class="fas fa-book-open"></i>
+            </button>
+            <button class="dock__pill-btn" data-page="study" aria-label="SRS Çalışma">
+                <i class="fas fa-brain"></i>
+            </button>
+        </div>
+    </nav>
+
+    <script src="data/enriched_content.js"></script>
+    <script src="data/details-content.js"></script>
+    <script src="data/topics-content.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="theme/firebase-config.js"></script>
+    <script src="theme/push-config.js"></script>
+    <script src="theme/firebase.js"></script>
+    <script src="theme/auth-ui.js"></script>
+    <script src="theme/admin-gate.js"></script>
+    <script src="theme/notifications.js"></script>
+    <script src="theme/notification-page.js"></script>
+    <script src="theme/dock.js"></script>
+    <script src="theme/mobile-dock.js"></script>
+    <script src="theme/dock-fab.js"></script>
+    <script src="theme/global-search.js"></script>
+    <script src="theme/visitor-metrics.js"></script>
+</body>
+</html>

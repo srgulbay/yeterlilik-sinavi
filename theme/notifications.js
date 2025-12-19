@@ -10,6 +10,7 @@
   let inboxInitial = true;
   let inboxUnreadCount = 0;
   let currentUid = null;
+  let notifiedUnreadIds = new Set();
 
   let pushToken = null;
   let pushBusy = false;
@@ -234,6 +235,7 @@
     inboxItems = [];
     inboxUnreadCount = 0;
     inboxInitial = true;
+    notifiedUnreadIds = new Set();
     setBadgeCount(0);
 
     if (!uid) return;
@@ -256,6 +258,7 @@
             url: normalizeUrl(data.url || ''),
             createdAt: parseTimestampMillis(data.createdAt),
             readAt: parseTimestampMillis(data.readAt),
+            hasComment: !!data.hasUserComment || !!String(data.userComment || '').trim(),
           });
         });
 
@@ -270,25 +273,41 @@
         // Toast + (free) foreground notification only for new unread additions after initial load.
         if (!inboxInitial) {
           const changes = snap.docChanges ? snap.docChanges() : [];
-          const addedUnread = changes.some((c) => c.type === 'added' && !(c.doc?.data?.()?.readAt));
-          if (addedUnread) {
+          const addedUnread = changes
+            .filter((c) => c.type === 'added' && !(c.doc?.data?.()?.readAt))
+            .filter((c) => c?.doc?.id && !notifiedUnreadIds.has(String(c.doc.id)));
+
+          if (addedUnread.length > 0) {
             showToast('Yeni bildirim');
-            // If the app is open, we can still show a system notification for free (no backend),
-            // as long as the user already granted permission.
+
+            // If Web Push is enabled on this device, the Service Worker will already show a notification.
+            // To avoid duplicates, only show a foreground system notification when push is NOT enabled.
             try {
               if (Notification?.permission === 'granted') {
-                const first = changes.find((c) => c.type === 'added' && !(c.doc?.data?.()?.readAt));
+                const first = addedUnread[0];
+                const docId = String(first.doc.id);
                 const data = first?.doc?.data?.() || {};
                 const title = String(data.title || 'AlgoSPOT').slice(0, 120);
                 const body = String(data.body || '').slice(0, 180);
-                const url = normalizeUrl(data.url || '');
-                getServiceWorkerRegistration().then((reg) => {
+                const detailUrl = normalizeUrl(`notification.html?nid=${encodeURIComponent(docId)}`);
+
+                getServiceWorkerRegistration().then(async (reg) => {
                   if (!reg) return;
+                  try {
+                    if (isWebPushConfigured()) {
+                      const sub = await reg.pushManager?.getSubscription?.();
+                      if (sub) return;
+                    }
+                  } catch (_) {
+                    // ignore
+                  }
+                  notifiedUnreadIds.add(docId);
                   reg.showNotification(title, {
                     body,
                     icon: './icons/icon-192.png',
                     badge: './icons/icon-192.png',
-                    data: { url: url || './' },
+                    tag: `inbox:${docId}`,
+                    data: { url: detailUrl || './' },
                   }).catch(() => {});
                 }).catch(() => {});
               }
@@ -468,7 +487,13 @@
           </div>
 
           <div class="notif-panel__section">
-            <div class="notif-panel__section-title">Gelen kutusu</div>
+            <div class="notif-panel__section-head">
+              <div class="notif-panel__section-title">Gelen kutusu</div>
+              <div class="notif-panel__section-actions">
+                <button type="button" class="btn btn-sm btn-ghost" data-notif-mark-all-read title="Hepsini okundu işaretle">Hepsini okundu</button>
+                <button type="button" class="btn btn-sm btn-ghost" data-notif-delete-read title="Okunanları sil">Okunanları sil</button>
+              </div>
+            </div>
             <div class="notif-panel__list" data-notif-list></div>
             <div class="notif-panel__empty" data-notif-empty hidden>Henüz bildirim yok.</div>
           </div>
@@ -507,24 +532,37 @@
     if (signedOutEl) signedOutEl.hidden = true;
     if (content) content.hidden = false;
 
+    const items = Array.isArray(inboxItems) ? inboxItems : [];
+
     if (listEl) {
-      const items = Array.isArray(inboxItems) ? inboxItems : [];
       const html = items.map((n) => {
         const unread = !n.readAt;
+        const hasComment = !!n.hasComment;
         const title = escapeHtml(n.title || 'Bildirim');
         const body = escapeHtml(n.body || '');
         const time = escapeHtml(formatTime(n.createdAt));
         return `
-          <button type="button" class="notif-item ${unread ? 'is-unread' : ''}" data-notif-open data-notif-id="${escapeHtml(n.id)}">
-            <div class="notif-item__top">
-              <div class="notif-item__title">
-                ${unread ? '<span class="notif-item__dot" aria-hidden="true"></span>' : ''}
-                <span>${title}</span>
+          <div class="notif-row">
+            <button type="button" class="notif-item ${unread ? 'is-unread' : ''}" data-notif-open data-notif-id="${escapeHtml(n.id)}" aria-label="${title}">
+              <div class="notif-item__top">
+                <div class="notif-item__title">
+                  ${unread ? '<span class="notif-item__dot" aria-hidden="true"></span>' : ''}
+                  <span>${title}</span>
+                  ${hasComment ? '<span class="notif-item__flag" title="Yorum var" aria-label="Yorum var"><i class="fas fa-comment-dots" aria-hidden="true"></i></span>' : ''}
+                </div>
+                <div class="notif-item__time">${time}</div>
               </div>
-              <div class="notif-item__time">${time}</div>
+              ${body ? `<div class="notif-item__body">${body}</div>` : ''}
+            </button>
+            <div class="notif-item__actions" aria-label="Bildirim işlemleri">
+              <button type="button" class="notif-action" data-notif-toggle-read data-notif-id="${escapeHtml(n.id)}" title="${unread ? 'Okundu işaretle' : 'Okunmadı yap'}" aria-label="${unread ? 'Okundu işaretle' : 'Okunmadı yap'}">
+                <i class="fas ${unread ? 'fa-check' : 'fa-rotate-left'}" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="notif-action notif-action--danger" data-notif-delete data-notif-id="${escapeHtml(n.id)}" title="Sil" aria-label="Sil">
+                <i class="fas fa-trash" aria-hidden="true"></i>
+              </button>
             </div>
-            ${body ? `<div class="notif-item__body">${body}</div>` : ''}
-          </button>
+          </div>
         `;
       }).join('');
 
@@ -532,20 +570,78 @@
       if (emptyEl) emptyEl.hidden = items.length > 0;
     }
 
+    // Update inbox action buttons.
+    const btnAllRead = panel.querySelector('[data-notif-mark-all-read]');
+    const btnDeleteRead = panel.querySelector('[data-notif-delete-read]');
+    const unreadCount = items.filter((x) => !x.readAt).length;
+    const readCount = items.filter((x) => !!x.readAt).length;
+    if (btnAllRead) btnAllRead.disabled = unreadCount === 0;
+    if (btnDeleteRead) btnDeleteRead.disabled = readCount === 0;
+
     refreshPushUI(panel).catch(() => {});
   }
 
-  async function markNotificationRead(uid, notificationId) {
+  async function setNotificationReadState(uid, notificationId, read) {
     if (!uid || !notificationId) return false;
     if (!window.firebase || typeof window.firebase.firestore !== 'function') return false;
     try {
       const db = window.firebase.firestore();
       await db.collection('users').doc(String(uid)).collection('inbox').doc(String(notificationId)).set({
-        readAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        readAt: read
+          ? window.firebase.firestore.FieldValue.serverTimestamp()
+          : window.firebase.firestore.FieldValue.delete(),
       }, { merge: true });
       return true;
     } catch (_) {
       return false;
+    }
+  }
+
+  async function deleteNotification(uid, notificationId) {
+    if (!uid || !notificationId) return false;
+    if (!window.firebase || typeof window.firebase.firestore !== 'function') return false;
+    try {
+      const db = window.firebase.firestore();
+      await db.collection('users').doc(String(uid)).collection('inbox').doc(String(notificationId)).delete();
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  async function markAllRead(uid, ids) {
+    const list = Array.isArray(ids) ? ids.map((x) => String(x || '').trim()).filter(Boolean) : [];
+    if (!uid || list.length === 0) return 0;
+    if (!window.firebase || typeof window.firebase.firestore !== 'function') return 0;
+    try {
+      const db = window.firebase.firestore();
+      const batch = db.batch();
+      list.forEach((id) => {
+        const ref = db.collection('users').doc(String(uid)).collection('inbox').doc(String(id));
+        batch.set(ref, { readAt: window.firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
+      });
+      await batch.commit();
+      return list.length;
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  async function deleteMany(uid, ids) {
+    const list = Array.isArray(ids) ? ids.map((x) => String(x || '').trim()).filter(Boolean) : [];
+    if (!uid || list.length === 0) return 0;
+    if (!window.firebase || typeof window.firebase.firestore !== 'function') return 0;
+    try {
+      const db = window.firebase.firestore();
+      const batch = db.batch();
+      list.forEach((id) => {
+        const ref = db.collection('users').doc(String(uid)).collection('inbox').doc(String(id));
+        batch.delete(ref);
+      });
+      await batch.commit();
+      return list.length;
+    } catch (_) {
+      return 0;
     }
   }
 
@@ -739,17 +835,58 @@
     });
 
     panel.addEventListener('click', async (e) => {
+      const allReadBtn = e.target.closest('[data-notif-mark-all-read]');
+      if (allReadBtn) {
+        e.preventDefault();
+        const ids = inboxItems.filter((x) => !x.readAt).map((x) => x.id);
+        const n = await markAllRead(currentUid, ids);
+        if (n > 0) showToast('Okundu işaretlendi');
+        return;
+      }
+
+      const deleteReadBtn = e.target.closest('[data-notif-delete-read]');
+      if (deleteReadBtn) {
+        e.preventDefault();
+        const ids = inboxItems.filter((x) => !!x.readAt).map((x) => x.id);
+        if (ids.length === 0) return;
+        const yes = window.confirm('Okunan bildirimler silinsin mi?');
+        if (!yes) return;
+        const n = await deleteMany(currentUid, ids);
+        if (n > 0) showToast('Silindi');
+        return;
+      }
+
+      const toggleBtn = e.target.closest('[data-notif-toggle-read]');
+      if (toggleBtn) {
+        e.preventDefault();
+        const id = String(toggleBtn.getAttribute('data-notif-id') || '');
+        const rec = inboxItems.find((x) => x.id === id) || null;
+        const unread = rec ? !rec.readAt : true;
+        const ok = await setNotificationReadState(currentUid, id, unread);
+        if (!ok) showToast('Güncellenemedi');
+        return;
+      }
+
+      const deleteBtn = e.target.closest('[data-notif-delete]');
+      if (deleteBtn) {
+        e.preventDefault();
+        const id = String(deleteBtn.getAttribute('data-notif-id') || '');
+        if (!id) return;
+        const yes = window.confirm('Bu bildirimi silmek istiyor musunuz?');
+        if (!yes) return;
+        const ok = await deleteNotification(currentUid, id);
+        if (!ok) showToast('Silinemedi');
+        else showToast('Silindi');
+        return;
+      }
+
       const openBtn = e.target.closest('[data-notif-open]');
       if (openBtn) {
         e.preventDefault();
         const id = String(openBtn.getAttribute('data-notif-id') || '');
-        const rec = inboxItems.find((x) => x.id === id) || null;
-        await markNotificationRead(currentUid, id);
-        if (rec?.url) {
-          window.location.href = rec.url;
-          return;
-        }
-        closePanel(panel);
+        await setNotificationReadState(currentUid, id, true);
+        window.location.href = `notification.html?nid=${encodeURIComponent(id)}`;
+        return;
       }
     });
 

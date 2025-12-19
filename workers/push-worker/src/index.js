@@ -106,6 +106,19 @@ async function firestoreListCollection(env, idToken, path, pageSize = 100) {
   return { res, json };
 }
 
+async function firestoreDeleteDoc(env, idToken, path) {
+  const projectId = String(env.FIREBASE_PROJECT_ID || '').trim();
+  if (!projectId) throw new Error('FIREBASE_PROJECT_ID_REQUIRED');
+  const url = `https://firestore.googleapis.com/v1/projects/${encodeURIComponent(projectId)}/databases/(default)/documents/${path}`;
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${idToken}`,
+    },
+  });
+  return res;
+}
+
 async function requireAdmin(env, idToken) {
   const claims = decodeJwtPayload(idToken) || {};
   const uid = String(claims.user_id || claims.sub || '').trim();
@@ -140,7 +153,10 @@ async function sendToUser(env, adminToken, uid, payload) {
     const p256dh = extractFirestoreString(fields, 'p256dh');
     const auth = extractFirestoreString(fields, 'auth');
     if (!endpoint || !p256dh || !auth) return null;
-    return { endpoint, keys: { p256dh, auth } };
+    const docName = typeof doc?.name === 'string' ? doc.name : '';
+    const docId = docName.split('/').pop() || '';
+    const docPath = docId ? `users/${encodeURIComponent(uid)}/pushTokens/${encodeURIComponent(docId)}` : '';
+    return { subscription: { endpoint, keys: { p256dh, auth } }, docPath };
   }).filter(Boolean);
 
   if (subs.length === 0) {
@@ -149,12 +165,13 @@ async function sendToUser(env, adminToken, uid, payload) {
 
   const body = JSON.stringify({
     source: 'algospot',
+    nid: payload.nid,
     title: payload.title,
     body: payload.body,
     url: payload.url,
   });
 
-  const results = await Promise.allSettled(subs.map((sub) => webpush.sendNotification(sub, body, {
+  const results = await Promise.allSettled(subs.map((rec) => webpush.sendNotification(rec.subscription, body, {
     TTL: 60 * 60,
     headers: {
       Urgency: 'high',
@@ -168,7 +185,32 @@ async function sendToUser(env, adminToken, uid, payload) {
     else failed += 1;
   });
 
+  // Cleanup expired subscriptions (best effort).
+  for (let i = 0; i < results.length; i++) {
+    const r = results[i];
+    if (r.status !== 'rejected') continue;
+    const statusCode = Number(r.reason?.statusCode) || 0;
+    if (statusCode !== 404 && statusCode !== 410) continue;
+    const docPath = subs[i]?.docPath;
+    if (!docPath) continue;
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      await firestoreDeleteDoc(env, adminToken, docPath);
+    } catch (_) {
+      // ignore
+    }
+  }
+
   return { uid, ok: failed === 0, sent, failed };
+}
+
+function randomId() {
+  try {
+    if (typeof crypto?.randomUUID === 'function') return crypto.randomUUID();
+  } catch (_) {
+    // ignore
+  }
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
 export default {
@@ -217,6 +259,7 @@ export default {
     const title = String(body.title || '').trim().slice(0, 120);
     const message = String(body.body || '').trim().slice(0, 800);
     const targetUrl = String(body.url || '').trim().slice(0, 500);
+    const nidFromBody = String(body.nid || body.id || '').trim().slice(0, 160);
     if (!title) {
       return jsonResponse({ ok: false, error: 'TITLE_REQUIRED' }, { status: 400, headers: cors.headers });
     }
@@ -227,7 +270,7 @@ export default {
       return jsonResponse({ ok: false, error: err?.message || 'VAPID_CONFIG_REQUIRED' }, { status: 500, headers: cors.headers });
     }
 
-    const payload = { title, body: message, url: targetUrl || '/' };
+    const payload = { title, body: message, url: targetUrl || '/', nid: nidFromBody || randomId() };
     const perUser = [];
 
     for (const uid of recipients) {
@@ -246,10 +289,10 @@ export default {
 
     return jsonResponse({
       ok: true,
+      nid: payload.nid,
       recipients: recipients.length,
       totals,
       perUser,
     }, { status: 200, headers: cors.headers });
   },
 };
-

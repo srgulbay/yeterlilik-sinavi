@@ -11,6 +11,7 @@
   let adminDocUnsub = null;
   let adminsUnsub = null;
   let notifsUnsub = null;
+  let commentsUnsub = null;
 
   let selectedRecipients = []; // { uid, email }
   let searchTimer = null;
@@ -314,7 +315,16 @@
     return out;
   }
 
-  async function sendPushViaWorker({ recipients, title, body, url }) {
+  function makeNotificationId() {
+    try {
+      if (typeof crypto?.randomUUID === 'function') return crypto.randomUUID();
+    } catch (_) {
+      // ignore
+    }
+    return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  }
+
+  async function sendPushViaWorker({ recipients, title, body, url, nid }) {
     const workerUrl = getPushWorkerUrl();
     if (!workerUrl) return { skipped: true, reason: 'WORKER_URL_NOT_CONFIGURED' };
     const idToken = await getFirebaseIdToken();
@@ -323,6 +333,7 @@
     const list = Array.isArray(recipients) ? recipients.map((x) => String(x || '').trim()).filter(Boolean) : [];
     if (list.length === 0) return { skipped: true, reason: 'NO_RECIPIENTS' };
 
+    const pushId = String(nid || makeNotificationId()).trim().slice(0, 160);
     const batches = chunkArray(Array.from(new Set(list)), PUSH_BATCH_LIMIT);
 
     let sent = 0;
@@ -338,6 +349,7 @@
           Authorization: `Bearer ${idToken}`,
         },
         body: JSON.stringify({
+          nid: pushId,
           title,
           body,
           url,
@@ -378,6 +390,9 @@
       if (hintEl) hintEl.textContent = msg || '';
     };
 
+    const nid = makeNotificationId();
+    const notifDeepLink = normalizeUrl(`notification.html?nid=${encodeURIComponent(nid)}`).slice(0, 500);
+
     let recipients = [];
 
     if (broadcast) {
@@ -400,14 +415,14 @@
 
       const batch = db.batch();
       chunk.forEach((uid) => {
-        const ref = db.collection('users').doc(uid).collection('inbox').doc();
+        const ref = db.collection('users').doc(uid).collection('inbox').doc(nid);
         batch.set(ref, {
           title: t,
           body: b || '',
           url: u || '',
           createdAt: now,
           createdBy: String(currentUser.uid),
-        }, { merge: true });
+        });
       });
       await batch.commit();
     }
@@ -432,7 +447,13 @@
     try {
       if (!broadcast) {
         setHint(`Gönderildi (${recipients.length}) · Push hazırlanıyor…`);
-        const pushRes = await sendPushViaWorker({ recipients, title: t, body: b || '', url: u || '/' });
+        const pushRes = await sendPushViaWorker({
+          recipients,
+          title: t,
+          body: b || '',
+          url: notifDeepLink || u || '/',
+          nid,
+        });
         if (pushRes?.skipped) {
           setHint(`Gönderildi (${recipients.length}) · Push: kapalı (${pushRes.reason})`);
         } else {
@@ -471,6 +492,16 @@
     });
 
     document.addEventListener('click', (e) => {
+      const addFromComment = e.target.closest('[data-admin-add-from-comment]');
+      if (addFromComment) {
+        e.preventDefault();
+        const uid = String(addFromComment.getAttribute('data-admin-add-from-comment') || '').trim();
+        if (!uid) return;
+        addRecipient({ uid, email: '' });
+        showToast('Kullanıcı hedefe eklendi');
+        return;
+      }
+
       const addBtn = e.target.closest('[data-admin-add-recipient]');
       if (addBtn) {
         e.preventDefault();
@@ -495,11 +526,11 @@
         return;
       }
 
-      const results = document.querySelector('[data-admin-user-results]');
-      const searchBox = document.querySelector('[data-admin-user-search]');
-      const inside = results?.contains(e.target) || searchBox?.contains(e.target);
-      if (!inside) closeResults();
-    });
+    const results = document.querySelector('[data-admin-user-results]');
+    const searchBox = document.querySelector('[data-admin-user-search]');
+    const inside = results?.contains(e.target) || searchBox?.contains(e.target);
+    if (!inside) closeResults();
+  });
 
     const notifForm = document.querySelector('[data-admin-notif-form]');
     notifForm?.addEventListener('submit', async (e) => {
@@ -717,15 +748,86 @@
     }
   }
 
+  function watchNotificationComments() {
+    const db = getDb();
+    if (!db) return;
+
+    const listEl = document.querySelector('[data-admin-comments-list]');
+    if (listEl) listEl.innerHTML = '<div class="badge badge-neutral">Yükleniyor…</div>';
+
+    try {
+      commentsUnsub = db.collectionGroup('inbox')
+        .orderBy('commentUpdatedAt', 'desc')
+        .limit(30)
+        .onSnapshot((snap) => {
+          const items = [];
+          snap.forEach((doc) => {
+            const data = doc.data() || {};
+            const comment = String(data.userComment || '').trim();
+            if (!comment) return;
+            const uid = doc.ref?.parent?.parent?.id ? String(doc.ref.parent.parent.id) : '';
+            items.push({
+              uid,
+              nid: String(doc.id),
+              title: String(data.title || '').slice(0, 120),
+              comment: comment.slice(0, 1200),
+              commentUpdatedAt: parseTimestampMillis(data.commentUpdatedAt),
+            });
+          });
+
+          if (!listEl) return;
+          if (items.length === 0) {
+            listEl.innerHTML = '<div class="badge badge-neutral">Henüz yorum yok</div>';
+            return;
+          }
+
+          listEl.innerHTML = items.map((it) => {
+            const when = it.commentUpdatedAt ? formatTime(it.commentUpdatedAt) : '';
+            const preview = it.comment.length > 140 ? `${it.comment.slice(0, 140)}…` : it.comment;
+            const meta = [
+              it.uid || '—',
+              it.title || 'Bildirim',
+              when,
+            ].filter(Boolean).join(' · ');
+
+            const href = `notification.html?nid=${encodeURIComponent(it.nid)}&uid=${encodeURIComponent(it.uid || '')}`;
+
+            return `
+              <div class="admin-item">
+                <div class="admin-item__left">
+                  <div class="admin-item__title">Yorum: ${escapeHtml(preview)}</div>
+                  <div class="admin-item__sub">${escapeHtml(meta)}</div>
+                </div>
+                <div class="admin-item__right">
+                  <a class="btn btn-secondary btn-sm" href="${escapeHtml(href)}" title="Görüntüle" aria-label="Görüntüle">
+                    <i class="fas fa-eye" aria-hidden="true"></i>
+                  </a>
+                  <button class="btn btn-secondary btn-sm" type="button" data-admin-add-from-comment="${escapeHtml(it.uid)}" title="Hedefe ekle" aria-label="Hedefe ekle">
+                    <i class="fas fa-user-plus" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }, () => {
+          if (listEl) listEl.innerHTML = '<div class="badge badge-neutral">Yüklenemedi</div>';
+        });
+    } catch (_) {
+      commentsUnsub = null;
+      if (listEl) listEl.innerHTML = '<div class="badge badge-neutral">Yüklenemedi</div>';
+    }
+  }
+
   function startAdminPanel() {
     wireAdminUI();
     if (!adminsUnsub) watchAdminsList();
     if (!notifsUnsub) watchRecentNotifications();
+    if (!commentsUnsub) watchNotificationComments();
     refreshUserCount().catch(() => {});
   }
 
   function stopAdminPanel() {
-    [adminsUnsub, notifsUnsub].forEach((fn) => {
+    [adminsUnsub, notifsUnsub, commentsUnsub].forEach((fn) => {
       try {
         if (typeof fn === 'function') fn();
       } catch (_) {
@@ -734,6 +836,7 @@
     });
     adminsUnsub = null;
     notifsUnsub = null;
+    commentsUnsub = null;
   }
 
   function attachAdminGate(uid) {

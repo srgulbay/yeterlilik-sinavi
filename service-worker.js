@@ -1,44 +1,5 @@
 /* eslint-disable no-restricted-globals */
 
-// Optional: Firebase Cloud Messaging support (background notifications).
-(function initFirebaseMessaging() {
-  try {
-    const version = '9.23.0';
-    importScripts(`https://www.gstatic.com/firebasejs/${version}/firebase-app-compat.js`);
-    importScripts(`https://www.gstatic.com/firebasejs/${version}/firebase-messaging-compat.js`);
-    importScripts('theme/firebase-config.js');
-
-    if (!self.firebase || !self.FIREBASE_CONFIG) return;
-    if (!self.firebase.apps || self.firebase.apps.length === 0) {
-      self.firebase.initializeApp(self.FIREBASE_CONFIG);
-    }
-
-    if (!self.firebase.messaging) return;
-    const messaging = self.firebase.messaging();
-
-    messaging.onBackgroundMessage((payload) => {
-      try {
-        const data = payload && payload.data ? payload.data : {};
-        const title = data.title || payload?.notification?.title || 'AlgoSPOT';
-        const body = data.body || payload?.notification?.body || '';
-        const url = data.url || data.click_action || data.link || './';
-
-        const options = {
-          body,
-          icon: data.icon || './icons/icon-192.png',
-          badge: './icons/icon-192.png',
-          data: { url },
-        };
-        self.registration.showNotification(title, options);
-      } catch (_) {
-        // ignore
-      }
-    });
-  } catch (_) {
-    // ignore
-  }
-})();
-
 self.addEventListener('push', (event) => {
   const data = (() => {
     try {
@@ -59,18 +20,43 @@ self.addEventListener('push', (event) => {
   // We only handle our own Web Push payloads.
   if (!data || data.source !== 'algospot') return;
 
-  const title = data.title || 'AlgoSPOT';
-  const body = data.body || 'Yeni bildirim';
+  const title = String(data.title || 'AlgoSPOT').slice(0, 120);
+  const body = String(data.body || 'Yeni bildirim').slice(0, 360);
   const url = data.url || './';
+  const nid = typeof data.nid === 'string' ? data.nid.trim().slice(0, 160) : '';
+  if (!title && !body) return;
 
   event.waitUntil((async () => {
     try {
-      await self.registration.showNotification(title, {
+      // Best-effort de-duplication: if a push message is delivered multiple times,
+      // only show it once per `nid` (even if the user dismissed a prior notification).
+      if (nid) {
+        try {
+          const cache = await caches.open('algospot-notif-dedup-v1');
+          const req = new Request(`https://algospot-dedup.invalid/${encodeURIComponent(nid)}`);
+          const seen = await cache.match(req);
+          if (seen) return;
+          await cache.put(req, new Response('1'));
+
+          const keys = await cache.keys();
+          const MAX_KEYS = 200;
+          const excess = keys.length - MAX_KEYS;
+          if (excess > 0) {
+            await Promise.all(keys.slice(0, excess).map((k) => cache.delete(k)));
+          }
+        } catch (_) {
+          // ignore
+        }
+      }
+
+      const options = {
         body,
         icon: './icons/icon-192.png',
         badge: './icons/icon-192.png',
         data: { url },
-      });
+      };
+      if (nid) options.tag = `algospot:${nid}`;
+      await self.registration.showNotification(title, options);
     } catch (_) {
       // ignore
     }
@@ -98,15 +84,33 @@ self.addEventListener('notificationclick', (event) => {
   event.waitUntil((async () => {
     try {
       const list = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+      const firstWindow = list.find((c) => c && typeof c.focus === 'function') || null;
+
+      // If a tab is already on the target URL, just focus it.
       for (const client of list) {
         if (!client || !client.url) continue;
         if (client.url === target && typeof client.focus === 'function') {
           return client.focus();
         }
       }
-      if (self.clients.openWindow) {
-        return self.clients.openWindow(target);
+
+      // Otherwise, reuse an existing tab if possible (better UX than opening new tabs).
+      if (firstWindow) {
+        try {
+          await firstWindow.focus();
+        } catch (_) {
+          // ignore
+        }
+        if (typeof firstWindow.navigate === 'function') {
+          try {
+            return await firstWindow.navigate(target);
+          } catch (_) {
+            // ignore
+          }
+        }
       }
+
+      if (self.clients.openWindow) return self.clients.openWindow(target);
     } catch (_) {
       // ignore
     }
@@ -114,7 +118,7 @@ self.addEventListener('notificationclick', (event) => {
   })());
 });
 
-const CACHE_VERSION = '2025-12-19-4';
+const CACHE_VERSION = '2025-12-19-6';
 const CORE_CACHE = `app-yeterlilik-core-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `app-yeterlilik-runtime-${CACHE_VERSION}`;
 
@@ -125,6 +129,7 @@ const PRECACHE_URLS = [
   './topics.html',
   './study.html',
   './admin.html',
+  './notification.html',
   './offline.html',
   './manifest.webmanifest',
   './theme/pwa.js',
@@ -141,6 +146,7 @@ const PRECACHE_URLS = [
   './theme/topics.css',
   './theme/study.css',
   './theme/admin.css',
+  './theme/notification.css',
   './theme/mobile-dock.css',
   './theme/global-search.css',
   './theme/app.js',
@@ -154,6 +160,7 @@ const PRECACHE_URLS = [
   './theme/admin-gate.js',
   './theme/notifications.js',
   './theme/admin.js',
+  './theme/notification-page.js',
   './theme/dock.js',
   './theme/mobile-dock.js',
   './theme/dock-fab.js',

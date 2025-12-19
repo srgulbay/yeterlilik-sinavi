@@ -2171,6 +2171,21 @@ mark.text-highlight.is-active {
     letter-spacing: 0.12em;
 }
 
+.notif-panel__section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.notif-panel__section-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
 .notif-panel__push-row {
     display: flex;
     align-items: flex-start;
@@ -2203,6 +2218,12 @@ mark.text-highlight.is-active {
     gap: var(--space-2);
 }
 
+.notif-row {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-2);
+}
+
 .notif-panel__empty {
     font-size: var(--text-sm);
     color: var(--text-tertiary);
@@ -2224,6 +2245,46 @@ mark.text-highlight.is-active {
     gap: var(--space-1);
     cursor: pointer;
     transition: all var(--transition-fast);
+}
+
+.notif-row .notif-item {
+    flex: 1;
+    min-width: 0;
+}
+
+.notif-item__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.notif-action {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.notif-action:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-ghost);
+}
+
+.notif-action:active {
+    transform: scale(0.98);
+}
+
+.notif-action--danger:hover {
+    border-color: rgba(239, 68, 68, 0.6);
+    color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
 }
 
 .notif-item:hover {
@@ -2251,6 +2312,25 @@ mark.text-highlight.is-active {
     color: var(--text-main);
     font-size: var(--text-sm);
     min-width: 0;
+}
+
+.notif-item__flag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(34, 211, 238, 0.28);
+    background: rgba(34, 211, 238, 0.08);
+    color: rgba(14, 116, 144, 0.9);
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .notif-item__flag {
+    border-color: rgba(34, 211, 238, 0.22);
+    background: rgba(34, 211, 238, 0.06);
+    color: rgba(103, 232, 249, 0.9);
 }
 
 .notif-item__dot {
@@ -2287,6 +2367,11 @@ mark.text-highlight.is-active {
 @media (max-width: 420px) {
     .notif-panel__surface {
         padding: var(--space-3);
+    }
+
+    .notif-action {
+        width: 38px;
+        height: 38px;
     }
 }
 

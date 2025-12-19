@@ -1,0 +1,97 @@
+/* ==========================================
+   NOTIFICATION DETAIL PAGE
+   ========================================== */
+
+.notification-page {
+    padding: 0 var(--space-6) var(--space-24);
+    max-width: 980px;
+}
+
+@media (max-width: 768px) {
+    .notification-page {
+        padding: 0 var(--space-4) var(--space-24);
+    }
+}
+
+.notification-state__actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-4);
+}
+
+.notification-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+}
+
+.notification-card__head {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.notification-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.notification-card__time {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.notification-card__actions {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.notification-card__body {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--text-main);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.notification-comment__textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.notification-comment__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+}
+
+.notification-comment__hint {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .notification-card__actions {
+        justify-content: flex-start;
+    }
+
+    .notification-comment__footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .notification-comment__footer .btn {
+        width: 100%;
+    }
+}
+
