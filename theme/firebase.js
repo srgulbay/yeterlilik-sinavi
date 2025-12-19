@@ -2,6 +2,9 @@
   'use strict';
 
   const FIVE_MAX = 5;
+  let redirectResultChecked = false;
+  let persistenceConfigured = false;
+  let persistenceReady = Promise.resolve();
 
   function isConfigured() {
     return typeof window !== 'undefined' && !!window.FIREBASE_CONFIG;
@@ -514,9 +517,24 @@
     api.enabled = true;
 
     // Make auth/session consistent across pages.
+    if (!persistenceConfigured) {
+      persistenceConfigured = true;
+      try {
+        if (auth && typeof auth.setPersistence === 'function' && window.firebase?.auth?.Auth?.Persistence?.LOCAL) {
+          persistenceReady = auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+        }
+      } catch (_) {
+        // ignore
+      }
+    }
+
+    // Mobile redirect sign-in needs getRedirectResult() to finalize in some browsers.
     try {
-      if (auth && auth.setPersistence && window.firebase?.auth?.Auth?.Persistence?.LOCAL) {
-        auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+      if (!redirectResultChecked && auth && typeof auth.getRedirectResult === 'function') {
+        redirectResultChecked = true;
+        Promise.resolve(persistenceReady).finally(() => {
+          auth.getRedirectResult().catch(() => {});
+        });
       }
     } catch (_) {
       // ignore
@@ -569,6 +587,7 @@
     };
 
     api.signIn = async () => {
+      await persistenceReady;
       const provider = new window.firebase.auth.GoogleAuthProvider();
       // Prefer popup; for mobile this may fall back to redirect.
       try {
@@ -584,6 +603,7 @@
     };
 
     api.signInWithEmailPassword = async (email, password) => {
+      await persistenceReady;
       const e = String(email || '').trim();
       const p = String(password || '');
       if (!e || !p) throw new Error('EMAIL_PASSWORD_REQUIRED');
@@ -591,6 +611,7 @@
     };
 
     api.signUpWithEmailPassword = async (email, password) => {
+      await persistenceReady;
       const e = String(email || '').trim();
       const p = String(password || '');
       if (!e || !p) throw new Error('EMAIL_PASSWORD_REQUIRED');
@@ -598,6 +619,7 @@
     };
 
     api.startPhoneSignIn = async (phoneNumber, containerId) => {
+      await persistenceReady;
       const pn = String(phoneNumber || '').trim();
       const cid = String(containerId || '').trim();
       if (!pn) throw new Error('PHONE_REQUIRED');
@@ -619,6 +641,7 @@
     };
 
     api.confirmPhoneCode = async (code) => {
+      await persistenceReady;
       const c = String(code || '').trim();
       if (!phoneConfirmationResult) throw new Error('PHONE_START_REQUIRED');
       if (!c) throw new Error('PHONE_CODE_REQUIRED');
@@ -632,6 +655,7 @@
     };
 
     api.signOut = async () => {
+      await persistenceReady;
       await auth.signOut();
     };
 

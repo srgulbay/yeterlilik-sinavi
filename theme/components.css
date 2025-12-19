@@ -1658,11 +1658,11 @@ mark.text-highlight.is-active {
  */
 
 .page-header {
-    padding: var(--space-6) var(--space-6) var(--space-5);
+    padding: var(--space-5) var(--space-6) var(--space-4);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: var(--space-6);
+    gap: var(--space-5);
     flex-wrap: wrap;
 
     /* Header surface (glass) */
@@ -1699,10 +1699,11 @@ mark.text-highlight.is-active {
 /* Page header info - sadece bu kısım sayfa geçişinde değişecek */
 .page-header__info {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    flex: 1;
-    min-width: 200px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    flex: 1 1 auto;
+    min-width: 0;
     
     /* View Transitions API - sadece değişen içerik */
     view-transition-name: header-info;
@@ -2067,13 +2068,14 @@ mark.text-highlight.is-active {
 }
 
 .page-header__title {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.35rem, 2.25vw, 1.85rem);
     font-weight: var(--font-extrabold);
     background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1.2;
+    min-width: 0;
 }
 
 .page-header__desc {
@@ -2212,6 +2214,12 @@ mark.text-highlight.is-active {
         justify-content: flex-end;
         gap: var(--space-2);
     }
+
+    .page-header__info {
+        width: 100%;
+        min-width: 0;
+        justify-content: flex-start;
+    }
     
     .page-header__search-btn {
         width: 100%;
@@ -2231,6 +2239,18 @@ mark.text-highlight.is-active {
     
     .page-header__search-btn kbd {
         display: none;
+    }
+}
+
+@supports (padding: env(safe-area-inset-top)) {
+    .page-header {
+        padding-top: calc(var(--space-5) + env(safe-area-inset-top));
+    }
+
+    @media (max-width: 768px) {
+        .page-header {
+            padding-top: calc(var(--space-5) + env(safe-area-inset-top));
+        }
     }
 }
 
