@@ -2,17 +2,17 @@
  * ============================================
  * VISITOR METRICS - Ziyaretçi İstatistikleri
  * ============================================
- * Versiyon: 1.1.0
+ * Versiyon: 1.2.0
  * Tarih: 19 Aralık 2025
  * 
  * Online kullanıcı, üye, misafir ve toplam ziyaret
  * sayılarını takip eden ve gösteren modül.
  * 
- * Ziyaret sayımı: Siteye ilk girişte 1 kez sayılır,
- * sayfa geçişlerinde tekrar sayılmaz (session bazlı).
+ * - Aynı tarayıcı/cihaz = tek kullanıcı (device fingerprint)
+ * - Ziyaret sayımı: Siteye ilk girişte 1 kez sayılır
+ * - Sayfa geçişlerinde tekrar sayılmaz (session bazlı)
  * 
- * Firebase Realtime Database veya Firestore ile
- * gerçek zamanlı senkronizasyon destekler.
+ * Firebase ile gerçek zamanlı senkronizasyon destekler.
  * Firebase yoksa localStorage ile çalışır.
  */
 
@@ -25,17 +25,16 @@
   
   const CONFIG = {
     // LocalStorage keys
-    STORAGE_KEY_SESSION: 'app:visitor:sessionId',
+    STORAGE_KEY_DEVICE_ID: 'app:visitor:deviceId',
     STORAGE_KEY_VISITS: 'app:visitor:totalVisits',
     STORAGE_KEY_ONLINE: 'app:visitor:online',
-    STORAGE_KEY_VISIT_COUNTED: 'app:visitor:visitCounted',
     
     // Session key - used to track if this browser session already counted
     SESSION_STORAGE_KEY: 'app:visitor:currentSession',
     
     // Timing
     HEARTBEAT_INTERVAL: 30000,      // 30 saniye - online check
-    SESSION_TIMEOUT: 60000,         // 60 saniye - session timeout
+    SESSION_TIMEOUT: 90000,         // 90 saniye - session timeout (longer for single device)
     UPDATE_INTERVAL: 5000,          // 5 saniye - UI update
     
     // Animation
@@ -47,7 +46,8 @@
   // ==========================================
   
   let state = {
-    sessionId: null,
+    deviceId: null,        // Unique device identifier (persistent)
+    sessionId: null,       // Current browser session (temporary)
     isAuthenticated: false,
     userId: null,
     lastHeartbeat: 0,
@@ -60,6 +60,48 @@
   // UTILITY FUNCTIONS
   // ==========================================
   
+  /**
+   * Generate a unique device fingerprint based on browser characteristics.
+   * This creates a consistent ID for the same browser/device.
+   */
+  function generateDeviceId() {
+    const components = [
+      navigator.userAgent,
+      navigator.language,
+      screen.width + 'x' + screen.height,
+      screen.colorDepth,
+      new Date().getTimezoneOffset(),
+      navigator.hardwareConcurrency || 'unknown',
+      navigator.platform || 'unknown',
+    ];
+    
+    // Simple hash function
+    const str = components.join('|');
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    
+    return 'device_' + Math.abs(hash).toString(36) + '_' + navigator.userAgent.length.toString(36);
+  }
+
+  /**
+   * Get or create a persistent device ID.
+   * Same device/browser always gets the same ID.
+   */
+  function getDeviceId() {
+    let deviceId = storageGet(CONFIG.STORAGE_KEY_DEVICE_ID, null);
+    
+    if (!deviceId) {
+      deviceId = generateDeviceId();
+      storageSet(CONFIG.STORAGE_KEY_DEVICE_ID, deviceId);
+    }
+    
+    return deviceId;
+  }
+
   function generateSessionId() {
     return `session_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
   }
@@ -198,7 +240,7 @@
    * Mark that this browser session has been counted.
    */
   function markSessionAsCounted() {
-    sessionStorageSet(CONFIG.SESSION_STORAGE_KEY, state.sessionId);
+    sessionStorageSet(CONFIG.SESSION_STORAGE_KEY, state.deviceId);
     state.visitAlreadyCounted = true;
   }
 
@@ -206,32 +248,42 @@
   // LOCAL STORAGE BASED METRICS (Fallback)
   // ==========================================
   
+  /**
+   * Get online sessions, filtered by device ID (not session ID).
+   * This ensures same device/browser = single user.
+   */
   function getLocalOnlineSessions() {
     const sessions = storageGet(CONFIG.STORAGE_KEY_ONLINE, {});
     const now = Date.now();
     const active = {};
     
-    // Filter out expired sessions
-    for (const [id, data] of Object.entries(sessions)) {
+    // Filter out expired sessions, keyed by deviceId
+    for (const [deviceId, data] of Object.entries(sessions)) {
       if (now - data.lastSeen < CONFIG.SESSION_TIMEOUT) {
-        active[id] = data;
+        active[deviceId] = data;
       }
     }
     
     return active;
   }
 
+  /**
+   * Update local session using deviceId as key.
+   * Same device always updates the same entry (no duplicates).
+   */
   function updateLocalSession() {
-    if (!state.sessionId) {
-      state.sessionId = generateSessionId();
+    if (!state.deviceId) {
+      state.deviceId = getDeviceId();
     }
 
     const sessions = getLocalOnlineSessions();
     
-    sessions[state.sessionId] = {
+    // Use deviceId as key - same device = same entry
+    sessions[state.deviceId] = {
       lastSeen: Date.now(),
       isAuthenticated: state.isAuthenticated,
       userId: state.userId,
+      deviceId: state.deviceId,
     };
     
     storageSet(CONFIG.STORAGE_KEY_ONLINE, sessions);
@@ -241,10 +293,10 @@
   }
 
   function removeLocalSession() {
-    if (!state.sessionId) return;
+    if (!state.deviceId) return;
     
     const sessions = storageGet(CONFIG.STORAGE_KEY_ONLINE, {});
-    delete sessions[state.sessionId];
+    delete sessions[state.deviceId];
     storageSet(CONFIG.STORAGE_KEY_ONLINE, sessions);
   }
 
@@ -272,6 +324,7 @@
     const sessions = getLocalOnlineSessions();
     const sessionList = Object.values(sessions);
     
+    // Each entry is a unique device
     const online = sessionList.length;
     const members = sessionList.filter(s => s.isAuthenticated).length;
     const guests = online - members;
@@ -292,16 +345,17 @@
       const presenceRef = db.collection('presence');
       const metricsRef = db.collection('metrics').doc('visitors');
       
-      // Create/update session document
-      const sessionDoc = presenceRef.doc(state.sessionId);
+      // Use deviceId as document ID - same device = same document
+      const sessionDoc = presenceRef.doc(state.deviceId);
       
       await sessionDoc.set({
+        deviceId: state.deviceId,
         lastSeen: window.firebase.firestore.FieldValue.serverTimestamp(),
         isAuthenticated: state.isAuthenticated,
         userId: state.userId || null,
         userAgent: navigator.userAgent.slice(0, 100),
-        createdAt: window.firebase.firestore.FieldValue.serverTimestamp(),
-      });
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+      }, { merge: true });
 
       // Increment total visits only once per browser session
       if (isNewSiteVisit()) {
@@ -405,9 +459,11 @@
   // ==========================================
   
   async function init() {
-    // Generate session ID (consistent across page navigations)
-    const existingSessionId = sessionStorageGet(CONFIG.SESSION_STORAGE_KEY);
-    state.sessionId = existingSessionId || generateSessionId();
+    // Get persistent device ID (same for this browser/device)
+    state.deviceId = getDeviceId();
+    
+    // Generate temporary session ID for this browser session
+    state.sessionId = sessionStorageGet(CONFIG.SESSION_STORAGE_KEY) || generateSessionId();
     
     // Check authentication state
     if (window.appFirebase && window.appFirebase.user) {
@@ -432,7 +488,7 @@
       // Use local storage based tracking
       console.log('[Metrics] Using local storage fallback');
       
-      // Initialize session
+      // Initialize session (deviceId based - no duplicates)
       updateLocalSession();
       
       // Count visit only once per browser session
@@ -466,7 +522,7 @@
       }
     });
 
-    console.log('[Metrics] Visitor metrics initialized');
+    console.log('[Metrics] Visitor metrics initialized (deviceId:', state.deviceId, ')');
   }
 
   // Start when DOM is ready
