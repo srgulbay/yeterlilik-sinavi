@@ -43,6 +43,34 @@
                         <kbd>⌘K</kbd>
                     </button>
                 </div>
+                <!-- Visitor Metrics Bar -->
+                <div class="metrics-bar" id="metricsBar" role="status" aria-label="Ziyaretçi istatistikleri">
+                    <div class="metrics-bar__inner">
+                        <div class="metrics-bar__item" data-metric="online">
+                            <span class="metrics-bar__pulse"></span>
+                            <span class="metrics-bar__value" id="onlineCount">0</span>
+                            <span class="metrics-bar__label">Çevrimiçi</span>
+                        </div>
+                        <div class="metrics-bar__divider"></div>
+                        <div class="metrics-bar__item" data-metric="members">
+                            <i class="fas fa-user-check"></i>
+                            <span class="metrics-bar__value" id="memberCount">0</span>
+                            <span class="metrics-bar__label">Üye</span>
+                        </div>
+                        <div class="metrics-bar__divider"></div>
+                        <div class="metrics-bar__item" data-metric="guests">
+                            <i class="fas fa-user"></i>
+                            <span class="metrics-bar__value" id="guestCount">0</span>
+                            <span class="metrics-bar__label">Misafir</span>
+                        </div>
+                        <div class="metrics-bar__divider"></div>
+                        <div class="metrics-bar__item" data-metric="total">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="metrics-bar__value" id="totalVisits">0</span>
+                            <span class="metrics-bar__label">Toplam Ziyaret</span>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <section class="session-overview" aria-live="polite">
@@ -301,5 +329,6 @@
     <script src="theme/mobile-dock.js"></script>
     <script src="theme/dock-fab.js"></script>
     <script src="theme/global-search.js"></script>
+    <script src="theme/visitor-metrics.js"></script>
 </body>
 </html>

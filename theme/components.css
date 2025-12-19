@@ -2192,3 +2192,184 @@ mark.text-highlight.is-active {
         display: none;
     }
 }
+
+/* ==========================================
+   VISITOR METRICS BAR
+   ========================================== */
+
+/**
+ * Kompakt ziyaretçi metrikleri çubuğu.
+ * Header içinde, search alanı altında görüntülenir.
+ * 
+ * HTML Yapısı (header içinde):
+ * <header class="page-header">
+ *   ...
+ *   <div class="metrics-bar">
+ *     <div class="metrics-bar__inner">
+ *       <div class="metrics-bar__item" data-metric="online">...</div>
+ *       ...
+ *     </div>
+ *   </div>
+ * </header>
+ */
+
+.metrics-bar {
+    width: 100%;
+    flex-basis: 100%;
+    order: 10; /* Always last in flex order */
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--glass-border-light);
+    opacity: 0;
+    transform: translateY(-4px);
+    animation: metricsBarIn 0.35s var(--ease-apple-out) 0.15s forwards;
+}
+
+@keyframes metricsBarIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metrics-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+}
+
+.metrics-bar__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.metrics-bar__item i {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    opacity: 0.7;
+}
+
+/* Online pulse indicator */
+.metrics-bar__pulse {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    background: var(--success);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.metrics-bar__pulse::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--success);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: metricsPulse 2s var(--ease-apple) infinite;
+}
+
+@keyframes metricsPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.metrics-bar__value {
+    font-weight: var(--font-semibold);
+    color: var(--text-main);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.25ch;
+    text-align: center;
+}
+
+/* Special styling for online count */
+[data-metric="online"] .metrics-bar__value {
+    color: var(--success);
+}
+
+.metrics-bar__label {
+    color: var(--text-tertiary);
+    font-weight: var(--font-medium);
+    font-size: var(--text-2xs);
+}
+
+.metrics-bar__divider {
+    width: 1px;
+    height: 12px;
+    background: var(--border);
+    opacity: 0.4;
+    flex-shrink: 0;
+}
+
+/* Hover effects - subtle */
+.metrics-bar__item {
+    transition: opacity var(--transition-fast);
+}
+
+.metrics-bar:hover .metrics-bar__item {
+    opacity: 1;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .metrics-bar {
+        margin-top: var(--space-3);
+        padding-top: var(--space-2);
+    }
+    
+    .metrics-bar__inner {
+        gap: var(--space-3);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .metrics-bar__item {
+        gap: var(--space-1);
+    }
+    
+    /* Hide total visits on tablet */
+    .metrics-bar__item[data-metric="total"],
+    .metrics-bar__divider:last-of-type {
+        display: none;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+    .metrics-bar {
+        margin-top: var(--space-2);
+        padding-top: var(--space-2);
+    }
+    
+    .metrics-bar__inner {
+        gap: var(--space-3);
+    }
+    
+    .metrics-bar__label {
+        display: none;
+    }
+    
+    .metrics-bar__value {
+        font-size: var(--text-xs);
+    }
+    
+    .metrics-bar__pulse {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .metrics-bar__divider {
+        height: 10px;
+    }
+}
