@@ -84,6 +84,14 @@
     return `appFirebase:v1:highlights:${uid}:${normalizeTopicId(topicId)}`;
   }
 
+  function storageKeySrs(uid) {
+    return `appFirebase:v1:srs:${uid}`;
+  }
+
+  function storageKeySrsMigrated(uid) {
+    return `appFirebase:v1:srs:migrated:${uid}`;
+  }
+
   const HIGHLIGHT_CONTEXT_MAX = 36;
   const HIGHLIGHT_QUOTE_MAX = 1600;
 
@@ -91,6 +99,177 @@
     const n = Number(value);
     if (!Number.isFinite(n)) return min;
     return Math.max(min, Math.min(max, Math.trunc(n)));
+  }
+
+  const SRS_COUNT_MAX = 1000000;
+  const SRS_NEXT_SHOW_MAX = 1000000;
+  const SRS_DIFFICULTY_MIN = 1;
+  const SRS_DIFFICULTY_MAX = 5;
+
+  function clampSrsDifficulty(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return SRS_DIFFICULTY_MIN;
+    const rounded = Math.round(n * 10) / 10;
+    return Math.max(SRS_DIFFICULTY_MIN, Math.min(SRS_DIFFICULTY_MAX, rounded));
+  }
+
+  function normalizeSrsStatus(input, fallback) {
+    const raw = String(input || '').trim().toLowerCase();
+    if (raw === 'new' || raw === 'learning' || raw === 'mastered') return raw;
+    if (fallback) return fallback;
+    return 'new';
+  }
+
+  function normalizeSrsState(cardId, data) {
+    const id = String(cardId || '').trim();
+    const obj = data && typeof data === 'object' ? data : {};
+    if (!id) return null;
+
+    const showCount = clampInt(obj.showCount, 0, SRS_COUNT_MAX);
+    const correctCount = clampInt(obj.correctCount, 0, SRS_COUNT_MAX);
+    const totalReviews = clampInt(obj.totalReviews, 0, SRS_COUNT_MAX);
+    const nextShowIn = clampInt(obj.nextShowIn, 0, SRS_NEXT_SHOW_MAX);
+    const difficultyLevel = clampSrsDifficulty(obj.difficultyLevel == null ? 1 : obj.difficultyLevel);
+    const status = normalizeSrsStatus(obj.status, totalReviews > 0 ? 'learning' : 'new');
+
+    let updatedAt = 0;
+    try {
+      if (obj.updatedAt && typeof obj.updatedAt.toMillis === 'function') {
+        updatedAt = obj.updatedAt.toMillis();
+      } else if (obj.updatedAt instanceof Date) {
+        updatedAt = obj.updatedAt.getTime();
+      } else {
+        updatedAt = clampInt(obj.updatedAt, 0, Number.MAX_SAFE_INTEGER);
+      }
+    } catch (_) {
+      updatedAt = 0;
+    }
+
+    return {
+      showCount,
+      correctCount,
+      totalReviews,
+      nextShowIn,
+      difficultyLevel,
+      status,
+      updatedAt,
+      v: 1,
+    };
+  }
+
+  function loadCachedSrs(uid) {
+    const raw = storageGet(storageKeySrs(uid), null);
+    if (!raw || typeof raw !== 'object' || !raw.items || typeof raw.items !== 'object') return new Map();
+
+    const map = new Map();
+    Object.keys(raw.items).forEach((cardId) => {
+      const rec = normalizeSrsState(cardId, raw.items[cardId]);
+      if (!rec) return;
+      map.set(String(cardId), rec);
+    });
+    return map;
+  }
+
+  function saveCachedSrs(uid, map) {
+    const items = {};
+    try {
+      map.forEach((value, key) => {
+        const rec = normalizeSrsState(key, value);
+        if (!rec) return;
+        if (rec.totalReviews <= 0 && rec.showCount <= 0 && rec.correctCount <= 0) return;
+        items[String(key)] = {
+          showCount: rec.showCount,
+          correctCount: rec.correctCount,
+          totalReviews: rec.totalReviews,
+          nextShowIn: rec.nextShowIn,
+          difficultyLevel: rec.difficultyLevel,
+          status: rec.status,
+          updatedAt: rec.updatedAt,
+          v: 1,
+        };
+      });
+    } catch (_) {
+      // ignore
+    }
+    storageSet(storageKeySrs(uid), { items, updatedAt: Date.now() });
+  }
+
+  function loadLegacySrsStatesFromLocalStorage() {
+    if (!canUseStorage()) return new Map();
+    const map = new Map();
+    try {
+      const prefix = 'srs_card_';
+      const len = window.localStorage.length;
+      for (let i = 0; i < len; i++) {
+        const key = window.localStorage.key(i);
+        if (!key || !key.startsWith(prefix)) continue;
+        const cardId = normalizeTopicId(key.slice(prefix.length));
+        if (!cardId) continue;
+        const raw = window.localStorage.getItem(key);
+        if (!raw) continue;
+        const parsed = safeJsonParse(raw, null);
+        const rec = normalizeSrsState(cardId, parsed);
+        if (!rec) continue;
+        if (rec.totalReviews <= 0 && rec.showCount <= 0 && rec.correctCount <= 0) continue;
+        map.set(cardId, rec);
+      }
+    } catch (_) {
+      // ignore
+    }
+    return map;
+  }
+
+  function legacySrsKey(cardId) {
+    return `srs_card_${normalizeTopicId(cardId)}`;
+  }
+
+  function loadLegacySrsState(cardId) {
+    const id = normalizeTopicId(cardId);
+    if (!id) return null;
+    const raw = storageGet(legacySrsKey(id), null);
+    return normalizeSrsState(id, raw);
+  }
+
+  function saveLegacySrsState(cardId, srsState) {
+    const id = normalizeTopicId(cardId);
+    if (!id) return false;
+    const rec = normalizeSrsState(id, srsState);
+    if (!rec) return false;
+    return storageSet(legacySrsKey(id), {
+      showCount: rec.showCount,
+      correctCount: rec.correctCount,
+      totalReviews: rec.totalReviews,
+      nextShowIn: rec.nextShowIn,
+      difficultyLevel: rec.difficultyLevel,
+      status: rec.status,
+      updatedAt: Date.now(),
+      v: 1,
+    });
+  }
+
+  function clearLegacySrsStates() {
+    if (!canUseStorage()) return 0;
+    let removed = 0;
+    try {
+      const prefix = 'srs_card_';
+      const keys = [];
+      const len = window.localStorage.length;
+      for (let i = 0; i < len; i++) {
+        const key = window.localStorage.key(i);
+        if (key && key.startsWith(prefix)) keys.push(key);
+      }
+      keys.forEach((key) => {
+        try {
+          window.localStorage.removeItem(key);
+          removed++;
+        } catch (_) {
+          // ignore
+        }
+      });
+    } catch (_) {
+      // ignore
+    }
+    return removed;
   }
 
   function normalizeHexColor(input) {
@@ -275,6 +454,23 @@
     setUserPrefs: async () => {
       throw new Error('Firebase not configured');
     },
+    loadSrsStates: async () => new Map(),
+    getSrsState: (cardId) => loadLegacySrsState(cardId),
+    getSrsTotalReviews: (cardId) => {
+      const rec = loadLegacySrsState(cardId);
+      const v = Number(rec && rec.totalReviews);
+      return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
+    },
+    setSrsState: async (cardId, nextState) => {
+      if (!saveLegacySrsState(cardId, nextState)) throw new Error('LOCAL_STORAGE_FAILED');
+      safeDispatch('srs:state-updated', { cardId: normalizeTopicId(cardId), patch: nextState });
+      return true;
+    },
+    clearSrsStates: async () => {
+      clearLegacySrsStates();
+      safeDispatch('srs:cleared', { scope: 'local' });
+      return true;
+    },
     loadHighlights: async () => [],
     saveHighlight: async () => {
       throw new Error('Firebase not configured');
@@ -303,6 +499,9 @@
 
     const auth = window.firebase.auth();
     const db = window.firebase.firestore();
+
+    let srsUid = null;
+    let srsStateById = new Map(); // cardId(string) -> normalized SRS state
 
     let phoneConfirmationResult = null;
     let recaptchaVerifier = null;
@@ -338,8 +537,28 @@
 
     api.getUser = () => auth.currentUser;
 
+    function getSrsCache() {
+      const user = auth.currentUser;
+      if (!user) {
+        srsUid = null;
+        srsStateById = new Map();
+        return { user: null, map: srsStateById };
+      }
+
+      if (srsUid !== user.uid) {
+        srsUid = user.uid;
+        srsStateById = loadCachedSrs(user.uid);
+      }
+
+      return { user, map: srsStateById };
+    }
+
     api.onAuth = (callback) => {
       return auth.onAuthStateChanged((user) => {
+        if (!user) {
+          srsUid = null;
+          srsStateById = new Map();
+        }
         safeDispatch('auth:changed', { user: user ? { uid: user.uid, email: user.email || null } : null });
         if (typeof callback === 'function') callback(user);
       });
@@ -420,7 +639,13 @@
       const cached = loadCachedTopics(user.uid);
 
       try {
-        const snap = await db.collection('users').doc(user.uid).collection('topics').get();
+        const ref = db.collection('users').doc(user.uid).collection('topics');
+        let snap;
+        try {
+          snap = await ref.get({ source: 'server' });
+        } catch (_) {
+          snap = await ref.get();
+        }
         const map = new Map();
         snap.forEach((doc) => {
           const data = doc.data() || {};
@@ -491,15 +716,21 @@
       const cached = loadCachedFavorites(user.uid, t);
 
       try {
-        const snap = await db.collection('users').doc(user.uid).collection('favorites')
-          .where('type', '==', t)
-          .where('favorite', '==', true)
-          .get();
+        // Avoid composite-index requirement by filtering on the client.
+        // (Some Firebase projects don't have an index for type+favorite.)
+        const ref = db.collection('users').doc(user.uid).collection('favorites')
+          .where('type', '==', t);
+        let snap;
+        try {
+          snap = await ref.get({ source: 'server' });
+        } catch (_) {
+          snap = await ref.get();
+        }
 
         const set = new Set();
         snap.forEach((doc) => {
           const data = doc.data() || {};
-          if (data && data.itemId != null) {
+          if (data && data.favorite === true && data.itemId != null) {
             set.add(String(data.itemId));
           }
         });
@@ -545,7 +776,13 @@
 
       const cached = loadCachedPrefs(user.uid);
       try {
-        const snap = await db.collection('users').doc(user.uid).collection('prefs').doc('ui').get();
+        const ref = db.collection('users').doc(user.uid).collection('prefs').doc('ui');
+        let snap;
+        try {
+          snap = await ref.get({ source: 'server' });
+        } catch (_) {
+          snap = await ref.get();
+        }
         const data = snap && snap.exists ? (snap.data() || {}) : {};
         const prefs = sanitizeUiPrefsPatch(data);
         saveCachedPrefs(user.uid, prefs);
@@ -581,6 +818,180 @@
       return true;
     };
 
+    async function maybeMigrateLegacySrs(user, map) {
+      if (!user) return map;
+
+      const migrated = storageGet(storageKeySrsMigrated(user.uid), null);
+      if (migrated) return map;
+
+      const legacyMap = loadLegacySrsStatesFromLocalStorage();
+      if (!legacyMap || legacyMap.size === 0) {
+        storageSet(storageKeySrsMigrated(user.uid), { migratedAt: Date.now(), count: 0 });
+        return map;
+      }
+
+      const toWrite = [];
+      legacyMap.forEach((rec, id) => {
+        const prev = map.get(id);
+        if (!prev) {
+          toWrite.push({ id, rec });
+          return;
+        }
+        const a = Number(rec.totalReviews);
+        const b = Number(prev.totalReviews);
+        if (Number.isFinite(a) && Number.isFinite(b) && a > b) {
+          toWrite.push({ id, rec });
+          return;
+        }
+        const sa = Number(rec.showCount);
+        const sb = Number(prev.showCount);
+        if (Number.isFinite(sa) && Number.isFinite(sb) && sa > sb) {
+          toWrite.push({ id, rec });
+        }
+      });
+
+      if (toWrite.length === 0) {
+        storageSet(storageKeySrsMigrated(user.uid), { migratedAt: Date.now(), count: 0 });
+        return map;
+      }
+
+      try {
+        const batch = db.batch();
+        toWrite.forEach(({ id, rec }) => {
+          const ref = db.collection('users').doc(user.uid).collection('srs').doc(id);
+          batch.set(ref, {
+            showCount: clampInt(rec.showCount, 0, SRS_COUNT_MAX),
+            correctCount: clampInt(rec.correctCount, 0, SRS_COUNT_MAX),
+            totalReviews: clampInt(rec.totalReviews, 0, SRS_COUNT_MAX),
+            nextShowIn: clampInt(rec.nextShowIn, 0, SRS_NEXT_SHOW_MAX),
+            difficultyLevel: clampSrsDifficulty(rec.difficultyLevel),
+            status: normalizeSrsStatus(rec.status, 'learning'),
+            v: 1,
+            updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+          }, { merge: true });
+        });
+        await batch.commit();
+
+        toWrite.forEach(({ id, rec }) => {
+          map.set(id, { ...rec, updatedAt: Date.now(), v: 1 });
+        });
+        saveCachedSrs(user.uid, map);
+        storageSet(storageKeySrsMigrated(user.uid), { migratedAt: Date.now(), count: toWrite.length });
+        safeDispatch('srs:migrated', { count: toWrite.length });
+        return map;
+      } catch (_) {
+        // Don't mark as migrated if we couldn't write.
+        return map;
+      }
+    }
+
+    api.loadSrsStates = async () => {
+      const user = auth.currentUser;
+      if (!user) return new Map();
+
+      const cached = loadCachedSrs(user.uid);
+      try {
+        const ref = db.collection('users').doc(user.uid).collection('srs');
+        let snap;
+        try {
+          snap = await ref.get({ source: 'server' });
+        } catch (_) {
+          snap = await ref.get();
+        }
+        const map = new Map();
+        snap.forEach((doc) => {
+          const rec = normalizeSrsState(doc.id, doc.data() || {});
+          if (rec) map.set(doc.id, rec);
+        });
+
+        const merged = await maybeMigrateLegacySrs(user, map);
+        saveCachedSrs(user.uid, merged);
+        srsUid = user.uid;
+        srsStateById = merged;
+        safeDispatch('srs:loaded', { count: merged.size });
+        return merged;
+      } catch (_) {
+        srsUid = user.uid;
+        srsStateById = cached;
+        return cached;
+      }
+    };
+
+    api.getSrsState = (cardId) => {
+      const id = normalizeTopicId(cardId);
+      const cache = getSrsCache();
+      if (!cache.user) return loadLegacySrsState(id);
+      const existing = cache.map.get(id);
+      return existing ? { ...existing } : null;
+    };
+
+    api.getSrsTotalReviews = (cardId) => {
+      const rec = api.getSrsState(cardId);
+      const v = Number(rec && rec.totalReviews);
+      return Number.isFinite(v) ? Math.max(0, Math.trunc(v)) : 0;
+    };
+
+    api.setSrsState = async (cardId, nextState) => {
+      const user = auth.currentUser;
+      const id = normalizeTopicId(cardId);
+      if (!id) return false;
+
+      if (!user) {
+        if (!saveLegacySrsState(id, nextState)) throw new Error('LOCAL_STORAGE_FAILED');
+        safeDispatch('srs:state-updated', { cardId: id, patch: nextState });
+        return true;
+      }
+
+      const cache = getSrsCache();
+      const prev = cache.map.get(id) || {};
+      const merged = normalizeSrsState(id, { ...prev, ...(nextState || {}), updatedAt: Date.now() }) || null;
+      if (!merged) return false;
+
+      cache.map.set(id, merged);
+      saveCachedSrs(user.uid, cache.map);
+
+      const patch = {
+        showCount: merged.showCount,
+        correctCount: merged.correctCount,
+        totalReviews: merged.totalReviews,
+        nextShowIn: merged.nextShowIn,
+        difficultyLevel: merged.difficultyLevel,
+        status: merged.status,
+        v: 1,
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+      };
+
+      await db.collection('users').doc(user.uid).collection('srs').doc(id).set(patch, { merge: true });
+      safeDispatch('srs:state-updated', { cardId: id, patch });
+      return true;
+    };
+
+    api.clearSrsStates = async () => {
+      const user = auth.currentUser;
+
+      if (!user) {
+        clearLegacySrsStates();
+        safeDispatch('srs:cleared', { scope: 'local' });
+        return true;
+      }
+
+      // Cache: clear immediately.
+      try {
+        saveCachedSrs(user.uid, new Map());
+        srsUid = user.uid;
+        srsStateById = new Map();
+      } catch (_) {
+        // ignore
+      }
+
+      const snap = await db.collection('users').doc(user.uid).collection('srs').get();
+      const batch = db.batch();
+      snap.forEach((doc) => batch.delete(doc.ref));
+      await batch.commit();
+      safeDispatch('srs:cleared', { scope: 'user' });
+      return true;
+    };
+
     api.loadHighlights = async (topicId) => {
       const user = auth.currentUser;
       if (!user) return [];
@@ -589,9 +1000,14 @@
       const cached = loadCachedHighlights(user.uid, id);
 
       try {
-        const snap = await db.collection('users').doc(user.uid).collection('highlights')
-          .where('topicId', '==', id)
-          .get();
+        const ref = db.collection('users').doc(user.uid).collection('highlights')
+          .where('topicId', '==', id);
+        let snap;
+        try {
+          snap = await ref.get({ source: 'server' });
+        } catch (_) {
+          snap = await ref.get();
+        }
 
         const items = [];
         snap.forEach((doc) => {

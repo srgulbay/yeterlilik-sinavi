@@ -3,18 +3,31 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /users/{uid}/topics/{topicId} {
-      allow read, write: if request.auth != null && request.auth.uid == uid
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
         && isValid(request.resource.data);
+      allow delete: if request.auth != null && request.auth.uid == uid;
     }
 
     match /users/{uid}/favorites/{favId} {
-      allow read, write: if request.auth != null && request.auth.uid == uid
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
         && isFavoriteValid(request.resource.data);
+      allow delete: if request.auth != null && request.auth.uid == uid;
     }
 
     match /users/{uid}/prefs/{prefId} {
-      allow read, write: if request.auth != null && request.auth.uid == uid
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
         && isPrefsValid(request.resource.data);
+      allow delete: if request.auth != null && request.auth.uid == uid;
+    }
+
+    match /users/{uid}/srs/{cardId} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && isSrsValid(request.resource.data);
+      allow delete: if request.auth != null && request.auth.uid == uid;
     }
 
     match /users/{uid}/highlights/{highlightId} {
@@ -48,6 +61,18 @@ service cloud.firestore {
           data.topicsSortMode == 'needsReview' ||
           data.topicsSortMode == 'mostReviewed'
         )))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isSrsValid(data) {
+      return data.keys().hasOnly(['showCount', 'correctCount', 'totalReviews', 'nextShowIn', 'difficultyLevel', 'status', 'updatedAt', 'v'])
+        && (!('showCount' in data) || (data.showCount is int && data.showCount >= 0))
+        && (!('correctCount' in data) || (data.correctCount is int && data.correctCount >= 0))
+        && (!('totalReviews' in data) || (data.totalReviews is int && data.totalReviews >= 0))
+        && (!('nextShowIn' in data) || (data.nextShowIn is int && data.nextShowIn >= 0))
+        && (!('difficultyLevel' in data) || ((data.difficultyLevel is int || data.difficultyLevel is float) && data.difficultyLevel >= 1 && data.difficultyLevel <= 5))
+        && (!('status' in data) || (data.status is string && (data.status == 'new' || data.status == 'learning' || data.status == 'mastered')))
+        && (!('v' in data) || (data.v is int && data.v >= 1 && data.v <= 10))
         && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }
 

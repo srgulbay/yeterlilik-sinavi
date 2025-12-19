@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return;
     }
+
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
     
     renderCards(DATASET);
     updateActiveButton('all');
@@ -28,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initShareButtons();
     handleShareLink();
     initQuestionFavorites();
+    initSrsRepeatSync();
     initScrollReveal(); // Scroll Reveal başlat
     // Segment control artık dock.js tarafından yönetiliyor
     
@@ -47,6 +52,16 @@ function getRepeatAmbianceClassByCount(count) {
 }
 
 function loadSrsTotalReviews(questionId) {
+    const api = window.appFirebase;
+    try {
+        if (api && typeof api.getSrsTotalReviews === 'function') {
+            const v = Number(api.getSrsTotalReviews(questionId));
+            if (Number.isFinite(v)) return Math.max(0, Math.trunc(v));
+        }
+    } catch (_) {
+        // ignore
+    }
+
     try {
         if (typeof window === 'undefined' || !window.localStorage) return 0;
         const raw = window.localStorage.getItem(`srs_card_${questionId}`);
@@ -91,6 +106,42 @@ function renderFavoriteQuestionsOnly() {
 
 function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+async function reloadSrsStates() {
+    if (!window.appFirebase || !window.appFirebase.enabled) return;
+    try {
+        await window.appFirebase.loadSrsStates?.();
+    } catch (_) {
+        // ignore
+    }
+    refreshQuestionRepeatAmbiance();
+}
+
+function initSrsRepeatSync() {
+    if (!window.appFirebase) return;
+
+    if (typeof window.appFirebase.onAuth === 'function') {
+        window.appFirebase.onAuth((user) => {
+            if (user) {
+                reloadSrsStates();
+            } else {
+                refreshQuestionRepeatAmbiance();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        reloadSrsStates();
+    }
+
+    document.addEventListener('srs:loaded', () => {
+        refreshQuestionRepeatAmbiance();
+    });
+    document.addEventListener('srs:state-updated', (e) => {
+        const cardId = e.detail?.cardId;
+        refreshQuestionRepeatAmbiance(cardId || null);
+    });
 }
 
 async function initQuestionFavorites() {

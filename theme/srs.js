@@ -1,5 +1,5 @@
 // SRS (Spaced Repetition System) - Aralıklı Tekrar Sistemi
-// LocalStorage ile kullanıcı ilerlemesi saklanır
+// Misafir kullanıcılar için LocalStorage, giriş yapanlar için Firestore senkronu kullanılır.
 
 class SRSManager {
     constructor() {
@@ -42,22 +42,63 @@ class SRSManager {
         }, new Map());
     }
     
-    // LocalStorage'dan kart verisini yükle
+    // Kart verisini yükle (Firebase varsa kullanıcı cache'i, yoksa localStorage)
     loadCardData(cardId) {
-        const data = localStorage.getItem(`srs_card_${cardId}`);
-        return data ? JSON.parse(data) : null;
+        try {
+            const api = window.appFirebase;
+            if (api && typeof api.getSrsState === 'function') {
+                const rec = api.getSrsState(cardId);
+                if (rec && typeof rec === 'object') {
+                    return {
+                        showCount: Number(rec.showCount) || 0,
+                        correctCount: Number(rec.correctCount) || 0,
+                        totalReviews: Number(rec.totalReviews) || 0,
+                        nextShowIn: Number(rec.nextShowIn) || 0,
+                        difficultyLevel: Number(rec.difficultyLevel) || 1,
+                        status: rec.status || 'new'
+                    };
+                }
+            }
+        } catch (_) {
+            // ignore
+        }
+
+        try {
+            const data = localStorage.getItem(`srs_card_${cardId}`);
+            return data ? JSON.parse(data) : null;
+        } catch (_) {
+            return null;
+        }
     }
     
-    // LocalStorage'a kart verisini kaydet
+    // Kart verisini kaydet (Firebase varsa senkronla, yoksa localStorage)
     saveCardData(cardId, srsData) {
-        localStorage.setItem(`srs_card_${cardId}`, JSON.stringify(srsData));
+        try {
+            const api = window.appFirebase;
+            if (api && typeof api.setSrsState === 'function') {
+                api.setSrsState(cardId, srsData).catch(() => {});
+                return;
+            }
+        } catch (_) {
+            // ignore
+        }
+
+        try {
+            localStorage.setItem(`srs_card_${cardId}`, JSON.stringify(srsData));
+        } catch (_) {
+            // ignore
+        }
     }
     
     // İlerlemeyi sıfırla
-    resetProgress() {
+    async resetProgress() {
         if (confirm('Tüm ilerlemenizi sıfırlamak istediğinizden emin misiniz?')) {
             this.cards.forEach(card => {
-                localStorage.removeItem(`srs_card_${card.id}`);
+                try {
+                    localStorage.removeItem(`srs_card_${card.id}`);
+                } catch (_) {
+                    // ignore
+                }
                 card.srsData = {
                     showCount: 0,
                     correctCount: 0,
@@ -67,6 +108,15 @@ class SRSManager {
                     status: 'new'
                 };
             });
+
+            try {
+                if (window.appFirebase && typeof window.appFirebase.clearSrsStates === 'function') {
+                    await window.appFirebase.clearSrsStates();
+                }
+            } catch (_) {
+                // ignore
+            }
+
             this.updateStats();
             alert('İlerleme sıfırlandı!');
             location.reload();
@@ -365,6 +415,81 @@ const MODE_COPY = {
     }
 };
 
+function isAuthReady() {
+    return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+function applySrsStatesToManager(map) {
+    if (!srsManager || !map || typeof map.get !== 'function') return;
+
+    const defaults = {
+        showCount: 0,
+        correctCount: 0,
+        totalReviews: 0,
+        nextShowIn: 0,
+        difficultyLevel: 1,
+        status: 'new'
+    };
+
+    let touched = false;
+    srsManager.cards.forEach(card => {
+        const id = String(card.id);
+        const rec = map.get(id);
+        if (!rec) return;
+
+        card.srsData = {
+            ...defaults,
+            ...card.srsData,
+            showCount: Number(rec.showCount) || 0,
+            correctCount: Number(rec.correctCount) || 0,
+            totalReviews: Number(rec.totalReviews) || 0,
+            nextShowIn: Number(rec.nextShowIn) || 0,
+            difficultyLevel: Number(rec.difficultyLevel) || 1,
+            status: rec.status || (Number(rec.totalReviews) > 0 ? 'learning' : 'new')
+        };
+        touched = true;
+    });
+
+    if (touched) {
+        srsManager.updateStats();
+        if (document.body.classList.contains('session-active')) {
+            try {
+                srsManager.showCard();
+            } catch (_) {
+                // ignore
+            }
+        }
+    }
+}
+
+async function hydrateSrsFromFirebase() {
+    if (!window.appFirebase || typeof window.appFirebase.loadSrsStates !== 'function') return;
+    if (!isAuthReady()) return;
+
+    try {
+        const map = await window.appFirebase.loadSrsStates();
+        applySrsStatesToManager(map);
+    } catch (_) {
+        // ignore
+    }
+}
+
+function initSrsRemoteSync() {
+    if (!window.appFirebase) return;
+
+    if (typeof window.appFirebase.onAuth === 'function') {
+        window.appFirebase.onAuth((user) => {
+            if (user) {
+                hydrateSrsFromFirebase();
+            }
+        });
+    }
+
+    if (isAuthReady()) {
+        hydrateSrsFromFirebase();
+    }
+}
+
 function buildCategoryFilters() {
     const container = document.getElementById('categoryFilters') || document.querySelector('.filter-menu');
     if (!container) return;
@@ -429,12 +554,18 @@ function buildSrsMobileFilterStrip(categories) {
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+    }
+
     srsManager = new SRSManager();
     buildCategoryFilters();
     initSessionControls();
     initModeDock();
     srsManager.updateStats();
     initFilterPanel();
+
+    initSrsRemoteSync();
 });
 
 // Çalışma modunu ayarla
