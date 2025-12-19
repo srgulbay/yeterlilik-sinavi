@@ -54,6 +54,8 @@
     intervals: [],
     unsubscribers: [],
     visitAlreadyCounted: false,
+    firebasePresenceActive: false,
+    firebaseSessionDoc: null,
   };
 
   // ==========================================
@@ -347,6 +349,8 @@
       
       // Use deviceId as document ID - same device = same document
       const sessionDoc = presenceRef.doc(state.deviceId);
+      state.firebaseSessionDoc = sessionDoc;
+      state.firebasePresenceActive = true;
       
       await sessionDoc.set({
         deviceId: state.deviceId,
@@ -371,6 +375,7 @@
           await sessionDoc.update({
             lastSeen: window.firebase.firestore.FieldValue.serverTimestamp(),
             isAuthenticated: state.isAuthenticated,
+            userId: state.userId || null,
           });
         } catch (e) {
           console.warn('[Metrics] Heartbeat failed:', e.message);
@@ -420,6 +425,8 @@
       return true;
     } catch (error) {
       console.warn('[Metrics] Firebase presence init failed:', error.message);
+      state.firebasePresenceActive = false;
+      state.firebaseSessionDoc = null;
       return false;
     }
   }
@@ -459,32 +466,67 @@
   // ==========================================
   
   async function init() {
+    // Ensure main Firebase wrapper is initialized first (so auth state is available).
+    try {
+      if (window.appFirebase && typeof window.appFirebase.init === 'function') {
+        window.appFirebase.init();
+      }
+    } catch (_) {
+      // ignore
+    }
+
     // Get persistent device ID (same for this browser/device)
     state.deviceId = getDeviceId();
     
     // Generate temporary session ID for this browser session
     state.sessionId = sessionStorageGet(CONFIG.SESSION_STORAGE_KEY) || generateSessionId();
     
-    // Check authentication state
-    if (window.appFirebase && window.appFirebase.user) {
-      state.isAuthenticated = true;
-      state.userId = window.appFirebase.user.uid;
+    const applyAuthState = (user) => {
+      const uid = user && user.uid ? String(user.uid) : null;
+      state.isAuthenticated = !!uid;
+      state.userId = uid;
+
+      updateLocalSession();
+
+      // Local fallback: update UI immediately.
+      if (!state.firebasePresenceActive) {
+        updateUI(calculateLocalMetrics());
+      }
+
+      // Firebase presence mode: update session doc immediately (best-effort).
+      if (state.firebaseSessionDoc) {
+        try {
+          state.firebaseSessionDoc.set({
+            isAuthenticated: state.isAuthenticated,
+            userId: state.userId || null,
+            updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+          }, { merge: true });
+        } catch (_) {
+          // ignore
+        }
+      }
+    };
+
+    // Initial authentication state
+    try {
+      applyAuthState(window.appFirebase?.getUser?.() || null);
+    } catch (_) {
+      applyAuthState(null);
     }
 
-    // Listen for auth changes
-    document.addEventListener('appFirebase:authChanged', (e) => {
-      const user = e.detail && e.detail.user;
-      state.isAuthenticated = !!user;
-      state.userId = user ? user.uid : null;
-      
-      // Update session
-      updateLocalSession();
-    });
+    // Listen for auth changes (app wrapper + event fallback).
+    if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
+      window.appFirebase.onAuth((user) => applyAuthState(user || null));
+    }
+    document.addEventListener('auth:changed', (e) => applyAuthState(e.detail?.user || null));
+    document.addEventListener('appFirebase:authChanged', (e) => applyAuthState(e.detail?.user || null));
 
     // Try Firebase first, fallback to local
     const firebaseInitialized = await initFirebasePresence();
     
     if (!firebaseInitialized) {
+      state.firebasePresenceActive = false;
+      state.firebaseSessionDoc = null;
       // Use local storage based tracking
       console.log('[Metrics] Using local storage fallback');
       
