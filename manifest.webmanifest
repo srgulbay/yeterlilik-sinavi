@@ -1,7 +1,7 @@
 {
-  "name": "Mikrobiyoloji Yeterlilik Asistanı",
-  "short_name": "Yeterlilik",
-  "description": "Mikrobiyoloji yeterlilik soruları ve konu özetleri için çalışma asistanı.",
+  "name": "AlgoSPOT",
+  "short_name": "AlgoSPOT",
+  "description": "Konu özetleri, hafıza kartları ve SRS çalışma asistanı.",
   "lang": "tr",
   "start_url": "./index.html",
   "scope": "./",
