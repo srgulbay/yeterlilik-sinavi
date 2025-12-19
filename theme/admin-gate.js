@@ -2,9 +2,34 @@
   'use strict';
 
   const LINK_SELECTOR = '[data-admin-link]';
+  const BOOTSTRAP_ADMIN_EMAIL = 'srgulbay@gmail.com';
 
   let adminUnsubscribe = null;
   let currentUid = null;
+
+  async function maybeBootstrapAdmin(user) {
+    const uid = user?.uid ? String(user.uid) : '';
+    const email = user?.email ? String(user.email).trim().toLowerCase() : '';
+    const emailVerified = !!user?.emailVerified;
+    if (!uid) return false;
+    if (email !== BOOTSTRAP_ADMIN_EMAIL) return false;
+    if (!emailVerified) return false;
+    if (!window.firebase || typeof window.firebase.firestore !== 'function') return false;
+
+    try {
+      const db = window.firebase.firestore();
+      const now = window.firebase.firestore.FieldValue.serverTimestamp();
+      await db.collection('admins').doc(uid).set({
+        role: 'owner',
+        createdAt: now,
+        createdBy: uid,
+        updatedAt: now,
+      }, { merge: true });
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 
   function setLinksVisible(visible) {
     const show = !!visible;
@@ -71,6 +96,8 @@
           setLinksVisible(false);
           return;
         }
+        // Best-effort: first admin bootstrap for a specific verified email.
+        maybeBootstrapAdmin(user).catch(() => {});
         startWatch(currentUid);
       });
     } else {
@@ -80,4 +107,3 @@
     }
   });
 })();
-

@@ -1,0 +1,20 @@
+name = "algospot-push"
+main = "src/index.js"
+compatibility_date = "2025-12-19"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Firebase project id (from theme/firebase-config.js -> projectId)
+FIREBASE_PROJECT_ID = "yeterlilik-6e308"
+
+# Comma separated allowed origins for CORS. Example:
+# ALLOWED_ORIGINS = "https://<kullanici>.github.io,http://localhost:5173"
+ALLOWED_ORIGINS = "*"
+
+# VAPID subject (your email or URL)
+VAPID_SUBJECT = "mailto:srgulbay@gmail.com"
+
+# Public key is not secret; you paste it into theme/push-config.js
+# Set this after generating keys (see scripts/generate-vapid.cjs)
+VAPID_PUBLIC_KEY = ""
+

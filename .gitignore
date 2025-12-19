@@ -1,5 +1,7 @@
 node_modules/
 functions/node_modules/
+workers/**/node_modules/
+.wrangler/
 .firebase/
 .DS_Store
 npm-debug.log*

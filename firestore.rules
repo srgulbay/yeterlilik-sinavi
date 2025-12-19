@@ -15,6 +15,12 @@ service cloud.firestore {
         && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
     }
 
+    function isBootstrapAdminEmail() {
+      return isSignedIn()
+        && request.auth.token.email == 'srgulbay@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+
     match /users/{uid}/topics/{topicId} {
       allow read: if isOwner(uid);
       allow create, update: if isOwner(uid)
@@ -60,14 +66,16 @@ service cloud.firestore {
     }
 
     match /users/{uid}/pushTokens/{tokenId} {
-      allow read: if isOwner(uid);
+      allow read: if isOwner(uid) || isAdmin();
       allow create, update: if isOwner(uid) && isPushTokenValid(request.resource.data);
-      allow delete: if isOwner(uid);
+      allow delete: if isOwner(uid) || isAdmin();
     }
 
     match /admins/{adminUid} {
       allow read: if isOwner(adminUid) || isAdmin();
-      allow create, update: if isAdmin() && isAdminDocValid(request.resource.data);
+      allow create: if (isAdmin() && isAdminDocValid(request.resource.data))
+        || (isOwner(adminUid) && isBootstrapAdminEmail());
+      allow update: if isAdmin() && isAdminDocValid(request.resource.data);
       allow delete: if isAdmin();
     }
 
@@ -150,8 +158,12 @@ service cloud.firestore {
     }
 
     function isPushTokenValid(data) {
-      return data.keys().hasOnly(['token', 'userAgent', 'updatedAt'])
-        && ('token' in data) && (data.token is string) && (data.token.size() > 0) && (data.token.size() <= 2048)
+      return data.keys().hasOnly(['token', 'endpoint', 'p256dh', 'auth', 'userAgent', 'updatedAt', 'v'])
+        && (!('token' in data) || (data.token is string && data.token.size() > 0 && data.token.size() <= 2048))
+        && (!('endpoint' in data) || (data.endpoint is string && data.endpoint.size() > 0 && data.endpoint.size() <= 2048))
+        && (!('p256dh' in data) || (data.p256dh is string && data.p256dh.size() > 0 && data.p256dh.size() <= 256))
+        && (!('auth' in data) || (data.auth is string && data.auth.size() > 0 && data.auth.size() <= 256))
+        && (!('v' in data) || (data.v is int && data.v >= 1 && data.v <= 10))
         && (!('userAgent' in data) || (data.userAgent is string && data.userAgent.size() <= 180))
         && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }

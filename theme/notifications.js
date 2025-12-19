@@ -64,23 +64,90 @@
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
   }
 
-  function isFirebaseMessagingAvailable() {
-    return !!(window.firebase && typeof window.firebase.messaging === 'function');
-  }
-
-  function getVapidKey() {
-    const key = typeof window.FIREBASE_MESSAGING_VAPID_KEY === 'string'
-      ? window.FIREBASE_MESSAGING_VAPID_KEY.trim()
+  function getWebPushPublicKey() {
+    const key = typeof window.CF_WEBPUSH_PUBLIC_KEY === 'string'
+      ? window.CF_WEBPUSH_PUBLIC_KEY.trim()
       : '';
     return key;
   }
 
-  function isPushSupported() {
+  function getPushWorkerUrl() {
+    const raw = typeof window.CF_PUSH_WORKER_URL === 'string'
+      ? window.CF_PUSH_WORKER_URL.trim()
+      : '';
+    if (!raw) return '';
+    try {
+      return new URL(raw, window.location.origin).toString().replace(/\/+$/, '');
+    } catch (_) {
+      return raw.replace(/\/+$/, '');
+    }
+  }
+
+  function isSecureContextForWebPush() {
+    const host = window.location.hostname;
+    return window.location.protocol === 'https:'
+      || host === 'localhost'
+      || host === '127.0.0.1'
+      || host === '::1';
+  }
+
+  function isWebPushSupported() {
     return typeof window !== 'undefined'
       && 'Notification' in window
       && 'serviceWorker' in navigator
-      && isFirebaseMessagingAvailable()
-      && !!getVapidKey();
+      && 'PushManager' in window
+      && isSecureContextForWebPush();
+  }
+
+  function isWebPushConfigured() {
+    return isWebPushSupported()
+      && !!getWebPushPublicKey()
+      && !!getPushWorkerUrl();
+  }
+
+  function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+    const rawData = atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  }
+
+  function bytesToBase64Url(bytes) {
+    let binary = '';
+    bytes.forEach((b) => { binary += String.fromCharCode(b); });
+    return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+  }
+
+  async function hashEndpointToId(endpoint) {
+    const ep = String(endpoint || '');
+    if (!ep) return '';
+    try {
+      const data = new TextEncoder().encode(ep);
+      const buf = await crypto.subtle.digest('SHA-256', data);
+      return bytesToBase64Url(new Uint8Array(buf));
+    } catch (_) {
+      // Fallback: base64url endpoint (truncated)
+      try {
+        const b64 = bytesToBase64Url(new TextEncoder().encode(ep));
+        return b64.slice(0, 120);
+      } catch (_) {
+        return '';
+      }
+    }
+  }
+
+  function subscriptionToFields(subscription) {
+    if (!subscription) return null;
+    const json = typeof subscription.toJSON === 'function' ? subscription.toJSON() : null;
+    const endpoint = String(json?.endpoint || subscription.endpoint || '');
+    const p256dh = String(json?.keys?.p256dh || '');
+    const auth = String(json?.keys?.auth || '');
+    if (!endpoint || !p256dh || !auth) return null;
+    return { endpoint, p256dh, auth };
   }
 
   async function getServiceWorkerRegistration() {
@@ -142,7 +209,17 @@
     const s = String(raw || '').trim();
     if (!s) return '';
     try {
-      return new URL(s, window.location.origin).toString();
+      // GitHub Pages project sites live under a sub-path (/{repo}/...).
+      // Treat "/page.html" inputs as "currentDir/page.html" to stay in-scope.
+      if (s.startsWith('/')) {
+        const dir = String(window.location.pathname || '/').replace(/[^/]+$/, '');
+        if (dir && s.startsWith(dir)) {
+          return new URL(s, window.location.origin).toString();
+        }
+        const candidate = `${dir}${s.slice(1)}`;
+        return new URL(candidate, window.location.origin).toString();
+      }
+      return new URL(s, window.location.href).toString();
     } catch (_) {
       return s;
     }
@@ -190,12 +267,34 @@
         inboxUnreadCount = unread;
         setBadgeCount(unread);
 
-        // Toast only for new unread additions after initial load.
+        // Toast + (free) foreground notification only for new unread additions after initial load.
         if (!inboxInitial) {
           const changes = snap.docChanges ? snap.docChanges() : [];
           const addedUnread = changes.some((c) => c.type === 'added' && !(c.doc?.data?.()?.readAt));
           if (addedUnread) {
             showToast('Yeni bildirim');
+            // If the app is open, we can still show a system notification for free (no backend),
+            // as long as the user already granted permission.
+            try {
+              if (Notification?.permission === 'granted') {
+                const first = changes.find((c) => c.type === 'added' && !(c.doc?.data?.()?.readAt));
+                const data = first?.doc?.data?.() || {};
+                const title = String(data.title || 'AlgoSPOT').slice(0, 120);
+                const body = String(data.body || '').slice(0, 180);
+                const url = normalizeUrl(data.url || '');
+                getServiceWorkerRegistration().then((reg) => {
+                  if (!reg) return;
+                  reg.showNotification(title, {
+                    body,
+                    icon: './icons/icon-192.png',
+                    badge: './icons/icon-192.png',
+                    data: { url: url || './' },
+                  }).catch(() => {});
+                }).catch(() => {});
+              }
+            } catch (_) {
+              // ignore
+            }
           }
         }
         inboxInitial = false;
@@ -450,28 +549,41 @@
     }
   }
 
-  async function ensurePushTokenSaved(uid, token) {
-    if (!uid || !token) return false;
+  async function ensurePushSubscriptionSaved(uid, subscription) {
+    if (!uid || !subscription) return false;
     if (!window.firebase || typeof window.firebase.firestore !== 'function') return false;
+    const fields = subscriptionToFields(subscription);
+    if (!fields) return false;
     try {
       const db = window.firebase.firestore();
-      await db.collection('users').doc(String(uid)).collection('pushTokens').doc(String(token)).set({
-        token: String(token),
+      const id = await hashEndpointToId(fields.endpoint);
+      if (!id) return false;
+      await db.collection('users').doc(String(uid)).collection('pushTokens').doc(String(id)).set({
+        endpoint: fields.endpoint,
+        p256dh: fields.p256dh,
+        auth: fields.auth,
         userAgent: String(navigator.userAgent || '').slice(0, 180),
         updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        v: 2,
       }, { merge: true });
+      pushToken = id;
       return true;
     } catch (_) {
       return false;
     }
   }
 
-  async function deletePushToken(uid, token) {
-    if (!uid || !token) return false;
+  async function deletePushSubscription(uid, subscription) {
+    if (!uid || !subscription) return false;
     if (!window.firebase || typeof window.firebase.firestore !== 'function') return false;
+    const fields = subscriptionToFields(subscription);
+    if (!fields) return false;
     try {
       const db = window.firebase.firestore();
-      await db.collection('users').doc(String(uid)).collection('pushTokens').doc(String(token)).delete();
+      const id = await hashEndpointToId(fields.endpoint);
+      if (!id) return false;
+      await db.collection('users').doc(String(uid)).collection('pushTokens').doc(String(id)).delete();
+      if (pushToken === id) pushToken = null;
       return true;
     } catch (_) {
       return false;
@@ -504,12 +616,18 @@
       return;
     }
 
-    if (!isPushSupported()) {
-      const hasVapid = !!getVapidKey();
-      const hint = !hasVapid
-        ? 'VAPID anahtarı yapılandırılmamış.'
-        : 'Tarayıcı/PWA push bildirimini desteklemiyor.';
-      setState({ status: 'Kapalı', hint, enabled: false, canEnable: false });
+    if (!isWebPushSupported()) {
+      setState({ status: 'Kapalı', hint: 'Tarayıcı/PWA push bildirimini desteklemiyor.', enabled: false, canEnable: false });
+      return;
+    }
+
+    if (!getWebPushPublicKey()) {
+      setState({ status: 'Kapalı', hint: 'Web Push public key (VAPID) yapılandırılmamış.', enabled: false, canEnable: false });
+      return;
+    }
+
+    if (!getPushWorkerUrl()) {
+      setState({ status: 'Kapalı', hint: 'Push worker URL yapılandırılmamış.', enabled: false, canEnable: false });
       return;
     }
 
@@ -519,24 +637,25 @@
       return;
     }
 
-    // Permission granted: try to confirm token.
+    // Permission granted: confirm subscription.
     try {
-      const messaging = window.firebase.messaging();
       const reg = await getServiceWorkerRegistration();
-      const token = await messaging.getToken({
-        vapidKey: getVapidKey(),
-        serviceWorkerRegistration: reg || undefined,
-      });
+      if (!reg || !reg.pushManager) {
+        setState({ status: 'Kapalı', hint: 'Service Worker hazır değil.', enabled: false, canEnable: true });
+        return;
+      }
 
-      pushToken = token || null;
-      if (token) {
-        await ensurePushTokenSaved(currentUid, token);
+      const sub = await reg.pushManager.getSubscription();
+      if (sub) {
+        await ensurePushSubscriptionSaved(currentUid, sub);
         setState({ status: 'Açık', hint: 'Bu cihaz bildirim alabilir.', enabled: true, canEnable: true });
         return;
       }
-      setState({ status: 'Kapalı', hint: 'Token alınamadı.', enabled: false, canEnable: true });
+
+      pushToken = null;
+      setState({ status: 'Kapalı', hint: 'Bu cihaz için abonelik yok.', enabled: false, canEnable: true });
     } catch (_) {
-      setState({ status: 'Kapalı', hint: 'Token alınamadı.', enabled: false, canEnable: true });
+      setState({ status: 'Kapalı', hint: 'Abonelik kontrol edilemedi.', enabled: false, canEnable: true });
     }
   }
 
@@ -545,7 +664,7 @@
       showToast('Bildirim almak için giriş yapın');
       return;
     }
-    if (!isPushSupported()) {
+    if (!isWebPushConfigured()) {
       showToast('Push bildirimi bu ortamda kullanılamıyor');
       return;
     }
@@ -558,8 +677,22 @@
         showToast('Bildirim izni verilmedi');
         return;
       }
+
+      const reg = await getServiceWorkerRegistration();
+      if (!reg || !reg.pushManager) {
+        showToast('Service Worker hazır değil');
+        return;
+      }
+
+      const existing = await reg.pushManager.getSubscription();
+      const sub = existing || await reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(getWebPushPublicKey()),
+      });
+
+      await ensurePushSubscriptionSaved(currentUid, sub);
       await refreshPushUI(panel);
-      if (pushToken) showToast('Bildirimler açıldı');
+      showToast('Bildirimler açıldı');
     } finally {
       setPushBusy(panel, false);
     }
@@ -567,24 +700,25 @@
 
   async function disablePush(panel) {
     if (!isAuthReady()) return;
-    if (!isPushSupported()) return;
+    if (!isWebPushConfigured()) return;
     if (pushBusy) return;
 
     try {
       setPushBusy(panel, true);
-      const messaging = window.firebase.messaging();
       const reg = await getServiceWorkerRegistration();
-      const token = pushToken || await messaging.getToken({
-        vapidKey: getVapidKey(),
-        serviceWorkerRegistration: reg || undefined,
-      });
-      if (!token) {
+      if (!reg || !reg.pushManager) {
+        showToast('Service Worker hazır değil');
+        return;
+      }
+
+      const sub = await reg.pushManager.getSubscription();
+      if (!sub) {
         showToast('Bildirimler zaten kapalı');
         return;
       }
 
-      await messaging.deleteToken(token);
-      await deletePushToken(currentUid, token);
+      await sub.unsubscribe();
+      await deletePushSubscription(currentUid, sub);
       pushToken = null;
       showToast('Bildirimler kapatıldı');
     } catch (_) {
@@ -698,4 +832,3 @@
     });
   });
 })();
-

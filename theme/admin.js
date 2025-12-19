@@ -3,6 +3,7 @@
 
   const MAX_RESULTS = 10;
   const BATCH_WRITE_LIMIT = 450;
+  const PUSH_BATCH_LIMIT = 50;
 
   let currentUser = null;
   let isAdmin = false;
@@ -62,9 +63,42 @@
     const s = String(value || '').trim();
     if (!s) return '';
     try {
-      return new URL(s, window.location.origin).toString();
+      // GitHub Pages project sites live under a sub-path (/{repo}/...).
+      // Treat "/page.html" inputs as "currentDir/page.html" to stay in-scope.
+      if (s.startsWith('/')) {
+        const dir = String(window.location.pathname || '/').replace(/[^/]+$/, '');
+        if (dir && s.startsWith(dir)) {
+          return new URL(s, window.location.origin).toString();
+        }
+        const candidate = `${dir}${s.slice(1)}`;
+        return new URL(candidate, window.location.origin).toString();
+      }
+      return new URL(s, window.location.href).toString();
     } catch (_) {
       return s;
+    }
+  }
+
+  function getPushWorkerUrl() {
+    const raw = typeof window.CF_PUSH_WORKER_URL === 'string'
+      ? window.CF_PUSH_WORKER_URL.trim()
+      : '';
+    if (!raw) return '';
+    try {
+      return new URL(raw, window.location.origin).toString().replace(/\/+$/, '');
+    } catch (_) {
+      return raw.replace(/\/+$/, '');
+    }
+  }
+
+  async function getFirebaseIdToken() {
+    try {
+      if (!window.firebase || typeof window.firebase.auth !== 'function') return '';
+      const user = window.firebase.auth().currentUser;
+      if (!user || typeof user.getIdToken !== 'function') return '';
+      return await user.getIdToken();
+    } catch (_) {
+      return '';
     }
   }
 
@@ -280,6 +314,54 @@
     return out;
   }
 
+  async function sendPushViaWorker({ recipients, title, body, url }) {
+    const workerUrl = getPushWorkerUrl();
+    if (!workerUrl) return { skipped: true, reason: 'WORKER_URL_NOT_CONFIGURED' };
+    const idToken = await getFirebaseIdToken();
+    if (!idToken) return { skipped: true, reason: 'ID_TOKEN_NOT_AVAILABLE' };
+
+    const list = Array.isArray(recipients) ? recipients.map((x) => String(x || '').trim()).filter(Boolean) : [];
+    if (list.length === 0) return { skipped: true, reason: 'NO_RECIPIENTS' };
+
+    const batches = chunkArray(Array.from(new Set(list)), PUSH_BATCH_LIMIT);
+
+    let sent = 0;
+    let failed = 0;
+    const perBatch = [];
+
+    for (let i = 0; i < batches.length; i++) {
+      // eslint-disable-next-line no-await-in-loop
+      const res = await fetch(`${workerUrl}/send`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify({
+          title,
+          body,
+          url,
+          recipients: batches[i],
+        }),
+      });
+
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        const err = String(json?.error || `HTTP_${res.status}`);
+        perBatch.push({ ok: false, error: err, recipients: batches[i].length });
+        failed += batches[i].length;
+        continue;
+      }
+
+      const totals = json?.totals || {};
+      sent += Number(totals.sent) || 0;
+      failed += Number(totals.failed) || 0;
+      perBatch.push({ ok: true, recipients: batches[i].length, totals: json?.totals || {} });
+    }
+
+    return { skipped: false, sent, failed, batches: perBatch.length, perBatch };
+  }
+
   async function sendNotification({ title, body, url, broadcast }) {
     const db = getDb();
     if (!db) throw new Error('FIRESTORE_UNAVAILABLE');
@@ -346,7 +428,22 @@
       // ignore
     }
 
-    setHint(`Gönderildi (${recipients.length})`);
+    // Optional: Cloudflare Worker Web Push (free tier) – best effort.
+    try {
+      if (!broadcast) {
+        setHint(`Gönderildi (${recipients.length}) · Push hazırlanıyor…`);
+        const pushRes = await sendPushViaWorker({ recipients, title: t, body: b || '', url: u || '/' });
+        if (pushRes?.skipped) {
+          setHint(`Gönderildi (${recipients.length}) · Push: kapalı (${pushRes.reason})`);
+        } else {
+          setHint(`Gönderildi (${recipients.length}) · Push: ${pushRes.sent} başarılı / ${pushRes.failed} hata`);
+        }
+      } else {
+        setHint(`Gönderildi (${recipients.length}) · Push: broadcast kapalı`);
+      }
+    } catch (_) {
+      setHint(`Gönderildi (${recipients.length}) · Push başarısız`);
+    }
     showToast('Bildirim gönderildi');
   }
 

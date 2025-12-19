@@ -39,6 +39,44 @@
   }
 })();
 
+self.addEventListener('push', (event) => {
+  const data = (() => {
+    try {
+      if (!event?.data) return null;
+      return event.data.json();
+    } catch (_) {
+      try {
+        const text = event?.data?.text?.();
+        if (!text) return null;
+        return JSON.parse(text);
+      } catch (_) {
+        return null;
+      }
+    }
+  })();
+
+  // Avoid double-notifications with other push providers (e.g., FCM).
+  // We only handle our own Web Push payloads.
+  if (!data || data.source !== 'algospot') return;
+
+  const title = data.title || 'AlgoSPOT';
+  const body = data.body || 'Yeni bildirim';
+  const url = data.url || './';
+
+  event.waitUntil((async () => {
+    try {
+      await self.registration.showNotification(title, {
+        body,
+        icon: './icons/icon-192.png',
+        badge: './icons/icon-192.png',
+        data: { url },
+      });
+    } catch (_) {
+      // ignore
+    }
+  })());
+});
+
 self.addEventListener('notificationclick', (event) => {
   try {
     event.notification?.close?.();
@@ -50,7 +88,8 @@ self.addEventListener('notificationclick', (event) => {
     const raw = event?.notification?.data?.url;
     if (!raw) return './';
     try {
-      return new URL(String(raw), self.location.origin).toString();
+      const base = self.registration?.scope || self.location.href;
+      return new URL(String(raw), base).toString();
     } catch (_) {
       return './';
     }
@@ -75,7 +114,7 @@ self.addEventListener('notificationclick', (event) => {
   })());
 });
 
-const CACHE_VERSION = '2025-12-19-3';
+const CACHE_VERSION = '2025-12-19-4';
 const CORE_CACHE = `app-yeterlilik-core-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `app-yeterlilik-runtime-${CACHE_VERSION}`;
 
@@ -109,6 +148,7 @@ const PRECACHE_URLS = [
   './theme/topics.js',
   './theme/srs.js',
   './theme/firebase-config.js',
+  './theme/push-config.js',
   './theme/firebase.js',
   './theme/auth-ui.js',
   './theme/admin-gate.js',

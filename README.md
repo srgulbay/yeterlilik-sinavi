@@ -27,7 +27,9 @@ Ardından `http://localhost:5173/index.html` adresine gidin.
 - `theme/topics.js` – Konu özetleri + okuma ilerlemesi + senkron
 - `theme/firebase.js` – Auth/Firestore wrapper
 - `admin.html` – Admin paneli
-- `functions/` – Push bildirim backend (Cloud Functions)
+- `theme/notifications.js` – In‑app bildirimler + Web Push aboneliği
+- `workers/push-worker/` – Push bildirim gönderici (Cloudflare Workers)
+- `functions/` – (Opsiyonel) Push backend (Firebase Cloud Functions, Blaze gerektirir)
 
 ## Firebase Kurulumu
 
@@ -41,7 +43,30 @@ Ardından `http://localhost:5173/index.html` adresine gidin.
 
 Bir kullanıcıyı admin yapmak için Firestore’da `admins/{uid}` dokümanı oluşturun (dokümanın içeriği opsiyonel).
 
-## Push Bildirimler (FCM)
+## Push Bildirimler
+
+### Seçenek A (Ücretsiz): Cloudflare Workers Web Push (önerilen)
+
+1) Cloudflare hesabı açın ve `wrangler` kurun:
+   - `npm i -g wrangler`
+   - `wrangler login`
+2) VAPID anahtarlarını üretin:
+   - `cd workers/push-worker`
+   - `npm i`
+   - `node scripts/generate-vapid.cjs`
+3) `wrangler.toml` içinde `VAPID_PUBLIC_KEY` alanını doldurun.
+4) Private key’i secret olarak girin:
+   - `wrangler secret put VAPID_PRIVATE_KEY`
+5) Deploy:
+   - `wrangler deploy`
+6) Uygulama tarafı config:
+   - `theme/push-config.js` içine:
+     - `CF_PUSH_WORKER_URL` (deploy sonrası worker URL)
+     - `CF_WEBPUSH_PUBLIC_KEY` (VAPID public key)
+
+> Kullanıcılar bildirim panelinden “Bildirimleri aç” diyerek abonelik oluşturur. Admin panelinden bildirim gönderince in‑app + push tetiklenir.
+
+### Seçenek B: Firebase FCM + Cloud Functions (Blaze gerekir)
 
 1) Firebase Console → Project settings → Cloud Messaging → Web Push certificates → VAPID key alın.
 2) `theme/firebase-config.js` içinde `FIREBASE_MESSAGING_VAPID_KEY` değerini doldurun.
@@ -49,4 +74,4 @@ Bir kullanıcıyı admin yapmak için Firestore’da `admins/{uid}` dokümanı o
    - `cd functions && npm i`
    - `firebase deploy --only functions`
 
-> Admin paneli in‑app inbox’a yazar; push için `functions/index.js` tetikleyicisi (`users/{uid}/inbox/*`) gerekir.
+> Not: Cloud Functions deploy’u için Firebase projesinin **Blaze** plana yükseltilmesi gerekir. (Ücretsiz planda çalışmaz.)
