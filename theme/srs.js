@@ -386,6 +386,7 @@ class SRSManager {
 
 // Global instance
 let srsManager;
+let srsStatesUnsubscribe = null;
 const CATEGORY_ICON_MAP = {
     'Genel Mikrobiyoloji': 'fas fa-bacterium',
     'Sterilizasyon': 'fas fa-fire-flame-curved',
@@ -417,6 +418,16 @@ const MODE_COPY = {
 
 function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
+}
+
+function stopSrsStatesWatch() {
+    if (!srsStatesUnsubscribe) return;
+    try {
+        srsStatesUnsubscribe();
+    } catch (_) {
+        // ignore
+    }
+    srsStatesUnsubscribe = null;
 }
 
 function applySrsStatesToManager(map) {
@@ -477,16 +488,31 @@ async function hydrateSrsFromFirebase() {
 function initSrsRemoteSync() {
     if (!window.appFirebase) return;
 
+    const startWatch = () => {
+        if (!isAuthReady()) return false;
+        if (!window.appFirebase || typeof window.appFirebase.watchSrsStates !== 'function') return false;
+        try {
+            srsStatesUnsubscribe = window.appFirebase.watchSrsStates((map) => {
+                applySrsStatesToManager(map);
+            });
+            return true;
+        } catch (_) {
+            srsStatesUnsubscribe = null;
+            return false;
+        }
+    };
+
     if (typeof window.appFirebase.onAuth === 'function') {
         window.appFirebase.onAuth((user) => {
-            if (user) {
-                hydrateSrsFromFirebase();
-            }
+            stopSrsStatesWatch();
+            if (!user) return;
+            if (!startWatch()) hydrateSrsFromFirebase();
         });
     }
 
     if (isAuthReady()) {
-        hydrateSrsFromFirebase();
+        stopSrsStatesWatch();
+        if (!startWatch()) hydrateSrsFromFirebase();
     }
 }
 

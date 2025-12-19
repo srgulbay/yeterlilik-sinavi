@@ -388,6 +388,28 @@
     transform: scale(0.92);
 }
 
+/* The base minimize button styles are declared below the earlier media blocks,
+   so ensure small-screen overrides win in the cascade. */
+@media (max-width: 896px) and (orientation: landscape) {
+    .dock__minimize-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .dock__minimize-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        margin-left: 0;
+    }
+}
+
 /* ==========================================
    REDUCED MOTION
    ========================================== */

@@ -482,8 +482,18 @@
 .card-header__top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: var(--space-3);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.card-header__top > .badge {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.card-header__top > .fav-btn {
+    margin-left: auto;
 }
 
 .badge {

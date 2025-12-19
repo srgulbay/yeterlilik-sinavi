@@ -8,6 +8,7 @@ let currentTopic = 'all';
 let searchQuery = '';
 let highlightedCardId = null;
 let detailFavorites = new Set(); // cardId(string)
+let detailFavoritesUnsubscribe = null;
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,6 +31,16 @@ function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
 }
 
+function stopDetailFavoritesWatch() {
+    if (!detailFavoritesUnsubscribe) return;
+    try {
+        detailFavoritesUnsubscribe();
+    } catch (_) {
+        // ignore
+    }
+    detailFavoritesUnsubscribe = null;
+}
+
 async function initDetailFavorites() {
     if (window.appFirebase && typeof window.appFirebase.init === 'function') {
         window.appFirebase.init();
@@ -37,7 +48,24 @@ async function initDetailFavorites() {
 
     if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
         window.appFirebase.onAuth(async (user) => {
+            stopDetailFavoritesWatch();
             if (user) {
+                if (window.appFirebase && typeof window.appFirebase.watchFavorites === 'function') {
+                    try {
+                        detailFavoritesUnsubscribe = window.appFirebase.watchFavorites('detail', (set) => {
+                            if (set && typeof set.has === 'function') detailFavorites = set;
+                            refreshDetailFavoriteButtons();
+
+                            if (window.dock?.activeSegment === 'favorites' || currentTopic === 'favorites') {
+                                currentTopic = 'favorites';
+                                renderDetailCards(detailsData);
+                            }
+                        });
+                        return;
+                    } catch (_) {
+                        detailFavoritesUnsubscribe = null;
+                    }
+                }
                 await reloadDetailFavorites();
             } else {
                 detailFavorites = new Set();
@@ -47,7 +75,27 @@ async function initDetailFavorites() {
     }
 
     if (isAuthReady()) {
-        await reloadDetailFavorites();
+        if (window.appFirebase && typeof window.appFirebase.watchFavorites === 'function') {
+            try {
+                detailFavoritesUnsubscribe = window.appFirebase.watchFavorites('detail', (set) => {
+                    if (set && typeof set.has === 'function') detailFavorites = set;
+                    refreshDetailFavoriteButtons();
+
+                    if (window.dock?.activeSegment === 'favorites' || currentTopic === 'favorites') {
+                        currentTopic = 'favorites';
+                        renderDetailCards(detailsData);
+                    }
+                });
+            } catch (_) {
+                detailFavoritesUnsubscribe = null;
+            }
+        }
+
+        if (detailFavoritesUnsubscribe) {
+            refreshDetailFavoriteButtons();
+        } else {
+            await reloadDetailFavorites();
+        }
     } else {
         refreshDetailFavoriteButtons();
     }

@@ -9,7 +9,9 @@ const MOBILE_QUERY = typeof window !== 'undefined' && window.matchMedia
     : null;
 
 let questionFavorites = new Set(); // questionId(string)
+let questionFavoritesUnsubscribe = null;
 let dockFavoritesOnly = false;
+let srsStatesUnsubscribe = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!DATA_READY) {
@@ -108,6 +110,26 @@ function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
 }
 
+function stopQuestionFavoritesWatch() {
+    if (!questionFavoritesUnsubscribe) return;
+    try {
+        questionFavoritesUnsubscribe();
+    } catch (_) {
+        // ignore
+    }
+    questionFavoritesUnsubscribe = null;
+}
+
+function stopSrsStatesWatch() {
+    if (!srsStatesUnsubscribe) return;
+    try {
+        srsStatesUnsubscribe();
+    } catch (_) {
+        // ignore
+    }
+    srsStatesUnsubscribe = null;
+}
+
 async function reloadSrsStates() {
     if (!window.appFirebase || !window.appFirebase.enabled) return;
     try {
@@ -123,7 +145,16 @@ function initSrsRepeatSync() {
 
     if (typeof window.appFirebase.onAuth === 'function') {
         window.appFirebase.onAuth((user) => {
+            stopSrsStatesWatch();
             if (user) {
+                if (typeof window.appFirebase.watchSrsStates === 'function') {
+                    try {
+                        srsStatesUnsubscribe = window.appFirebase.watchSrsStates(() => {});
+                        return;
+                    } catch (_) {
+                        srsStatesUnsubscribe = null;
+                    }
+                }
                 reloadSrsStates();
             } else {
                 refreshQuestionRepeatAmbiance();
@@ -132,7 +163,16 @@ function initSrsRepeatSync() {
     }
 
     if (isAuthReady()) {
-        reloadSrsStates();
+        if (typeof window.appFirebase.watchSrsStates === 'function') {
+            try {
+                srsStatesUnsubscribe = window.appFirebase.watchSrsStates(() => {});
+            } catch (_) {
+                srsStatesUnsubscribe = null;
+            }
+        }
+        if (!srsStatesUnsubscribe) {
+            reloadSrsStates();
+        }
     }
 
     document.addEventListener('srs:loaded', () => {
@@ -151,7 +191,24 @@ async function initQuestionFavorites() {
 
     if (window.appFirebase && typeof window.appFirebase.onAuth === 'function') {
         window.appFirebase.onAuth(async (user) => {
+            stopQuestionFavoritesWatch();
             if (user) {
+                if (window.appFirebase && typeof window.appFirebase.watchFavorites === 'function') {
+                    try {
+                        questionFavoritesUnsubscribe = window.appFirebase.watchFavorites('question', (set) => {
+                            if (set && typeof set.has === 'function') questionFavorites = set;
+                            refreshQuestionFavoriteButtons();
+
+                            if (window.dock?.activeSegment === 'favorites' || dockFavoritesOnly) {
+                                dockFavoritesOnly = true;
+                                renderFavoriteQuestionsOnly();
+                            }
+                        });
+                        return;
+                    } catch (_) {
+                        questionFavoritesUnsubscribe = null;
+                    }
+                }
                 await reloadQuestionFavorites();
             } else {
                 questionFavorites = new Set();
@@ -161,7 +218,26 @@ async function initQuestionFavorites() {
     }
 
     if (isAuthReady()) {
-        await reloadQuestionFavorites();
+        if (window.appFirebase && typeof window.appFirebase.watchFavorites === 'function') {
+            try {
+                questionFavoritesUnsubscribe = window.appFirebase.watchFavorites('question', (set) => {
+                    if (set && typeof set.has === 'function') questionFavorites = set;
+                    refreshQuestionFavoriteButtons();
+
+                    if (window.dock?.activeSegment === 'favorites' || dockFavoritesOnly) {
+                        dockFavoritesOnly = true;
+                        renderFavoriteQuestionsOnly();
+                    }
+                });
+            } catch (_) {
+                questionFavoritesUnsubscribe = null;
+            }
+        }
+        if (questionFavoritesUnsubscribe) {
+            refreshQuestionFavoriteButtons();
+        } else {
+            await reloadQuestionFavorites();
+        }
     } else {
         refreshQuestionFavoriteButtons();
     }

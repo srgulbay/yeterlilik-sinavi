@@ -446,15 +446,19 @@
     setTopicState: async () => {
       throw new Error('Firebase not configured');
     },
+    watchTopicStates: () => () => {},
     loadFavorites: async () => new Set(),
     setFavorite: async () => {
       throw new Error('Firebase not configured');
     },
+    watchFavorites: () => () => {},
     loadUserPrefs: async () => ({}),
     setUserPrefs: async () => {
       throw new Error('Firebase not configured');
     },
+    watchUserPrefs: () => () => {},
     loadSrsStates: async () => new Map(),
+    watchSrsStates: () => () => {},
     getSrsState: (cardId) => loadLegacySrsState(cardId),
     getSrsTotalReviews: (cardId) => {
       const rec = loadLegacySrsState(cardId);
@@ -696,6 +700,44 @@
       safeDispatch('topics:state-updated', { topicId: id, patch });
     };
 
+    api.watchTopicStates = (onUpdate) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+      if (typeof onUpdate !== 'function') return () => {};
+
+      const uid = user.uid;
+      const ref = db.collection('users').doc(uid).collection('topics');
+
+      return ref.onSnapshot({ includeMetadataChanges: true }, (snap) => {
+        const map = new Map();
+        snap.forEach((doc) => {
+          const data = doc.data() || {};
+          map.set(doc.id, {
+            favorite: !!data.favorite,
+            readLevel: clampReadLevel(data.readLevel),
+          });
+        });
+        saveCachedTopics(uid, map);
+
+        try {
+          onUpdate(map, {
+            uid,
+            fromCache: !!snap.metadata?.fromCache,
+            hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+          });
+        } catch (_) {
+          // ignore
+        }
+
+        safeDispatch('topics:states-synced', {
+          uid,
+          count: map.size,
+          fromCache: !!snap.metadata?.fromCache,
+          hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+        });
+      }, () => {});
+    };
+
     function normalizeType(type) {
       const t = String(type || '').trim().toLowerCase();
       if (!t) return 'unknown';
@@ -770,6 +812,47 @@
       safeDispatch('favorites:updated', { type: t, itemId: id, favorite: !!favorite });
     };
 
+    api.watchFavorites = (type, onUpdate) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+      if (typeof onUpdate !== 'function') return () => {};
+
+      const uid = user.uid;
+      const t = normalizeType(type);
+      const ref = db.collection('users').doc(uid).collection('favorites')
+        .where('type', '==', t);
+
+      return ref.onSnapshot({ includeMetadataChanges: true }, (snap) => {
+        const set = new Set();
+        snap.forEach((doc) => {
+          const data = doc.data() || {};
+          if (data && data.favorite === true && data.itemId != null) {
+            set.add(String(data.itemId));
+          }
+        });
+        saveCachedFavorites(uid, t, set);
+
+        try {
+          onUpdate(set, {
+            uid,
+            type: t,
+            fromCache: !!snap.metadata?.fromCache,
+            hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+          });
+        } catch (_) {
+          // ignore
+        }
+
+        safeDispatch('favorites:synced', {
+          uid,
+          type: t,
+          count: set.size,
+          fromCache: !!snap.metadata?.fromCache,
+          hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+        });
+      }, () => {});
+    };
+
     api.loadUserPrefs = async () => {
       const user = auth.currentUser;
       if (!user) return {};
@@ -816,6 +899,37 @@
       await db.collection('users').doc(user.uid).collection('prefs').doc('ui').set(patch, { merge: true });
       safeDispatch('prefs:updated', { patch: cleanPatch });
       return true;
+    };
+
+    api.watchUserPrefs = (onUpdate) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+      if (typeof onUpdate !== 'function') return () => {};
+
+      const uid = user.uid;
+      const ref = db.collection('users').doc(uid).collection('prefs').doc('ui');
+
+      return ref.onSnapshot({ includeMetadataChanges: true }, (snap) => {
+        const data = snap && snap.exists ? (snap.data() || {}) : {};
+        const prefs = sanitizeUiPrefsPatch(data);
+        saveCachedPrefs(uid, prefs);
+
+        try {
+          onUpdate(prefs, {
+            uid,
+            fromCache: !!snap.metadata?.fromCache,
+            hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+          });
+        } catch (_) {
+          // ignore
+        }
+
+        safeDispatch('prefs:synced', {
+          uid,
+          fromCache: !!snap.metadata?.fromCache,
+          hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+        });
+      }, () => {});
     };
 
     async function maybeMigrateLegacySrs(user, map) {
@@ -915,6 +1029,44 @@
         srsStateById = cached;
         return cached;
       }
+    };
+
+    api.watchSrsStates = (onUpdate) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+      if (typeof onUpdate !== 'function') return () => {};
+
+      const uid = user.uid;
+      const ref = db.collection('users').doc(uid).collection('srs');
+
+      return ref.onSnapshot({ includeMetadataChanges: true }, (snap) => {
+        const map = new Map();
+        snap.forEach((doc) => {
+          const rec = normalizeSrsState(doc.id, doc.data() || {});
+          if (rec) map.set(doc.id, rec);
+        });
+
+        saveCachedSrs(uid, map);
+        srsUid = uid;
+        srsStateById = map;
+
+        try {
+          onUpdate(map, {
+            uid,
+            fromCache: !!snap.metadata?.fromCache,
+            hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+          });
+        } catch (_) {
+          // ignore
+        }
+
+        safeDispatch('srs:loaded', {
+          count: map.size,
+          uid,
+          fromCache: !!snap.metadata?.fromCache,
+          hasPendingWrites: !!snap.metadata?.hasPendingWrites,
+        });
+      }, () => {});
     };
 
     api.getSrsState = (cardId) => {

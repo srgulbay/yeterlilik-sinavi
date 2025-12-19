@@ -8,6 +8,7 @@ let currentCategory = 'all';
 let searchQuery = '';
 let currentView = 'list'; // 'list' veya 'detail'
 let topicStateById = new Map(); // topicId(string) -> { favorite:boolean, readLevel:number }
+let topicStatesUnsubscribe = null;
 
 let topicsListLayout = 'cards'; // 'cards' | 'compact'
 
@@ -572,6 +573,69 @@ function isAuthReady() {
     return !!(window.appFirebase && window.appFirebase.enabled && window.appFirebase.getUser && window.appFirebase.getUser());
 }
 
+function stopTopicStatesWatch() {
+    if (!topicStatesUnsubscribe) return;
+    try {
+        topicStatesUnsubscribe();
+    } catch (_) {
+        // ignore
+    }
+    topicStatesUnsubscribe = null;
+}
+
+function applyRemoteTopicStates(nextMap) {
+    const incoming = nextMap && typeof nextMap.get === 'function' ? nextMap : new Map();
+    const prev = topicStateById;
+
+    let favoritesChanged = false;
+    const changed = new Set();
+
+    try {
+        incoming.forEach((nextVal, id) => {
+            const prevVal = prev && typeof prev.get === 'function' ? prev.get(id) : null;
+            const prevFav = !!(prevVal && prevVal.favorite);
+            const prevRead = clampReadLevel(prevVal && prevVal.readLevel);
+            const nextFav = !!(nextVal && nextVal.favorite);
+            const nextRead = clampReadLevel(nextVal && nextVal.readLevel);
+            if (prevFav !== nextFav || prevRead !== nextRead) {
+                changed.add(String(id));
+            }
+            if (prevFav !== nextFav) favoritesChanged = true;
+        });
+
+        if (prev && typeof prev.forEach === 'function') {
+            prev.forEach((prevVal, id) => {
+                if (incoming.has(id)) return;
+                const prevFav = !!(prevVal && prevVal.favorite);
+                const prevRead = clampReadLevel(prevVal && prevVal.readLevel);
+                if (prevFav || prevRead > 0) {
+                    changed.add(String(id));
+                    if (prevFav) favoritesChanged = true;
+                }
+            });
+        }
+    } catch (_) {
+        // ignore
+    }
+
+    topicStateById = incoming;
+
+    if (currentView === 'detail') {
+        const params = new URLSearchParams(window.location.search);
+        const topicId = params.get('topic');
+        if (topicId) updateTopicUIFor(topicId);
+        return;
+    }
+
+    // List view: favorites filter needs re-filtering when favorite changes.
+    if (currentCategory === 'favorites' && favoritesChanged) {
+        renderTopicsList(topicsData);
+        return;
+    }
+
+    changed.forEach((id) => updateTopicUIFor(id));
+}
+
 async function initTopicState() {
     if (window.appFirebase && typeof window.appFirebase.init === 'function') {
         window.appFirebase.init();
@@ -583,17 +647,40 @@ async function initTopicState() {
 
     if (onAuth) {
         onAuth(async (user) => {
+            stopTopicStatesWatch();
             if (user) {
+                if (window.appFirebase && typeof window.appFirebase.watchTopicStates === 'function') {
+                    try {
+                        topicStatesUnsubscribe = window.appFirebase.watchTopicStates((map) => {
+                            applyRemoteTopicStates(map);
+                        });
+                        return;
+                    } catch (_) {
+                        topicStatesUnsubscribe = null;
+                    }
+                }
                 await reloadTopicStates();
-            } else {
-                topicStateById = new Map();
-                rerenderTopicUI();
+                return;
             }
+
+            topicStateById = new Map();
+            rerenderTopicUI();
         });
     }
 
     if (isAuthReady()) {
-        await reloadTopicStates();
+        if (window.appFirebase && typeof window.appFirebase.watchTopicStates === 'function') {
+            try {
+                topicStatesUnsubscribe = window.appFirebase.watchTopicStates((map) => {
+                    applyRemoteTopicStates(map);
+                });
+            } catch (_) {
+                topicStatesUnsubscribe = null;
+            }
+        }
+        if (!topicStatesUnsubscribe) {
+            await reloadTopicStates();
+        }
     }
 
     document.addEventListener('topics:state-updated', (e) => {
