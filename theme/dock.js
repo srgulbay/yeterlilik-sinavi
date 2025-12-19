@@ -101,6 +101,7 @@ class Dock {
             'genel': 'Genel Mikrobiyoloji',
             'genel mikrobiyoloji': 'Genel Mikrobiyoloji',
             'sterilizasyon': 'Sterilizasyon',
+            'sterilizasyon-dezenfeksiyon': 'Sterilizasyon',
             'pre-analitik': 'Pre-Analitik',
             'preanalitik': 'Pre-Analitik',
             'enfeksiyon': 'Enfeksiyon Hastalıkları',
