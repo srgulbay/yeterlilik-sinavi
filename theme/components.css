@@ -1525,6 +1525,7 @@
 
 .app-tour__highlight {
     position: absolute;
+    pointer-events: none;
     border-radius: var(--radius-xl);
     border: 1px solid rgba(255, 255, 255, 0.55);
     background: rgba(255, 255, 255, 0.05);

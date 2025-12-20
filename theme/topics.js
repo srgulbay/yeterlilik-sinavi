@@ -35,6 +35,29 @@ let readingProgressLastSavedAt = 0;
 let readingProgressLastSavedPercent = -1;
 let readingProgressLastSavedSectionId = '';
 
+// Reading timer (daily, topic detail view)
+let readingTimerEl = null;
+let readingTimerToggleEl = null;
+let readingTimerMiniValueEl = null;
+let readingTimerPanelEl = null;
+let readingTimerTodayValueEl = null;
+let readingTimerStatusEl = null;
+let readingTimerMonthLabelEl = null;
+let readingTimerCalendarGridEl = null;
+let readingTimerPrevMonthEl = null;
+let readingTimerNextMonthEl = null;
+let readingTimerMode = 'hidden'; // 'hidden' | 'mini' | 'expanded'
+let readingTimerActive = false;
+let readingTimerStartAt = 0;
+let readingTimerDayKey = '';
+let readingTimerBaseSeconds = 0;
+let readingTimerLastTotal = 0;
+let readingTimerTick = null;
+let readingTimerFlushTick = null;
+let readingTimerCalendarYear = 0;
+let readingTimerCalendarMonth = 0;
+let readingTimerStore = null; // { 'YYYY-MM-DD': seconds }
+
 // Manual fine-tuning per topic (TUS/yan dal/yeterlilik “high-yield” emphasis).
 // Keep boosts modest: overall ranking still derives from content-derived signals.
 const TOPIC_PRIORITY_MANUAL_OVERRIDES = {
@@ -114,6 +137,7 @@ function initTopicsModule() {
     initTopicState();
     initTopicActions();
     initReadingProgressLifecycle();
+    initReadingTimerLifecycle();
     initTourStatsWidget();
 }
 
@@ -882,6 +906,520 @@ function ensureReadingProgressWidget() {
     return wrapper;
 }
 
+const READING_TIMER_KEYS = {
+    mode: 'topics:readingTimerMode',
+    byDay: 'topics:readingTimerByDay:v1',
+};
+
+const READING_TIMER_MONTHS_TR = [
+    'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+    'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+];
+
+const READING_TIMER_WEEKDAYS_TR = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
+
+function pad2(value) {
+    return String(value).padStart(2, '0');
+}
+
+function clampNonNegativeSeconds(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return 0;
+    return Math.max(0, Math.trunc(n));
+}
+
+function getDayKeyByDate(dateObj) {
+    const d = dateObj instanceof Date ? dateObj : new Date();
+    return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+}
+
+function getDayKeyNow() {
+    return getDayKeyByDate(new Date());
+}
+
+function loadReadingTimerStore() {
+    if (readingTimerStore) return readingTimerStore;
+    const raw = storageGetSafe(READING_TIMER_KEYS.byDay, '');
+    if (!raw) {
+        readingTimerStore = {};
+        return readingTimerStore;
+    }
+    try {
+        const parsed = JSON.parse(raw);
+        const src = parsed && typeof parsed === 'object' ? parsed : {};
+        const clean = {};
+        Object.keys(src).forEach((key) => {
+            const k = String(key || '');
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(k)) return;
+            clean[k] = clampNonNegativeSeconds(src[k]);
+        });
+        readingTimerStore = clean;
+        return readingTimerStore;
+    } catch (_) {
+        readingTimerStore = {};
+        return readingTimerStore;
+    }
+}
+
+function saveReadingTimerStore() {
+    try {
+        const store = loadReadingTimerStore();
+        storageSetSafe(READING_TIMER_KEYS.byDay, JSON.stringify(store));
+    } catch (_) {
+        // ignore
+    }
+}
+
+function getReadingTimerSeconds(dayKey) {
+    const store = loadReadingTimerStore();
+    const key = String(dayKey || '');
+    return clampNonNegativeSeconds(store[key]);
+}
+
+function setReadingTimerSeconds(dayKey, seconds) {
+    const store = loadReadingTimerStore();
+    const key = String(dayKey || '');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
+    store[key] = clampNonNegativeSeconds(seconds);
+    saveReadingTimerStore();
+}
+
+function formatTimerHms(seconds) {
+    const s = clampNonNegativeSeconds(seconds);
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const r = s % 60;
+    return `${h}:${pad2(m)}:${pad2(r)}`;
+}
+
+function formatTimerMini(seconds) {
+    const s = clampNonNegativeSeconds(seconds);
+    if (s < 3600) {
+        const m = Math.floor(s / 60);
+        const r = s % 60;
+        return `${m}:${pad2(r)}`;
+    }
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    return `${h}:${pad2(m)}`;
+}
+
+function formatTimerCompact(seconds) {
+    const s = clampNonNegativeSeconds(seconds);
+    if (s < 60) return '1dk';
+    if (s < 3600) return `${Math.floor(s / 60)}dk`;
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    return m ? `${h}sa ${m}dk` : `${h}sa`;
+}
+
+function normalizeReadingTimerMode(mode) {
+    const m = String(mode || '').trim();
+    if (m === 'mini' || m === 'expanded' || m === 'hidden') return m;
+    return 'hidden';
+}
+
+function setReadingTimerMode(nextMode, opts = {}) {
+    const el = ensureReadingTimerWidget();
+    const mode = normalizeReadingTimerMode(nextMode);
+    const persist = opts.persist !== false;
+    readingTimerMode = mode;
+
+    el.classList.toggle('is-hidden', mode === 'hidden');
+    el.classList.toggle('is-mini', mode === 'mini');
+    el.classList.toggle('is-expanded', mode === 'expanded');
+
+    if (readingTimerMiniValueEl) readingTimerMiniValueEl.hidden = mode === 'hidden';
+    if (readingTimerPanelEl) readingTimerPanelEl.hidden = mode !== 'expanded';
+
+    const chev = el.querySelector('[data-timer-chev]');
+    if (chev) chev.className = `fas ${mode === 'expanded' ? 'fa-chevron-down' : 'fa-chevron-up'} reading-timer__chevron`;
+
+    if (readingTimerToggleEl) {
+        const label = mode === 'hidden'
+            ? 'Kronometreyi göster'
+            : (mode === 'mini' ? 'Kronometre detaylarını aç' : 'Kronometreyi gizle');
+        readingTimerToggleEl.setAttribute('aria-label', label);
+        readingTimerToggleEl.title = label;
+    }
+
+    if (persist) storageSetSafe(READING_TIMER_KEYS.mode, mode);
+
+    refreshReadingTimerUI();
+    if (mode === 'expanded') {
+        const now = new Date();
+        readingTimerCalendarYear = now.getFullYear();
+        readingTimerCalendarMonth = now.getMonth();
+        renderReadingTimerCalendar();
+    }
+}
+
+function cycleReadingTimerMode() {
+    const next = readingTimerMode === 'hidden'
+        ? 'mini'
+        : (readingTimerMode === 'mini' ? 'expanded' : 'hidden');
+    setReadingTimerMode(next);
+}
+
+function ensureReadingTimerWidget() {
+    if (readingTimerEl) return readingTimerEl;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'reading-timer';
+    wrapper.hidden = true;
+    wrapper.setAttribute('aria-hidden', 'true');
+
+    const weekdaysHtml = READING_TIMER_WEEKDAYS_TR.map((w) => `<div>${w}</div>`).join('');
+
+    wrapper.innerHTML = `
+        <button class="reading-timer__toggle" type="button" aria-label="Kronometreyi göster" title="Kronometre">
+            <span class="reading-timer__dot" data-timer-dot aria-hidden="true"></span>
+            <i class="fas fa-stopwatch" aria-hidden="true"></i>
+            <span class="reading-timer__mini-time" data-timer-mini-time hidden>0:00</span>
+            <i class="fas fa-chevron-up reading-timer__chevron" data-timer-chev aria-hidden="true"></i>
+        </button>
+        <div class="reading-timer__panel" data-timer-panel hidden>
+            <div class="reading-timer__panel-head">
+                <div>
+                    <div class="reading-timer__eyebrow">Günlük</div>
+                    <div class="reading-timer__title">Kronometre</div>
+                </div>
+                <button class="reading-timer__panel-hide" type="button" data-timer-hide aria-label="Tam gizle" title="Tam gizle">
+                    <i class="fas fa-eye-slash" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="reading-timer__today">
+                <div class="reading-timer__today-label">Bugün</div>
+                <div class="reading-timer__today-value" data-timer-today>0:00:00</div>
+                <div class="reading-timer__status" data-timer-status>Duraklatıldı</div>
+            </div>
+            <div class="reading-timer__calendar">
+                <div class="reading-timer__calendar-head">
+                    <button class="reading-timer__nav" type="button" data-timer-month-prev aria-label="Önceki ay" title="Önceki ay">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="reading-timer__month" data-timer-month-label></div>
+                    <button class="reading-timer__nav" type="button" data-timer-month-next aria-label="Sonraki ay" title="Sonraki ay">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="reading-timer__weekdays" aria-hidden="true">${weekdaysHtml}</div>
+                <div class="reading-timer__grid" data-timer-grid></div>
+            </div>
+            <div class="reading-timer__hint">Sekme/uygulama değişince otomatik durur.</div>
+        </div>
+    `;
+
+    document.body.appendChild(wrapper);
+
+    readingTimerEl = wrapper;
+    readingTimerToggleEl = wrapper.querySelector('.reading-timer__toggle');
+    readingTimerMiniValueEl = wrapper.querySelector('[data-timer-mini-time]');
+    readingTimerPanelEl = wrapper.querySelector('[data-timer-panel]');
+    readingTimerTodayValueEl = wrapper.querySelector('[data-timer-today]');
+    readingTimerStatusEl = wrapper.querySelector('[data-timer-status]');
+    readingTimerMonthLabelEl = wrapper.querySelector('[data-timer-month-label]');
+    readingTimerCalendarGridEl = wrapper.querySelector('[data-timer-grid]');
+    readingTimerPrevMonthEl = wrapper.querySelector('[data-timer-month-prev]');
+    readingTimerNextMonthEl = wrapper.querySelector('[data-timer-month-next]');
+
+    const savedMode = normalizeReadingTimerMode(storageGetSafe(READING_TIMER_KEYS.mode, 'hidden'));
+    wrapper.classList.toggle('is-hidden', savedMode === 'hidden');
+    wrapper.classList.toggle('is-mini', savedMode === 'mini');
+    wrapper.classList.toggle('is-expanded', savedMode === 'expanded');
+    readingTimerMode = savedMode;
+
+    if (readingTimerMiniValueEl) readingTimerMiniValueEl.hidden = savedMode === 'hidden';
+    if (readingTimerPanelEl) readingTimerPanelEl.hidden = savedMode !== 'expanded';
+
+    const now = new Date();
+    readingTimerCalendarYear = now.getFullYear();
+    readingTimerCalendarMonth = now.getMonth();
+
+    readingTimerToggleEl?.addEventListener('click', (e) => {
+        e.preventDefault();
+        cycleReadingTimerMode();
+    });
+
+    wrapper.addEventListener('click', (e) => {
+        const hideHit = e.target.closest('[data-timer-hide]');
+        if (hideHit) {
+            e.preventDefault();
+            setReadingTimerMode('hidden');
+            return;
+        }
+        const prevHit = e.target.closest('[data-timer-month-prev]');
+        if (prevHit) {
+            e.preventDefault();
+            shiftReadingTimerCalendarMonth(-1);
+            return;
+        }
+        const nextHit = e.target.closest('[data-timer-month-next]');
+        if (nextHit) {
+            e.preventDefault();
+            shiftReadingTimerCalendarMonth(1);
+        }
+    });
+
+    setReadingTimerMode(savedMode, { persist: false });
+
+    return wrapper;
+}
+
+function showReadingTimerWidget() {
+    const el = ensureReadingTimerWidget();
+    el.hidden = false;
+    el.setAttribute('aria-hidden', 'false');
+    refreshReadingTimerUI();
+    syncReadingTimerRunState();
+}
+
+function hideReadingTimerWidget() {
+    if (!readingTimerEl) return;
+    readingTimerEl.hidden = true;
+    readingTimerEl.setAttribute('aria-hidden', 'true');
+}
+
+function setReadingTimerUI(totalSeconds) {
+    const total = clampNonNegativeSeconds(totalSeconds);
+    readingTimerLastTotal = total;
+
+    if (readingTimerMiniValueEl) readingTimerMiniValueEl.textContent = formatTimerMini(total);
+    if (readingTimerTodayValueEl) readingTimerTodayValueEl.textContent = formatTimerHms(total);
+
+    if (readingTimerEl) {
+        readingTimerEl.classList.toggle('is-active', !!readingTimerActive);
+    }
+
+    if (readingTimerStatusEl) {
+        readingTimerStatusEl.textContent = readingTimerActive ? 'Aktif' : 'Duraklatıldı';
+    }
+}
+
+function refreshReadingTimerUI() {
+    const dayKey = getDayKeyNow();
+    if (readingTimerActive && dayKey === readingTimerDayKey) {
+        setReadingTimerUI(readingTimerLastTotal);
+        return;
+    }
+    setReadingTimerUI(getReadingTimerSeconds(dayKey));
+}
+
+function shouldRunReadingTimer() {
+    if (currentView !== 'detail') return false;
+    if (document.visibilityState !== 'visible') return false;
+    try {
+        if (typeof document.hasFocus === 'function' && !document.hasFocus()) return false;
+    } catch (_) {
+        // ignore
+    }
+    return true;
+}
+
+function syncReadingTimerRunState() {
+    if (!readingTimerEl || readingTimerEl.hidden) return;
+    const shouldRun = shouldRunReadingTimer();
+    if (shouldRun && !readingTimerActive) startReadingTimer();
+    if (!shouldRun && readingTimerActive) stopReadingTimer();
+    if (shouldRun && readingTimerActive) tickReadingTimer();
+}
+
+function startReadingTimer() {
+    if (readingTimerActive) return;
+    readingTimerActive = true;
+    readingTimerStartAt = Date.now();
+    readingTimerDayKey = getDayKeyNow();
+    readingTimerBaseSeconds = getReadingTimerSeconds(readingTimerDayKey);
+
+    if (readingTimerTick) window.clearInterval(readingTimerTick);
+    readingTimerTick = window.setInterval(() => {
+        try {
+            tickReadingTimer();
+        } catch (_) {
+            // ignore
+        }
+    }, 1000);
+
+    if (readingTimerFlushTick) window.clearInterval(readingTimerFlushTick);
+    readingTimerFlushTick = window.setInterval(() => {
+        try {
+            flushReadingTimer();
+        } catch (_) {
+            // ignore
+        }
+    }, 15000);
+
+    tickReadingTimer();
+}
+
+function stopReadingTimer() {
+    if (!readingTimerActive) return;
+    flushReadingTimer();
+    readingTimerActive = false;
+
+    if (readingTimerTick) window.clearInterval(readingTimerTick);
+    readingTimerTick = null;
+
+    if (readingTimerFlushTick) window.clearInterval(readingTimerFlushTick);
+    readingTimerFlushTick = null;
+
+    refreshReadingTimerUI();
+}
+
+function tickReadingTimer() {
+    if (!readingTimerActive) return;
+    const now = Date.now();
+    const nowDayKey = getDayKeyByDate(new Date(now));
+
+    if (nowDayKey !== readingTimerDayKey) {
+        const midnight = new Date().setHours(0, 0, 0, 0);
+        const prevElapsed = Math.max(0, Math.floor((midnight - readingTimerStartAt) / 1000));
+        setReadingTimerSeconds(readingTimerDayKey, readingTimerBaseSeconds + prevElapsed);
+
+        readingTimerDayKey = nowDayKey;
+        readingTimerBaseSeconds = getReadingTimerSeconds(nowDayKey);
+        readingTimerStartAt = midnight;
+    }
+
+    const elapsed = Math.max(0, Math.floor((now - readingTimerStartAt) / 1000));
+    setReadingTimerUI(readingTimerBaseSeconds + elapsed);
+}
+
+function flushReadingTimer() {
+    if (!readingTimerActive) return;
+    tickReadingTimer();
+    setReadingTimerSeconds(readingTimerDayKey, readingTimerLastTotal);
+    if (readingTimerMode === 'expanded') renderReadingTimerCalendar();
+}
+
+function shiftReadingTimerCalendarMonth(delta) {
+    const d = Number(delta) || 0;
+    if (!d) return;
+    const now = new Date();
+    const nowYear = now.getFullYear();
+    const nowMonth = now.getMonth();
+
+    let year = readingTimerCalendarYear;
+    let month = readingTimerCalendarMonth + d;
+    while (month < 0) {
+        month += 12;
+        year -= 1;
+    }
+    while (month > 11) {
+        month -= 12;
+        year += 1;
+    }
+
+    // Do not navigate to future months.
+    if (year > nowYear || (year === nowYear && month > nowMonth)) {
+        year = nowYear;
+        month = nowMonth;
+    }
+
+    readingTimerCalendarYear = year;
+    readingTimerCalendarMonth = month;
+    renderReadingTimerCalendar();
+}
+
+function renderReadingTimerCalendar() {
+    if (!readingTimerMonthLabelEl || !readingTimerCalendarGridEl) return;
+    const year = readingTimerCalendarYear;
+    const month = readingTimerCalendarMonth;
+    if (!Number.isFinite(year) || !Number.isFinite(month)) return;
+
+    const now = new Date();
+    const nowYear = now.getFullYear();
+    const nowMonth = now.getMonth();
+
+    if (readingTimerPrevMonthEl) readingTimerPrevMonthEl.disabled = false;
+    if (readingTimerNextMonthEl) readingTimerNextMonthEl.disabled = year === nowYear && month === nowMonth;
+
+    readingTimerMonthLabelEl.textContent = `${READING_TIMER_MONTHS_TR[month] || ''} ${year}`;
+
+    const first = new Date(year, month, 1);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const startOffset = (first.getDay() + 6) % 7; // Monday=0
+    const todayKey = getDayKeyNow();
+
+    let html = '';
+    for (let i = 0; i < 42; i += 1) {
+        const dayNum = i - startOffset + 1;
+        if (dayNum < 1 || dayNum > daysInMonth) {
+            html += '<div class="reading-timer__day is-empty" aria-hidden="true"></div>';
+            continue;
+        }
+
+        const dateKey = `${year}-${pad2(month + 1)}-${pad2(dayNum)}`;
+        const secs = getReadingTimerSeconds(dateKey);
+        const has = secs > 0;
+        const isToday = dateKey === todayKey;
+        const label = has ? formatTimerCompact(secs) : '';
+        const title = has ? `Çalışma: ${formatTimerHms(secs)}` : '';
+
+        html += `
+            <div class="reading-timer__day ${isToday ? 'is-today' : ''} ${has ? 'has-time' : ''}" title="${title}">
+                <div class="reading-timer__day-num">${dayNum}</div>
+                ${has ? `<div class="reading-timer__day-time">${label}</div>` : ''}
+            </div>
+        `;
+    }
+
+    readingTimerCalendarGridEl.innerHTML = html;
+}
+
+let readingTimerLifecycleWired = false;
+function initReadingTimerLifecycle() {
+    if (readingTimerLifecycleWired) return;
+    readingTimerLifecycleWired = true;
+
+    ensureReadingTimerWidget();
+    hideReadingTimerWidget();
+
+    window.addEventListener('beforeunload', () => {
+        try {
+            stopReadingTimer();
+        } catch (_) {
+            // ignore
+        }
+    });
+
+    window.addEventListener('pagehide', () => {
+        try {
+            stopReadingTimer();
+        } catch (_) {
+            // ignore
+        }
+    });
+
+    window.addEventListener('focus', () => {
+        try {
+            syncReadingTimerRunState();
+        } catch (_) {
+            // ignore
+        }
+    });
+
+    window.addEventListener('blur', () => {
+        try {
+            stopReadingTimer();
+        } catch (_) {
+            // ignore
+        }
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        try {
+            if (document.visibilityState === 'hidden') {
+                stopReadingTimer();
+                return;
+            }
+            syncReadingTimerRunState();
+        } catch (_) {
+            // ignore
+        }
+    });
+}
+
 let readingProgressLifecycleWired = false;
 function initReadingProgressLifecycle() {
     if (readingProgressLifecycleWired) return;
@@ -1371,43 +1909,69 @@ function repositionTopicsGuide() {
     const rect = guide.target.getBoundingClientRect();
     const pad = 10;
     const margin = 12;
+    const gap = 14;
 
-    const top = Math.max(margin, rect.top - pad);
-    const left = Math.max(margin, rect.left - pad);
-    const right = Math.min(window.innerWidth - margin, rect.right + pad);
-    const bottom = Math.min(window.innerHeight - margin, rect.bottom + pad);
+    const highlightTop = Math.max(margin, rect.top - pad);
+    const highlightLeft = Math.max(margin, rect.left - pad);
+    const highlightRight = Math.min(window.innerWidth - margin, rect.right + pad);
+    const highlightBottom = Math.min(window.innerHeight - margin, rect.bottom + pad);
 
-    const width = Math.max(0, right - left);
-    const height = Math.max(0, bottom - top);
+    const highlightWidth = Math.max(0, highlightRight - highlightLeft);
+    const highlightHeight = Math.max(0, highlightBottom - highlightTop);
 
-    guide.highlight.style.top = `${top}px`;
-    guide.highlight.style.left = `${left}px`;
-    guide.highlight.style.width = `${width}px`;
-    guide.highlight.style.height = `${height}px`;
+    guide.highlight.style.top = `${highlightTop}px`;
+    guide.highlight.style.left = `${highlightLeft}px`;
+    guide.highlight.style.width = `${highlightWidth}px`;
+    guide.highlight.style.height = `${highlightHeight}px`;
 
-    const isDocked = window.innerWidth <= 520;
-    guide.popover.classList.toggle('is-docked', isDocked);
-    if (isDocked) {
-        guide.popover.style.top = '';
-        guide.popover.style.left = '';
-        return;
-    }
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const intersects = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+
+    const highlightRect = {
+        left: highlightLeft,
+        top: highlightTop,
+        right: highlightLeft + highlightWidth,
+        bottom: highlightTop + highlightHeight,
+    };
 
     guide.popover.style.bottom = '';
     guide.popover.style.transform = '';
 
     const popRect = guide.popover.getBoundingClientRect();
-    let popTop = rect.bottom + 14;
-    if (popTop + popRect.height > window.innerHeight - margin) {
-        popTop = rect.top - popRect.height - 14;
+    const popW = Math.max(1, popRect.width || 1);
+    const popH = Math.max(1, popRect.height || 1);
+
+    const tryPlace = (pos) => {
+        const left = clamp(pos.left, margin, window.innerWidth - popW - margin);
+        const top = clamp(pos.top, margin, window.innerHeight - popH - margin);
+        const box = { left, top, right: left + popW, bottom: top + popH };
+        const fits = box.left >= margin
+            && box.top >= margin
+            && box.right <= window.innerWidth - margin
+            && box.bottom <= window.innerHeight - margin;
+        if (!fits) return null;
+        if (intersects(box, highlightRect)) return null;
+        return { left, top };
+    };
+
+    const candidates = [
+        tryPlace({ top: rect.bottom + gap, left: rect.left }),
+        tryPlace({ top: rect.top - popH - gap, left: rect.left }),
+        tryPlace({ top: rect.top, left: rect.right + gap }),
+        tryPlace({ top: rect.top, left: rect.left - popW - gap }),
+    ].filter(Boolean);
+
+    const forceDocked = window.innerWidth <= 520 || candidates.length === 0;
+    guide.popover.classList.toggle('is-docked', forceDocked);
+    if (forceDocked) {
+        guide.popover.style.top = '';
+        guide.popover.style.left = '';
+        return;
     }
-    popTop = Math.min(Math.max(popTop, margin), window.innerHeight - popRect.height - margin);
 
-    let popLeft = rect.left;
-    popLeft = Math.min(Math.max(popLeft, margin), window.innerWidth - popRect.width - margin);
-
-    guide.popover.style.top = `${popTop}px`;
-    guide.popover.style.left = `${popLeft}px`;
+    const chosen = candidates[0];
+    guide.popover.style.top = `${chosen.top}px`;
+    guide.popover.style.left = `${chosen.left}px`;
 }
 
 function applyTopicsGuideStep(index) {
@@ -1441,6 +2005,21 @@ function applyTopicsGuideStep(index) {
         guide.nextBtn.textContent = idx === steps.length - 1 ? 'Bitir' : 'İleri';
     }
 
+    // Prevent the guide popover from hiding the highlighted area (especially on mobile).
+    try {
+        const popRect = guide.popover?.getBoundingClientRect?.();
+        const safeTop = 90;
+        const safeBottom = window.innerWidth <= 520
+            ? Math.min(360, (popRect?.height || 240) + 140)
+            : 100;
+        const r = target.getBoundingClientRect();
+        if (r.top < safeTop || r.bottom > window.innerHeight - safeBottom) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    } catch (_) {
+        // ignore
+    }
+
     scheduleTopicsGuideReposition();
 }
 
@@ -1465,6 +2044,11 @@ function startTopicsGuide() {
             selector: '.reading-progress',
             title: 'Okuma İlerlemesi',
             desc: 'Sağdaki % göstergesi bu konudaki ilerlemeni takip eder. Ok simgesiyle minimalleştir.',
+        },
+        {
+            selector: '.reading-timer',
+            title: 'Günlük Kronometre',
+            desc: 'Konu okurken sadece sekme açık + ekranda iken süre sayar. Gizli/minimal/detaylı kullanabilir, takvimden gün gün görebilirsin.',
         },
         {
             selector: '#backToList',
@@ -2391,6 +2975,7 @@ function showTopicDetail(topicId) {
     stopReadingProgressTracking();
     startReadingProgressTracking(topicId, articleContainer);
     maybePromptResume(topicId);
+    showReadingTimerWidget();
     showTourStatsWidget();
     scheduleTourStatsRefresh();
 
@@ -2487,6 +3072,8 @@ function showTopicsList() {
     }
 
     stopReadingProgressTracking();
+    stopReadingTimer();
+    hideReadingTimerWidget();
     closeTopicsGuide();
     hideTourStatsWidget();
     
