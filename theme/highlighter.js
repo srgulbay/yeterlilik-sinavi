@@ -2,9 +2,15 @@
   'use strict';
 
   const STORAGE_PREFIX = 'appHighlighter:v1';
+  const LAST_COLOR_KEY = `${STORAGE_PREFIX}:lastColor`;
   const CONTEXT_LEN = 36;
   const MAX_QUOTE_LEN = 1600;
   const MAX_HIGHLIGHTS_PER_TOPIC = 400;
+  const SWIPE_MIN_DISTANCE = 36;
+  const SWIPE_MAX_VERTICAL = 26;
+  const SWIPE_RATIO = 1.4;
+  const SWIPE_MAX_TIME = 1400;
+  const SWIPE_MIN_CHARS = 3;
 
   const DEFAULT_PALETTE = [
     { label: 'Sarı', color: '#facc15' },
@@ -157,6 +163,39 @@
       parent.replaceChild(document.createTextNode(mark.textContent || ''), mark);
       if (parent.normalize) parent.normalize();
     });
+  }
+
+  function getCaretRangeFromPoint(x, y) {
+    try {
+      if (document.caretRangeFromPoint) return document.caretRangeFromPoint(x, y);
+      if (document.caretPositionFromPoint) {
+        const pos = document.caretPositionFromPoint(x, y);
+        if (!pos) return null;
+        const range = document.createRange();
+        range.setStart(pos.offsetNode, pos.offset);
+        range.collapse(true);
+        return range;
+      }
+    } catch (_) {
+      // ignore
+    }
+    return null;
+  }
+
+  function getCaretTextOffset(scopeEl, caretRange) {
+    if (!scopeEl || !caretRange) return 0;
+    const pre = document.createRange();
+    pre.selectNodeContents(scopeEl);
+    pre.setEnd(caretRange.startContainer, caretRange.startOffset);
+    return pre.toString().length;
+  }
+
+  function isSwipeEligibleTarget(target) {
+    if (!target || !target.closest) return false;
+    if (target.closest('button, a, input, textarea, select, [contenteditable="true"]')) return false;
+    if (target.closest('mark.text-highlight')) return false;
+    if (target.closest('.highlight-toolbar, .table-scroll, table, pre, code')) return false;
+    return true;
   }
 
   function unwrapMarksById(scopeEl, highlightId) {
@@ -437,6 +476,13 @@
       this._boundSelectionChange = null;
       this._boundDocClick = null;
       this._boundScroll = null;
+
+      this.lastColor = normalizeHexColor(storageGet(LAST_COLOR_KEY, DEFAULT_PALETTE[0].color)) || DEFAULT_PALETTE[0].color;
+      this.swipeState = null;
+      this._boundSwipeStart = null;
+      this._boundSwipeMove = null;
+      this._boundSwipeEnd = null;
+      this._suppressClick = false;
     }
 
     init() {
@@ -477,6 +523,14 @@
       this.scopeEl.addEventListener('contextmenu', (e) => this._onContextMenu(e));
 
       this.scopeEl.addEventListener('click', (e) => this._onScopeClick(e));
+
+      this._boundSwipeStart = (e) => this._onSwipeStart(e);
+      this._boundSwipeMove = (e) => this._onSwipeMove(e);
+      this._boundSwipeEnd = (e) => this._onSwipeEnd(e);
+      this.scopeEl.addEventListener('pointerdown', this._boundSwipeStart, { passive: true });
+      this.scopeEl.addEventListener('pointermove', this._boundSwipeMove, { passive: false });
+      this.scopeEl.addEventListener('pointerup', this._boundSwipeEnd);
+      this.scopeEl.addEventListener('pointercancel', this._boundSwipeEnd);
 
       this.reload().catch(() => {});
     }
@@ -749,6 +803,92 @@
       // selectionchange will handle opening; do nothing.
     }
 
+    _onSwipeStart(e) {
+      if (!this.scopeEl) return;
+      if (!e || e.pointerType !== 'touch' || !e.isPrimary) return;
+      if (!isSwipeEligibleTarget(e.target)) return;
+
+      const caret = getCaretRangeFromPoint(e.clientX, e.clientY);
+      if (!caret) return;
+      if (!this.scopeEl.contains(caret.startContainer)) return;
+
+      this.swipeState = {
+        pointerId: e.pointerId,
+        startX: e.clientX,
+        startY: e.clientY,
+        startTime: Date.now(),
+        startRange: caret,
+        lastRange: caret,
+        active: false
+      };
+    }
+
+    _onSwipeMove(e) {
+      if (!this.scopeEl) return;
+      const state = this.swipeState;
+      if (!state || e.pointerId !== state.pointerId) return;
+
+      const dx = e.clientX - state.startX;
+      const dy = e.clientY - state.startY;
+      const adx = Math.abs(dx);
+      const ady = Math.abs(dy);
+
+      if (!state.active) {
+        if (adx < SWIPE_MIN_DISTANCE) return;
+        if (adx < ady * SWIPE_RATIO) return;
+        if (ady > SWIPE_MAX_VERTICAL) return;
+        state.active = true;
+      }
+
+      if (e.cancelable) e.preventDefault();
+
+      const caret = getCaretRangeFromPoint(e.clientX, e.clientY);
+      if (!caret || !this.scopeEl.contains(caret.startContainer)) return;
+      state.lastRange = caret;
+    }
+
+    _onSwipeEnd(e) {
+      if (!this.scopeEl) return;
+      const state = this.swipeState;
+      if (!state || e.pointerId !== state.pointerId) return;
+      this.swipeState = null;
+
+      if (!state.active) return;
+      if (Date.now() - state.startTime > SWIPE_MAX_TIME) return;
+
+      const endCaret = getCaretRangeFromPoint(e.clientX, e.clientY) || state.lastRange;
+      const range = this._rangeFromSwipe(state.startRange, endCaret);
+      if (!range) return;
+
+      const text = range.toString();
+      if (!text || text.trim().length < SWIPE_MIN_CHARS) return;
+      if (text.length > MAX_QUOTE_LEN) {
+        showToast('Seçim çok uzun');
+        return;
+      }
+
+      this.pendingRange = range;
+      this._suppressClick = true;
+      setTimeout(() => { this._suppressClick = false; }, 220);
+
+      this._applyColor(this.lastColor);
+    }
+
+    _rangeFromSwipe(startCaret, endCaret) {
+      if (!this.scopeEl || !startCaret || !endCaret) return null;
+      if (!this.scopeEl.contains(startCaret.startContainer)) return null;
+      if (!this.scopeEl.contains(endCaret.startContainer)) return null;
+
+      const startOffset = getCaretTextOffset(this.scopeEl, startCaret);
+      const endOffset = getCaretTextOffset(this.scopeEl, endCaret);
+      if (!Number.isFinite(startOffset) || !Number.isFinite(endOffset)) return null;
+      if (startOffset === endOffset) return null;
+
+      const start = Math.min(startOffset, endOffset);
+      const end = Math.max(startOffset, endOffset);
+      return rangeFromTextOffsets(this.scopeEl, start, end);
+    }
+
     _onContextMenu(e) {
       // Let selection change happen, but keep toolbar responsive.
       if (!this.scopeEl) return;
@@ -758,6 +898,7 @@
 
     _onScopeClick(e) {
       if (!this.scopeEl) return;
+      if (this._suppressClick) return;
       const mark = e.target?.closest?.('mark.text-highlight[data-hl-id]');
       if (!mark) return;
 
@@ -796,6 +937,8 @@
       }
 
       const c = normalizeHexColor(color) || DEFAULT_PALETTE[0].color;
+      this.lastColor = c;
+      storageSet(LAST_COLOR_KEY, c);
 
       if (this.activeHighlightId) {
         const id = this.activeHighlightId;
