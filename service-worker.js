@@ -118,7 +118,7 @@ self.addEventListener('notificationclick', (event) => {
   })());
 });
 
-const CACHE_VERSION = '2025-12-19-6';
+const CACHE_VERSION = '2025-12-20-1';
 const CORE_CACHE = `app-yeterlilik-core-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `app-yeterlilik-runtime-${CACHE_VERSION}`;
 
@@ -133,6 +133,7 @@ const PRECACHE_URLS = [
   './offline.html',
   './manifest.webmanifest',
   './theme/pwa.js',
+  './theme/onboarding.js',
   './theme/init-theme.js',
   './theme/ui.js',
   './theme/design-tokens.css',

@@ -84,6 +84,16 @@ const TOPIC_PRIORITY_MANUAL_OVERRIDES = {
 
 let topicEndObserver = null;
 
+// Total tour stats (all topics) - left side widget
+let tourStatsEl = null;
+let tourStatsToggleEl = null;
+let tourStatsItems = null; // [{ root,label,value,fill }]
+let tourStatsRaf = 0;
+
+// First-run guide (topic detail view)
+let topicsGuide = null;
+let topicsGuideStartTimer = null;
+
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     initTopicsModule();
@@ -104,6 +114,7 @@ function initTopicsModule() {
     initTopicState();
     initTopicActions();
     initReadingProgressLifecycle();
+    initTourStatsWidget();
 }
 
 function storageGetSafe(key, fallback) {
@@ -118,6 +129,24 @@ function storageGetSafe(key, fallback) {
 function storageSetSafe(key, value) {
     try {
         window.localStorage?.setItem(key, String(value));
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
+function sessionGetSafe(key, fallback) {
+    try {
+        const v = window.sessionStorage?.getItem(key);
+        return v != null ? v : fallback;
+    } catch (_) {
+        return fallback;
+    }
+}
+
+function sessionSetSafe(key, value) {
+    try {
+        window.sessionStorage?.setItem(key, String(value));
         return true;
     } catch (_) {
         return false;
@@ -659,6 +688,7 @@ function applyRemoteTopicStates(nextMap) {
     }
 
     topicStateById = incoming;
+    scheduleTourStatsRefresh();
 
     if (currentView === 'detail') {
         const params = new URLSearchParams(window.location.search);
@@ -739,6 +769,7 @@ async function initTopicState() {
         if (!topicId || !patch) return;
         setTopicStateLocal(topicId, patch);
         updateTopicUIFor(topicId);
+        scheduleTourStatsRefresh();
 
         // Favorites-only view needs re-filtering when favorite changes.
         if (currentView === 'list' && currentCategory === 'favorites') {
@@ -868,6 +899,164 @@ function initReadingProgressLifecycle() {
         if (document.visibilityState !== 'hidden') return;
         try {
             flushReadingProgressSave();
+        } catch (_) {
+            // ignore
+        }
+    });
+}
+
+function ensureTourStatsWidget() {
+    if (tourStatsEl) return tourStatsEl;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'tour-stats';
+    wrapper.hidden = true;
+    wrapper.setAttribute('aria-hidden', 'true');
+
+    wrapper.innerHTML = `
+        <button class="tour-stats__toggle" type="button" aria-label="Tur istatistiklerini gizle" title="Gizle">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="tour-stats__panel" aria-label="Toplam tur istatistikleri">
+            <div class="tour-stats__title">Toplam Tur</div>
+            <div class="tour-stats__hint" data-tour-stats-hint hidden>Giriş yapınca görünür.</div>
+            ${[1, 2, 3].map((n) => `
+                <div class="tour-stats__item" data-tour="${n}" role="progressbar" aria-label="${n}. tur tamamlanma" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="tour-stats__item-top">
+                        <div class="tour-stats__label">${n}. Tur</div>
+                        <div class="tour-stats__value" data-tour-value>0%</div>
+                    </div>
+                    <div class="tour-stats__bar" aria-hidden="true">
+                        <div class="tour-stats__bar-fill" data-tour-fill style="width:0%"></div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+
+    document.body.appendChild(wrapper);
+
+    tourStatsEl = wrapper;
+    tourStatsToggleEl = wrapper.querySelector('.tour-stats__toggle');
+    tourStatsItems = Array.from(wrapper.querySelectorAll('.tour-stats__item')).map((el) => ({
+        root: el,
+        value: el.querySelector('[data-tour-value]'),
+        fill: el.querySelector('[data-tour-fill]'),
+        tour: Number(el.getAttribute('data-tour')) || 0,
+    }));
+
+    const savedCollapsed = (() => {
+        try {
+            return window.localStorage?.getItem('topics:tourStatsCollapsed') === '1';
+        } catch (_) {
+            return false;
+        }
+    })();
+
+    wrapper.classList.toggle('is-collapsed', savedCollapsed);
+    if (tourStatsToggleEl) {
+        tourStatsToggleEl.setAttribute('aria-label', savedCollapsed ? 'Tur istatistiklerini göster' : 'Tur istatistiklerini gizle');
+        tourStatsToggleEl.title = savedCollapsed ? 'Göster' : 'Gizle';
+        const icon = tourStatsToggleEl.querySelector('i');
+        if (icon) icon.className = savedCollapsed ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
+    }
+
+    tourStatsToggleEl?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const next = !wrapper.classList.contains('is-collapsed');
+        wrapper.classList.toggle('is-collapsed', next);
+        try {
+            window.localStorage?.setItem('topics:tourStatsCollapsed', next ? '1' : '0');
+        } catch (_) {
+            // ignore
+        }
+        if (tourStatsToggleEl) {
+            tourStatsToggleEl.setAttribute('aria-label', next ? 'Tur istatistiklerini göster' : 'Tur istatistiklerini gizle');
+            tourStatsToggleEl.title = next ? 'Göster' : 'Gizle';
+            const icon = tourStatsToggleEl.querySelector('i');
+            if (icon) icon.className = next ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
+        }
+    });
+
+    return wrapper;
+}
+
+function initTourStatsWidget() {
+    if (tourStatsEl) return;
+    ensureTourStatsWidget();
+    hideTourStatsWidget();
+    scheduleTourStatsRefresh();
+}
+
+function showTourStatsWidget() {
+    const el = ensureTourStatsWidget();
+    el.hidden = false;
+    el.setAttribute('aria-hidden', 'false');
+}
+
+function hideTourStatsWidget() {
+    if (!tourStatsEl) return;
+    tourStatsEl.hidden = true;
+    tourStatsEl.setAttribute('aria-hidden', 'true');
+}
+
+function computeTourStats() {
+    const list = Array.isArray(topicsData) ? topicsData : [];
+    const total = list.length;
+    const signedIn = isAuthReady();
+
+    let t1 = 0;
+    let t2 = 0;
+    let t3 = 0;
+
+    if (signedIn && total > 0) {
+        list.forEach((t) => {
+            const st = getTopicState(t?.id);
+            const lvl = clampReadLevel(st?.readLevel);
+            if (lvl >= 1) t1 += 1;
+            if (lvl >= 2) t2 += 1;
+            if (lvl >= 3) t3 += 1;
+        });
+    }
+
+    const p1 = total ? clampProgressPercent((t1 / total) * 100) : 0;
+    const p2 = total ? clampProgressPercent((t2 / total) * 100) : 0;
+    const p3 = total ? clampProgressPercent((t3 / total) * 100) : 0;
+
+    return { total, signedIn, t1, t2, t3, p1, p2, p3 };
+}
+
+function setTourStatsUI(stats) {
+    if (!tourStatsEl || !tourStatsItems) return;
+
+    const hintEl = tourStatsEl.querySelector('[data-tour-stats-hint]');
+    if (hintEl) hintEl.hidden = !!stats.signedIn;
+
+    const byTour = new Map([
+        [1, { pct: stats.p1, count: stats.t1 }],
+        [2, { pct: stats.p2, count: stats.t2 }],
+        [3, { pct: stats.p3, count: stats.t3 }],
+    ]);
+
+    tourStatsItems.forEach((it) => {
+        const rec = byTour.get(it.tour) || { pct: 0, count: 0 };
+        const pct = clampProgressPercent(rec.pct);
+        if (it.root) {
+            it.root.setAttribute('aria-valuenow', String(pct));
+            const title = stats.total ? `${rec.count}/${stats.total}` : '—';
+            it.root.title = title;
+        }
+        if (it.fill) it.fill.style.width = `${pct}%`;
+        if (it.value) it.value.textContent = `${pct}%`;
+    });
+}
+
+function scheduleTourStatsRefresh() {
+    if (tourStatsRaf) return;
+    tourStatsRaf = window.requestAnimationFrame(() => {
+        tourStatsRaf = 0;
+        try {
+            setTourStatsUI(computeTourStats());
         } catch (_) {
             // ignore
         }
@@ -1088,6 +1277,305 @@ function maybePromptResume(topicId) {
     });
 }
 
+const TOPICS_GUIDE_KEYS = {
+    dismissed: 'topics:guideDismissed',
+    snoozeSession: 'topics:guideSnoozeSession',
+};
+
+function closeTopicsGuide() {
+    if (topicsGuideStartTimer) {
+        window.clearTimeout(topicsGuideStartTimer);
+        topicsGuideStartTimer = null;
+    }
+
+    const guide = topicsGuide;
+    topicsGuide = null;
+    if (!guide) return;
+
+    try {
+        window.removeEventListener('resize', guide.onResize);
+    } catch (_) {
+        // ignore
+    }
+
+    try {
+        window.removeEventListener('keydown', guide.onKeyDown);
+    } catch (_) {
+        // ignore
+    }
+
+    if (guide.raf) {
+        try {
+            window.cancelAnimationFrame(guide.raf);
+        } catch (_) {
+            // ignore
+        }
+    }
+
+    try {
+        document.body.classList.remove('modal-open');
+    } catch (_) {
+        // ignore
+    }
+
+    try {
+        guide.root?.remove?.();
+    } catch (_) {
+        // ignore
+    }
+}
+
+function scheduleTopicsGuideStart() {
+    if (topicsGuideStartTimer) window.clearTimeout(topicsGuideStartTimer);
+    topicsGuideStartTimer = window.setTimeout(() => {
+        topicsGuideStartTimer = null;
+        try {
+            maybeStartTopicsGuide();
+        } catch (_) {
+            // ignore
+        }
+    }, 450);
+}
+
+function shouldStartTopicsGuide() {
+    if (currentView !== 'detail') return false;
+    if (topicsGuide) return false;
+    if (storageGetSafe(TOPICS_GUIDE_KEYS.dismissed, '0') === '1') return false;
+    if (sessionGetSafe(TOPICS_GUIDE_KEYS.snoozeSession, '0') === '1') return false;
+    return true;
+}
+
+function maybeStartTopicsGuide() {
+    if (!shouldStartTopicsGuide()) return;
+    startTopicsGuide();
+}
+
+function scheduleTopicsGuideReposition() {
+    const guide = topicsGuide;
+    if (!guide) return;
+    if (guide.raf) return;
+    guide.raf = window.requestAnimationFrame(() => {
+        guide.raf = 0;
+        try {
+            repositionTopicsGuide();
+        } catch (_) {
+            // ignore
+        }
+    });
+}
+
+function repositionTopicsGuide() {
+    const guide = topicsGuide;
+    if (!guide || !guide.target || !guide.highlight || !guide.popover) return;
+
+    const rect = guide.target.getBoundingClientRect();
+    const pad = 10;
+    const margin = 12;
+
+    const top = Math.max(margin, rect.top - pad);
+    const left = Math.max(margin, rect.left - pad);
+    const right = Math.min(window.innerWidth - margin, rect.right + pad);
+    const bottom = Math.min(window.innerHeight - margin, rect.bottom + pad);
+
+    const width = Math.max(0, right - left);
+    const height = Math.max(0, bottom - top);
+
+    guide.highlight.style.top = `${top}px`;
+    guide.highlight.style.left = `${left}px`;
+    guide.highlight.style.width = `${width}px`;
+    guide.highlight.style.height = `${height}px`;
+
+    const isDocked = window.innerWidth <= 520;
+    guide.popover.classList.toggle('is-docked', isDocked);
+    if (isDocked) {
+        guide.popover.style.top = '';
+        guide.popover.style.left = '';
+        return;
+    }
+
+    guide.popover.style.bottom = '';
+    guide.popover.style.transform = '';
+
+    const popRect = guide.popover.getBoundingClientRect();
+    let popTop = rect.bottom + 14;
+    if (popTop + popRect.height > window.innerHeight - margin) {
+        popTop = rect.top - popRect.height - 14;
+    }
+    popTop = Math.min(Math.max(popTop, margin), window.innerHeight - popRect.height - margin);
+
+    let popLeft = rect.left;
+    popLeft = Math.min(Math.max(popLeft, margin), window.innerWidth - popRect.width - margin);
+
+    guide.popover.style.top = `${popTop}px`;
+    guide.popover.style.left = `${popLeft}px`;
+}
+
+function applyTopicsGuideStep(index) {
+    const guide = topicsGuide;
+    if (!guide) return;
+    const steps = guide.steps || [];
+    const idx = Math.min(Math.max(0, index), Math.max(0, steps.length - 1));
+    const step = steps[idx];
+    if (!step) return;
+
+    const target = document.querySelector(step.selector);
+    if (!target) {
+        if (idx < steps.length - 1) {
+            applyTopicsGuideStep(idx + 1);
+        } else {
+            storageSetSafe(TOPICS_GUIDE_KEYS.dismissed, '1');
+            closeTopicsGuide();
+        }
+        return;
+    }
+
+    guide.index = idx;
+    guide.target = target;
+
+    if (guide.progressEl) guide.progressEl.textContent = `Rehber ${idx + 1}/${steps.length}`;
+    if (guide.titleEl) guide.titleEl.textContent = step.title;
+    if (guide.descEl) guide.descEl.textContent = step.desc;
+
+    if (guide.prevBtn) guide.prevBtn.disabled = idx === 0;
+    if (guide.nextBtn) {
+        guide.nextBtn.textContent = idx === steps.length - 1 ? 'Bitir' : 'İleri';
+    }
+
+    scheduleTopicsGuideReposition();
+}
+
+function startTopicsGuide() {
+    const rawSteps = [
+        {
+            selector: '.page-header__actions',
+            title: 'Hızlı Kontroller',
+            desc: 'Üst bardan arama (⌘K), sıralama ve görünümü değiştirebilirsin.',
+        },
+        {
+            selector: '.topic-article [data-topic-actions]',
+            title: 'Favori & Tekrar',
+            desc: 'Yıldızla favorilere ekle. 1–5 tur tikleriyle tekrar sayını kaydet (giriş yapınca senkronize olur).',
+        },
+        {
+            selector: '.tour-stats',
+            title: 'Toplam Tur',
+            desc: 'Soldaki panel tüm konuların 1/2/3. tur tamamlanma yüzdesini gösterir. Ok ile gizle/aç.',
+        },
+        {
+            selector: '.reading-progress',
+            title: 'Okuma İlerlemesi',
+            desc: 'Sağdaki % göstergesi bu konudaki ilerlemeni takip eder. Ok simgesiyle minimalleştir.',
+        },
+        {
+            selector: '#backToList',
+            title: 'Listeye Dön',
+            desc: 'Üstte “Tüm Konulara Dön” ile listeye çık. Sayfa sonunda da aynı buton var.',
+        },
+    ];
+
+    const steps = rawSteps.filter((s) => !!document.querySelector(s.selector));
+    if (steps.length === 0) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'app-tour is-open';
+    wrapper.setAttribute('aria-hidden', 'false');
+    wrapper.innerHTML = `
+        <div class="app-tour__backdrop" aria-hidden="true"></div>
+        <div class="app-tour__highlight" data-tour-highlight aria-hidden="true"></div>
+        <div class="app-tour__popover" data-tour-popover role="dialog" aria-modal="true" aria-label="Konu özetleri rehberi">
+            <div class="app-tour__meta">
+                <div class="app-tour__badge" data-tour-progress>Rehber</div>
+                <button class="app-tour__skip" type="button" data-tour-skip>Geç</button>
+            </div>
+            <div class="app-tour__title" data-tour-title></div>
+            <div class="app-tour__desc" data-tour-desc></div>
+            <div class="app-tour__actions">
+                <button class="app-tour__never" type="button" data-tour-never>Bir daha gösterme</button>
+                <div class="app-tour__spacer" aria-hidden="true"></div>
+                <button class="btn btn-ghost btn-sm" type="button" data-tour-prev>Geri</button>
+                <button class="btn btn-primary btn-sm" type="button" data-tour-next>İleri</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(wrapper);
+
+    const guide = {
+        root: wrapper,
+        highlight: wrapper.querySelector('[data-tour-highlight]'),
+        popover: wrapper.querySelector('[data-tour-popover]'),
+        progressEl: wrapper.querySelector('[data-tour-progress]'),
+        titleEl: wrapper.querySelector('[data-tour-title]'),
+        descEl: wrapper.querySelector('[data-tour-desc]'),
+        prevBtn: wrapper.querySelector('[data-tour-prev]'),
+        nextBtn: wrapper.querySelector('[data-tour-next]'),
+        steps,
+        index: 0,
+        target: null,
+        raf: 0,
+        onResize: null,
+        onKeyDown: null,
+    };
+
+    topicsGuide = guide;
+
+    try {
+        document.body.classList.add('modal-open');
+    } catch (_) {
+        // ignore
+    }
+
+    guide.onResize = () => scheduleTopicsGuideReposition();
+    window.addEventListener('resize', guide.onResize);
+
+    guide.onKeyDown = (e) => {
+        if (e.key !== 'Escape') return;
+        e.preventDefault();
+        sessionSetSafe(TOPICS_GUIDE_KEYS.snoozeSession, '1');
+        closeTopicsGuide();
+    };
+    window.addEventListener('keydown', guide.onKeyDown);
+
+    wrapper.addEventListener('click', (e) => {
+        const hitSkip = e.target.closest('[data-tour-skip]');
+        if (hitSkip) {
+            e.preventDefault();
+            sessionSetSafe(TOPICS_GUIDE_KEYS.snoozeSession, '1');
+            closeTopicsGuide();
+            return;
+        }
+
+        const hitNever = e.target.closest('[data-tour-never]');
+        if (hitNever) {
+            e.preventDefault();
+            storageSetSafe(TOPICS_GUIDE_KEYS.dismissed, '1');
+            sessionSetSafe(TOPICS_GUIDE_KEYS.snoozeSession, '1');
+            closeTopicsGuide();
+            return;
+        }
+
+        const hitPrev = e.target.closest('[data-tour-prev]');
+        if (hitPrev) {
+            e.preventDefault();
+            applyTopicsGuideStep((guide.index || 0) - 1);
+            return;
+        }
+
+        const hitNext = e.target.closest('[data-tour-next]');
+        if (!hitNext) return;
+        e.preventDefault();
+        if ((guide.index || 0) >= steps.length - 1) {
+            storageSetSafe(TOPICS_GUIDE_KEYS.dismissed, '1');
+            sessionSetSafe(TOPICS_GUIDE_KEYS.snoozeSession, '1');
+            closeTopicsGuide();
+            return;
+        }
+        applyTopicsGuideStep((guide.index || 0) + 1);
+    });
+
+    applyTopicsGuideStep(0);
+}
+
 async function reloadTopicStates() {
     if (!window.appFirebase || !window.appFirebase.enabled) return;
     try {
@@ -1296,6 +1784,13 @@ function initTopicActions() {
     const detail = document.getElementById('topicDetail');
     if (detail) {
         detail.addEventListener('click', async (e) => {
+            const backBtn = e.target.closest('[data-topic-back-list]');
+            if (backBtn) {
+                e.preventDefault();
+                showTopicsList();
+                return;
+            }
+
             const favBtn = e.target.closest('[data-topic-fav]');
             if (favBtn) {
                 e.preventDefault();
@@ -1359,6 +1854,7 @@ async function toggleReadLevel(topicId, clickedLevel) {
     const nextLevel = prev.readLevel >= level ? Math.max(0, level - 1) : level;
     setTopicStateLocal(id, { readLevel: nextLevel });
     updateTopicUIFor(id);
+    scheduleTourStatsRefresh();
 
     try {
         await window.appFirebase.setTopicState(id, { readLevel: nextLevel });
@@ -1386,6 +1882,7 @@ async function incrementReadLevelOnce(topicId) {
     const nextLevel = clampReadLevel(prev.readLevel + 1);
     setTopicStateLocal(id, { readLevel: nextLevel });
     updateTopicUIFor(id);
+    scheduleTourStatsRefresh();
 
     try {
         await window.appFirebase.setTopicState(id, { readLevel: nextLevel });
@@ -1894,9 +2391,12 @@ function showTopicDetail(topicId) {
     stopReadingProgressTracking();
     startReadingProgressTracking(topicId, articleContainer);
     maybePromptResume(topicId);
+    showTourStatsWidget();
+    scheduleTourStatsRefresh();
 
     // Sayfanın üstüne scroll
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    scheduleTopicsGuideStart();
 }
 
 function wrapScrollableTables(scopeEl) {
@@ -1965,6 +2465,11 @@ function renderTopicArticle(topic) {
         <div class="article-content">
             ${sectionsHTML}
             <div class="topic-end-sentinel" data-topic-end-sentinel aria-hidden="true"></div>
+            <div class="article-footer">
+                <button class="topic-back-btn topic-back-btn--footer" type="button" data-topic-back-list>
+                    <i class="fas fa-arrow-left"></i> Tüm Konulara Dön
+                </button>
+            </div>
         </div>
     `;
 }
@@ -1982,6 +2487,8 @@ function showTopicsList() {
     }
 
     stopReadingProgressTracking();
+    closeTopicsGuide();
+    hideTourStatsWidget();
     
     // Sayfa başlığını geri al
     document.title = 'AlgoSPOT | Konu Özetleri';
