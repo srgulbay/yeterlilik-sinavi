@@ -42,6 +42,13 @@ service cloud.firestore {
       allow delete: if isOwner(uid);
     }
 
+    match /users/{uid}/readingTimerDays/{dayKey} {
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && isReadingTimerValid(request.resource.data);
+      allow delete: if isOwner(uid);
+    }
+
     match /users/{uid}/srs/{cardId} {
       allow read: if isOwner(uid);
       allow create, update: if isOwner(uid)
@@ -120,6 +127,13 @@ service cloud.firestore {
           data.topicsSortMode == 'needsReview' ||
           data.topicsSortMode == 'mostReviewed'
         )))
+        && (!('updatedAt' in data) || (data.updatedAt is timestamp));
+    }
+
+    function isReadingTimerValid(data) {
+      return data.keys().hasOnly(['seconds', 'updatedAt', 'v'])
+        && (!('seconds' in data) || (data.seconds is int && data.seconds >= 0 && data.seconds <= 172800))
+        && (!('v' in data) || (data.v is int && data.v >= 1 && data.v <= 10))
         && (!('updatedAt' in data) || (data.updatedAt is timestamp));
     }
 

@@ -28,6 +28,10 @@
     return String(n);
   }
 
+  function pad2(value) {
+    return String(value).padStart(2, '0');
+  }
+
   function clampReadLevel(level) {
     const n = Number(level);
     if (!Number.isFinite(n)) return 0;
@@ -79,6 +83,10 @@
     return `appFirebase:v1:prefs:${uid}`;
   }
 
+  function storageKeyReadingTimer(uid) {
+    return `appFirebase:v1:readingTimer:${uid}`;
+  }
+
   function storageKeyFavorites(uid, type) {
     return `appFirebase:v1:favorites:${uid}:${String(type || '').trim().toLowerCase() || 'unknown'}`;
   }
@@ -109,9 +117,22 @@
   const SRS_DIFFICULTY_MIN = 1;
   const SRS_DIFFICULTY_MAX = 5;
   const TOPIC_PROGRESS_MAX = 100;
+  const TIMER_SECONDS_MAX = 60 * 60 * 24 * 2; // 48 saat
 
   function clampTopicProgress(value) {
     return clampInt(value, 0, TOPIC_PROGRESS_MAX);
+  }
+
+  const DAY_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
+  function normalizeDayKey(value) {
+    const s = String(value == null ? '' : value).trim();
+    if (!s) return '';
+    if (!DAY_KEY_RE.test(s)) return '';
+    return s;
+  }
+
+  function clampTimerSeconds(value) {
+    return clampInt(value, 0, TIMER_SECONDS_MAX);
   }
 
   const TOPIC_SECTION_ID_MAX = 140;
@@ -451,6 +472,30 @@
     storageSet(storageKeyPrefs(uid), { prefs: clean, updatedAt: Date.now() });
   }
 
+  function loadCachedReadingTimer(uid) {
+    const raw = storageGet(storageKeyReadingTimer(uid), null);
+    if (!raw || typeof raw !== 'object' || !raw.days || typeof raw.days !== 'object') return {};
+
+    const out = {};
+    Object.keys(raw.days).forEach((key) => {
+      const day = normalizeDayKey(key);
+      if (!day) return;
+      out[day] = clampTimerSeconds(raw.days[key]);
+    });
+    return out;
+  }
+
+  function saveCachedReadingTimer(uid, days) {
+    const src = days && typeof days === 'object' ? days : {};
+    const clean = {};
+    Object.keys(src).forEach((key) => {
+      const day = normalizeDayKey(key);
+      if (!day) return;
+      clean[day] = clampTimerSeconds(src[key]);
+    });
+    storageSet(storageKeyReadingTimer(uid), { days: clean, updatedAt: Date.now() });
+  }
+
   const api = {
     enabled: false,
     init: () => false,
@@ -489,6 +534,10 @@
       throw new Error('Firebase not configured');
     },
     watchUserPrefs: () => () => {},
+    loadReadingTimerMonth: async () => ({}),
+    addReadingTimerSeconds: async () => {
+      throw new Error('Firebase not configured');
+    },
     loadSrsStates: async () => new Map(),
     watchSrsStates: () => () => {},
     getSrsState: (cardId) => loadLegacySrsState(cardId),
@@ -1023,6 +1072,84 @@
           hasPendingWrites: !!snap.metadata?.hasPendingWrites,
         });
       }, () => {});
+    };
+
+    api.loadReadingTimerMonth = async (yearInput, monthIndexInput) => {
+      const user = auth.currentUser;
+      if (!user) return {};
+
+      const year = clampInt(yearInput, 1970, 3000);
+      const monthIndex = clampInt(monthIndexInput, 0, 11);
+      const ymPrefix = `${year}-${pad2(monthIndex + 1)}`;
+      const startId = `${ymPrefix}-01`;
+      const endId = `${ymPrefix}-31`;
+
+      const cached = loadCachedReadingTimer(user.uid);
+      const cachedMonth = {};
+      Object.keys(cached).forEach((key) => {
+        if (String(key).startsWith(`${ymPrefix}-`)) {
+          cachedMonth[key] = clampTimerSeconds(cached[key]);
+        }
+      });
+
+      try {
+        const ref = db.collection('users').doc(user.uid).collection('readingTimerDays')
+          .orderBy(window.firebase.firestore.FieldPath.documentId())
+          .startAt(startId)
+          .endAt(endId);
+
+        let snap;
+        try {
+          snap = await ref.get({ source: 'server' });
+        } catch (_) {
+          snap = await ref.get();
+        }
+
+        const monthDays = {};
+        const merged = { ...cached };
+        snap.forEach((doc) => {
+          const day = normalizeDayKey(doc.id);
+          if (!day) return;
+          const data = doc.data() || {};
+          const seconds = clampTimerSeconds(data.seconds);
+          monthDays[day] = seconds;
+          merged[day] = seconds;
+        });
+
+        saveCachedReadingTimer(user.uid, merged);
+        return monthDays;
+      } catch (_) {
+        return cachedMonth;
+      }
+    };
+
+    api.addReadingTimerSeconds = async (dayKeyInput, deltaSecondsInput) => {
+      const user = auth.currentUser;
+      if (!user) throw new Error('AUTH_REQUIRED');
+
+      const dayKey = normalizeDayKey(dayKeyInput);
+      const deltaSeconds = clampInt(deltaSecondsInput, 0, TIMER_SECONDS_MAX);
+      if (!dayKey || deltaSeconds <= 0) return false;
+
+      const patch = {
+        seconds: window.firebase.firestore.FieldValue.increment(deltaSeconds),
+        updatedAt: window.firebase.firestore.FieldValue.serverTimestamp(),
+        v: 1,
+      };
+
+      // Update cache best-effort so UI survives navigation/offline.
+      try {
+        const current = loadCachedReadingTimer(user.uid);
+        const prev = clampTimerSeconds(current[dayKey]);
+        current[dayKey] = clampTimerSeconds(prev + deltaSeconds);
+        saveCachedReadingTimer(user.uid, current);
+      } catch (_) {
+        // ignore
+      }
+
+      await db.collection('users').doc(user.uid).collection('readingTimerDays').doc(dayKey).set(patch, { merge: true });
+      safeDispatch('readingTimer:updated', { dayKey, deltaSeconds });
+      return true;
     };
 
     async function maybeMigrateLegacySrs(user, map) {

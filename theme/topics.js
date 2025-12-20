@@ -57,6 +57,9 @@ let readingTimerFlushTick = null;
 let readingTimerCalendarYear = 0;
 let readingTimerCalendarMonth = 0;
 let readingTimerStore = null; // { 'YYYY-MM-DD': seconds }
+let readingTimerStoreKey = '';
+let readingTimerLoadedMonths = new Set();
+let readingTimerAuthUid = 'guest';
 
 // Manual fine-tuning per topic (TUS/yan dal/yeterlilik “high-yield” emphasis).
 // Keep boosts modest: overall ranking still derives from content-derived signals.
@@ -748,6 +751,11 @@ async function initTopicState() {
 
     if (onAuth) {
         onAuth(async (user) => {
+            try {
+                handleReadingTimerAuthChange(user);
+            } catch (_) {
+                // ignore
+            }
             stopTopicStatesWatch();
             if (user) {
                 if (window.appFirebase && typeof window.appFirebase.watchTopicStates === 'function') {
@@ -937,9 +945,16 @@ function getDayKeyNow() {
     return getDayKeyByDate(new Date());
 }
 
+function getReadingTimerStorageKey() {
+    const uid = String(readingTimerAuthUid || 'guest');
+    return `${READING_TIMER_KEYS.byDay}:${uid || 'guest'}`;
+}
+
 function loadReadingTimerStore() {
-    if (readingTimerStore) return readingTimerStore;
-    const raw = storageGetSafe(READING_TIMER_KEYS.byDay, '');
+    const storageKey = getReadingTimerStorageKey();
+    if (readingTimerStore && readingTimerStoreKey === storageKey) return readingTimerStore;
+    readingTimerStoreKey = storageKey;
+    const raw = storageGetSafe(storageKey, '');
     if (!raw) {
         readingTimerStore = {};
         return readingTimerStore;
@@ -964,7 +979,7 @@ function loadReadingTimerStore() {
 function saveReadingTimerStore() {
     try {
         const store = loadReadingTimerStore();
-        storageSetSafe(READING_TIMER_KEYS.byDay, JSON.stringify(store));
+        storageSetSafe(readingTimerStoreKey || getReadingTimerStorageKey(), JSON.stringify(store));
     } catch (_) {
         // ignore
     }
@@ -982,6 +997,110 @@ function setReadingTimerSeconds(dayKey, seconds) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
     store[key] = clampNonNegativeSeconds(seconds);
     saveReadingTimerStore();
+}
+
+function readingTimerMonthKey(year, monthIndex) {
+    const y = Number(year);
+    const m = Number(monthIndex);
+    if (!Number.isFinite(y) || !Number.isFinite(m)) return '';
+    return `${Math.trunc(y)}-${pad2(Math.trunc(m) + 1)}`;
+}
+
+function mergeReadingTimerRemoteDays(daysMap) {
+    const incoming = daysMap && typeof daysMap === 'object' ? daysMap : {};
+    const store = loadReadingTimerStore();
+
+    let changed = false;
+    Object.keys(incoming).forEach((key) => {
+        const day = String(key || '');
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return;
+        const remote = clampNonNegativeSeconds(incoming[key]);
+        const prev = clampNonNegativeSeconds(store[day]);
+        if (remote <= prev) return;
+        store[day] = remote;
+        changed = true;
+    });
+
+    if (changed) saveReadingTimerStore();
+
+    try {
+        if (readingTimerActive && readingTimerDayKey) {
+            const nextBase = clampNonNegativeSeconds(store[readingTimerDayKey]);
+            if (nextBase > readingTimerBaseSeconds) {
+                readingTimerBaseSeconds = nextBase;
+            }
+            tickReadingTimer();
+        } else {
+            refreshReadingTimerUI();
+        }
+    } catch (_) {
+        // ignore
+    }
+
+    if (readingTimerMode === 'expanded') {
+        renderReadingTimerCalendar();
+    }
+}
+
+function maybeLoadReadingTimerMonthRemote(year, monthIndex) {
+    if (!isAuthReady()) return;
+    const ym = readingTimerMonthKey(year, monthIndex);
+    if (!ym) return;
+    if (readingTimerLoadedMonths && readingTimerLoadedMonths.has(ym)) return;
+    if (readingTimerLoadedMonths) readingTimerLoadedMonths.add(ym);
+
+    const api = window.appFirebase;
+    if (!api || typeof api.loadReadingTimerMonth !== 'function') return;
+    api.loadReadingTimerMonth(year, monthIndex)
+        .then((days) => mergeReadingTimerRemoteDays(days))
+        .catch(() => {});
+}
+
+function persistReadingTimerDayTotal(dayKey, totalSeconds) {
+    const day = String(dayKey || '');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return false;
+
+    const next = clampNonNegativeSeconds(totalSeconds);
+    const prev = clampNonNegativeSeconds(getReadingTimerSeconds(day));
+    if (next <= prev) return false;
+
+    setReadingTimerSeconds(day, next);
+
+    const delta = next - prev;
+    if (delta > 0 && isAuthReady() && window.appFirebase && typeof window.appFirebase.addReadingTimerSeconds === 'function') {
+        window.appFirebase.addReadingTimerSeconds(day, delta).catch(() => {});
+    }
+    return true;
+}
+
+function handleReadingTimerAuthChange(user) {
+    const uid = user && user.uid ? String(user.uid) : 'guest';
+    if (uid === readingTimerAuthUid) return;
+
+    try {
+        stopReadingTimer();
+    } catch (_) {
+        // ignore
+    }
+
+    readingTimerAuthUid = uid;
+    readingTimerLoadedMonths = new Set();
+    readingTimerStore = null;
+    readingTimerStoreKey = '';
+
+    try {
+        refreshReadingTimerUI();
+    } catch (_) {
+        // ignore
+    }
+
+    const now = new Date();
+    maybeLoadReadingTimerMonthRemote(now.getFullYear(), now.getMonth());
+    try {
+        syncReadingTimerRunState();
+    } catch (_) {
+        // ignore
+    }
 }
 
 function formatTimerHms(seconds) {
@@ -1028,9 +1147,7 @@ function setReadingTimerMode(nextMode, opts = {}) {
     el.classList.toggle('is-hidden', mode === 'hidden');
     el.classList.toggle('is-mini', mode === 'mini');
     el.classList.toggle('is-expanded', mode === 'expanded');
-
-    if (readingTimerMiniValueEl) readingTimerMiniValueEl.hidden = mode === 'hidden';
-    if (readingTimerPanelEl) readingTimerPanelEl.hidden = mode !== 'expanded';
+    if (readingTimerPanelEl) readingTimerPanelEl.setAttribute('aria-hidden', mode === 'expanded' ? 'false' : 'true');
 
     const chev = el.querySelector('[data-timer-chev]');
     if (chev) chev.className = `fas ${mode === 'expanded' ? 'fa-chevron-down' : 'fa-chevron-up'} reading-timer__chevron`;
@@ -1050,6 +1167,7 @@ function setReadingTimerMode(nextMode, opts = {}) {
         const now = new Date();
         readingTimerCalendarYear = now.getFullYear();
         readingTimerCalendarMonth = now.getMonth();
+        maybeLoadReadingTimerMonthRemote(readingTimerCalendarYear, readingTimerCalendarMonth);
         renderReadingTimerCalendar();
     }
 }
@@ -1075,10 +1193,10 @@ function ensureReadingTimerWidget() {
         <button class="reading-timer__toggle" type="button" aria-label="Kronometreyi göster" title="Kronometre">
             <span class="reading-timer__dot" data-timer-dot aria-hidden="true"></span>
             <i class="fas fa-stopwatch" aria-hidden="true"></i>
-            <span class="reading-timer__mini-time" data-timer-mini-time hidden>0:00</span>
+            <span class="reading-timer__mini-time" data-timer-mini-time>0:00</span>
             <i class="fas fa-chevron-up reading-timer__chevron" data-timer-chev aria-hidden="true"></i>
         </button>
-        <div class="reading-timer__panel" data-timer-panel hidden>
+        <div class="reading-timer__panel" data-timer-panel>
             <div class="reading-timer__panel-head">
                 <div>
                     <div class="reading-timer__eyebrow">Günlük</div>
@@ -1129,12 +1247,12 @@ function ensureReadingTimerWidget() {
     wrapper.classList.toggle('is-expanded', savedMode === 'expanded');
     readingTimerMode = savedMode;
 
-    if (readingTimerMiniValueEl) readingTimerMiniValueEl.hidden = savedMode === 'hidden';
-    if (readingTimerPanelEl) readingTimerPanelEl.hidden = savedMode !== 'expanded';
-
     const now = new Date();
     readingTimerCalendarYear = now.getFullYear();
     readingTimerCalendarMonth = now.getMonth();
+
+    if (readingTimerMiniValueEl) readingTimerMiniValueEl.hidden = false;
+    if (readingTimerPanelEl) readingTimerPanelEl.hidden = false;
 
     readingTimerToggleEl?.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1168,8 +1286,14 @@ function ensureReadingTimerWidget() {
 
 function showReadingTimerWidget() {
     const el = ensureReadingTimerWidget();
-    el.hidden = false;
+    if (el.hidden) {
+        el.classList.add('is-enter');
+        el.hidden = false;
+        window.requestAnimationFrame(() => el.classList.remove('is-enter'));
+    }
     el.setAttribute('aria-hidden', 'false');
+    const now = new Date();
+    maybeLoadReadingTimerMonthRemote(now.getFullYear(), now.getMonth());
     refreshReadingTimerUI();
     syncReadingTimerRunState();
 }
@@ -1230,6 +1354,8 @@ function startReadingTimer() {
     readingTimerStartAt = Date.now();
     readingTimerDayKey = getDayKeyNow();
     readingTimerBaseSeconds = getReadingTimerSeconds(readingTimerDayKey);
+    const now = new Date();
+    maybeLoadReadingTimerMonthRemote(now.getFullYear(), now.getMonth());
 
     if (readingTimerTick) window.clearInterval(readingTimerTick);
     readingTimerTick = window.setInterval(() => {
@@ -1274,7 +1400,7 @@ function tickReadingTimer() {
     if (nowDayKey !== readingTimerDayKey) {
         const midnight = new Date().setHours(0, 0, 0, 0);
         const prevElapsed = Math.max(0, Math.floor((midnight - readingTimerStartAt) / 1000));
-        setReadingTimerSeconds(readingTimerDayKey, readingTimerBaseSeconds + prevElapsed);
+        persistReadingTimerDayTotal(readingTimerDayKey, readingTimerBaseSeconds + prevElapsed);
 
         readingTimerDayKey = nowDayKey;
         readingTimerBaseSeconds = getReadingTimerSeconds(nowDayKey);
@@ -1288,7 +1414,7 @@ function tickReadingTimer() {
 function flushReadingTimer() {
     if (!readingTimerActive) return;
     tickReadingTimer();
-    setReadingTimerSeconds(readingTimerDayKey, readingTimerLastTotal);
+    persistReadingTimerDayTotal(readingTimerDayKey, readingTimerLastTotal);
     if (readingTimerMode === 'expanded') renderReadingTimerCalendar();
 }
 
@@ -1326,6 +1452,8 @@ function renderReadingTimerCalendar() {
     const year = readingTimerCalendarYear;
     const month = readingTimerCalendarMonth;
     if (!Number.isFinite(year) || !Number.isFinite(month)) return;
+
+    maybeLoadReadingTimerMonthRemote(year, month);
 
     const now = new Date();
     const nowYear = now.getFullYear();
@@ -1528,7 +1656,11 @@ function initTourStatsWidget() {
 
 function showTourStatsWidget() {
     const el = ensureTourStatsWidget();
-    el.hidden = false;
+    if (el.hidden) {
+        el.classList.add('is-enter');
+        el.hidden = false;
+        window.requestAnimationFrame(() => el.classList.remove('is-enter'));
+    }
     el.setAttribute('aria-hidden', 'false');
 }
 
@@ -1713,7 +1845,11 @@ function startReadingProgressTracking(topicId, articleEl) {
     const id = normalizeTopicId(topicId);
     const widget = ensureReadingProgressWidget();
     readingProgressTopicId = id;
-    widget.hidden = false;
+    if (widget.hidden) {
+        widget.classList.add('is-enter');
+        widget.hidden = false;
+        window.requestAnimationFrame(() => widget.classList.remove('is-enter'));
+    }
     widget.setAttribute('aria-hidden', 'false');
 
     const onScroll = () => {

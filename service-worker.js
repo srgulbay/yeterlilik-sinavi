@@ -118,7 +118,7 @@ self.addEventListener('notificationclick', (event) => {
   })());
 });
 
-const CACHE_VERSION = '2025-12-20-2';
+const CACHE_VERSION = '2025-12-20-3';
 const CORE_CACHE = `app-yeterlilik-core-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `app-yeterlilik-runtime-${CACHE_VERSION}`;
 
